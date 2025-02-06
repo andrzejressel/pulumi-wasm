@@ -32,65 +32,65 @@
 /// $ pulumi import aws:applicationinsights/application:Application some some-application
 /// ```
 pub mod application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationArgs {
         /// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
         #[builder(into, default)]
-        pub auto_config_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_config_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Configures all of the resources in the resource group by applying the recommended configurations.
         #[builder(into, default)]
-        pub auto_create: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_create: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
         #[builder(into, default)]
-        pub cwe_monitor_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub cwe_monitor_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         #[builder(into, default)]
-        pub grouping_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub grouping_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// When set to `true`, creates opsItems for any problems detected on an application.
         #[builder(into, default)]
-        pub ops_center_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ops_center_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
         #[builder(into, default)]
-        pub ops_item_sns_topic_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ops_item_sns_topic_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the resource group.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ApplicationResult {
         /// ARN of the Application.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether Application Insights automatically configures unmonitored resources in the resource group.
-        pub auto_config_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_config_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Configures all of the resources in the resource group by applying the recommended configurations.
-        pub auto_create: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_create: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Indicates whether Application Insights can listen to CloudWatch events for the application resources, such as instance terminated, failed deployment, and others.
-        pub cwe_monitor_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub cwe_monitor_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
-        pub grouping_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub grouping_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// When set to `true`, creates opsItems for any problems detected on an application.
-        pub ops_center_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ops_center_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
-        pub ops_item_sns_topic_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub ops_item_sns_topic_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the resource group.
         ///
         /// The following arguments are optional:
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -99,11 +99,11 @@ pub mod application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApplicationArgs,
     ) -> ApplicationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_config_enabled_binding = args
             .auto_config_enabled
@@ -169,30 +169,30 @@ pub mod application {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApplicationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auto_config_enabled: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auto_config_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoConfigEnabled"),
             ),
-            auto_create: pulumi_wasm_rust::__private::into_domain(
+            auto_create: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoCreate"),
             ),
-            cwe_monitor_enabled: pulumi_wasm_rust::__private::into_domain(
+            cwe_monitor_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cweMonitorEnabled"),
             ),
-            grouping_type: pulumi_wasm_rust::__private::into_domain(
+            grouping_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupingType"),
             ),
-            ops_center_enabled: pulumi_wasm_rust::__private::into_domain(
+            ops_center_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("opsCenterEnabled"),
             ),
-            ops_item_sns_topic_arn: pulumi_wasm_rust::__private::into_domain(
+            ops_item_sns_topic_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("opsItemSnsTopicArn"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

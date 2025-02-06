@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = assessment::create(
@@ -55,81 +55,81 @@
 /// $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
 /// ```
 pub mod assessment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssessmentArgs {
         /// Assessment report storage destination configuration. See `assessment_reports_destination` below.
         #[builder(into, default)]
-        pub assessment_reports_destination: pulumi_wasm_rust::InputOrOutput<
+        pub assessment_reports_destination: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::auditmanager::AssessmentAssessmentReportsDestination,
             >,
         >,
         /// Description of the assessment.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Unique identifier of the framework the assessment will be created from.
         #[builder(into)]
-        pub framework_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub framework_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the assessment.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of roles for the assessment. See `roles` below.
         #[builder(into)]
-        pub roles: pulumi_wasm_rust::InputOrOutput<
+        pub roles: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::auditmanager::AssessmentRole>,
         >,
         /// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub scope: pulumi_wasm_rust::InputOrOutput<
+        pub scope: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::auditmanager::AssessmentScope>,
         >,
         /// A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AssessmentResult {
         /// Amazon Resource Name (ARN) of the assessment.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Assessment report storage destination configuration. See `assessment_reports_destination` below.
-        pub assessment_reports_destination: pulumi_wasm_rust::Output<
+        pub assessment_reports_destination: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::auditmanager::AssessmentAssessmentReportsDestination,
             >,
         >,
         /// Description of the assessment.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Unique identifier of the framework the assessment will be created from.
-        pub framework_id: pulumi_wasm_rust::Output<String>,
+        pub framework_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the assessment.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// List of roles for the assessment. See `roles` below.
-        pub roles: pulumi_wasm_rust::Output<
+        pub roles: pulumi_gestalt_rust::Output<
             Vec<super::super::types::auditmanager::AssessmentRole>,
         >,
         /// Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
-        pub roles_alls: pulumi_wasm_rust::Output<
+        pub roles_alls: pulumi_gestalt_rust::Output<
             Vec<super::super::types::auditmanager::AssessmentRolesAll>,
         >,
         /// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
         ///
         /// The following arguments are optional:
-        pub scope: pulumi_wasm_rust::Output<
+        pub scope: pulumi_gestalt_rust::Output<
             Option<super::super::types::auditmanager::AssessmentScope>,
         >,
         /// Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the assessment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -138,11 +138,11 @@ pub mod assessment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AssessmentArgs,
     ) -> AssessmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let assessment_reports_destination_binding = args
             .assessment_reports_destination
@@ -191,25 +191,27 @@ pub mod assessment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AssessmentResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            assessment_reports_destination: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            assessment_reports_destination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assessmentReportsDestination"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            framework_id: pulumi_wasm_rust::__private::into_domain(
+            framework_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frameworkId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            roles: pulumi_wasm_rust::__private::into_domain(o.extract_field("roles")),
-            roles_alls: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            roles: pulumi_gestalt_rust::__private::into_domain(o.extract_field("roles")),
+            roles_alls: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rolesAlls"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

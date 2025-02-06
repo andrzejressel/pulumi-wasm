@@ -250,41 +250,41 @@
 /// ```
 ///
 pub mod budget {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BudgetArgs {
         /// Defines notifications that are sent on every update to the billing account's spend, regardless of the thresholds defined
         /// using threshold rules.
         #[builder(into, default)]
-        pub all_updates_rule: pulumi_wasm_rust::InputOrOutput<
+        pub all_updates_rule: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::billing::BudgetAllUpdatesRule>,
         >,
         /// The budgeted amount for each usage period.
         /// Structure is documented below.
         #[builder(into)]
-        pub amount: pulumi_wasm_rust::InputOrOutput<
+        pub amount: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::billing::BudgetAmount,
         >,
         /// ID of the billing account to set a budget on.
         #[builder(into)]
-        pub billing_account: pulumi_wasm_rust::InputOrOutput<String>,
+        pub billing_account: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Filters that define which resources are used to compute the actual spend against the budget.
         #[builder(into, default)]
-        pub budget_filter: pulumi_wasm_rust::InputOrOutput<
+        pub budget_filter: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::billing::BudgetBudgetFilter>,
         >,
         /// User data for display name in UI. Must be <= 60 chars.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ownership scope of the budget. The ownership scope and users' IAM permissions determine who has full access to the
         /// budget's data. Possible values: ["OWNERSHIP_SCOPE_UNSPECIFIED", "ALL_USERS", "BILLING_ACCOUNT"]
         #[builder(into, default)]
-        pub ownership_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ownership_scope: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Rules that trigger alerts (notifications of thresholds being crossed) when spend exceeds the specified percentages of
         /// the budget.
         #[builder(into, default)]
-        pub threshold_rules: pulumi_wasm_rust::InputOrOutput<
+        pub threshold_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::billing::BudgetThresholdRule>>,
         >,
     }
@@ -292,30 +292,32 @@ pub mod budget {
     pub struct BudgetResult {
         /// Defines notifications that are sent on every update to the billing account's spend, regardless of the thresholds defined
         /// using threshold rules.
-        pub all_updates_rule: pulumi_wasm_rust::Output<
+        pub all_updates_rule: pulumi_gestalt_rust::Output<
             Option<super::super::types::billing::BudgetAllUpdatesRule>,
         >,
         /// The budgeted amount for each usage period.
         /// Structure is documented below.
-        pub amount: pulumi_wasm_rust::Output<super::super::types::billing::BudgetAmount>,
+        pub amount: pulumi_gestalt_rust::Output<
+            super::super::types::billing::BudgetAmount,
+        >,
         /// ID of the billing account to set a budget on.
-        pub billing_account: pulumi_wasm_rust::Output<String>,
+        pub billing_account: pulumi_gestalt_rust::Output<String>,
         /// Filters that define which resources are used to compute the actual spend against the budget.
-        pub budget_filter: pulumi_wasm_rust::Output<
+        pub budget_filter: pulumi_gestalt_rust::Output<
             super::super::types::billing::BudgetBudgetFilter,
         >,
         /// User data for display name in UI. Must be <= 60 chars.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Resource name of the budget. The resource name
         /// implies the scope of a budget. Values are of the form
         /// billingAccounts/{billingAccountId}/budgets/{budgetId}.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ownership scope of the budget. The ownership scope and users' IAM permissions determine who has full access to the
         /// budget's data. Possible values: ["OWNERSHIP_SCOPE_UNSPECIFIED", "ALL_USERS", "BILLING_ACCOUNT"]
-        pub ownership_scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub ownership_scope: pulumi_gestalt_rust::Output<Option<String>>,
         /// Rules that trigger alerts (notifications of thresholds being crossed) when spend exceeds the specified percentages of
         /// the budget.
-        pub threshold_rules: pulumi_wasm_rust::Output<
+        pub threshold_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::billing::BudgetThresholdRule>>,
         >,
     }
@@ -324,11 +326,11 @@ pub mod budget {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BudgetArgs,
     ) -> BudgetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let all_updates_rule_binding = args
             .all_updates_rule
@@ -386,24 +388,26 @@ pub mod budget {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BudgetResult {
-            all_updates_rule: pulumi_wasm_rust::__private::into_domain(
+            all_updates_rule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allUpdatesRule"),
             ),
-            amount: pulumi_wasm_rust::__private::into_domain(o.extract_field("amount")),
-            billing_account: pulumi_wasm_rust::__private::into_domain(
+            amount: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("amount"),
+            ),
+            billing_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("billingAccount"),
             ),
-            budget_filter: pulumi_wasm_rust::__private::into_domain(
+            budget_filter: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("budgetFilter"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            ownership_scope: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            ownership_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownershipScope"),
             ),
-            threshold_rules: pulumi_wasm_rust::__private::into_domain(
+            threshold_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("thresholdRules"),
             ),
         }

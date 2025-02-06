@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm_examples_common"
+name = "pulumi_gestalt_examples_common"
 version.workspace = true
 edition.workspace = true
 

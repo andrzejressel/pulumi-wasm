@@ -189,8 +189,8 @@
 /// ### Mutual TLS Authentication
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = load_balancer::create(
@@ -231,100 +231,100 @@
 /// $ pulumi import aws:lb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
 /// ```
 pub mod listener {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListenerArgs {
         /// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
         #[builder(into, default)]
-        pub alpn_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub alpn_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
         #[builder(into, default)]
-        pub certificate_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block for default actions. See below.
         #[builder(into)]
-        pub default_actions: pulumi_wasm_rust::InputOrOutput<
+        pub default_actions: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::lb::ListenerDefaultAction>,
         >,
         /// ARN of the load balancer.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub load_balancer_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub load_balancer_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The mutual authentication configuration information. See below.
         #[builder(into, default)]
-        pub mutual_authentication: pulumi_wasm_rust::InputOrOutput<
+        pub mutual_authentication: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lb::ListenerMutualAuthentication>,
         >,
         /// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         #[builder(into, default)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
         #[builder(into, default)]
-        pub ssl_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ssl_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         ///
         /// > **Note::** When a `Name` key is specified in the map, the AWS Console maps the value to the `Name Tag` column value inside the `Listener Rules` table within a specific load balancer listener page. Otherwise, the value resolves to `Default`.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
         #[builder(into, default)]
-        pub tcp_idle_timeout_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub tcp_idle_timeout_seconds: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct ListenerResult {
         /// Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
-        pub alpn_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub alpn_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of the listener (matches `id`).
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `aws.lb.ListenerCertificate` resource.
-        pub certificate_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block for default actions. See below.
-        pub default_actions: pulumi_wasm_rust::Output<
+        pub default_actions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::lb::ListenerDefaultAction>,
         >,
         /// ARN of the load balancer.
         ///
         /// The following arguments are optional:
-        pub load_balancer_arn: pulumi_wasm_rust::Output<String>,
+        pub load_balancer_arn: pulumi_gestalt_rust::Output<String>,
         /// The mutual authentication configuration information. See below.
-        pub mutual_authentication: pulumi_wasm_rust::Output<
+        pub mutual_authentication: pulumi_gestalt_rust::Output<
             super::super::types::lb::ListenerMutualAuthentication,
         >,
         /// Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_gestalt_rust::Output<String>,
         /// Name of the SSL Policy for the listener. Required if `protocol` is `HTTPS` or `TLS`. Default is `ELBSecurityPolicy-2016-08`.
-        pub ssl_policy: pulumi_wasm_rust::Output<String>,
+        pub ssl_policy: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         ///
         /// > **Note::** When a `Name` key is specified in the map, the AWS Console maps the value to the `Name Tag` column value inside the `Listener Rules` table within a specific load balancer listener page. Otherwise, the value resolves to `Default`.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// TCP idle timeout value in seconds. Can only be set if protocol is `TCP` on Network Load Balancer, or with a Gateway Load Balancer. Not supported for Application Load Balancers. Valid values are between `60` and `6000` inclusive. Default: `350`.
-        pub tcp_idle_timeout_seconds: pulumi_wasm_rust::Output<i32>,
+        pub tcp_idle_timeout_seconds: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ListenerArgs,
     ) -> ListenerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let alpn_policy_binding = args.alpn_policy.get_output(context).get_inner();
         let certificate_arn_binding = args
@@ -400,34 +400,34 @@ pub mod listener {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ListenerResult {
-            alpn_policy: pulumi_wasm_rust::__private::into_domain(
+            alpn_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("alpnPolicy"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            certificate_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateArn"),
             ),
-            default_actions: pulumi_wasm_rust::__private::into_domain(
+            default_actions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultActions"),
             ),
-            load_balancer_arn: pulumi_wasm_rust::__private::into_domain(
+            load_balancer_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancerArn"),
             ),
-            mutual_authentication: pulumi_wasm_rust::__private::into_domain(
+            mutual_authentication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mutualAuthentication"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            ssl_policy: pulumi_wasm_rust::__private::into_domain(
+            ssl_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sslPolicy"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            tcp_idle_timeout_seconds: pulumi_wasm_rust::__private::into_domain(
+            tcp_idle_timeout_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tcpIdleTimeoutSeconds"),
             ),
         }

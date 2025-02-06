@@ -53,124 +53,124 @@
 /// $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
 /// ```
 pub mod connector {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectorArgs {
         /// Information about the capacity allocated to the connector. See `capacity` Block for details.
         #[builder(into)]
-        pub capacity: pulumi_wasm_rust::InputOrOutput<
+        pub capacity: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::mskconnect::ConnectorCapacity,
         >,
         /// A map of keys to values that represent the configuration for the connector.
         #[builder(into)]
-        pub connector_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub connector_configuration: pulumi_gestalt_rust::InputOrOutput<
             std::collections::HashMap<String, String>,
         >,
         /// A summary description of the connector.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
         #[builder(into)]
-        pub kafka_cluster: pulumi_wasm_rust::InputOrOutput<
+        pub kafka_cluster: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::mskconnect::ConnectorKafkaCluster,
         >,
         /// Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
         #[builder(into)]
-        pub kafka_cluster_client_authentication: pulumi_wasm_rust::InputOrOutput<
+        pub kafka_cluster_client_authentication: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::mskconnect::ConnectorKafkaClusterClientAuthentication,
         >,
         /// Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
         #[builder(into)]
-        pub kafka_cluster_encryption_in_transit: pulumi_wasm_rust::InputOrOutput<
+        pub kafka_cluster_encryption_in_transit: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::mskconnect::ConnectorKafkaClusterEncryptionInTransit,
         >,
         /// The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
         #[builder(into)]
-        pub kafkaconnect_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kafkaconnect_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Details about log delivery. See `log_delivery` Block for details.
         #[builder(into, default)]
-        pub log_delivery: pulumi_wasm_rust::InputOrOutput<
+        pub log_delivery: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mskconnect::ConnectorLogDelivery>,
         >,
         /// The name of the connector.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies which plugins to use for the connector. See `plugin` Block for details.
         #[builder(into)]
-        pub plugins: pulumi_wasm_rust::InputOrOutput<
+        pub plugins: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::mskconnect::ConnectorPlugin>,
         >,
         /// The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub service_execution_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_execution_role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
         #[builder(into, default)]
-        pub worker_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub worker_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mskconnect::ConnectorWorkerConfiguration>,
         >,
     }
     #[allow(dead_code)]
     pub struct ConnectorResult {
         /// The Amazon Resource Name (ARN) of the connector.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Information about the capacity allocated to the connector. See `capacity` Block for details.
-        pub capacity: pulumi_wasm_rust::Output<
+        pub capacity: pulumi_gestalt_rust::Output<
             super::super::types::mskconnect::ConnectorCapacity,
         >,
         /// A map of keys to values that represent the configuration for the connector.
-        pub connector_configuration: pulumi_wasm_rust::Output<
+        pub connector_configuration: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A summary description of the connector.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies which Apache Kafka cluster to connect to. See `kafka_cluster` Block for details.
-        pub kafka_cluster: pulumi_wasm_rust::Output<
+        pub kafka_cluster: pulumi_gestalt_rust::Output<
             super::super::types::mskconnect::ConnectorKafkaCluster,
         >,
         /// Details of the client authentication used by the Apache Kafka cluster. See `kafka_cluster_client_authentication` Block for details.
-        pub kafka_cluster_client_authentication: pulumi_wasm_rust::Output<
+        pub kafka_cluster_client_authentication: pulumi_gestalt_rust::Output<
             super::super::types::mskconnect::ConnectorKafkaClusterClientAuthentication,
         >,
         /// Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
-        pub kafka_cluster_encryption_in_transit: pulumi_wasm_rust::Output<
+        pub kafka_cluster_encryption_in_transit: pulumi_gestalt_rust::Output<
             super::super::types::mskconnect::ConnectorKafkaClusterEncryptionInTransit,
         >,
         /// The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
-        pub kafkaconnect_version: pulumi_wasm_rust::Output<String>,
+        pub kafkaconnect_version: pulumi_gestalt_rust::Output<String>,
         /// Details about log delivery. See `log_delivery` Block for details.
-        pub log_delivery: pulumi_wasm_rust::Output<
+        pub log_delivery: pulumi_gestalt_rust::Output<
             Option<super::super::types::mskconnect::ConnectorLogDelivery>,
         >,
         /// The name of the connector.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies which plugins to use for the connector. See `plugin` Block for details.
-        pub plugins: pulumi_wasm_rust::Output<
+        pub plugins: pulumi_gestalt_rust::Output<
             Vec<super::super::types::mskconnect::ConnectorPlugin>,
         >,
         /// The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
         ///
         /// The following arguments are optional:
-        pub service_execution_role_arn: pulumi_wasm_rust::Output<String>,
+        pub service_execution_role_arn: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The current version of the connector.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
         /// Specifies which worker configuration to use with the connector. See `worker_configuration` Block for details.
-        pub worker_configuration: pulumi_wasm_rust::Output<
+        pub worker_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::mskconnect::ConnectorWorkerConfiguration>,
         >,
     }
@@ -179,11 +179,11 @@ pub mod connector {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectorArgs,
     ) -> ConnectorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let capacity_binding = args.capacity.get_output(context).get_inner();
         let connector_configuration_binding = args
@@ -277,46 +277,46 @@ pub mod connector {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectorResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            capacity: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capacity"),
             ),
-            connector_configuration: pulumi_wasm_rust::__private::into_domain(
+            connector_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectorConfiguration"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            kafka_cluster: pulumi_wasm_rust::__private::into_domain(
+            kafka_cluster: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kafkaCluster"),
             ),
-            kafka_cluster_client_authentication: pulumi_wasm_rust::__private::into_domain(
+            kafka_cluster_client_authentication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kafkaClusterClientAuthentication"),
             ),
-            kafka_cluster_encryption_in_transit: pulumi_wasm_rust::__private::into_domain(
+            kafka_cluster_encryption_in_transit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kafkaClusterEncryptionInTransit"),
             ),
-            kafkaconnect_version: pulumi_wasm_rust::__private::into_domain(
+            kafkaconnect_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kafkaconnectVersion"),
             ),
-            log_delivery: pulumi_wasm_rust::__private::into_domain(
+            log_delivery: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logDelivery"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            plugins: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            plugins: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("plugins"),
             ),
-            service_execution_role_arn: pulumi_wasm_rust::__private::into_domain(
+            service_execution_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceExecutionRoleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
+            version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("version"),
             ),
-            worker_configuration: pulumi_wasm_rust::__private::into_domain(
+            worker_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workerConfiguration"),
             ),
         }

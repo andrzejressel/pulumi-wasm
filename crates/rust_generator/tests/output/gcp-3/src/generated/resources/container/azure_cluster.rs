@@ -127,7 +127,7 @@
 /// ```
 ///
 pub mod azure_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AzureClusterArgs {
@@ -138,20 +138,20 @@ pub mod azure_cluster {
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration related to the cluster RBAC settings.
         #[builder(into)]
-        pub authorization: pulumi_wasm_rust::InputOrOutput<
+        pub authorization: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::container::AzureClusterAuthorization,
         >,
         /// The Azure region where the cluster runs. Each Google Cloud region supports a subset of nearby Azure regions. You can call to list all supported Azure regions within a given Google Cloud region.
         #[builder(into)]
-        pub azure_region: pulumi_wasm_rust::InputOrOutput<String>,
+        pub azure_region: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Azure authentication configuration for management of Azure resources
         #[builder(into, default)]
-        pub azure_services_authentication: pulumi_wasm_rust::InputOrOutput<
+        pub azure_services_authentication: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::container::AzureClusterAzureServicesAuthentication,
             >,
@@ -161,42 +161,42 @@ pub mod azure_cluster {
         /// `projects/<project-number>/locations/<region>/azureClients/<client-id>`. See Resource Names
         /// (https:cloud.google.com/apis/design/resource_names) for more details on Google Cloud resource names.
         #[builder(into, default)]
-        pub client: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration related to the cluster control plane.
         #[builder(into)]
-        pub control_plane: pulumi_wasm_rust::InputOrOutput<
+        pub control_plane: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::container::AzureClusterControlPlane,
         >,
         /// Optional. A human readable description of this cluster. Cannot be longer than 255 UTF-8 encoded bytes.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Fleet configuration.
         #[builder(into)]
-        pub fleet: pulumi_wasm_rust::InputOrOutput<
+        pub fleet: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::container::AzureClusterFleet,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Logging configuration.
         #[builder(into, default)]
-        pub logging_config: pulumi_wasm_rust::InputOrOutput<
+        pub logging_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::AzureClusterLoggingConfig>,
         >,
         /// The name of this resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Cluster-wide networking configuration.
         #[builder(into)]
-        pub networking: pulumi_wasm_rust::InputOrOutput<
+        pub networking: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::container::AzureClusterNetworking,
         >,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARM ID of the resource group where the cluster resources are deployed. For example: `/subscriptions/*/resourceGroups/*`
         #[builder(into)]
-        pub resource_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AzureClusterResult {
@@ -206,17 +206,17 @@ pub mod azure_cluster {
         /// alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between. **Note**: This field is
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// `effective_annotations` for all of the annotations present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration related to the cluster RBAC settings.
-        pub authorization: pulumi_wasm_rust::Output<
+        pub authorization: pulumi_gestalt_rust::Output<
             super::super::types::container::AzureClusterAuthorization,
         >,
         /// The Azure region where the cluster runs. Each Google Cloud region supports a subset of nearby Azure regions. You can call to list all supported Azure regions within a given Google Cloud region.
-        pub azure_region: pulumi_wasm_rust::Output<String>,
+        pub azure_region: pulumi_gestalt_rust::Output<String>,
         /// Azure authentication configuration for management of Azure resources
-        pub azure_services_authentication: pulumi_wasm_rust::Output<
+        pub azure_services_authentication: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::container::AzureClusterAzureServicesAuthentication,
             >,
@@ -225,52 +225,52 @@ pub mod azure_cluster {
         /// `AzureCluster`. `AzureClient` names are formatted as
         /// `projects/<project-number>/locations/<region>/azureClients/<client-id>`. See Resource Names
         /// (https:cloud.google.com/apis/design/resource_names) for more details on Google Cloud resource names.
-        pub client: pulumi_wasm_rust::Output<Option<String>>,
+        pub client: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration related to the cluster control plane.
-        pub control_plane: pulumi_wasm_rust::Output<
+        pub control_plane: pulumi_gestalt_rust::Output<
             super::super::types::container::AzureClusterControlPlane,
         >,
         /// Output only. The time at which this cluster was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Optional. A human readable description of this cluster. Cannot be longer than 255 UTF-8 encoded bytes.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Output only. The endpoint of the cluster's API server.
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_gestalt_rust::Output<String>,
         /// Allows clients to perform consistent read-modify-writes through optimistic concurrency control. May be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Fleet configuration.
-        pub fleet: pulumi_wasm_rust::Output<
+        pub fleet: pulumi_gestalt_rust::Output<
             super::super::types::container::AzureClusterFleet,
         >,
         /// The location for the resource
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Logging configuration.
-        pub logging_config: pulumi_wasm_rust::Output<
+        pub logging_config: pulumi_gestalt_rust::Output<
             super::super::types::container::AzureClusterLoggingConfig,
         >,
         /// The name of this resource.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Cluster-wide networking configuration.
-        pub networking: pulumi_wasm_rust::Output<
+        pub networking: pulumi_gestalt_rust::Output<
             super::super::types::container::AzureClusterNetworking,
         >,
         /// The project for the resource
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Output only. If set, there are currently changes in flight to the cluster.
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// The ARM ID of the resource group where the cluster resources are deployed. For example: `/subscriptions/*/resourceGroups/*`
-        pub resource_group_id: pulumi_wasm_rust::Output<String>,
+        pub resource_group_id: pulumi_gestalt_rust::Output<String>,
         /// Output only. The current state of the cluster. Possible values: STATE_UNSPECIFIED, PROVISIONING, RUNNING, RECONCILING, STOPPING, ERROR, DEGRADED
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Output only. A globally unique identifier for the cluster.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Output only. The time at which this cluster was last updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// Output only. Workload Identity settings.
-        pub workload_identity_configs: pulumi_wasm_rust::Output<
+        pub workload_identity_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::container::AzureClusterWorkloadIdentityConfig>,
         >,
     }
@@ -279,11 +279,11 @@ pub mod azure_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AzureClusterArgs,
     ) -> AzureClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let authorization_binding = args.authorization.get_output(context).get_inner();
@@ -370,61 +370,63 @@ pub mod azure_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AzureClusterResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            authorization: pulumi_wasm_rust::__private::into_domain(
+            authorization: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorization"),
             ),
-            azure_region: pulumi_wasm_rust::__private::into_domain(
+            azure_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("azureRegion"),
             ),
-            azure_services_authentication: pulumi_wasm_rust::__private::into_domain(
+            azure_services_authentication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("azureServicesAuthentication"),
             ),
-            client: pulumi_wasm_rust::__private::into_domain(o.extract_field("client")),
-            control_plane: pulumi_wasm_rust::__private::into_domain(
+            client: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("client"),
+            ),
+            control_plane: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("controlPlane"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            fleet: pulumi_wasm_rust::__private::into_domain(o.extract_field("fleet")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            fleet: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fleet")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            logging_config: pulumi_wasm_rust::__private::into_domain(
+            logging_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loggingConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            networking: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            networking: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networking"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            resource_group_id: pulumi_wasm_rust::__private::into_domain(
+            resource_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupId"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            workload_identity_configs: pulumi_wasm_rust::__private::into_domain(
+            workload_identity_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workloadIdentityConfigs"),
             ),
         }

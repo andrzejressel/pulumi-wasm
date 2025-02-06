@@ -1,46 +1,46 @@
 pub mod get_account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAccountArgs {
         /// Specifies the name of the Maps Account.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Resource Group in which the Maps Account is located.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetAccountResult {
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The primary key used to authenticate and authorize access to the Maps REST APIs.
-        pub primary_access_key: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub primary_access_key: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The primary key used to authenticate and authorize access to the Maps REST APIs. The second key is given to provide seamless key regeneration.
-        pub secondary_access_key: pulumi_wasm_rust::Output<String>,
+        pub secondary_access_key: pulumi_gestalt_rust::Output<String>,
         /// The SKU of the Azure Maps Account.
-        pub sku_name: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A unique identifier for the Maps Account.
-        pub x_ms_client_id: pulumi_wasm_rust::Output<String>,
+        pub x_ms_client_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetAccountArgs,
     ) -> GetAccountResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -68,22 +68,22 @@ pub mod get_account {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetAccountResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            primary_access_key: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            primary_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryAccessKey"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            secondary_access_key: pulumi_wasm_rust::__private::into_domain(
+            secondary_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryAccessKey"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            x_ms_client_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            x_ms_client_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("xMsClientId"),
             ),
         }

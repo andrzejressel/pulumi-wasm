@@ -275,7 +275,7 @@
 /// ```
 ///
 pub mod subnetwork {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubnetworkArgs {
@@ -284,37 +284,37 @@ pub mod subnetwork {
         /// Setting this field to true will allow these packets to match dynamic routes injected
         /// via BGP even if their destinations match existing subnet ranges.
         #[builder(into, default)]
-        pub allow_subnet_cidr_routes_overlap: pulumi_wasm_rust::InputOrOutput<
+        pub allow_subnet_cidr_routes_overlap: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// An optional description of this resource. Provide this property when
         /// you create the resource. This field can be set only at resource
         /// creation time.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The range of external IPv6 addresses that are owned by this subnetwork.
         #[builder(into, default)]
-        pub external_ipv6_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub external_ipv6_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The range of internal addresses that are owned by this subnetwork.
         /// Provide this property when you create the subnetwork. For example,
         /// 10.0.0.0/8 or 192.168.0.0/16. Ranges must be unique and
         /// non-overlapping within a network. Only IPv4 is supported.
         /// Field is optional when `reserved_internal_range` is defined, otherwise required.
         #[builder(into, default)]
-        pub ip_cidr_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_cidr_range: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The access type of IPv6 address this subnet holds. It's immutable and can only be specified during creation
         /// or the first time the subnet is updated into IPV4_IPV6 dual stack. If the ipv6_type is EXTERNAL then this subnet
         /// cannot enable direct path.
         /// Possible values are: `EXTERNAL`, `INTERNAL`.
         #[builder(into, default)]
-        pub ipv6_access_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ipv6_access_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// This field denotes the VPC flow logging options for this subnetwork. If
         /// logging is enabled, logs are exported to Cloud Logging. Flow logging
         /// isn't supported if the subnet `purpose` field is set to subnetwork is
         /// `REGIONAL_MANAGED_PROXY` or `GLOBAL_MANAGED_PROXY`.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub log_config: pulumi_wasm_rust::InputOrOutput<
+        pub log_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::SubnetworkLogConfig>,
         >,
         /// The name of the resource, provided by the client when initially
@@ -325,25 +325,27 @@ pub mod subnetwork {
         /// following characters must be a dash, lowercase letter, or digit,
         /// except the last character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The network this subnet belongs to.
         /// Only networks that are in the distributed mode can have subnetworks.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<String>,
         /// When enabled, VMs in this subnetwork without external IP addresses can
         /// access Google APIs and services by using Private Google Access.
         #[builder(into, default)]
-        pub private_ip_google_access: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub private_ip_google_access: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The private IPv6 google access type for the VMs in this subnet.
         #[builder(into, default)]
-        pub private_ipv6_google_access: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub private_ipv6_google_access: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The purpose of the resource. This field can be either `PRIVATE`, `REGIONAL_MANAGED_PROXY`, `GLOBAL_MANAGED_PROXY`, `PRIVATE_SERVICE_CONNECT` or `PRIVATE_NAT`.
         /// A subnet with purpose set to `REGIONAL_MANAGED_PROXY` is a user-created subnetwork that is reserved for regional Envoy-based load balancers.
         /// A subnetwork in a given region with purpose set to `GLOBAL_MANAGED_PROXY` is a proxy-only subnet and is shared between all the cross-regional Envoy-based load balancers.
@@ -352,14 +354,14 @@ pub mod subnetwork {
         /// Note that `REGIONAL_MANAGED_PROXY` is the preferred setting for all regional Envoy load balancers.
         /// If unspecified, the purpose defaults to `PRIVATE`.
         #[builder(into, default)]
-        pub purpose: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub purpose: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The GCP region for this subnetwork.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the reserved internal range. Must be prefixed with `networkconnectivity.googleapis.com`
         /// E.g. `networkconnectivity.googleapis.com/projects/{project}/locations/global/internalRanges/{rangeId}`
         #[builder(into, default)]
-        pub reserved_internal_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub reserved_internal_range: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The role of subnetwork.
         /// Currently, this field is only used when `purpose` is `REGIONAL_MANAGED_PROXY`.
         /// The value can be set to `ACTIVE` or `BACKUP`.
@@ -367,14 +369,14 @@ pub mod subnetwork {
         /// A `BACKUP` subnetwork is one that is ready to be promoted to `ACTIVE` or is currently draining.
         /// Possible values are: `ACTIVE`, `BACKUP`.
         #[builder(into, default)]
-        pub role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An array of configurations for secondary IP ranges for VM instances
         /// contained in this subnetwork. The primary IP of such VM must belong
         /// to the primary ipCidrRange of the subnetwork. The alias IPs may belong
         /// to either primary or secondary ranges.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub secondary_ip_ranges: pulumi_wasm_rust::InputOrOutput<
+        pub secondary_ip_ranges: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::SubnetworkSecondaryIpRange>>,
         >,
         /// Controls the removal behavior of secondary_ip_range.
@@ -384,14 +386,14 @@ pub mod subnetwork {
         /// empty list of secondary IP ranges to the API.
         /// Defaults to false.
         #[builder(into, default)]
-        pub send_secondary_ip_range_if_empty: pulumi_wasm_rust::InputOrOutput<
+        pub send_secondary_ip_range_if_empty: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The stack type for this subnet to identify whether the IPv6 feature is enabled or not.
         /// If not specified IPV4_ONLY will be used.
         /// Possible values are: `IPV4_ONLY`, `IPV4_IPV6`.
         #[builder(into, default)]
-        pub stack_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub stack_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SubnetworkResult {
@@ -399,41 +401,41 @@ pub mod subnetwork {
         /// existing resources are dropped and prevented from leaving the VPC.
         /// Setting this field to true will allow these packets to match dynamic routes injected
         /// via BGP even if their destinations match existing subnet ranges.
-        pub allow_subnet_cidr_routes_overlap: pulumi_wasm_rust::Output<bool>,
+        pub allow_subnet_cidr_routes_overlap: pulumi_gestalt_rust::Output<bool>,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource. Provide this property when
         /// you create the resource. This field can be set only at resource
         /// creation time.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The range of external IPv6 addresses that are owned by this subnetwork.
-        pub external_ipv6_prefix: pulumi_wasm_rust::Output<String>,
+        pub external_ipv6_prefix: pulumi_gestalt_rust::Output<String>,
         /// Fingerprint of this resource. This field is used internally during updates of this resource.
-        pub fingerprint: pulumi_wasm_rust::Output<String>,
+        pub fingerprint: pulumi_gestalt_rust::Output<String>,
         /// The gateway address for default routes to reach destination addresses
         /// outside this subnetwork.
-        pub gateway_address: pulumi_wasm_rust::Output<String>,
+        pub gateway_address: pulumi_gestalt_rust::Output<String>,
         /// The internal IPv6 address range that is assigned to this subnetwork.
-        pub internal_ipv6_prefix: pulumi_wasm_rust::Output<String>,
+        pub internal_ipv6_prefix: pulumi_gestalt_rust::Output<String>,
         /// The range of internal addresses that are owned by this subnetwork.
         /// Provide this property when you create the subnetwork. For example,
         /// 10.0.0.0/8 or 192.168.0.0/16. Ranges must be unique and
         /// non-overlapping within a network. Only IPv4 is supported.
         /// Field is optional when `reserved_internal_range` is defined, otherwise required.
-        pub ip_cidr_range: pulumi_wasm_rust::Output<String>,
+        pub ip_cidr_range: pulumi_gestalt_rust::Output<String>,
         /// The access type of IPv6 address this subnet holds. It's immutable and can only be specified during creation
         /// or the first time the subnet is updated into IPV4_IPV6 dual stack. If the ipv6_type is EXTERNAL then this subnet
         /// cannot enable direct path.
         /// Possible values are: `EXTERNAL`, `INTERNAL`.
-        pub ipv6_access_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipv6_access_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The range of internal IPv6 addresses that are owned by this subnetwork.
-        pub ipv6_cidr_range: pulumi_wasm_rust::Output<String>,
+        pub ipv6_cidr_range: pulumi_gestalt_rust::Output<String>,
         /// This field denotes the VPC flow logging options for this subnetwork. If
         /// logging is enabled, logs are exported to Cloud Logging. Flow logging
         /// isn't supported if the subnet `purpose` field is set to subnetwork is
         /// `REGIONAL_MANAGED_PROXY` or `GLOBAL_MANAGED_PROXY`.
         /// Structure is documented below.
-        pub log_config: pulumi_wasm_rust::Output<
+        pub log_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::SubnetworkLogConfig>,
         >,
         /// The name of the resource, provided by the client when initially
@@ -443,21 +445,21 @@ pub mod subnetwork {
         /// means the first character must be a lowercase letter, and all
         /// following characters must be a dash, lowercase letter, or digit,
         /// except the last character, which cannot be a dash.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The network this subnet belongs to.
         /// Only networks that are in the distributed mode can have subnetworks.
         ///
         ///
         /// - - -
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// When enabled, VMs in this subnetwork without external IP addresses can
         /// access Google APIs and services by using Private Google Access.
-        pub private_ip_google_access: pulumi_wasm_rust::Output<bool>,
+        pub private_ip_google_access: pulumi_gestalt_rust::Output<bool>,
         /// The private IPv6 google access type for the VMs in this subnet.
-        pub private_ipv6_google_access: pulumi_wasm_rust::Output<String>,
+        pub private_ipv6_google_access: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The purpose of the resource. This field can be either `PRIVATE`, `REGIONAL_MANAGED_PROXY`, `GLOBAL_MANAGED_PROXY`, `PRIVATE_SERVICE_CONNECT` or `PRIVATE_NAT`.
         /// A subnet with purpose set to `REGIONAL_MANAGED_PROXY` is a user-created subnetwork that is reserved for regional Envoy-based load balancers.
         /// A subnetwork in a given region with purpose set to `GLOBAL_MANAGED_PROXY` is a proxy-only subnet and is shared between all the cross-regional Envoy-based load balancers.
@@ -465,53 +467,53 @@ pub mod subnetwork {
         /// A subnetwork with purpose set to `PRIVATE_NAT` is used as source range for Private NAT gateways.
         /// Note that `REGIONAL_MANAGED_PROXY` is the preferred setting for all regional Envoy load balancers.
         /// If unspecified, the purpose defaults to `PRIVATE`.
-        pub purpose: pulumi_wasm_rust::Output<String>,
+        pub purpose: pulumi_gestalt_rust::Output<String>,
         /// The GCP region for this subnetwork.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The ID of the reserved internal range. Must be prefixed with `networkconnectivity.googleapis.com`
         /// E.g. `networkconnectivity.googleapis.com/projects/{project}/locations/global/internalRanges/{rangeId}`
-        pub reserved_internal_range: pulumi_wasm_rust::Output<Option<String>>,
+        pub reserved_internal_range: pulumi_gestalt_rust::Output<Option<String>>,
         /// The role of subnetwork.
         /// Currently, this field is only used when `purpose` is `REGIONAL_MANAGED_PROXY`.
         /// The value can be set to `ACTIVE` or `BACKUP`.
         /// An `ACTIVE` subnetwork is one that is currently being used for Envoy-based load balancers in a region.
         /// A `BACKUP` subnetwork is one that is ready to be promoted to `ACTIVE` or is currently draining.
         /// Possible values are: `ACTIVE`, `BACKUP`.
-        pub role: pulumi_wasm_rust::Output<Option<String>>,
+        pub role: pulumi_gestalt_rust::Output<Option<String>>,
         /// An array of configurations for secondary IP ranges for VM instances
         /// contained in this subnetwork. The primary IP of such VM must belong
         /// to the primary ipCidrRange of the subnetwork. The alias IPs may belong
         /// to either primary or secondary ranges.
         /// Structure is documented below.
-        pub secondary_ip_ranges: pulumi_wasm_rust::Output<
+        pub secondary_ip_ranges: pulumi_gestalt_rust::Output<
             Vec<super::super::types::compute::SubnetworkSecondaryIpRange>,
         >,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// Controls the removal behavior of secondary_ip_range.
         /// When false, removing secondary_ip_range from config will not produce a diff as
         /// the provider will default to the API's value.
         /// When true, the provider will treat removing secondary_ip_range as sending an
         /// empty list of secondary IP ranges to the API.
         /// Defaults to false.
-        pub send_secondary_ip_range_if_empty: pulumi_wasm_rust::Output<Option<bool>>,
+        pub send_secondary_ip_range_if_empty: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The stack type for this subnet to identify whether the IPv6 feature is enabled or not.
         /// If not specified IPV4_ONLY will be used.
         /// Possible values are: `IPV4_ONLY`, `IPV4_IPV6`.
-        pub stack_type: pulumi_wasm_rust::Output<String>,
+        pub stack_type: pulumi_gestalt_rust::Output<String>,
         /// The unique identifier number for the resource. This identifier is defined by the server.
-        pub subnetwork_id: pulumi_wasm_rust::Output<i32>,
+        pub subnetwork_id: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SubnetworkArgs,
     ) -> SubnetworkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allow_subnet_cidr_routes_overlap_binding = args
             .allow_subnet_cidr_routes_overlap
@@ -636,73 +638,75 @@ pub mod subnetwork {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SubnetworkResult {
-            allow_subnet_cidr_routes_overlap: pulumi_wasm_rust::__private::into_domain(
+            allow_subnet_cidr_routes_overlap: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowSubnetCidrRoutesOverlap"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            external_ipv6_prefix: pulumi_wasm_rust::__private::into_domain(
+            external_ipv6_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalIpv6Prefix"),
             ),
-            fingerprint: pulumi_wasm_rust::__private::into_domain(
+            fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fingerprint"),
             ),
-            gateway_address: pulumi_wasm_rust::__private::into_domain(
+            gateway_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayAddress"),
             ),
-            internal_ipv6_prefix: pulumi_wasm_rust::__private::into_domain(
+            internal_ipv6_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("internalIpv6Prefix"),
             ),
-            ip_cidr_range: pulumi_wasm_rust::__private::into_domain(
+            ip_cidr_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipCidrRange"),
             ),
-            ipv6_access_type: pulumi_wasm_rust::__private::into_domain(
+            ipv6_access_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6AccessType"),
             ),
-            ipv6_cidr_range: pulumi_wasm_rust::__private::into_domain(
+            ipv6_cidr_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6CidrRange"),
             ),
-            log_config: pulumi_wasm_rust::__private::into_domain(
+            log_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            private_ip_google_access: pulumi_wasm_rust::__private::into_domain(
+            private_ip_google_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpGoogleAccess"),
             ),
-            private_ipv6_google_access: pulumi_wasm_rust::__private::into_domain(
+            private_ipv6_google_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpv6GoogleAccess"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            purpose: pulumi_wasm_rust::__private::into_domain(
+            purpose: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("purpose"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            reserved_internal_range: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            reserved_internal_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reservedInternalRange"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
-            secondary_ip_ranges: pulumi_wasm_rust::__private::into_domain(
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
+            secondary_ip_ranges: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryIpRanges"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            send_secondary_ip_range_if_empty: pulumi_wasm_rust::__private::into_domain(
+            send_secondary_ip_range_if_empty: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sendSecondaryIpRangeIfEmpty"),
             ),
-            stack_type: pulumi_wasm_rust::__private::into_domain(
+            stack_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stackType"),
             ),
-            subnetwork_id: pulumi_wasm_rust::__private::into_domain(
+            subnetwork_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetworkId"),
             ),
         }

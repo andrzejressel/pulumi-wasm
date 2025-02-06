@@ -68,8 +68,8 @@
 /// Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `aws.lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = recorder::create("example", RecorderArgs::builder().build_struct());
@@ -103,8 +103,8 @@
 /// ### Custom Policies
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = rule::create(
@@ -144,71 +144,75 @@
 /// $ pulumi import aws:cfg/rule:Rule foo example
 /// ```
 pub mod rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RuleArgs {
         /// Description of the rule
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         #[builder(into, default)]
-        pub evaluation_modes: pulumi_wasm_rust::InputOrOutput<
+        pub evaluation_modes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::cfg::RuleEvaluationMode>>,
         >,
         /// A string in JSON format that is passed to the AWS Config rule Lambda function.
         #[builder(into, default)]
-        pub input_parameters: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub input_parameters: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The maximum frequency with which AWS Config runs evaluations for a rule.
         #[builder(into, default)]
-        pub maximum_execution_frequency: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub maximum_execution_frequency: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The name of the rule
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         #[builder(into, default)]
-        pub scope: pulumi_wasm_rust::InputOrOutput<
+        pub scope: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cfg::RuleScope>,
         >,
         /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
         #[builder(into)]
-        pub source: pulumi_wasm_rust::InputOrOutput<
+        pub source: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cfg::RuleSource,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RuleResult {
         /// The ARN of the config rule
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Description of the rule
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
-        pub evaluation_modes: pulumi_wasm_rust::Output<
+        pub evaluation_modes: pulumi_gestalt_rust::Output<
             Vec<super::super::types::cfg::RuleEvaluationMode>,
         >,
         /// A string in JSON format that is passed to the AWS Config rule Lambda function.
-        pub input_parameters: pulumi_wasm_rust::Output<Option<String>>,
+        pub input_parameters: pulumi_gestalt_rust::Output<Option<String>>,
         /// The maximum frequency with which AWS Config runs evaluations for a rule.
-        pub maximum_execution_frequency: pulumi_wasm_rust::Output<Option<String>>,
+        pub maximum_execution_frequency: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the rule
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the config rule
-        pub rule_id: pulumi_wasm_rust::Output<String>,
+        pub rule_id: pulumi_gestalt_rust::Output<String>,
         /// Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
-        pub scope: pulumi_wasm_rust::Output<Option<super::super::types::cfg::RuleScope>>,
+        pub scope: pulumi_gestalt_rust::Output<
+            Option<super::super::types::cfg::RuleScope>,
+        >,
         /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
-        pub source: pulumi_wasm_rust::Output<super::super::types::cfg::RuleSource>,
+        pub source: pulumi_gestalt_rust::Output<super::super::types::cfg::RuleSource>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -217,11 +221,11 @@ pub mod rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RuleArgs,
     ) -> RuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let evaluation_modes_binding = args
@@ -281,25 +285,29 @@ pub mod rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RuleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            evaluation_modes: pulumi_wasm_rust::__private::into_domain(
+            evaluation_modes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("evaluationModes"),
             ),
-            input_parameters: pulumi_wasm_rust::__private::into_domain(
+            input_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inputParameters"),
             ),
-            maximum_execution_frequency: pulumi_wasm_rust::__private::into_domain(
+            maximum_execution_frequency: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumExecutionFrequency"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            rule_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("ruleId")),
-            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
-            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            rule_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("ruleId"),
+            ),
+            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            source: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("source"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

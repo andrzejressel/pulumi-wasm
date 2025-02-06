@@ -98,7 +98,7 @@
 /// ```
 ///
 pub mod dicom_store {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DicomStoreArgs {
@@ -108,7 +108,7 @@ pub mod dicom_store {
         ///
         /// - - -
         #[builder(into)]
-        pub dataset: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dataset: pulumi_gestalt_rust::InputOrOutput<String>,
         /// User-supplied key-value pairs used to organize DICOM stores.
         /// Label keys must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must
         /// conform to the following PCRE regular expression: [\p{Ll}\p{Lo}][\p{Ll}\p{Lo}\p{N}_-]{0,62}
@@ -121,24 +121,24 @@ pub mod dicom_store {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The resource name for the DicomStore.
         /// ** Changing this property may recreate the Dicom store (removing all data) **
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A nested object resource.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub notification_config: pulumi_wasm_rust::InputOrOutput<
+        pub notification_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::healthcare::DicomStoreNotificationConfig>,
         >,
         /// To enable streaming to BigQuery, configure the streamConfigs object in your DICOM store.
         /// streamConfigs is an array, so you can specify multiple BigQuery destinations. You can stream metadata from a single DICOM store to up to five BigQuery tables in a BigQuery dataset.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub stream_configs: pulumi_wasm_rust::InputOrOutput<
+        pub stream_configs: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::healthcare::DicomStoreStreamConfig>>,
         >,
     }
@@ -149,9 +149,9 @@ pub mod dicom_store {
         ///
         ///
         /// - - -
-        pub dataset: pulumi_wasm_rust::Output<String>,
+        pub dataset: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// User-supplied key-value pairs used to organize DICOM stores.
@@ -165,28 +165,28 @@ pub mod dicom_store {
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The resource name for the DicomStore.
         /// ** Changing this property may recreate the Dicom store (removing all data) **
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A nested object resource.
         /// Structure is documented below.
-        pub notification_config: pulumi_wasm_rust::Output<
+        pub notification_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::healthcare::DicomStoreNotificationConfig>,
         >,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The fully qualified name of this dataset
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// To enable streaming to BigQuery, configure the streamConfigs object in your DICOM store.
         /// streamConfigs is an array, so you can specify multiple BigQuery destinations. You can stream metadata from a single DICOM store to up to five BigQuery tables in a BigQuery dataset.
         /// Structure is documented below.
-        pub stream_configs: pulumi_wasm_rust::Output<
+        pub stream_configs: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::healthcare::DicomStoreStreamConfig>>,
         >,
     }
@@ -195,11 +195,11 @@ pub mod dicom_store {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DicomStoreArgs,
     ) -> DicomStoreResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let dataset_binding = args.dataset.get_output(context).get_inner();
         let labels_binding = args.labels.get_output(context).get_inner();
@@ -238,24 +238,26 @@ pub mod dicom_store {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DicomStoreResult {
-            dataset: pulumi_wasm_rust::__private::into_domain(
+            dataset: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataset"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notification_config: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notification_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationConfig"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            stream_configs: pulumi_wasm_rust::__private::into_domain(
+            stream_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamConfigs"),
             ),
         }

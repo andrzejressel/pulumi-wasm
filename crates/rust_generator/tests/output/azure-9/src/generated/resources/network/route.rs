@@ -7,8 +7,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -48,54 +48,54 @@
 /// ```
 ///
 pub mod route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteArgs {
         /// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
         #[builder(into)]
-        pub address_prefix: pulumi_wasm_rust::InputOrOutput<String>,
+        pub address_prefix: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the route. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
         #[builder(into, default)]
-        pub next_hop_in_ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub next_hop_in_ip_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
         #[builder(into)]
-        pub next_hop_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub next_hop_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group in which to create the route. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the route table within which create the route. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub route_table_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub route_table_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RouteResult {
         /// The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
-        pub address_prefix: pulumi_wasm_rust::Output<String>,
+        pub address_prefix: pulumi_gestalt_rust::Output<String>,
         /// The name of the route. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
-        pub next_hop_in_ip_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_hop_in_ip_address: pulumi_gestalt_rust::Output<Option<String>>,
         /// The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
-        pub next_hop_type: pulumi_wasm_rust::Output<String>,
+        pub next_hop_type: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the route. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the route table within which create the route. Changing this forces a new resource to be created.
-        pub route_table_name: pulumi_wasm_rust::Output<String>,
+        pub route_table_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouteArgs,
     ) -> RouteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let address_prefix_binding = args.address_prefix.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -145,20 +145,20 @@ pub mod route {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouteResult {
-            address_prefix: pulumi_wasm_rust::__private::into_domain(
+            address_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addressPrefix"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            next_hop_in_ip_address: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            next_hop_in_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextHopInIpAddress"),
             ),
-            next_hop_type: pulumi_wasm_rust::__private::into_domain(
+            next_hop_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextHopType"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            route_table_name: pulumi_wasm_rust::__private::into_domain(
+            route_table_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routeTableName"),
             ),
         }

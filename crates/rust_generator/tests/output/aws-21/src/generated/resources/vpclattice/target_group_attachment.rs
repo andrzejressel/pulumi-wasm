@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = target_group_attachment::create(
@@ -24,38 +24,38 @@
 /// }
 /// ```
 pub mod target_group_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TargetGroupAttachmentArgs {
         /// The target.
         #[builder(into)]
-        pub target: pulumi_wasm_rust::InputOrOutput<
+        pub target: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::vpclattice::TargetGroupAttachmentTarget,
         >,
         /// The ID or Amazon Resource Name (ARN) of the target group.
         #[builder(into)]
-        pub target_group_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_group_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TargetGroupAttachmentResult {
         /// The target.
-        pub target: pulumi_wasm_rust::Output<
+        pub target: pulumi_gestalt_rust::Output<
             super::super::types::vpclattice::TargetGroupAttachmentTarget,
         >,
         /// The ID or Amazon Resource Name (ARN) of the target group.
-        pub target_group_identifier: pulumi_wasm_rust::Output<String>,
+        pub target_group_identifier: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TargetGroupAttachmentArgs,
     ) -> TargetGroupAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let target_binding = args.target.get_output(context).get_inner();
         let target_group_identifier_binding = args
@@ -79,8 +79,10 @@ pub mod target_group_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TargetGroupAttachmentResult {
-            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
-            target_group_identifier: pulumi_wasm_rust::__private::into_domain(
+            target: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("target"),
+            ),
+            target_group_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetGroupIdentifier"),
             ),
         }

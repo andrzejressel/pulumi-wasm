@@ -153,7 +153,7 @@
 /// ```
 ///
 pub mod v_mware_node_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VMwareNodePoolArgs {
@@ -164,34 +164,34 @@ pub mod v_mware_node_pool {
         /// only manage the annotations present in your configuration. Please refer to the field 'effective_annotations' for all of
         /// the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The node configuration of the node pool.
         /// Structure is documented below.
         #[builder(into)]
-        pub config: pulumi_wasm_rust::InputOrOutput<
+        pub config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::gkeonprem::VMwareNodePoolConfig,
         >,
         /// The display name for the node pool.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location of the resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The vmware node pool name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Node Pool autoscaling config for the node pool.
         #[builder(into, default)]
-        pub node_pool_autoscaling: pulumi_wasm_rust::InputOrOutput<
+        pub node_pool_autoscaling: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::VMwareNodePoolNodePoolAutoscaling>,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The cluster this node pool belongs to.
         #[builder(into)]
-        pub vmware_cluster: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vmware_cluster: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VMwareNodePoolResult {
@@ -201,21 +201,21 @@ pub mod v_mware_node_pool {
         /// dashes (-), underscores (_), dots (.), and alphanumerics between. **Note**: This field is non-authoritative, and will
         /// only manage the annotations present in your configuration. Please refer to the field 'effective_annotations' for all of
         /// the annotations present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The node configuration of the node pool.
         /// Structure is documented below.
-        pub config: pulumi_wasm_rust::Output<
+        pub config: pulumi_gestalt_rust::Output<
             super::super::types::gkeonprem::VMwareNodePoolConfig,
         >,
         /// The time the cluster was created, in RFC3339 text format.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The time the cluster was deleted, in RFC3339 text format.
-        pub delete_time: pulumi_wasm_rust::Output<String>,
+        pub delete_time: pulumi_gestalt_rust::Output<String>,
         /// The display name for the node pool.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// This checksum is computed by the server based on the value of other
@@ -223,45 +223,45 @@ pub mod v_mware_node_pool {
         /// client has an up-to-date value before proceeding.
         /// Allows clients to perform consistent read-modify-writes
         /// through optimistic concurrency control.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The location of the resource.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The vmware node pool name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Node Pool autoscaling config for the node pool.
-        pub node_pool_autoscaling: pulumi_wasm_rust::Output<
+        pub node_pool_autoscaling: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkeonprem::VMwareNodePoolNodePoolAutoscaling>,
         >,
         /// Anthos version for the node pool. Defaults to the user cluster version.
-        pub on_prem_version: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub on_prem_version: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// If set, there are currently changes in flight to the node pool.
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// (Output)
         /// The lifecycle state of the condition.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// ResourceStatus representing detailed cluster state.
         /// Structure is documented below.
-        pub statuses: pulumi_wasm_rust::Output<
+        pub statuses: pulumi_gestalt_rust::Output<
             Vec<super::super::types::gkeonprem::VMwareNodePoolStatus>,
         >,
         /// The unique identifier of the node pool.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// The time the cluster was last updated, in RFC3339 text format.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// The cluster this node pool belongs to.
-        pub vmware_cluster: pulumi_wasm_rust::Output<String>,
+        pub vmware_cluster: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VMwareNodePoolArgs,
     ) -> VMwareNodePoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let config_binding = args.config.get_output(context).get_inner();
@@ -315,48 +315,50 @@ pub mod v_mware_node_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VMwareNodePoolResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            config: pulumi_wasm_rust::__private::into_domain(o.extract_field("config")),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            config: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("config"),
+            ),
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            delete_time: pulumi_wasm_rust::__private::into_domain(
+            delete_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteTime"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            node_pool_autoscaling: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            node_pool_autoscaling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodePoolAutoscaling"),
             ),
-            on_prem_version: pulumi_wasm_rust::__private::into_domain(
+            on_prem_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("onPremVersion"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            statuses: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            statuses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statuses"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            vmware_cluster: pulumi_wasm_rust::__private::into_domain(
+            vmware_cluster: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vmwareCluster"),
             ),
         }

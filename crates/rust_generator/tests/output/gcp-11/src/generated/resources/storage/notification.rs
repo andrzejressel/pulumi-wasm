@@ -71,27 +71,27 @@
 /// ```
 ///
 pub mod notification {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NotificationArgs {
         /// The name of the bucket.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A set of key/value attribute pairs to attach to each Cloud PubSub message published for this notification subscription
         #[builder(into, default)]
-        pub custom_attributes: pulumi_wasm_rust::InputOrOutput<
+        pub custom_attributes: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of event type filters for this notification config. If not specified, Cloud Storage will send notifications for all event types. The valid types are: `"OBJECT_FINALIZE"`, `"OBJECT_METADATA_UPDATE"`, `"OBJECT_DELETE"`, `"OBJECT_ARCHIVE"`
         #[builder(into, default)]
-        pub event_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub event_types: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies a prefix path filter for this notification config. Cloud Storage will only send notifications for objects in this bucket whose names begin with the specified prefix.
         #[builder(into, default)]
-        pub object_name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub object_name_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The desired content of the Payload. One of `"JSON_API_V1"` or `"NONE"`.
         #[builder(into)]
-        pub payload_format: pulumi_wasm_rust::InputOrOutput<String>,
+        pub payload_format: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Cloud PubSub topic to which this subscription publishes. Expects either the
         /// topic name, assumed to belong to the default GCP provider project, or the project-level name,
         /// i.e. `projects/my-gcp-project/topics/my-topic` or `my-topic`. If the project is not set in the provider,
@@ -99,44 +99,44 @@ pub mod notification {
         ///
         /// - - -
         #[builder(into)]
-        pub topic: pulumi_wasm_rust::InputOrOutput<String>,
+        pub topic: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NotificationResult {
         /// The name of the bucket.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// A set of key/value attribute pairs to attach to each Cloud PubSub message published for this notification subscription
-        pub custom_attributes: pulumi_wasm_rust::Output<
+        pub custom_attributes: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of event type filters for this notification config. If not specified, Cloud Storage will send notifications for all event types. The valid types are: `"OBJECT_FINALIZE"`, `"OBJECT_METADATA_UPDATE"`, `"OBJECT_DELETE"`, `"OBJECT_ARCHIVE"`
-        pub event_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub event_types: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The ID of the created notification.
-        pub notification_id: pulumi_wasm_rust::Output<String>,
+        pub notification_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies a prefix path filter for this notification config. Cloud Storage will only send notifications for objects in this bucket whose names begin with the specified prefix.
-        pub object_name_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub object_name_prefix: pulumi_gestalt_rust::Output<Option<String>>,
         /// The desired content of the Payload. One of `"JSON_API_V1"` or `"NONE"`.
-        pub payload_format: pulumi_wasm_rust::Output<String>,
+        pub payload_format: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// The Cloud PubSub topic to which this subscription publishes. Expects either the
         /// topic name, assumed to belong to the default GCP provider project, or the project-level name,
         /// i.e. `projects/my-gcp-project/topics/my-topic` or `my-topic`. If the project is not set in the provider,
         /// you will need to use the project-level name.
         ///
         /// - - -
-        pub topic: pulumi_wasm_rust::Output<String>,
+        pub topic: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NotificationArgs,
     ) -> NotificationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let custom_attributes_binding = args
@@ -183,26 +183,28 @@ pub mod notification {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NotificationResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            custom_attributes: pulumi_wasm_rust::__private::into_domain(
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            custom_attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customAttributes"),
             ),
-            event_types: pulumi_wasm_rust::__private::into_domain(
+            event_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventTypes"),
             ),
-            notification_id: pulumi_wasm_rust::__private::into_domain(
+            notification_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationId"),
             ),
-            object_name_prefix: pulumi_wasm_rust::__private::into_domain(
+            object_name_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("objectNamePrefix"),
             ),
-            payload_format: pulumi_wasm_rust::__private::into_domain(
+            payload_format: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("payloadFormat"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            topic: pulumi_wasm_rust::__private::into_domain(o.extract_field("topic")),
+            topic: pulumi_gestalt_rust::__private::into_domain(o.extract_field("topic")),
         }
     }
 }

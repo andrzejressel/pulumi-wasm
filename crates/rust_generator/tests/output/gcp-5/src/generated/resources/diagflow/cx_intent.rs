@@ -72,36 +72,36 @@
 /// ```
 ///
 pub mod cx_intent {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CxIntentArgs {
         /// Human readable description for better understanding an intent like its scope, content, result etc. Maximum character limit: 140 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The human-readable name of the intent, unique within the agent.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Marks this as the [Default Negative Intent](https://cloud.google.com/dialogflow/cx/docs/concept/intent#negative) for an agent. When you create an agent, a Default Negative Intent is created automatically.
         /// The Default Negative Intent cannot be deleted; deleting the `gcp.diagflow.CxIntent` resource does nothing to the underlying GCP resources.
         ///
         /// > Avoid having multiple `gcp.diagflow.CxIntent` resources linked to the same agent with `is_default_negative_intent = true` because they will compete to control a single Default Negative Intent resource in GCP.
         #[builder(into, default)]
-        pub is_default_negative_intent: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_default_negative_intent: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Marks this as the [Default Welcome Intent](https://cloud.google.com/dialogflow/cx/docs/concept/intent#welcome) for an agent. When you create an agent, a Default Welcome Intent is created automatically.
         /// The Default Welcome Intent cannot be deleted; deleting the `gcp.diagflow.CxIntent` resource does nothing to the underlying GCP resources.
         ///
         /// > Avoid having multiple `gcp.diagflow.CxIntent` resources linked to the same agent with `is_default_welcome_intent = true` because they will compete to control a single Default Welcome Intent resource in GCP.
         #[builder(into, default)]
-        pub is_default_welcome_intent: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_default_welcome_intent: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Indicates whether this is a fallback intent. Currently only default fallback intent is allowed in the agent, which is added upon agent creation.
         /// Adding training phrases to fallback intent is useful in the case of requests that are mistakenly matched, since training phrases assigned to fallback intents act as negative examples that triggers no-match event.
         /// To manage the fallback intent, set `is_default_negative_intent = true`
         #[builder(into, default)]
-        pub is_fallback: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_fallback: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The key/value metadata to label an intent. Labels can contain lowercase letters, digits and the symbols '-' and '_'. International characters are allowed, including letters from unicase alphabets. Keys must start with a letter. Keys and values can be no longer than 63 characters and no more than 128 bytes.
         /// Prefix "sys-" is reserved for Dialogflow defined labels. Currently allowed Dialogflow defined labels include: * sys-head * sys-contextual The above labels do not require value. "sys-head" means the intent is a head intent. "sys.contextual" means the intent is a contextual intent.
         /// An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
@@ -109,99 +109,99 @@ pub mod cx_intent {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The language of the following fields in intent:
         /// Intent.training_phrases.parts.text
         /// If not specified, the agent's default language is used. Many languages are supported. Note: languages must be enabled in the agent before they can be used.
         #[builder(into, default)]
-        pub language_code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub language_code: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The collection of parameters associated with the intent.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::diagflow::CxIntentParameter>>,
         >,
         /// The agent to create an intent for.
         /// Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>.
         #[builder(into, default)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The priority of this intent. Higher numbers represent higher priorities.
         /// If the supplied value is unspecified or 0, the service translates the value to 500,000, which corresponds to the Normal priority in the console.
         /// If the supplied value is negative, the intent is ignored in runtime detect intent requests.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The collection of training phrases the agent is trained on to identify the intent.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub training_phrases: pulumi_wasm_rust::InputOrOutput<
+        pub training_phrases: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::diagflow::CxIntentTrainingPhrase>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CxIntentResult {
         /// Human readable description for better understanding an intent like its scope, content, result etc. Maximum character limit: 140 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The human-readable name of the intent, unique within the agent.
         ///
         ///
         /// - - -
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Marks this as the [Default Negative Intent](https://cloud.google.com/dialogflow/cx/docs/concept/intent#negative) for an agent. When you create an agent, a Default Negative Intent is created automatically.
         /// The Default Negative Intent cannot be deleted; deleting the `gcp.diagflow.CxIntent` resource does nothing to the underlying GCP resources.
         ///
         /// > Avoid having multiple `gcp.diagflow.CxIntent` resources linked to the same agent with `is_default_negative_intent = true` because they will compete to control a single Default Negative Intent resource in GCP.
-        pub is_default_negative_intent: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_default_negative_intent: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Marks this as the [Default Welcome Intent](https://cloud.google.com/dialogflow/cx/docs/concept/intent#welcome) for an agent. When you create an agent, a Default Welcome Intent is created automatically.
         /// The Default Welcome Intent cannot be deleted; deleting the `gcp.diagflow.CxIntent` resource does nothing to the underlying GCP resources.
         ///
         /// > Avoid having multiple `gcp.diagflow.CxIntent` resources linked to the same agent with `is_default_welcome_intent = true` because they will compete to control a single Default Welcome Intent resource in GCP.
-        pub is_default_welcome_intent: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_default_welcome_intent: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Indicates whether this is a fallback intent. Currently only default fallback intent is allowed in the agent, which is added upon agent creation.
         /// Adding training phrases to fallback intent is useful in the case of requests that are mistakenly matched, since training phrases assigned to fallback intents act as negative examples that triggers no-match event.
         /// To manage the fallback intent, set `is_default_negative_intent = true`
-        pub is_fallback: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_fallback: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The key/value metadata to label an intent. Labels can contain lowercase letters, digits and the symbols '-' and '_'. International characters are allowed, including letters from unicase alphabets. Keys must start with a letter. Keys and values can be no longer than 63 characters and no more than 128 bytes.
         /// Prefix "sys-" is reserved for Dialogflow defined labels. Currently allowed Dialogflow defined labels include: * sys-head * sys-contextual The above labels do not require value. "sys-head" means the intent is a head intent. "sys.contextual" means the intent is a contextual intent.
         /// An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The language of the following fields in intent:
         /// Intent.training_phrases.parts.text
         /// If not specified, the agent's default language is used. Many languages are supported. Note: languages must be enabled in the agent before they can be used.
-        pub language_code: pulumi_wasm_rust::Output<Option<String>>,
+        pub language_code: pulumi_gestalt_rust::Output<Option<String>>,
         /// The unique identifier of the intent.
         /// Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>/intents/<Intent ID>.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The collection of parameters associated with the intent.
         /// Structure is documented below.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::diagflow::CxIntentParameter>>,
         >,
         /// The agent to create an intent for.
         /// Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>.
-        pub parent: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent: pulumi_gestalt_rust::Output<Option<String>>,
         /// The priority of this intent. Higher numbers represent higher priorities.
         /// If the supplied value is unspecified or 0, the service translates the value to 500,000, which corresponds to the Normal priority in the console.
         /// If the supplied value is negative, the intent is ignored in runtime detect intent requests.
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The collection of training phrases the agent is trained on to identify the intent.
         /// Structure is documented below.
-        pub training_phrases: pulumi_wasm_rust::Output<
+        pub training_phrases: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::diagflow::CxIntentTrainingPhrase>>,
         >,
     }
@@ -210,11 +210,11 @@ pub mod cx_intent {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CxIntentArgs,
     ) -> CxIntentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -289,40 +289,44 @@ pub mod cx_intent {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CxIntentResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            is_default_negative_intent: pulumi_wasm_rust::__private::into_domain(
+            is_default_negative_intent: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isDefaultNegativeIntent"),
             ),
-            is_default_welcome_intent: pulumi_wasm_rust::__private::into_domain(
+            is_default_welcome_intent: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isDefaultWelcomeIntent"),
             ),
-            is_fallback: pulumi_wasm_rust::__private::into_domain(
+            is_fallback: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isFallback"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            language_code: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            language_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("languageCode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            training_phrases: pulumi_wasm_rust::__private::into_domain(
+            training_phrases: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trainingPhrases"),
             ),
         }

@@ -11,47 +11,47 @@
 /// ```
 ///
 pub mod assignment_dynamic_scope {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssignmentDynamicScopeArgs {
         /// A `filter` block as defined below.
         #[builder(into)]
-        pub filter: pulumi_wasm_rust::InputOrOutput<
+        pub filter: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::maintenance::AssignmentDynamicScopeFilter,
         >,
         /// The ID of the Maintenance Configuration Resource. Changing this forces a new Dynamic Maintenance Assignment to be created.
         #[builder(into)]
-        pub maintenance_configuration_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub maintenance_configuration_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Dynamic Maintenance Assignment. Changing this forces a new Dynamic Maintenance Assignment to be created.
         ///
         /// > **Note:** The `name` must be unique per subscription.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AssignmentDynamicScopeResult {
         /// A `filter` block as defined below.
-        pub filter: pulumi_wasm_rust::Output<
+        pub filter: pulumi_gestalt_rust::Output<
             super::super::types::maintenance::AssignmentDynamicScopeFilter,
         >,
         /// The ID of the Maintenance Configuration Resource. Changing this forces a new Dynamic Maintenance Assignment to be created.
-        pub maintenance_configuration_id: pulumi_wasm_rust::Output<String>,
+        pub maintenance_configuration_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Dynamic Maintenance Assignment. Changing this forces a new Dynamic Maintenance Assignment to be created.
         ///
         /// > **Note:** The `name` must be unique per subscription.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AssignmentDynamicScopeArgs,
     ) -> AssignmentDynamicScopeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let filter_binding = args.filter.get_output(context).get_inner();
         let maintenance_configuration_id_binding = args
@@ -81,11 +81,13 @@ pub mod assignment_dynamic_scope {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AssignmentDynamicScopeResult {
-            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
-            maintenance_configuration_id: pulumi_wasm_rust::__private::into_domain(
+            filter: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("filter"),
+            ),
+            maintenance_configuration_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceConfigurationId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

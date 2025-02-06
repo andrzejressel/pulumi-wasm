@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -54,35 +54,35 @@
 /// ```
 ///
 pub mod job_agent {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct JobAgentArgs {
         /// The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
         #[builder(into)]
-        pub database_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Database.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct JobAgentResult {
         /// The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
-        pub database_id: pulumi_wasm_rust::Output<String>,
+        pub database_id: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Database.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -91,11 +91,11 @@ pub mod job_agent {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: JobAgentArgs,
     ) -> JobAgentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let database_id_binding = args.database_id.get_output(context).get_inner();
         let location_binding = args.location.get_output(context).get_inner();
@@ -126,14 +126,14 @@ pub mod job_agent {
         };
         let o = register_interface::register(context.get_inner(), &request);
         JobAgentResult {
-            database_id: pulumi_wasm_rust::__private::into_domain(
+            database_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

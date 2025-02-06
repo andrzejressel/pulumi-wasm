@@ -68,8 +68,8 @@
 /// This config denies all traffic in the Default ACL. This can be useful if you want to lock down the VPC to force all resources to assign a non-default ACL.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = default_network_acl::create(
@@ -96,8 +96,8 @@
 /// As an alternative to the above, you can also specify the following lifecycle configuration in your `aws.ec2.DefaultNetworkAcl` resource:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = default_network_acl::create(
@@ -119,7 +119,7 @@
 /// $ pulumi import aws:ec2/defaultNetworkAcl:DefaultNetworkAcl sample acl-7aaabd18
 /// ```
 pub mod default_network_acl {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DefaultNetworkAclArgs {
@@ -127,67 +127,67 @@ pub mod default_network_acl {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub default_network_acl_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub default_network_acl_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block for an egress rule. Detailed below.
         #[builder(into, default)]
-        pub egress: pulumi_wasm_rust::InputOrOutput<
+        pub egress: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::DefaultNetworkAclEgress>>,
         >,
         /// Configuration block for an ingress rule. Detailed below.
         #[builder(into, default)]
-        pub ingress: pulumi_wasm_rust::InputOrOutput<
+        pub ingress: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::DefaultNetworkAclIngress>>,
         >,
         /// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
         #[builder(into, default)]
-        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub subnet_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DefaultNetworkAclResult {
         /// ARN of the Default Network ACL
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
         ///
         /// The following arguments are optional:
-        pub default_network_acl_id: pulumi_wasm_rust::Output<String>,
+        pub default_network_acl_id: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for an egress rule. Detailed below.
-        pub egress: pulumi_wasm_rust::Output<
+        pub egress: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::ec2::DefaultNetworkAclEgress>>,
         >,
         /// Configuration block for an ingress rule. Detailed below.
-        pub ingress: pulumi_wasm_rust::Output<
+        pub ingress: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::ec2::DefaultNetworkAclIngress>>,
         >,
         /// ID of the AWS account that owns the Default Network ACL
-        pub owner_id: pulumi_wasm_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
         /// List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
-        pub subnet_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub subnet_ids: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// ID of the associated VPC
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DefaultNetworkAclArgs,
     ) -> DefaultNetworkAclResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let default_network_acl_id_binding = args
             .default_network_acl_id
@@ -226,25 +226,27 @@ pub mod default_network_acl {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DefaultNetworkAclResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            default_network_acl_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            default_network_acl_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultNetworkAclId"),
             ),
-            egress: pulumi_wasm_rust::__private::into_domain(o.extract_field("egress")),
-            ingress: pulumi_wasm_rust::__private::into_domain(
+            egress: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("egress"),
+            ),
+            ingress: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ingress"),
             ),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            subnet_ids: pulumi_wasm_rust::__private::into_domain(
+            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

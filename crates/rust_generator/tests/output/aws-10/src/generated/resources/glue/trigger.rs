@@ -5,8 +5,8 @@
 /// ### Conditional Trigger
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = trigger::create(
@@ -38,8 +38,8 @@
 /// ### On-Demand Trigger
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = trigger::create(
@@ -61,8 +61,8 @@
 /// ### Scheduled Trigger
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = trigger::create(
@@ -87,8 +87,8 @@
 /// **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = trigger::create(
@@ -123,8 +123,8 @@
 /// **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = trigger::create(
@@ -160,103 +160,103 @@
 /// $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
 /// ```
 pub mod trigger {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TriggerArgs {
         /// List of actions initiated by this trigger when it fires. See Actions Below.
         #[builder(into)]
-        pub actions: pulumi_wasm_rust::InputOrOutput<
+        pub actions: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::glue::TriggerAction>,
         >,
         /// A description of the new trigger.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Start the trigger. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
         #[builder(into, default)]
-        pub event_batching_conditions: pulumi_wasm_rust::InputOrOutput<
+        pub event_batching_conditions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::glue::TriggerEventBatchingCondition>>,
         >,
         /// The name of the trigger.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
         #[builder(into, default)]
-        pub predicate: pulumi_wasm_rust::InputOrOutput<
+        pub predicate: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::glue::TriggerPredicate>,
         >,
         /// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         #[builder(into, default)]
-        pub schedule: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub schedule: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
         #[builder(into, default)]
-        pub start_on_creation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub start_on_creation: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
         #[builder(into, default)]
-        pub workflow_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub workflow_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TriggerResult {
         /// List of actions initiated by this trigger when it fires. See Actions Below.
-        pub actions: pulumi_wasm_rust::Output<
+        pub actions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::glue::TriggerAction>,
         >,
         /// Amazon Resource Name (ARN) of Glue Trigger
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A description of the new trigger.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Start the trigger. Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
-        pub event_batching_conditions: pulumi_wasm_rust::Output<
+        pub event_batching_conditions: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::glue::TriggerEventBatchingCondition>>,
         >,
         /// The name of the trigger.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
-        pub predicate: pulumi_wasm_rust::Output<
+        pub predicate: pulumi_gestalt_rust::Output<
             Option<super::super::types::glue::TriggerPredicate>,
         >,
         /// A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
-        pub schedule: pulumi_wasm_rust::Output<Option<String>>,
+        pub schedule: pulumi_gestalt_rust::Output<Option<String>>,
         /// Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
-        pub start_on_creation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub start_on_creation: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The current state of the trigger.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The type of trigger. Valid values are `CONDITIONAL`, `EVENT`, `ON_DEMAND`, and `SCHEDULED`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// A workflow to which the trigger should be associated to. Every workflow graph (DAG) needs a starting trigger (`ON_DEMAND` or `SCHEDULED` type) and can contain multiple additional `CONDITIONAL` triggers.
-        pub workflow_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub workflow_name: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TriggerArgs,
     ) -> TriggerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let actions_binding = args.actions.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -328,36 +328,36 @@ pub mod trigger {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TriggerResult {
-            actions: pulumi_wasm_rust::__private::into_domain(
+            actions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actions"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            event_batching_conditions: pulumi_wasm_rust::__private::into_domain(
+            event_batching_conditions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventBatchingConditions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            predicate: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            predicate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("predicate"),
             ),
-            schedule: pulumi_wasm_rust::__private::into_domain(
+            schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedule"),
             ),
-            start_on_creation: pulumi_wasm_rust::__private::into_domain(
+            start_on_creation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startOnCreation"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            workflow_name: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            workflow_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workflowName"),
             ),
         }

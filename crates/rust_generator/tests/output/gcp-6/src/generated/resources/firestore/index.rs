@@ -141,19 +141,19 @@
 /// ```
 ///
 pub mod index {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IndexArgs {
         /// The API scope at which a query is run. Default value: "ANY_API" Possible values: ["ANY_API", "DATASTORE_MODE_API"]
         #[builder(into, default)]
-        pub api_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub api_scope: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The collection being indexed.
         #[builder(into)]
-        pub collection: pulumi_wasm_rust::InputOrOutput<String>,
+        pub collection: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Firestore database id. Defaults to '"(default)"'.
         #[builder(into, default)]
-        pub database: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub database: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The fields supported by this index. The last non-stored field entry is
         /// always for the field path `__name__`. If, on creation, `__name__` was not
         /// specified as the last field, it will be added automatically with the same
@@ -162,24 +162,24 @@ pub mod index {
         /// `"ASCENDING"` (unless explicitly specified otherwise).
         /// Structure is documented below.
         #[builder(into)]
-        pub fields: pulumi_wasm_rust::InputOrOutput<
+        pub fields: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::firestore::IndexField>,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The scope at which a query is run. Default value: "COLLECTION" Possible values: ["COLLECTION", "COLLECTION_GROUP",
         /// "COLLECTION_RECURSIVE"]
         #[builder(into, default)]
-        pub query_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub query_scope: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct IndexResult {
         /// The API scope at which a query is run. Default value: "ANY_API" Possible values: ["ANY_API", "DATASTORE_MODE_API"]
-        pub api_scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub api_scope: pulumi_gestalt_rust::Output<Option<String>>,
         /// The collection being indexed.
-        pub collection: pulumi_wasm_rust::Output<String>,
+        pub collection: pulumi_gestalt_rust::Output<String>,
         /// The Firestore database id. Defaults to '"(default)"'.
-        pub database: pulumi_wasm_rust::Output<Option<String>>,
+        pub database: pulumi_gestalt_rust::Output<Option<String>>,
         /// The fields supported by this index. The last non-stored field entry is
         /// always for the field path `__name__`. If, on creation, `__name__` was not
         /// specified as the last field, it will be added automatically with the same
@@ -187,27 +187,27 @@ pub mod index {
         /// composite index is not directional, the `__name__` will be ordered
         /// `"ASCENDING"` (unless explicitly specified otherwise).
         /// Structure is documented below.
-        pub fields: pulumi_wasm_rust::Output<
+        pub fields: pulumi_gestalt_rust::Output<
             Vec<super::super::types::firestore::IndexField>,
         >,
         /// A server defined name for this index. Format:
         /// `projects/{{project}}/databases/{{database}}/collectionGroups/{{collection}}/indexes/{{server_generated_id}}`
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The scope at which a query is run. Default value: "COLLECTION" Possible values: ["COLLECTION", "COLLECTION_GROUP",
         /// "COLLECTION_RECURSIVE"]
-        pub query_scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub query_scope: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IndexArgs,
     ) -> IndexResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_scope_binding = args.api_scope.get_output(context).get_inner();
         let collection_binding = args.collection.get_output(context).get_inner();
@@ -248,21 +248,23 @@ pub mod index {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IndexResult {
-            api_scope: pulumi_wasm_rust::__private::into_domain(
+            api_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiScope"),
             ),
-            collection: pulumi_wasm_rust::__private::into_domain(
+            collection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("collection"),
             ),
-            database: pulumi_wasm_rust::__private::into_domain(
+            database: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("database"),
             ),
-            fields: pulumi_wasm_rust::__private::into_domain(o.extract_field("fields")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            fields: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("fields"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            query_scope: pulumi_wasm_rust::__private::into_domain(
+            query_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("queryScope"),
             ),
         }

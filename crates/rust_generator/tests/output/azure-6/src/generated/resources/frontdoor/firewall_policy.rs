@@ -7,8 +7,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -90,79 +90,81 @@
 /// ```
 ///
 pub mod firewall_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FirewallPolicyArgs {
         /// If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         #[builder(into, default)]
-        pub custom_block_response_body: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub custom_block_response_body: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
         #[builder(into, default)]
-        pub custom_block_response_status_code: pulumi_wasm_rust::InputOrOutput<
+        pub custom_block_response_status_code: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// One or more `custom_rule` blocks as defined below.
         #[builder(into, default)]
-        pub custom_rules: pulumi_wasm_rust::InputOrOutput<
+        pub custom_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::frontdoor::FirewallPolicyCustomRule>>,
         >,
         /// Is the policy a enabled state or disabled state. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// One or more `managed_rule` blocks as defined below.
         #[builder(into, default)]
-        pub managed_rules: pulumi_wasm_rust::InputOrOutput<
+        pub managed_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::frontdoor::FirewallPolicyManagedRule>>,
         >,
         /// The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
         #[builder(into, default)]
-        pub mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the policy. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If action type is redirect, this field represents redirect URL for the client.
         #[builder(into, default)]
-        pub redirect_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub redirect_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the Web Application Firewall Policy.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct FirewallPolicyResult {
         /// If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
-        pub custom_block_response_body: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_block_response_body: pulumi_gestalt_rust::Output<Option<String>>,
         /// If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
-        pub custom_block_response_status_code: pulumi_wasm_rust::Output<Option<i32>>,
+        pub custom_block_response_status_code: pulumi_gestalt_rust::Output<Option<i32>>,
         /// One or more `custom_rule` blocks as defined below.
-        pub custom_rules: pulumi_wasm_rust::Output<
+        pub custom_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::frontdoor::FirewallPolicyCustomRule>>,
         >,
         /// Is the policy a enabled state or disabled state. Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
-        pub frontend_endpoint_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub frontend_endpoint_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The Azure Region where this Front Door Firewall Policy exists.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// One or more `managed_rule` blocks as defined below.
-        pub managed_rules: pulumi_wasm_rust::Output<
+        pub managed_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::frontdoor::FirewallPolicyManagedRule>>,
         >,
         /// The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`.
-        pub mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the policy. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// If action type is redirect, this field represents redirect URL for the client.
-        pub redirect_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub redirect_url: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the resource group. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the Web Application Firewall Policy.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -171,11 +173,11 @@ pub mod firewall_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FirewallPolicyArgs,
     ) -> FirewallPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let custom_block_response_body_binding = args
             .custom_block_response_body
@@ -245,36 +247,36 @@ pub mod firewall_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FirewallPolicyResult {
-            custom_block_response_body: pulumi_wasm_rust::__private::into_domain(
+            custom_block_response_body: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customBlockResponseBody"),
             ),
-            custom_block_response_status_code: pulumi_wasm_rust::__private::into_domain(
+            custom_block_response_status_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customBlockResponseStatusCode"),
             ),
-            custom_rules: pulumi_wasm_rust::__private::into_domain(
+            custom_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customRules"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            frontend_endpoint_ids: pulumi_wasm_rust::__private::into_domain(
+            frontend_endpoint_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontendEndpointIds"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            managed_rules: pulumi_wasm_rust::__private::into_domain(
+            managed_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedRules"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            redirect_url: pulumi_wasm_rust::__private::into_domain(
+            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            redirect_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redirectUrl"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

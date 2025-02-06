@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -44,54 +44,54 @@
 /// ```
 ///
 pub mod mover_source_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MoverSourceEndpointArgs {
         /// Specifies a description for the Storage Mover Source Endpoint.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the directory being exported from the server. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub export: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub export: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the host name or IP address of the server exporting the file system. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub host: pulumi_wasm_rust::InputOrOutput<String>,
+        pub host: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name which should be used for this Storage Mover Source Endpoint. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the NFS protocol version. Possible values are `NFSauto`, `NFSv3` and `NFSv4`. Defaults to `NFSauto`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub nfs_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub nfs_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Storage Mover for this Storage Mover Source Endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_mover_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_mover_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MoverSourceEndpointResult {
         /// Specifies a description for the Storage Mover Source Endpoint.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the directory being exported from the server. Changing this forces a new resource to be created.
-        pub export: pulumi_wasm_rust::Output<Option<String>>,
+        pub export: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the host name or IP address of the server exporting the file system. Changing this forces a new resource to be created.
-        pub host: pulumi_wasm_rust::Output<String>,
+        pub host: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name which should be used for this Storage Mover Source Endpoint. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the NFS protocol version. Possible values are `NFSauto`, `NFSv3` and `NFSv4`. Defaults to `NFSauto`. Changing this forces a new resource to be created.
-        pub nfs_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub nfs_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the ID of the Storage Mover for this Storage Mover Source Endpoint. Changing this forces a new resource to be created.
-        pub storage_mover_id: pulumi_wasm_rust::Output<String>,
+        pub storage_mover_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MoverSourceEndpointArgs,
     ) -> MoverSourceEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let export_binding = args.export.get_output(context).get_inner();
@@ -135,16 +135,18 @@ pub mod mover_source_endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MoverSourceEndpointResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            export: pulumi_wasm_rust::__private::into_domain(o.extract_field("export")),
-            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            nfs_version: pulumi_wasm_rust::__private::into_domain(
+            export: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("export"),
+            ),
+            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            nfs_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nfsVersion"),
             ),
-            storage_mover_id: pulumi_wasm_rust::__private::into_domain(
+            storage_mover_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageMoverId"),
             ),
         }

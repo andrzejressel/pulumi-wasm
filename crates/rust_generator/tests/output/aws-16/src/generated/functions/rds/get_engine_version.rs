@@ -1,116 +1,116 @@
 pub mod get_engine_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetEngineVersionArgs {
         /// Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `default_only` may help avoid `multiple RDS engine versions` errors. See also `latest`.
         #[builder(into, default)]
-        pub default_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub default_only: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Database engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub engine: pulumi_wasm_rust::InputOrOutput<String>,
+        pub engine: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::InputOrOutput<
+        pub filters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::super::types::rds::GetEngineVersionFilter>>,
         >,
         /// Whether the engine version must have one or more major upgrade targets. Not including `has_major_target` or setting it to `false` doesn't imply that there's no corresponding major upgrade target for the engine version.
         #[builder(into, default)]
-        pub has_major_target: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub has_major_target: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether the engine version must have one or more minor upgrade targets. Not including `has_minor_target` or setting it to `false` doesn't imply that there's no corresponding minor upgrade target for the engine version.
         #[builder(into, default)]
-        pub has_minor_target: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub has_minor_target: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether the engine version `status` can either be `deprecated` or `available`. When not set or set to `false`, the engine version `status` will always be `available`.
         #[builder(into, default)]
-        pub include_all: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub include_all: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether the engine version is the most recent version matching the other criteria. This is different from `default_only` in important ways: "default" relies on AWS-defined defaults, the latest version isn't always the default, and AWS might have multiple default versions for an engine. As a result, `default_only` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `default_only`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
         #[builder(into, default)]
-        pub latest: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub latest: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Name of a specific database parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
         #[builder(into, default)]
-        pub parameter_group_family: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parameter_group_family: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_major_targets`.
         #[builder(into, default)]
-        pub preferred_major_targets: pulumi_wasm_rust::InputOrOutput<
+        pub preferred_major_targets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_upgrade_targets`.
         #[builder(into, default)]
-        pub preferred_upgrade_targets: pulumi_wasm_rust::InputOrOutput<
+        pub preferred_upgrade_targets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_versions`.
         #[builder(into, default)]
-        pub preferred_versions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub preferred_versions: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetEngineVersionResult {
         /// Default character set for new instances of the engine version.
-        pub default_character_set: pulumi_wasm_rust::Output<String>,
-        pub default_only: pulumi_wasm_rust::Output<Option<bool>>,
-        pub engine: pulumi_wasm_rust::Output<String>,
+        pub default_character_set: pulumi_gestalt_rust::Output<String>,
+        pub default_only: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub engine: pulumi_gestalt_rust::Output<String>,
         /// Description of the engine.
-        pub engine_description: pulumi_wasm_rust::Output<String>,
+        pub engine_description: pulumi_gestalt_rust::Output<String>,
         /// Set of log types that the engine version has available for export to CloudWatch Logs.
-        pub exportable_log_types: pulumi_wasm_rust::Output<Vec<String>>,
-        pub filters: pulumi_wasm_rust::Output<
+        pub exportable_log_types: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub filters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::super::types::rds::GetEngineVersionFilter>>,
         >,
-        pub has_major_target: pulumi_wasm_rust::Output<Option<bool>>,
-        pub has_minor_target: pulumi_wasm_rust::Output<Option<bool>>,
+        pub has_major_target: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub has_minor_target: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub include_all: pulumi_wasm_rust::Output<Option<bool>>,
-        pub latest: pulumi_wasm_rust::Output<Option<bool>>,
-        pub parameter_group_family: pulumi_wasm_rust::Output<String>,
-        pub preferred_major_targets: pulumi_wasm_rust::Output<Option<Vec<String>>>,
-        pub preferred_upgrade_targets: pulumi_wasm_rust::Output<Option<Vec<String>>>,
-        pub preferred_versions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub include_all: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub latest: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub parameter_group_family: pulumi_gestalt_rust::Output<String>,
+        pub preferred_major_targets: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
+        pub preferred_upgrade_targets: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
+        pub preferred_versions: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Status of the engine version, either `available` or `deprecated`.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Set of character sets supported by th engine version.
-        pub supported_character_sets: pulumi_wasm_rust::Output<Vec<String>>,
+        pub supported_character_sets: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Set of features supported by the engine version.
-        pub supported_feature_names: pulumi_wasm_rust::Output<Vec<String>>,
+        pub supported_feature_names: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Set of supported engine version modes.
-        pub supported_modes: pulumi_wasm_rust::Output<Vec<String>>,
+        pub supported_modes: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Set of the time zones supported by the engine version.
-        pub supported_timezones: pulumi_wasm_rust::Output<Vec<String>>,
+        pub supported_timezones: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Whether you can use Aurora global databases with the engine version.
-        pub supports_global_databases: pulumi_wasm_rust::Output<bool>,
+        pub supports_global_databases: pulumi_gestalt_rust::Output<bool>,
         /// Whether the engine version supports Aurora Limitless Database.
-        pub supports_limitless_database: pulumi_wasm_rust::Output<bool>,
+        pub supports_limitless_database: pulumi_gestalt_rust::Output<bool>,
         /// Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
-        pub supports_log_exports_to_cloudwatch: pulumi_wasm_rust::Output<bool>,
+        pub supports_log_exports_to_cloudwatch: pulumi_gestalt_rust::Output<bool>,
         /// Whether you can use Aurora parallel query with the engine version.
-        pub supports_parallel_query: pulumi_wasm_rust::Output<bool>,
+        pub supports_parallel_query: pulumi_gestalt_rust::Output<bool>,
         /// Whether the engine version supports read replicas.
-        pub supports_read_replica: pulumi_wasm_rust::Output<bool>,
+        pub supports_read_replica: pulumi_gestalt_rust::Output<bool>,
         /// Set of versions that are valid major version upgrades for the engine version.
-        pub valid_major_targets: pulumi_wasm_rust::Output<Vec<String>>,
+        pub valid_major_targets: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Set of versions that are valid minor version upgrades for the engine version.
-        pub valid_minor_targets: pulumi_wasm_rust::Output<Vec<String>>,
+        pub valid_minor_targets: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Set of versions that are valid major or minor upgrades for the engine version.
-        pub valid_upgrade_targets: pulumi_wasm_rust::Output<Vec<String>>,
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub valid_upgrade_targets: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub version: pulumi_gestalt_rust::Output<String>,
         /// Complete engine version.
-        pub version_actual: pulumi_wasm_rust::Output<String>,
+        pub version_actual: pulumi_gestalt_rust::Output<String>,
         /// Description of the engine version.
-        pub version_description: pulumi_wasm_rust::Output<String>,
+        pub version_description: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetEngineVersionArgs,
     ) -> GetEngineVersionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let default_only_binding = args.default_only.get_output(context).get_inner();
         let engine_binding = args.engine.get_output(context).get_inner();
@@ -198,89 +198,95 @@ pub mod get_engine_version {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetEngineVersionResult {
-            default_character_set: pulumi_wasm_rust::__private::into_domain(
+            default_character_set: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultCharacterSet"),
             ),
-            default_only: pulumi_wasm_rust::__private::into_domain(
+            default_only: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultOnly"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
-            engine_description: pulumi_wasm_rust::__private::into_domain(
+            engine: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("engine"),
+            ),
+            engine_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineDescription"),
             ),
-            exportable_log_types: pulumi_wasm_rust::__private::into_domain(
+            exportable_log_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exportableLogTypes"),
             ),
-            filters: pulumi_wasm_rust::__private::into_domain(
+            filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filters"),
             ),
-            has_major_target: pulumi_wasm_rust::__private::into_domain(
+            has_major_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hasMajorTarget"),
             ),
-            has_minor_target: pulumi_wasm_rust::__private::into_domain(
+            has_minor_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hasMinorTarget"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            include_all: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            include_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("includeAll"),
             ),
-            latest: pulumi_wasm_rust::__private::into_domain(o.extract_field("latest")),
-            parameter_group_family: pulumi_wasm_rust::__private::into_domain(
+            latest: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("latest"),
+            ),
+            parameter_group_family: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameterGroupFamily"),
             ),
-            preferred_major_targets: pulumi_wasm_rust::__private::into_domain(
+            preferred_major_targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredMajorTargets"),
             ),
-            preferred_upgrade_targets: pulumi_wasm_rust::__private::into_domain(
+            preferred_upgrade_targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredUpgradeTargets"),
             ),
-            preferred_versions: pulumi_wasm_rust::__private::into_domain(
+            preferred_versions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredVersions"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            supported_character_sets: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            supported_character_sets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportedCharacterSets"),
             ),
-            supported_feature_names: pulumi_wasm_rust::__private::into_domain(
+            supported_feature_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportedFeatureNames"),
             ),
-            supported_modes: pulumi_wasm_rust::__private::into_domain(
+            supported_modes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportedModes"),
             ),
-            supported_timezones: pulumi_wasm_rust::__private::into_domain(
+            supported_timezones: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportedTimezones"),
             ),
-            supports_global_databases: pulumi_wasm_rust::__private::into_domain(
+            supports_global_databases: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportsGlobalDatabases"),
             ),
-            supports_limitless_database: pulumi_wasm_rust::__private::into_domain(
+            supports_limitless_database: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportsLimitlessDatabase"),
             ),
-            supports_log_exports_to_cloudwatch: pulumi_wasm_rust::__private::into_domain(
+            supports_log_exports_to_cloudwatch: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportsLogExportsToCloudwatch"),
             ),
-            supports_parallel_query: pulumi_wasm_rust::__private::into_domain(
+            supports_parallel_query: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportsParallelQuery"),
             ),
-            supports_read_replica: pulumi_wasm_rust::__private::into_domain(
+            supports_read_replica: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportsReadReplica"),
             ),
-            valid_major_targets: pulumi_wasm_rust::__private::into_domain(
+            valid_major_targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validMajorTargets"),
             ),
-            valid_minor_targets: pulumi_wasm_rust::__private::into_domain(
+            valid_minor_targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validMinorTargets"),
             ),
-            valid_upgrade_targets: pulumi_wasm_rust::__private::into_domain(
+            valid_upgrade_targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validUpgradeTargets"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
+            version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("version"),
             ),
-            version_actual: pulumi_wasm_rust::__private::into_domain(
+            version_actual: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionActual"),
             ),
-            version_description: pulumi_wasm_rust::__private::into_domain(
+            version_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionDescription"),
             ),
         }

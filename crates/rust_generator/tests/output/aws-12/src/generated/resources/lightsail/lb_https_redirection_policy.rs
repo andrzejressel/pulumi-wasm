@@ -41,34 +41,34 @@
 /// $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy test example-load-balancer
 /// ```
 pub mod lb_https_redirection_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LbHttpsRedirectionPolicyArgs {
         /// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// The name of the load balancer to which you want to enable http to https redirection.
         #[builder(into)]
-        pub lb_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub lb_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LbHttpsRedirectionPolicyResult {
         /// The Https Redirection state of the load balancer. `true` to activate http to https redirection or `false` to deactivate http to https redirection.
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_gestalt_rust::Output<bool>,
         /// The name of the load balancer to which you want to enable http to https redirection.
-        pub lb_name: pulumi_wasm_rust::Output<String>,
+        pub lb_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LbHttpsRedirectionPolicyArgs,
     ) -> LbHttpsRedirectionPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let enabled_binding = args.enabled.get_output(context).get_inner();
         let lb_name_binding = args.lb_name.get_output(context).get_inner();
@@ -90,10 +90,12 @@ pub mod lb_https_redirection_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LbHttpsRedirectionPolicyResult {
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            lb_name: pulumi_wasm_rust::__private::into_domain(o.extract_field("lbName")),
+            lb_name: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("lbName"),
+            ),
         }
     }
 }

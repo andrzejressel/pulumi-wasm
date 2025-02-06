@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = address_map::create(
@@ -42,51 +42,51 @@
 /// ```
 ///
 pub mod address_map {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AddressMapArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// If you have legacy TLS clients which do not send the TLS server name indicator, then you can specify one default SNI on the map.
         #[builder(into, default)]
-        pub default_sni: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_sni: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Description of the address map.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether the Address Map is enabled or not.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// The set of IPs on the Address Map.
         #[builder(into, default)]
-        pub ips: pulumi_wasm_rust::InputOrOutput<
+        pub ips: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::AddressMapIp>>,
         >,
         /// Zones and Accounts which will be assigned IPs on this Address Map.
         #[builder(into, default)]
-        pub memberships: pulumi_wasm_rust::InputOrOutput<
+        pub memberships: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::AddressMapMembership>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AddressMapResult {
         /// The account identifier to target for the resource.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// If set to false, then the Address Map cannot be deleted via API. This is true for Cloudflare-managed maps.
-        pub can_delete: pulumi_wasm_rust::Output<bool>,
+        pub can_delete: pulumi_gestalt_rust::Output<bool>,
         /// If set to false, then the IPs on the Address Map cannot be modified via the API. This is true for Cloudflare-managed maps.
-        pub can_modify_ips: pulumi_wasm_rust::Output<bool>,
+        pub can_modify_ips: pulumi_gestalt_rust::Output<bool>,
         /// If you have legacy TLS clients which do not send the TLS server name indicator, then you can specify one default SNI on the map.
-        pub default_sni: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_sni: pulumi_gestalt_rust::Output<Option<String>>,
         /// Description of the address map.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether the Address Map is enabled or not.
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_gestalt_rust::Output<bool>,
         /// The set of IPs on the Address Map.
-        pub ips: pulumi_wasm_rust::Output<Option<Vec<super::types::AddressMapIp>>>,
+        pub ips: pulumi_gestalt_rust::Output<Option<Vec<super::types::AddressMapIp>>>,
         /// Zones and Accounts which will be assigned IPs on this Address Map.
-        pub memberships: pulumi_wasm_rust::Output<
+        pub memberships: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::AddressMapMembership>>,
         >,
     }
@@ -95,11 +95,11 @@ pub mod address_map {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AddressMapArgs,
     ) -> AddressMapResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let default_sni_binding = args.default_sni.get_output(context).get_inner();
@@ -140,26 +140,26 @@ pub mod address_map {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AddressMapResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            can_delete: pulumi_wasm_rust::__private::into_domain(
+            can_delete: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("canDelete"),
             ),
-            can_modify_ips: pulumi_wasm_rust::__private::into_domain(
+            can_modify_ips: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("canModifyIps"),
             ),
-            default_sni: pulumi_wasm_rust::__private::into_domain(
+            default_sni: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSni"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            ips: pulumi_wasm_rust::__private::into_domain(o.extract_field("ips")),
-            memberships: pulumi_wasm_rust::__private::into_domain(
+            ips: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ips")),
+            memberships: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("memberships"),
             ),
         }

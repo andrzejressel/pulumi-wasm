@@ -4,8 +4,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = apple_app::create(
@@ -22,8 +22,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let apple = api_key::create(
@@ -94,7 +94,7 @@
 /// ```
 ///
 pub mod apple_app {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppleAppArgs {
@@ -102,67 +102,67 @@ pub mod apple_app {
         /// If apiKeyId is not set during creation, then Firebase automatically associates an apiKeyId with the AppleApp.
         /// This auto-associated key may be an existing valid key or, if no valid key exists, a new one will be provisioned.
         #[builder(into, default)]
-        pub api_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub api_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The automatically generated Apple ID assigned to the Apple app by Apple in the Apple App Store.
         #[builder(into, default)]
-        pub app_store_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub app_store_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The canonical bundle ID of the Apple app as it would appear in the Apple AppStore.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub bundle_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bundle_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The user-assigned display name of the App.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Apple Developer Team ID associated with the App in the App Store.
         #[builder(into, default)]
-        pub team_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub team_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AppleAppResult {
         /// The globally unique, Google-assigned identifier (UID) for the Firebase API key associated with the AppleApp.
         /// If apiKeyId is not set during creation, then Firebase automatically associates an apiKeyId with the AppleApp.
         /// This auto-associated key may be an existing valid key or, if no valid key exists, a new one will be provisioned.
-        pub api_key_id: pulumi_wasm_rust::Output<String>,
+        pub api_key_id: pulumi_gestalt_rust::Output<String>,
         /// The globally unique, Firebase-assigned identifier of the App.
         /// This identifier should be treated as an opaque token, as the data format is not specified.
-        pub app_id: pulumi_wasm_rust::Output<String>,
+        pub app_id: pulumi_gestalt_rust::Output<String>,
         /// The automatically generated Apple ID assigned to the Apple app by Apple in the Apple App Store.
-        pub app_store_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub app_store_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The canonical bundle ID of the Apple app as it would appear in the Apple AppStore.
         ///
         ///
         /// - - -
-        pub bundle_id: pulumi_wasm_rust::Output<String>,
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub bundle_id: pulumi_gestalt_rust::Output<String>,
+        pub deletion_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The user-assigned display name of the App.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The fully qualified resource name of the App, for example:
         /// projects/projectId/iosApps/appId
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The Apple Developer Team ID associated with the App in the App Store.
-        pub team_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub team_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AppleAppArgs,
     ) -> AppleAppResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_key_id_binding = args.api_key_id.get_output(context).get_inner();
         let app_store_id_binding = args.app_store_id.get_output(context).get_inner();
@@ -211,27 +211,31 @@ pub mod apple_app {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AppleAppResult {
-            api_key_id: pulumi_wasm_rust::__private::into_domain(
+            api_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiKeyId"),
             ),
-            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
-            app_store_id: pulumi_wasm_rust::__private::into_domain(
+            app_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("appId"),
+            ),
+            app_store_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appStoreId"),
             ),
-            bundle_id: pulumi_wasm_rust::__private::into_domain(
+            bundle_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bundleId"),
             ),
-            deletion_policy: pulumi_wasm_rust::__private::into_domain(
+            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionPolicy"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            team_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("teamId")),
+            team_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("teamId"),
+            ),
         }
     }
 }

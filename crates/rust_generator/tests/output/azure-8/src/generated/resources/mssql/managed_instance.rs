@@ -224,148 +224,150 @@
 /// ```
 ///
 pub mod managed_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedInstanceArgs {
         /// The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub administrator_login: pulumi_wasm_rust::InputOrOutput<String>,
+        pub administrator_login: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         #[builder(into)]
-        pub administrator_login_password: pulumi_wasm_rust::InputOrOutput<String>,
+        pub administrator_login_password: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub collation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub collation: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
         #[builder(into, default)]
-        pub dns_zone_partner_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub dns_zone_partner_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mssql::ManagedInstanceIdentity>,
         >,
         /// What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
         #[builder(into)]
-        pub license_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub license_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
         #[builder(into, default)]
-        pub maintenance_configuration_name: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance_configuration_name: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
         #[builder(into, default)]
-        pub minimum_tls_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub minimum_tls_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
         #[builder(into, default)]
-        pub proxy_override: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub proxy_override: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Is the public data endpoint enabled? Default value is `false`.
         #[builder(into, default)]
-        pub public_data_endpoint_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_data_endpoint_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The service principal type. The only possible value is `SystemAssigned`.
         #[builder(into, default)]
-        pub service_principal_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_principal_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
         #[builder(into, default)]
-        pub storage_account_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_account_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
         #[builder(into)]
-        pub storage_size_in_gb: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub storage_size_in_gb: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub timezone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub timezone_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
         #[builder(into)]
-        pub vcores: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub vcores: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
         #[builder(into, default)]
-        pub zone_redundant_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub zone_redundant_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct ManagedInstanceResult {
         /// The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
-        pub administrator_login: pulumi_wasm_rust::Output<String>,
+        pub administrator_login: pulumi_gestalt_rust::Output<String>,
         /// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
-        pub administrator_login_password: pulumi_wasm_rust::Output<String>,
+        pub administrator_login_password: pulumi_gestalt_rust::Output<String>,
         /// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
-        pub collation: pulumi_wasm_rust::Output<Option<String>>,
+        pub collation: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Dns Zone where the SQL Managed Instance is located.
-        pub dns_zone: pulumi_wasm_rust::Output<String>,
+        pub dns_zone: pulumi_gestalt_rust::Output<String>,
         /// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
-        pub dns_zone_partner_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub dns_zone_partner_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The fully qualified domain name of the Azure Managed SQL Instance
-        pub fqdn: pulumi_wasm_rust::Output<String>,
+        pub fqdn: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::mssql::ManagedInstanceIdentity>,
         >,
         /// What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
-        pub license_type: pulumi_wasm_rust::Output<String>,
+        pub license_type: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
-        pub maintenance_configuration_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub maintenance_configuration_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
-        pub minimum_tls_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub minimum_tls_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`.
-        pub proxy_override: pulumi_wasm_rust::Output<Option<String>>,
+        pub proxy_override: pulumi_gestalt_rust::Output<Option<String>>,
         /// Is the public data endpoint enabled? Default value is `false`.
-        pub public_data_endpoint_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_data_endpoint_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the resource group in which to create the SQL Managed Instance. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The service principal type. The only possible value is `SystemAssigned`.
-        pub service_principal_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_principal_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
-        pub storage_account_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
-        pub storage_size_in_gb: pulumi_wasm_rust::Output<i32>,
+        pub storage_size_in_gb: pulumi_gestalt_rust::Output<i32>,
         /// The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created.
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
-        pub timezone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub timezone_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
-        pub vcores: pulumi_wasm_rust::Output<i32>,
+        pub vcores: pulumi_gestalt_rust::Output<i32>,
         /// Specifies whether or not the SQL Managed Instance is zone redundant. Defaults to `false`.
-        pub zone_redundant_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub zone_redundant_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ManagedInstanceArgs,
     ) -> ManagedInstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let administrator_login_binding = args
             .administrator_login
@@ -519,68 +521,70 @@ pub mod managed_instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ManagedInstanceResult {
-            administrator_login: pulumi_wasm_rust::__private::into_domain(
+            administrator_login: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("administratorLogin"),
             ),
-            administrator_login_password: pulumi_wasm_rust::__private::into_domain(
+            administrator_login_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("administratorLoginPassword"),
             ),
-            collation: pulumi_wasm_rust::__private::into_domain(
+            collation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("collation"),
             ),
-            dns_zone: pulumi_wasm_rust::__private::into_domain(
+            dns_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsZone"),
             ),
-            dns_zone_partner_id: pulumi_wasm_rust::__private::into_domain(
+            dns_zone_partner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsZonePartnerId"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            license_type: pulumi_wasm_rust::__private::into_domain(
+            license_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenseType"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maintenance_configuration_name: pulumi_wasm_rust::__private::into_domain(
+            maintenance_configuration_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceConfigurationName"),
             ),
-            minimum_tls_version: pulumi_wasm_rust::__private::into_domain(
+            minimum_tls_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minimumTlsVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            proxy_override: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            proxy_override: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("proxyOverride"),
             ),
-            public_data_endpoint_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_data_endpoint_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicDataEndpointEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            service_principal_type: pulumi_wasm_rust::__private::into_domain(
+            service_principal_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("servicePrincipalType"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            storage_account_type: pulumi_wasm_rust::__private::into_domain(
+            storage_account_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountType"),
             ),
-            storage_size_in_gb: pulumi_wasm_rust::__private::into_domain(
+            storage_size_in_gb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageSizeInGb"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            timezone_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            timezone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timezoneId"),
             ),
-            vcores: pulumi_wasm_rust::__private::into_domain(o.extract_field("vcores")),
-            zone_redundant_enabled: pulumi_wasm_rust::__private::into_domain(
+            vcores: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("vcores"),
+            ),
+            zone_redundant_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("zoneRedundantEnabled"),
             ),
         }

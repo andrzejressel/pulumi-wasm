@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -45,53 +45,53 @@
 /// ```
 ///
 pub mod hyper_v_replication_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HyperVReplicationPolicyArgs {
         /// Specifies the frequency at which to create application consistent recovery points.
         #[builder(into)]
-        pub application_consistent_snapshot_frequency_in_hours: pulumi_wasm_rust::InputOrOutput<
+        pub application_consistent_snapshot_frequency_in_hours: pulumi_gestalt_rust::InputOrOutput<
             i32,
         >,
         /// The name of the replication policy. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The duration in hours for which the recovery points need to be stored.
         #[builder(into)]
-        pub recovery_point_retention_in_hours: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub recovery_point_retention_in_hours: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The id of the vault that should be updated. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub recovery_vault_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
         #[builder(into)]
-        pub replication_interval_in_seconds: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub replication_interval_in_seconds: pulumi_gestalt_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct HyperVReplicationPolicyResult {
         /// Specifies the frequency at which to create application consistent recovery points.
-        pub application_consistent_snapshot_frequency_in_hours: pulumi_wasm_rust::Output<
+        pub application_consistent_snapshot_frequency_in_hours: pulumi_gestalt_rust::Output<
             i32,
         >,
         /// The name of the replication policy. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The duration in hours for which the recovery points need to be stored.
-        pub recovery_point_retention_in_hours: pulumi_wasm_rust::Output<i32>,
+        pub recovery_point_retention_in_hours: pulumi_gestalt_rust::Output<i32>,
         /// The id of the vault that should be updated. Changing this forces a new resource to be created.
-        pub recovery_vault_id: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`.
-        pub replication_interval_in_seconds: pulumi_wasm_rust::Output<i32>,
+        pub replication_interval_in_seconds: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HyperVReplicationPolicyArgs,
     ) -> HyperVReplicationPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_consistent_snapshot_frequency_in_hours_binding = args
             .application_consistent_snapshot_frequency_in_hours
@@ -140,17 +140,17 @@ pub mod hyper_v_replication_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HyperVReplicationPolicyResult {
-            application_consistent_snapshot_frequency_in_hours: pulumi_wasm_rust::__private::into_domain(
+            application_consistent_snapshot_frequency_in_hours: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationConsistentSnapshotFrequencyInHours"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            recovery_point_retention_in_hours: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            recovery_point_retention_in_hours: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryPointRetentionInHours"),
             ),
-            recovery_vault_id: pulumi_wasm_rust::__private::into_domain(
+            recovery_vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryVaultId"),
             ),
-            replication_interval_in_seconds: pulumi_wasm_rust::__private::into_domain(
+            replication_interval_in_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationIntervalInSeconds"),
             ),
         }

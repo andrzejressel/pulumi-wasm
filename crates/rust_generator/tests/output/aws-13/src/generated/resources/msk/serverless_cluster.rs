@@ -13,51 +13,51 @@
 /// $ pulumi import aws:msk/serverlessCluster:ServerlessCluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
 /// ```
 pub mod serverless_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServerlessClusterArgs {
         /// Specifies client authentication information for the serverless cluster. See below.
         #[builder(into)]
-        pub client_authentication: pulumi_wasm_rust::InputOrOutput<
+        pub client_authentication: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::msk::ServerlessClusterClientAuthentication,
         >,
         /// The name of the serverless cluster.
         #[builder(into, default)]
-        pub cluster_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cluster_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// VPC configuration information. See below.
         #[builder(into)]
-        pub vpc_configs: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_configs: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::msk::ServerlessClusterVpcConfig>,
         >,
     }
     #[allow(dead_code)]
     pub struct ServerlessClusterResult {
         /// The ARN of the serverless cluster.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Specifies client authentication information for the serverless cluster. See below.
-        pub client_authentication: pulumi_wasm_rust::Output<
+        pub client_authentication: pulumi_gestalt_rust::Output<
             super::super::types::msk::ServerlessClusterClientAuthentication,
         >,
         /// The name of the serverless cluster.
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_gestalt_rust::Output<String>,
         /// UUID of the serverless cluster, for use in IAM policies.
-        pub cluster_uuid: pulumi_wasm_rust::Output<String>,
+        pub cluster_uuid: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// VPC configuration information. See below.
-        pub vpc_configs: pulumi_wasm_rust::Output<
+        pub vpc_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::msk::ServerlessClusterVpcConfig>,
         >,
     }
@@ -66,11 +66,11 @@ pub mod serverless_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServerlessClusterArgs,
     ) -> ServerlessClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let client_authentication_binding = args
             .client_authentication
@@ -104,21 +104,21 @@ pub mod serverless_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServerlessClusterResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            client_authentication: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            client_authentication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientAuthentication"),
             ),
-            cluster_name: pulumi_wasm_rust::__private::into_domain(
+            cluster_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterName"),
             ),
-            cluster_uuid: pulumi_wasm_rust::__private::into_domain(
+            cluster_uuid: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterUuid"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vpc_configs: pulumi_wasm_rust::__private::into_domain(
+            vpc_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcConfigs"),
             ),
         }

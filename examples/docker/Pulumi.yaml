@@ -1,2 +1,2 @@
 name: Docker
-runtime: wasm
+runtime: gestalt

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = waiting_room_settings::create(
@@ -24,34 +24,36 @@
 /// ```
 ///
 pub mod waiting_room_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WaitingRoomSettingsArgs {
         /// Whether to allow verified search engine crawlers to bypass all waiting rooms on this zone. Defaults to `false`.
         #[builder(into, default)]
-        pub search_engine_crawler_bypass: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub search_engine_crawler_bypass: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WaitingRoomSettingsResult {
         /// Whether to allow verified search engine crawlers to bypass all waiting rooms on this zone. Defaults to `false`.
-        pub search_engine_crawler_bypass: pulumi_wasm_rust::Output<Option<bool>>,
+        pub search_engine_crawler_bypass: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WaitingRoomSettingsArgs,
     ) -> WaitingRoomSettingsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let search_engine_crawler_bypass_binding = args
             .search_engine_crawler_bypass
@@ -75,10 +77,12 @@ pub mod waiting_room_settings {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WaitingRoomSettingsResult {
-            search_engine_crawler_bypass: pulumi_wasm_rust::__private::into_domain(
+            search_engine_crawler_bypass: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("searchEngineCrawlerBypass"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

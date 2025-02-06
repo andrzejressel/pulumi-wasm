@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foo = cluster::create(
@@ -25,8 +25,8 @@
 /// ### Execute Command Configuration with Override Logging
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = key::create(
@@ -144,62 +144,62 @@
 /// $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
 /// ```
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
         /// Execute command configuration for the cluster. See `configuration` Block for details.
         #[builder(into, default)]
-        pub configuration: pulumi_wasm_rust::InputOrOutput<
+        pub configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ecs::ClusterConfiguration>,
         >,
         /// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Default Service Connect namespace. See `service_connect_defaults` Block for details.
         #[builder(into, default)]
-        pub service_connect_defaults: pulumi_wasm_rust::InputOrOutput<
+        pub service_connect_defaults: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ecs::ClusterServiceConnectDefaults>,
         >,
         /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
         #[builder(into, default)]
-        pub settings: pulumi_wasm_rust::InputOrOutput<
+        pub settings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ecs::ClusterSetting>>,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ClusterResult {
         /// ARN that identifies the cluster.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Execute command configuration for the cluster. See `configuration` Block for details.
-        pub configuration: pulumi_wasm_rust::Output<
+        pub configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::ecs::ClusterConfiguration>,
         >,
         /// Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Default Service Connect namespace. See `service_connect_defaults` Block for details.
-        pub service_connect_defaults: pulumi_wasm_rust::Output<
+        pub service_connect_defaults: pulumi_gestalt_rust::Output<
             Option<super::super::types::ecs::ClusterServiceConnectDefaults>,
         >,
         /// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. See `setting` Block for details.
-        pub settings: pulumi_wasm_rust::Output<
+        pub settings: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ecs::ClusterSetting>,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -208,11 +208,11 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let configuration_binding = args.configuration.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -251,19 +251,19 @@ pub mod cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            configuration: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configuration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            service_connect_defaults: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            service_connect_defaults: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceConnectDefaults"),
             ),
-            settings: pulumi_wasm_rust::__private::into_domain(
+            settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("settings"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ### Basic usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = model_package_group::create(
@@ -26,38 +26,38 @@
 /// $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
 /// ```
 pub mod model_package_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ModelPackageGroupArgs {
         /// A description for the model group.
         #[builder(into, default)]
-        pub model_package_group_description: pulumi_wasm_rust::InputOrOutput<
+        pub model_package_group_description: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The name of the model group.
         #[builder(into)]
-        pub model_package_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub model_package_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ModelPackageGroupResult {
         /// The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A description for the model group.
-        pub model_package_group_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub model_package_group_description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the model group.
-        pub model_package_group_name: pulumi_wasm_rust::Output<String>,
+        pub model_package_group_name: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -66,11 +66,11 @@ pub mod model_package_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ModelPackageGroupArgs,
     ) -> ModelPackageGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let model_package_group_description_binding = args
             .model_package_group_description
@@ -102,15 +102,15 @@ pub mod model_package_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ModelPackageGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            model_package_group_description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            model_package_group_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modelPackageGroupDescription"),
             ),
-            model_package_group_name: pulumi_wasm_rust::__private::into_domain(
+            model_package_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modelPackageGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

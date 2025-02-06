@@ -112,7 +112,7 @@
 /// ```
 ///
 pub mod automation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AutomationArgs {
@@ -126,15 +126,15 @@ pub mod automation {
         /// details. **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field 'effective_annotations' for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The delivery_pipeline for the resource
         #[builder(into)]
-        pub delivery_pipeline: pulumi_wasm_rust::InputOrOutput<String>,
+        pub delivery_pipeline: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Optional. Description of the 'Automation'. Max length is 255 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. Labels are attributes that can be set and used by both the user and by Cloud Deploy. Labels must meet the
         /// following constraints: * Keys and values can contain only lowercase letters, numeric characters, underscores, and
         /// dashes. * All characters must use UTF-8 encoding, and international characters are allowed. * Keys must start with a
@@ -143,35 +143,35 @@ pub mod automation {
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the `Automation`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Required. List of Automation rules associated with the Automation resource. Must have at least one rule and limited to 250 rules per Delivery Pipeline. Note: the order of the rules here is not the same as the order of execution.
         /// Structure is documented below.
         #[builder(into)]
-        pub rules: pulumi_wasm_rust::InputOrOutput<
+        pub rules: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::clouddeploy::AutomationRule>,
         >,
         /// Required. Selected resources to which the automation will be applied.
         /// Structure is documented below.
         #[builder(into)]
-        pub selector: pulumi_wasm_rust::InputOrOutput<
+        pub selector: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::clouddeploy::AutomationSelector,
         >,
         /// Required. Email address of the user-managed IAM service account that creates Cloud Deploy release and rollout resources.
         #[builder(into)]
-        pub service_account: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_account: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Optional. When Suspended, automation is deactivated from execution.
         #[builder(into, default)]
-        pub suspended: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub suspended: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct AutomationResult {
@@ -184,24 +184,24 @@ pub mod automation {
         /// https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/#syntax-and-character-set for more
         /// details. **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field 'effective_annotations' for all of the annotations present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Output only. Time at which the automation was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The delivery_pipeline for the resource
-        pub delivery_pipeline: pulumi_wasm_rust::Output<String>,
+        pub delivery_pipeline: pulumi_gestalt_rust::Output<String>,
         /// Optional. Description of the 'Automation'. Max length is 255 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Optional. The weak etag of the `Automation` resource. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Optional. Labels are attributes that can be set and used by both the user and by Cloud Deploy. Labels must meet the
         /// following constraints: * Keys and values can contain only lowercase letters, numeric characters, underscores, and
         /// dashes. * All characters must use UTF-8 encoding, and international characters are allowed. * Keys must start with a
@@ -209,48 +209,48 @@ pub mod automation {
         /// are additionally constrained to be <= 63 characters. **Note**: This field is non-authoritative, and will only manage the
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location for the resource
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Name of the `Automation`.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Required. List of Automation rules associated with the Automation resource. Must have at least one rule and limited to 250 rules per Delivery Pipeline. Note: the order of the rules here is not the same as the order of execution.
         /// Structure is documented below.
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::clouddeploy::AutomationRule>,
         >,
         /// Required. Selected resources to which the automation will be applied.
         /// Structure is documented below.
-        pub selector: pulumi_wasm_rust::Output<
+        pub selector: pulumi_gestalt_rust::Output<
             super::super::types::clouddeploy::AutomationSelector,
         >,
         /// Required. Email address of the user-managed IAM service account that creates Cloud Deploy release and rollout resources.
-        pub service_account: pulumi_wasm_rust::Output<String>,
+        pub service_account: pulumi_gestalt_rust::Output<String>,
         /// Optional. When Suspended, automation is deactivated from execution.
-        pub suspended: pulumi_wasm_rust::Output<Option<bool>>,
+        pub suspended: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Output only. Unique identifier of the `Automation`.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Output only. Time at which the automation was updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AutomationArgs,
     ) -> AutomationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let delivery_pipeline_binding = args
@@ -322,48 +322,50 @@ pub mod automation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AutomationResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            delivery_pipeline: pulumi_wasm_rust::__private::into_domain(
+            delivery_pipeline: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deliveryPipeline"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
-            selector: pulumi_wasm_rust::__private::into_domain(
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
+            selector: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selector"),
             ),
-            service_account: pulumi_wasm_rust::__private::into_domain(
+            service_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccount"),
             ),
-            suspended: pulumi_wasm_rust::__private::into_domain(
+            suspended: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("suspended"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -54,233 +54,239 @@
 /// ```
 ///
 pub mod windows_web_app_slot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WindowsWebAppSlotArgs {
         /// The ID of the Windows Web App this Deployment Slot will be part of. Changing this forces a new Windows Web App to be created.
         #[builder(into)]
-        pub app_service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_service_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of key-value pairs of App Settings.
         #[builder(into, default)]
-        pub app_settings: pulumi_wasm_rust::InputOrOutput<
+        pub app_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An `auth_settings` block as defined below.
         #[builder(into, default)]
-        pub auth_settings: pulumi_wasm_rust::InputOrOutput<
+        pub auth_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::WindowsWebAppSlotAuthSettings>,
         >,
         /// An `auth_settings_v2` block as defined below.
         #[builder(into, default)]
-        pub auth_settings_v2: pulumi_wasm_rust::InputOrOutput<
+        pub auth_settings_v2: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::WindowsWebAppSlotAuthSettingsV2>,
         >,
         /// A `backup` block as defined below.
         #[builder(into, default)]
-        pub backup: pulumi_wasm_rust::InputOrOutput<
+        pub backup: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::WindowsWebAppSlotBackup>,
         >,
         /// Should Client Affinity be enabled?
         #[builder(into, default)]
-        pub client_affinity_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub client_affinity_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Should Client Certificates be enabled?
         #[builder(into, default)]
-        pub client_certificate_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub client_certificate_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Paths to exclude when using client certificates, separated by ;
         #[builder(into, default)]
-        pub client_certificate_exclusion_paths: pulumi_wasm_rust::InputOrOutput<
+        pub client_certificate_exclusion_paths: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
         #[builder(into, default)]
-        pub client_certificate_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_certificate_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `connection_string` blocks as defined below.
         #[builder(into, default)]
-        pub connection_strings: pulumi_wasm_rust::InputOrOutput<
+        pub connection_strings: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::appservice::WindowsWebAppSlotConnectionString>,
             >,
         >,
         /// Should the Windows Web App Slot be enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub ftp_publish_basic_authentication_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub ftp_publish_basic_authentication_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
         #[builder(into, default)]
-        pub https_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub https_only: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::WindowsWebAppSlotIdentity>,
         >,
         /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         #[builder(into, default)]
-        pub key_vault_reference_identity_id: pulumi_wasm_rust::InputOrOutput<
+        pub key_vault_reference_identity_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// A `logs` block as defined below.
         #[builder(into, default)]
-        pub logs: pulumi_wasm_rust::InputOrOutput<
+        pub logs: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::WindowsWebAppSlotLogs>,
         >,
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Should public network access be enabled for the Web App. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
         ///
         /// > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
         #[builder(into, default)]
-        pub service_plan_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_plan_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `site_config` block as defined below.
         #[builder(into)]
-        pub site_config: pulumi_wasm_rust::InputOrOutput<
+        pub site_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::appservice::WindowsWebAppSlotSiteConfig,
         >,
         /// One or more `storage_account` blocks as defined below.
         ///
         /// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
         #[builder(into, default)]
-        pub storage_accounts: pulumi_wasm_rust::InputOrOutput<
+        pub storage_accounts: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::appservice::WindowsWebAppSlotStorageAccount>>,
         >,
         /// A mapping of tags which should be assigned to the Windows Web App Slot.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub virtual_network_subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub virtual_network_subnet_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         ///
         /// > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
         #[builder(into, default)]
-        pub webdeploy_publish_basic_authentication_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub webdeploy_publish_basic_authentication_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         #[builder(into, default)]
-        pub zip_deploy_file: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zip_deploy_file: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct WindowsWebAppSlotResult {
         /// The ID of the Windows Web App this Deployment Slot will be part of. Changing this forces a new Windows Web App to be created.
-        pub app_service_id: pulumi_wasm_rust::Output<String>,
+        pub app_service_id: pulumi_gestalt_rust::Output<String>,
         /// A map of key-value pairs of App Settings.
-        pub app_settings: pulumi_wasm_rust::Output<
+        pub app_settings: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An `auth_settings` block as defined below.
-        pub auth_settings: pulumi_wasm_rust::Output<
+        pub auth_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::appservice::WindowsWebAppSlotAuthSettings>,
         >,
         /// An `auth_settings_v2` block as defined below.
-        pub auth_settings_v2: pulumi_wasm_rust::Output<
+        pub auth_settings_v2: pulumi_gestalt_rust::Output<
             Option<super::super::types::appservice::WindowsWebAppSlotAuthSettingsV2>,
         >,
         /// A `backup` block as defined below.
-        pub backup: pulumi_wasm_rust::Output<
+        pub backup: pulumi_gestalt_rust::Output<
             Option<super::super::types::appservice::WindowsWebAppSlotBackup>,
         >,
         /// Should Client Affinity be enabled?
-        pub client_affinity_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub client_affinity_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Should Client Certificates be enabled?
-        pub client_certificate_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub client_certificate_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Paths to exclude when using client certificates, separated by ;
-        pub client_certificate_exclusion_paths: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_certificate_exclusion_paths: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
-        pub client_certificate_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_certificate_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// One or more `connection_string` blocks as defined below.
-        pub connection_strings: pulumi_wasm_rust::Output<
+        pub connection_strings: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::appservice::WindowsWebAppSlotConnectionString>,
             >,
         >,
         /// The identifier used by App Service to perform domain ownership verification via DNS TXT record.
-        pub custom_domain_verification_id: pulumi_wasm_rust::Output<String>,
+        pub custom_domain_verification_id: pulumi_gestalt_rust::Output<String>,
         /// The default hostname of the Windows Web App Slot.
-        pub default_hostname: pulumi_wasm_rust::Output<String>,
+        pub default_hostname: pulumi_gestalt_rust::Output<String>,
         /// Should the Windows Web App Slot be enabled? Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
-        pub ftp_publish_basic_authentication_enabled: pulumi_wasm_rust::Output<
+        pub ftp_publish_basic_authentication_enabled: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// The ID of the App Service Environment used by App Service Slot.
-        pub hosting_environment_id: pulumi_wasm_rust::Output<String>,
+        pub hosting_environment_id: pulumi_gestalt_rust::Output<String>,
         /// Should the Windows Web App Slot require HTTPS connections. Defaults to `false`.
-        pub https_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub https_only: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::appservice::WindowsWebAppSlotIdentity>,
         >,
         /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
-        pub key_vault_reference_identity_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_reference_identity_id: pulumi_gestalt_rust::Output<String>,
         /// The Kind value for this Windows Web App Slot.
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_gestalt_rust::Output<String>,
         /// A `logs` block as defined below.
-        pub logs: pulumi_wasm_rust::Output<
+        pub logs: pulumi_gestalt_rust::Output<
             Option<super::super::types::appservice::WindowsWebAppSlotLogs>,
         >,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
-        pub outbound_ip_address_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub outbound_ip_address_lists: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
-        pub outbound_ip_addresses: pulumi_wasm_rust::Output<String>,
+        pub outbound_ip_addresses: pulumi_gestalt_rust::Output<String>,
         /// A list of possible outbound ip address.
-        pub possible_outbound_ip_address_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub possible_outbound_ip_address_lists: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
-        pub possible_outbound_ip_addresses: pulumi_wasm_rust::Output<String>,
+        pub possible_outbound_ip_addresses: pulumi_gestalt_rust::Output<String>,
         /// Should public network access be enabled for the Web App. Defaults to `true`.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Web App will be used.
         ///
         /// > **Note:** `service_plan_id` should only be specified if it differs from the Service Plan of the associated Windows Web App.
-        pub service_plan_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_plan_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `site_config` block as defined below.
-        pub site_config: pulumi_wasm_rust::Output<
+        pub site_config: pulumi_gestalt_rust::Output<
             super::super::types::appservice::WindowsWebAppSlotSiteConfig,
         >,
         /// A `site_credential` block as defined below.
-        pub site_credentials: pulumi_wasm_rust::Output<
+        pub site_credentials: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appservice::WindowsWebAppSlotSiteCredential>,
         >,
         /// One or more `storage_account` blocks as defined below.
         ///
         /// > **Note:** Using this value requires `WEBSITE_RUN_FROM_PACKAGE=1` to be set on the App in `app_settings`. Refer to the [Azure docs](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package) for further details.
-        pub storage_accounts: pulumi_wasm_rust::Output<
+        pub storage_accounts: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::appservice::WindowsWebAppSlotStorageAccount>>,
         >,
         /// A mapping of tags which should be assigned to the Windows Web App Slot.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub virtual_network_subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtual_network_subnet_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to `true`.
         ///
         /// > **NOTE:** Setting this value to true will disable the ability to use `zip_deploy_file` which currently relies on the default publishing profile.
-        pub webdeploy_publish_basic_authentication_enabled: pulumi_wasm_rust::Output<
+        pub webdeploy_publish_basic_authentication_enabled: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// The local path and filename of the Zip packaged application to deploy to this Windows Web App.
-        pub zip_deploy_file: pulumi_wasm_rust::Output<String>,
+        pub zip_deploy_file: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WindowsWebAppSlotArgs,
     ) -> WindowsWebAppSlotResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_service_id_binding = args.app_service_id.get_output(context).get_inner();
         let app_settings_binding = args.app_settings.get_output(context).get_inner();
@@ -458,96 +464,98 @@ pub mod windows_web_app_slot {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WindowsWebAppSlotResult {
-            app_service_id: pulumi_wasm_rust::__private::into_domain(
+            app_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appServiceId"),
             ),
-            app_settings: pulumi_wasm_rust::__private::into_domain(
+            app_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appSettings"),
             ),
-            auth_settings: pulumi_wasm_rust::__private::into_domain(
+            auth_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authSettings"),
             ),
-            auth_settings_v2: pulumi_wasm_rust::__private::into_domain(
+            auth_settings_v2: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authSettingsV2"),
             ),
-            backup: pulumi_wasm_rust::__private::into_domain(o.extract_field("backup")),
-            client_affinity_enabled: pulumi_wasm_rust::__private::into_domain(
+            backup: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("backup"),
+            ),
+            client_affinity_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientAffinityEnabled"),
             ),
-            client_certificate_enabled: pulumi_wasm_rust::__private::into_domain(
+            client_certificate_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertificateEnabled"),
             ),
-            client_certificate_exclusion_paths: pulumi_wasm_rust::__private::into_domain(
+            client_certificate_exclusion_paths: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertificateExclusionPaths"),
             ),
-            client_certificate_mode: pulumi_wasm_rust::__private::into_domain(
+            client_certificate_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertificateMode"),
             ),
-            connection_strings: pulumi_wasm_rust::__private::into_domain(
+            connection_strings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionStrings"),
             ),
-            custom_domain_verification_id: pulumi_wasm_rust::__private::into_domain(
+            custom_domain_verification_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customDomainVerificationId"),
             ),
-            default_hostname: pulumi_wasm_rust::__private::into_domain(
+            default_hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultHostname"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            ftp_publish_basic_authentication_enabled: pulumi_wasm_rust::__private::into_domain(
+            ftp_publish_basic_authentication_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ftpPublishBasicAuthenticationEnabled"),
             ),
-            hosting_environment_id: pulumi_wasm_rust::__private::into_domain(
+            hosting_environment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostingEnvironmentId"),
             ),
-            https_only: pulumi_wasm_rust::__private::into_domain(
+            https_only: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpsOnly"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            key_vault_reference_identity_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_reference_identity_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultReferenceIdentityId"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            logs: pulumi_wasm_rust::__private::into_domain(o.extract_field("logs")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            outbound_ip_address_lists: pulumi_wasm_rust::__private::into_domain(
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            logs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("logs")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            outbound_ip_address_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outboundIpAddressLists"),
             ),
-            outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outboundIpAddresses"),
             ),
-            possible_outbound_ip_address_lists: pulumi_wasm_rust::__private::into_domain(
+            possible_outbound_ip_address_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("possibleOutboundIpAddressLists"),
             ),
-            possible_outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            possible_outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("possibleOutboundIpAddresses"),
             ),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            service_plan_id: pulumi_wasm_rust::__private::into_domain(
+            service_plan_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("servicePlanId"),
             ),
-            site_config: pulumi_wasm_rust::__private::into_domain(
+            site_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("siteConfig"),
             ),
-            site_credentials: pulumi_wasm_rust::__private::into_domain(
+            site_credentials: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("siteCredentials"),
             ),
-            storage_accounts: pulumi_wasm_rust::__private::into_domain(
+            storage_accounts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccounts"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_network_subnet_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            virtual_network_subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualNetworkSubnetId"),
             ),
-            webdeploy_publish_basic_authentication_enabled: pulumi_wasm_rust::__private::into_domain(
+            webdeploy_publish_basic_authentication_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("webdeployPublishBasicAuthenticationEnabled"),
             ),
-            zip_deploy_file: pulumi_wasm_rust::__private::into_domain(
+            zip_deploy_file: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("zipDeployFile"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let ipset = ip_set::create(
@@ -43,45 +43,45 @@
 /// $ pulumi import aws:waf/rule:Rule example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 /// ```
 pub mod rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RuleArgs {
         /// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
         #[builder(into)]
-        pub metric_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub metric_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name or description of the rule.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The objects to include in a rule (documented below).
         #[builder(into, default)]
-        pub predicates: pulumi_wasm_rust::InputOrOutput<
+        pub predicates: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::waf::RulePredicate>>,
         >,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RuleResult {
         /// The ARN of the WAF rule.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
-        pub metric_name: pulumi_wasm_rust::Output<String>,
+        pub metric_name: pulumi_gestalt_rust::Output<String>,
         /// The name or description of the rule.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The objects to include in a rule (documented below).
-        pub predicates: pulumi_wasm_rust::Output<
+        pub predicates: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::waf::RulePredicate>>,
         >,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -90,11 +90,11 @@ pub mod rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RuleArgs,
     ) -> RuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let metric_name_binding = args.metric_name.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -125,16 +125,16 @@ pub mod rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RuleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            metric_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            metric_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metricName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            predicates: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            predicates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("predicates"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

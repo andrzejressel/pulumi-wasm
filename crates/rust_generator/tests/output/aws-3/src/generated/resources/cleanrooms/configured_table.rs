@@ -32,75 +32,75 @@
 /// $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
 /// ```
 pub mod configured_table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfiguredTableArgs {
         /// The columns of the references table which will be included in the configured table.
         #[builder(into)]
-        pub allowed_columns: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub allowed_columns: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
         #[builder(into)]
-        pub analysis_method: pulumi_wasm_rust::InputOrOutput<String>,
+        pub analysis_method: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A description for the configured table.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the configured table.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A reference to the AWS Glue table which will be used to create the configured table.
         /// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
         /// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
         #[builder(into)]
-        pub table_reference: pulumi_wasm_rust::InputOrOutput<
+        pub table_reference: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cleanrooms::ConfiguredTableTableReference,
         >,
         /// Key value pairs which tag the configured table.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ConfiguredTableResult {
         /// The columns of the references table which will be included in the configured table.
-        pub allowed_columns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub allowed_columns: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-        pub analysis_method: pulumi_wasm_rust::Output<String>,
+        pub analysis_method: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the configured table.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The date and time the configured table was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// A description for the configured table.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the configured table.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A reference to the AWS Glue table which will be used to create the configured table.
         /// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
         /// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
-        pub table_reference: pulumi_wasm_rust::Output<
+        pub table_reference: pulumi_gestalt_rust::Output<
             super::super::types::cleanrooms::ConfiguredTableTableReference,
         >,
         /// Key value pairs which tag the configured table.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The date and time the configured table was last updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConfiguredTableArgs,
     ) -> ConfiguredTableResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allowed_columns_binding = args
             .allowed_columns
@@ -150,28 +150,28 @@ pub mod configured_table {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConfiguredTableResult {
-            allowed_columns: pulumi_wasm_rust::__private::into_domain(
+            allowed_columns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowedColumns"),
             ),
-            analysis_method: pulumi_wasm_rust::__private::into_domain(
+            analysis_method: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("analysisMethod"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            table_reference: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            table_reference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tableReference"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

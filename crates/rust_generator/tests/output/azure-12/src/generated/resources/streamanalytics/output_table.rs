@@ -56,74 +56,74 @@
 /// ```
 ///
 pub mod output_table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OutputTableArgs {
         /// The number of records for a batch operation. Must be between `1` and `100`.
         #[builder(into)]
-        pub batch_size: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub batch_size: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// A list of the column names to be removed from output event entities.
         #[builder(into, default)]
-        pub columns_to_removes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub columns_to_removes: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the Stream Output. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the output column that contains the partition key.
         #[builder(into)]
-        pub partition_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub partition_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the output column that contains the row key.
         #[builder(into)]
-        pub row_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub row_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Access Key which should be used to connect to this Storage Account.
         #[builder(into)]
-        pub storage_account_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Storage Account.
         #[builder(into)]
-        pub storage_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub stream_analytics_job_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub stream_analytics_job_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the table where the stream should be output to.
         #[builder(into)]
-        pub table: pulumi_wasm_rust::InputOrOutput<String>,
+        pub table: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OutputTableResult {
         /// The number of records for a batch operation. Must be between `1` and `100`.
-        pub batch_size: pulumi_wasm_rust::Output<i32>,
+        pub batch_size: pulumi_gestalt_rust::Output<i32>,
         /// A list of the column names to be removed from output event entities.
-        pub columns_to_removes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub columns_to_removes: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The name of the Stream Output. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the output column that contains the partition key.
-        pub partition_key: pulumi_wasm_rust::Output<String>,
+        pub partition_key: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the output column that contains the row key.
-        pub row_key: pulumi_wasm_rust::Output<String>,
+        pub row_key: pulumi_gestalt_rust::Output<String>,
         /// The Access Key which should be used to connect to this Storage Account.
-        pub storage_account_key: pulumi_wasm_rust::Output<String>,
+        pub storage_account_key: pulumi_gestalt_rust::Output<String>,
         /// The name of the Storage Account.
-        pub storage_account_name: pulumi_wasm_rust::Output<String>,
+        pub storage_account_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
-        pub stream_analytics_job_name: pulumi_wasm_rust::Output<String>,
+        pub stream_analytics_job_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the table where the stream should be output to.
-        pub table: pulumi_wasm_rust::Output<String>,
+        pub table: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OutputTableArgs,
     ) -> OutputTableResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let batch_size_binding = args.batch_size.get_output(context).get_inner();
         let columns_to_removes_binding = args
@@ -199,30 +199,32 @@ pub mod output_table {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OutputTableResult {
-            batch_size: pulumi_wasm_rust::__private::into_domain(
+            batch_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("batchSize"),
             ),
-            columns_to_removes: pulumi_wasm_rust::__private::into_domain(
+            columns_to_removes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("columnsToRemoves"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            partition_key: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            partition_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partitionKey"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            row_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("rowKey")),
-            storage_account_key: pulumi_wasm_rust::__private::into_domain(
+            row_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("rowKey"),
+            ),
+            storage_account_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountKey"),
             ),
-            storage_account_name: pulumi_wasm_rust::__private::into_domain(
+            storage_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountName"),
             ),
-            stream_analytics_job_name: pulumi_wasm_rust::__private::into_domain(
+            stream_analytics_job_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamAnalyticsJobName"),
             ),
-            table: pulumi_wasm_rust::__private::into_domain(o.extract_field("table")),
+            table: pulumi_gestalt_rust::__private::into_domain(o.extract_field("table")),
         }
     }
 }

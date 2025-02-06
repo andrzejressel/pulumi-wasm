@@ -103,118 +103,118 @@
 /// ```
 ///
 pub mod config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigArgs {
         /// List of domains authorized for OAuth redirects.
         #[builder(into, default)]
-        pub authorized_domains: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub authorized_domains: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Whether anonymous users will be auto-deleted after a period of 30 days
         #[builder(into, default)]
-        pub autodelete_anonymous_users: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub autodelete_anonymous_users: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Configuration related to blocking functions.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub blocking_functions: pulumi_wasm_rust::InputOrOutput<
+        pub blocking_functions: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::identityplatform::ConfigBlockingFunctions>,
         >,
         /// Options related to how clients making requests on behalf of a project should be configured.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub client: pulumi_wasm_rust::InputOrOutput<
+        pub client: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::identityplatform::ConfigClient>,
         >,
         /// Options related to how clients making requests on behalf of a project should be configured.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub mfa: pulumi_wasm_rust::InputOrOutput<
+        pub mfa: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::identityplatform::ConfigMfa>,
         >,
         /// Configuration related to monitoring project activity.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub monitoring: pulumi_wasm_rust::InputOrOutput<
+        pub monitoring: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::identityplatform::ConfigMonitoring>,
         >,
         /// Configuration related to multi-tenant functionality.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub multi_tenant: pulumi_wasm_rust::InputOrOutput<
+        pub multi_tenant: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::identityplatform::ConfigMultiTenant>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration related to quotas.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub quota: pulumi_wasm_rust::InputOrOutput<
+        pub quota: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::identityplatform::ConfigQuota>,
         >,
         /// Configuration related to local sign in methods.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub sign_in: pulumi_wasm_rust::InputOrOutput<
+        pub sign_in: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::identityplatform::ConfigSignIn>,
         >,
         /// Configures the regions where users are allowed to send verification SMS for the project or tenant. This is based on the calling code of the destination phone number.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub sms_region_config: pulumi_wasm_rust::InputOrOutput<
+        pub sms_region_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::identityplatform::ConfigSmsRegionConfig>,
         >,
     }
     #[allow(dead_code)]
     pub struct ConfigResult {
         /// List of domains authorized for OAuth redirects.
-        pub authorized_domains: pulumi_wasm_rust::Output<Vec<String>>,
+        pub authorized_domains: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Whether anonymous users will be auto-deleted after a period of 30 days
-        pub autodelete_anonymous_users: pulumi_wasm_rust::Output<Option<bool>>,
+        pub autodelete_anonymous_users: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Configuration related to blocking functions.
         /// Structure is documented below.
-        pub blocking_functions: pulumi_wasm_rust::Output<
+        pub blocking_functions: pulumi_gestalt_rust::Output<
             Option<super::super::types::identityplatform::ConfigBlockingFunctions>,
         >,
         /// Options related to how clients making requests on behalf of a project should be configured.
         /// Structure is documented below.
-        pub client: pulumi_wasm_rust::Output<
+        pub client: pulumi_gestalt_rust::Output<
             super::super::types::identityplatform::ConfigClient,
         >,
         /// Options related to how clients making requests on behalf of a project should be configured.
         /// Structure is documented below.
-        pub mfa: pulumi_wasm_rust::Output<
+        pub mfa: pulumi_gestalt_rust::Output<
             super::super::types::identityplatform::ConfigMfa,
         >,
         /// Configuration related to monitoring project activity.
         /// Structure is documented below.
-        pub monitoring: pulumi_wasm_rust::Output<
+        pub monitoring: pulumi_gestalt_rust::Output<
             super::super::types::identityplatform::ConfigMonitoring,
         >,
         /// Configuration related to multi-tenant functionality.
         /// Structure is documented below.
-        pub multi_tenant: pulumi_wasm_rust::Output<
+        pub multi_tenant: pulumi_gestalt_rust::Output<
             Option<super::super::types::identityplatform::ConfigMultiTenant>,
         >,
         /// The name of the Config resource
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Configuration related to quotas.
         /// Structure is documented below.
-        pub quota: pulumi_wasm_rust::Output<
+        pub quota: pulumi_gestalt_rust::Output<
             Option<super::super::types::identityplatform::ConfigQuota>,
         >,
         /// Configuration related to local sign in methods.
         /// Structure is documented below.
-        pub sign_in: pulumi_wasm_rust::Output<
+        pub sign_in: pulumi_gestalt_rust::Output<
             super::super::types::identityplatform::ConfigSignIn,
         >,
         /// Configures the regions where users are allowed to send verification SMS for the project or tenant. This is based on the calling code of the destination phone number.
         /// Structure is documented below.
-        pub sms_region_config: pulumi_wasm_rust::Output<
+        pub sms_region_config: pulumi_gestalt_rust::Output<
             super::super::types::identityplatform::ConfigSmsRegionConfig,
         >,
     }
@@ -223,11 +223,11 @@ pub mod config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConfigArgs,
     ) -> ConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authorized_domains_binding = args
             .authorized_domains
@@ -305,30 +305,34 @@ pub mod config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConfigResult {
-            authorized_domains: pulumi_wasm_rust::__private::into_domain(
+            authorized_domains: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizedDomains"),
             ),
-            autodelete_anonymous_users: pulumi_wasm_rust::__private::into_domain(
+            autodelete_anonymous_users: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autodeleteAnonymousUsers"),
             ),
-            blocking_functions: pulumi_wasm_rust::__private::into_domain(
+            blocking_functions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blockingFunctions"),
             ),
-            client: pulumi_wasm_rust::__private::into_domain(o.extract_field("client")),
-            mfa: pulumi_wasm_rust::__private::into_domain(o.extract_field("mfa")),
-            monitoring: pulumi_wasm_rust::__private::into_domain(
+            client: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("client"),
+            ),
+            mfa: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mfa")),
+            monitoring: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitoring"),
             ),
-            multi_tenant: pulumi_wasm_rust::__private::into_domain(
+            multi_tenant: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("multiTenant"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            quota: pulumi_wasm_rust::__private::into_domain(o.extract_field("quota")),
-            sign_in: pulumi_wasm_rust::__private::into_domain(o.extract_field("signIn")),
-            sms_region_config: pulumi_wasm_rust::__private::into_domain(
+            quota: pulumi_gestalt_rust::__private::into_domain(o.extract_field("quota")),
+            sign_in: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("signIn"),
+            ),
+            sms_region_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("smsRegionConfig"),
             ),
         }

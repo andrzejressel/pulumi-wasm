@@ -30,103 +30,103 @@
 /// $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
 /// ```
 pub mod product {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProductArgs {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         #[builder(into, default)]
-        pub accept_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub accept_language: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Description of the product.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Distributor (i.e., vendor) of the product.
         #[builder(into, default)]
-        pub distributor: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub distributor: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the product.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Owner of the product.
         #[builder(into)]
-        pub owner: pulumi_wasm_rust::InputOrOutput<String>,
+        pub owner: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
         #[builder(into)]
-        pub provisioning_artifact_parameters: pulumi_wasm_rust::InputOrOutput<
+        pub provisioning_artifact_parameters: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::servicecatalog::ProductProvisioningArtifactParameters,
         >,
         /// Support information about the product.
         #[builder(into, default)]
-        pub support_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub support_description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Contact email for product support.
         #[builder(into, default)]
-        pub support_email: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub support_email: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Contact URL for product support.
         #[builder(into, default)]
-        pub support_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub support_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ProductResult {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        pub accept_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub accept_language: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of the product.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Time when the product was created.
-        pub created_time: pulumi_wasm_rust::Output<String>,
+        pub created_time: pulumi_gestalt_rust::Output<String>,
         /// Description of the product.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Distributor (i.e., vendor) of the product.
-        pub distributor: pulumi_wasm_rust::Output<String>,
+        pub distributor: pulumi_gestalt_rust::Output<String>,
         /// Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
-        pub has_default_path: pulumi_wasm_rust::Output<bool>,
+        pub has_default_path: pulumi_gestalt_rust::Output<bool>,
         /// Name of the product.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Owner of the product.
-        pub owner: pulumi_wasm_rust::Output<String>,
+        pub owner: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioning_artifact_parameters` Block for details.
-        pub provisioning_artifact_parameters: pulumi_wasm_rust::Output<
+        pub provisioning_artifact_parameters: pulumi_gestalt_rust::Output<
             super::super::types::servicecatalog::ProductProvisioningArtifactParameters,
         >,
         /// Status of the product.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Support information about the product.
-        pub support_description: pulumi_wasm_rust::Output<String>,
+        pub support_description: pulumi_gestalt_rust::Output<String>,
         /// Contact email for product support.
-        pub support_email: pulumi_wasm_rust::Output<String>,
+        pub support_email: pulumi_gestalt_rust::Output<String>,
         /// Contact URL for product support.
-        pub support_url: pulumi_wasm_rust::Output<String>,
+        pub support_url: pulumi_gestalt_rust::Output<String>,
         /// Tags to apply to the product. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
         ///
         /// The following arguments are optional:
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProductArgs,
     ) -> ProductResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let accept_language_binding = args
             .accept_language
@@ -201,42 +201,44 @@ pub mod product {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProductResult {
-            accept_language: pulumi_wasm_rust::__private::into_domain(
+            accept_language: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("acceptLanguage"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            created_time: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            created_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            distributor: pulumi_wasm_rust::__private::into_domain(
+            distributor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("distributor"),
             ),
-            has_default_path: pulumi_wasm_rust::__private::into_domain(
+            has_default_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hasDefaultPath"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
-            provisioning_artifact_parameters: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
+            provisioning_artifact_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("provisioningArtifactParameters"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            support_description: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            support_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportDescription"),
             ),
-            support_email: pulumi_wasm_rust::__private::into_domain(
+            support_email: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportEmail"),
             ),
-            support_url: pulumi_wasm_rust::__private::into_domain(
+            support_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportUrl"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

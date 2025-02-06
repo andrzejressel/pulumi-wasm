@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -34,74 +34,74 @@
 /// ```
 ///
 pub mod local_rulestack {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LocalRulestackArgs {
         /// The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
         #[builder(into, default)]
-        pub anti_spyware_profile: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub anti_spyware_profile: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
         #[builder(into, default)]
-        pub anti_virus_profile: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub anti_virus_profile: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description for this Local Rulestack.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
         #[builder(into, default)]
-        pub dns_subscription: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub dns_subscription: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`.
         #[builder(into, default)]
-        pub file_blocking_profile: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub file_blocking_profile: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Azure Region where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Palo Alto Networks Rulestack. Changing this forces a new Palo Alto Networks Rulestack to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The setting to use for the URL Filtering Profile. Possible values include `BestPractice`, and `Custom`.
         #[builder(into, default)]
-        pub url_filtering_profile: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub url_filtering_profile: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The setting to use for the Vulnerability Profile. Possible values include `BestPractice`, and `Custom`.
         #[builder(into, default)]
-        pub vulnerability_profile: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub vulnerability_profile: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LocalRulestackResult {
         /// The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`.
-        pub anti_spyware_profile: pulumi_wasm_rust::Output<Option<String>>,
+        pub anti_spyware_profile: pulumi_gestalt_rust::Output<Option<String>>,
         /// The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`.
-        pub anti_virus_profile: pulumi_wasm_rust::Output<Option<String>>,
+        pub anti_virus_profile: pulumi_gestalt_rust::Output<Option<String>>,
         /// The description for this Local Rulestack.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`.
-        pub dns_subscription: pulumi_wasm_rust::Output<Option<String>>,
+        pub dns_subscription: pulumi_gestalt_rust::Output<Option<String>>,
         /// The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`.
-        pub file_blocking_profile: pulumi_wasm_rust::Output<Option<String>>,
+        pub file_blocking_profile: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Azure Region where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Palo Alto Networks Rulestack. Changing this forces a new Palo Alto Networks Rulestack to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The setting to use for the URL Filtering Profile. Possible values include `BestPractice`, and `Custom`.
-        pub url_filtering_profile: pulumi_wasm_rust::Output<Option<String>>,
+        pub url_filtering_profile: pulumi_gestalt_rust::Output<Option<String>>,
         /// The setting to use for the Vulnerability Profile. Possible values include `BestPractice`, and `Custom`.
-        pub vulnerability_profile: pulumi_wasm_rust::Output<Option<String>>,
+        pub vulnerability_profile: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LocalRulestackArgs,
     ) -> LocalRulestackResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let anti_spyware_profile_binding = args
             .anti_spyware_profile
@@ -183,32 +183,32 @@ pub mod local_rulestack {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LocalRulestackResult {
-            anti_spyware_profile: pulumi_wasm_rust::__private::into_domain(
+            anti_spyware_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("antiSpywareProfile"),
             ),
-            anti_virus_profile: pulumi_wasm_rust::__private::into_domain(
+            anti_virus_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("antiVirusProfile"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            dns_subscription: pulumi_wasm_rust::__private::into_domain(
+            dns_subscription: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsSubscription"),
             ),
-            file_blocking_profile: pulumi_wasm_rust::__private::into_domain(
+            file_blocking_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fileBlockingProfile"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            url_filtering_profile: pulumi_wasm_rust::__private::into_domain(
+            url_filtering_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("urlFilteringProfile"),
             ),
-            vulnerability_profile: pulumi_wasm_rust::__private::into_domain(
+            vulnerability_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vulnerabilityProfile"),
             ),
         }

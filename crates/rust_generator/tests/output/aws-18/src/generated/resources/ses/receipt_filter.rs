@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let filter = receipt_filter::create(
@@ -26,41 +26,41 @@
 /// $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
 /// ```
 pub mod receipt_filter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReceiptFilterArgs {
         /// The IP address or address range to filter, in CIDR notation
         #[builder(into)]
-        pub cidr: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cidr: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the filter
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Block or Allow
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ReceiptFilterResult {
         /// The SES receipt filter ARN.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The IP address or address range to filter, in CIDR notation
-        pub cidr: pulumi_wasm_rust::Output<String>,
+        pub cidr: pulumi_gestalt_rust::Output<String>,
         /// The name of the filter
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Block or Allow
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ReceiptFilterArgs,
     ) -> ReceiptFilterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cidr_binding = args.cidr.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -86,10 +86,12 @@ pub mod receipt_filter {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ReceiptFilterResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            cidr: pulumi_wasm_rust::__private::into_domain(o.extract_field("cidr")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            cidr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cidr")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            policy: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("policy"),
+            ),
         }
     }
 }

@@ -13,8 +13,8 @@
 /// ### With Versioning Enabled
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket_v_2::create(
@@ -42,8 +42,8 @@
 /// ### With Versioning Disabled
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket_v_2::create(
@@ -116,35 +116,35 @@
 /// $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
 /// ```
 pub mod bucket_versioning_v_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketVersioningV2Args {
         /// Name of the S3 bucket.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Account ID of the expected bucket owner.
         #[builder(into, default)]
-        pub expected_bucket_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub expected_bucket_owner: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         #[builder(into, default)]
-        pub mfa: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mfa: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block for the versioning parameters. See below.
         #[builder(into)]
-        pub versioning_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub versioning_configuration: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::s3::BucketVersioningV2VersioningConfiguration,
         >,
     }
     #[allow(dead_code)]
     pub struct BucketVersioningV2Result {
         /// Name of the S3 bucket.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// Account ID of the expected bucket owner.
-        pub expected_bucket_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub expected_bucket_owner: pulumi_gestalt_rust::Output<Option<String>>,
         /// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
-        pub mfa: pulumi_wasm_rust::Output<Option<String>>,
+        pub mfa: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block for the versioning parameters. See below.
-        pub versioning_configuration: pulumi_wasm_rust::Output<
+        pub versioning_configuration: pulumi_gestalt_rust::Output<
             super::super::types::s3::BucketVersioningV2VersioningConfiguration,
         >,
     }
@@ -153,11 +153,11 @@ pub mod bucket_versioning_v_2 {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BucketVersioningV2Args,
     ) -> BucketVersioningV2Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let expected_bucket_owner_binding = args
@@ -194,12 +194,14 @@ pub mod bucket_versioning_v_2 {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BucketVersioningV2Result {
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            expected_bucket_owner: pulumi_wasm_rust::__private::into_domain(
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            expected_bucket_owner: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expectedBucketOwner"),
             ),
-            mfa: pulumi_wasm_rust::__private::into_domain(o.extract_field("mfa")),
-            versioning_configuration: pulumi_wasm_rust::__private::into_domain(
+            mfa: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mfa")),
+            versioning_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versioningConfiguration"),
             ),
         }

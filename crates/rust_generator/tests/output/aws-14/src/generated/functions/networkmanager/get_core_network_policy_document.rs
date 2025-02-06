@@ -1,11 +1,11 @@
 pub mod get_core_network_policy_document {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetCoreNetworkPolicyDocumentArgs {
         /// In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
         #[builder(into, default)]
-        pub attachment_policies: pulumi_wasm_rust::InputOrOutput<
+        pub attachment_policies: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::networkmanager::GetCoreNetworkPolicyDocumentAttachmentPolicy,
@@ -14,14 +14,14 @@ pub mod get_core_network_policy_document {
         >,
         /// The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
         #[builder(into)]
-        pub core_network_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub core_network_configurations: pulumi_gestalt_rust::InputOrOutput<
             Vec<
                 super::super::super::types::networkmanager::GetCoreNetworkPolicyDocumentCoreNetworkConfiguration,
             >,
         >,
         /// Block argument that defines the service insertion actions you want to include. Detailed below.
         #[builder(into, default)]
-        pub network_function_groups: pulumi_wasm_rust::InputOrOutput<
+        pub network_function_groups: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::networkmanager::GetCoreNetworkPolicyDocumentNetworkFunctionGroup,
@@ -30,7 +30,7 @@ pub mod get_core_network_policy_document {
         >,
         /// A block argument, `segment_actions` define how routing works between segments. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
         #[builder(into, default)]
-        pub segment_actions: pulumi_wasm_rust::InputOrOutput<
+        pub segment_actions: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::networkmanager::GetCoreNetworkPolicyDocumentSegmentAction,
@@ -39,62 +39,62 @@ pub mod get_core_network_policy_document {
         >,
         /// Block argument that defines the different segments in the network. Here you can provide descriptions, change defaults, and provide explicit Regional operational and route filters. The names defined for each segment are used in the `segment_actions` and `attachment_policies` section. Each segment is created, and operates, as a completely separated routing domain. By default, attachments can only communicate with other attachments in the same segment. Detailed below.
         #[builder(into)]
-        pub segments: pulumi_wasm_rust::InputOrOutput<
+        pub segments: pulumi_gestalt_rust::InputOrOutput<
             Vec<
                 super::super::super::types::networkmanager::GetCoreNetworkPolicyDocumentSegment,
             >,
         >,
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetCoreNetworkPolicyDocumentResult {
-        pub attachment_policies: pulumi_wasm_rust::Output<
+        pub attachment_policies: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::super::types::networkmanager::GetCoreNetworkPolicyDocumentAttachmentPolicy,
                 >,
             >,
         >,
-        pub core_network_configurations: pulumi_wasm_rust::Output<
+        pub core_network_configurations: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::networkmanager::GetCoreNetworkPolicyDocumentCoreNetworkConfiguration,
             >,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Standard JSON policy document rendered based on the arguments above.
-        pub json: pulumi_wasm_rust::Output<String>,
-        pub network_function_groups: pulumi_wasm_rust::Output<
+        pub json: pulumi_gestalt_rust::Output<String>,
+        pub network_function_groups: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::super::types::networkmanager::GetCoreNetworkPolicyDocumentNetworkFunctionGroup,
                 >,
             >,
         >,
-        pub segment_actions: pulumi_wasm_rust::Output<
+        pub segment_actions: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::super::types::networkmanager::GetCoreNetworkPolicyDocumentSegmentAction,
                 >,
             >,
         >,
-        pub segments: pulumi_wasm_rust::Output<
+        pub segments: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::networkmanager::GetCoreNetworkPolicyDocumentSegment,
             >,
         >,
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetCoreNetworkPolicyDocumentArgs,
     ) -> GetCoreNetworkPolicyDocumentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let attachment_policies_binding = args
             .attachment_policies
@@ -147,24 +147,26 @@ pub mod get_core_network_policy_document {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetCoreNetworkPolicyDocumentResult {
-            attachment_policies: pulumi_wasm_rust::__private::into_domain(
+            attachment_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attachmentPolicies"),
             ),
-            core_network_configurations: pulumi_wasm_rust::__private::into_domain(
+            core_network_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coreNetworkConfigurations"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            json: pulumi_wasm_rust::__private::into_domain(o.extract_field("json")),
-            network_function_groups: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            json: pulumi_gestalt_rust::__private::into_domain(o.extract_field("json")),
+            network_function_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkFunctionGroups"),
             ),
-            segment_actions: pulumi_wasm_rust::__private::into_domain(
+            segment_actions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("segmentActions"),
             ),
-            segments: pulumi_wasm_rust::__private::into_domain(
+            segments: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("segments"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

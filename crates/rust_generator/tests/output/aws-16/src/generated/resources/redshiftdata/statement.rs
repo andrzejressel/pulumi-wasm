@@ -5,8 +5,8 @@
 /// ### cluster_identifier
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = statement::create(
@@ -24,8 +24,8 @@
 /// ### workgroup_name
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = statement::create(
@@ -47,75 +47,75 @@
 /// $ pulumi import aws:redshiftdata/statement:Statement example example
 /// ```
 pub mod statement {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StatementArgs {
         /// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
         #[builder(into, default)]
-        pub cluster_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cluster_identifier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the database.
         #[builder(into)]
-        pub database: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The database user name.
         #[builder(into, default)]
-        pub db_user: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub db_user: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::redshiftdata::StatementParameter>>,
         >,
         /// The name or ARN of the secret that enables access to the database.
         #[builder(into, default)]
-        pub secret_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub secret_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The SQL statement text to run.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub sql: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sql: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
         #[builder(into, default)]
-        pub statement_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub statement_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
         #[builder(into, default)]
-        pub with_event: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub with_event: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
         #[builder(into, default)]
-        pub workgroup_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub workgroup_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct StatementResult {
         /// The cluster identifier. This parameter is required when connecting to a cluster and authenticating using either Secrets Manager or temporary credentials.
-        pub cluster_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub cluster_identifier: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the database.
-        pub database: pulumi_wasm_rust::Output<String>,
+        pub database: pulumi_gestalt_rust::Output<String>,
         /// The database user name.
-        pub db_user: pulumi_wasm_rust::Output<Option<String>>,
-        pub parameters: pulumi_wasm_rust::Output<
+        pub db_user: pulumi_gestalt_rust::Output<Option<String>>,
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::redshiftdata::StatementParameter>>,
         >,
         /// The name or ARN of the secret that enables access to the database.
-        pub secret_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub secret_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// The SQL statement text to run.
         ///
         /// The following arguments are optional:
-        pub sql: pulumi_wasm_rust::Output<String>,
+        pub sql: pulumi_gestalt_rust::Output<String>,
         /// The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-        pub statement_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub statement_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// A value that indicates whether to send an event to the Amazon EventBridge event bus after the SQL statement runs.
-        pub with_event: pulumi_wasm_rust::Output<Option<bool>>,
+        pub with_event: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The serverless workgroup name. This parameter is required when connecting to a serverless workgroup and authenticating using either Secrets Manager or temporary credentials.
-        pub workgroup_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub workgroup_name: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StatementArgs,
     ) -> StatementResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_identifier_binding = args
             .cluster_identifier
@@ -174,27 +174,29 @@ pub mod statement {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StatementResult {
-            cluster_identifier: pulumi_wasm_rust::__private::into_domain(
+            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterIdentifier"),
             ),
-            database: pulumi_wasm_rust::__private::into_domain(
+            database: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("database"),
             ),
-            db_user: pulumi_wasm_rust::__private::into_domain(o.extract_field("dbUser")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            db_user: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("dbUser"),
+            ),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            secret_arn: pulumi_wasm_rust::__private::into_domain(
+            secret_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secretArn"),
             ),
-            sql: pulumi_wasm_rust::__private::into_domain(o.extract_field("sql")),
-            statement_name: pulumi_wasm_rust::__private::into_domain(
+            sql: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sql")),
+            statement_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statementName"),
             ),
-            with_event: pulumi_wasm_rust::__private::into_domain(
+            with_event: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("withEvent"),
             ),
-            workgroup_name: pulumi_wasm_rust::__private::into_domain(
+            workgroup_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workgroupName"),
             ),
         }

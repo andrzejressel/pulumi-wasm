@@ -7,8 +7,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = instance::create(
@@ -35,25 +35,25 @@
 /// }
 /// ```
 pub mod instance_public_ports {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstancePublicPortsArgs {
         /// Name of the Lightsail Instance.
         #[builder(into)]
-        pub instance_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
         #[builder(into)]
-        pub port_infos: pulumi_wasm_rust::InputOrOutput<
+        pub port_infos: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::lightsail::InstancePublicPortsPortInfo>,
         >,
     }
     #[allow(dead_code)]
     pub struct InstancePublicPortsResult {
         /// Name of the Lightsail Instance.
-        pub instance_name: pulumi_wasm_rust::Output<String>,
+        pub instance_name: pulumi_gestalt_rust::Output<String>,
         /// Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. Detailed below.
-        pub port_infos: pulumi_wasm_rust::Output<
+        pub port_infos: pulumi_gestalt_rust::Output<
             Vec<super::super::types::lightsail::InstancePublicPortsPortInfo>,
         >,
     }
@@ -62,11 +62,11 @@ pub mod instance_public_ports {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstancePublicPortsArgs,
     ) -> InstancePublicPortsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let instance_name_binding = args.instance_name.get_output(context).get_inner();
         let port_infos_binding = args.port_infos.get_output(context).get_inner();
@@ -87,10 +87,10 @@ pub mod instance_public_ports {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstancePublicPortsResult {
-            instance_name: pulumi_wasm_rust::__private::into_domain(
+            instance_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceName"),
             ),
-            port_infos: pulumi_wasm_rust::__private::into_domain(
+            port_infos: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("portInfos"),
             ),
         }

@@ -26,49 +26,49 @@
 /// $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example api.internal.example.com/base-path/abcde12345
 /// ```
 pub mod base_path_mapping {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BasePathMappingArgs {
         /// Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
         #[builder(into, default)]
-        pub base_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub base_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Already-registered domain name to connect the API to.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The identifier for the domain name resource. Supported only for private custom domain names.
         #[builder(into, default)]
-        pub domain_name_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub domain_name_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the API to connect.
         #[builder(into)]
-        pub rest_api: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rest_api: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         #[builder(into, default)]
-        pub stage_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub stage_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BasePathMappingResult {
         /// Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
-        pub base_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub base_path: pulumi_gestalt_rust::Output<Option<String>>,
         /// Already-registered domain name to connect the API to.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// The identifier for the domain name resource. Supported only for private custom domain names.
-        pub domain_name_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain_name_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// ID of the API to connect.
-        pub rest_api: pulumi_wasm_rust::Output<String>,
+        pub rest_api: pulumi_gestalt_rust::Output<String>,
         /// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
-        pub stage_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub stage_name: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BasePathMappingArgs,
     ) -> BasePathMappingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let base_path_binding = args.base_path.get_output(context).get_inner();
         let domain_name_binding = args.domain_name.get_output(context).get_inner();
@@ -104,19 +104,19 @@ pub mod base_path_mapping {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BasePathMappingResult {
-            base_path: pulumi_wasm_rust::__private::into_domain(
+            base_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("basePath"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            domain_name_id: pulumi_wasm_rust::__private::into_domain(
+            domain_name_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainNameId"),
             ),
-            rest_api: pulumi_wasm_rust::__private::into_domain(
+            rest_api: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restApi"),
             ),
-            stage_name: pulumi_wasm_rust::__private::into_domain(
+            stage_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stageName"),
             ),
         }

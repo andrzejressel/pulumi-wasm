@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = user::create(
@@ -33,50 +33,50 @@
 /// Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
 ///
 pub mod user_login_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserLoginProfileArgs {
         /// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
         #[builder(into, default)]
-        pub password_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub password_length: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
         #[builder(into, default)]
-        pub password_reset_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub password_reset_required: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
         #[builder(into, default)]
-        pub pgp_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub pgp_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IAM user's name.
         #[builder(into)]
-        pub user: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserLoginProfileResult {
         /// The encrypted password, base64 encoded. Only available if password was handled on resource creation, not import.
-        pub encrypted_password: pulumi_wasm_rust::Output<String>,
+        pub encrypted_password: pulumi_gestalt_rust::Output<String>,
         /// The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
-        pub key_fingerprint: pulumi_wasm_rust::Output<String>,
+        pub key_fingerprint: pulumi_gestalt_rust::Output<String>,
         /// The plain text password, only available when `pgp_key` is not provided.
-        pub password: pulumi_wasm_rust::Output<String>,
+        pub password: pulumi_gestalt_rust::Output<String>,
         /// The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument. Default value is `20`.
-        pub password_length: pulumi_wasm_rust::Output<Option<i32>>,
+        pub password_length: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation.
-        pub password_reset_required: pulumi_wasm_rust::Output<bool>,
+        pub password_reset_required: pulumi_gestalt_rust::Output<bool>,
         /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
-        pub pgp_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub pgp_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// The IAM user's name.
-        pub user: pulumi_wasm_rust::Output<String>,
+        pub user: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserLoginProfileArgs,
     ) -> UserLoginProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let password_length_binding = args
             .password_length
@@ -113,23 +113,25 @@ pub mod user_login_profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserLoginProfileResult {
-            encrypted_password: pulumi_wasm_rust::__private::into_domain(
+            encrypted_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptedPassword"),
             ),
-            key_fingerprint: pulumi_wasm_rust::__private::into_domain(
+            key_fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyFingerprint"),
             ),
-            password: pulumi_wasm_rust::__private::into_domain(
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            password_length: pulumi_wasm_rust::__private::into_domain(
+            password_length: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("passwordLength"),
             ),
-            password_reset_required: pulumi_wasm_rust::__private::into_domain(
+            password_reset_required: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("passwordResetRequired"),
             ),
-            pgp_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("pgpKey")),
-            user: pulumi_wasm_rust::__private::into_domain(o.extract_field("user")),
+            pgp_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("pgpKey"),
+            ),
+            user: pulumi_gestalt_rust::__private::into_domain(o.extract_field("user")),
         }
     }
 }

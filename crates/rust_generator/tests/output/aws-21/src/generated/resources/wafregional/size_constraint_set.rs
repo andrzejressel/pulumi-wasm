@@ -25,16 +25,16 @@
 /// $ pulumi import aws:wafregional/sizeConstraintSet:SizeConstraintSet size_constraint_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 /// ```
 pub mod size_constraint_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SizeConstraintSetArgs {
         /// The name or description of the Size Constraint Set.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the parts of web requests that you want to inspect the size of.
         #[builder(into, default)]
-        pub size_constraints: pulumi_wasm_rust::InputOrOutput<
+        pub size_constraints: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::wafregional::SizeConstraintSetSizeConstraint>,
             >,
@@ -42,11 +42,11 @@ pub mod size_constraint_set {
     }
     #[allow(dead_code)]
     pub struct SizeConstraintSetResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The name or description of the Size Constraint Set.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the parts of web requests that you want to inspect the size of.
-        pub size_constraints: pulumi_wasm_rust::Output<
+        pub size_constraints: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::wafregional::SizeConstraintSetSizeConstraint>,
             >,
@@ -57,11 +57,11 @@ pub mod size_constraint_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SizeConstraintSetArgs,
     ) -> SizeConstraintSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let size_constraints_binding = args
@@ -85,9 +85,9 @@ pub mod size_constraint_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SizeConstraintSetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            size_constraints: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            size_constraints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sizeConstraints"),
             ),
         }

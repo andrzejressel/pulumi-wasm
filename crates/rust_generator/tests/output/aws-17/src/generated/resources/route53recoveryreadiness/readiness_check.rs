@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = readiness_check::create(
@@ -25,40 +25,40 @@
 /// $ pulumi import aws:route53recoveryreadiness/readinessCheck:ReadinessCheck my-cw-alarm-check example
 /// ```
 pub mod readiness_check {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReadinessCheckArgs {
         /// Unique name describing the readiness check.
         #[builder(into)]
-        pub readiness_check_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub readiness_check_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name describing the resource set that will be monitored for readiness.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub resource_set_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_set_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ReadinessCheckResult {
         /// ARN of the readiness_check
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Unique name describing the readiness check.
-        pub readiness_check_name: pulumi_wasm_rust::Output<String>,
+        pub readiness_check_name: pulumi_gestalt_rust::Output<String>,
         /// Name describing the resource set that will be monitored for readiness.
         ///
         /// The following arguments are optional:
-        pub resource_set_name: pulumi_wasm_rust::Output<String>,
+        pub resource_set_name: pulumi_gestalt_rust::Output<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -67,11 +67,11 @@ pub mod readiness_check {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ReadinessCheckArgs,
     ) -> ReadinessCheckResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let readiness_check_name_binding = args
             .readiness_check_name
@@ -103,15 +103,15 @@ pub mod readiness_check {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ReadinessCheckResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            readiness_check_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            readiness_check_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("readinessCheckName"),
             ),
-            resource_set_name: pulumi_wasm_rust::__private::into_domain(
+            resource_set_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceSetName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

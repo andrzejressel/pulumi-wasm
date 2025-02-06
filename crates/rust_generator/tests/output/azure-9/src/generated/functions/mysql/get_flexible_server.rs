@@ -1,72 +1,72 @@
 pub mod get_flexible_server {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetFlexibleServerArgs {
         /// Specifies the name of the MySQL Flexible Server.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group for the MySQL Flexible Server.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetFlexibleServerResult {
         /// The Administrator login of the MySQL Flexible Server.
-        pub administrator_login: pulumi_wasm_rust::Output<String>,
+        pub administrator_login: pulumi_gestalt_rust::Output<String>,
         /// The backup retention days of the MySQL Flexible Server.
-        pub backup_retention_days: pulumi_wasm_rust::Output<i32>,
+        pub backup_retention_days: pulumi_gestalt_rust::Output<i32>,
         /// The ID of the virtual network subnet the MySQL Flexible Server is created in.
-        pub delegated_subnet_id: pulumi_wasm_rust::Output<String>,
+        pub delegated_subnet_id: pulumi_gestalt_rust::Output<String>,
         /// The fully qualified domain name of the MySQL Flexible Server.
-        pub fqdn: pulumi_wasm_rust::Output<String>,
+        pub fqdn: pulumi_gestalt_rust::Output<String>,
         /// Is geo redundant backup enabled?
-        pub geo_redundant_backup_enabled: pulumi_wasm_rust::Output<bool>,
+        pub geo_redundant_backup_enabled: pulumi_gestalt_rust::Output<bool>,
         /// A `high_availability` block for this MySQL Flexible Server as defined below.
-        pub high_availabilities: pulumi_wasm_rust::Output<
+        pub high_availabilities: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::mysql::GetFlexibleServerHighAvailability>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region of the MySQL Flexible Server.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A `maintenance_window` block for this MySQL Flexible Server as defined below.
-        pub maintenance_windows: pulumi_wasm_rust::Output<
+        pub maintenance_windows: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::mysql::GetFlexibleServerMaintenanceWindow>,
         >,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Private DNS zone of the MySQL Flexible Server.
-        pub private_dns_zone_id: pulumi_wasm_rust::Output<String>,
+        pub private_dns_zone_id: pulumi_gestalt_rust::Output<String>,
         /// Is the public network access enabled?
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<bool>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The maximum number of replicas that a primary MySQL Flexible Server can have.
-        pub replica_capacity: pulumi_wasm_rust::Output<i32>,
+        pub replica_capacity: pulumi_gestalt_rust::Output<i32>,
         /// The replication role of the MySQL Flexible Server.
-        pub replication_role: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
-        pub restore_point_in_time: pulumi_wasm_rust::Output<String>,
+        pub replication_role: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
+        pub restore_point_in_time: pulumi_gestalt_rust::Output<String>,
         /// The SKU Name of the MySQL Flexible Server.
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
         /// A `storage` block for this MySQL Flexible Server as defined below.
-        pub storages: pulumi_wasm_rust::Output<
+        pub storages: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::mysql::GetFlexibleServerStorage>,
         >,
         /// A mapping of tags which are assigned to the MySQL Flexible Server.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// The version of the MySQL Flexible Server.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
         /// The Availability Zones where this MySQL Flexible Server is located.
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetFlexibleServerArgs,
     ) -> GetFlexibleServerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -89,59 +89,59 @@ pub mod get_flexible_server {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetFlexibleServerResult {
-            administrator_login: pulumi_wasm_rust::__private::into_domain(
+            administrator_login: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("administratorLogin"),
             ),
-            backup_retention_days: pulumi_wasm_rust::__private::into_domain(
+            backup_retention_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupRetentionDays"),
             ),
-            delegated_subnet_id: pulumi_wasm_rust::__private::into_domain(
+            delegated_subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("delegatedSubnetId"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
-            geo_redundant_backup_enabled: pulumi_wasm_rust::__private::into_domain(
+            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
+            geo_redundant_backup_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("geoRedundantBackupEnabled"),
             ),
-            high_availabilities: pulumi_wasm_rust::__private::into_domain(
+            high_availabilities: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("highAvailabilities"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maintenance_windows: pulumi_wasm_rust::__private::into_domain(
+            maintenance_windows: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceWindows"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            private_dns_zone_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            private_dns_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateDnsZoneId"),
             ),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            replica_capacity: pulumi_wasm_rust::__private::into_domain(
+            replica_capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicaCapacity"),
             ),
-            replication_role: pulumi_wasm_rust::__private::into_domain(
+            replication_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationRole"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            restore_point_in_time: pulumi_wasm_rust::__private::into_domain(
+            restore_point_in_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restorePointInTime"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            storages: pulumi_wasm_rust::__private::into_domain(
+            storages: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storages"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            version: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("version"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

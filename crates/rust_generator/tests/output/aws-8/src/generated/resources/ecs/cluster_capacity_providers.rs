@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = cluster::create(
@@ -37,19 +37,19 @@
 /// $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
 /// ```
 pub mod cluster_capacity_providers {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterCapacityProvidersArgs {
         /// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         #[builder(into, default)]
-        pub capacity_providers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub capacity_providers: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Name of the ECS cluster to manage capacity providers for.
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Set of capacity provider strategies to use by default for the cluster. Detailed below.
         #[builder(into, default)]
-        pub default_capacity_provider_strategies: pulumi_wasm_rust::InputOrOutput<
+        pub default_capacity_provider_strategies: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::ecs::ClusterCapacityProvidersDefaultCapacityProviderStrategy,
@@ -60,11 +60,11 @@ pub mod cluster_capacity_providers {
     #[allow(dead_code)]
     pub struct ClusterCapacityProvidersResult {
         /// Set of names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
-        pub capacity_providers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub capacity_providers: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Name of the ECS cluster to manage capacity providers for.
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_gestalt_rust::Output<String>,
         /// Set of capacity provider strategies to use by default for the cluster. Detailed below.
-        pub default_capacity_provider_strategies: pulumi_wasm_rust::Output<
+        pub default_capacity_provider_strategies: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::ecs::ClusterCapacityProvidersDefaultCapacityProviderStrategy,
@@ -77,11 +77,11 @@ pub mod cluster_capacity_providers {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterCapacityProvidersArgs,
     ) -> ClusterCapacityProvidersResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let capacity_providers_binding = args
             .capacity_providers
@@ -113,13 +113,13 @@ pub mod cluster_capacity_providers {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterCapacityProvidersResult {
-            capacity_providers: pulumi_wasm_rust::__private::into_domain(
+            capacity_providers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capacityProviders"),
             ),
-            cluster_name: pulumi_wasm_rust::__private::into_domain(
+            cluster_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterName"),
             ),
-            default_capacity_provider_strategies: pulumi_wasm_rust::__private::into_domain(
+            default_capacity_provider_strategies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultCapacityProviderStrategies"),
             ),
         }

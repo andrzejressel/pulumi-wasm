@@ -28,12 +28,12 @@
 /// $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
 /// ```
 pub mod default_subnet {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DefaultSubnetArgs {
         #[builder(into, default)]
-        pub assign_ipv6_address_on_creation: pulumi_wasm_rust::InputOrOutput<
+        pub assign_ipv6_address_on_creation: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// is required
@@ -42,94 +42,94 @@ pub mod default_subnet {
         ///
         /// This resource supports the following additional arguments:
         #[builder(into)]
-        pub availability_zone: pulumi_wasm_rust::InputOrOutput<String>,
+        pub availability_zone: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub customer_owned_ipv4_pool: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub customer_owned_ipv4_pool: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub enable_dns64: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_dns64: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub enable_resource_name_dns_a_record_on_launch: pulumi_wasm_rust::InputOrOutput<
+        pub enable_resource_name_dns_a_record_on_launch: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         #[builder(into, default)]
-        pub enable_resource_name_dns_aaaa_record_on_launch: pulumi_wasm_rust::InputOrOutput<
+        pub enable_resource_name_dns_aaaa_record_on_launch: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Whether destroying the resource deletes the default subnet. Default: `false`
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub ipv6_cidr_block: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ipv6_cidr_block: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub ipv6_native: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ipv6_native: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub map_customer_owned_ip_on_launch: pulumi_wasm_rust::InputOrOutput<
+        pub map_customer_owned_ip_on_launch: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         #[builder(into, default)]
-        pub map_public_ip_on_launch: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub map_public_ip_on_launch: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub private_dns_hostname_type_on_launch: pulumi_wasm_rust::InputOrOutput<
+        pub private_dns_hostname_type_on_launch: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DefaultSubnetResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub assign_ipv6_address_on_creation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub assign_ipv6_address_on_creation: pulumi_gestalt_rust::Output<Option<bool>>,
         /// is required
         /// * The `availability_zone_id`, `cidr_block` and `vpc_id` arguments become computed attributes
         /// * The default value for `map_public_ip_on_launch` is `true`
         ///
         /// This resource supports the following additional arguments:
-        pub availability_zone: pulumi_wasm_rust::Output<String>,
+        pub availability_zone: pulumi_gestalt_rust::Output<String>,
         /// The AZ ID of the subnet
-        pub availability_zone_id: pulumi_wasm_rust::Output<String>,
+        pub availability_zone_id: pulumi_gestalt_rust::Output<String>,
         /// The IPv4 CIDR block assigned to the subnet
-        pub cidr_block: pulumi_wasm_rust::Output<String>,
-        pub customer_owned_ipv4_pool: pulumi_wasm_rust::Output<Option<String>>,
-        pub enable_dns64: pulumi_wasm_rust::Output<Option<bool>>,
-        pub enable_lni_at_device_index: pulumi_wasm_rust::Output<i32>,
-        pub enable_resource_name_dns_a_record_on_launch: pulumi_wasm_rust::Output<
+        pub cidr_block: pulumi_gestalt_rust::Output<String>,
+        pub customer_owned_ipv4_pool: pulumi_gestalt_rust::Output<Option<String>>,
+        pub enable_dns64: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub enable_lni_at_device_index: pulumi_gestalt_rust::Output<i32>,
+        pub enable_resource_name_dns_a_record_on_launch: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
-        pub enable_resource_name_dns_aaaa_record_on_launch: pulumi_wasm_rust::Output<
+        pub enable_resource_name_dns_aaaa_record_on_launch: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
-        pub existing_default_subnet: pulumi_wasm_rust::Output<bool>,
+        pub existing_default_subnet: pulumi_gestalt_rust::Output<bool>,
         /// Whether destroying the resource deletes the default subnet. Default: `false`
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
-        pub ipv6_cidr_block: pulumi_wasm_rust::Output<String>,
-        pub ipv6_cidr_block_association_id: pulumi_wasm_rust::Output<String>,
-        pub ipv6_native: pulumi_wasm_rust::Output<Option<bool>>,
-        pub map_customer_owned_ip_on_launch: pulumi_wasm_rust::Output<Option<bool>>,
-        pub map_public_ip_on_launch: pulumi_wasm_rust::Output<Option<bool>>,
-        pub outpost_arn: pulumi_wasm_rust::Output<String>,
-        pub owner_id: pulumi_wasm_rust::Output<String>,
-        pub private_dns_hostname_type_on_launch: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub force_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub ipv6_cidr_block: pulumi_gestalt_rust::Output<String>,
+        pub ipv6_cidr_block_association_id: pulumi_gestalt_rust::Output<String>,
+        pub ipv6_native: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub map_customer_owned_ip_on_launch: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub map_public_ip_on_launch: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub outpost_arn: pulumi_gestalt_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
+        pub private_dns_hostname_type_on_launch: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The ID of the VPC the subnet is in
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DefaultSubnetArgs,
     ) -> DefaultSubnetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let assign_ipv6_address_on_creation_binding = args
             .assign_ipv6_address_on_creation
@@ -232,69 +232,69 @@ pub mod default_subnet {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DefaultSubnetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            assign_ipv6_address_on_creation: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            assign_ipv6_address_on_creation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assignIpv6AddressOnCreation"),
             ),
-            availability_zone: pulumi_wasm_rust::__private::into_domain(
+            availability_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZone"),
             ),
-            availability_zone_id: pulumi_wasm_rust::__private::into_domain(
+            availability_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZoneId"),
             ),
-            cidr_block: pulumi_wasm_rust::__private::into_domain(
+            cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cidrBlock"),
             ),
-            customer_owned_ipv4_pool: pulumi_wasm_rust::__private::into_domain(
+            customer_owned_ipv4_pool: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerOwnedIpv4Pool"),
             ),
-            enable_dns64: pulumi_wasm_rust::__private::into_domain(
+            enable_dns64: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableDns64"),
             ),
-            enable_lni_at_device_index: pulumi_wasm_rust::__private::into_domain(
+            enable_lni_at_device_index: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableLniAtDeviceIndex"),
             ),
-            enable_resource_name_dns_a_record_on_launch: pulumi_wasm_rust::__private::into_domain(
+            enable_resource_name_dns_a_record_on_launch: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableResourceNameDnsARecordOnLaunch"),
             ),
-            enable_resource_name_dns_aaaa_record_on_launch: pulumi_wasm_rust::__private::into_domain(
+            enable_resource_name_dns_aaaa_record_on_launch: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableResourceNameDnsAaaaRecordOnLaunch"),
             ),
-            existing_default_subnet: pulumi_wasm_rust::__private::into_domain(
+            existing_default_subnet: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("existingDefaultSubnet"),
             ),
-            force_destroy: pulumi_wasm_rust::__private::into_domain(
+            force_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDestroy"),
             ),
-            ipv6_cidr_block: pulumi_wasm_rust::__private::into_domain(
+            ipv6_cidr_block: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6CidrBlock"),
             ),
-            ipv6_cidr_block_association_id: pulumi_wasm_rust::__private::into_domain(
+            ipv6_cidr_block_association_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6CidrBlockAssociationId"),
             ),
-            ipv6_native: pulumi_wasm_rust::__private::into_domain(
+            ipv6_native: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6Native"),
             ),
-            map_customer_owned_ip_on_launch: pulumi_wasm_rust::__private::into_domain(
+            map_customer_owned_ip_on_launch: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mapCustomerOwnedIpOnLaunch"),
             ),
-            map_public_ip_on_launch: pulumi_wasm_rust::__private::into_domain(
+            map_public_ip_on_launch: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mapPublicIpOnLaunch"),
             ),
-            outpost_arn: pulumi_wasm_rust::__private::into_domain(
+            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outpostArn"),
             ),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            private_dns_hostname_type_on_launch: pulumi_wasm_rust::__private::into_domain(
+            private_dns_hostname_type_on_launch: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateDnsHostnameTypeOnLaunch"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

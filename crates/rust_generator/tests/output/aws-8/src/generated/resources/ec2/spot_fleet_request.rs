@@ -44,8 +44,8 @@
 /// ### Using launch templates
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foo = launch_template::create(
@@ -83,8 +83,8 @@
 /// ### Using multiple launch specifications
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foo = spot_fleet_request::create(
@@ -161,7 +161,7 @@
 /// $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
 /// ```
 pub mod spot_fleet_request {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpotFleetRequestArgs {
@@ -169,32 +169,32 @@ pub mod spot_fleet_request {
         /// the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
         /// `lowestPrice`.
         #[builder(into, default)]
-        pub allocation_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub allocation_strategy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Reserved.
         #[builder(into, default)]
-        pub context: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub context: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Indicates whether running Spot
         /// instances should be terminated if the target capacity of the Spot fleet
         /// request is decreased below the current size of the Spot fleet.
         #[builder(into, default)]
-        pub excess_capacity_termination_policy: pulumi_wasm_rust::InputOrOutput<
+        pub excess_capacity_termination_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The type of fleet request. Indicates whether the Spot Fleet only requests the target
         /// capacity or also attempts to maintain it. Default is `maintain`.
         #[builder(into, default)]
-        pub fleet_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub fleet_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Grants the Spot fleet permission to terminate
         /// Spot instances on your behalf when you cancel its Spot fleet request using
         /// CancelSpotFleetRequests or when the Spot fleet request expires, if you set
         /// terminateInstancesWithExpiration.
         #[builder(into)]
-        pub iam_fleet_role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub iam_fleet_role: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Indicates whether a Spot
         /// instance stops or terminates when it is interrupted. Default is
         /// `terminate`.
         #[builder(into, default)]
-        pub instance_interruption_behaviour: pulumi_wasm_rust::InputOrOutput<
+        pub instance_interruption_behaviour: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The number of Spot pools across which to allocate your target Spot capacity.
@@ -202,7 +202,7 @@ pub mod spot_fleet_request {
         /// the cheapest Spot pools and evenly allocates your target Spot capacity across
         /// the number of Spot pools that you specify.
         #[builder(into, default)]
-        pub instance_pools_to_use_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub instance_pools_to_use_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Used to define the launch configuration of the
         /// spot-fleet request. Can be specified multiple times to define different bids
         /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
@@ -213,110 +213,118 @@ pub mod spot_fleet_request {
         /// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
         /// a additional parameter `iam_instance_profile_arn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
         #[builder(into, default)]
-        pub launch_specifications: pulumi_wasm_rust::InputOrOutput<
+        pub launch_specifications: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::SpotFleetRequestLaunchSpecification>>,
         >,
         /// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         #[builder(into, default)]
-        pub launch_template_configs: pulumi_wasm_rust::InputOrOutput<
+        pub launch_template_configs: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::SpotFleetRequestLaunchTemplateConfig>>,
         >,
         /// A list of elastic load balancer names to add to the Spot fleet.
         #[builder(into, default)]
-        pub load_balancers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub load_balancers: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
         #[builder(into, default)]
-        pub on_demand_allocation_strategy: pulumi_wasm_rust::InputOrOutput<
+        pub on_demand_allocation_strategy: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
         #[builder(into, default)]
-        pub on_demand_max_total_price: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub on_demand_max_total_price: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
         #[builder(into, default)]
-        pub on_demand_target_capacity: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub on_demand_target_capacity: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         #[builder(into, default)]
-        pub replace_unhealthy_instances: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub replace_unhealthy_instances: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         #[builder(into, default)]
-        pub spot_maintenance_strategies: pulumi_wasm_rust::InputOrOutput<
+        pub spot_maintenance_strategies: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ec2::SpotFleetRequestSpotMaintenanceStrategies>,
         >,
         /// The maximum bid price per unit hour.
         #[builder(into, default)]
-        pub spot_price: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub spot_price: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The number of units to request. You can choose to set the
         /// target capacity in terms of instances or a performance characteristic that is
         /// important to your application workload, such as vCPUs, memory, or I/O.
         #[builder(into)]
-        pub target_capacity: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub target_capacity: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The unit for the target capacity. This can only be done with `instance_requirements` defined
         #[builder(into, default)]
-        pub target_capacity_unit_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub target_capacity_unit_type: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
         #[builder(into, default)]
-        pub target_group_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub target_group_arns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Indicates whether running Spot
         /// instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
         /// If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
         #[builder(into, default)]
-        pub terminate_instances_on_delete: pulumi_wasm_rust::InputOrOutput<
+        pub terminate_instances_on_delete: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Indicates whether running Spot
         /// instances should be terminated when the Spot fleet request expires.
         #[builder(into, default)]
-        pub terminate_instances_with_expiration: pulumi_wasm_rust::InputOrOutput<
+        pub terminate_instances_with_expiration: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
         #[builder(into, default)]
-        pub valid_from: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub valid_from: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
         #[builder(into, default)]
-        pub valid_until: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub valid_until: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If set, this provider will
         /// wait for the Spot Request to be fulfilled, and will throw an error if the
         /// timeout of 10m is reached.
         #[builder(into, default)]
-        pub wait_for_fulfillment: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub wait_for_fulfillment: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct SpotFleetRequestResult {
         /// Indicates how to allocate the target capacity across
         /// the Spot pools specified by the Spot fleet request. Valid values: `lowestPrice`, `diversified`, `capacityOptimized`, `capacityOptimizedPrioritized`, and `priceCapacityOptimized`. The default is
         /// `lowestPrice`.
-        pub allocation_strategy: pulumi_wasm_rust::Output<Option<String>>,
-        pub client_token: pulumi_wasm_rust::Output<String>,
+        pub allocation_strategy: pulumi_gestalt_rust::Output<Option<String>>,
+        pub client_token: pulumi_gestalt_rust::Output<String>,
         /// Reserved.
-        pub context: pulumi_wasm_rust::Output<Option<String>>,
+        pub context: pulumi_gestalt_rust::Output<Option<String>>,
         /// Indicates whether running Spot
         /// instances should be terminated if the target capacity of the Spot fleet
         /// request is decreased below the current size of the Spot fleet.
-        pub excess_capacity_termination_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub excess_capacity_termination_policy: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// The type of fleet request. Indicates whether the Spot Fleet only requests the target
         /// capacity or also attempts to maintain it. Default is `maintain`.
-        pub fleet_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub fleet_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Grants the Spot fleet permission to terminate
         /// Spot instances on your behalf when you cancel its Spot fleet request using
         /// CancelSpotFleetRequests or when the Spot fleet request expires, if you set
         /// terminateInstancesWithExpiration.
-        pub iam_fleet_role: pulumi_wasm_rust::Output<String>,
+        pub iam_fleet_role: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether a Spot
         /// instance stops or terminates when it is interrupted. Default is
         /// `terminate`.
-        pub instance_interruption_behaviour: pulumi_wasm_rust::Output<Option<String>>,
+        pub instance_interruption_behaviour: pulumi_gestalt_rust::Output<Option<String>>,
         /// The number of Spot pools across which to allocate your target Spot capacity.
         /// Valid only when `allocation_strategy` is set to `lowestPrice`. Spot Fleet selects
         /// the cheapest Spot pools and evenly allocates your target Spot capacity across
         /// the number of Spot pools that you specify.
-        pub instance_pools_to_use_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub instance_pools_to_use_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Used to define the launch configuration of the
         /// spot-fleet request. Can be specified multiple times to define different bids
         /// across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
@@ -326,73 +334,75 @@ pub mod spot_fleet_request {
         /// what you can specify. See the list of officially supported inputs in the
         /// [reference documentation](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetLaunchSpecification.html). Any normal `aws.ec2.Instance` parameter that corresponds to those inputs may be used and it have
         /// a additional parameter `iam_instance_profile_arn` takes `aws.iam.InstanceProfile` attribute `arn` as input.
-        pub launch_specifications: pulumi_wasm_rust::Output<
+        pub launch_specifications: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::ec2::SpotFleetRequestLaunchSpecification>>,
         >,
         /// Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
-        pub launch_template_configs: pulumi_wasm_rust::Output<
+        pub launch_template_configs: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::ec2::SpotFleetRequestLaunchTemplateConfig>>,
         >,
         /// A list of elastic load balancer names to add to the Spot fleet.
-        pub load_balancers: pulumi_wasm_rust::Output<Vec<String>>,
+        pub load_balancers: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
-        pub on_demand_allocation_strategy: pulumi_wasm_rust::Output<Option<String>>,
+        pub on_demand_allocation_strategy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
-        pub on_demand_max_total_price: pulumi_wasm_rust::Output<Option<String>>,
+        pub on_demand_max_total_price: pulumi_gestalt_rust::Output<Option<String>>,
         /// The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
-        pub on_demand_target_capacity: pulumi_wasm_rust::Output<Option<i32>>,
+        pub on_demand_target_capacity: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
-        pub replace_unhealthy_instances: pulumi_wasm_rust::Output<Option<bool>>,
+        pub replace_unhealthy_instances: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
-        pub spot_maintenance_strategies: pulumi_wasm_rust::Output<
+        pub spot_maintenance_strategies: pulumi_gestalt_rust::Output<
             Option<super::super::types::ec2::SpotFleetRequestSpotMaintenanceStrategies>,
         >,
         /// The maximum bid price per unit hour.
-        pub spot_price: pulumi_wasm_rust::Output<Option<String>>,
+        pub spot_price: pulumi_gestalt_rust::Output<Option<String>>,
         /// The state of the Spot fleet request.
-        pub spot_request_state: pulumi_wasm_rust::Output<String>,
+        pub spot_request_state: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The number of units to request. You can choose to set the
         /// target capacity in terms of instances or a performance characteristic that is
         /// important to your application workload, such as vCPUs, memory, or I/O.
-        pub target_capacity: pulumi_wasm_rust::Output<i32>,
+        pub target_capacity: pulumi_gestalt_rust::Output<i32>,
         /// The unit for the target capacity. This can only be done with `instance_requirements` defined
-        pub target_capacity_unit_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_capacity_unit_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
-        pub target_group_arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub target_group_arns: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Indicates whether running Spot
         /// instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
         /// If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
-        pub terminate_instances_on_delete: pulumi_wasm_rust::Output<Option<String>>,
+        pub terminate_instances_on_delete: pulumi_gestalt_rust::Output<Option<String>>,
         /// Indicates whether running Spot
         /// instances should be terminated when the Spot fleet request expires.
-        pub terminate_instances_with_expiration: pulumi_wasm_rust::Output<Option<bool>>,
+        pub terminate_instances_with_expiration: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
-        pub valid_from: pulumi_wasm_rust::Output<Option<String>>,
+        pub valid_from: pulumi_gestalt_rust::Output<Option<String>>,
         /// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request.
-        pub valid_until: pulumi_wasm_rust::Output<Option<String>>,
+        pub valid_until: pulumi_gestalt_rust::Output<Option<String>>,
         /// If set, this provider will
         /// wait for the Spot Request to be fulfilled, and will throw an error if the
         /// timeout of 10m is reached.
-        pub wait_for_fulfillment: pulumi_wasm_rust::Output<Option<bool>>,
+        pub wait_for_fulfillment: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SpotFleetRequestArgs,
     ) -> SpotFleetRequestResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allocation_strategy_binding = args
             .allocation_strategy
@@ -579,86 +589,86 @@ pub mod spot_fleet_request {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SpotFleetRequestResult {
-            allocation_strategy: pulumi_wasm_rust::__private::into_domain(
+            allocation_strategy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allocationStrategy"),
             ),
-            client_token: pulumi_wasm_rust::__private::into_domain(
+            client_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientToken"),
             ),
-            context: pulumi_wasm_rust::__private::into_domain(
+            context: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("context"),
             ),
-            excess_capacity_termination_policy: pulumi_wasm_rust::__private::into_domain(
+            excess_capacity_termination_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("excessCapacityTerminationPolicy"),
             ),
-            fleet_type: pulumi_wasm_rust::__private::into_domain(
+            fleet_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fleetType"),
             ),
-            iam_fleet_role: pulumi_wasm_rust::__private::into_domain(
+            iam_fleet_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iamFleetRole"),
             ),
-            instance_interruption_behaviour: pulumi_wasm_rust::__private::into_domain(
+            instance_interruption_behaviour: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceInterruptionBehaviour"),
             ),
-            instance_pools_to_use_count: pulumi_wasm_rust::__private::into_domain(
+            instance_pools_to_use_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instancePoolsToUseCount"),
             ),
-            launch_specifications: pulumi_wasm_rust::__private::into_domain(
+            launch_specifications: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("launchSpecifications"),
             ),
-            launch_template_configs: pulumi_wasm_rust::__private::into_domain(
+            launch_template_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("launchTemplateConfigs"),
             ),
-            load_balancers: pulumi_wasm_rust::__private::into_domain(
+            load_balancers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancers"),
             ),
-            on_demand_allocation_strategy: pulumi_wasm_rust::__private::into_domain(
+            on_demand_allocation_strategy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("onDemandAllocationStrategy"),
             ),
-            on_demand_max_total_price: pulumi_wasm_rust::__private::into_domain(
+            on_demand_max_total_price: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("onDemandMaxTotalPrice"),
             ),
-            on_demand_target_capacity: pulumi_wasm_rust::__private::into_domain(
+            on_demand_target_capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("onDemandTargetCapacity"),
             ),
-            replace_unhealthy_instances: pulumi_wasm_rust::__private::into_domain(
+            replace_unhealthy_instances: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replaceUnhealthyInstances"),
             ),
-            spot_maintenance_strategies: pulumi_wasm_rust::__private::into_domain(
+            spot_maintenance_strategies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("spotMaintenanceStrategies"),
             ),
-            spot_price: pulumi_wasm_rust::__private::into_domain(
+            spot_price: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("spotPrice"),
             ),
-            spot_request_state: pulumi_wasm_rust::__private::into_domain(
+            spot_request_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("spotRequestState"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            target_capacity: pulumi_wasm_rust::__private::into_domain(
+            target_capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetCapacity"),
             ),
-            target_capacity_unit_type: pulumi_wasm_rust::__private::into_domain(
+            target_capacity_unit_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetCapacityUnitType"),
             ),
-            target_group_arns: pulumi_wasm_rust::__private::into_domain(
+            target_group_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetGroupArns"),
             ),
-            terminate_instances_on_delete: pulumi_wasm_rust::__private::into_domain(
+            terminate_instances_on_delete: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("terminateInstancesOnDelete"),
             ),
-            terminate_instances_with_expiration: pulumi_wasm_rust::__private::into_domain(
+            terminate_instances_with_expiration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("terminateInstancesWithExpiration"),
             ),
-            valid_from: pulumi_wasm_rust::__private::into_domain(
+            valid_from: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validFrom"),
             ),
-            valid_until: pulumi_wasm_rust::__private::into_domain(
+            valid_until: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validUntil"),
             ),
-            wait_for_fulfillment: pulumi_wasm_rust::__private::into_domain(
+            wait_for_fulfillment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("waitForFulfillment"),
             ),
         }

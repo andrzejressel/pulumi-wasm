@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = zone_cache_variants::create(
@@ -27,84 +27,84 @@
 /// }
 /// ```
 pub mod zone_cache_variants {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZoneCacheVariantsArgs {
         /// List of strings with the MIME types of all the variants that should be served for avif.
         #[builder(into, default)]
-        pub avifs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub avifs: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for bmp.
         #[builder(into, default)]
-        pub bmps: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub bmps: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for gif.
         #[builder(into, default)]
-        pub gifs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub gifs: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for jp2.
         #[builder(into, default)]
-        pub jp2s: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub jp2s: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for jpeg.
         #[builder(into, default)]
-        pub jpegs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub jpegs: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for jpg2.
         #[builder(into, default)]
-        pub jpg2s: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub jpg2s: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for jpg.
         #[builder(into, default)]
-        pub jpgs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub jpgs: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for png.
         #[builder(into, default)]
-        pub pngs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub pngs: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for tiff.
         #[builder(into, default)]
-        pub tiffs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub tiffs: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for tif.
         #[builder(into, default)]
-        pub tifs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub tifs: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for webp.
         #[builder(into, default)]
-        pub webps: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub webps: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ZoneCacheVariantsResult {
         /// List of strings with the MIME types of all the variants that should be served for avif.
-        pub avifs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub avifs: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for bmp.
-        pub bmps: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub bmps: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for gif.
-        pub gifs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub gifs: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for jp2.
-        pub jp2s: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub jp2s: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for jpeg.
-        pub jpegs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub jpegs: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for jpg2.
-        pub jpg2s: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub jpg2s: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for jpg.
-        pub jpgs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub jpgs: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for png.
-        pub pngs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub pngs: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for tiff.
-        pub tiffs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tiffs: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for tif.
-        pub tifs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tifs: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// List of strings with the MIME types of all the variants that should be served for webp.
-        pub webps: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub webps: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ZoneCacheVariantsArgs,
     ) -> ZoneCacheVariantsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let avifs_binding = args.avifs.get_output(context).get_inner();
         let bmps_binding = args.bmps.get_output(context).get_inner();
@@ -175,18 +175,20 @@ pub mod zone_cache_variants {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ZoneCacheVariantsResult {
-            avifs: pulumi_wasm_rust::__private::into_domain(o.extract_field("avifs")),
-            bmps: pulumi_wasm_rust::__private::into_domain(o.extract_field("bmps")),
-            gifs: pulumi_wasm_rust::__private::into_domain(o.extract_field("gifs")),
-            jp2s: pulumi_wasm_rust::__private::into_domain(o.extract_field("jp2s")),
-            jpegs: pulumi_wasm_rust::__private::into_domain(o.extract_field("jpegs")),
-            jpg2s: pulumi_wasm_rust::__private::into_domain(o.extract_field("jpg2s")),
-            jpgs: pulumi_wasm_rust::__private::into_domain(o.extract_field("jpgs")),
-            pngs: pulumi_wasm_rust::__private::into_domain(o.extract_field("pngs")),
-            tiffs: pulumi_wasm_rust::__private::into_domain(o.extract_field("tiffs")),
-            tifs: pulumi_wasm_rust::__private::into_domain(o.extract_field("tifs")),
-            webps: pulumi_wasm_rust::__private::into_domain(o.extract_field("webps")),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            avifs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("avifs")),
+            bmps: pulumi_gestalt_rust::__private::into_domain(o.extract_field("bmps")),
+            gifs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("gifs")),
+            jp2s: pulumi_gestalt_rust::__private::into_domain(o.extract_field("jp2s")),
+            jpegs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("jpegs")),
+            jpg2s: pulumi_gestalt_rust::__private::into_domain(o.extract_field("jpg2s")),
+            jpgs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("jpgs")),
+            pngs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("pngs")),
+            tiffs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tiffs")),
+            tifs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tifs")),
+            webps: pulumi_gestalt_rust::__private::into_domain(o.extract_field("webps")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

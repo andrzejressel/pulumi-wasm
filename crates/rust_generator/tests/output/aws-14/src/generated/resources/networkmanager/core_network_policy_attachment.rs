@@ -7,8 +7,8 @@
 /// ### Basic
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = core_network::create(
@@ -61,36 +61,36 @@
 /// $ pulumi import aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment example core-network-0d47f6t230mz46dy4
 /// ```
 pub mod core_network_policy_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CoreNetworkPolicyAttachmentArgs {
         /// The ID of the core network that a policy will be attached to and made `LIVE`.
         #[builder(into)]
-        pub core_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub core_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
         #[builder(into)]
-        pub policy_document: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_document: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CoreNetworkPolicyAttachmentResult {
         /// The ID of the core network that a policy will be attached to and made `LIVE`.
-        pub core_network_id: pulumi_wasm_rust::Output<String>,
+        pub core_network_id: pulumi_gestalt_rust::Output<String>,
         /// Policy document for creating a core network. Note that updating this argument will result in the new policy document version being set as the `LATEST` and `LIVE` policy document. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
-        pub policy_document: pulumi_wasm_rust::Output<String>,
+        pub policy_document: pulumi_gestalt_rust::Output<String>,
         /// Current state of a core network.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CoreNetworkPolicyAttachmentArgs,
     ) -> CoreNetworkPolicyAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let core_network_id_binding = args
             .core_network_id
@@ -118,13 +118,13 @@ pub mod core_network_policy_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CoreNetworkPolicyAttachmentResult {
-            core_network_id: pulumi_wasm_rust::__private::into_domain(
+            core_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coreNetworkId"),
             ),
-            policy_document: pulumi_wasm_rust::__private::into_domain(
+            policy_document: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyDocument"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

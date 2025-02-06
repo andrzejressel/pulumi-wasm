@@ -61,8 +61,8 @@
 /// ### Adding An Alias To An Existing Subscription
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = subscription::create(
@@ -87,68 +87,68 @@
 /// In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
 ///
 pub mod subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubscriptionArgs {
         /// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
         #[builder(into, default)]
-        pub alias: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub alias: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
         #[builder(into, default)]
-        pub billing_scope_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub billing_scope_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Subscription. Changing this forces a new Subscription to be created.
         ///
         /// > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
         ///
         /// > **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
         #[builder(into, default)]
-        pub subscription_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subscription_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Name of the Subscription. This is the Display Name in the portal.
         #[builder(into)]
-        pub subscription_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subscription_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the Subscription.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
         #[builder(into, default)]
-        pub workload: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub workload: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SubscriptionResult {
         /// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
-        pub alias: pulumi_wasm_rust::Output<String>,
+        pub alias: pulumi_gestalt_rust::Output<String>,
         /// The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID.
-        pub billing_scope_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub billing_scope_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Subscription. Changing this forces a new Subscription to be created.
         ///
         /// > **NOTE:** This value can be specified only for adopting control of an existing Subscription, it cannot be used to provide a custom Subscription ID.
         ///
         /// > **NOTE:** Either `billing_scope_id` or `subscription_id` has to be specified.
-        pub subscription_id: pulumi_wasm_rust::Output<String>,
+        pub subscription_id: pulumi_gestalt_rust::Output<String>,
         /// The Name of the Subscription. This is the Display Name in the portal.
-        pub subscription_name: pulumi_wasm_rust::Output<String>,
+        pub subscription_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the Subscription.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the Tenant to which the subscription belongs.
-        pub tenant_id: pulumi_wasm_rust::Output<String>,
+        pub tenant_id: pulumi_gestalt_rust::Output<String>,
         /// The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created.
-        pub workload: pulumi_wasm_rust::Output<Option<String>>,
+        pub workload: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SubscriptionArgs,
     ) -> SubscriptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let alias_binding = args.alias.get_output(context).get_inner();
         let billing_scope_id_binding = args
@@ -198,21 +198,21 @@ pub mod subscription {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SubscriptionResult {
-            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
-            billing_scope_id: pulumi_wasm_rust::__private::into_domain(
+            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
+            billing_scope_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("billingScopeId"),
             ),
-            subscription_id: pulumi_wasm_rust::__private::into_domain(
+            subscription_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscriptionId"),
             ),
-            subscription_name: pulumi_wasm_rust::__private::into_domain(
+            subscription_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscriptionName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tenant_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tenant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tenantId"),
             ),
-            workload: pulumi_wasm_rust::__private::into_domain(
+            workload: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workload"),
             ),
         }

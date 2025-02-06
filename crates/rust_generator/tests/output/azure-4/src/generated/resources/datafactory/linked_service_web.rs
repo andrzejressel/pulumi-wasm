@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -44,7 +44,7 @@
 /// ```
 ///
 pub mod linked_service_web {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkedServiceWebArgs {
@@ -52,83 +52,83 @@ pub mod linked_service_web {
         ///
         /// The following supported arguments are specific to Web Linked Service:
         #[builder(into, default)]
-        pub additional_properties: pulumi_wasm_rust::InputOrOutput<
+        pub additional_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
         #[builder(into)]
-        pub authentication_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub authentication_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description for the Data Factory Linked Service.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The integration runtime reference to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub integration_runtime_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub integration_runtime_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of parameters to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
         #[builder(into)]
-        pub url: pulumi_wasm_rust::InputOrOutput<String>,
+        pub url: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
         #[builder(into, default)]
-        pub username: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub username: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LinkedServiceWebResult {
         /// A map of additional properties to associate with the Data Factory Linked Service.
         ///
         /// The following supported arguments are specific to Web Linked Service:
-        pub additional_properties: pulumi_wasm_rust::Output<
+        pub additional_properties: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service.
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`.
-        pub authentication_type: pulumi_wasm_rust::Output<String>,
+        pub authentication_type: pulumi_gestalt_rust::Output<String>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// The description for the Data Factory Linked Service.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The integration runtime reference to associate with the Data Factory Linked Service.
-        pub integration_runtime_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub integration_runtime_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A map of parameters to associate with the Data Factory Linked Service.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The password for Basic authentication. Required if `authentication_type` sets to `Basic`.
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_gestalt_rust::Output<Option<String>>,
         /// The URL of the web service endpoint (e.g. <https://www.microsoft.com>).
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub url: pulumi_gestalt_rust::Output<String>,
         /// The username for Basic authentication. Required if `authentication_type` sets to `Basic`.
-        pub username: pulumi_wasm_rust::Output<Option<String>>,
+        pub username: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LinkedServiceWebArgs,
     ) -> LinkedServiceWebResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let additional_properties_binding = args
             .additional_properties
@@ -206,33 +206,33 @@ pub mod linked_service_web {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LinkedServiceWebResult {
-            additional_properties: pulumi_wasm_rust::__private::into_domain(
+            additional_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalProperties"),
             ),
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            authentication_type: pulumi_wasm_rust::__private::into_domain(
+            authentication_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationType"),
             ),
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            integration_runtime_name: pulumi_wasm_rust::__private::into_domain(
+            integration_runtime_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationRuntimeName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            password: pulumi_wasm_rust::__private::into_domain(
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
-            username: pulumi_wasm_rust::__private::into_domain(
+            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("username"),
             ),
         }

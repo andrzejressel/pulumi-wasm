@@ -2,7 +2,7 @@ use crate::output::HASHMAP;
 use crate::PulumiContext;
 use anyhow::{Context, Error, Result};
 use log::{error, info};
-use pulumi_wasm_wit::client_bindings::component::pulumi_wasm::stack_interface::{
+use pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::stack_interface::{
     finish, FunctionInvocationRequest, FunctionInvocationResult,
 };
 
@@ -13,7 +13,7 @@ where
     let in_preview = in_preview_u8 == 1;
     let engine = PulumiContext::new(in_preview);
     let outer = |e: &PulumiContext| {
-        pulumi_wasm_common::setup_logger();
+        pulumi_gestalt_common::setup_logger();
         f(&engine)?;
         run_loop(&engine)?;
         Ok(())

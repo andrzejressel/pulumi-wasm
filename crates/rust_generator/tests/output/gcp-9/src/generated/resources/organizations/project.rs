@@ -23,8 +23,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let myProject = project::create(
@@ -84,7 +84,7 @@
 /// ```
 ///
 pub mod project {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectArgs {
@@ -92,33 +92,33 @@ pub mod project {
         /// that, for quota purposes, you will still need to have 1 network slot available to create the project successfully, even
         /// if you set auto_create_network to false, since the network will exist momentarily.
         #[builder(into, default)]
-        pub auto_create_network: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_create_network: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The alphanumeric ID of the billing account this project
         /// belongs to. The user or service account performing this operation with the provider
         /// must have at mininum Billing Account User privileges (`roles/billing.user`) on the billing account.
         /// See [Google Cloud Billing API Access Control](https://cloud.google.com/billing/docs/how-to/billing-access)
         /// for more details.
         #[builder(into, default)]
-        pub billing_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub billing_account: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The numeric ID of the folder this project should be
         /// created under. Only one of `org_id` or `folder_id` may be
         /// specified. If the `folder_id` is specified, then the project is
         /// created under the specified folder. Changing this forces the
         /// project to be migrated to the newly specified folder.
         #[builder(into, default)]
-        pub folder_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub folder_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A set of key/value label pairs to assign to the project.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The display name of the project.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The numeric ID of the organization this project belongs to.
         /// Changing this forces a new project to be created.  Only one of
         /// `org_id` or `folder_id` may be specified. If the `org_id` is
@@ -126,13 +126,13 @@ pub mod project {
         /// this forces the project to be migrated to the newly specified
         /// organization.
         #[builder(into, default)]
-        pub org_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub org_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The project ID. Changing this forces a new project to be created.
         #[builder(into, default)]
-        pub project_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of resource manager tags. Resource manager tag keys and values have the same definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/456. The field is ignored when empty. The field is immutable and causes resource replacement when mutated. This field is only set at create time and modifying this field after creation will trigger recreation. To apply tags to an existing resource, see the `gcp.tags.TagValue` resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -141,16 +141,16 @@ pub mod project {
         /// Create the 'default' network automatically. Default true. If set to false, the default network will be deleted. Note
         /// that, for quota purposes, you will still need to have 1 network slot available to create the project successfully, even
         /// if you set auto_create_network to false, since the network will exist momentarily.
-        pub auto_create_network: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_create_network: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The alphanumeric ID of the billing account this project
         /// belongs to. The user or service account performing this operation with the provider
         /// must have at mininum Billing Account User privileges (`roles/billing.user`) on the billing account.
         /// See [Google Cloud Billing API Access Control](https://cloud.google.com/billing/docs/how-to/billing-access)
         /// for more details.
-        pub billing_account: pulumi_wasm_rust::Output<Option<String>>,
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub billing_account: pulumi_gestalt_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The numeric ID of the folder this project should be
@@ -158,32 +158,32 @@ pub mod project {
         /// specified. If the `folder_id` is specified, then the project is
         /// created under the specified folder. Changing this forces the
         /// project to be migrated to the newly specified folder.
-        pub folder_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub folder_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A set of key/value label pairs to assign to the project.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field 'effective_labels' for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The display name of the project.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The numeric identifier of the project.
-        pub number: pulumi_wasm_rust::Output<String>,
+        pub number: pulumi_gestalt_rust::Output<String>,
         /// The numeric ID of the organization this project belongs to.
         /// Changing this forces a new project to be created.  Only one of
         /// `org_id` or `folder_id` may be specified. If the `org_id` is
         /// specified then the project is created at the top level. Changing
         /// this forces the project to be migrated to the newly specified
         /// organization.
-        pub org_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub org_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The project ID. Changing this forces a new project to be created.
-        pub project_id: pulumi_wasm_rust::Output<String>,
+        pub project_id: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A map of resource manager tags. Resource manager tag keys and values have the same definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/456. The field is ignored when empty. The field is immutable and causes resource replacement when mutated. This field is only set at create time and modifying this field after creation will trigger recreation. To apply tags to an existing resource, see the `gcp.tags.TagValue` resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -192,11 +192,11 @@ pub mod project {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProjectArgs,
     ) -> ProjectResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_create_network_binding = args
             .auto_create_network
@@ -261,32 +261,38 @@ pub mod project {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProjectResult {
-            auto_create_network: pulumi_wasm_rust::__private::into_domain(
+            auto_create_network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoCreateNetwork"),
             ),
-            billing_account: pulumi_wasm_rust::__private::into_domain(
+            billing_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("billingAccount"),
             ),
-            deletion_policy: pulumi_wasm_rust::__private::into_domain(
+            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionPolicy"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            folder_id: pulumi_wasm_rust::__private::into_domain(
+            folder_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("folderId"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            number: pulumi_wasm_rust::__private::into_domain(o.extract_field("number")),
-            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
-            project_id: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            number: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("number"),
+            ),
+            org_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("orgId"),
+            ),
+            project_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("projectId"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -173,7 +173,7 @@
 /// ```
 ///
 pub mod autoscaler {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AutoscalerArgs {
@@ -184,27 +184,27 @@ pub mod autoscaler {
         /// on cpuUtilization to 0.6 or 60%.
         /// Structure is documented below.
         #[builder(into)]
-        pub autoscaling_policy: pulumi_wasm_rust::InputOrOutput<
+        pub autoscaling_policy: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::compute::AutoscalerAutoscalingPolicy,
         >,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the resource. The name must be 1-63 characters long and match
         /// the regular expression `a-z?` which means the
         /// first character must be a lowercase letter, and all following
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// URL of the managed instance group that this autoscaler will scale.
         #[builder(into)]
-        pub target: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target: pulumi_gestalt_rust::InputOrOutput<String>,
         /// URL of the zone where the instance group resides.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AutoscalerResult {
@@ -214,37 +214,37 @@ pub mod autoscaler {
         /// If none of these are specified, the default will be to autoscale based
         /// on cpuUtilization to 0.6 or 60%.
         /// Structure is documented below.
-        pub autoscaling_policy: pulumi_wasm_rust::Output<
+        pub autoscaling_policy: pulumi_gestalt_rust::Output<
             super::super::types::compute::AutoscalerAutoscalingPolicy,
         >,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the resource. The name must be 1-63 characters long and match
         /// the regular expression `a-z?` which means the
         /// first character must be a lowercase letter, and all following
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// URL of the managed instance group that this autoscaler will scale.
-        pub target: pulumi_wasm_rust::Output<String>,
+        pub target: pulumi_gestalt_rust::Output<String>,
         /// URL of the zone where the instance group resides.
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AutoscalerArgs,
     ) -> AutoscalerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let autoscaling_policy_binding = args
             .autoscaling_policy
@@ -288,24 +288,26 @@ pub mod autoscaler {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AutoscalerResult {
-            autoscaling_policy: pulumi_wasm_rust::__private::into_domain(
+            autoscaling_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoscalingPolicy"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            target: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("target"),
+            ),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

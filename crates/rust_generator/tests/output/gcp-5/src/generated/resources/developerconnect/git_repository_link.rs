@@ -79,7 +79,7 @@
 /// ```
 ///
 pub mod git_repository_link {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GitRepositoryLinkArgs {
@@ -87,17 +87,17 @@ pub mod git_repository_link {
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Required. Git Clone URI.
         #[builder(into)]
-        pub clone_uri: pulumi_wasm_rust::InputOrOutput<String>,
+        pub clone_uri: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Optional. This checksum is computed by the server based on the value of other
         /// fields, and may be sent on update and delete requests to ensure the
         /// client has an up-to-date value before proceeding.
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub etag: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Required. The ID to use for the repository, which will become the final component of
         /// the repository's resource name. This ID should be unique in the connection.
         /// Allows alphanumeric characters and any of -._~%!$&'()*+,;=@.
@@ -105,96 +105,96 @@ pub mod git_repository_link {
         ///
         /// - - -
         #[builder(into)]
-        pub git_repository_link_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub git_repository_link_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Optional. Labels as key value pairs
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type `developerconnect.googleapis.com/GitRepositoryLink`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Resource ID segment making up resource `name`. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type `developerconnect.googleapis.com/GitRepositoryLink`.
         #[builder(into)]
-        pub parent_connection: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent_connection: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GitRepositoryLinkResult {
         /// Optional. Allows clients to store small amounts of arbitrary data.
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Required. Git Clone URI.
-        pub clone_uri: pulumi_wasm_rust::Output<String>,
+        pub clone_uri: pulumi_gestalt_rust::Output<String>,
         /// Output only. [Output only] Create timestamp
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Output only. [Output only] Delete timestamp
-        pub delete_time: pulumi_wasm_rust::Output<String>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub delete_time: pulumi_gestalt_rust::Output<String>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Optional. This checksum is computed by the server based on the value of other
         /// fields, and may be sent on update and delete requests to ensure the
         /// client has an up-to-date value before proceeding.
-        pub etag: pulumi_wasm_rust::Output<Option<String>>,
+        pub etag: pulumi_gestalt_rust::Output<Option<String>>,
         /// Required. The ID to use for the repository, which will become the final component of
         /// the repository's resource name. This ID should be unique in the connection.
         /// Allows alphanumeric characters and any of -._~%!$&'()*+,;=@.
         ///
         ///
         /// - - -
-        pub git_repository_link_id: pulumi_wasm_rust::Output<String>,
+        pub git_repository_link_id: pulumi_gestalt_rust::Output<String>,
         /// Optional. Labels as key value pairs
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type `developerconnect.googleapis.com/GitRepositoryLink`.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Identifier. Resource name of the repository, in the format
         /// `projects/*/locations/*/connections/*/gitRepositoryLinks/*`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Resource ID segment making up resource `name`. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type `developerconnect.googleapis.com/GitRepositoryLink`.
-        pub parent_connection: pulumi_wasm_rust::Output<String>,
+        pub parent_connection: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Output only. Set to true when the connection is being set up or updated in the
         /// background.
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// Output only. A system-assigned unique identifier for a the GitRepositoryLink.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Output only. [Output only] Update timestamp
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GitRepositoryLinkArgs,
     ) -> GitRepositoryLinkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let clone_uri_binding = args.clone_uri.get_output(context).get_inner();
@@ -251,47 +251,49 @@ pub mod git_repository_link {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GitRepositoryLinkResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            clone_uri: pulumi_wasm_rust::__private::into_domain(
+            clone_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloneUri"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            delete_time: pulumi_wasm_rust::__private::into_domain(
+            delete_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteTime"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            git_repository_link_id: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            git_repository_link_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gitRepositoryLinkId"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent_connection: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent_connection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parentConnection"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

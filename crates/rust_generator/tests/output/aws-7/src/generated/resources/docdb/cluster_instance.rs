@@ -10,8 +10,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let clusterInstances = cluster_instance::create(
@@ -42,41 +42,43 @@
 /// $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1
 /// ```
 pub mod cluster_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterInstanceArgs {
         /// Specifies whether any database modifications
         /// are applied immediately, or during the next maintenance window. Default is`false`.
         #[builder(into, default)]
-        pub apply_immediately: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub apply_immediately: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
         #[builder(into, default)]
-        pub auto_minor_version_upgrade: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_minor_version_upgrade: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
         #[builder(into, default)]
-        pub availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub availability_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The identifier of the certificate authority (CA) certificate for the DB instance.
         #[builder(into, default)]
-        pub ca_cert_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ca_cert_identifier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The identifier of the `aws.docdb.Cluster` in which to launch this instance.
         #[builder(into)]
-        pub cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Copy all DB instance `tags` to snapshots. Default is `false`.
         #[builder(into, default)]
-        pub copy_tags_to_snapshot: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub copy_tags_to_snapshot: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
         #[builder(into, default)]
-        pub enable_performance_insights: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_performance_insights: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
         #[builder(into, default)]
-        pub engine: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub engine: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
         #[builder(into, default)]
-        pub identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub identifier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         #[builder(into, default)]
-        pub identifier_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub identifier_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
         /// DocumentDB currently supports the below instance classes.
         /// Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
@@ -102,24 +104,24 @@ pub mod cluster_instance {
         /// - db.t4g.medium
         /// - db.t3.medium
         #[builder(into)]
-        pub instance_class: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_class: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
         #[builder(into, default)]
-        pub performance_insights_kms_key_id: pulumi_wasm_rust::InputOrOutput<
+        pub performance_insights_kms_key_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The window to perform maintenance in.
         /// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
         #[builder(into, default)]
-        pub preferred_maintenance_window: pulumi_wasm_rust::InputOrOutput<
+        pub preferred_maintenance_window: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
         #[builder(into, default)]
-        pub promotion_tier: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub promotion_tier: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -127,35 +129,35 @@ pub mod cluster_instance {
     pub struct ClusterInstanceResult {
         /// Specifies whether any database modifications
         /// are applied immediately, or during the next maintenance window. Default is`false`.
-        pub apply_immediately: pulumi_wasm_rust::Output<Option<bool>>,
+        pub apply_immediately: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Amazon Resource Name (ARN) of cluster instance
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
-        pub auto_minor_version_upgrade: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_minor_version_upgrade: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
-        pub availability_zone: pulumi_wasm_rust::Output<String>,
+        pub availability_zone: pulumi_gestalt_rust::Output<String>,
         /// The identifier of the certificate authority (CA) certificate for the DB instance.
-        pub ca_cert_identifier: pulumi_wasm_rust::Output<String>,
+        pub ca_cert_identifier: pulumi_gestalt_rust::Output<String>,
         /// The identifier of the `aws.docdb.Cluster` in which to launch this instance.
-        pub cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub cluster_identifier: pulumi_gestalt_rust::Output<String>,
         /// Copy all DB instance `tags` to snapshots. Default is `false`.
-        pub copy_tags_to_snapshot: pulumi_wasm_rust::Output<Option<bool>>,
+        pub copy_tags_to_snapshot: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The DB subnet group to associate with this DB instance.
-        pub db_subnet_group_name: pulumi_wasm_rust::Output<String>,
+        pub db_subnet_group_name: pulumi_gestalt_rust::Output<String>,
         /// The region-unique, immutable identifier for the DB instance.
-        pub dbi_resource_id: pulumi_wasm_rust::Output<String>,
+        pub dbi_resource_id: pulumi_gestalt_rust::Output<String>,
         /// A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
-        pub enable_performance_insights: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_performance_insights: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The DNS address for this instance. May not be writable
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_gestalt_rust::Output<String>,
         /// The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
-        pub engine: pulumi_wasm_rust::Output<Option<String>>,
+        pub engine: pulumi_gestalt_rust::Output<Option<String>>,
         /// The database engine version
-        pub engine_version: pulumi_wasm_rust::Output<String>,
+        pub engine_version: pulumi_gestalt_rust::Output<String>,
         /// The identifier for the DocumentDB instance, if omitted, the provider will assign a random, unique identifier.
-        pub identifier: pulumi_wasm_rust::Output<String>,
+        pub identifier: pulumi_gestalt_rust::Output<String>,
         /// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
-        pub identifier_prefix: pulumi_wasm_rust::Output<String>,
+        pub identifier_prefix: pulumi_gestalt_rust::Output<String>,
         /// The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
         /// DocumentDB currently supports the below instance classes.
         /// Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
@@ -180,44 +182,44 @@ pub mod cluster_instance {
         /// - db.r4.16xlarge
         /// - db.t4g.medium
         /// - db.t3.medium
-        pub instance_class: pulumi_wasm_rust::Output<String>,
+        pub instance_class: pulumi_gestalt_rust::Output<String>,
         /// The ARN for the KMS encryption key if one is set to the cluster.
-        pub kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<String>,
         /// The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
-        pub performance_insights_kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub performance_insights_kms_key_id: pulumi_gestalt_rust::Output<String>,
         /// The database port
-        pub port: pulumi_wasm_rust::Output<i32>,
+        pub port: pulumi_gestalt_rust::Output<i32>,
         /// The daily time range during which automated backups are created if automated backups are enabled.
-        pub preferred_backup_window: pulumi_wasm_rust::Output<String>,
+        pub preferred_backup_window: pulumi_gestalt_rust::Output<String>,
         /// The window to perform maintenance in.
         /// Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
-        pub preferred_maintenance_window: pulumi_wasm_rust::Output<String>,
+        pub preferred_maintenance_window: pulumi_gestalt_rust::Output<String>,
         /// Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
-        pub promotion_tier: pulumi_wasm_rust::Output<Option<i32>>,
-        pub publicly_accessible: pulumi_wasm_rust::Output<bool>,
+        pub promotion_tier: pulumi_gestalt_rust::Output<Option<i32>>,
+        pub publicly_accessible: pulumi_gestalt_rust::Output<bool>,
         /// Specifies whether the DB cluster is encrypted.
-        pub storage_encrypted: pulumi_wasm_rust::Output<bool>,
+        pub storage_encrypted: pulumi_gestalt_rust::Output<bool>,
         /// A map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
-        pub writer: pulumi_wasm_rust::Output<bool>,
+        pub writer: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterInstanceArgs,
     ) -> ClusterInstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let apply_immediately_binding = args
             .apply_immediately
@@ -333,77 +335,81 @@ pub mod cluster_instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterInstanceResult {
-            apply_immediately: pulumi_wasm_rust::__private::into_domain(
+            apply_immediately: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applyImmediately"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auto_minor_version_upgrade: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auto_minor_version_upgrade: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoMinorVersionUpgrade"),
             ),
-            availability_zone: pulumi_wasm_rust::__private::into_domain(
+            availability_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZone"),
             ),
-            ca_cert_identifier: pulumi_wasm_rust::__private::into_domain(
+            ca_cert_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("caCertIdentifier"),
             ),
-            cluster_identifier: pulumi_wasm_rust::__private::into_domain(
+            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterIdentifier"),
             ),
-            copy_tags_to_snapshot: pulumi_wasm_rust::__private::into_domain(
+            copy_tags_to_snapshot: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("copyTagsToSnapshot"),
             ),
-            db_subnet_group_name: pulumi_wasm_rust::__private::into_domain(
+            db_subnet_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbSubnetGroupName"),
             ),
-            dbi_resource_id: pulumi_wasm_rust::__private::into_domain(
+            dbi_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbiResourceId"),
             ),
-            enable_performance_insights: pulumi_wasm_rust::__private::into_domain(
+            enable_performance_insights: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enablePerformanceInsights"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
-            engine_version: pulumi_wasm_rust::__private::into_domain(
+            engine: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("engine"),
+            ),
+            engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineVersion"),
             ),
-            identifier: pulumi_wasm_rust::__private::into_domain(
+            identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identifier"),
             ),
-            identifier_prefix: pulumi_wasm_rust::__private::into_domain(
+            identifier_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identifierPrefix"),
             ),
-            instance_class: pulumi_wasm_rust::__private::into_domain(
+            instance_class: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceClass"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            performance_insights_kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            performance_insights_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("performanceInsightsKmsKeyId"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            preferred_backup_window: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            preferred_backup_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredBackupWindow"),
             ),
-            preferred_maintenance_window: pulumi_wasm_rust::__private::into_domain(
+            preferred_maintenance_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredMaintenanceWindow"),
             ),
-            promotion_tier: pulumi_wasm_rust::__private::into_domain(
+            promotion_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("promotionTier"),
             ),
-            publicly_accessible: pulumi_wasm_rust::__private::into_domain(
+            publicly_accessible: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publiclyAccessible"),
             ),
-            storage_encrypted: pulumi_wasm_rust::__private::into_domain(
+            storage_encrypted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageEncrypted"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            writer: pulumi_wasm_rust::__private::into_domain(o.extract_field("writer")),
+            writer: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("writer"),
+            ),
         }
     }
 }

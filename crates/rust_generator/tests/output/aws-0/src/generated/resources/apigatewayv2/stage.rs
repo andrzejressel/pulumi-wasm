@@ -6,8 +6,8 @@
 /// ### Basic
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = stage::create(
@@ -30,55 +30,55 @@
 /// -> __Note:__ The API Gateway managed stage created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 ///
 pub mod stage {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StageArgs {
         /// Settings for logging access in this stage.
         /// Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
         #[builder(into, default)]
-        pub access_log_settings: pulumi_wasm_rust::InputOrOutput<
+        pub access_log_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apigatewayv2::StageAccessLogSettings>,
         >,
         /// API identifier.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
         #[builder(into, default)]
-        pub auto_deploy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_deploy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
         /// Supported only for WebSocket APIs.
         #[builder(into, default)]
-        pub client_certificate_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_certificate_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Default route settings for the stage.
         #[builder(into, default)]
-        pub default_route_settings: pulumi_wasm_rust::InputOrOutput<
+        pub default_route_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apigatewayv2::StageDefaultRouteSettings>,
         >,
         /// Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
         #[builder(into, default)]
-        pub deployment_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deployment_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Description for the stage. Must be less than or equal to 1024 characters in length.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the stage. Must be between 1 and 128 characters in length.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Route settings for the stage.
         #[builder(into, default)]
-        pub route_settings: pulumi_wasm_rust::InputOrOutput<
+        pub route_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::apigatewayv2::StageRouteSetting>>,
         >,
         /// Map that defines the stage variables for the stage.
         #[builder(into, default)]
-        pub stage_variables: pulumi_wasm_rust::InputOrOutput<
+        pub stage_variables: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -86,51 +86,51 @@ pub mod stage {
     pub struct StageResult {
         /// Settings for logging access in this stage.
         /// Use the `aws.apigateway.Account` resource to configure [permissions for CloudWatch Logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#set-up-access-logging-permissions).
-        pub access_log_settings: pulumi_wasm_rust::Output<
+        pub access_log_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::apigatewayv2::StageAccessLogSettings>,
         >,
         /// API identifier.
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_gestalt_rust::Output<String>,
         /// ARN of the stage.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Whether updates to an API automatically trigger a new deployment. Defaults to `false`. Applicable for HTTP APIs.
-        pub auto_deploy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_deploy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Identifier of a client certificate for the stage. Use the `aws.apigateway.ClientCertificate` resource to configure a client certificate.
         /// Supported only for WebSocket APIs.
-        pub client_certificate_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_certificate_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Default route settings for the stage.
-        pub default_route_settings: pulumi_wasm_rust::Output<
+        pub default_route_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::apigatewayv2::StageDefaultRouteSettings>,
         >,
         /// Deployment identifier of the stage. Use the `aws.apigatewayv2.Deployment` resource to configure a deployment.
-        pub deployment_id: pulumi_wasm_rust::Output<String>,
+        pub deployment_id: pulumi_gestalt_rust::Output<String>,
         /// Description for the stage. Must be less than or equal to 1024 characters in length.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN prefix to be used in an `aws.lambda.Permission`'s `source_arn` attribute.
         /// For WebSocket APIs this attribute can additionally be used in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
-        pub execution_arn: pulumi_wasm_rust::Output<String>,
+        pub execution_arn: pulumi_gestalt_rust::Output<String>,
         /// URL to invoke the API pointing to the stage,
         /// e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
-        pub invoke_url: pulumi_wasm_rust::Output<String>,
+        pub invoke_url: pulumi_gestalt_rust::Output<String>,
         /// Name of the stage. Must be between 1 and 128 characters in length.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Route settings for the stage.
-        pub route_settings: pulumi_wasm_rust::Output<
+        pub route_settings: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::apigatewayv2::StageRouteSetting>>,
         >,
         /// Map that defines the stage variables for the stage.
-        pub stage_variables: pulumi_wasm_rust::Output<
+        pub stage_variables: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -139,11 +139,11 @@ pub mod stage {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StageArgs,
     ) -> StageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_log_settings_binding = args
             .access_log_settings
@@ -221,41 +221,43 @@ pub mod stage {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StageResult {
-            access_log_settings: pulumi_wasm_rust::__private::into_domain(
+            access_log_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessLogSettings"),
             ),
-            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auto_deploy: pulumi_wasm_rust::__private::into_domain(
+            api_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiId"),
+            ),
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auto_deploy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoDeploy"),
             ),
-            client_certificate_id: pulumi_wasm_rust::__private::into_domain(
+            client_certificate_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertificateId"),
             ),
-            default_route_settings: pulumi_wasm_rust::__private::into_domain(
+            default_route_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultRouteSettings"),
             ),
-            deployment_id: pulumi_wasm_rust::__private::into_domain(
+            deployment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            execution_arn: pulumi_wasm_rust::__private::into_domain(
+            execution_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executionArn"),
             ),
-            invoke_url: pulumi_wasm_rust::__private::into_domain(
+            invoke_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("invokeUrl"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            route_settings: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            route_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routeSettings"),
             ),
-            stage_variables: pulumi_wasm_rust::__private::into_domain(
+            stage_variables: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stageVariables"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

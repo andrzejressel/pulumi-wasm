@@ -1,28 +1,28 @@
 pub mod list_configurations {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListConfigurationsArgs {
         /// Holds details about product hierarchy information and filterable property.
         #[builder(into)]
-        pub configuration_filters: pulumi_wasm_rust::InputOrOutput<
+        pub configuration_filters: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::ConfigurationFilters>,
         >,
         /// Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
         #[builder(into, default)]
-        pub customer_subscription_details: pulumi_wasm_rust::InputOrOutput<
+        pub customer_subscription_details: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::CustomerSubscriptionDetails>,
         >,
         /// $skipToken is supported on list of configurations, which provides the next page in the list of configurations.
         #[builder(into, default)]
-        pub skip_token: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub skip_token: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ListConfigurationsResult {
         /// Link for the next set of configurations.
-        pub next_link: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_link: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of configurations.
-        pub value: pulumi_wasm_rust::Output<
+        pub value: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ConfigurationResponse>,
         >,
     }
@@ -31,10 +31,10 @@ pub mod list_configurations {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: ListConfigurationsArgs,
     ) -> ListConfigurationsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let configuration_filters_binding = args
             .configuration_filters
@@ -65,10 +65,10 @@ pub mod list_configurations {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         ListConfigurationsResult {
-            next_link: pulumi_wasm_rust::__private::into_domain(
+            next_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextLink"),
             ),
-            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
+            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

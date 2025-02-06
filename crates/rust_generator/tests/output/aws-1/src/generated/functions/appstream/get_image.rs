@@ -1,74 +1,74 @@
 pub mod get_image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetImageArgs {
         /// Arn of the image being searched for. Cannot be used with name_regex or name.
         #[builder(into, default)]
-        pub arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
         #[builder(into, default)]
-        pub most_recent: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub most_recent: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Name of the image being searched for. Cannot be used with name_regex or arn.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Regular expression name of the image being searched for. Cannot be used with arn or name.
         #[builder(into, default)]
-        pub name_regex: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name_regex: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of image which must be (PUBLIC, PRIVATE, or SHARED).
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetImageResult {
-        pub applications: pulumi_wasm_rust::Output<
+        pub applications: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::appstream::GetImageApplication>,
         >,
         /// Version of the AppStream 2.0 agent to use for instances that are launched from this image. Has a maximum length of 100 characters.
-        pub appstream_agent_version: pulumi_wasm_rust::Output<String>,
+        pub appstream_agent_version: pulumi_gestalt_rust::Output<String>,
         /// ARN of the image.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// ARN of the image from which the image was created.
-        pub base_image_arn: pulumi_wasm_rust::Output<String>,
+        pub base_image_arn: pulumi_gestalt_rust::Output<String>,
         /// Time at which this image was created.
-        pub created_time: pulumi_wasm_rust::Output<String>,
+        pub created_time: pulumi_gestalt_rust::Output<String>,
         /// Description of image.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Image name to display.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
-        pub image_builder_name: pulumi_wasm_rust::Output<String>,
+        pub image_builder_name: pulumi_gestalt_rust::Output<String>,
         /// Boolean to indicate whether an image builder can be launched from this image.
         /// * `image error` - Resource error object that describes the error containing the following:
-        pub image_builder_supported: pulumi_wasm_rust::Output<bool>,
+        pub image_builder_supported: pulumi_gestalt_rust::Output<bool>,
         /// List of strings describing the image permissions containing the following:
-        pub image_permissions: pulumi_wasm_rust::Output<
+        pub image_permissions: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::appstream::GetImageImagePermission>,
         >,
-        pub most_recent: pulumi_wasm_rust::Output<Option<bool>>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub name_regex: pulumi_wasm_rust::Output<Option<String>>,
+        pub most_recent: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub name_regex: pulumi_gestalt_rust::Output<Option<String>>,
         /// Operating system platform of the image. Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
-        pub platform: pulumi_wasm_rust::Output<String>,
-        pub public_base_image_released_date: pulumi_wasm_rust::Output<String>,
+        pub platform: pulumi_gestalt_rust::Output<String>,
+        pub public_base_image_released_date: pulumi_gestalt_rust::Output<String>,
         /// Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.
-        pub state: pulumi_wasm_rust::Output<String>,
-        pub state_change_reasons: pulumi_wasm_rust::Output<
+        pub state: pulumi_gestalt_rust::Output<String>,
+        pub state_change_reasons: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::appstream::GetImageStateChangeReason>,
         >,
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetImageArgs,
     ) -> GetImageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let arn_binding = args.arn.get_output(context).get_inner();
         let most_recent_binding = args.most_recent.get_output(context).get_inner();
@@ -103,53 +103,53 @@ pub mod get_image {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetImageResult {
-            applications: pulumi_wasm_rust::__private::into_domain(
+            applications: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applications"),
             ),
-            appstream_agent_version: pulumi_wasm_rust::__private::into_domain(
+            appstream_agent_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appstreamAgentVersion"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            base_image_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            base_image_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("baseImageArn"),
             ),
-            created_time: pulumi_wasm_rust::__private::into_domain(
+            created_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            image_builder_name: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            image_builder_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageBuilderName"),
             ),
-            image_builder_supported: pulumi_wasm_rust::__private::into_domain(
+            image_builder_supported: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageBuilderSupported"),
             ),
-            image_permissions: pulumi_wasm_rust::__private::into_domain(
+            image_permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imagePermissions"),
             ),
-            most_recent: pulumi_wasm_rust::__private::into_domain(
+            most_recent: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mostRecent"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            name_regex: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            name_regex: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nameRegex"),
             ),
-            platform: pulumi_wasm_rust::__private::into_domain(
+            platform: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platform"),
             ),
-            public_base_image_released_date: pulumi_wasm_rust::__private::into_domain(
+            public_base_image_released_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicBaseImageReleasedDate"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            state_change_reasons: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            state_change_reasons: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateChangeReasons"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

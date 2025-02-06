@@ -26,8 +26,8 @@
 /// To create a single shard primary with single read replica:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = replication_group::create(
@@ -52,8 +52,8 @@
 /// * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `aws.elasticache.Cluster` resource and its `replication_group_id` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `number_cache_cluster` attribute.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = replication_group::create(
@@ -84,8 +84,8 @@
 /// To create two shards with a primary and a single read replica each:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let baz = replication_group::create(
@@ -107,8 +107,8 @@
 /// ### Redis Log Delivery configuration
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = replication_group::create(
@@ -149,8 +149,8 @@
 /// A Global Replication Group can have up to two secondary Replication Groups in different regions. These are added to an existing Global Replication Group.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = global_replication_group::create(
@@ -186,8 +186,8 @@
 /// ### Redis AUTH and In-Transit Encryption Enabled
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = replication_group::create(
@@ -220,46 +220,48 @@
 /// $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
 /// ```
 pub mod replication_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReplicationGroupArgs {
         /// Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
         #[builder(into, default)]
-        pub apply_immediately: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub apply_immediately: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether to enable encryption at rest.
         /// When `engine` is `redis`, default is `false`.
         /// When `engine` is `valkey`, default is `true`.
         #[builder(into, default)]
-        pub at_rest_encryption_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub at_rest_encryption_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
         #[builder(into, default)]
-        pub auth_token: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub auth_token: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
         #[builder(into, default)]
-        pub auth_token_update_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub auth_token_update_strategy: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
         /// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
         /// Defaults to `true`.
         #[builder(into, default)]
-        pub auto_minor_version_upgrade: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_minor_version_upgrade: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         #[builder(into, default)]
-        pub automatic_failover_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub automatic_failover_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
         #[builder(into, default)]
-        pub cluster_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cluster_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
         #[builder(into, default)]
-        pub data_tiering_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub data_tiering_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// User-created description for the replication group. Must not be empty.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::InputOrOutput<String>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the cache engine to be used for the clusters in this replication group.
         /// Valid values are `redis` or `valkey`.
         /// Default is `redis`.
         #[builder(into, default)]
-        pub engine: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub engine: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Version number of the cache engine to be used for the cache clusters in this replication group.
         /// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
         /// If the version is 6, the major and minor version can be set, e.g., `6.2`,
@@ -267,22 +269,26 @@ pub mod replication_group {
         /// Otherwise, specify the full version desired, e.g., `5.0.6`.
         /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         #[builder(into, default)]
-        pub engine_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub engine_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
         #[builder(into, default)]
-        pub final_snapshot_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub final_snapshot_identifier: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
         #[builder(into, default)]
-        pub global_replication_group_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub global_replication_group_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
         #[builder(into, default)]
-        pub ip_discovery: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_discovery: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
         #[builder(into, default)]
-        pub log_delivery_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub log_delivery_configurations: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::elasticache::ReplicationGroupLogDeliveryConfiguration,
@@ -291,45 +297,45 @@ pub mod replication_group {
         >,
         /// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
         #[builder(into, default)]
-        pub maintenance_window: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub maintenance_window: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether to enable Multi-AZ Support for the replication group.
         /// If `true`, `automatic_failover_enabled` must also be enabled.
         /// Defaults to `false`.
         #[builder(into, default)]
-        pub multi_az_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub multi_az_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
         #[builder(into, default)]
-        pub network_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Instance class to be used.
         /// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
         /// Required unless `global_replication_group_id` is set.
         /// Cannot be set if `global_replication_group_id` is set.
         #[builder(into, default)]
-        pub node_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub node_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         #[builder(into, default)]
-        pub notification_topic_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub notification_topic_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Number of cache clusters (primary and replicas) this replication group will have.
         /// If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
         /// Updates will occur before other modifications.
         /// Conflicts with `num_node_groups` and `replicas_per_node_group`.
         /// Defaults to `1`.
         #[builder(into, default)]
-        pub num_cache_clusters: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub num_cache_clusters: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Number of node groups (shards) for this Redis replication group.
         /// Changing this number will trigger a resizing operation before other settings modifications.
         /// Conflicts with `num_cache_clusters`.
         #[builder(into, default)]
-        pub num_node_groups: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub num_node_groups: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
         #[builder(into, default)]
-        pub parameter_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parameter_group_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
         #[builder(into, default)]
-        pub preferred_cache_cluster_azs: pulumi_wasm_rust::InputOrOutput<
+        pub preferred_cache_cluster_azs: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Number of replica nodes in each node group.
@@ -338,106 +344,108 @@ pub mod replication_group {
         /// Conflicts with `num_cache_clusters`.
         /// Can only be set if `num_node_groups` is set.
         #[builder(into, default)]
-        pub replicas_per_node_group: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub replicas_per_node_group: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Replication group identifier. This parameter is stored as a lowercase string.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub replication_group_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub replication_group_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
         #[builder(into, default)]
-        pub security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub security_group_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
         #[builder(into, default)]
-        pub security_group_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub security_group_names: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
         #[builder(into, default)]
-        pub snapshot_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub snapshot_arns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
         #[builder(into, default)]
-        pub snapshot_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub snapshot_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
         #[builder(into, default)]
-        pub snapshot_retention_limit: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub snapshot_retention_limit: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
         #[builder(into, default)]
-        pub snapshot_window: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub snapshot_window: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the cache subnet group to be used for the replication group.
         #[builder(into, default)]
-        pub subnet_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subnet_group_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Whether to enable encryption in transit.
         /// Changing this argument with an `engine_version` < `7.0.5` will force a replacement.
         /// Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
         #[builder(into, default)]
-        pub transit_encryption_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub transit_encryption_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A setting that enables clients to migrate to in-transit encryption with no downtime.
         /// Valid values are `preferred` and `required`.
         /// When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
         /// See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
         #[builder(into, default)]
-        pub transit_encryption_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub transit_encryption_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
         #[builder(into, default)]
-        pub user_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub user_group_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ReplicationGroupResult {
         /// Specifies whether any modifications are applied immediately, or during the next maintenance window. Default is `false`.
-        pub apply_immediately: pulumi_wasm_rust::Output<bool>,
+        pub apply_immediately: pulumi_gestalt_rust::Output<bool>,
         /// ARN of the created ElastiCache Replication Group.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Whether to enable encryption at rest.
         /// When `engine` is `redis`, default is `false`.
         /// When `engine` is `valkey`, default is `true`.
-        pub at_rest_encryption_enabled: pulumi_wasm_rust::Output<bool>,
+        pub at_rest_encryption_enabled: pulumi_gestalt_rust::Output<bool>,
         /// Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
-        pub auth_token: pulumi_wasm_rust::Output<Option<String>>,
+        pub auth_token: pulumi_gestalt_rust::Output<Option<String>>,
         /// Strategy to use when updating the `auth_token`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
-        pub auth_token_update_strategy: pulumi_wasm_rust::Output<Option<String>>,
+        pub auth_token_update_strategy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
         /// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
         /// Defaults to `true`.
-        pub auto_minor_version_upgrade: pulumi_wasm_rust::Output<bool>,
+        pub auto_minor_version_upgrade: pulumi_gestalt_rust::Output<bool>,
         /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
-        pub automatic_failover_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub automatic_failover_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Indicates if cluster mode is enabled.
-        pub cluster_enabled: pulumi_wasm_rust::Output<bool>,
+        pub cluster_enabled: pulumi_gestalt_rust::Output<bool>,
         /// Specifies whether cluster mode is enabled or disabled. Valid values are `enabled` or `disabled` or `compatible`
-        pub cluster_mode: pulumi_wasm_rust::Output<String>,
+        pub cluster_mode: pulumi_gestalt_rust::Output<String>,
         /// Address of the replication group configuration endpoint when cluster mode is enabled.
-        pub configuration_endpoint_address: pulumi_wasm_rust::Output<String>,
+        pub configuration_endpoint_address: pulumi_gestalt_rust::Output<String>,
         /// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
-        pub data_tiering_enabled: pulumi_wasm_rust::Output<bool>,
+        pub data_tiering_enabled: pulumi_gestalt_rust::Output<bool>,
         /// User-created description for the replication group. Must not be empty.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Name of the cache engine to be used for the clusters in this replication group.
         /// Valid values are `redis` or `valkey`.
         /// Default is `redis`.
-        pub engine: pulumi_wasm_rust::Output<Option<String>>,
+        pub engine: pulumi_gestalt_rust::Output<Option<String>>,
         /// Version number of the cache engine to be used for the cache clusters in this replication group.
         /// If the version is 7 or higher, the major and minor version should be set, e.g., `7.2`.
         /// If the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// Otherwise, specify the full version desired, e.g., `5.0.6`.
         /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
-        pub engine_version: pulumi_wasm_rust::Output<String>,
+        pub engine_version: pulumi_gestalt_rust::Output<String>,
         /// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
-        pub engine_version_actual: pulumi_wasm_rust::Output<String>,
+        pub engine_version_actual: pulumi_gestalt_rust::Output<String>,
         /// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
-        pub final_snapshot_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub final_snapshot_identifier: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter cannot be set.
-        pub global_replication_group_id: pulumi_wasm_rust::Output<String>,
+        pub global_replication_group_id: pulumi_gestalt_rust::Output<String>,
         /// The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
-        pub ip_discovery: pulumi_wasm_rust::Output<String>,
+        pub ip_discovery: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the destination and format of Redis OSS/Valkey [SLOWLOG](https://redis.io/commands/slowlog) or Redis OSS/Valkey [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
-        pub log_delivery_configurations: pulumi_wasm_rust::Output<
+        pub log_delivery_configurations: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::elasticache::ReplicationGroupLogDeliveryConfiguration,
@@ -445,96 +453,98 @@ pub mod replication_group {
             >,
         >,
         /// Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
-        pub maintenance_window: pulumi_wasm_rust::Output<String>,
+        pub maintenance_window: pulumi_gestalt_rust::Output<String>,
         /// Identifiers of all the nodes that are part of this replication group.
-        pub member_clusters: pulumi_wasm_rust::Output<Vec<String>>,
+        pub member_clusters: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Specifies whether to enable Multi-AZ Support for the replication group.
         /// If `true`, `automatic_failover_enabled` must also be enabled.
         /// Defaults to `false`.
-        pub multi_az_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub multi_az_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The IP versions for cache cluster connections. Valid values are `ipv4`, `ipv6` or `dual_stack`.
-        pub network_type: pulumi_wasm_rust::Output<String>,
+        pub network_type: pulumi_gestalt_rust::Output<String>,
         /// Instance class to be used.
         /// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
         /// Required unless `global_replication_group_id` is set.
         /// Cannot be set if `global_replication_group_id` is set.
-        pub node_type: pulumi_wasm_rust::Output<String>,
+        pub node_type: pulumi_gestalt_rust::Output<String>,
         /// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
-        pub notification_topic_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub notification_topic_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Number of cache clusters (primary and replicas) this replication group will have.
         /// If `automatic_failover_enabled` or `multi_az_enabled` are `true`, must be at least 2.
         /// Updates will occur before other modifications.
         /// Conflicts with `num_node_groups` and `replicas_per_node_group`.
         /// Defaults to `1`.
-        pub num_cache_clusters: pulumi_wasm_rust::Output<i32>,
+        pub num_cache_clusters: pulumi_gestalt_rust::Output<i32>,
         /// Number of node groups (shards) for this Redis replication group.
         /// Changing this number will trigger a resizing operation before other settings modifications.
         /// Conflicts with `num_cache_clusters`.
-        pub num_node_groups: pulumi_wasm_rust::Output<i32>,
+        pub num_node_groups: pulumi_gestalt_rust::Output<i32>,
         /// Name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
-        pub parameter_group_name: pulumi_wasm_rust::Output<String>,
+        pub parameter_group_name: pulumi_gestalt_rust::Output<String>,
         /// Port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
-        pub preferred_cache_cluster_azs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub preferred_cache_cluster_azs: pulumi_gestalt_rust::Output<
+            Option<Vec<String>>,
+        >,
         /// (Redis only) Address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
-        pub primary_endpoint_address: pulumi_wasm_rust::Output<String>,
+        pub primary_endpoint_address: pulumi_gestalt_rust::Output<String>,
         /// (Redis only) Address of the endpoint for the reader node in the replication group, if the cluster mode is disabled.
-        pub reader_endpoint_address: pulumi_wasm_rust::Output<String>,
+        pub reader_endpoint_address: pulumi_gestalt_rust::Output<String>,
         /// Number of replica nodes in each node group.
         /// Changing this number will trigger a resizing operation before other settings modifications.
         /// Valid values are 0 to 5.
         /// Conflicts with `num_cache_clusters`.
         /// Can only be set if `num_node_groups` is set.
-        pub replicas_per_node_group: pulumi_wasm_rust::Output<i32>,
+        pub replicas_per_node_group: pulumi_gestalt_rust::Output<i32>,
         /// Replication group identifier. This parameter is stored as a lowercase string.
         ///
         /// The following arguments are optional:
-        pub replication_group_id: pulumi_wasm_rust::Output<String>,
+        pub replication_group_id: pulumi_gestalt_rust::Output<String>,
         /// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
-        pub security_group_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_group_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
-        pub security_group_names: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_group_names: pulumi_gestalt_rust::Output<Vec<String>>,
         /// List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
-        pub snapshot_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub snapshot_arns: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Name of a snapshot from which to restore data into the new node group. Changing the `snapshot_name` forces a new resource.
-        pub snapshot_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub snapshot_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of `snapshot_retention_limit` is set to zero (0), backups are turned off. Please note that setting a `snapshot_retention_limit` is not supported on cache.t1.micro cache nodes
-        pub snapshot_retention_limit: pulumi_wasm_rust::Output<Option<i32>>,
+        pub snapshot_retention_limit: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
-        pub snapshot_window: pulumi_wasm_rust::Output<String>,
+        pub snapshot_window: pulumi_gestalt_rust::Output<String>,
         /// Name of the cache subnet group to be used for the replication group.
-        pub subnet_group_name: pulumi_wasm_rust::Output<String>,
+        pub subnet_group_name: pulumi_gestalt_rust::Output<String>,
         /// Map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Whether to enable encryption in transit.
         /// Changing this argument with an `engine_version` < `7.0.5` will force a replacement.
         /// Engine versions prior to `7.0.5` only allow this transit encryption to be configured during creation of the replication group.
-        pub transit_encryption_enabled: pulumi_wasm_rust::Output<bool>,
+        pub transit_encryption_enabled: pulumi_gestalt_rust::Output<bool>,
         /// A setting that enables clients to migrate to in-transit encryption with no downtime.
         /// Valid values are `preferred` and `required`.
         /// When enabling encryption on an existing replication group, this must first be set to `preferred` before setting it to `required` in a subsequent apply.
         /// See the `TransitEncryptionMode` field in the [`CreateReplicationGroup` API documentation](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateReplicationGroup.html) for additional details.
-        pub transit_encryption_mode: pulumi_wasm_rust::Output<String>,
+        pub transit_encryption_mode: pulumi_gestalt_rust::Output<String>,
         /// User Group ID to associate with the replication group. Only a maximum of one (1) user group ID is valid. **NOTE:** This argument _is_ a set because the AWS specification allows for multiple IDs. However, in practice, AWS only allows a maximum size of one.
-        pub user_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub user_group_ids: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ReplicationGroupArgs,
     ) -> ReplicationGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let apply_immediately_binding = args
             .apply_immediately
@@ -815,137 +825,139 @@ pub mod replication_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ReplicationGroupResult {
-            apply_immediately: pulumi_wasm_rust::__private::into_domain(
+            apply_immediately: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applyImmediately"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            at_rest_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            at_rest_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("atRestEncryptionEnabled"),
             ),
-            auth_token: pulumi_wasm_rust::__private::into_domain(
+            auth_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authToken"),
             ),
-            auth_token_update_strategy: pulumi_wasm_rust::__private::into_domain(
+            auth_token_update_strategy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authTokenUpdateStrategy"),
             ),
-            auto_minor_version_upgrade: pulumi_wasm_rust::__private::into_domain(
+            auto_minor_version_upgrade: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoMinorVersionUpgrade"),
             ),
-            automatic_failover_enabled: pulumi_wasm_rust::__private::into_domain(
+            automatic_failover_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automaticFailoverEnabled"),
             ),
-            cluster_enabled: pulumi_wasm_rust::__private::into_domain(
+            cluster_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterEnabled"),
             ),
-            cluster_mode: pulumi_wasm_rust::__private::into_domain(
+            cluster_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterMode"),
             ),
-            configuration_endpoint_address: pulumi_wasm_rust::__private::into_domain(
+            configuration_endpoint_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationEndpointAddress"),
             ),
-            data_tiering_enabled: pulumi_wasm_rust::__private::into_domain(
+            data_tiering_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataTieringEnabled"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
-            engine_version: pulumi_wasm_rust::__private::into_domain(
+            engine: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("engine"),
+            ),
+            engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineVersion"),
             ),
-            engine_version_actual: pulumi_wasm_rust::__private::into_domain(
+            engine_version_actual: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineVersionActual"),
             ),
-            final_snapshot_identifier: pulumi_wasm_rust::__private::into_domain(
+            final_snapshot_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("finalSnapshotIdentifier"),
             ),
-            global_replication_group_id: pulumi_wasm_rust::__private::into_domain(
+            global_replication_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalReplicationGroupId"),
             ),
-            ip_discovery: pulumi_wasm_rust::__private::into_domain(
+            ip_discovery: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipDiscovery"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            log_delivery_configurations: pulumi_wasm_rust::__private::into_domain(
+            log_delivery_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logDeliveryConfigurations"),
             ),
-            maintenance_window: pulumi_wasm_rust::__private::into_domain(
+            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceWindow"),
             ),
-            member_clusters: pulumi_wasm_rust::__private::into_domain(
+            member_clusters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("memberClusters"),
             ),
-            multi_az_enabled: pulumi_wasm_rust::__private::into_domain(
+            multi_az_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("multiAzEnabled"),
             ),
-            network_type: pulumi_wasm_rust::__private::into_domain(
+            network_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkType"),
             ),
-            node_type: pulumi_wasm_rust::__private::into_domain(
+            node_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeType"),
             ),
-            notification_topic_arn: pulumi_wasm_rust::__private::into_domain(
+            notification_topic_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationTopicArn"),
             ),
-            num_cache_clusters: pulumi_wasm_rust::__private::into_domain(
+            num_cache_clusters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("numCacheClusters"),
             ),
-            num_node_groups: pulumi_wasm_rust::__private::into_domain(
+            num_node_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("numNodeGroups"),
             ),
-            parameter_group_name: pulumi_wasm_rust::__private::into_domain(
+            parameter_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameterGroupName"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            preferred_cache_cluster_azs: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            preferred_cache_cluster_azs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredCacheClusterAzs"),
             ),
-            primary_endpoint_address: pulumi_wasm_rust::__private::into_domain(
+            primary_endpoint_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryEndpointAddress"),
             ),
-            reader_endpoint_address: pulumi_wasm_rust::__private::into_domain(
+            reader_endpoint_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("readerEndpointAddress"),
             ),
-            replicas_per_node_group: pulumi_wasm_rust::__private::into_domain(
+            replicas_per_node_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicasPerNodeGroup"),
             ),
-            replication_group_id: pulumi_wasm_rust::__private::into_domain(
+            replication_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationGroupId"),
             ),
-            security_group_ids: pulumi_wasm_rust::__private::into_domain(
+            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroupIds"),
             ),
-            security_group_names: pulumi_wasm_rust::__private::into_domain(
+            security_group_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroupNames"),
             ),
-            snapshot_arns: pulumi_wasm_rust::__private::into_domain(
+            snapshot_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotArns"),
             ),
-            snapshot_name: pulumi_wasm_rust::__private::into_domain(
+            snapshot_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotName"),
             ),
-            snapshot_retention_limit: pulumi_wasm_rust::__private::into_domain(
+            snapshot_retention_limit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotRetentionLimit"),
             ),
-            snapshot_window: pulumi_wasm_rust::__private::into_domain(
+            snapshot_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotWindow"),
             ),
-            subnet_group_name: pulumi_wasm_rust::__private::into_domain(
+            subnet_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            transit_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
+            transit_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitEncryptionEnabled"),
             ),
-            transit_encryption_mode: pulumi_wasm_rust::__private::into_domain(
+            transit_encryption_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitEncryptionMode"),
             ),
-            user_group_ids: pulumi_wasm_rust::__private::into_domain(
+            user_group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userGroupIds"),
             ),
         }

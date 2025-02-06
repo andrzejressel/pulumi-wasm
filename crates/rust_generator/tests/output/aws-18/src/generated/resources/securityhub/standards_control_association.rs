@@ -3,8 +3,8 @@
 /// ### Basic usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let cisAwsFoundationsBenchmark = standards_subscription::create(
@@ -29,48 +29,48 @@
 /// ```
 ///
 pub mod standards_control_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StandardsControlAssociationArgs {
         /// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
         #[builder(into)]
-        pub association_status: pulumi_wasm_rust::InputOrOutput<String>,
+        pub association_status: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The unique identifier for the security control whose enablement status you want to update.
         #[builder(into)]
-        pub security_control_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub security_control_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub standards_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub standards_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The reason for updating the control's enablement status in the standard. Required when `association_status` is `DISABLED`.
         #[builder(into, default)]
-        pub updated_reason: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub updated_reason: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct StandardsControlAssociationResult {
         /// The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
-        pub association_status: pulumi_wasm_rust::Output<String>,
+        pub association_status: pulumi_gestalt_rust::Output<String>,
         /// The unique identifier for the security control whose enablement status you want to update.
-        pub security_control_id: pulumi_wasm_rust::Output<String>,
+        pub security_control_id: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
         ///
         /// The following arguments are optional:
-        pub standards_arn: pulumi_wasm_rust::Output<String>,
+        pub standards_arn: pulumi_gestalt_rust::Output<String>,
         /// The reason for updating the control's enablement status in the standard. Required when `association_status` is `DISABLED`.
-        pub updated_reason: pulumi_wasm_rust::Output<Option<String>>,
+        pub updated_reason: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StandardsControlAssociationArgs,
     ) -> StandardsControlAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let association_status_binding = args
             .association_status
@@ -108,16 +108,16 @@ pub mod standards_control_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StandardsControlAssociationResult {
-            association_status: pulumi_wasm_rust::__private::into_domain(
+            association_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("associationStatus"),
             ),
-            security_control_id: pulumi_wasm_rust::__private::into_domain(
+            security_control_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityControlId"),
             ),
-            standards_arn: pulumi_wasm_rust::__private::into_domain(
+            standards_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("standardsArn"),
             ),
-            updated_reason: pulumi_wasm_rust::__private::into_domain(
+            updated_reason: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updatedReason"),
             ),
         }

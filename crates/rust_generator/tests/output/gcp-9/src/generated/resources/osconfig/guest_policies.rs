@@ -96,8 +96,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let guestPolicies = guest_policies::create(
@@ -153,7 +153,7 @@
 /// ```
 ///
 pub mod guest_policies {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GuestPoliciesArgs {
@@ -166,15 +166,15 @@ pub mod guest_policies {
         /// [handles assignment conflicts](https://cloud.google.com/compute/docs/os-config-management/create-guest-policy#handle-conflicts).
         /// Structure is documented below.
         #[builder(into)]
-        pub assignment: pulumi_wasm_rust::InputOrOutput<
+        pub assignment: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::osconfig::GuestPoliciesAssignment,
         >,
         /// Description of the guest policy. Length of the description is limited to 1024 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The etag for this guest policy. If this is provided on update, it must match the server's etag.
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub etag: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The logical name of the guest policy in the project with the following restrictions:
         /// * Must contain only lowercase letters, numbers, and hyphens.
         /// * Must start with a letter.
@@ -182,24 +182,24 @@ pub mod guest_policies {
         /// * Must end with a number or a letter.
         /// * Must be unique within the project.
         #[builder(into)]
-        pub guest_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub guest_policy_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of package repositories to configure on the VM instance. This is done before any other configs are applied so
         /// they can use these repos. Package repositories are only configured if the corresponding package manager(s) are
         /// available.
         #[builder(into, default)]
-        pub package_repositories: pulumi_wasm_rust::InputOrOutput<
+        pub package_repositories: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::osconfig::GuestPoliciesPackageRepository>>,
         >,
         /// The software packages to be managed by this policy.
         #[builder(into, default)]
-        pub packages: pulumi_wasm_rust::InputOrOutput<
+        pub packages: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::osconfig::GuestPoliciesPackage>>,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of Recipes to install on the VM instance.
         #[builder(into, default)]
-        pub recipes: pulumi_wasm_rust::InputOrOutput<
+        pub recipes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::osconfig::GuestPoliciesRecipe>>,
         >,
     }
@@ -213,54 +213,54 @@ pub mod guest_policies {
         /// For more information, see how the service
         /// [handles assignment conflicts](https://cloud.google.com/compute/docs/os-config-management/create-guest-policy#handle-conflicts).
         /// Structure is documented below.
-        pub assignment: pulumi_wasm_rust::Output<
+        pub assignment: pulumi_gestalt_rust::Output<
             super::super::types::osconfig::GuestPoliciesAssignment,
         >,
         /// Time this guest policy was created. A timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds.
         /// Example: "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Description of the guest policy. Length of the description is limited to 1024 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The etag for this guest policy. If this is provided on update, it must match the server's etag.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The logical name of the guest policy in the project with the following restrictions:
         /// * Must contain only lowercase letters, numbers, and hyphens.
         /// * Must start with a letter.
         /// * Must be between 1-63 characters.
         /// * Must end with a number or a letter.
         /// * Must be unique within the project.
-        pub guest_policy_id: pulumi_wasm_rust::Output<String>,
+        pub guest_policy_id: pulumi_gestalt_rust::Output<String>,
         /// Unique name of the resource in this project using one of the following forms: projects/{project_number}/guestPolicies/{guestPolicyId}.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A list of package repositories to configure on the VM instance. This is done before any other configs are applied so
         /// they can use these repos. Package repositories are only configured if the corresponding package manager(s) are
         /// available.
-        pub package_repositories: pulumi_wasm_rust::Output<
+        pub package_repositories: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::osconfig::GuestPoliciesPackageRepository>>,
         >,
         /// The software packages to be managed by this policy.
-        pub packages: pulumi_wasm_rust::Output<
+        pub packages: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::osconfig::GuestPoliciesPackage>>,
         >,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// A list of Recipes to install on the VM instance.
-        pub recipes: pulumi_wasm_rust::Output<
+        pub recipes: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::osconfig::GuestPoliciesRecipe>>,
         >,
         /// Last time this guest policy was updated. A timestamp in RFC3339 UTC "Zulu" format, accurate to nanoseconds.
         /// Example: "2014-10-02T15:01:23.045123456Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GuestPoliciesArgs,
     ) -> GuestPoliciesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let assignment_binding = args.assignment.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -317,33 +317,33 @@ pub mod guest_policies {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GuestPoliciesResult {
-            assignment: pulumi_wasm_rust::__private::into_domain(
+            assignment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assignment"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            guest_policy_id: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            guest_policy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("guestPolicyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            package_repositories: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            package_repositories: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("packageRepositories"),
             ),
-            packages: pulumi_wasm_rust::__private::into_domain(
+            packages: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("packages"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            recipes: pulumi_wasm_rust::__private::into_domain(
+            recipes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recipes"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

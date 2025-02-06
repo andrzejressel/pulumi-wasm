@@ -5,8 +5,8 @@
 /// ### Basic usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = table::create(
@@ -59,65 +59,65 @@
 /// $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
 /// ```
 pub mod table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TableArgs {
         /// The name of the Timestream database.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
         #[builder(into, default)]
-        pub magnetic_store_write_properties: pulumi_wasm_rust::InputOrOutput<
+        pub magnetic_store_write_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::timestreamwrite::TableMagneticStoreWriteProperties,
             >,
         >,
         /// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
         #[builder(into, default)]
-        pub retention_properties: pulumi_wasm_rust::InputOrOutput<
+        pub retention_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::timestreamwrite::TableRetentionProperties>,
         >,
         /// The schema of the table. See Schema below for more details.
         #[builder(into, default)]
-        pub schema: pulumi_wasm_rust::InputOrOutput<
+        pub schema: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::timestreamwrite::TableSchema>,
         >,
         /// The name of the Timestream table.
         #[builder(into)]
-        pub table_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub table_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct TableResult {
         /// The ARN that uniquely identifies this table.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the Timestream database.
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_gestalt_rust::Output<String>,
         /// Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
-        pub magnetic_store_write_properties: pulumi_wasm_rust::Output<
+        pub magnetic_store_write_properties: pulumi_gestalt_rust::Output<
             super::super::types::timestreamwrite::TableMagneticStoreWriteProperties,
         >,
         /// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magnetic_store_retention_period_in_days` default to 73000 and `memory_store_retention_period_in_hours` defaults to 6.
-        pub retention_properties: pulumi_wasm_rust::Output<
+        pub retention_properties: pulumi_gestalt_rust::Output<
             super::super::types::timestreamwrite::TableRetentionProperties,
         >,
         /// The schema of the table. See Schema below for more details.
-        pub schema: pulumi_wasm_rust::Output<
+        pub schema: pulumi_gestalt_rust::Output<
             super::super::types::timestreamwrite::TableSchema,
         >,
         /// The name of the Timestream table.
-        pub table_name: pulumi_wasm_rust::Output<String>,
+        pub table_name: pulumi_gestalt_rust::Output<String>,
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -126,11 +126,11 @@ pub mod table {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TableArgs,
     ) -> TableResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let database_name_binding = args.database_name.get_output(context).get_inner();
         let magnetic_store_write_properties_binding = args
@@ -177,22 +177,24 @@ pub mod table {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TableResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            database_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            database_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseName"),
             ),
-            magnetic_store_write_properties: pulumi_wasm_rust::__private::into_domain(
+            magnetic_store_write_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("magneticStoreWriteProperties"),
             ),
-            retention_properties: pulumi_wasm_rust::__private::into_domain(
+            retention_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionProperties"),
             ),
-            schema: pulumi_wasm_rust::__private::into_domain(o.extract_field("schema")),
-            table_name: pulumi_wasm_rust::__private::into_domain(
+            schema: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("schema"),
+            ),
+            table_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tableName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

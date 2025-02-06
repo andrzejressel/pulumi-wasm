@@ -89,51 +89,51 @@
 /// ```
 ///
 pub mod active_role_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ActiveRoleAssignmentArgs {
         /// The justification for the role assignment. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub justification: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub justification: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub principal_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub principal_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The role definition ID for this role assignment. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub role_definition_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_definition_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `schedule` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub schedule: pulumi_wasm_rust::InputOrOutput<
+        pub schedule: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::pim::ActiveRoleAssignmentSchedule>,
         >,
         /// The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub scope: pulumi_wasm_rust::InputOrOutput<String>,
+        pub scope: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `ticket` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub ticket: pulumi_wasm_rust::InputOrOutput<
+        pub ticket: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::pim::ActiveRoleAssignmentTicket>,
         >,
     }
     #[allow(dead_code)]
     pub struct ActiveRoleAssignmentResult {
         /// The justification for the role assignment. Changing this forces a new resource to be created.
-        pub justification: pulumi_wasm_rust::Output<String>,
+        pub justification: pulumi_gestalt_rust::Output<String>,
         /// Object ID of the principal for this role assignment. Changing this forces a new resource to be created.
-        pub principal_id: pulumi_wasm_rust::Output<String>,
+        pub principal_id: pulumi_gestalt_rust::Output<String>,
         /// Type of principal to which the role will be assigned.
-        pub principal_type: pulumi_wasm_rust::Output<String>,
+        pub principal_type: pulumi_gestalt_rust::Output<String>,
         /// The role definition ID for this role assignment. Changing this forces a new resource to be created.
-        pub role_definition_id: pulumi_wasm_rust::Output<String>,
+        pub role_definition_id: pulumi_gestalt_rust::Output<String>,
         /// A `schedule` block as defined below. Changing this forces a new resource to be created.
-        pub schedule: pulumi_wasm_rust::Output<
+        pub schedule: pulumi_gestalt_rust::Output<
             super::super::types::pim::ActiveRoleAssignmentSchedule,
         >,
         /// The scope for this role assignment, should be a valid resource ID. Changing this forces a new resource to be created.
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_gestalt_rust::Output<String>,
         /// A `ticket` block as defined below. Changing this forces a new resource to be created.
-        pub ticket: pulumi_wasm_rust::Output<
+        pub ticket: pulumi_gestalt_rust::Output<
             super::super::types::pim::ActiveRoleAssignmentTicket,
         >,
     }
@@ -142,11 +142,11 @@ pub mod active_role_assignment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ActiveRoleAssignmentArgs,
     ) -> ActiveRoleAssignmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let justification_binding = args.justification.get_output(context).get_inner();
         let principal_id_binding = args.principal_id.get_output(context).get_inner();
@@ -190,23 +190,25 @@ pub mod active_role_assignment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ActiveRoleAssignmentResult {
-            justification: pulumi_wasm_rust::__private::into_domain(
+            justification: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("justification"),
             ),
-            principal_id: pulumi_wasm_rust::__private::into_domain(
+            principal_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principalId"),
             ),
-            principal_type: pulumi_wasm_rust::__private::into_domain(
+            principal_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principalType"),
             ),
-            role_definition_id: pulumi_wasm_rust::__private::into_domain(
+            role_definition_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleDefinitionId"),
             ),
-            schedule: pulumi_wasm_rust::__private::into_domain(
+            schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedule"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
-            ticket: pulumi_wasm_rust::__private::into_domain(o.extract_field("ticket")),
+            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            ticket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("ticket"),
+            ),
         }
     }
 }

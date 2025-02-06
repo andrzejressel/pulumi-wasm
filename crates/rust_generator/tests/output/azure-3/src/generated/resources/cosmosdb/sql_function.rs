@@ -46,39 +46,39 @@
 /// ```
 ///
 pub mod sql_function {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SqlFunctionArgs {
         /// Body of the User Defined Function.
         #[builder(into)]
-        pub body: pulumi_wasm_rust::InputOrOutput<String>,
+        pub body: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
         #[builder(into)]
-        pub container_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub container_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SqlFunctionResult {
         /// Body of the User Defined Function.
-        pub body: pulumi_wasm_rust::Output<String>,
+        pub body: pulumi_gestalt_rust::Output<String>,
         /// The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created.
-        pub container_id: pulumi_wasm_rust::Output<String>,
+        pub container_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SqlFunctionArgs,
     ) -> SqlFunctionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let body_binding = args.body.get_output(context).get_inner();
         let container_id_binding = args.container_id.get_output(context).get_inner();
@@ -104,11 +104,11 @@ pub mod sql_function {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SqlFunctionResult {
-            body: pulumi_wasm_rust::__private::into_domain(o.extract_field("body")),
-            container_id: pulumi_wasm_rust::__private::into_domain(
+            body: pulumi_gestalt_rust::__private::into_domain(o.extract_field("body")),
+            container_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

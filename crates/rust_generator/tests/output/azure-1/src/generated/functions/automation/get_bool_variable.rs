@@ -1,41 +1,41 @@
 pub mod get_bool_variable {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetBoolVariableArgs {
         /// The name of the automation account in which the Automation Variable exists.
         #[builder(into)]
-        pub automation_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub automation_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Automation Variable.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Name of the Resource Group where the automation account exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetBoolVariableResult {
-        pub automation_account_name: pulumi_wasm_rust::Output<String>,
+        pub automation_account_name: pulumi_gestalt_rust::Output<String>,
         /// The description of the Automation Variable.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Specifies if the Automation Variable is encrypted. Defaults to `false`.
-        pub encrypted: pulumi_wasm_rust::Output<bool>,
+        pub encrypted: pulumi_gestalt_rust::Output<bool>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The value of the Automation Variable as a `boolean`.
-        pub value: pulumi_wasm_rust::Output<bool>,
+        pub value: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetBoolVariableArgs,
     ) -> GetBoolVariableResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let automation_account_name_binding = args
             .automation_account_name
@@ -66,21 +66,21 @@ pub mod get_bool_variable {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetBoolVariableResult {
-            automation_account_name: pulumi_wasm_rust::__private::into_domain(
+            automation_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automationAccountName"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            encrypted: pulumi_wasm_rust::__private::into_domain(
+            encrypted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encrypted"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
+            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

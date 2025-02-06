@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -43,80 +43,80 @@
 /// ```
 ///
 pub mod action_http {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ActionHttpArgs {
         /// Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
         #[builder(into, default)]
-        pub body: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub body: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
         #[builder(into, default)]
-        pub headers: pulumi_wasm_rust::InputOrOutput<
+        pub headers: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub logic_app_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub logic_app_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
         #[builder(into)]
-        pub method: pulumi_wasm_rust::InputOrOutput<String>,
+        pub method: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
         #[builder(into, default)]
-        pub queries: pulumi_wasm_rust::InputOrOutput<
+        pub queries: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
         #[builder(into, default)]
-        pub run_afters: pulumi_wasm_rust::InputOrOutput<
+        pub run_afters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::logicapps::ActionHttpRunAfter>>,
         >,
         /// Specifies the URI which will be called when this HTTP Action is triggered.
         #[builder(into)]
-        pub uri: pulumi_wasm_rust::InputOrOutput<String>,
+        pub uri: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ActionHttpResult {
         /// Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
-        pub body: pulumi_wasm_rust::Output<Option<String>>,
+        pub body: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
-        pub headers: pulumi_wasm_rust::Output<
+        pub headers: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
-        pub logic_app_id: pulumi_wasm_rust::Output<String>,
+        pub logic_app_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
-        pub method: pulumi_wasm_rust::Output<String>,
+        pub method: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
-        pub queries: pulumi_wasm_rust::Output<
+        pub queries: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
-        pub run_afters: pulumi_wasm_rust::Output<
+        pub run_afters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::logicapps::ActionHttpRunAfter>>,
         >,
         /// Specifies the URI which will be called when this HTTP Action is triggered.
-        pub uri: pulumi_wasm_rust::Output<String>,
+        pub uri: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ActionHttpArgs,
     ) -> ActionHttpResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let body_binding = args.body.get_output(context).get_inner();
         let headers_binding = args.headers.get_output(context).get_inner();
@@ -167,22 +167,24 @@ pub mod action_http {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ActionHttpResult {
-            body: pulumi_wasm_rust::__private::into_domain(o.extract_field("body")),
-            headers: pulumi_wasm_rust::__private::into_domain(
+            body: pulumi_gestalt_rust::__private::into_domain(o.extract_field("body")),
+            headers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("headers"),
             ),
-            logic_app_id: pulumi_wasm_rust::__private::into_domain(
+            logic_app_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logicAppId"),
             ),
-            method: pulumi_wasm_rust::__private::into_domain(o.extract_field("method")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            queries: pulumi_wasm_rust::__private::into_domain(
+            method: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("method"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            queries: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("queries"),
             ),
-            run_afters: pulumi_wasm_rust::__private::into_domain(
+            run_afters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runAfters"),
             ),
-            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
+            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
         }
     }
 }

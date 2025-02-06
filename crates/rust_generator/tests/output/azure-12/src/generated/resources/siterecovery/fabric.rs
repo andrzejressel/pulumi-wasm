@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let fabric = fabric::create(
@@ -51,44 +51,44 @@
 /// ```
 ///
 pub mod fabric {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FabricArgs {
         /// In what region should the fabric be located. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the network mapping. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_vault_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub recovery_vault_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FabricResult {
         /// In what region should the fabric be located. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the network mapping. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the vault that should be updated. Changing this forces a new resource to be created.
-        pub recovery_vault_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_name: pulumi_gestalt_rust::Output<String>,
         /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FabricArgs,
     ) -> FabricResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -125,14 +125,14 @@ pub mod fabric {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FabricResult {
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            recovery_vault_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            recovery_vault_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryVaultName"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
         }

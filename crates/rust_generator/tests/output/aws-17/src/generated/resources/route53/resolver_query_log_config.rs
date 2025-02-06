@@ -21,44 +21,44 @@
 /// $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
 /// ```
 pub mod resolver_query_log_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResolverQueryLogConfigArgs {
         /// The ARN of the resource that you want Route 53 Resolver to send query logs.
         /// You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
         #[builder(into)]
-        pub destination_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Route 53 Resolver query logging configuration.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ResolverQueryLogConfigResult {
         /// The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the resource that you want Route 53 Resolver to send query logs.
         /// You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
-        pub destination_arn: pulumi_wasm_rust::Output<String>,
+        pub destination_arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the Route 53 Resolver query logging configuration.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The AWS account ID of the account that created the query logging configuration.
-        pub owner_id: pulumi_wasm_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
         /// An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
         /// Sharing is configured through AWS Resource Access Manager (AWS RAM).
         /// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
-        pub share_status: pulumi_wasm_rust::Output<String>,
+        pub share_status: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -67,11 +67,11 @@ pub mod resolver_query_log_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResolverQueryLogConfigArgs,
     ) -> ResolverQueryLogConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let destination_arn_binding = args
             .destination_arn
@@ -100,19 +100,19 @@ pub mod resolver_query_log_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResolverQueryLogConfigResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            destination_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            destination_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            share_status: pulumi_wasm_rust::__private::into_domain(
+            share_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shareStatus"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

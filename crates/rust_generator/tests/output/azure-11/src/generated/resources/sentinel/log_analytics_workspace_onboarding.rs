@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -42,7 +42,7 @@
 /// ```
 ///
 pub mod log_analytics_workspace_onboarding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LogAnalyticsWorkspaceOnboardingArgs {
@@ -52,10 +52,12 @@ pub mod log_analytics_workspace_onboarding {
         ///
         /// > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customer_managed_key_enabled` set to true, it will not be able to be onboarded again with `customer_managed_key_enabled` set to false.
         #[builder(into, default)]
-        pub customer_managed_key_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub customer_managed_key_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LogAnalyticsWorkspaceOnboardingResult {
@@ -64,20 +66,20 @@ pub mod log_analytics_workspace_onboarding {
         /// > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
         ///
         /// > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customer_managed_key_enabled` set to true, it will not be able to be onboarded again with `customer_managed_key_enabled` set to false.
-        pub customer_managed_key_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub customer_managed_key_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LogAnalyticsWorkspaceOnboardingArgs,
     ) -> LogAnalyticsWorkspaceOnboardingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let customer_managed_key_enabled_binding = args
             .customer_managed_key_enabled
@@ -102,10 +104,10 @@ pub mod log_analytics_workspace_onboarding {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LogAnalyticsWorkspaceOnboardingResult {
-            customer_managed_key_enabled: pulumi_wasm_rust::__private::into_domain(
+            customer_managed_key_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerManagedKeyEnabled"),
             ),
-            workspace_id: pulumi_wasm_rust::__private::into_domain(
+            workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceId"),
             ),
         }

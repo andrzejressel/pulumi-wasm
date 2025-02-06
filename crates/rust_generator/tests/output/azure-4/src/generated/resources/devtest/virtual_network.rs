@@ -39,64 +39,64 @@
 /// ```
 ///
 pub mod virtual_network {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualNetworkArgs {
         /// A description for the Virtual Network.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub lab_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub lab_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `subnet` block as defined below.
         #[builder(into, default)]
-        pub subnet: pulumi_wasm_rust::InputOrOutput<
+        pub subnet: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::devtest::VirtualNetworkSubnet>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct VirtualNetworkResult {
         /// A description for the Virtual Network.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
-        pub lab_name: pulumi_wasm_rust::Output<String>,
+        pub lab_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `subnet` block as defined below.
-        pub subnet: pulumi_wasm_rust::Output<
+        pub subnet: pulumi_gestalt_rust::Output<
             super::super::types::devtest::VirtualNetworkSubnet,
         >,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The unique immutable identifier of the Dev Test Virtual Network.
-        pub unique_identifier: pulumi_wasm_rust::Output<String>,
+        pub unique_identifier: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VirtualNetworkArgs,
     ) -> VirtualNetworkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let lab_name_binding = args.lab_name.get_output(context).get_inner();
@@ -140,19 +140,21 @@ pub mod virtual_network {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VirtualNetworkResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            lab_name: pulumi_wasm_rust::__private::into_domain(
+            lab_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("labName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            subnet: pulumi_wasm_rust::__private::into_domain(o.extract_field("subnet")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            unique_identifier: pulumi_wasm_rust::__private::into_domain(
+            subnet: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("subnet"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            unique_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("uniqueIdentifier"),
             ),
         }

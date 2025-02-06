@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = app_authorization_connection::create(
@@ -19,43 +19,43 @@
 /// }
 /// ```
 pub mod app_authorization_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppAuthorizationConnectionArgs {
         /// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         #[builder(into)]
-        pub app_authorization_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_authorization_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
         #[builder(into)]
-        pub app_bundle_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_bundle_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
         #[builder(into, default)]
-        pub auth_request: pulumi_wasm_rust::InputOrOutput<
+        pub auth_request: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appfabric::AppAuthorizationConnectionAuthRequest>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appfabric::AppAuthorizationConnectionTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct AppAuthorizationConnectionResult {
         /// The name of the application.
-        pub app: pulumi_wasm_rust::Output<String>,
+        pub app: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
-        pub app_authorization_arn: pulumi_wasm_rust::Output<String>,
+        pub app_authorization_arn: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-        pub app_bundle_arn: pulumi_wasm_rust::Output<String>,
+        pub app_bundle_arn: pulumi_gestalt_rust::Output<String>,
         /// Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
-        pub auth_request: pulumi_wasm_rust::Output<
+        pub auth_request: pulumi_gestalt_rust::Output<
             Option<super::super::types::appfabric::AppAuthorizationConnectionAuthRequest>,
         >,
         /// Contains information about an application tenant, such as the application display name and identifier.
-        pub tenants: pulumi_wasm_rust::Output<
+        pub tenants: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appfabric::AppAuthorizationConnectionTenant>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::appfabric::AppAuthorizationConnectionTimeouts>,
         >,
     }
@@ -64,11 +64,11 @@ pub mod app_authorization_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AppAuthorizationConnectionArgs,
     ) -> AppAuthorizationConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_authorization_arn_binding = args
             .app_authorization_arn
@@ -103,20 +103,20 @@ pub mod app_authorization_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AppAuthorizationConnectionResult {
-            app: pulumi_wasm_rust::__private::into_domain(o.extract_field("app")),
-            app_authorization_arn: pulumi_wasm_rust::__private::into_domain(
+            app: pulumi_gestalt_rust::__private::into_domain(o.extract_field("app")),
+            app_authorization_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appAuthorizationArn"),
             ),
-            app_bundle_arn: pulumi_wasm_rust::__private::into_domain(
+            app_bundle_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appBundleArn"),
             ),
-            auth_request: pulumi_wasm_rust::__private::into_domain(
+            auth_request: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authRequest"),
             ),
-            tenants: pulumi_wasm_rust::__private::into_domain(
+            tenants: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tenants"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

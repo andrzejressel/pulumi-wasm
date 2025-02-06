@@ -25,37 +25,37 @@
 /// $ pulumi import aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount example 12345678901
 /// ```
 pub mod organization_delegated_admin_account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationDelegatedAdminAccountArgs {
         /// An organization member account ID that you want to designate as a delegated administrator.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OrganizationDelegatedAdminAccountResult {
         /// An organization member account ID that you want to designate as a delegated administrator.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the delegated administrator's account.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The email address that is associated with the delegated administrator's AWS account.
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_gestalt_rust::Output<String>,
         /// The friendly name of the delegated administrator's account.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The AWS CloudTrail service principal name.
-        pub service_principal: pulumi_wasm_rust::Output<String>,
+        pub service_principal: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OrganizationDelegatedAdminAccountArgs,
     ) -> OrganizationDelegatedAdminAccountResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
@@ -72,13 +72,13 @@ pub mod organization_delegated_admin_account {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OrganizationDelegatedAdminAccountResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            service_principal: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            service_principal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("servicePrincipal"),
             ),
         }

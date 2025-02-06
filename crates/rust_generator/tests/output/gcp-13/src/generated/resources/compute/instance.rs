@@ -107,74 +107,76 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
         /// Configure Nested Virtualisation and Simultaneous Hyper Threading  on this VM. Structure is documented below
         #[builder(into, default)]
-        pub advanced_machine_features: pulumi_wasm_rust::InputOrOutput<
+        pub advanced_machine_features: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::InstanceAdvancedMachineFeatures>,
         >,
         /// If true, allows this prvider to stop the instance to update its properties.
         /// If you try to update a property that requires stopping the instance without setting this field, the update will fail.
         #[builder(into, default)]
-        pub allow_stopping_for_update: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_stopping_for_update: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Additional disks to attach to the instance. Can be repeated multiple times for multiple disks. Structure is documented below.
         #[builder(into, default)]
-        pub attached_disks: pulumi_wasm_rust::InputOrOutput<
+        pub attached_disks: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::InstanceAttachedDisk>>,
         >,
         /// The boot disk for the instance.
         /// Structure is documented below.
         #[builder(into)]
-        pub boot_disk: pulumi_wasm_rust::InputOrOutput<
+        pub boot_disk: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::compute::InstanceBootDisk,
         >,
         /// Whether to allow sending and receiving of
         /// packets with non-matching source or destination IPs.
         /// This defaults to false.
         #[builder(into, default)]
-        pub can_ip_forward: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub can_ip_forward: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Enable [Confidential Mode](https://cloud.google.com/compute/confidential-vm/docs/about-cvm) on this VM. Structure is documented below
         #[builder(into, default)]
-        pub confidential_instance_config: pulumi_wasm_rust::InputOrOutput<
+        pub confidential_instance_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::InstanceConfidentialInstanceConfig>,
         >,
         /// Enable deletion protection on this instance. Defaults to false.
         /// **Note:** you must disable deletion protection before removing the resource (e.g., via `pulumi destroy`), or the instance cannot be deleted and the provider run will not complete successfully.
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A brief description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Desired status of the instance. Either
         /// `"RUNNING"`, `"SUSPENDED"` or `"TERMINATED"`.
         #[builder(into, default)]
-        pub desired_status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub desired_status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Enable [Virtual Displays](https://cloud.google.com/compute/docs/instances/enable-instance-virtual-display#verify_display_driver) on this instance.
         /// **Note**: `allow_stopping_for_update` must be set to true or your instance must have a `desired_status` of `TERMINATED` in order to update this field.
         #[builder(into, default)]
-        pub enable_display: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_display: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// List of the type and count of accelerator cards attached to the instance. Structure documented below.
         /// **Note:** GPU accelerators can only be used with `on_host_maintenance` option set to TERMINATE.
         #[builder(into, default)]
-        pub guest_accelerators: pulumi_wasm_rust::InputOrOutput<
+        pub guest_accelerators: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::InstanceGuestAccelerator>>,
         >,
         /// A custom hostname for the instance. Must be a fully qualified DNS name and RFC-1035-valid.
         /// Valid format is a series of labels 1-63 characters long matching the regular expression `a-z`, concatenated with periods.
         /// The entire hostname must not exceed 253 characters. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub hostname: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub hostname: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Action to be taken when a customer's encryption key is revoked. Supports `STOP` and `NONE`, with `NONE` being the default.
         #[builder(into, default)]
-        pub key_revocation_action_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_revocation_action_type: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A map of key/value label pairs to assign to the instance.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The machine type to create.
@@ -187,7 +189,7 @@ pub mod instance {
         ///
         /// There is a limit of 6.5 GB per CPU unless you add [extended memory](https://cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type#extendedmemory). You must do this explicitly by adding the suffix `-ext`, e.g. `custom-2-15360-ext` for 2 vCPU and 15 GB of memory.
         #[builder(into)]
-        pub machine_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub machine_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Metadata key/value pairs to make available from
         /// within the instance. Ssh keys attached in the Cloud Console will be removed.
         /// Add them to your config in order to keep them attached to your instance.
@@ -202,7 +204,7 @@ pub mod instance {
         /// For the convenience of the users of `metadata.startup-script`,
         /// we provide a special attribute, `metadata_startup_script`, which is documented below.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An alternative to using the
@@ -216,22 +218,22 @@ pub mod instance {
         /// destroy/recreate operation. If importing an instance and specifying this value
         /// is desired, you will need to modify your state file.
         #[builder(into, default)]
-        pub metadata_startup_script: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub metadata_startup_script: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies a minimum CPU platform for the VM instance. Applicable values are the friendly names of CPU platforms, such as
         /// `Intel Haswell` or `Intel Skylake`. See the complete list [here](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform).
         /// **Note**: `allow_stopping_for_update` must be set to true or your instance must have a `desired_status` of `TERMINATED` in order to update this field.
         #[builder(into, default)]
-        pub min_cpu_platform: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub min_cpu_platform: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A unique name for the resource, required by GCE.
         /// Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Networks to attach to the instance. This can
         /// be specified multiple times. Structure is documented below.
         ///
         /// - - -
         #[builder(into)]
-        pub network_interfaces: pulumi_wasm_rust::InputOrOutput<
+        pub network_interfaces: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::compute::InstanceNetworkInterface>,
         >,
         /// (Optional, Beta
@@ -241,132 +243,132 @@ pub mod instance {
         /// in `guest-os-features`, and `network_interface.0.nic-type` must be `GVNIC`
         /// in order for this setting to take effect.
         #[builder(into, default)]
-        pub network_performance_config: pulumi_wasm_rust::InputOrOutput<
+        pub network_performance_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::InstanceNetworkPerformanceConfig>,
         >,
         /// Additional instance parameters.
         /// .
         #[builder(into, default)]
-        pub params: pulumi_wasm_rust::InputOrOutput<
+        pub params: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::InstanceParams>,
         >,
         /// Beta key/value pair represents partner metadata assigned to instance where key represent a defined namespace and value is a json string represent the entries associted with the namespace.
         #[builder(into, default)]
-        pub partner_metadata: pulumi_wasm_rust::InputOrOutput<
+        pub partner_metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the reservations that this instance can consume from.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub reservation_affinity: pulumi_wasm_rust::InputOrOutput<
+        pub reservation_affinity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::InstanceReservationAffinity>,
         >,
         /// - A list of self_links of resource policies to attach to the instance. Modifying this list will cause the instance to recreate. Currently a max of 1 resource policy is supported.
         #[builder(into, default)]
-        pub resource_policies: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resource_policies: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The scheduling strategy to use. More details about
         /// this configuration option are detailed below.
         #[builder(into, default)]
-        pub scheduling: pulumi_wasm_rust::InputOrOutput<
+        pub scheduling: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::InstanceScheduling>,
         >,
         /// Scratch disks to attach to the instance. This can be
         /// specified multiple times for multiple scratch disks. Structure is documented below.
         #[builder(into, default)]
-        pub scratch_disks: pulumi_wasm_rust::InputOrOutput<
+        pub scratch_disks: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::InstanceScratchDisk>>,
         >,
         /// Service account to attach to the instance.
         /// Structure is documented below.
         /// **Note**: `allow_stopping_for_update` must be set to true or your instance must have a `desired_status` of `TERMINATED` in order to update this field.
         #[builder(into, default)]
-        pub service_account: pulumi_wasm_rust::InputOrOutput<
+        pub service_account: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::InstanceServiceAccount>,
         >,
         /// Enable [Shielded VM](https://cloud.google.com/security/shielded-cloud/shielded-vm) on this instance. Shielded VM provides verifiable integrity to prevent against malware and rootkits. Defaults to disabled. Structure is documented below.
         /// **Note**: `shielded_instance_config` can only be used with boot images with shielded vm support. See the complete list [here](https://cloud.google.com/compute/docs/images#shielded-images).
         /// **Note**: `allow_stopping_for_update` must be set to true or your instance must have a `desired_status` of `TERMINATED` in order to update this field.
         #[builder(into, default)]
-        pub shielded_instance_config: pulumi_wasm_rust::InputOrOutput<
+        pub shielded_instance_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::InstanceShieldedInstanceConfig>,
         >,
         /// A list of network tags to attach to the instance.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub tags: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The zone that the machine should be created in. If it is not provided, the provider zone is used.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
         /// Configure Nested Virtualisation and Simultaneous Hyper Threading  on this VM. Structure is documented below
-        pub advanced_machine_features: pulumi_wasm_rust::Output<
+        pub advanced_machine_features: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::InstanceAdvancedMachineFeatures>,
         >,
         /// If true, allows this prvider to stop the instance to update its properties.
         /// If you try to update a property that requires stopping the instance without setting this field, the update will fail.
-        pub allow_stopping_for_update: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_stopping_for_update: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Additional disks to attach to the instance. Can be repeated multiple times for multiple disks. Structure is documented below.
-        pub attached_disks: pulumi_wasm_rust::Output<
+        pub attached_disks: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::InstanceAttachedDisk>>,
         >,
         /// The boot disk for the instance.
         /// Structure is documented below.
-        pub boot_disk: pulumi_wasm_rust::Output<
+        pub boot_disk: pulumi_gestalt_rust::Output<
             super::super::types::compute::InstanceBootDisk,
         >,
         /// Whether to allow sending and receiving of
         /// packets with non-matching source or destination IPs.
         /// This defaults to false.
-        pub can_ip_forward: pulumi_wasm_rust::Output<Option<bool>>,
+        pub can_ip_forward: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Enable [Confidential Mode](https://cloud.google.com/compute/confidential-vm/docs/about-cvm) on this VM. Structure is documented below
-        pub confidential_instance_config: pulumi_wasm_rust::Output<
+        pub confidential_instance_config: pulumi_gestalt_rust::Output<
             super::super::types::compute::InstanceConfidentialInstanceConfig,
         >,
         /// The CPU platform used by this instance.
-        pub cpu_platform: pulumi_wasm_rust::Output<String>,
+        pub cpu_platform: pulumi_gestalt_rust::Output<String>,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// The current status of the instance. This could be one of the following values: PROVISIONING, STAGING, RUNNING, STOPPING, SUSPENDING, SUSPENDED, REPAIRING, and TERMINATED. For more information about the status of the instance, see [Instance life cycle](https://cloud.google.com/compute/docs/instances/instance-life-cycle).
-        pub current_status: pulumi_wasm_rust::Output<String>,
+        pub current_status: pulumi_gestalt_rust::Output<String>,
         /// Enable deletion protection on this instance. Defaults to false.
         /// **Note:** you must disable deletion protection before removing the resource (e.g., via `pulumi destroy`), or the instance cannot be deleted and the provider run will not complete successfully.
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A brief description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Desired status of the instance. Either
         /// `"RUNNING"`, `"SUSPENDED"` or `"TERMINATED"`.
-        pub desired_status: pulumi_wasm_rust::Output<Option<String>>,
+        pub desired_status: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Enable [Virtual Displays](https://cloud.google.com/compute/docs/instances/enable-instance-virtual-display#verify_display_driver) on this instance.
         /// **Note**: `allow_stopping_for_update` must be set to true or your instance must have a `desired_status` of `TERMINATED` in order to update this field.
-        pub enable_display: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_display: pulumi_gestalt_rust::Output<Option<bool>>,
         /// List of the type and count of accelerator cards attached to the instance. Structure documented below.
         /// **Note:** GPU accelerators can only be used with `on_host_maintenance` option set to TERMINATE.
-        pub guest_accelerators: pulumi_wasm_rust::Output<
+        pub guest_accelerators: pulumi_gestalt_rust::Output<
             Vec<super::super::types::compute::InstanceGuestAccelerator>,
         >,
         /// A custom hostname for the instance. Must be a fully qualified DNS name and RFC-1035-valid.
         /// Valid format is a series of labels 1-63 characters long matching the regular expression `a-z`, concatenated with periods.
         /// The entire hostname must not exceed 253 characters. Changing this forces a new resource to be created.
-        pub hostname: pulumi_wasm_rust::Output<Option<String>>,
+        pub hostname: pulumi_gestalt_rust::Output<Option<String>>,
         /// The server-assigned unique identifier of this instance.
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
         /// Action to be taken when a customer's encryption key is revoked. Supports `STOP` and `NONE`, with `NONE` being the default.
-        pub key_revocation_action_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_revocation_action_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The unique fingerprint of the labels.
-        pub label_fingerprint: pulumi_wasm_rust::Output<String>,
+        pub label_fingerprint: pulumi_gestalt_rust::Output<String>,
         /// A map of key/value label pairs to assign to the instance.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field 'effective_labels' for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The machine type to create.
@@ -378,7 +380,7 @@ pub mod instance {
         /// `lifecycle.ignore_changes` on `machine_type` in these cases.
         ///
         /// There is a limit of 6.5 GB per CPU unless you add [extended memory](https://cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type#extendedmemory). You must do this explicitly by adding the suffix `-ext`, e.g. `custom-2-15360-ext` for 2 vCPU and 15 GB of memory.
-        pub machine_type: pulumi_wasm_rust::Output<String>,
+        pub machine_type: pulumi_gestalt_rust::Output<String>,
         /// Metadata key/value pairs to make available from
         /// within the instance. Ssh keys attached in the Cloud Console will be removed.
         /// Add them to your config in order to keep them attached to your instance.
@@ -392,11 +394,11 @@ pub mod instance {
         /// of the script and the time you would like it to run - see [this table](https://cloud.google.com/compute/docs/startupscript#providing_a_startup_script_for_windows_instances).
         /// For the convenience of the users of `metadata.startup-script`,
         /// we provide a special attribute, `metadata_startup_script`, which is documented below.
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The unique fingerprint of the metadata.
-        pub metadata_fingerprint: pulumi_wasm_rust::Output<String>,
+        pub metadata_fingerprint: pulumi_gestalt_rust::Output<String>,
         /// An alternative to using the
         /// startup-script metadata key, except this one forces the instance to be recreated
         /// (thus re-running the script) if it is changed. This replaces the startup-script
@@ -407,19 +409,19 @@ pub mod instance {
         /// choose to specify it you will see a diff immediately after import causing a
         /// destroy/recreate operation. If importing an instance and specifying this value
         /// is desired, you will need to modify your state file.
-        pub metadata_startup_script: pulumi_wasm_rust::Output<Option<String>>,
+        pub metadata_startup_script: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies a minimum CPU platform for the VM instance. Applicable values are the friendly names of CPU platforms, such as
         /// `Intel Haswell` or `Intel Skylake`. See the complete list [here](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform).
         /// **Note**: `allow_stopping_for_update` must be set to true or your instance must have a `desired_status` of `TERMINATED` in order to update this field.
-        pub min_cpu_platform: pulumi_wasm_rust::Output<String>,
+        pub min_cpu_platform: pulumi_gestalt_rust::Output<String>,
         /// A unique name for the resource, required by GCE.
         /// Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Networks to attach to the instance. This can
         /// be specified multiple times. Structure is documented below.
         ///
         /// - - -
-        pub network_interfaces: pulumi_wasm_rust::Output<
+        pub network_interfaces: pulumi_gestalt_rust::Output<
             Vec<super::super::types::compute::InstanceNetworkInterface>,
         >,
         /// (Optional, Beta
@@ -428,73 +430,73 @@ pub mod instance {
         /// the `image` used must include the [`GVNIC`](https://cloud.google.com/compute/docs/networking/using-gvnic#create-instance-gvnic-image)
         /// in `guest-os-features`, and `network_interface.0.nic-type` must be `GVNIC`
         /// in order for this setting to take effect.
-        pub network_performance_config: pulumi_wasm_rust::Output<
+        pub network_performance_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::InstanceNetworkPerformanceConfig>,
         >,
         /// Additional instance parameters.
         /// .
-        pub params: pulumi_wasm_rust::Output<
+        pub params: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::InstanceParams>,
         >,
         /// Beta key/value pair represents partner metadata assigned to instance where key represent a defined namespace and value is a json string represent the entries associted with the namespace.
-        pub partner_metadata: pulumi_wasm_rust::Output<
+        pub partner_metadata: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Specifies the reservations that this instance can consume from.
         /// Structure is documented below.
-        pub reservation_affinity: pulumi_wasm_rust::Output<
+        pub reservation_affinity: pulumi_gestalt_rust::Output<
             super::super::types::compute::InstanceReservationAffinity,
         >,
         /// - A list of self_links of resource policies to attach to the instance. Modifying this list will cause the instance to recreate. Currently a max of 1 resource policy is supported.
-        pub resource_policies: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_policies: pulumi_gestalt_rust::Output<Option<String>>,
         /// The scheduling strategy to use. More details about
         /// this configuration option are detailed below.
-        pub scheduling: pulumi_wasm_rust::Output<
+        pub scheduling: pulumi_gestalt_rust::Output<
             super::super::types::compute::InstanceScheduling,
         >,
         /// Scratch disks to attach to the instance. This can be
         /// specified multiple times for multiple scratch disks. Structure is documented below.
-        pub scratch_disks: pulumi_wasm_rust::Output<
+        pub scratch_disks: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::InstanceScratchDisk>>,
         >,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// Service account to attach to the instance.
         /// Structure is documented below.
         /// **Note**: `allow_stopping_for_update` must be set to true or your instance must have a `desired_status` of `TERMINATED` in order to update this field.
-        pub service_account: pulumi_wasm_rust::Output<
+        pub service_account: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::InstanceServiceAccount>,
         >,
         /// Enable [Shielded VM](https://cloud.google.com/security/shielded-cloud/shielded-vm) on this instance. Shielded VM provides verifiable integrity to prevent against malware and rootkits. Defaults to disabled. Structure is documented below.
         /// **Note**: `shielded_instance_config` can only be used with boot images with shielded vm support. See the complete list [here](https://cloud.google.com/compute/docs/images#shielded-images).
         /// **Note**: `allow_stopping_for_update` must be set to true or your instance must have a `desired_status` of `TERMINATED` in order to update this field.
-        pub shielded_instance_config: pulumi_wasm_rust::Output<
+        pub shielded_instance_config: pulumi_gestalt_rust::Output<
             super::super::types::compute::InstanceShieldedInstanceConfig,
         >,
         /// A list of network tags to attach to the instance.
-        pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tags: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The unique fingerprint of the tags.
-        pub tags_fingerprint: pulumi_wasm_rust::Output<String>,
+        pub tags_fingerprint: pulumi_gestalt_rust::Output<String>,
         /// The zone that the machine should be created in. If it is not provided, the provider zone is used.
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let advanced_machine_features_binding = args
             .advanced_machine_features
@@ -710,122 +712,126 @@ pub mod instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceResult {
-            advanced_machine_features: pulumi_wasm_rust::__private::into_domain(
+            advanced_machine_features: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("advancedMachineFeatures"),
             ),
-            allow_stopping_for_update: pulumi_wasm_rust::__private::into_domain(
+            allow_stopping_for_update: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowStoppingForUpdate"),
             ),
-            attached_disks: pulumi_wasm_rust::__private::into_domain(
+            attached_disks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attachedDisks"),
             ),
-            boot_disk: pulumi_wasm_rust::__private::into_domain(
+            boot_disk: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bootDisk"),
             ),
-            can_ip_forward: pulumi_wasm_rust::__private::into_domain(
+            can_ip_forward: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("canIpForward"),
             ),
-            confidential_instance_config: pulumi_wasm_rust::__private::into_domain(
+            confidential_instance_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("confidentialInstanceConfig"),
             ),
-            cpu_platform: pulumi_wasm_rust::__private::into_domain(
+            cpu_platform: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cpuPlatform"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            current_status: pulumi_wasm_rust::__private::into_domain(
+            current_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("currentStatus"),
             ),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            desired_status: pulumi_wasm_rust::__private::into_domain(
+            desired_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("desiredStatus"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            enable_display: pulumi_wasm_rust::__private::into_domain(
+            enable_display: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableDisplay"),
             ),
-            guest_accelerators: pulumi_wasm_rust::__private::into_domain(
+            guest_accelerators: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("guestAccelerators"),
             ),
-            hostname: pulumi_wasm_rust::__private::into_domain(
+            hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostname"),
             ),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            key_revocation_action_type: pulumi_wasm_rust::__private::into_domain(
+            key_revocation_action_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyRevocationActionType"),
             ),
-            label_fingerprint: pulumi_wasm_rust::__private::into_domain(
+            label_fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("labelFingerprint"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            machine_type: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            machine_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("machineType"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            metadata_fingerprint: pulumi_wasm_rust::__private::into_domain(
+            metadata_fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadataFingerprint"),
             ),
-            metadata_startup_script: pulumi_wasm_rust::__private::into_domain(
+            metadata_startup_script: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadataStartupScript"),
             ),
-            min_cpu_platform: pulumi_wasm_rust::__private::into_domain(
+            min_cpu_platform: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minCpuPlatform"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_interfaces: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_interfaces: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkInterfaces"),
             ),
-            network_performance_config: pulumi_wasm_rust::__private::into_domain(
+            network_performance_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkPerformanceConfig"),
             ),
-            params: pulumi_wasm_rust::__private::into_domain(o.extract_field("params")),
-            partner_metadata: pulumi_wasm_rust::__private::into_domain(
+            params: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("params"),
+            ),
+            partner_metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partnerMetadata"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            reservation_affinity: pulumi_wasm_rust::__private::into_domain(
+            reservation_affinity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reservationAffinity"),
             ),
-            resource_policies: pulumi_wasm_rust::__private::into_domain(
+            resource_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourcePolicies"),
             ),
-            scheduling: pulumi_wasm_rust::__private::into_domain(
+            scheduling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scheduling"),
             ),
-            scratch_disks: pulumi_wasm_rust::__private::into_domain(
+            scratch_disks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scratchDisks"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            service_account: pulumi_wasm_rust::__private::into_domain(
+            service_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccount"),
             ),
-            shielded_instance_config: pulumi_wasm_rust::__private::into_domain(
+            shielded_instance_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shieldedInstanceConfig"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_fingerprint: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsFingerprint"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

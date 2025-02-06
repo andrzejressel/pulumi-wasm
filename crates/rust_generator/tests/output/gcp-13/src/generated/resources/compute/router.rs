@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foobar = router::create(
@@ -98,23 +98,25 @@
 /// ```
 ///
 pub mod router {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouterArgs {
         /// BGP information specific to this router.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub bgp: pulumi_wasm_rust::InputOrOutput<
+        pub bgp: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RouterBgp>,
         >,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Indicates if a router is dedicated for use with encrypted VLAN
         /// attachments (interconnectAttachments).
         #[builder(into, default)]
-        pub encrypted_interconnect_router: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub encrypted_interconnect_router: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Name of the resource. The name must be 1-63 characters long, and
         /// comply with RFC1035. Specifically, the name must be 1-63 characters
         /// long and match the regular expression `a-z?`
@@ -122,65 +124,65 @@ pub mod router {
         /// following characters must be a dash, lowercase letter, or digit,
         /// except the last character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A reference to the network to which this router belongs.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Region where the router resides.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RouterResult {
         /// BGP information specific to this router.
         /// Structure is documented below.
-        pub bgp: pulumi_wasm_rust::Output<
+        pub bgp: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RouterBgp>,
         >,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Indicates if a router is dedicated for use with encrypted VLAN
         /// attachments (interconnectAttachments).
-        pub encrypted_interconnect_router: pulumi_wasm_rust::Output<Option<bool>>,
+        pub encrypted_interconnect_router: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Name of the resource. The name must be 1-63 characters long, and
         /// comply with RFC1035. Specifically, the name must be 1-63 characters
         /// long and match the regular expression `a-z?`
         /// which means the first character must be a lowercase letter, and all
         /// following characters must be a dash, lowercase letter, or digit,
         /// except the last character, which cannot be a dash.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A reference to the network to which this router belongs.
         ///
         ///
         /// - - -
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Region where the router resides.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouterArgs,
     ) -> RouterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bgp_binding = args.bgp.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -229,25 +231,27 @@ pub mod router {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouterResult {
-            bgp: pulumi_wasm_rust::__private::into_domain(o.extract_field("bgp")),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            bgp: pulumi_gestalt_rust::__private::into_domain(o.extract_field("bgp")),
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            encrypted_interconnect_router: pulumi_wasm_rust::__private::into_domain(
+            encrypted_interconnect_router: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptedInterconnectRouter"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
         }

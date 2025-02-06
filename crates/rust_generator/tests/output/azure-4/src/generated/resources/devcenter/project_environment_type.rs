@@ -61,40 +61,40 @@
 /// ```
 ///
 pub mod project_environment_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectEnvironmentTypeArgs {
         /// A list of roles to assign to the environment creator.
         #[builder(into, default)]
-        pub creator_role_assignment_roles: pulumi_wasm_rust::InputOrOutput<
+        pub creator_role_assignment_roles: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The ID of the subscription that the Environment Type will be mapped to. The environment's resources will be deployed into this subscription.
         #[builder(into)]
-        pub deployment_target_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub deployment_target_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub dev_center_project_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dev_center_project_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An `identity` block as defined below.
         #[builder(into)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::devcenter::ProjectEnvironmentTypeIdentity,
         >,
         /// The Azure Region where the Dev Center Project Environment Type should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of this Dev Center Project Environment Type. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Dev Center Project Environment Type.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `user_role_assignment` block as defined below.
         #[builder(into, default)]
-        pub user_role_assignments: pulumi_wasm_rust::InputOrOutput<
+        pub user_role_assignments: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::devcenter::ProjectEnvironmentTypeUserRoleAssignment,
@@ -105,25 +105,27 @@ pub mod project_environment_type {
     #[allow(dead_code)]
     pub struct ProjectEnvironmentTypeResult {
         /// A list of roles to assign to the environment creator.
-        pub creator_role_assignment_roles: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub creator_role_assignment_roles: pulumi_gestalt_rust::Output<
+            Option<Vec<String>>,
+        >,
         /// The ID of the subscription that the Environment Type will be mapped to. The environment's resources will be deployed into this subscription.
-        pub deployment_target_id: pulumi_wasm_rust::Output<String>,
+        pub deployment_target_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
-        pub dev_center_project_id: pulumi_wasm_rust::Output<String>,
+        pub dev_center_project_id: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             super::super::types::devcenter::ProjectEnvironmentTypeIdentity,
         >,
         /// The Azure Region where the Dev Center Project Environment Type should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of this Dev Center Project Environment Type. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Dev Center Project Environment Type.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `user_role_assignment` block as defined below.
-        pub user_role_assignments: pulumi_wasm_rust::Output<
+        pub user_role_assignments: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::devcenter::ProjectEnvironmentTypeUserRoleAssignment,
@@ -136,11 +138,11 @@ pub mod project_environment_type {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProjectEnvironmentTypeArgs,
     ) -> ProjectEnvironmentTypeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let creator_role_assignment_roles_binding = args
             .creator_role_assignment_roles
@@ -204,24 +206,24 @@ pub mod project_environment_type {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProjectEnvironmentTypeResult {
-            creator_role_assignment_roles: pulumi_wasm_rust::__private::into_domain(
+            creator_role_assignment_roles: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creatorRoleAssignmentRoles"),
             ),
-            deployment_target_id: pulumi_wasm_rust::__private::into_domain(
+            deployment_target_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentTargetId"),
             ),
-            dev_center_project_id: pulumi_wasm_rust::__private::into_domain(
+            dev_center_project_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("devCenterProjectId"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            user_role_assignments: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            user_role_assignments: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userRoleAssignments"),
             ),
         }

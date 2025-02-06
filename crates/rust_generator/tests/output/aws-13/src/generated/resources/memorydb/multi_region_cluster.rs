@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = multi_region_cluster::create(
@@ -41,98 +41,98 @@
 /// $ pulumi import aws:memorydb/multiRegionCluster:MultiRegionCluster example virxk-example
 /// ```
 pub mod multi_region_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MultiRegionClusterArgs {
         /// description for the multi-region cluster.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
         #[builder(into, default)]
-        pub engine: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub engine: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
         #[builder(into, default)]
-        pub engine_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub engine_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
         #[builder(into)]
-        pub multi_region_cluster_name_suffix: pulumi_wasm_rust::InputOrOutput<String>,
+        pub multi_region_cluster_name_suffix: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the multi-region parameter group to be associated with the cluster.
         #[builder(into, default)]
-        pub multi_region_parameter_group_name: pulumi_wasm_rust::InputOrOutput<
+        pub multi_region_parameter_group_name: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The node type to be used for the multi-region cluster.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub node_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub node_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The number of shards for the multi-region cluster.
         #[builder(into, default)]
-        pub num_shards: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub num_shards: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::memorydb::MultiRegionClusterTimeouts>,
         >,
         /// A flag to enable in-transit encryption on the cluster.
         #[builder(into, default)]
-        pub tls_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub tls_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub update_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub update_strategy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MultiRegionClusterResult {
         /// The ARN of the multi-region cluster.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// description for the multi-region cluster.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the engine to be used for the multi-region cluster. Valid values are `redis` and `valkey`.
-        pub engine: pulumi_wasm_rust::Output<String>,
+        pub engine: pulumi_gestalt_rust::Output<String>,
         /// The version of the engine to be used for the multi-region cluster. Downgrades are not supported.
-        pub engine_version: pulumi_wasm_rust::Output<String>,
+        pub engine_version: pulumi_gestalt_rust::Output<String>,
         /// The name of the multi-region cluster.
-        pub multi_region_cluster_name: pulumi_wasm_rust::Output<String>,
+        pub multi_region_cluster_name: pulumi_gestalt_rust::Output<String>,
         /// A suffix to be added to the multi-region cluster name. An AWS generated prefix is automatically applied to the multi-region cluster name when it is created.
-        pub multi_region_cluster_name_suffix: pulumi_wasm_rust::Output<String>,
+        pub multi_region_cluster_name_suffix: pulumi_gestalt_rust::Output<String>,
         /// The name of the multi-region parameter group to be associated with the cluster.
-        pub multi_region_parameter_group_name: pulumi_wasm_rust::Output<String>,
+        pub multi_region_parameter_group_name: pulumi_gestalt_rust::Output<String>,
         /// The node type to be used for the multi-region cluster.
         ///
         /// The following arguments are optional:
-        pub node_type: pulumi_wasm_rust::Output<String>,
+        pub node_type: pulumi_gestalt_rust::Output<String>,
         /// The number of shards for the multi-region cluster.
-        pub num_shards: pulumi_wasm_rust::Output<i32>,
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub num_shards: pulumi_gestalt_rust::Output<i32>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::memorydb::MultiRegionClusterTimeouts>,
         >,
         /// A flag to enable in-transit encryption on the cluster.
-        pub tls_enabled: pulumi_wasm_rust::Output<bool>,
-        pub update_strategy: pulumi_wasm_rust::Output<Option<String>>,
+        pub tls_enabled: pulumi_gestalt_rust::Output<bool>,
+        pub update_strategy: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MultiRegionClusterArgs,
     ) -> MultiRegionClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let engine_binding = args.engine.get_output(context).get_inner();
@@ -207,41 +207,45 @@ pub mod multi_region_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MultiRegionClusterResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
-            engine_version: pulumi_wasm_rust::__private::into_domain(
+            engine: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("engine"),
+            ),
+            engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineVersion"),
             ),
-            multi_region_cluster_name: pulumi_wasm_rust::__private::into_domain(
+            multi_region_cluster_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("multiRegionClusterName"),
             ),
-            multi_region_cluster_name_suffix: pulumi_wasm_rust::__private::into_domain(
+            multi_region_cluster_name_suffix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("multiRegionClusterNameSuffix"),
             ),
-            multi_region_parameter_group_name: pulumi_wasm_rust::__private::into_domain(
+            multi_region_parameter_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("multiRegionParameterGroupName"),
             ),
-            node_type: pulumi_wasm_rust::__private::into_domain(
+            node_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeType"),
             ),
-            num_shards: pulumi_wasm_rust::__private::into_domain(
+            num_shards: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("numShards"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            tls_enabled: pulumi_wasm_rust::__private::into_domain(
+            tls_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tlsEnabled"),
             ),
-            update_strategy: pulumi_wasm_rust::__private::into_domain(
+            update_strategy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateStrategy"),
             ),
         }

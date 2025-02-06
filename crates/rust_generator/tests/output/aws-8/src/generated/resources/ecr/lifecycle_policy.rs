@@ -9,8 +9,8 @@
 /// ### Policy on untagged image
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = repository::create(
@@ -32,8 +32,8 @@
 /// ### Policy on tagged image
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = repository::create(
@@ -60,36 +60,36 @@
 /// $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
 /// ```
 pub mod lifecycle_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LifecyclePolicyArgs {
         /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `policy` argument.
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the repository to apply the policy.
         #[builder(into)]
-        pub repository: pulumi_wasm_rust::InputOrOutput<String>,
+        pub repository: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LifecyclePolicyResult {
         /// The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `policy` argument.
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_gestalt_rust::Output<String>,
         /// The registry ID where the repository was created.
-        pub registry_id: pulumi_wasm_rust::Output<String>,
+        pub registry_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the repository to apply the policy.
-        pub repository: pulumi_wasm_rust::Output<String>,
+        pub repository: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LifecyclePolicyArgs,
     ) -> LifecyclePolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let policy_binding = args.policy.get_output(context).get_inner();
         let repository_binding = args.repository.get_output(context).get_inner();
@@ -110,11 +110,13 @@ pub mod lifecycle_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LifecyclePolicyResult {
-            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
-            registry_id: pulumi_wasm_rust::__private::into_domain(
+            policy: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("policy"),
+            ),
+            registry_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registryId"),
             ),
-            repository: pulumi_wasm_rust::__private::into_domain(
+            repository: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repository"),
             ),
         }

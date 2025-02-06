@@ -1,47 +1,47 @@
 pub mod credential_user_managed_identity {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CredentialUserManagedIdentityArgs {
         /// (Optional) List of string annotations.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The resource ID of the parent Data Factory
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// (Optional) Short text description
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the User Assigned Managed Identity
         #[builder(into)]
-        pub identity_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub identity_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The desired name of the credential resource
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CredentialUserManagedIdentityResult {
         /// (Optional) List of string annotations.
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The resource ID of the parent Data Factory
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// (Optional) Short text description
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource ID of the User Assigned Managed Identity
-        pub identity_id: pulumi_wasm_rust::Output<String>,
+        pub identity_id: pulumi_gestalt_rust::Output<String>,
         /// The desired name of the credential resource
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CredentialUserManagedIdentityArgs,
     ) -> CredentialUserManagedIdentityResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let data_factory_id_binding = args
@@ -81,19 +81,19 @@ pub mod credential_user_managed_identity {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CredentialUserManagedIdentityResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            identity_id: pulumi_wasm_rust::__private::into_domain(
+            identity_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identityId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

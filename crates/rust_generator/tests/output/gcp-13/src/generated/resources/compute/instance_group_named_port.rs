@@ -16,8 +16,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let containerNetwork = network::create(
@@ -105,7 +105,7 @@
 /// ```
 ///
 pub mod instance_group_named_port {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceGroupNamedPortArgs {
@@ -114,21 +114,21 @@ pub mod instance_group_named_port {
         ///
         /// - - -
         #[builder(into)]
-        pub group: pulumi_wasm_rust::InputOrOutput<String>,
+        pub group: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name for this named port. The name must be 1-63 characters
         /// long, and comply with RFC1035.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The port number, which can be a value between 1 and 65535.
         #[builder(into)]
-        pub port: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub port: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The zone of the instance group.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceGroupNamedPortResult {
@@ -136,28 +136,28 @@ pub mod instance_group_named_port {
         ///
         ///
         /// - - -
-        pub group: pulumi_wasm_rust::Output<String>,
+        pub group: pulumi_gestalt_rust::Output<String>,
         /// The name for this named port. The name must be 1-63 characters
         /// long, and comply with RFC1035.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The port number, which can be a value between 1 and 65535.
-        pub port: pulumi_wasm_rust::Output<i32>,
+        pub port: pulumi_gestalt_rust::Output<i32>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The zone of the instance group.
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceGroupNamedPortArgs,
     ) -> InstanceGroupNamedPortResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let group_binding = args.group.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -193,13 +193,13 @@ pub mod instance_group_named_port {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceGroupNamedPortResult {
-            group: pulumi_wasm_rust::__private::into_domain(o.extract_field("group")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            group: pulumi_gestalt_rust::__private::into_domain(o.extract_field("group")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

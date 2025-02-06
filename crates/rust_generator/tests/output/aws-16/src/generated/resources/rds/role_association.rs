@@ -13,39 +13,39 @@
 /// $ pulumi import aws:rds/roleAssociation:RoleAssociation example my-db-instance,arn:aws:iam::123456789012:role/my-role
 /// ```
 pub mod role_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RoleAssociationArgs {
         /// DB Instance Identifier to associate with the IAM Role.
         #[builder(into)]
-        pub db_instance_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub db_instance_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         #[builder(into)]
-        pub feature_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub feature_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RoleAssociationResult {
         /// DB Instance Identifier to associate with the IAM Role.
-        pub db_instance_identifier: pulumi_wasm_rust::Output<String>,
+        pub db_instance_identifier: pulumi_gestalt_rust::Output<String>,
         /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-        pub feature_name: pulumi_wasm_rust::Output<String>,
+        pub feature_name: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RoleAssociationArgs,
     ) -> RoleAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let db_instance_identifier_binding = args
             .db_instance_identifier
@@ -74,13 +74,13 @@ pub mod role_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RoleAssociationResult {
-            db_instance_identifier: pulumi_wasm_rust::__private::into_domain(
+            db_instance_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbInstanceIdentifier"),
             ),
-            feature_name: pulumi_wasm_rust::__private::into_domain(
+            feature_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("featureName"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
         }

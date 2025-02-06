@@ -53,169 +53,169 @@
 /// ```
 ///
 pub mod app_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppServiceArgs {
         /// The ID of the App Service Plan within which to create this App Service.
         #[builder(into)]
-        pub app_service_plan_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_service_plan_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A key-value pair of App Settings.
         #[builder(into, default)]
-        pub app_settings: pulumi_wasm_rust::InputOrOutput<
+        pub app_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `auth_settings` block as defined below.
         #[builder(into, default)]
-        pub auth_settings: pulumi_wasm_rust::InputOrOutput<
+        pub auth_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::AppServiceAuthSettings>,
         >,
         /// A `backup` block as defined below.
         #[builder(into, default)]
-        pub backup: pulumi_wasm_rust::InputOrOutput<
+        pub backup: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::AppServiceBackup>,
         >,
         /// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
         #[builder(into, default)]
-        pub client_affinity_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub client_affinity_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Does the App Service require client certificates for incoming requests? Defaults to `false`.
         #[builder(into, default)]
-        pub client_cert_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub client_cert_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
         #[builder(into, default)]
-        pub client_cert_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_cert_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `connection_string` blocks as defined below.
         #[builder(into, default)]
-        pub connection_strings: pulumi_wasm_rust::InputOrOutput<
+        pub connection_strings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::appservice::AppServiceConnectionString>>,
         >,
         /// Is the App Service Enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Can the App Service only be accessed via HTTPS? Defaults to `false`.
         #[builder(into, default)]
-        pub https_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub https_only: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::AppServiceIdentity>,
         >,
         /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         #[builder(into, default)]
-        pub key_vault_reference_identity_id: pulumi_wasm_rust::InputOrOutput<
+        pub key_vault_reference_identity_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `logs` block as defined below.
         #[builder(into, default)]
-        pub logs: pulumi_wasm_rust::InputOrOutput<
+        pub logs: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::AppServiceLogs>,
         >,
         /// Specifies the name of the App Service. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `site_config` block as defined below.
         #[builder(into, default)]
-        pub site_config: pulumi_wasm_rust::InputOrOutput<
+        pub site_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::AppServiceSiteConfig>,
         >,
         /// A `source_control` block as defined below.
         #[builder(into, default)]
-        pub source_control: pulumi_wasm_rust::InputOrOutput<
+        pub source_control: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::AppServiceSourceControl>,
         >,
         /// One or more `storage_account` blocks as defined below.
         #[builder(into, default)]
-        pub storage_accounts: pulumi_wasm_rust::InputOrOutput<
+        pub storage_accounts: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::appservice::AppServiceStorageAccount>>,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AppServiceResult {
         /// The ID of the App Service Plan within which to create this App Service.
-        pub app_service_plan_id: pulumi_wasm_rust::Output<String>,
+        pub app_service_plan_id: pulumi_gestalt_rust::Output<String>,
         /// A key-value pair of App Settings.
-        pub app_settings: pulumi_wasm_rust::Output<
+        pub app_settings: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A `auth_settings` block as defined below.
-        pub auth_settings: pulumi_wasm_rust::Output<
+        pub auth_settings: pulumi_gestalt_rust::Output<
             super::super::types::appservice::AppServiceAuthSettings,
         >,
         /// A `backup` block as defined below.
-        pub backup: pulumi_wasm_rust::Output<
+        pub backup: pulumi_gestalt_rust::Output<
             Option<super::super::types::appservice::AppServiceBackup>,
         >,
         /// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
-        pub client_affinity_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub client_affinity_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Does the App Service require client certificates for incoming requests? Defaults to `false`.
-        pub client_cert_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub client_cert_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Mode of client certificates for this App Service. Possible values are `Required`, `Optional` and `OptionalInteractiveUser`. If this parameter is set, `client_cert_enabled` must be set to `true`, otherwise this parameter is ignored.
-        pub client_cert_mode: pulumi_wasm_rust::Output<String>,
+        pub client_cert_mode: pulumi_gestalt_rust::Output<String>,
         /// One or more `connection_string` blocks as defined below.
-        pub connection_strings: pulumi_wasm_rust::Output<
+        pub connection_strings: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appservice::AppServiceConnectionString>,
         >,
         /// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
-        pub custom_domain_verification_id: pulumi_wasm_rust::Output<String>,
+        pub custom_domain_verification_id: pulumi_gestalt_rust::Output<String>,
         /// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
-        pub default_site_hostname: pulumi_wasm_rust::Output<String>,
+        pub default_site_hostname: pulumi_gestalt_rust::Output<String>,
         /// Is the App Service Enabled? Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Can the App Service only be accessed via HTTPS? Defaults to `false`.
-        pub https_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub https_only: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::appservice::AppServiceIdentity>,
         >,
         /// The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
-        pub key_vault_reference_identity_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_reference_identity_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A `logs` block as defined below.
-        pub logs: pulumi_wasm_rust::Output<
+        pub logs: pulumi_gestalt_rust::Output<
             super::super::types::appservice::AppServiceLogs,
         >,
         /// Specifies the name of the App Service. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
-        pub outbound_ip_address_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub outbound_ip_address_lists: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
-        pub outbound_ip_addresses: pulumi_wasm_rust::Output<String>,
+        pub outbound_ip_addresses: pulumi_gestalt_rust::Output<String>,
         /// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
-        pub possible_outbound_ip_address_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub possible_outbound_ip_address_lists: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
-        pub possible_outbound_ip_addresses: pulumi_wasm_rust::Output<String>,
+        pub possible_outbound_ip_addresses: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `site_config` block as defined below.
-        pub site_config: pulumi_wasm_rust::Output<
+        pub site_config: pulumi_gestalt_rust::Output<
             super::super::types::appservice::AppServiceSiteConfig,
         >,
         /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-        pub site_credentials: pulumi_wasm_rust::Output<
+        pub site_credentials: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appservice::AppServiceSiteCredential>,
         >,
         /// A `source_control` block as defined below.
-        pub source_control: pulumi_wasm_rust::Output<
+        pub source_control: pulumi_gestalt_rust::Output<
             super::super::types::appservice::AppServiceSourceControl,
         >,
         /// One or more `storage_account` blocks as defined below.
-        pub storage_accounts: pulumi_wasm_rust::Output<
+        pub storage_accounts: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appservice::AppServiceStorageAccount>,
         >,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -224,11 +224,11 @@ pub mod app_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AppServiceArgs,
     ) -> AppServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_service_plan_id_binding = args
             .app_service_plan_id
@@ -363,79 +363,81 @@ pub mod app_service {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AppServiceResult {
-            app_service_plan_id: pulumi_wasm_rust::__private::into_domain(
+            app_service_plan_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appServicePlanId"),
             ),
-            app_settings: pulumi_wasm_rust::__private::into_domain(
+            app_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appSettings"),
             ),
-            auth_settings: pulumi_wasm_rust::__private::into_domain(
+            auth_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authSettings"),
             ),
-            backup: pulumi_wasm_rust::__private::into_domain(o.extract_field("backup")),
-            client_affinity_enabled: pulumi_wasm_rust::__private::into_domain(
+            backup: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("backup"),
+            ),
+            client_affinity_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientAffinityEnabled"),
             ),
-            client_cert_enabled: pulumi_wasm_rust::__private::into_domain(
+            client_cert_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertEnabled"),
             ),
-            client_cert_mode: pulumi_wasm_rust::__private::into_domain(
+            client_cert_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertMode"),
             ),
-            connection_strings: pulumi_wasm_rust::__private::into_domain(
+            connection_strings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionStrings"),
             ),
-            custom_domain_verification_id: pulumi_wasm_rust::__private::into_domain(
+            custom_domain_verification_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customDomainVerificationId"),
             ),
-            default_site_hostname: pulumi_wasm_rust::__private::into_domain(
+            default_site_hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSiteHostname"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            https_only: pulumi_wasm_rust::__private::into_domain(
+            https_only: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpsOnly"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            key_vault_reference_identity_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_reference_identity_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultReferenceIdentityId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            logs: pulumi_wasm_rust::__private::into_domain(o.extract_field("logs")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            outbound_ip_address_lists: pulumi_wasm_rust::__private::into_domain(
+            logs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("logs")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            outbound_ip_address_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outboundIpAddressLists"),
             ),
-            outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outboundIpAddresses"),
             ),
-            possible_outbound_ip_address_lists: pulumi_wasm_rust::__private::into_domain(
+            possible_outbound_ip_address_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("possibleOutboundIpAddressLists"),
             ),
-            possible_outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            possible_outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("possibleOutboundIpAddresses"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            site_config: pulumi_wasm_rust::__private::into_domain(
+            site_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("siteConfig"),
             ),
-            site_credentials: pulumi_wasm_rust::__private::into_domain(
+            site_credentials: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("siteCredentials"),
             ),
-            source_control: pulumi_wasm_rust::__private::into_domain(
+            source_control: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceControl"),
             ),
-            storage_accounts: pulumi_wasm_rust::__private::into_domain(
+            storage_accounts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccounts"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

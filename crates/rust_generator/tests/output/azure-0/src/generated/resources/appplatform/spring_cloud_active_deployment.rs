@@ -56,34 +56,34 @@
 /// ```
 ///
 pub mod spring_cloud_active_deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudActiveDeploymentArgs {
         /// Specifies the name of Spring Cloud Deployment which is going to be active.
         #[builder(into)]
-        pub deployment_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub deployment_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the id of the Spring Cloud Application. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub spring_cloud_app_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub spring_cloud_app_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudActiveDeploymentResult {
         /// Specifies the name of Spring Cloud Deployment which is going to be active.
-        pub deployment_name: pulumi_wasm_rust::Output<String>,
+        pub deployment_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the id of the Spring Cloud Application. Changing this forces a new resource to be created.
-        pub spring_cloud_app_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_app_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SpringCloudActiveDeploymentArgs,
     ) -> SpringCloudActiveDeploymentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let deployment_name_binding = args
             .deployment_name
@@ -111,10 +111,10 @@ pub mod spring_cloud_active_deployment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SpringCloudActiveDeploymentResult {
-            deployment_name: pulumi_wasm_rust::__private::into_domain(
+            deployment_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentName"),
             ),
-            spring_cloud_app_id: pulumi_wasm_rust::__private::into_domain(
+            spring_cloud_app_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("springCloudAppId"),
             ),
         }

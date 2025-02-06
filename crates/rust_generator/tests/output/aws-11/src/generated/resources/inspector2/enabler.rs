@@ -7,8 +7,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = enabler::create(
@@ -40,40 +40,40 @@
 ///       arguments: {}
 /// ```
 pub mod enabler {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnablerArgs {
         /// Set of account IDs.
         /// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
         #[builder(into)]
-        pub account_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub account_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Type of resources to scan.
         /// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
         /// At least one item is required.
         #[builder(into)]
-        pub resource_types: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub resource_types: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct EnablerResult {
         /// Set of account IDs.
         /// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
-        pub account_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub account_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Type of resources to scan.
         /// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
         /// At least one item is required.
-        pub resource_types: pulumi_wasm_rust::Output<Vec<String>>,
+        pub resource_types: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnablerArgs,
     ) -> EnablerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_ids_binding = args.account_ids.get_output(context).get_inner();
         let resource_types_binding = args.resource_types.get_output(context).get_inner();
@@ -94,10 +94,10 @@ pub mod enabler {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnablerResult {
-            account_ids: pulumi_wasm_rust::__private::into_domain(
+            account_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountIds"),
             ),
-            resource_types: pulumi_wasm_rust::__private::into_domain(
+            resource_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceTypes"),
             ),
         }

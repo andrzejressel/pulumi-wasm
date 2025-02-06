@@ -74,98 +74,98 @@
 /// $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
 /// ```
 pub mod pipeline {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PipelineArgs {
         /// Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
         #[builder(into, default)]
-        pub buffer_options: pulumi_wasm_rust::InputOrOutput<
+        pub buffer_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearchingest::PipelineBufferOptions>,
         >,
         /// Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
         #[builder(into, default)]
-        pub encryption_at_rest_options: pulumi_wasm_rust::InputOrOutput<
+        pub encryption_at_rest_options: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::opensearchingest::PipelineEncryptionAtRestOptions,
             >,
         >,
         /// Key-value pairs to configure log publishing. See `log_publishing_options` below.
         #[builder(into, default)]
-        pub log_publishing_options: pulumi_wasm_rust::InputOrOutput<
+        pub log_publishing_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearchingest::PipelineLogPublishingOptions>,
         >,
         /// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
         #[builder(into)]
-        pub max_units: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub max_units: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
         #[builder(into)]
-        pub min_units: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub min_units: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
         #[builder(into)]
-        pub pipeline_configuration_body: pulumi_wasm_rust::InputOrOutput<String>,
+        pub pipeline_configuration_body: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub pipeline_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub pipeline_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearchingest::PipelineTimeouts>,
         >,
         /// Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
         #[builder(into, default)]
-        pub vpc_options: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearchingest::PipelineVpcOptions>,
         >,
     }
     #[allow(dead_code)]
     pub struct PipelineResult {
         /// Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
-        pub buffer_options: pulumi_wasm_rust::Output<
+        pub buffer_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::opensearchingest::PipelineBufferOptions>,
         >,
         /// Key-value pairs to configure encryption for data that is written to a persistent buffer. See `encryption_at_rest_options` below.
-        pub encryption_at_rest_options: pulumi_wasm_rust::Output<
+        pub encryption_at_rest_options: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::opensearchingest::PipelineEncryptionAtRestOptions,
             >,
         >,
         /// The list of ingestion endpoints for the pipeline, which you can send data to.
-        pub ingest_endpoint_urls: pulumi_wasm_rust::Output<Vec<String>>,
+        pub ingest_endpoint_urls: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Key-value pairs to configure log publishing. See `log_publishing_options` below.
-        pub log_publishing_options: pulumi_wasm_rust::Output<
+        pub log_publishing_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::opensearchingest::PipelineLogPublishingOptions>,
         >,
         /// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
-        pub max_units: pulumi_wasm_rust::Output<i32>,
+        pub max_units: pulumi_gestalt_rust::Output<i32>,
         /// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
-        pub min_units: pulumi_wasm_rust::Output<i32>,
+        pub min_units: pulumi_gestalt_rust::Output<i32>,
         /// Amazon Resource Name (ARN) of the pipeline.
-        pub pipeline_arn: pulumi_wasm_rust::Output<String>,
+        pub pipeline_arn: pulumi_gestalt_rust::Output<String>,
         /// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
-        pub pipeline_configuration_body: pulumi_wasm_rust::Output<String>,
+        pub pipeline_configuration_body: pulumi_gestalt_rust::Output<String>,
         /// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
         ///
         /// The following arguments are optional:
-        pub pipeline_name: pulumi_wasm_rust::Output<String>,
+        pub pipeline_name: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::opensearchingest::PipelineTimeouts>,
         >,
         /// Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion creates the pipeline with a public endpoint. See `vpc_options` below.
-        pub vpc_options: pulumi_wasm_rust::Output<
+        pub vpc_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::opensearchingest::PipelineVpcOptions>,
         >,
     }
@@ -174,11 +174,11 @@ pub mod pipeline {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PipelineArgs,
     ) -> PipelineResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let buffer_options_binding = args.buffer_options.get_output(context).get_inner();
         let encryption_at_rest_options_binding = args
@@ -248,41 +248,41 @@ pub mod pipeline {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PipelineResult {
-            buffer_options: pulumi_wasm_rust::__private::into_domain(
+            buffer_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bufferOptions"),
             ),
-            encryption_at_rest_options: pulumi_wasm_rust::__private::into_domain(
+            encryption_at_rest_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionAtRestOptions"),
             ),
-            ingest_endpoint_urls: pulumi_wasm_rust::__private::into_domain(
+            ingest_endpoint_urls: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ingestEndpointUrls"),
             ),
-            log_publishing_options: pulumi_wasm_rust::__private::into_domain(
+            log_publishing_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logPublishingOptions"),
             ),
-            max_units: pulumi_wasm_rust::__private::into_domain(
+            max_units: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxUnits"),
             ),
-            min_units: pulumi_wasm_rust::__private::into_domain(
+            min_units: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minUnits"),
             ),
-            pipeline_arn: pulumi_wasm_rust::__private::into_domain(
+            pipeline_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineArn"),
             ),
-            pipeline_configuration_body: pulumi_wasm_rust::__private::into_domain(
+            pipeline_configuration_body: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineConfigurationBody"),
             ),
-            pipeline_name: pulumi_wasm_rust::__private::into_domain(
+            pipeline_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            vpc_options: pulumi_wasm_rust::__private::into_domain(
+            vpc_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcOptions"),
             ),
         }

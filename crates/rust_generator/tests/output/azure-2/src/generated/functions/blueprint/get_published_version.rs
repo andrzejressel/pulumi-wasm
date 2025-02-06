@@ -1,45 +1,45 @@
 pub mod get_published_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPublishedVersionArgs {
         /// The name of the Blueprint Definition
         #[builder(into)]
-        pub blueprint_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub blueprint_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Management Group / Subscription where this Blueprint Definition is stored.
         #[builder(into)]
-        pub scope_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub scope_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Version name of the Published Version of the Blueprint Definition
         #[builder(into)]
-        pub version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetPublishedVersionResult {
-        pub blueprint_name: pulumi_wasm_rust::Output<String>,
+        pub blueprint_name: pulumi_gestalt_rust::Output<String>,
         /// The description of the Blueprint Published Version
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// The display name of the Blueprint Published Version
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub last_modified: pulumi_wasm_rust::Output<String>,
-        pub scope_id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub last_modified: pulumi_gestalt_rust::Output<String>,
+        pub scope_id: pulumi_gestalt_rust::Output<String>,
         /// The target scope
-        pub target_scope: pulumi_wasm_rust::Output<String>,
-        pub time_created: pulumi_wasm_rust::Output<String>,
+        pub target_scope: pulumi_gestalt_rust::Output<String>,
+        pub time_created: pulumi_gestalt_rust::Output<String>,
         /// The type of the Blueprint
-        pub type_: pulumi_wasm_rust::Output<String>,
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetPublishedVersionArgs,
     ) -> GetPublishedVersionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let blueprint_name_binding = args.blueprint_name.get_output(context).get_inner();
         let scope_id_binding = args.scope_id.get_output(context).get_inner();
@@ -64,30 +64,32 @@ pub mod get_published_version {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetPublishedVersionResult {
-            blueprint_name: pulumi_wasm_rust::__private::into_domain(
+            blueprint_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blueprintName"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            last_modified: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            last_modified: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModified"),
             ),
-            scope_id: pulumi_wasm_rust::__private::into_domain(
+            scope_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scopeId"),
             ),
-            target_scope: pulumi_wasm_rust::__private::into_domain(
+            target_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetScope"),
             ),
-            time_created: pulumi_wasm_rust::__private::into_domain(
+            time_created: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeCreated"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let pool = worker_pool::create(
@@ -27,8 +27,8 @@
 /// ### Network Config
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let network = network::create(
@@ -111,7 +111,7 @@
 /// ```
 ///
 pub mod worker_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkerPoolArgs {
@@ -119,37 +119,37 @@ pub mod worker_pool {
         /// limitations. **Note**: This field is non-authoritative, and will only manage the annotations present in your
         /// configuration. Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A user-specified, human-readable name for the `WorkerPool`. If provided, this value must be 1-63 characters.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// User-defined name of the `WorkerPool`.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Network configuration for the `WorkerPool`. Structure is documented below.
         #[builder(into, default)]
-        pub network_config: pulumi_wasm_rust::InputOrOutput<
+        pub network_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudbuild::WorkerPoolNetworkConfig>,
         >,
         /// Private Service Connect configuration for the pool.
         #[builder(into, default)]
-        pub private_service_connect: pulumi_wasm_rust::InputOrOutput<
+        pub private_service_connect: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudbuild::WorkerPoolPrivateServiceConnect>,
         >,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration to be used for a creating workers in the `WorkerPool`. Structure is documented below.
         #[builder(into, default)]
-        pub worker_config: pulumi_wasm_rust::InputOrOutput<
+        pub worker_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudbuild::WorkerPoolWorkerConfig>,
         >,
     }
@@ -158,43 +158,43 @@ pub mod worker_pool {
         /// User specified annotations. See https://google.aip.dev/128#annotations for more details such as format and size
         /// limitations. **Note**: This field is non-authoritative, and will only manage the annotations present in your
         /// configuration. Please refer to the field `effective_annotations` for all of the annotations present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Output only. Time at which the request to create the `WorkerPool` was received.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Output only. Time at which the request to delete the `WorkerPool` was received.
-        pub delete_time: pulumi_wasm_rust::Output<String>,
+        pub delete_time: pulumi_gestalt_rust::Output<String>,
         /// A user-specified, human-readable name for the `WorkerPool`. If provided, this value must be 1-63 characters.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The location for the resource
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// User-defined name of the `WorkerPool`.
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Network configuration for the `WorkerPool`. Structure is documented below.
-        pub network_config: pulumi_wasm_rust::Output<
+        pub network_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudbuild::WorkerPoolNetworkConfig>,
         >,
         /// Private Service Connect configuration for the pool.
-        pub private_service_connect: pulumi_wasm_rust::Output<
+        pub private_service_connect: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudbuild::WorkerPoolPrivateServiceConnect>,
         >,
         /// The project for the resource
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Output only. WorkerPool state. Possible values: STATE_UNSPECIFIED, PENDING, APPROVED, REJECTED, CANCELLED
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Output only. A unique identifier for the `WorkerPool`.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Output only. Time at which the request to update the `WorkerPool` was received.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// Configuration to be used for a creating workers in the `WorkerPool`. Structure is documented below.
-        pub worker_config: pulumi_wasm_rust::Output<
+        pub worker_config: pulumi_gestalt_rust::Output<
             super::super::types::cloudbuild::WorkerPoolWorkerConfig,
         >,
     }
@@ -203,11 +203,11 @@ pub mod worker_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkerPoolArgs,
     ) -> WorkerPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -261,40 +261,40 @@ pub mod worker_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkerPoolResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            delete_time: pulumi_wasm_rust::__private::into_domain(
+            delete_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteTime"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkConfig"),
             ),
-            private_service_connect: pulumi_wasm_rust::__private::into_domain(
+            private_service_connect: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateServiceConnect"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            worker_config: pulumi_wasm_rust::__private::into_domain(
+            worker_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workerConfig"),
             ),
         }

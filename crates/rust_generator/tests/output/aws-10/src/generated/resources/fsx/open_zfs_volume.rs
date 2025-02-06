@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = open_zfs_volume::create(
@@ -26,116 +26,116 @@
 /// $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
 /// ```
 pub mod open_zfs_volume {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OpenZfsVolumeArgs {
         /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         #[builder(into, default)]
-        pub copy_tags_to_snapshots: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub copy_tags_to_snapshots: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         #[builder(into, default)]
-        pub data_compression_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub data_compression_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
         #[builder(into, default)]
-        pub delete_volume_options: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub delete_volume_options: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
         #[builder(into, default)]
-        pub nfs_exports: pulumi_wasm_rust::InputOrOutput<
+        pub nfs_exports: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::fsx::OpenZfsVolumeNfsExports>,
         >,
         /// Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
         #[builder(into, default)]
-        pub origin_snapshot: pulumi_wasm_rust::InputOrOutput<
+        pub origin_snapshot: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::fsx::OpenZfsVolumeOriginSnapshot>,
         >,
         /// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `aws.fsx.OpenZfsVolume`.
         #[builder(into)]
-        pub parent_volume_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent_volume_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// specifies whether the volume is read-only. Default is false.
         #[builder(into, default)]
-        pub read_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub read_only: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
         #[builder(into, default)]
-        pub record_size_kib: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub record_size_kib: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         #[builder(into, default)]
-        pub storage_capacity_quota_gib: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub storage_capacity_quota_gib: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
         #[builder(into, default)]
-        pub storage_capacity_reservation_gib: pulumi_wasm_rust::InputOrOutput<
+        pub storage_capacity_reservation_gib: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
         #[builder(into, default)]
-        pub user_and_group_quotas: pulumi_wasm_rust::InputOrOutput<
+        pub user_and_group_quotas: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::fsx::OpenZfsVolumeUserAndGroupQuota>>,
         >,
         #[builder(into, default)]
-        pub volume_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub volume_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct OpenZfsVolumeResult {
         /// Amazon Resource Name of the file system.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
-        pub copy_tags_to_snapshots: pulumi_wasm_rust::Output<Option<bool>>,
+        pub copy_tags_to_snapshots: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
-        pub data_compression_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_compression_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether to delete all child volumes and snapshots. Valid values: `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS`. This configuration must be applied separately before attempting to delete the resource to have the desired behavior..
-        pub delete_volume_options: pulumi_wasm_rust::Output<Option<String>>,
+        pub delete_volume_options: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block Below for details.
-        pub nfs_exports: pulumi_wasm_rust::Output<
+        pub nfs_exports: pulumi_gestalt_rust::Output<
             Option<super::super::types::fsx::OpenZfsVolumeNfsExports>,
         >,
         /// Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
-        pub origin_snapshot: pulumi_wasm_rust::Output<
+        pub origin_snapshot: pulumi_gestalt_rust::Output<
             Option<super::super::types::fsx::OpenZfsVolumeOriginSnapshot>,
         >,
         /// The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `aws.fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `aws.fsx.OpenZfsVolume`.
-        pub parent_volume_id: pulumi_wasm_rust::Output<String>,
+        pub parent_volume_id: pulumi_gestalt_rust::Output<String>,
         /// specifies whether the volume is read-only. Default is false.
-        pub read_only: pulumi_wasm_rust::Output<bool>,
+        pub read_only: pulumi_gestalt_rust::Output<bool>,
         /// The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
-        pub record_size_kib: pulumi_wasm_rust::Output<Option<i32>>,
+        pub record_size_kib: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
-        pub storage_capacity_quota_gib: pulumi_wasm_rust::Output<i32>,
+        pub storage_capacity_quota_gib: pulumi_gestalt_rust::Output<i32>,
         /// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
-        pub storage_capacity_reservation_gib: pulumi_wasm_rust::Output<i32>,
+        pub storage_capacity_reservation_gib: pulumi_gestalt_rust::Output<i32>,
         /// A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block Below.
-        pub user_and_group_quotas: pulumi_wasm_rust::Output<
+        pub user_and_group_quotas: pulumi_gestalt_rust::Output<
             Vec<super::super::types::fsx::OpenZfsVolumeUserAndGroupQuota>,
         >,
-        pub volume_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub volume_type: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OpenZfsVolumeArgs,
     ) -> OpenZfsVolumeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let copy_tags_to_snapshots_binding = args
             .copy_tags_to_snapshots
@@ -243,46 +243,46 @@ pub mod open_zfs_volume {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OpenZfsVolumeResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            copy_tags_to_snapshots: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            copy_tags_to_snapshots: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("copyTagsToSnapshots"),
             ),
-            data_compression_type: pulumi_wasm_rust::__private::into_domain(
+            data_compression_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataCompressionType"),
             ),
-            delete_volume_options: pulumi_wasm_rust::__private::into_domain(
+            delete_volume_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteVolumeOptions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            nfs_exports: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            nfs_exports: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nfsExports"),
             ),
-            origin_snapshot: pulumi_wasm_rust::__private::into_domain(
+            origin_snapshot: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("originSnapshot"),
             ),
-            parent_volume_id: pulumi_wasm_rust::__private::into_domain(
+            parent_volume_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parentVolumeId"),
             ),
-            read_only: pulumi_wasm_rust::__private::into_domain(
+            read_only: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("readOnly"),
             ),
-            record_size_kib: pulumi_wasm_rust::__private::into_domain(
+            record_size_kib: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recordSizeKib"),
             ),
-            storage_capacity_quota_gib: pulumi_wasm_rust::__private::into_domain(
+            storage_capacity_quota_gib: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageCapacityQuotaGib"),
             ),
-            storage_capacity_reservation_gib: pulumi_wasm_rust::__private::into_domain(
+            storage_capacity_reservation_gib: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageCapacityReservationGib"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            user_and_group_quotas: pulumi_wasm_rust::__private::into_domain(
+            user_and_group_quotas: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userAndGroupQuotas"),
             ),
-            volume_type: pulumi_wasm_rust::__private::into_domain(
+            volume_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeType"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = asset_type::create(
@@ -29,57 +29,57 @@
 /// $ pulumi import aws:datazone/assetType:AssetType example domain-id-12345678,example
 /// ```
 pub mod asset_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssetTypeArgs {
         /// The description of the custom asset type.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
         #[builder(into)]
-        pub domain_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The metadata forms that are to be attached to the custom asset type.
         #[builder(into, default)]
-        pub forms_inputs: pulumi_wasm_rust::InputOrOutput<
+        pub forms_inputs: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::datazone::AssetTypeFormsInput>>,
         >,
         /// The name of the custom asset type.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The unique identifier of the Amazon DataZone project that owns the custom asset type.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub owning_project_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub owning_project_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datazone::AssetTypeTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct AssetTypeResult {
         /// The timestamp when the custom asset type was created.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// The user who created the custom asset type.
-        pub created_by: pulumi_wasm_rust::Output<String>,
+        pub created_by: pulumi_gestalt_rust::Output<String>,
         /// The description of the custom asset type.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The unique identifier of the Amazon DataZone domain where the custom asset type is being created.
-        pub domain_identifier: pulumi_wasm_rust::Output<String>,
+        pub domain_identifier: pulumi_gestalt_rust::Output<String>,
         /// The metadata forms that are to be attached to the custom asset type.
-        pub forms_inputs: pulumi_wasm_rust::Output<
+        pub forms_inputs: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::datazone::AssetTypeFormsInput>>,
         >,
         /// The name of the custom asset type.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The unique identifier of the Amazon DataZone project that owns the custom asset type.
         ///
         /// The following arguments are optional:
-        pub owning_project_identifier: pulumi_wasm_rust::Output<String>,
+        pub owning_project_identifier: pulumi_gestalt_rust::Output<String>,
         /// The revision of the asset type.
-        pub revision: pulumi_wasm_rust::Output<String>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub revision: pulumi_gestalt_rust::Output<String>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::datazone::AssetTypeTimeouts>,
         >,
     }
@@ -88,11 +88,11 @@ pub mod asset_type {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AssetTypeArgs,
     ) -> AssetTypeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let domain_identifier_binding = args
@@ -139,29 +139,29 @@ pub mod asset_type {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AssetTypeResult {
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            created_by: pulumi_wasm_rust::__private::into_domain(
+            created_by: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdBy"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            domain_identifier: pulumi_wasm_rust::__private::into_domain(
+            domain_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainIdentifier"),
             ),
-            forms_inputs: pulumi_wasm_rust::__private::into_domain(
+            forms_inputs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("formsInputs"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owning_project_identifier: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owning_project_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("owningProjectIdentifier"),
             ),
-            revision: pulumi_wasm_rust::__private::into_domain(
+            revision: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("revision"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

@@ -65,75 +65,75 @@
 /// ```
 ///
 pub mod tenant_inbound_saml_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TenantInboundSamlConfigArgs {
         /// Human friendly display name.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// If this config allows users to sign in with the provider.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// SAML IdP configuration when the project acts as the relying party
         /// Structure is documented below.
         #[builder(into)]
-        pub idp_config: pulumi_wasm_rust::InputOrOutput<
+        pub idp_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::identityplatform::TenantInboundSamlConfigIdpConfig,
         >,
         /// The name of the InboundSamlConfig resource. Must start with 'saml.' and can only have alphanumeric characters,
         /// hyphens, underscores or periods. The part after 'saml.' must also start with a lowercase letter, end with an
         /// alphanumeric character, and have at least 2 characters.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// SAML SP (Service Provider) configuration when the project acts as the relying party to receive
         /// and accept an authentication assertion issued by a SAML identity provider.
         /// Structure is documented below.
         #[builder(into)]
-        pub sp_config: pulumi_wasm_rust::InputOrOutput<
+        pub sp_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::identityplatform::TenantInboundSamlConfigSpConfig,
         >,
         /// The name of the tenant where this inbound SAML config resource exists
         #[builder(into)]
-        pub tenant: pulumi_wasm_rust::InputOrOutput<String>,
+        pub tenant: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TenantInboundSamlConfigResult {
         /// Human friendly display name.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// If this config allows users to sign in with the provider.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// SAML IdP configuration when the project acts as the relying party
         /// Structure is documented below.
-        pub idp_config: pulumi_wasm_rust::Output<
+        pub idp_config: pulumi_gestalt_rust::Output<
             super::super::types::identityplatform::TenantInboundSamlConfigIdpConfig,
         >,
         /// The name of the InboundSamlConfig resource. Must start with 'saml.' and can only have alphanumeric characters,
         /// hyphens, underscores or periods. The part after 'saml.' must also start with a lowercase letter, end with an
         /// alphanumeric character, and have at least 2 characters.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// SAML SP (Service Provider) configuration when the project acts as the relying party to receive
         /// and accept an authentication assertion issued by a SAML identity provider.
         /// Structure is documented below.
-        pub sp_config: pulumi_wasm_rust::Output<
+        pub sp_config: pulumi_gestalt_rust::Output<
             super::super::types::identityplatform::TenantInboundSamlConfigSpConfig,
         >,
         /// The name of the tenant where this inbound SAML config resource exists
-        pub tenant: pulumi_wasm_rust::Output<String>,
+        pub tenant: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TenantInboundSamlConfigArgs,
     ) -> TenantInboundSamlConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let display_name_binding = args.display_name.get_output(context).get_inner();
         let enabled_binding = args.enabled.get_output(context).get_inner();
@@ -180,23 +180,25 @@ pub mod tenant_inbound_saml_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TenantInboundSamlConfigResult {
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            idp_config: pulumi_wasm_rust::__private::into_domain(
+            idp_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("idpConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            sp_config: pulumi_wasm_rust::__private::into_domain(
+            sp_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("spConfig"),
             ),
-            tenant: pulumi_wasm_rust::__private::into_domain(o.extract_field("tenant")),
+            tenant: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("tenant"),
+            ),
         }
     }
 }

@@ -7,8 +7,8 @@
 /// > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = function_event_invoke_config::create(
@@ -37,8 +37,8 @@
 /// ### Error Handling Configuration
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = function_event_invoke_config::create(
@@ -55,8 +55,8 @@
 /// ### Configuration for Alias Name
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = function_event_invoke_config::create(
@@ -72,8 +72,8 @@
 /// ### Configuration for Function Latest Unpublished Version
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = function_event_invoke_config::create(
@@ -89,8 +89,8 @@
 /// ### Configuration for Function Published Version
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = function_event_invoke_config::create(
@@ -134,13 +134,13 @@
 /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
 /// ```
 pub mod function_event_invoke_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FunctionEventInvokeConfigArgs {
         /// Configuration block with destination configuration. See below for details.
         #[builder(into, default)]
-        pub destination_config: pulumi_wasm_rust::InputOrOutput<
+        pub destination_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::lambda::FunctionEventInvokeConfigDestinationConfig,
             >,
@@ -149,21 +149,23 @@ pub mod function_event_invoke_config {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub function_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub function_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         #[builder(into, default)]
-        pub maximum_event_age_in_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub maximum_event_age_in_seconds: pulumi_gestalt_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         #[builder(into, default)]
-        pub maximum_retry_attempts: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub maximum_retry_attempts: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Lambda Function published version, `$LATEST`, or Lambda Alias name.
         #[builder(into, default)]
-        pub qualifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub qualifier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FunctionEventInvokeConfigResult {
         /// Configuration block with destination configuration. See below for details.
-        pub destination_config: pulumi_wasm_rust::Output<
+        pub destination_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::lambda::FunctionEventInvokeConfigDestinationConfig,
             >,
@@ -171,24 +173,24 @@ pub mod function_event_invoke_config {
         /// Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
         ///
         /// The following arguments are optional:
-        pub function_name: pulumi_wasm_rust::Output<String>,
+        pub function_name: pulumi_gestalt_rust::Output<String>,
         /// Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
-        pub maximum_event_age_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_event_age_in_seconds: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
-        pub maximum_retry_attempts: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_retry_attempts: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Lambda Function published version, `$LATEST`, or Lambda Alias name.
-        pub qualifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub qualifier: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FunctionEventInvokeConfigArgs,
     ) -> FunctionEventInvokeConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let destination_config_binding = args
             .destination_config
@@ -234,19 +236,19 @@ pub mod function_event_invoke_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FunctionEventInvokeConfigResult {
-            destination_config: pulumi_wasm_rust::__private::into_domain(
+            destination_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationConfig"),
             ),
-            function_name: pulumi_wasm_rust::__private::into_domain(
+            function_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("functionName"),
             ),
-            maximum_event_age_in_seconds: pulumi_wasm_rust::__private::into_domain(
+            maximum_event_age_in_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumEventAgeInSeconds"),
             ),
-            maximum_retry_attempts: pulumi_wasm_rust::__private::into_domain(
+            maximum_retry_attempts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumRetryAttempts"),
             ),
-            qualifier: pulumi_wasm_rust::__private::into_domain(
+            qualifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("qualifier"),
             ),
         }

@@ -14,8 +14,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basicSecuritySettings = cx_security_settings::create(
@@ -33,8 +33,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basicSecuritySettings = cx_security_settings::create(
@@ -141,7 +141,7 @@
 /// ```
 ///
 pub mod cx_security_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CxSecuritySettingsArgs {
@@ -151,25 +151,25 @@ pub mod cx_security_settings {
         /// This setting won't effect audio input for implicit sessions via [Sessions.DetectIntent](https://cloud.google.com/dialogflow/cx/docs/reference/rest/v3/projects.locations.agents.sessions/detectIntent#google.cloud.dialogflow.cx.v3.Sessions.DetectIntent).
         /// Structure is documented below.
         #[builder(into, default)]
-        pub audio_export_settings: pulumi_wasm_rust::InputOrOutput<
+        pub audio_export_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::diagflow::CxSecuritySettingsAudioExportSettings>,
         >,
         /// [DLP](https://cloud.google.com/dlp/docs) deidentify template name. Use this template to define de-identification configuration for the content. If empty, Dialogflow replaces sensitive info with [redacted] text.
         /// Note: deidentifyTemplate must be located in the same region as the SecuritySettings.
         /// Format: projects/<Project ID>/locations/<Location ID>/deidentifyTemplates/<Template ID> OR organizations/<Organization ID>/locations/<Location ID>/deidentifyTemplates/<Template ID>
         #[builder(into, default)]
-        pub deidentify_template: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deidentify_template: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The human-readable name of the security settings, unique within the location.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Controls conversation exporting settings to Insights after conversation is completed.
         /// If retentionStrategy is set to REMOVE_AFTER_CONVERSATION, Insights export is disabled no matter what you configure here.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub insights_export_settings: pulumi_wasm_rust::InputOrOutput<
+        pub insights_export_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::diagflow::CxSecuritySettingsInsightsExportSettings,
             >,
@@ -178,38 +178,38 @@ pub mod cx_security_settings {
         /// Note: inspectTemplate must be located in the same region as the SecuritySettings.
         /// Format: projects/<Project ID>/locations/<Location ID>/inspectTemplates/<Template ID> OR organizations/<Organization ID>/locations/<Location ID>/inspectTemplates/<Template ID>
         #[builder(into, default)]
-        pub inspect_template: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub inspect_template: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location these settings are located in. Settings can only be applied to an agent in the same location.
         /// See [Available Regions](https://cloud.google.com/dialogflow/cx/docs/concept/region#avail) for a list of supported locations.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of types of data to remove when retention settings triggers purge.
         /// Each value may be one of: `DIALOGFLOW_HISTORY`.
         #[builder(into, default)]
-        pub purge_data_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub purge_data_types: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Defines what types of data to redact. If not set, defaults to not redacting any kind of data.
         /// * REDACT_DISK_STORAGE: On data to be written to disk or similar devices that are capable of holding data even if power is disconnected. This includes data that are temporarily saved on disk.
         /// Possible values are: `REDACT_DISK_STORAGE`.
         #[builder(into, default)]
-        pub redaction_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub redaction_scope: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Defines how we redact data. If not set, defaults to not redacting.
         /// * REDACT_WITH_SERVICE: Call redaction service to clean up the data to be persisted.
         /// Possible values are: `REDACT_WITH_SERVICE`.
         #[builder(into, default)]
-        pub redaction_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub redaction_strategy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Defines how long we retain persisted data that contains sensitive info. Only one of `retention_window_days` and `retention_strategy` may be set.
         /// * REMOVE_AFTER_CONVERSATION: Removes data when the conversation ends. If there is no conversation explicitly established, a default conversation ends when the corresponding Dialogflow session ends.
         /// Possible values are: `REMOVE_AFTER_CONVERSATION`.
         #[builder(into, default)]
-        pub retention_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub retention_strategy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Retains the data for the specified number of days. User must set a value lower than Dialogflow's default 365d TTL (30 days for Agent Assist traffic), higher value will be ignored and use default. Setting a value higher than that has no effect. A missing value or setting to 0 also means we use default TTL.
         /// Only one of `retention_window_days` and `retention_strategy` may be set.
         #[builder(into, default)]
-        pub retention_window_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub retention_window_days: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct CxSecuritySettingsResult {
@@ -218,22 +218,22 @@ pub mod cx_security_settings {
         /// If audio export is enabled, audio is recorded and saved to gcs_bucket, subject to retention policy of gcs_bucket.
         /// This setting won't effect audio input for implicit sessions via [Sessions.DetectIntent](https://cloud.google.com/dialogflow/cx/docs/reference/rest/v3/projects.locations.agents.sessions/detectIntent#google.cloud.dialogflow.cx.v3.Sessions.DetectIntent).
         /// Structure is documented below.
-        pub audio_export_settings: pulumi_wasm_rust::Output<
+        pub audio_export_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::diagflow::CxSecuritySettingsAudioExportSettings>,
         >,
         /// [DLP](https://cloud.google.com/dlp/docs) deidentify template name. Use this template to define de-identification configuration for the content. If empty, Dialogflow replaces sensitive info with [redacted] text.
         /// Note: deidentifyTemplate must be located in the same region as the SecuritySettings.
         /// Format: projects/<Project ID>/locations/<Location ID>/deidentifyTemplates/<Template ID> OR organizations/<Organization ID>/locations/<Location ID>/deidentifyTemplates/<Template ID>
-        pub deidentify_template: pulumi_wasm_rust::Output<Option<String>>,
+        pub deidentify_template: pulumi_gestalt_rust::Output<Option<String>>,
         /// The human-readable name of the security settings, unique within the location.
         ///
         ///
         /// - - -
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// Controls conversation exporting settings to Insights after conversation is completed.
         /// If retentionStrategy is set to REMOVE_AFTER_CONVERSATION, Insights export is disabled no matter what you configure here.
         /// Structure is documented below.
-        pub insights_export_settings: pulumi_wasm_rust::Output<
+        pub insights_export_settings: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::diagflow::CxSecuritySettingsInsightsExportSettings,
             >,
@@ -241,45 +241,45 @@ pub mod cx_security_settings {
         /// [DLP](https://cloud.google.com/dlp/docs) inspect template name. Use this template to define inspect base settings. If empty, we use the default DLP inspect config.
         /// Note: inspectTemplate must be located in the same region as the SecuritySettings.
         /// Format: projects/<Project ID>/locations/<Location ID>/inspectTemplates/<Template ID> OR organizations/<Organization ID>/locations/<Location ID>/inspectTemplates/<Template ID>
-        pub inspect_template: pulumi_wasm_rust::Output<Option<String>>,
+        pub inspect_template: pulumi_gestalt_rust::Output<Option<String>>,
         /// The location these settings are located in. Settings can only be applied to an agent in the same location.
         /// See [Available Regions](https://cloud.google.com/dialogflow/cx/docs/concept/region#avail) for a list of supported locations.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The unique identifier of the settings.
         /// Format: projects/<Project ID>/locations/<Location ID>/securitySettings/<Security Settings ID>.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// List of types of data to remove when retention settings triggers purge.
         /// Each value may be one of: `DIALOGFLOW_HISTORY`.
-        pub purge_data_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub purge_data_types: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Defines what types of data to redact. If not set, defaults to not redacting any kind of data.
         /// * REDACT_DISK_STORAGE: On data to be written to disk or similar devices that are capable of holding data even if power is disconnected. This includes data that are temporarily saved on disk.
         /// Possible values are: `REDACT_DISK_STORAGE`.
-        pub redaction_scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub redaction_scope: pulumi_gestalt_rust::Output<Option<String>>,
         /// Defines how we redact data. If not set, defaults to not redacting.
         /// * REDACT_WITH_SERVICE: Call redaction service to clean up the data to be persisted.
         /// Possible values are: `REDACT_WITH_SERVICE`.
-        pub redaction_strategy: pulumi_wasm_rust::Output<Option<String>>,
+        pub redaction_strategy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Defines how long we retain persisted data that contains sensitive info. Only one of `retention_window_days` and `retention_strategy` may be set.
         /// * REMOVE_AFTER_CONVERSATION: Removes data when the conversation ends. If there is no conversation explicitly established, a default conversation ends when the corresponding Dialogflow session ends.
         /// Possible values are: `REMOVE_AFTER_CONVERSATION`.
-        pub retention_strategy: pulumi_wasm_rust::Output<Option<String>>,
+        pub retention_strategy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Retains the data for the specified number of days. User must set a value lower than Dialogflow's default 365d TTL (30 days for Agent Assist traffic), higher value will be ignored and use default. Setting a value higher than that has no effect. A missing value or setting to 0 also means we use default TTL.
         /// Only one of `retention_window_days` and `retention_strategy` may be set.
-        pub retention_window_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_window_days: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CxSecuritySettingsArgs,
     ) -> CxSecuritySettingsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let audio_export_settings_binding = args
             .audio_export_settings
@@ -377,41 +377,41 @@ pub mod cx_security_settings {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CxSecuritySettingsResult {
-            audio_export_settings: pulumi_wasm_rust::__private::into_domain(
+            audio_export_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("audioExportSettings"),
             ),
-            deidentify_template: pulumi_wasm_rust::__private::into_domain(
+            deidentify_template: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deidentifyTemplate"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            insights_export_settings: pulumi_wasm_rust::__private::into_domain(
+            insights_export_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("insightsExportSettings"),
             ),
-            inspect_template: pulumi_wasm_rust::__private::into_domain(
+            inspect_template: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inspectTemplate"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            purge_data_types: pulumi_wasm_rust::__private::into_domain(
+            purge_data_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("purgeDataTypes"),
             ),
-            redaction_scope: pulumi_wasm_rust::__private::into_domain(
+            redaction_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redactionScope"),
             ),
-            redaction_strategy: pulumi_wasm_rust::__private::into_domain(
+            redaction_strategy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redactionStrategy"),
             ),
-            retention_strategy: pulumi_wasm_rust::__private::into_domain(
+            retention_strategy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionStrategy"),
             ),
-            retention_window_days: pulumi_wasm_rust::__private::into_domain(
+            retention_window_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionWindowDays"),
             ),
         }

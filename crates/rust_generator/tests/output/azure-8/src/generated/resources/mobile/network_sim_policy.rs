@@ -94,72 +94,74 @@
 /// ```
 ///
 pub mod network_sim_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkSimPolicyArgs {
         /// The ID of default slice to use if the UE does not explicitly specify it. This slice must exist in the `slice` block.
         #[builder(into)]
-        pub default_slice_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub default_slice_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the Azure Region where the Mobile Network Sim Policy should exist. Changing this forces a new Mobile Network Sim Policies to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Mobile Network which the Sim Policy belongs to. Changing this forces a new Mobile Network Sim Policies to be created.
         #[builder(into)]
-        pub mobile_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub mobile_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Mobile Network Sim Policies. Changing this forces a new Mobile Network Sim Policies to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.
         #[builder(into, default)]
-        pub rat_frequency_selection_priority_index: pulumi_wasm_rust::InputOrOutput<
+        pub rat_frequency_selection_priority_index: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// Interval for the user equipment periodic registration update procedure. Defaults to `3240`.
         #[builder(into, default)]
-        pub registration_timer_in_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub registration_timer_in_seconds: pulumi_gestalt_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
         #[builder(into)]
-        pub slices: pulumi_wasm_rust::InputOrOutput<
+        pub slices: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::mobile::NetworkSimPolicySlice>,
         >,
         /// A mapping of tags which should be assigned to the Mobile Network Sim Policies.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
         #[builder(into)]
-        pub user_equipment_aggregate_maximum_bit_rate: pulumi_wasm_rust::InputOrOutput<
+        pub user_equipment_aggregate_maximum_bit_rate: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::mobile::NetworkSimPolicyUserEquipmentAggregateMaximumBitRate,
         >,
     }
     #[allow(dead_code)]
     pub struct NetworkSimPolicyResult {
         /// The ID of default slice to use if the UE does not explicitly specify it. This slice must exist in the `slice` block.
-        pub default_slice_id: pulumi_wasm_rust::Output<String>,
+        pub default_slice_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Azure Region where the Mobile Network Sim Policy should exist. Changing this forces a new Mobile Network Sim Policies to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Mobile Network which the Sim Policy belongs to. Changing this forces a new Mobile Network Sim Policies to be created.
-        pub mobile_network_id: pulumi_wasm_rust::Output<String>,
+        pub mobile_network_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Mobile Network Sim Policies. Changing this forces a new Mobile Network Sim Policies to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413.
-        pub rat_frequency_selection_priority_index: pulumi_wasm_rust::Output<
+        pub rat_frequency_selection_priority_index: pulumi_gestalt_rust::Output<
             Option<i32>,
         >,
         /// Interval for the user equipment periodic registration update procedure. Defaults to `3240`.
-        pub registration_timer_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub registration_timer_in_seconds: pulumi_gestalt_rust::Output<Option<i32>>,
         /// An array of `slice` block as defined below. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
-        pub slices: pulumi_wasm_rust::Output<
+        pub slices: pulumi_gestalt_rust::Output<
             Vec<super::super::types::mobile::NetworkSimPolicySlice>,
         >,
         /// A mapping of tags which should be assigned to the Mobile Network Sim Policies.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
-        pub user_equipment_aggregate_maximum_bit_rate: pulumi_wasm_rust::Output<
+        pub user_equipment_aggregate_maximum_bit_rate: pulumi_gestalt_rust::Output<
             super::super::types::mobile::NetworkSimPolicyUserEquipmentAggregateMaximumBitRate,
         >,
     }
@@ -168,11 +170,11 @@ pub mod network_sim_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkSimPolicyArgs,
     ) -> NetworkSimPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let default_slice_id_binding = args
             .default_slice_id
@@ -243,25 +245,27 @@ pub mod network_sim_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkSimPolicyResult {
-            default_slice_id: pulumi_wasm_rust::__private::into_domain(
+            default_slice_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSliceId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            mobile_network_id: pulumi_wasm_rust::__private::into_domain(
+            mobile_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mobileNetworkId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            rat_frequency_selection_priority_index: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            rat_frequency_selection_priority_index: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ratFrequencySelectionPriorityIndex"),
             ),
-            registration_timer_in_seconds: pulumi_wasm_rust::__private::into_domain(
+            registration_timer_in_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registrationTimerInSeconds"),
             ),
-            slices: pulumi_wasm_rust::__private::into_domain(o.extract_field("slices")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            user_equipment_aggregate_maximum_bit_rate: pulumi_wasm_rust::__private::into_domain(
+            slices: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("slices"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            user_equipment_aggregate_maximum_bit_rate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userEquipmentAggregateMaximumBitRate"),
             ),
         }

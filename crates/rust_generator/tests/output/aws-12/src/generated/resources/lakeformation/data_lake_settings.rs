@@ -7,8 +7,8 @@
 /// ### Data Lake Admins
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = data_lake_settings::create(
@@ -23,8 +23,8 @@
 /// ### Create Default Permissions
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = data_lake_settings::create(
@@ -53,8 +53,8 @@
 /// ### Enable EMR access to LakeFormation resources
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = data_lake_settings::create(
@@ -97,32 +97,34 @@
 ///         CROSS_ACCOUNT_VERSION: '3'
 /// ```
 pub mod data_lake_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataLakeSettingsArgs {
         /// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
         #[builder(into, default)]
-        pub admins: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub admins: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
         #[builder(into, default)]
-        pub allow_external_data_filtering: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_external_data_filtering: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
         #[builder(into, default)]
-        pub allow_full_table_external_data_access: pulumi_wasm_rust::InputOrOutput<
+        pub allow_full_table_external_data_access: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
         #[builder(into, default)]
-        pub authorized_session_tag_value_lists: pulumi_wasm_rust::InputOrOutput<
+        pub authorized_session_tag_value_lists: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Identifier for the Data Catalog. By default, the account ID.
         #[builder(into, default)]
-        pub catalog_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub catalog_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         #[builder(into, default)]
-        pub create_database_default_permissions: pulumi_wasm_rust::InputOrOutput<
+        pub create_database_default_permissions: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::lakeformation::DataLakeSettingsCreateDatabaseDefaultPermission,
@@ -131,7 +133,7 @@ pub mod data_lake_settings {
         >,
         /// Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         #[builder(into, default)]
-        pub create_table_default_permissions: pulumi_wasm_rust::InputOrOutput<
+        pub create_table_default_permissions: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::lakeformation::DataLakeSettingsCreateTableDefaultPermission,
@@ -140,74 +142,76 @@ pub mod data_lake_settings {
         >,
         /// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
         #[builder(into, default)]
-        pub external_data_filtering_allow_lists: pulumi_wasm_rust::InputOrOutput<
+        pub external_data_filtering_allow_lists: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         #[builder(into, default)]
-        pub read_only_admins: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub read_only_admins: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
         ///
         /// > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
         #[builder(into, default)]
-        pub trusted_resource_owners: pulumi_wasm_rust::InputOrOutput<
+        pub trusted_resource_owners: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DataLakeSettingsResult {
         /// Set of ARNs of AWS Lake Formation principals (IAM users or roles).
-        pub admins: pulumi_wasm_rust::Output<Vec<String>>,
+        pub admins: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Whether to allow Amazon EMR clusters to access data managed by Lake Formation.
-        pub allow_external_data_filtering: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_external_data_filtering: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether to allow a third-party query engine to get data access credentials without session tags when a caller has full data access permissions.
-        pub allow_full_table_external_data_access: pulumi_wasm_rust::Output<
+        pub allow_full_table_external_data_access: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// Lake Formation relies on a privileged process secured by Amazon EMR or the third party integrator to tag the user's role while assuming it.
-        pub authorized_session_tag_value_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub authorized_session_tag_value_lists: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Identifier for the Data Catalog. By default, the account ID.
-        pub catalog_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub catalog_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-        pub create_database_default_permissions: pulumi_wasm_rust::Output<
+        pub create_database_default_permissions: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::lakeformation::DataLakeSettingsCreateDatabaseDefaultPermission,
             >,
         >,
         /// Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
-        pub create_table_default_permissions: pulumi_wasm_rust::Output<
+        pub create_table_default_permissions: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::lakeformation::DataLakeSettingsCreateTableDefaultPermission,
             >,
         >,
         /// A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
-        pub external_data_filtering_allow_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub external_data_filtering_allow_lists: pulumi_gestalt_rust::Output<
+            Vec<String>,
+        >,
         /// Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
-        pub read_only_admins: pulumi_wasm_rust::Output<Vec<String>>,
+        pub read_only_admins: pulumi_gestalt_rust::Output<Vec<String>>,
         /// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
         ///
         /// > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
-        pub trusted_resource_owners: pulumi_wasm_rust::Output<Vec<String>>,
+        pub trusted_resource_owners: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DataLakeSettingsArgs,
     ) -> DataLakeSettingsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let admins_binding = args.admins.get_output(context).get_inner();
         let allow_external_data_filtering_binding = args
@@ -297,35 +301,37 @@ pub mod data_lake_settings {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DataLakeSettingsResult {
-            admins: pulumi_wasm_rust::__private::into_domain(o.extract_field("admins")),
-            allow_external_data_filtering: pulumi_wasm_rust::__private::into_domain(
+            admins: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("admins"),
+            ),
+            allow_external_data_filtering: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowExternalDataFiltering"),
             ),
-            allow_full_table_external_data_access: pulumi_wasm_rust::__private::into_domain(
+            allow_full_table_external_data_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowFullTableExternalDataAccess"),
             ),
-            authorized_session_tag_value_lists: pulumi_wasm_rust::__private::into_domain(
+            authorized_session_tag_value_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizedSessionTagValueLists"),
             ),
-            catalog_id: pulumi_wasm_rust::__private::into_domain(
+            catalog_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("catalogId"),
             ),
-            create_database_default_permissions: pulumi_wasm_rust::__private::into_domain(
+            create_database_default_permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createDatabaseDefaultPermissions"),
             ),
-            create_table_default_permissions: pulumi_wasm_rust::__private::into_domain(
+            create_table_default_permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTableDefaultPermissions"),
             ),
-            external_data_filtering_allow_lists: pulumi_wasm_rust::__private::into_domain(
+            external_data_filtering_allow_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalDataFilteringAllowLists"),
             ),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            read_only_admins: pulumi_wasm_rust::__private::into_domain(
+            read_only_admins: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("readOnlyAdmins"),
             ),
-            trusted_resource_owners: pulumi_wasm_rust::__private::into_domain(
+            trusted_resource_owners: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trustedResourceOwners"),
             ),
         }

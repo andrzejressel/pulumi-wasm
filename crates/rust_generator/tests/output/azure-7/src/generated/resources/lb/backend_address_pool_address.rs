@@ -62,7 +62,7 @@
 /// ```
 ///
 pub mod backend_address_pool_address {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackendAddressPoolAddressArgs {
@@ -70,55 +70,55 @@ pub mod backend_address_pool_address {
         ///
         /// > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
         #[builder(into, default)]
-        pub backend_address_ip_configuration_id: pulumi_wasm_rust::InputOrOutput<
+        pub backend_address_ip_configuration_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
         #[builder(into)]
-        pub backend_address_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub backend_address_pool_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Static IP Address which should be allocated to this Backend Address Pool.
         #[builder(into, default)]
-        pub ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Virtual Network within which the Backend Address Pool should exist.
         #[builder(into, default)]
-        pub virtual_network_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub virtual_network_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BackendAddressPoolAddressResult {
         /// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
         ///
         /// > **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2.
-        pub backend_address_ip_configuration_id: pulumi_wasm_rust::Output<
+        pub backend_address_ip_configuration_id: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
-        pub backend_address_pool_id: pulumi_wasm_rust::Output<String>,
+        pub backend_address_pool_id: pulumi_gestalt_rust::Output<String>,
         /// A list of `inbound_nat_rule_port_mapping` block as defined below.
-        pub inbound_nat_rule_port_mappings: pulumi_wasm_rust::Output<
+        pub inbound_nat_rule_port_mappings: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::lb::BackendAddressPoolAddressInboundNatRulePortMapping,
             >,
         >,
         /// The Static IP Address which should be allocated to this Backend Address Pool.
-        pub ip_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Virtual Network within which the Backend Address Pool should exist.
-        pub virtual_network_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtual_network_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackendAddressPoolAddressArgs,
     ) -> BackendAddressPoolAddressResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backend_address_ip_configuration_id_binding = args
             .backend_address_ip_configuration_id
@@ -163,20 +163,20 @@ pub mod backend_address_pool_address {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackendAddressPoolAddressResult {
-            backend_address_ip_configuration_id: pulumi_wasm_rust::__private::into_domain(
+            backend_address_ip_configuration_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendAddressIpConfigurationId"),
             ),
-            backend_address_pool_id: pulumi_wasm_rust::__private::into_domain(
+            backend_address_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendAddressPoolId"),
             ),
-            inbound_nat_rule_port_mappings: pulumi_wasm_rust::__private::into_domain(
+            inbound_nat_rule_port_mappings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inboundNatRulePortMappings"),
             ),
-            ip_address: pulumi_wasm_rust::__private::into_domain(
+            ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddress"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            virtual_network_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualNetworkId"),
             ),
         }

@@ -9,8 +9,8 @@
 /// ### VPN Gateway Association
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = gateway::create(
@@ -38,8 +38,8 @@
 /// ### Transit Gateway Association
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = gateway::create(
@@ -64,8 +64,8 @@
 /// ### Allowed Prefixes
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = gateway::create(
@@ -99,66 +99,66 @@
 /// $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
 /// ```
 pub mod gateway_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GatewayAssociationArgs {
         /// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
         #[builder(into, default)]
-        pub allowed_prefixes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub allowed_prefixes: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
         /// Used for single account Direct Connect gateway associations.
         #[builder(into, default)]
-        pub associated_gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub associated_gateway_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
         /// Used for cross-account Direct Connect gateway associations.
         #[builder(into, default)]
-        pub associated_gateway_owner_account_id: pulumi_wasm_rust::InputOrOutput<
+        pub associated_gateway_owner_account_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ID of the Direct Connect gateway.
         #[builder(into)]
-        pub dx_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dx_gateway_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Direct Connect gateway association proposal.
         /// Used for cross-account Direct Connect gateway associations.
         #[builder(into, default)]
-        pub proposal_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub proposal_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub vpn_gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub vpn_gateway_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GatewayAssociationResult {
         /// VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
-        pub allowed_prefixes: pulumi_wasm_rust::Output<Vec<String>>,
+        pub allowed_prefixes: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
         /// Used for single account Direct Connect gateway associations.
-        pub associated_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub associated_gateway_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
         /// Used for cross-account Direct Connect gateway associations.
-        pub associated_gateway_owner_account_id: pulumi_wasm_rust::Output<String>,
+        pub associated_gateway_owner_account_id: pulumi_gestalt_rust::Output<String>,
         /// The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
-        pub associated_gateway_type: pulumi_wasm_rust::Output<String>,
+        pub associated_gateway_type: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Direct Connect gateway association.
-        pub dx_gateway_association_id: pulumi_wasm_rust::Output<String>,
+        pub dx_gateway_association_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Direct Connect gateway.
-        pub dx_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub dx_gateway_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the AWS account that owns the Direct Connect gateway.
-        pub dx_gateway_owner_account_id: pulumi_wasm_rust::Output<String>,
+        pub dx_gateway_owner_account_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Direct Connect gateway association proposal.
         /// Used for cross-account Direct Connect gateway associations.
-        pub proposal_id: pulumi_wasm_rust::Output<Option<String>>,
-        pub vpn_gateway_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub proposal_id: pulumi_gestalt_rust::Output<Option<String>>,
+        pub vpn_gateway_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GatewayAssociationArgs,
     ) -> GatewayAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allowed_prefixes_binding = args
             .allowed_prefixes
@@ -208,31 +208,31 @@ pub mod gateway_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GatewayAssociationResult {
-            allowed_prefixes: pulumi_wasm_rust::__private::into_domain(
+            allowed_prefixes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowedPrefixes"),
             ),
-            associated_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            associated_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("associatedGatewayId"),
             ),
-            associated_gateway_owner_account_id: pulumi_wasm_rust::__private::into_domain(
+            associated_gateway_owner_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("associatedGatewayOwnerAccountId"),
             ),
-            associated_gateway_type: pulumi_wasm_rust::__private::into_domain(
+            associated_gateway_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("associatedGatewayType"),
             ),
-            dx_gateway_association_id: pulumi_wasm_rust::__private::into_domain(
+            dx_gateway_association_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dxGatewayAssociationId"),
             ),
-            dx_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            dx_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dxGatewayId"),
             ),
-            dx_gateway_owner_account_id: pulumi_wasm_rust::__private::into_domain(
+            dx_gateway_owner_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dxGatewayOwnerAccountId"),
             ),
-            proposal_id: pulumi_wasm_rust::__private::into_domain(
+            proposal_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("proposalId"),
             ),
-            vpn_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            vpn_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpnGatewayId"),
             ),
         }

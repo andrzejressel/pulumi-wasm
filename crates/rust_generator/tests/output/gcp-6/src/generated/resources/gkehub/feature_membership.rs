@@ -181,8 +181,8 @@
 /// ### Service Mesh
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let cluster = cluster::create(
@@ -231,8 +231,8 @@
 /// ### Policy Controller With Minimal Configuration
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let cluster = cluster::create(
@@ -285,8 +285,8 @@
 /// ### Policy Controller With Custom Configurations
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let cluster = cluster::create(
@@ -376,76 +376,76 @@
 /// ```
 ///
 pub mod feature_membership {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FeatureMembershipArgs {
         /// Config Management-specific spec. Structure is documented below.
         #[builder(into, default)]
-        pub configmanagement: pulumi_wasm_rust::InputOrOutput<
+        pub configmanagement: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkehub::FeatureMembershipConfigmanagement>,
         >,
         /// The name of the feature
         #[builder(into)]
-        pub feature: pulumi_wasm_rust::InputOrOutput<String>,
+        pub feature: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location of the feature
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the membership
         #[builder(into)]
-        pub membership: pulumi_wasm_rust::InputOrOutput<String>,
+        pub membership: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location of the membership, for example, "us-central1". Default is "global".
         #[builder(into, default)]
-        pub membership_location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub membership_location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Service mesh specific spec. Structure is documented below.
         #[builder(into, default)]
-        pub mesh: pulumi_wasm_rust::InputOrOutput<
+        pub mesh: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkehub::FeatureMembershipMesh>,
         >,
         /// Policy Controller-specific spec. Structure is documented below.
         #[builder(into, default)]
-        pub policycontroller: pulumi_wasm_rust::InputOrOutput<
+        pub policycontroller: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkehub::FeatureMembershipPolicycontroller>,
         >,
         /// The project of the feature
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FeatureMembershipResult {
         /// Config Management-specific spec. Structure is documented below.
-        pub configmanagement: pulumi_wasm_rust::Output<
+        pub configmanagement: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkehub::FeatureMembershipConfigmanagement>,
         >,
         /// The name of the feature
-        pub feature: pulumi_wasm_rust::Output<String>,
+        pub feature: pulumi_gestalt_rust::Output<String>,
         /// The location of the feature
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the membership
-        pub membership: pulumi_wasm_rust::Output<String>,
+        pub membership: pulumi_gestalt_rust::Output<String>,
         /// The location of the membership, for example, "us-central1". Default is "global".
-        pub membership_location: pulumi_wasm_rust::Output<Option<String>>,
+        pub membership_location: pulumi_gestalt_rust::Output<Option<String>>,
         /// Service mesh specific spec. Structure is documented below.
-        pub mesh: pulumi_wasm_rust::Output<
+        pub mesh: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkehub::FeatureMembershipMesh>,
         >,
         /// Policy Controller-specific spec. Structure is documented below.
-        pub policycontroller: pulumi_wasm_rust::Output<
+        pub policycontroller: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkehub::FeatureMembershipPolicycontroller>,
         >,
         /// The project of the feature
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FeatureMembershipArgs,
     ) -> FeatureMembershipResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let configmanagement_binding = args
             .configmanagement
@@ -505,26 +505,28 @@ pub mod feature_membership {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FeatureMembershipResult {
-            configmanagement: pulumi_wasm_rust::__private::into_domain(
+            configmanagement: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configmanagement"),
             ),
-            feature: pulumi_wasm_rust::__private::into_domain(
+            feature: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("feature"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            membership: pulumi_wasm_rust::__private::into_domain(
+            membership: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("membership"),
             ),
-            membership_location: pulumi_wasm_rust::__private::into_domain(
+            membership_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("membershipLocation"),
             ),
-            mesh: pulumi_wasm_rust::__private::into_domain(o.extract_field("mesh")),
-            policycontroller: pulumi_wasm_rust::__private::into_domain(
+            mesh: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mesh")),
+            policycontroller: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policycontroller"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

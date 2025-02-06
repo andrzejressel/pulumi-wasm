@@ -105,7 +105,7 @@
 /// ```
 ///
 pub mod environment_keyvaluemaps {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentKeyvaluemapsArgs {
@@ -115,10 +115,10 @@ pub mod environment_keyvaluemaps {
         ///
         /// - - -
         #[builder(into)]
-        pub env_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub env_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Required. ID of the key value map.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentKeyvaluemapsResult {
@@ -127,20 +127,20 @@ pub mod environment_keyvaluemaps {
         ///
         ///
         /// - - -
-        pub env_id: pulumi_wasm_rust::Output<String>,
+        pub env_id: pulumi_gestalt_rust::Output<String>,
         /// Required. ID of the key value map.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvironmentKeyvaluemapsArgs,
     ) -> EnvironmentKeyvaluemapsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let env_id_binding = args.env_id.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -161,8 +161,10 @@ pub mod environment_keyvaluemaps {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvironmentKeyvaluemapsResult {
-            env_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("envId")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            env_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("envId"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

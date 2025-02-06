@@ -11,23 +11,23 @@ pub mod types {
 #[doc(hidden)]
 pub mod constants {
 {% for constant in constants +%}
-    pulumi_wasm_rust::__private::constant::generate_string_const!(ConstString{{ constant }}, "{{ constant }}");
+    pulumi_gestalt_rust::__private::constant::generate_string_const!(ConstString{{ constant }}, "{{ constant }}");
 {% endfor %}
 }
 
 mod bindings {
-    pulumi_wasm_rust::__private::wit_bindgen::generate!({
+    pulumi_gestalt_rust::__private::wit_bindgen::generate!({
         // the name of the world in the `*.wit` input file
         inline: r"
-            {{ pulumi_wasm_wit|safe }}
+            {{ pulumi_gestalt_wit|safe }}
         ",
         with: {
-            "component:pulumi-wasm/output-interface@{{pulumi_wasm_version}}": pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::output_interface
+            "component:pulumi-gestalt/output-interface@{{pulumi_gestalt_version}}": pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::output_interface
         }
     });
 }
 
-#[link_section = "pulumi_wasm_provider::{{ provider_name }}"]
+#[link_section = "pulumi_gestalt_provider::{{ provider_name }}"]
 #[no_mangle]
 #[cfg(target_arch = "wasm32")]
 static PULUMI_WASM_PROVIDER_{{ provider_name.replace("-", "_").to_ascii_uppercase() }}: [u8; {{ provider_metadata.len() }}] = *b"{{ provider_metadata.replace("\"", "\\\"")|safe }}";

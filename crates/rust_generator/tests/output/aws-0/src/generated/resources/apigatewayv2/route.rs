@@ -6,8 +6,8 @@
 /// ### Basic
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = api::create(
@@ -28,8 +28,8 @@
 /// ### HTTP Proxy Integration
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = api::create(
@@ -66,102 +66,106 @@
 /// -> __Note:__ The API Gateway managed route created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 ///
 pub mod route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteArgs {
         /// API identifier.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
         #[builder(into, default)]
-        pub api_key_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub api_key_required: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
         #[builder(into, default)]
-        pub authorization_scopes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub authorization_scopes: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Authorization type for the route.
         /// For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
         /// For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
         /// Defaults to `NONE`.
         #[builder(into, default)]
-        pub authorization_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub authorization_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
         #[builder(into, default)]
-        pub authorizer_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub authorizer_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
         #[builder(into, default)]
-        pub model_selection_expression: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub model_selection_expression: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Operation name for the route. Must be between 1 and 64 characters in length.
         #[builder(into, default)]
-        pub operation_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub operation_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Request models for the route. Supported only for WebSocket APIs.
         #[builder(into, default)]
-        pub request_models: pulumi_wasm_rust::InputOrOutput<
+        pub request_models: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Request parameters for the route. Supported only for WebSocket APIs.
         #[builder(into, default)]
-        pub request_parameters: pulumi_wasm_rust::InputOrOutput<
+        pub request_parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::apigatewayv2::RouteRequestParameter>>,
         >,
         /// Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
         #[builder(into)]
-        pub route_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub route_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
         #[builder(into, default)]
-        pub route_response_selection_expression: pulumi_wasm_rust::InputOrOutput<
+        pub route_response_selection_expression: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
         #[builder(into, default)]
-        pub target: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub target: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RouteResult {
         /// API identifier.
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_gestalt_rust::Output<String>,
         /// Boolean whether an API key is required for the route. Defaults to `false`. Supported only for WebSocket APIs.
-        pub api_key_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub api_key_required: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Authorization scopes supported by this route. The scopes are used with a JWT authorizer to authorize the method invocation.
-        pub authorization_scopes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub authorization_scopes: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Authorization type for the route.
         /// For WebSocket APIs, valid values are `NONE` for open access, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
         /// For HTTP APIs, valid values are `NONE` for open access, `JWT` for using JSON Web Tokens, `AWS_IAM` for using AWS IAM permissions, and `CUSTOM` for using a Lambda authorizer.
         /// Defaults to `NONE`.
-        pub authorization_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub authorization_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Identifier of the `aws.apigatewayv2.Authorizer` resource to be associated with this route.
-        pub authorizer_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub authorizer_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
-        pub model_selection_expression: pulumi_wasm_rust::Output<Option<String>>,
+        pub model_selection_expression: pulumi_gestalt_rust::Output<Option<String>>,
         /// Operation name for the route. Must be between 1 and 64 characters in length.
-        pub operation_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub operation_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Request models for the route. Supported only for WebSocket APIs.
-        pub request_models: pulumi_wasm_rust::Output<
+        pub request_models: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Request parameters for the route. Supported only for WebSocket APIs.
-        pub request_parameters: pulumi_wasm_rust::Output<
+        pub request_parameters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::apigatewayv2::RouteRequestParameter>>,
         >,
         /// Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
-        pub route_key: pulumi_wasm_rust::Output<String>,
+        pub route_key: pulumi_gestalt_rust::Output<String>,
         /// The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
-        pub route_response_selection_expression: pulumi_wasm_rust::Output<
+        pub route_response_selection_expression: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// Target for the route, of the form `integrations/`*`IntegrationID`*, where *`IntegrationID`* is the identifier of an `aws.apigatewayv2.Integration` resource.
-        pub target: pulumi_wasm_rust::Output<Option<String>>,
+        pub target: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouteArgs,
     ) -> RouteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_id_binding = args.api_id.get_output(context).get_inner();
         let api_key_required_binding = args
@@ -250,38 +254,42 @@ pub mod route {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouteResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
-            api_key_required: pulumi_wasm_rust::__private::into_domain(
+            api_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiId"),
+            ),
+            api_key_required: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiKeyRequired"),
             ),
-            authorization_scopes: pulumi_wasm_rust::__private::into_domain(
+            authorization_scopes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizationScopes"),
             ),
-            authorization_type: pulumi_wasm_rust::__private::into_domain(
+            authorization_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizationType"),
             ),
-            authorizer_id: pulumi_wasm_rust::__private::into_domain(
+            authorizer_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizerId"),
             ),
-            model_selection_expression: pulumi_wasm_rust::__private::into_domain(
+            model_selection_expression: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modelSelectionExpression"),
             ),
-            operation_name: pulumi_wasm_rust::__private::into_domain(
+            operation_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("operationName"),
             ),
-            request_models: pulumi_wasm_rust::__private::into_domain(
+            request_models: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestModels"),
             ),
-            request_parameters: pulumi_wasm_rust::__private::into_domain(
+            request_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestParameters"),
             ),
-            route_key: pulumi_wasm_rust::__private::into_domain(
+            route_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routeKey"),
             ),
-            route_response_selection_expression: pulumi_wasm_rust::__private::into_domain(
+            route_response_selection_expression: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routeResponseSelectionExpression"),
             ),
-            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
+            target: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("target"),
+            ),
         }
     }
 }

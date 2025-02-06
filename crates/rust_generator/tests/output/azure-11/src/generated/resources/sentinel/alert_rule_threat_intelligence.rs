@@ -55,44 +55,44 @@
 /// ```
 ///
 pub mod alert_rule_threat_intelligence {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AlertRuleThreatIntelligenceArgs {
         /// The GUID of the alert rule template which is used for this Sentinel Threat Intelligence Alert Rule. Changing this forces a new Sentinel Threat Intelligence Alert Rule to be created.
         #[builder(into)]
-        pub alert_rule_template_guid: pulumi_wasm_rust::InputOrOutput<String>,
+        pub alert_rule_template_guid: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether the Threat Intelligence Alert rule enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Log Analytics Workspace this Sentinel Threat Intelligence Alert Rule belongs to. Changing this forces a new Sentinel Threat Intelligence Alert Rule to be created.
         #[builder(into)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub log_analytics_workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Sentinel Threat Intelligence Alert Rule. Changing this forces a new Sentinel Threat Intelligence Alert Rule to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AlertRuleThreatIntelligenceResult {
         /// The GUID of the alert rule template which is used for this Sentinel Threat Intelligence Alert Rule. Changing this forces a new Sentinel Threat Intelligence Alert Rule to be created.
-        pub alert_rule_template_guid: pulumi_wasm_rust::Output<String>,
+        pub alert_rule_template_guid: pulumi_gestalt_rust::Output<String>,
         /// Whether the Threat Intelligence Alert rule enabled? Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the Log Analytics Workspace this Sentinel Threat Intelligence Alert Rule belongs to. Changing this forces a new Sentinel Threat Intelligence Alert Rule to be created.
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_workspace_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Sentinel Threat Intelligence Alert Rule. Changing this forces a new Sentinel Threat Intelligence Alert Rule to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AlertRuleThreatIntelligenceArgs,
     ) -> AlertRuleThreatIntelligenceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let alert_rule_template_guid_binding = args
             .alert_rule_template_guid
@@ -130,16 +130,16 @@ pub mod alert_rule_threat_intelligence {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AlertRuleThreatIntelligenceResult {
-            alert_rule_template_guid: pulumi_wasm_rust::__private::into_domain(
+            alert_rule_template_guid: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("alertRuleTemplateGuid"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
+            log_analytics_workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logAnalyticsWorkspaceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

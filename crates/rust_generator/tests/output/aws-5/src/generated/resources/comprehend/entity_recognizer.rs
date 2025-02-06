@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let documents = bucket_objectv_2::create(
@@ -58,36 +58,36 @@
 /// $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
 /// ```
 pub mod entity_recognizer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EntityRecognizerArgs {
         /// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
         #[builder(into)]
-        pub data_access_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_access_role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration for the training and testing data.
         /// See the `input_data_config` Configuration Block section below.
         #[builder(into)]
-        pub input_data_config: pulumi_wasm_rust::InputOrOutput<
+        pub input_data_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::comprehend::EntityRecognizerInputDataConfig,
         >,
         /// Two-letter language code for the language.
         /// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
         #[builder(into)]
-        pub language_code: pulumi_wasm_rust::InputOrOutput<String>,
+        pub language_code: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
         #[builder(into, default)]
-        pub model_kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub model_kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name for the Entity Recognizer.
         /// Has a maximum length of 63 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name for the version of the Entity Recognizer.
@@ -98,51 +98,51 @@ pub mod entity_recognizer {
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         /// Conflicts with `version_name_prefix`.
         #[builder(into, default)]
-        pub version_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Creates a unique version name beginning with the specified prefix.
         /// Has a maximum length of 37 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         /// Conflicts with `version_name`.
         #[builder(into, default)]
-        pub version_name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version_name_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
         #[builder(into, default)]
-        pub volume_kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub volume_kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration parameters for VPC to contain Entity Recognizer resources.
         /// See the `vpc_config` Configuration Block section below.
         #[builder(into, default)]
-        pub vpc_config: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::comprehend::EntityRecognizerVpcConfig>,
         >,
     }
     #[allow(dead_code)]
     pub struct EntityRecognizerResult {
         /// ARN of the Entity Recognizer version.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ARN for an IAM Role which allows Comprehend to read the training and testing data.
-        pub data_access_role_arn: pulumi_wasm_rust::Output<String>,
+        pub data_access_role_arn: pulumi_gestalt_rust::Output<String>,
         /// Configuration for the training and testing data.
         /// See the `input_data_config` Configuration Block section below.
-        pub input_data_config: pulumi_wasm_rust::Output<
+        pub input_data_config: pulumi_gestalt_rust::Output<
             super::super::types::comprehend::EntityRecognizerInputDataConfig,
         >,
         /// Two-letter language code for the language.
         /// One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
-        pub language_code: pulumi_wasm_rust::Output<String>,
+        pub language_code: pulumi_gestalt_rust::Output<String>,
         /// The ID or ARN of a KMS Key used to encrypt trained Entity Recognizers.
-        pub model_kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub model_kms_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name for the Entity Recognizer.
         /// Has a maximum length of 63 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Name for the version of the Entity Recognizer.
@@ -152,17 +152,17 @@ pub mod entity_recognizer {
         /// Has a maximum length of 63 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         /// Conflicts with `version_name_prefix`.
-        pub version_name: pulumi_wasm_rust::Output<String>,
+        pub version_name: pulumi_gestalt_rust::Output<String>,
         /// Creates a unique version name beginning with the specified prefix.
         /// Has a maximum length of 37 characters.
         /// Can contain upper- and lower-case letters, numbers, and hypen (`-`).
         /// Conflicts with `version_name`.
-        pub version_name_prefix: pulumi_wasm_rust::Output<String>,
+        pub version_name_prefix: pulumi_gestalt_rust::Output<String>,
         /// ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
-        pub volume_kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub volume_kms_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration parameters for VPC to contain Entity Recognizer resources.
         /// See the `vpc_config` Configuration Block section below.
-        pub vpc_config: pulumi_wasm_rust::Output<
+        pub vpc_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::comprehend::EntityRecognizerVpcConfig>,
         >,
     }
@@ -171,11 +171,11 @@ pub mod entity_recognizer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EntityRecognizerArgs,
     ) -> EntityRecognizerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_access_role_arn_binding = args
             .data_access_role_arn
@@ -251,34 +251,34 @@ pub mod entity_recognizer {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EntityRecognizerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            data_access_role_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            data_access_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataAccessRoleArn"),
             ),
-            input_data_config: pulumi_wasm_rust::__private::into_domain(
+            input_data_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inputDataConfig"),
             ),
-            language_code: pulumi_wasm_rust::__private::into_domain(
+            language_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("languageCode"),
             ),
-            model_kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            model_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modelKmsKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            version_name: pulumi_wasm_rust::__private::into_domain(
+            version_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionName"),
             ),
-            version_name_prefix: pulumi_wasm_rust::__private::into_domain(
+            version_name_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionNamePrefix"),
             ),
-            volume_kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            volume_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeKmsKeyId"),
             ),
-            vpc_config: pulumi_wasm_rust::__private::into_domain(
+            vpc_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcConfig"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = default_route_table_association::create(
@@ -21,46 +21,46 @@
 /// }
 /// ```
 pub mod default_route_table_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DefaultRouteTableAssociationArgs {
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::ec2transitgateway::DefaultRouteTableAssociationTimeouts,
             >,
         >,
         /// ID of the Transit Gateway to change the default association route table on.
         #[builder(into)]
-        pub transit_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub transit_gateway_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ID of the Transit Gateway Route Table to be made the default association route table.
         #[builder(into)]
-        pub transit_gateway_route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub transit_gateway_route_table_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DefaultRouteTableAssociationResult {
-        pub original_default_route_table_id: pulumi_wasm_rust::Output<String>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub original_default_route_table_id: pulumi_gestalt_rust::Output<String>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::ec2transitgateway::DefaultRouteTableAssociationTimeouts,
             >,
         >,
         /// ID of the Transit Gateway to change the default association route table on.
-        pub transit_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_id: pulumi_gestalt_rust::Output<String>,
         /// ID of the Transit Gateway Route Table to be made the default association route table.
-        pub transit_gateway_route_table_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_route_table_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DefaultRouteTableAssociationArgs,
     ) -> DefaultRouteTableAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let timeouts_binding = args.timeouts.get_output(context).get_inner();
         let transit_gateway_id_binding = args
@@ -93,16 +93,16 @@ pub mod default_route_table_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DefaultRouteTableAssociationResult {
-            original_default_route_table_id: pulumi_wasm_rust::__private::into_domain(
+            original_default_route_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("originalDefaultRouteTableId"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            transit_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayId"),
             ),
-            transit_gateway_route_table_id: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_route_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayRouteTableId"),
             ),
         }

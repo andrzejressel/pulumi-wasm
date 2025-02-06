@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -49,88 +49,88 @@
 /// ```
 ///
 pub mod schedule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ScheduleArgs {
         /// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub automation_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub automation_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A description for this Schedule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The end time of the schedule.
         #[builder(into, default)]
-        pub expiry_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub expiry_time: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
         #[builder(into)]
-        pub frequency: pulumi_wasm_rust::InputOrOutput<String>,
+        pub frequency: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
         #[builder(into, default)]
-        pub interval: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub interval: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
         #[builder(into, default)]
-        pub month_days: pulumi_wasm_rust::InputOrOutput<Option<Vec<i32>>>,
+        pub month_days: pulumi_gestalt_rust::InputOrOutput<Option<Vec<i32>>>,
         /// One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         #[builder(into, default)]
-        pub monthly_occurrence: pulumi_wasm_rust::InputOrOutput<
+        pub monthly_occurrence: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::automation::ScheduleMonthlyOccurrence>,
         >,
         /// Specifies the name of the Schedule. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         #[builder(into, default)]
-        pub start_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub start_time: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         #[builder(into, default)]
-        pub timezone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub timezone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
         #[builder(into, default)]
-        pub week_days: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub week_days: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ScheduleResult {
         /// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
-        pub automation_account_name: pulumi_wasm_rust::Output<String>,
+        pub automation_account_name: pulumi_gestalt_rust::Output<String>,
         /// A description for this Schedule.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The end time of the schedule.
-        pub expiry_time: pulumi_wasm_rust::Output<String>,
+        pub expiry_time: pulumi_gestalt_rust::Output<String>,
         /// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
-        pub frequency: pulumi_wasm_rust::Output<String>,
+        pub frequency: pulumi_gestalt_rust::Output<String>,
         /// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
-        pub interval: pulumi_wasm_rust::Output<i32>,
+        pub interval: pulumi_gestalt_rust::Output<i32>,
         /// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
-        pub month_days: pulumi_wasm_rust::Output<Option<Vec<i32>>>,
+        pub month_days: pulumi_gestalt_rust::Output<Option<Vec<i32>>>,
         /// One `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
-        pub monthly_occurrence: pulumi_wasm_rust::Output<
+        pub monthly_occurrence: pulumi_gestalt_rust::Output<
             Option<super::super::types::automation::ScheduleMonthlyOccurrence>,
         >,
         /// Specifies the name of the Schedule. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-        pub start_time: pulumi_wasm_rust::Output<String>,
+        pub start_time: pulumi_gestalt_rust::Output<String>,
         /// The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
-        pub timezone: pulumi_wasm_rust::Output<Option<String>>,
+        pub timezone: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
-        pub week_days: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub week_days: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ScheduleArgs,
     ) -> ScheduleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let automation_account_name_binding = args
             .automation_account_name
@@ -210,38 +210,38 @@ pub mod schedule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ScheduleResult {
-            automation_account_name: pulumi_wasm_rust::__private::into_domain(
+            automation_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automationAccountName"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            expiry_time: pulumi_wasm_rust::__private::into_domain(
+            expiry_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expiryTime"),
             ),
-            frequency: pulumi_wasm_rust::__private::into_domain(
+            frequency: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frequency"),
             ),
-            interval: pulumi_wasm_rust::__private::into_domain(
+            interval: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("interval"),
             ),
-            month_days: pulumi_wasm_rust::__private::into_domain(
+            month_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monthDays"),
             ),
-            monthly_occurrence: pulumi_wasm_rust::__private::into_domain(
+            monthly_occurrence: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monthlyOccurrence"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            start_time: pulumi_wasm_rust::__private::into_domain(
+            start_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startTime"),
             ),
-            timezone: pulumi_wasm_rust::__private::into_domain(
+            timezone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timezone"),
             ),
-            week_days: pulumi_wasm_rust::__private::into_domain(
+            week_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("weekDays"),
             ),
         }

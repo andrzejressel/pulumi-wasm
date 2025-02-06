@@ -9,8 +9,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = aws_log_source::create(
@@ -36,20 +36,20 @@
 /// $ pulumi import aws:securitylake/awsLogSource:AwsLogSource example ROUTE53
 /// ```
 pub mod aws_log_source {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AwsLogSourceArgs {
         /// Specify the natively-supported AWS service to add as a source in Security Lake.
         #[builder(into, default)]
-        pub source: pulumi_wasm_rust::InputOrOutput<
+        pub source: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::securitylake::AwsLogSourceSource>,
         >,
     }
     #[allow(dead_code)]
     pub struct AwsLogSourceResult {
         /// Specify the natively-supported AWS service to add as a source in Security Lake.
-        pub source: pulumi_wasm_rust::Output<
+        pub source: pulumi_gestalt_rust::Output<
             Option<super::super::types::securitylake::AwsLogSourceSource>,
         >,
     }
@@ -58,11 +58,11 @@ pub mod aws_log_source {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AwsLogSourceArgs,
     ) -> AwsLogSourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let source_binding = args.source.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
@@ -78,7 +78,9 @@ pub mod aws_log_source {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AwsLogSourceResult {
-            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
+            source: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("source"),
+            ),
         }
     }
 }

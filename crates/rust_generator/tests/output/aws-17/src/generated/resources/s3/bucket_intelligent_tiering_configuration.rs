@@ -56,44 +56,44 @@
 /// $ pulumi import aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
 /// ```
 pub mod bucket_intelligent_tiering_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketIntelligentTieringConfigurationArgs {
         /// Name of the bucket this intelligent tiering configuration is associated with.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::InputOrOutput<
+        pub filter: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::s3::BucketIntelligentTieringConfigurationFilter>,
         >,
         /// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
         #[builder(into)]
-        pub tierings: pulumi_wasm_rust::InputOrOutput<
+        pub tierings: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::s3::BucketIntelligentTieringConfigurationTiering>,
         >,
     }
     #[allow(dead_code)]
     pub struct BucketIntelligentTieringConfigurationResult {
         /// Name of the bucket this intelligent tiering configuration is associated with.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// Bucket filter. The configuration only includes objects that meet the filter's criteria (documented below).
-        pub filter: pulumi_wasm_rust::Output<
+        pub filter: pulumi_gestalt_rust::Output<
             Option<super::super::types::s3::BucketIntelligentTieringConfigurationFilter>,
         >,
         /// Unique name used to identify the S3 Intelligent-Tiering configuration for the bucket.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the status of the configuration. Valid values: `Enabled`, `Disabled`.
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_gestalt_rust::Output<Option<String>>,
         /// S3 Intelligent-Tiering storage class tiers of the configuration (documented below).
-        pub tierings: pulumi_wasm_rust::Output<
+        pub tierings: pulumi_gestalt_rust::Output<
             Vec<super::super::types::s3::BucketIntelligentTieringConfigurationTiering>,
         >,
     }
@@ -102,11 +102,11 @@ pub mod bucket_intelligent_tiering_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BucketIntelligentTieringConfigurationArgs,
     ) -> BucketIntelligentTieringConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let filter_binding = args.filter.get_output(context).get_inner();
@@ -143,11 +143,17 @@ pub mod bucket_intelligent_tiering_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BucketIntelligentTieringConfigurationResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tierings: pulumi_wasm_rust::__private::into_domain(
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            filter: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("filter"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tierings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tierings"),
             ),
         }

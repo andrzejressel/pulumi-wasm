@@ -1,4 +1,4 @@
-use pulumi_wasm_proto::grpc::{
+use pulumi_gestalt_proto::grpc::{
     RegisterResourceOutputsRequest, RegisterResourceRequest, ResourceInvokeRequest,
 };
 

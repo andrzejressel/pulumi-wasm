@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = instance::create(
@@ -47,108 +47,108 @@
 /// $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
 /// ```
 pub mod snapshot_copy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotCopyArgs {
         /// Whether to copy existing tags. Defaults to `false`.
         #[builder(into, default)]
-        pub copy_tags: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub copy_tags: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The Destination region to place snapshot copy.
         #[builder(into, default)]
-        pub destination_region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub destination_region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// KMS key ID.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of an option group to associate with the copy of the snapshot.
         #[builder(into, default)]
-        pub option_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub option_group_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// he URL that contains a Signature Version 4 signed request.
         #[builder(into, default)]
-        pub presigned_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub presigned_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         #[builder(into, default)]
-        pub shared_accounts: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub shared_accounts: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Snapshot identifier of the source snapshot.
         #[builder(into)]
-        pub source_db_snapshot_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_db_snapshot_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The external custom Availability Zone.
         #[builder(into, default)]
-        pub target_custom_availability_zone: pulumi_wasm_rust::InputOrOutput<
+        pub target_custom_availability_zone: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The Identifier for the snapshot.
         #[builder(into)]
-        pub target_db_snapshot_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_db_snapshot_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SnapshotCopyResult {
         /// Specifies the allocated storage size in gigabytes (GB).
-        pub allocated_storage: pulumi_wasm_rust::Output<i32>,
+        pub allocated_storage: pulumi_gestalt_rust::Output<i32>,
         /// Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
-        pub availability_zone: pulumi_wasm_rust::Output<String>,
+        pub availability_zone: pulumi_gestalt_rust::Output<String>,
         /// Whether to copy existing tags. Defaults to `false`.
-        pub copy_tags: pulumi_wasm_rust::Output<Option<bool>>,
+        pub copy_tags: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The Amazon Resource Name (ARN) for the DB snapshot.
-        pub db_snapshot_arn: pulumi_wasm_rust::Output<String>,
+        pub db_snapshot_arn: pulumi_gestalt_rust::Output<String>,
         /// The Destination region to place snapshot copy.
-        pub destination_region: pulumi_wasm_rust::Output<Option<String>>,
+        pub destination_region: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies whether the DB snapshot is encrypted.
-        pub encrypted: pulumi_wasm_rust::Output<bool>,
+        pub encrypted: pulumi_gestalt_rust::Output<bool>,
         /// Specifies the name of the database engine.
-        pub engine: pulumi_wasm_rust::Output<String>,
+        pub engine: pulumi_gestalt_rust::Output<String>,
         /// Specifies the version of the database engine.
-        pub engine_version: pulumi_wasm_rust::Output<String>,
+        pub engine_version: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
-        pub iops: pulumi_wasm_rust::Output<i32>,
+        pub iops: pulumi_gestalt_rust::Output<i32>,
         /// KMS key ID.
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// License model information for the restored DB instance.
-        pub license_model: pulumi_wasm_rust::Output<String>,
+        pub license_model: pulumi_gestalt_rust::Output<String>,
         /// The name of an option group to associate with the copy of the snapshot.
-        pub option_group_name: pulumi_wasm_rust::Output<String>,
-        pub port: pulumi_wasm_rust::Output<i32>,
+        pub option_group_name: pulumi_gestalt_rust::Output<String>,
+        pub port: pulumi_gestalt_rust::Output<i32>,
         /// he URL that contains a Signature Version 4 signed request.
-        pub presigned_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub presigned_url: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-        pub shared_accounts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
-        pub snapshot_type: pulumi_wasm_rust::Output<String>,
+        pub shared_accounts: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
+        pub snapshot_type: pulumi_gestalt_rust::Output<String>,
         /// Snapshot identifier of the source snapshot.
-        pub source_db_snapshot_identifier: pulumi_wasm_rust::Output<String>,
+        pub source_db_snapshot_identifier: pulumi_gestalt_rust::Output<String>,
         /// The region that the DB snapshot was created in or copied from.
-        pub source_region: pulumi_wasm_rust::Output<String>,
+        pub source_region: pulumi_gestalt_rust::Output<String>,
         /// Specifies the storage type associated with DB snapshot.
-        pub storage_type: pulumi_wasm_rust::Output<String>,
+        pub storage_type: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The external custom Availability Zone.
-        pub target_custom_availability_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_custom_availability_zone: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Identifier for the snapshot.
-        pub target_db_snapshot_identifier: pulumi_wasm_rust::Output<String>,
+        pub target_db_snapshot_identifier: pulumi_gestalt_rust::Output<String>,
         /// Provides the VPC ID associated with the DB snapshot.
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SnapshotCopyArgs,
     ) -> SnapshotCopyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let copy_tags_binding = args.copy_tags.get_output(context).get_inner();
         let destination_region_binding = args
@@ -227,68 +227,70 @@ pub mod snapshot_copy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SnapshotCopyResult {
-            allocated_storage: pulumi_wasm_rust::__private::into_domain(
+            allocated_storage: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allocatedStorage"),
             ),
-            availability_zone: pulumi_wasm_rust::__private::into_domain(
+            availability_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZone"),
             ),
-            copy_tags: pulumi_wasm_rust::__private::into_domain(
+            copy_tags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("copyTags"),
             ),
-            db_snapshot_arn: pulumi_wasm_rust::__private::into_domain(
+            db_snapshot_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbSnapshotArn"),
             ),
-            destination_region: pulumi_wasm_rust::__private::into_domain(
+            destination_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationRegion"),
             ),
-            encrypted: pulumi_wasm_rust::__private::into_domain(
+            encrypted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encrypted"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
-            engine_version: pulumi_wasm_rust::__private::into_domain(
+            engine: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("engine"),
+            ),
+            engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineVersion"),
             ),
-            iops: pulumi_wasm_rust::__private::into_domain(o.extract_field("iops")),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            iops: pulumi_gestalt_rust::__private::into_domain(o.extract_field("iops")),
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            license_model: pulumi_wasm_rust::__private::into_domain(
+            license_model: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenseModel"),
             ),
-            option_group_name: pulumi_wasm_rust::__private::into_domain(
+            option_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("optionGroupName"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            presigned_url: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            presigned_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("presignedUrl"),
             ),
-            shared_accounts: pulumi_wasm_rust::__private::into_domain(
+            shared_accounts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sharedAccounts"),
             ),
-            snapshot_type: pulumi_wasm_rust::__private::into_domain(
+            snapshot_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotType"),
             ),
-            source_db_snapshot_identifier: pulumi_wasm_rust::__private::into_domain(
+            source_db_snapshot_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceDbSnapshotIdentifier"),
             ),
-            source_region: pulumi_wasm_rust::__private::into_domain(
+            source_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceRegion"),
             ),
-            storage_type: pulumi_wasm_rust::__private::into_domain(
+            storage_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            target_custom_availability_zone: pulumi_wasm_rust::__private::into_domain(
+            target_custom_availability_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetCustomAvailabilityZone"),
             ),
-            target_db_snapshot_identifier: pulumi_wasm_rust::__private::into_domain(
+            target_db_snapshot_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetDbSnapshotIdentifier"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

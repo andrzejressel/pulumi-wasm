@@ -12,66 +12,70 @@
 /// ```
 ///
 pub mod application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationArgs {
         /// The application definition ID to deploy.
         #[builder(into, default)]
-        pub application_definition_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub application_definition_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub kind: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kind: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub managed_resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub managed_resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Managed Application. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
         #[builder(into, default)]
-        pub parameter_values: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parameter_values: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One `plan` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub plan: pulumi_wasm_rust::InputOrOutput<
+        pub plan: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::managedapplication::ApplicationPlan>,
         >,
         /// The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ApplicationResult {
         /// The application definition ID to deploy.
-        pub application_definition_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub application_definition_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
-        pub managed_resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub managed_resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Managed Application. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name and value pairs that define the managed application outputs.
-        pub outputs: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub outputs: pulumi_gestalt_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
         /// The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
-        pub parameter_values: pulumi_wasm_rust::Output<String>,
+        pub parameter_values: pulumi_gestalt_rust::Output<String>,
         /// One `plan` block as defined below. Changing this forces a new resource to be created.
-        pub plan: pulumi_wasm_rust::Output<
+        pub plan: pulumi_gestalt_rust::Output<
             Option<super::super::types::managedapplication::ApplicationPlan>,
         >,
         /// The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -80,11 +84,11 @@ pub mod application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApplicationArgs,
     ) -> ApplicationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_definition_id_binding = args
             .application_definition_id
@@ -152,28 +156,28 @@ pub mod application {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApplicationResult {
-            application_definition_id: pulumi_wasm_rust::__private::into_domain(
+            application_definition_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationDefinitionId"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            managed_resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            managed_resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedResourceGroupName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            outputs: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            outputs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outputs"),
             ),
-            parameter_values: pulumi_wasm_rust::__private::into_domain(
+            parameter_values: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameterValues"),
             ),
-            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

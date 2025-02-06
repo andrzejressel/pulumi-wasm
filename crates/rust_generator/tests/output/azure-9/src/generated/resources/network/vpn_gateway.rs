@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -62,81 +62,81 @@
 /// ```
 ///
 pub mod vpn_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpnGatewayArgs {
         /// Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
         #[builder(into, default)]
-        pub bgp_route_translation_for_nat_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub bgp_route_translation_for_nat_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// A `bgp_settings` block as defined below.
         #[builder(into, default)]
-        pub bgp_settings: pulumi_wasm_rust::InputOrOutput<
+        pub bgp_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::network::VpnGatewayBgpSettings>,
         >,
         /// The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Azure routing preference lets you to choose how your traffic routes between Azure and the internet. You can choose to route traffic either via the Microsoft network (default value, `Microsoft Network`), or via the ISP network (public internet, set to `Internet`). More context of the configuration can be found in the [Microsoft Docs](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-site-to-site-portal#gateway) to create a VPN Gateway. Defaults to `Microsoft Network`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub routing_preference: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub routing_preference: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Scale Unit for this VPN Gateway. Defaults to `1`.
         #[builder(into, default)]
-        pub scale_unit: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub scale_unit: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A mapping of tags to assign to the VPN Gateway.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_hub_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_hub_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpnGatewayResult {
         /// Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
-        pub bgp_route_translation_for_nat_enabled: pulumi_wasm_rust::Output<
+        pub bgp_route_translation_for_nat_enabled: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// A `bgp_settings` block as defined below.
-        pub bgp_settings: pulumi_wasm_rust::Output<
+        pub bgp_settings: pulumi_gestalt_rust::Output<
             super::super::types::network::VpnGatewayBgpSettings,
         >,
         /// The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Azure routing preference lets you to choose how your traffic routes between Azure and the internet. You can choose to route traffic either via the Microsoft network (default value, `Microsoft Network`), or via the ISP network (public internet, set to `Internet`). More context of the configuration can be found in the [Microsoft Docs](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-site-to-site-portal#gateway) to create a VPN Gateway. Defaults to `Microsoft Network`. Changing this forces a new resource to be created.
-        pub routing_preference: pulumi_wasm_rust::Output<Option<String>>,
+        pub routing_preference: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Scale Unit for this VPN Gateway. Defaults to `1`.
-        pub scale_unit: pulumi_wasm_rust::Output<Option<i32>>,
+        pub scale_unit: pulumi_gestalt_rust::Output<Option<i32>>,
         /// A mapping of tags to assign to the VPN Gateway.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
-        pub virtual_hub_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_hub_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpnGatewayArgs,
     ) -> VpnGatewayResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bgp_route_translation_for_nat_enabled_binding = args
             .bgp_route_translation_for_nat_enabled
@@ -201,27 +201,27 @@ pub mod vpn_gateway {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpnGatewayResult {
-            bgp_route_translation_for_nat_enabled: pulumi_wasm_rust::__private::into_domain(
+            bgp_route_translation_for_nat_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bgpRouteTranslationForNatEnabled"),
             ),
-            bgp_settings: pulumi_wasm_rust::__private::into_domain(
+            bgp_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bgpSettings"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            routing_preference: pulumi_wasm_rust::__private::into_domain(
+            routing_preference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routingPreference"),
             ),
-            scale_unit: pulumi_wasm_rust::__private::into_domain(
+            scale_unit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scaleUnit"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_hub_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            virtual_hub_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualHubId"),
             ),
         }

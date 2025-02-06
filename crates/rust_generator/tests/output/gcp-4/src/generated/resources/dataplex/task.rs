@@ -203,135 +203,135 @@
 /// ```
 ///
 pub mod task {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TaskArgs {
         /// User-provided description of the task.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User friendly display name.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration for the cluster
         /// Structure is documented below.
         #[builder(into)]
-        pub execution_spec: pulumi_wasm_rust::InputOrOutput<
+        pub execution_spec: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::dataplex::TaskExecutionSpec,
         >,
         /// User-defined labels for the task. **Note**: This field is non-authoritative, and will only manage the labels present in
         /// your configuration. Please refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The lake in which the task will be created in.
         #[builder(into, default)]
-        pub lake: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub lake: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location in which the task will be created in.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A service with manual scaling runs continuously, allowing you to perform complex initialization and rely on the state of
         /// its memory over time.
         #[builder(into, default)]
-        pub notebook: pulumi_wasm_rust::InputOrOutput<
+        pub notebook: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataplex::TaskNotebook>,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A service with manual scaling runs continuously, allowing you to perform complex initialization and rely on the state of
         /// its memory over time.
         #[builder(into, default)]
-        pub spark: pulumi_wasm_rust::InputOrOutput<
+        pub spark: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataplex::TaskSpark>,
         >,
         /// The task Id of the task.
         #[builder(into, default)]
-        pub task_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub task_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration for the cluster
         /// Structure is documented below.
         #[builder(into)]
-        pub trigger_spec: pulumi_wasm_rust::InputOrOutput<
+        pub trigger_spec: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::dataplex::TaskTriggerSpec,
         >,
     }
     #[allow(dead_code)]
     pub struct TaskResult {
         /// The time when the task was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// User-provided description of the task.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// User friendly display name.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configuration for the cluster
         /// Structure is documented below.
-        pub execution_spec: pulumi_wasm_rust::Output<
+        pub execution_spec: pulumi_gestalt_rust::Output<
             super::super::types::dataplex::TaskExecutionSpec,
         >,
         /// Configuration for the cluster
         /// Structure is documented below.
-        pub execution_statuses: pulumi_wasm_rust::Output<
+        pub execution_statuses: pulumi_gestalt_rust::Output<
             Vec<super::super::types::dataplex::TaskExecutionStatus>,
         >,
         /// User-defined labels for the task. **Note**: This field is non-authoritative, and will only manage the labels present in
         /// your configuration. Please refer to the field 'effective_labels' for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The lake in which the task will be created in.
-        pub lake: pulumi_wasm_rust::Output<Option<String>>,
+        pub lake: pulumi_gestalt_rust::Output<Option<String>>,
         /// The location in which the task will be created in.
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_gestalt_rust::Output<Option<String>>,
         /// (Output)
         /// The relative resource name of the job, of the form: projects/{project_number}/locations/{locationId}/lakes/{lakeId}/tasks/{taskId}/jobs/{jobId}.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A service with manual scaling runs continuously, allowing you to perform complex initialization and rely on the state of
         /// its memory over time.
-        pub notebook: pulumi_wasm_rust::Output<
+        pub notebook: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataplex::TaskNotebook>,
         >,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A service with manual scaling runs continuously, allowing you to perform complex initialization and rely on the state of
         /// its memory over time.
-        pub spark: pulumi_wasm_rust::Output<
+        pub spark: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataplex::TaskSpark>,
         >,
         /// (Output)
         /// Execution state for the job.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The task Id of the task.
-        pub task_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub task_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration for the cluster
         /// Structure is documented below.
-        pub trigger_spec: pulumi_wasm_rust::Output<
+        pub trigger_spec: pulumi_gestalt_rust::Output<
             super::super::types::dataplex::TaskTriggerSpec,
         >,
         /// (Output)
         /// System generated globally unique ID for the job.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// (Output)
         /// Last update time of the status.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TaskArgs,
     ) -> TaskResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -397,47 +397,51 @@ pub mod task {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TaskResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            execution_spec: pulumi_wasm_rust::__private::into_domain(
+            execution_spec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executionSpec"),
             ),
-            execution_statuses: pulumi_wasm_rust::__private::into_domain(
+            execution_statuses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executionStatuses"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            lake: pulumi_wasm_rust::__private::into_domain(o.extract_field("lake")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            lake: pulumi_gestalt_rust::__private::into_domain(o.extract_field("lake")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notebook: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notebook: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notebook"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            spark: pulumi_wasm_rust::__private::into_domain(o.extract_field("spark")),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            task_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("taskId")),
-            trigger_spec: pulumi_wasm_rust::__private::into_domain(
+            spark: pulumi_gestalt_rust::__private::into_domain(o.extract_field("spark")),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            task_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("taskId"),
+            ),
+            trigger_spec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggerSpec"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

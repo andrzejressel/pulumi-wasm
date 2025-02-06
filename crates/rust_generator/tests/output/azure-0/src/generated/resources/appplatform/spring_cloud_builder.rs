@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -57,39 +57,39 @@
 /// ```
 ///
 pub mod spring_cloud_builder {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudBuilderArgs {
         /// One or more `build_pack_group` blocks as defined below.
         #[builder(into)]
-        pub build_pack_groups: pulumi_wasm_rust::InputOrOutput<
+        pub build_pack_groups: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::appplatform::SpringCloudBuilderBuildPackGroup>,
         >,
         /// The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created.
         #[builder(into)]
-        pub spring_cloud_service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub spring_cloud_service_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `stack` block as defined below.
         #[builder(into)]
-        pub stack: pulumi_wasm_rust::InputOrOutput<
+        pub stack: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::appplatform::SpringCloudBuilderStack,
         >,
     }
     #[allow(dead_code)]
     pub struct SpringCloudBuilderResult {
         /// One or more `build_pack_group` blocks as defined below.
-        pub build_pack_groups: pulumi_wasm_rust::Output<
+        pub build_pack_groups: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appplatform::SpringCloudBuilderBuildPackGroup>,
         >,
         /// The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created.
-        pub spring_cloud_service_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_service_id: pulumi_gestalt_rust::Output<String>,
         /// A `stack` block as defined below.
-        pub stack: pulumi_wasm_rust::Output<
+        pub stack: pulumi_gestalt_rust::Output<
             super::super::types::appplatform::SpringCloudBuilderStack,
         >,
     }
@@ -98,11 +98,11 @@ pub mod spring_cloud_builder {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SpringCloudBuilderArgs,
     ) -> SpringCloudBuilderResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let build_pack_groups_binding = args
             .build_pack_groups
@@ -139,14 +139,14 @@ pub mod spring_cloud_builder {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SpringCloudBuilderResult {
-            build_pack_groups: pulumi_wasm_rust::__private::into_domain(
+            build_pack_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("buildPackGroups"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            spring_cloud_service_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            spring_cloud_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("springCloudServiceId"),
             ),
-            stack: pulumi_wasm_rust::__private::into_domain(o.extract_field("stack")),
+            stack: pulumi_gestalt_rust::__private::into_domain(o.extract_field("stack")),
         }
     }
 }

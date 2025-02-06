@@ -1,53 +1,53 @@
 pub mod get_service_plan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetServicePlanArgs {
         /// The name of this Service Plan.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Service Plan exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetServicePlanResult {
         /// The ID of the App Service Environment this Service Plan is part of.
-        pub app_service_environment_id: pulumi_wasm_rust::Output<String>,
+        pub app_service_environment_id: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// A string representing the Kind of Service Plan.
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region where the Service Plan exists.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The maximum number of workers in use in an Elastic SKU Plan.
-        pub maximum_elastic_worker_count: pulumi_wasm_rust::Output<i32>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub maximum_elastic_worker_count: pulumi_gestalt_rust::Output<i32>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The O/S type for the App Services hosted in this plan.
-        pub os_type: pulumi_wasm_rust::Output<String>,
+        pub os_type: pulumi_gestalt_rust::Output<String>,
         /// Is Per Site Scaling be enabled?
-        pub per_site_scaling_enabled: pulumi_wasm_rust::Output<bool>,
+        pub per_site_scaling_enabled: pulumi_gestalt_rust::Output<bool>,
         /// Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.
-        pub reserved: pulumi_wasm_rust::Output<bool>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub reserved: pulumi_gestalt_rust::Output<bool>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The SKU for the Service Plan.
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags assigned to the Service Plan.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// The number of Workers (instances) allocated.
-        pub worker_count: pulumi_wasm_rust::Output<i32>,
+        pub worker_count: pulumi_gestalt_rust::Output<i32>,
         /// Is the Service Plan balance across Availability Zones in the region?
-        pub zone_balancing_enabled: pulumi_wasm_rust::Output<bool>,
+        pub zone_balancing_enabled: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetServicePlanArgs,
     ) -> GetServicePlanResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -70,36 +70,38 @@ pub mod get_service_plan {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetServicePlanResult {
-            app_service_environment_id: pulumi_wasm_rust::__private::into_domain(
+            app_service_environment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appServiceEnvironmentId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maximum_elastic_worker_count: pulumi_wasm_rust::__private::into_domain(
+            maximum_elastic_worker_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumElasticWorkerCount"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            os_type: pulumi_wasm_rust::__private::into_domain(o.extract_field("osType")),
-            per_site_scaling_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            os_type: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("osType"),
+            ),
+            per_site_scaling_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("perSiteScalingEnabled"),
             ),
-            reserved: pulumi_wasm_rust::__private::into_domain(
+            reserved: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reserved"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            worker_count: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            worker_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workerCount"),
             ),
-            zone_balancing_enabled: pulumi_wasm_rust::__private::into_domain(
+            zone_balancing_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("zoneBalancingEnabled"),
             ),
         }

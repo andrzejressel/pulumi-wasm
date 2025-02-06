@@ -1,37 +1,37 @@
 pub mod get_resolver_virtual_network_link {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetResolverVirtualNetworkLinkArgs {
         /// ID of the Private DNS Resolver DNS Forwarding Ruleset.
         #[builder(into)]
-        pub dns_forwarding_ruleset_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dns_forwarding_ruleset_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the Private DNS Resolver Virtual Network Link.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetResolverVirtualNetworkLinkResult {
-        pub dns_forwarding_ruleset_id: pulumi_wasm_rust::Output<String>,
+        pub dns_forwarding_ruleset_id: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The metadata attached to the Private DNS Resolver Virtual Network Link.
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link.
-        pub virtual_network_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_network_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetResolverVirtualNetworkLinkArgs,
     ) -> GetResolverVirtualNetworkLinkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let dns_forwarding_ruleset_id_binding = args
             .dns_forwarding_ruleset_id
@@ -55,15 +55,15 @@ pub mod get_resolver_virtual_network_link {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetResolverVirtualNetworkLinkResult {
-            dns_forwarding_ruleset_id: pulumi_wasm_rust::__private::into_domain(
+            dns_forwarding_ruleset_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsForwardingRulesetId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            virtual_network_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualNetworkId"),
             ),
         }

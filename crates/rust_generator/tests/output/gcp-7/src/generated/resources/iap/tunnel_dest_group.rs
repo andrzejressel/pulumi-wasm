@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let destGroup = tunnel_dest_group::create(
@@ -71,59 +71,59 @@
 /// ```
 ///
 pub mod tunnel_dest_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TunnelDestGroupArgs {
         /// List of CIDRs that this group applies to.
         #[builder(into, default)]
-        pub cidrs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub cidrs: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of FQDNs that this group applies to.
         #[builder(into, default)]
-        pub fqdns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub fqdns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Unique tunnel destination group name.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region of the tunnel group. Must be the same as the network resources in the group.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TunnelDestGroupResult {
         /// List of CIDRs that this group applies to.
-        pub cidrs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub cidrs: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// List of FQDNs that this group applies to.
-        pub fqdns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub fqdns: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Unique tunnel destination group name.
         ///
         ///
         /// - - -
-        pub group_name: pulumi_wasm_rust::Output<String>,
+        pub group_name: pulumi_gestalt_rust::Output<String>,
         /// Full resource name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The region of the tunnel group. Must be the same as the network resources in the group.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TunnelDestGroupArgs,
     ) -> TunnelDestGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cidrs_binding = args.cidrs.get_output(context).get_inner();
         let fqdns_binding = args.fqdns.get_output(context).get_inner();
@@ -159,16 +159,18 @@ pub mod tunnel_dest_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TunnelDestGroupResult {
-            cidrs: pulumi_wasm_rust::__private::into_domain(o.extract_field("cidrs")),
-            fqdns: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdns")),
-            group_name: pulumi_wasm_rust::__private::into_domain(
+            cidrs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cidrs")),
+            fqdns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdns")),
+            group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
         }
     }
 }

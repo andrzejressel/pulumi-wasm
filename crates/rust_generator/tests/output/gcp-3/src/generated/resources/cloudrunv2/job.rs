@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = job::create(
@@ -132,8 +132,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let connector = connector::create(
@@ -198,8 +198,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = job::create(
@@ -300,8 +300,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = job::create(
@@ -343,8 +343,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = job::create(
@@ -399,7 +399,7 @@
 /// ```
 ///
 pub mod job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct JobArgs {
@@ -411,22 +411,22 @@ pub mod job {
         /// annotations present in your configuration. Please refer to the field 'effective_annotations' for all of the annotations
         /// present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Settings for the Binary Authorization feature.
         #[builder(into, default)]
-        pub binary_authorization: pulumi_wasm_rust::InputOrOutput<
+        pub binary_authorization: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudrunv2::JobBinaryAuthorization>,
         >,
         /// Arbitrary identifier for the API client.
         #[builder(into, default)]
-        pub client: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Arbitrary version identifier for the API client.
         #[builder(into, default)]
-        pub client_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with
         /// Google's billing system, so they can be used to filter, or break down billing charges by team, component, environment,
         /// state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or
@@ -436,7 +436,7 @@ pub mod job {
         /// non-authoritative, and will only manage the labels present in your configuration. Please refer to the field
         /// 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The launch stage as defined by [Google Cloud Platform Launch
@@ -446,27 +446,27 @@ pub mod job {
         /// input, but only BETA and GA-level features are used, this field will be BETA on output. Possible values:
         /// ["UNIMPLEMENTED", "PRELAUNCH", "EARLY_ACCESS", "ALPHA", "BETA", "GA", "DEPRECATED"]
         #[builder(into, default)]
-        pub launch_stage: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub launch_stage: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location of the cloud run job
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the Job.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A unique string used as a suffix creating a new execution upon job create or update. The Job will become ready when the
         /// execution is successfully completed. The sum of job name and token length must be fewer than 63 characters.
         #[builder(into, default)]
-        pub run_execution_token: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub run_execution_token: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A unique string used as a suffix creating a new execution upon job create or update. The Job will become ready when the
         /// execution is successfully started. The sum of job name and token length must be fewer than 63 characters.
         #[builder(into, default)]
-        pub start_execution_token: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub start_execution_token: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The template used to create executions for this Job.
         /// Structure is documented below.
         #[builder(into)]
-        pub template: pulumi_wasm_rust::InputOrOutput<
+        pub template: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cloudrunv2::JobTemplate,
         >,
     }
@@ -479,46 +479,46 @@ pub mod job {
         /// annotations' namespacing, limits, and rules. **Note**: This field is non-authoritative, and will only manage the
         /// annotations present in your configuration. Please refer to the field 'effective_annotations' for all of the annotations
         /// present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Settings for the Binary Authorization feature.
-        pub binary_authorization: pulumi_wasm_rust::Output<
+        pub binary_authorization: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudrunv2::JobBinaryAuthorization>,
         >,
         /// Arbitrary identifier for the API client.
-        pub client: pulumi_wasm_rust::Output<Option<String>>,
+        pub client: pulumi_gestalt_rust::Output<Option<String>>,
         /// Arbitrary version identifier for the API client.
-        pub client_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the Job does not reach its desired state. See comments in reconciling for additional information on `reconciliation` process in Cloud Run.
         /// Structure is documented below.
-        pub conditions: pulumi_wasm_rust::Output<
+        pub conditions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::cloudrunv2::JobCondition>,
         >,
         /// (Output)
         /// Creation timestamp of the execution.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Email address of the authenticated creator.
-        pub creator: pulumi_wasm_rust::Output<String>,
+        pub creator: pulumi_gestalt_rust::Output<String>,
         /// The deletion time.
-        pub delete_time: pulumi_wasm_rust::Output<String>,
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub delete_time: pulumi_gestalt_rust::Output<String>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Number of executions created for this job.
-        pub execution_count: pulumi_wasm_rust::Output<i32>,
+        pub execution_count: pulumi_gestalt_rust::Output<i32>,
         /// For a deleted resource, the time after which it will be permanently deleted.
-        pub expire_time: pulumi_wasm_rust::Output<String>,
+        pub expire_time: pulumi_gestalt_rust::Output<String>,
         /// A number that monotonically increases every time the user modifies the desired state.
-        pub generation: pulumi_wasm_rust::Output<String>,
+        pub generation: pulumi_gestalt_rust::Output<String>,
         /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with
         /// Google's billing system, so they can be used to filter, or break down billing charges by team, component, environment,
         /// state, etc. For more information, visit https://cloud.google.com/resource-manager/docs/creating-managing-labels or
@@ -527,14 +527,14 @@ pub mod job {
         /// will be rejected. All system labels in v1 now have a corresponding field in v2 Job. **Note**: This field is
         /// non-authoritative, and will only manage the labels present in your configuration. Please refer to the field
         /// 'effective_labels' for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Email address of the last authenticated modifier.
-        pub last_modifier: pulumi_wasm_rust::Output<String>,
+        pub last_modifier: pulumi_gestalt_rust::Output<String>,
         /// Name of the last created execution.
         /// Structure is documented below.
-        pub latest_created_executions: pulumi_wasm_rust::Output<
+        pub latest_created_executions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::cloudrunv2::JobLatestCreatedExecution>,
         >,
         /// The launch stage as defined by [Google Cloud Platform Launch
@@ -543,55 +543,55 @@ pub mod job {
         /// stage. On read (or output), describes whether the resource uses preview features. For example, if ALPHA is provided as
         /// input, but only BETA and GA-level features are used, this field will be BETA on output. Possible values:
         /// ["UNIMPLEMENTED", "PRELAUNCH", "EARLY_ACCESS", "ALPHA", "BETA", "GA", "DEPRECATED"]
-        pub launch_stage: pulumi_wasm_rust::Output<String>,
+        pub launch_stage: pulumi_gestalt_rust::Output<String>,
         /// The location of the cloud run job
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Name of the Job.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The generation of this Job. See comments in reconciling for additional information on reconciliation process in Cloud Run.
-        pub observed_generation: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub observed_generation: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Returns true if the Job is currently being acted upon by the system to bring it into the desired state.
         /// When a new Job is created, or an existing one is updated, Cloud Run will asynchronously perform all necessary steps to bring the Job to the desired state. This process is called reconciliation. While reconciliation is in process, observedGeneration and latest_succeeded_execution, will have transient values that might mismatch the intended state: Once reconciliation is over (and this field is false), there are two possible outcomes: reconciliation succeeded and the state matches the Job, or there was an error, and reconciliation failed. This state can be found in terminalCondition.state.
         /// If reconciliation succeeded, the following fields will match: observedGeneration and generation, latest_succeeded_execution and latestCreatedExecution.
         /// If reconciliation failed, observedGeneration and latest_succeeded_execution will have the state of the last succeeded execution or empty for newly created Job. Additional information on the failure can be found in terminalCondition and conditions
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// A unique string used as a suffix creating a new execution upon job create or update. The Job will become ready when the
         /// execution is successfully completed. The sum of job name and token length must be fewer than 63 characters.
-        pub run_execution_token: pulumi_wasm_rust::Output<Option<String>>,
+        pub run_execution_token: pulumi_gestalt_rust::Output<Option<String>>,
         /// A unique string used as a suffix creating a new execution upon job create or update. The Job will become ready when the
         /// execution is successfully started. The sum of job name and token length must be fewer than 63 characters.
-        pub start_execution_token: pulumi_wasm_rust::Output<Option<String>>,
+        pub start_execution_token: pulumi_gestalt_rust::Output<Option<String>>,
         /// The template used to create executions for this Job.
         /// Structure is documented below.
-        pub template: pulumi_wasm_rust::Output<
+        pub template: pulumi_gestalt_rust::Output<
             super::super::types::cloudrunv2::JobTemplate,
         >,
         /// The Condition of this Job, containing its readiness status, and detailed error information in case it did not reach the desired state
         /// Structure is documented below.
-        pub terminal_conditions: pulumi_wasm_rust::Output<
+        pub terminal_conditions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::cloudrunv2::JobTerminalCondition>,
         >,
         /// Server assigned unique identifier for the Execution. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// The last-modified time.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: JobArgs,
     ) -> JobResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let binary_authorization_binding = args
@@ -679,87 +679,91 @@ pub mod job {
         };
         let o = register_interface::register(context.get_inner(), &request);
         JobResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            binary_authorization: pulumi_wasm_rust::__private::into_domain(
+            binary_authorization: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("binaryAuthorization"),
             ),
-            client: pulumi_wasm_rust::__private::into_domain(o.extract_field("client")),
-            client_version: pulumi_wasm_rust::__private::into_domain(
+            client: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("client"),
+            ),
+            client_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientVersion"),
             ),
-            conditions: pulumi_wasm_rust::__private::into_domain(
+            conditions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("conditions"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            creator: pulumi_wasm_rust::__private::into_domain(
+            creator: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creator"),
             ),
-            delete_time: pulumi_wasm_rust::__private::into_domain(
+            delete_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteTime"),
             ),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            execution_count: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            execution_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executionCount"),
             ),
-            expire_time: pulumi_wasm_rust::__private::into_domain(
+            expire_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expireTime"),
             ),
-            generation: pulumi_wasm_rust::__private::into_domain(
+            generation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("generation"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            last_modifier: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            last_modifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModifier"),
             ),
-            latest_created_executions: pulumi_wasm_rust::__private::into_domain(
+            latest_created_executions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("latestCreatedExecutions"),
             ),
-            launch_stage: pulumi_wasm_rust::__private::into_domain(
+            launch_stage: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("launchStage"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            observed_generation: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            observed_generation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("observedGeneration"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            run_execution_token: pulumi_wasm_rust::__private::into_domain(
+            run_execution_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runExecutionToken"),
             ),
-            start_execution_token: pulumi_wasm_rust::__private::into_domain(
+            start_execution_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startExecutionToken"),
             ),
-            template: pulumi_wasm_rust::__private::into_domain(
+            template: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("template"),
             ),
-            terminal_conditions: pulumi_wasm_rust::__private::into_domain(
+            terminal_conditions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("terminalConditions"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

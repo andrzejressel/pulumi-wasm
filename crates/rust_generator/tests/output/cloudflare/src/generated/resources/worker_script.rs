@@ -59,131 +59,131 @@
 /// ```
 ///
 pub mod worker_script {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkerScriptArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub analytics_engine_bindings: pulumi_wasm_rust::InputOrOutput<
+        pub analytics_engine_bindings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptAnalyticsEngineBinding>>,
         >,
         /// The date to use for the compatibility flag.
         #[builder(into, default)]
-        pub compatibility_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub compatibility_date: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Compatibility flags used for Worker Scripts.
         #[builder(into, default)]
-        pub compatibility_flags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub compatibility_flags: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The script content.
         #[builder(into)]
-        pub content: pulumi_wasm_rust::InputOrOutput<String>,
+        pub content: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub d1_database_bindings: pulumi_wasm_rust::InputOrOutput<
+        pub d1_database_bindings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptD1DatabaseBinding>>,
         >,
         /// Name of the Workers for Platforms dispatch namespace.
         #[builder(into, default)]
-        pub dispatch_namespace: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub dispatch_namespace: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub hyperdrive_config_bindings: pulumi_wasm_rust::InputOrOutput<
+        pub hyperdrive_config_bindings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptHyperdriveConfigBinding>>,
         >,
         #[builder(into, default)]
-        pub kv_namespace_bindings: pulumi_wasm_rust::InputOrOutput<
+        pub kv_namespace_bindings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptKvNamespaceBinding>>,
         >,
         /// Enabling allows Worker events to be sent to a defined Logpush destination.
         #[builder(into, default)]
-        pub logpush: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub logpush: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether to upload Worker as a module.
         #[builder(into, default)]
-        pub module: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub module: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name for the script. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub placements: pulumi_wasm_rust::InputOrOutput<
+        pub placements: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptPlacement>>,
         >,
         #[builder(into, default)]
-        pub plain_text_bindings: pulumi_wasm_rust::InputOrOutput<
+        pub plain_text_bindings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptPlainTextBinding>>,
         >,
         #[builder(into, default)]
-        pub queue_bindings: pulumi_wasm_rust::InputOrOutput<
+        pub queue_bindings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptQueueBinding>>,
         >,
         #[builder(into, default)]
-        pub r2_bucket_bindings: pulumi_wasm_rust::InputOrOutput<
+        pub r2_bucket_bindings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptR2BucketBinding>>,
         >,
         #[builder(into, default)]
-        pub secret_text_bindings: pulumi_wasm_rust::InputOrOutput<
+        pub secret_text_bindings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptSecretTextBinding>>,
         >,
         #[builder(into, default)]
-        pub service_bindings: pulumi_wasm_rust::InputOrOutput<
+        pub service_bindings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptServiceBinding>>,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub tags: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         #[builder(into, default)]
-        pub webassembly_bindings: pulumi_wasm_rust::InputOrOutput<
+        pub webassembly_bindings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::WorkerScriptWebassemblyBinding>>,
         >,
     }
     #[allow(dead_code)]
     pub struct WorkerScriptResult {
         /// The account identifier to target for the resource.
-        pub account_id: pulumi_wasm_rust::Output<String>,
-        pub analytics_engine_bindings: pulumi_wasm_rust::Output<
+        pub account_id: pulumi_gestalt_rust::Output<String>,
+        pub analytics_engine_bindings: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::WorkerScriptAnalyticsEngineBinding>>,
         >,
         /// The date to use for the compatibility flag.
-        pub compatibility_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub compatibility_date: pulumi_gestalt_rust::Output<Option<String>>,
         /// Compatibility flags used for Worker Scripts.
-        pub compatibility_flags: pulumi_wasm_rust::Output<Vec<String>>,
+        pub compatibility_flags: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The script content.
-        pub content: pulumi_wasm_rust::Output<String>,
-        pub d1_database_bindings: pulumi_wasm_rust::Output<
+        pub content: pulumi_gestalt_rust::Output<String>,
+        pub d1_database_bindings: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::WorkerScriptD1DatabaseBinding>>,
         >,
         /// Name of the Workers for Platforms dispatch namespace.
-        pub dispatch_namespace: pulumi_wasm_rust::Output<Option<String>>,
-        pub hyperdrive_config_bindings: pulumi_wasm_rust::Output<
+        pub dispatch_namespace: pulumi_gestalt_rust::Output<Option<String>>,
+        pub hyperdrive_config_bindings: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::WorkerScriptHyperdriveConfigBinding>>,
         >,
-        pub kv_namespace_bindings: pulumi_wasm_rust::Output<
+        pub kv_namespace_bindings: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::WorkerScriptKvNamespaceBinding>>,
         >,
         /// Enabling allows Worker events to be sent to a defined Logpush destination.
-        pub logpush: pulumi_wasm_rust::Output<Option<bool>>,
+        pub logpush: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether to upload Worker as a module.
-        pub module: pulumi_wasm_rust::Output<Option<bool>>,
+        pub module: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name for the script. **Modifying this attribute will force creation of a new resource.**
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub placements: pulumi_wasm_rust::Output<
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub placements: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::WorkerScriptPlacement>>,
         >,
-        pub plain_text_bindings: pulumi_wasm_rust::Output<
+        pub plain_text_bindings: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::WorkerScriptPlainTextBinding>>,
         >,
-        pub queue_bindings: pulumi_wasm_rust::Output<
+        pub queue_bindings: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::WorkerScriptQueueBinding>>,
         >,
-        pub r2_bucket_bindings: pulumi_wasm_rust::Output<
+        pub r2_bucket_bindings: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::WorkerScriptR2BucketBinding>>,
         >,
-        pub secret_text_bindings: pulumi_wasm_rust::Output<
+        pub secret_text_bindings: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::WorkerScriptSecretTextBinding>>,
         >,
-        pub service_bindings: pulumi_wasm_rust::Output<
+        pub service_bindings: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::WorkerScriptServiceBinding>>,
         >,
-        pub tags: pulumi_wasm_rust::Output<Vec<String>>,
-        pub webassembly_bindings: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub webassembly_bindings: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::WorkerScriptWebassemblyBinding>>,
         >,
     }
@@ -192,11 +192,11 @@ pub mod worker_script {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkerScriptArgs,
     ) -> WorkerScriptResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let analytics_engine_bindings_binding = args
@@ -343,58 +343,60 @@ pub mod worker_script {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkerScriptResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            analytics_engine_bindings: pulumi_wasm_rust::__private::into_domain(
+            analytics_engine_bindings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("analyticsEngineBindings"),
             ),
-            compatibility_date: pulumi_wasm_rust::__private::into_domain(
+            compatibility_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("compatibilityDate"),
             ),
-            compatibility_flags: pulumi_wasm_rust::__private::into_domain(
+            compatibility_flags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("compatibilityFlags"),
             ),
-            content: pulumi_wasm_rust::__private::into_domain(
+            content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("content"),
             ),
-            d1_database_bindings: pulumi_wasm_rust::__private::into_domain(
+            d1_database_bindings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("d1DatabaseBindings"),
             ),
-            dispatch_namespace: pulumi_wasm_rust::__private::into_domain(
+            dispatch_namespace: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dispatchNamespace"),
             ),
-            hyperdrive_config_bindings: pulumi_wasm_rust::__private::into_domain(
+            hyperdrive_config_bindings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hyperdriveConfigBindings"),
             ),
-            kv_namespace_bindings: pulumi_wasm_rust::__private::into_domain(
+            kv_namespace_bindings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kvNamespaceBindings"),
             ),
-            logpush: pulumi_wasm_rust::__private::into_domain(
+            logpush: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logpush"),
             ),
-            module: pulumi_wasm_rust::__private::into_domain(o.extract_field("module")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            placements: pulumi_wasm_rust::__private::into_domain(
+            module: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("module"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            placements: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("placements"),
             ),
-            plain_text_bindings: pulumi_wasm_rust::__private::into_domain(
+            plain_text_bindings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("plainTextBindings"),
             ),
-            queue_bindings: pulumi_wasm_rust::__private::into_domain(
+            queue_bindings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("queueBindings"),
             ),
-            r2_bucket_bindings: pulumi_wasm_rust::__private::into_domain(
+            r2_bucket_bindings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("r2BucketBindings"),
             ),
-            secret_text_bindings: pulumi_wasm_rust::__private::into_domain(
+            secret_text_bindings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secretTextBindings"),
             ),
-            service_bindings: pulumi_wasm_rust::__private::into_domain(
+            service_bindings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceBindings"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            webassembly_bindings: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            webassembly_bindings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("webassemblyBindings"),
             ),
         }

@@ -78,8 +78,8 @@
 /// ### Microsoft Active Directory Connector (ADConnector)
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let bar = subnet::create(
@@ -130,100 +130,100 @@
 /// $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
 /// ```
 pub mod directory {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DirectoryArgs {
         /// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
         #[builder(into, default)]
-        pub alias: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub alias: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Connector related information about the directory. Fields documented below.
         #[builder(into, default)]
-        pub connect_settings: pulumi_wasm_rust::InputOrOutput<
+        pub connect_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::directoryservice::DirectoryConnectSettings>,
         >,
         /// A textual description for the directory.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         #[builder(into, default)]
-        pub desired_number_of_domain_controllers: pulumi_wasm_rust::InputOrOutput<
+        pub desired_number_of_domain_controllers: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
         #[builder(into, default)]
-        pub edition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub edition: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         #[builder(into, default)]
-        pub enable_sso: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_sso: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The fully qualified name for the directory, such as `corp.example.com`
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The password for the directory administrator or connector user.
         #[builder(into)]
-        pub password: pulumi_wasm_rust::InputOrOutput<String>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The short name of the directory, such as `CORP`.
         #[builder(into, default)]
-        pub short_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub short_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
         #[builder(into, default)]
-        pub size: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub size: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// VPC related information about the directory. Fields documented below.
         #[builder(into, default)]
-        pub vpc_settings: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::directoryservice::DirectoryVpcSettings>,
         >,
     }
     #[allow(dead_code)]
     pub struct DirectoryResult {
         /// The access URL for the directory, such as `http://alias.awsapps.com`.
-        pub access_url: pulumi_wasm_rust::Output<String>,
+        pub access_url: pulumi_gestalt_rust::Output<String>,
         /// The alias for the directory (must be unique amongst all aliases in AWS). Required for `enable_sso`.
-        pub alias: pulumi_wasm_rust::Output<String>,
+        pub alias: pulumi_gestalt_rust::Output<String>,
         /// Connector related information about the directory. Fields documented below.
-        pub connect_settings: pulumi_wasm_rust::Output<
+        pub connect_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::directoryservice::DirectoryConnectSettings>,
         >,
         /// A textual description for the directory.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
-        pub desired_number_of_domain_controllers: pulumi_wasm_rust::Output<i32>,
+        pub desired_number_of_domain_controllers: pulumi_gestalt_rust::Output<i32>,
         /// A list of IP addresses of the DNS servers for the directory or connector.
-        pub dns_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub dns_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
-        pub edition: pulumi_wasm_rust::Output<String>,
+        pub edition: pulumi_gestalt_rust::Output<String>,
         /// Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
-        pub enable_sso: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_sso: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The fully qualified name for the directory, such as `corp.example.com`
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The password for the directory administrator or connector user.
-        pub password: pulumi_wasm_rust::Output<String>,
+        pub password: pulumi_gestalt_rust::Output<String>,
         /// The ID of the security group created by the directory.
-        pub security_group_id: pulumi_wasm_rust::Output<String>,
+        pub security_group_id: pulumi_gestalt_rust::Output<String>,
         /// The short name of the directory, such as `CORP`.
-        pub short_name: pulumi_wasm_rust::Output<String>,
+        pub short_name: pulumi_gestalt_rust::Output<String>,
         /// (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
-        pub size: pulumi_wasm_rust::Output<String>,
+        pub size: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD` are accepted values). Defaults to `SimpleAD`.
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
         /// VPC related information about the directory. Fields documented below.
-        pub vpc_settings: pulumi_wasm_rust::Output<
+        pub vpc_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::directoryservice::DirectoryVpcSettings>,
         >,
     }
@@ -232,11 +232,11 @@ pub mod directory {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DirectoryArgs,
     ) -> DirectoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let alias_binding = args.alias.get_output(context).get_inner();
         let connect_settings_binding = args
@@ -318,45 +318,45 @@ pub mod directory {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DirectoryResult {
-            access_url: pulumi_wasm_rust::__private::into_domain(
+            access_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessUrl"),
             ),
-            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
-            connect_settings: pulumi_wasm_rust::__private::into_domain(
+            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
+            connect_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectSettings"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            desired_number_of_domain_controllers: pulumi_wasm_rust::__private::into_domain(
+            desired_number_of_domain_controllers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("desiredNumberOfDomainControllers"),
             ),
-            dns_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            dns_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsIpAddresses"),
             ),
-            edition: pulumi_wasm_rust::__private::into_domain(
+            edition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edition"),
             ),
-            enable_sso: pulumi_wasm_rust::__private::into_domain(
+            enable_sso: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableSso"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            security_group_id: pulumi_wasm_rust::__private::into_domain(
+            security_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroupId"),
             ),
-            short_name: pulumi_wasm_rust::__private::into_domain(
+            short_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shortName"),
             ),
-            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            vpc_settings: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            vpc_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcSettings"),
             ),
         }

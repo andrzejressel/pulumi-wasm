@@ -63,100 +63,100 @@
 /// ```
 ///
 pub mod software_update_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SoftwareUpdateConfigurationArgs {
         /// The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
         #[builder(into)]
-        pub automation_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub automation_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
         #[builder(into, default)]
-        pub duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub duration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `linux` block as defined below.
         #[builder(into, default)]
-        pub linux: pulumi_wasm_rust::InputOrOutput<
+        pub linux: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::automation::SoftwareUpdateConfigurationLinux>,
         >,
         /// The name which should be used for this Automation. Changing this forces a new Automation to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies a list of names of non-Azure machines for the software update configuration.
         #[builder(into, default)]
-        pub non_azure_computer_names: pulumi_wasm_rust::InputOrOutput<
+        pub non_azure_computer_names: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// A `post_task` blocks as defined below.
         #[builder(into, default)]
-        pub post_task: pulumi_wasm_rust::InputOrOutput<
+        pub post_task: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::automation::SoftwareUpdateConfigurationPostTask>,
         >,
         /// A `pre_task` blocks as defined below.
         #[builder(into, default)]
-        pub pre_task: pulumi_wasm_rust::InputOrOutput<
+        pub pre_task: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::automation::SoftwareUpdateConfigurationPreTask>,
         >,
         /// A `schedule` blocks as defined below.
         #[builder(into)]
-        pub schedule: pulumi_wasm_rust::InputOrOutput<
+        pub schedule: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::automation::SoftwareUpdateConfigurationSchedule,
         >,
         /// A `target` blocks as defined below.
         #[builder(into, default)]
-        pub target: pulumi_wasm_rust::InputOrOutput<
+        pub target: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::automation::SoftwareUpdateConfigurationTarget>,
         >,
         /// Specifies a list of Azure Resource IDs of azure virtual machines.
         #[builder(into, default)]
-        pub virtual_machine_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub virtual_machine_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A `windows` block as defined below.
         ///
         /// > **NOTE:** One of `linux` or `windows` must be specified.
         #[builder(into, default)]
-        pub windows: pulumi_wasm_rust::InputOrOutput<
+        pub windows: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::automation::SoftwareUpdateConfigurationWindows>,
         >,
     }
     #[allow(dead_code)]
     pub struct SoftwareUpdateConfigurationResult {
         /// The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
-        pub automation_account_id: pulumi_wasm_rust::Output<String>,
+        pub automation_account_id: pulumi_gestalt_rust::Output<String>,
         /// Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
-        pub duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub duration: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Error code when failed.
-        pub error_code: pulumi_wasm_rust::Output<String>,
+        pub error_code: pulumi_gestalt_rust::Output<String>,
         /// The Error message indicating why the operation failed.
-        pub error_message: pulumi_wasm_rust::Output<String>,
+        pub error_message: pulumi_gestalt_rust::Output<String>,
         /// A `linux` block as defined below.
-        pub linux: pulumi_wasm_rust::Output<
+        pub linux: pulumi_gestalt_rust::Output<
             Option<super::super::types::automation::SoftwareUpdateConfigurationLinux>,
         >,
         /// The name which should be used for this Automation. Changing this forces a new Automation to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies a list of names of non-Azure machines for the software update configuration.
-        pub non_azure_computer_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub non_azure_computer_names: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A `post_task` blocks as defined below.
-        pub post_task: pulumi_wasm_rust::Output<
+        pub post_task: pulumi_gestalt_rust::Output<
             Option<super::super::types::automation::SoftwareUpdateConfigurationPostTask>,
         >,
         /// A `pre_task` blocks as defined below.
-        pub pre_task: pulumi_wasm_rust::Output<
+        pub pre_task: pulumi_gestalt_rust::Output<
             Option<super::super::types::automation::SoftwareUpdateConfigurationPreTask>,
         >,
         /// A `schedule` blocks as defined below.
-        pub schedule: pulumi_wasm_rust::Output<
+        pub schedule: pulumi_gestalt_rust::Output<
             super::super::types::automation::SoftwareUpdateConfigurationSchedule,
         >,
         /// A `target` blocks as defined below.
-        pub target: pulumi_wasm_rust::Output<
+        pub target: pulumi_gestalt_rust::Output<
             Option<super::super::types::automation::SoftwareUpdateConfigurationTarget>,
         >,
         /// Specifies a list of Azure Resource IDs of azure virtual machines.
-        pub virtual_machine_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub virtual_machine_ids: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A `windows` block as defined below.
         ///
         /// > **NOTE:** One of `linux` or `windows` must be specified.
-        pub windows: pulumi_wasm_rust::Output<
+        pub windows: pulumi_gestalt_rust::Output<
             Option<super::super::types::automation::SoftwareUpdateConfigurationWindows>,
         >,
     }
@@ -165,11 +165,11 @@ pub mod software_update_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SoftwareUpdateConfigurationArgs,
     ) -> SoftwareUpdateConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let automation_account_id_binding = args
             .automation_account_id
@@ -245,37 +245,41 @@ pub mod software_update_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SoftwareUpdateConfigurationResult {
-            automation_account_id: pulumi_wasm_rust::__private::into_domain(
+            automation_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automationAccountId"),
             ),
-            duration: pulumi_wasm_rust::__private::into_domain(
+            duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("duration"),
             ),
-            error_code: pulumi_wasm_rust::__private::into_domain(
+            error_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("errorCode"),
             ),
-            error_message: pulumi_wasm_rust::__private::into_domain(
+            error_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("errorMessage"),
             ),
-            linux: pulumi_wasm_rust::__private::into_domain(o.extract_field("linux")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            non_azure_computer_names: pulumi_wasm_rust::__private::into_domain(
+            linux: pulumi_gestalt_rust::__private::into_domain(o.extract_field("linux")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            non_azure_computer_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nonAzureComputerNames"),
             ),
-            post_task: pulumi_wasm_rust::__private::into_domain(
+            post_task: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("postTask"),
             ),
-            pre_task: pulumi_wasm_rust::__private::into_domain(
+            pre_task: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preTask"),
             ),
-            schedule: pulumi_wasm_rust::__private::into_domain(
+            schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedule"),
             ),
-            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
-            virtual_machine_ids: pulumi_wasm_rust::__private::into_domain(
+            target: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("target"),
+            ),
+            virtual_machine_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualMachineIds"),
             ),
-            windows: pulumi_wasm_rust::__private::into_domain(o.extract_field("windows")),
+            windows: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("windows"),
+            ),
         }
     }
 }

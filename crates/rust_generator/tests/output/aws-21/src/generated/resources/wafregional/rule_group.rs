@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = rule::create(
@@ -36,45 +36,45 @@
 /// $ pulumi import aws:wafregional/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 /// ```
 pub mod rule_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RuleGroupArgs {
         /// A list of activated rules, see below
         #[builder(into, default)]
-        pub activated_rules: pulumi_wasm_rust::InputOrOutput<
+        pub activated_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::wafregional::RuleGroupActivatedRule>>,
         >,
         /// A friendly name for the metrics from the rule group
         #[builder(into)]
-        pub metric_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub metric_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A friendly name of the rule group
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RuleGroupResult {
         /// A list of activated rules, see below
-        pub activated_rules: pulumi_wasm_rust::Output<
+        pub activated_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::wafregional::RuleGroupActivatedRule>>,
         >,
         /// The ARN of the WAF Regional Rule Group.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A friendly name for the metrics from the rule group
-        pub metric_name: pulumi_wasm_rust::Output<String>,
+        pub metric_name: pulumi_gestalt_rust::Output<String>,
         /// A friendly name of the rule group
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -83,11 +83,11 @@ pub mod rule_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RuleGroupArgs,
     ) -> RuleGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let activated_rules_binding = args
             .activated_rules
@@ -121,16 +121,16 @@ pub mod rule_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RuleGroupResult {
-            activated_rules: pulumi_wasm_rust::__private::into_domain(
+            activated_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activatedRules"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            metric_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            metric_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metricName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

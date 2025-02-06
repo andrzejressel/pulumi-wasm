@@ -80,81 +80,83 @@
 /// ```
 ///
 pub mod datastore_blobstorage {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatastoreBlobstorageArgs {
         /// The access key of the Storage Account. Conflicts with `shared_access_signature`.
         #[builder(into, default)]
-        pub account_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
         ///
         /// > **Note:** `is_default` can only be set to `true` on update.
         #[builder(into, default)]
-        pub is_default: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_default: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
         #[builder(into, default)]
-        pub service_data_auth_identity: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_data_auth_identity: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
         ///
         /// > **Note:**  One of `account_key` or `shared_access_signature` must be specified.
         #[builder(into, default)]
-        pub shared_access_signature: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub shared_access_signature: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into)]
-        pub storage_container_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_container_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DatastoreBlobstorageResult {
         /// The access key of the Storage Account. Conflicts with `shared_access_signature`.
-        pub account_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies whether this Machines Learning DataStore is the default for the Workspace. Defaults to `false`.
         ///
         /// > **Note:** `is_default` can only be set to `true` on update.
-        pub is_default: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_default: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
-        pub service_data_auth_identity: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_data_auth_identity: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Shared Access Signature of the Storage Account. Conflicts with `account_key`.
         ///
         /// > **Note:**  One of `account_key` or `shared_access_signature` must be specified.
-        pub shared_access_signature: pulumi_wasm_rust::Output<Option<String>>,
+        pub shared_access_signature: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-        pub storage_container_id: pulumi_wasm_rust::Output<String>,
+        pub storage_container_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatastoreBlobstorageArgs,
     ) -> DatastoreBlobstorageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_key_binding = args.account_key.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -220,27 +222,27 @@ pub mod datastore_blobstorage {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatastoreBlobstorageResult {
-            account_key: pulumi_wasm_rust::__private::into_domain(
+            account_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountKey"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            is_default: pulumi_wasm_rust::__private::into_domain(
+            is_default: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isDefault"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            service_data_auth_identity: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            service_data_auth_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceDataAuthIdentity"),
             ),
-            shared_access_signature: pulumi_wasm_rust::__private::into_domain(
+            shared_access_signature: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sharedAccessSignature"),
             ),
-            storage_container_id: pulumi_wasm_rust::__private::into_domain(
+            storage_container_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageContainerId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            workspace_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceId"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let chrome = application::create(
@@ -74,74 +74,74 @@
 /// ```
 ///
 pub mod application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationArgs {
         /// Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub application_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
         #[builder(into)]
-        pub command_line_argument_policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub command_line_argument_policy: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Command Line Arguments for Virtual Desktop Application.
         #[builder(into, default)]
-        pub command_line_arguments: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub command_line_arguments: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Option to set a description for the Virtual Desktop Application.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Option to set a friendly name for the Virtual Desktop Application.
         #[builder(into, default)]
-        pub friendly_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub friendly_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The index of the icon you wish to use.
         #[builder(into, default)]
-        pub icon_index: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub icon_index: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the path for an icon which will be used for this Virtual Desktop Application.
         #[builder(into, default)]
-        pub icon_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub icon_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Virtual Desktop Application. Changing the name forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The file path location of the app on the Virtual Desktop OS.
         #[builder(into)]
-        pub path: pulumi_wasm_rust::InputOrOutput<String>,
+        pub path: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies whether to show the RemoteApp program in the RD Web Access server.
         #[builder(into, default)]
-        pub show_in_portal: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub show_in_portal: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct ApplicationResult {
         /// Resource ID for a Virtual Desktop Application Group to associate with the Virtual Desktop Application. Changing this forces a new resource to be created.
-        pub application_group_id: pulumi_wasm_rust::Output<String>,
+        pub application_group_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all. Possible values include: `DoNotAllow`, `Allow`, `Require`.
-        pub command_line_argument_policy: pulumi_wasm_rust::Output<String>,
+        pub command_line_argument_policy: pulumi_gestalt_rust::Output<String>,
         /// Command Line Arguments for Virtual Desktop Application.
-        pub command_line_arguments: pulumi_wasm_rust::Output<Option<String>>,
+        pub command_line_arguments: pulumi_gestalt_rust::Output<Option<String>>,
         /// Option to set a description for the Virtual Desktop Application.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Option to set a friendly name for the Virtual Desktop Application.
-        pub friendly_name: pulumi_wasm_rust::Output<String>,
+        pub friendly_name: pulumi_gestalt_rust::Output<String>,
         /// The index of the icon you wish to use.
-        pub icon_index: pulumi_wasm_rust::Output<Option<i32>>,
+        pub icon_index: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the path for an icon which will be used for this Virtual Desktop Application.
-        pub icon_path: pulumi_wasm_rust::Output<String>,
+        pub icon_path: pulumi_gestalt_rust::Output<String>,
         /// The name of the Virtual Desktop Application. Changing the name forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The file path location of the app on the Virtual Desktop OS.
-        pub path: pulumi_wasm_rust::Output<String>,
+        pub path: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether to show the RemoteApp program in the RD Web Access server.
-        pub show_in_portal: pulumi_wasm_rust::Output<Option<bool>>,
+        pub show_in_portal: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApplicationArgs,
     ) -> ApplicationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_group_id_binding = args
             .application_group_id
@@ -211,30 +211,30 @@ pub mod application {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApplicationResult {
-            application_group_id: pulumi_wasm_rust::__private::into_domain(
+            application_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationGroupId"),
             ),
-            command_line_argument_policy: pulumi_wasm_rust::__private::into_domain(
+            command_line_argument_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("commandLineArgumentPolicy"),
             ),
-            command_line_arguments: pulumi_wasm_rust::__private::into_domain(
+            command_line_arguments: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("commandLineArguments"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            friendly_name: pulumi_wasm_rust::__private::into_domain(
+            friendly_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("friendlyName"),
             ),
-            icon_index: pulumi_wasm_rust::__private::into_domain(
+            icon_index: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iconIndex"),
             ),
-            icon_path: pulumi_wasm_rust::__private::into_domain(
+            icon_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iconPath"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
-            show_in_portal: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
+            show_in_portal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("showInPortal"),
             ),
         }

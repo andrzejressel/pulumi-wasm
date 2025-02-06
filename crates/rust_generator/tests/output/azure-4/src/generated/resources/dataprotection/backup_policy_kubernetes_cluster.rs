@@ -52,29 +52,29 @@
 /// ```
 ///
 pub mod backup_policy_kubernetes_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupPolicyKubernetesClusterArgs {
         /// Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub backup_repeating_time_intervals: pulumi_wasm_rust::InputOrOutput<
+        pub backup_repeating_time_intervals: pulumi_gestalt_rust::InputOrOutput<
             Vec<String>,
         >,
         /// A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub default_retention_rule: pulumi_wasm_rust::InputOrOutput<
+        pub default_retention_rule: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::dataprotection::BackupPolicyKubernetesClusterDefaultRetentionRule,
         >,
         /// The name which should be used for the Backup Policy Kubernetes Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Backup Policy Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub retention_rules: pulumi_wasm_rust::InputOrOutput<
+        pub retention_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::dataprotection::BackupPolicyKubernetesClusterRetentionRule,
@@ -83,25 +83,25 @@ pub mod backup_policy_kubernetes_cluster {
         >,
         /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub time_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub time_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Backup Vault where the Backup Policy Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub vault_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vault_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BackupPolicyKubernetesClusterResult {
         /// Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval. Changing this forces a new resource to be created.
-        pub backup_repeating_time_intervals: pulumi_wasm_rust::Output<Vec<String>>,
+        pub backup_repeating_time_intervals: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
-        pub default_retention_rule: pulumi_wasm_rust::Output<
+        pub default_retention_rule: pulumi_gestalt_rust::Output<
             super::super::types::dataprotection::BackupPolicyKubernetesClusterDefaultRetentionRule,
         >,
         /// The name which should be used for the Backup Policy Kubernetes Cluster. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Backup Policy Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
-        pub retention_rules: pulumi_wasm_rust::Output<
+        pub retention_rules: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::dataprotection::BackupPolicyKubernetesClusterRetentionRule,
@@ -109,20 +109,20 @@ pub mod backup_policy_kubernetes_cluster {
             >,
         >,
         /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created.
-        pub time_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub time_zone: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Backup Vault where the Backup Policy Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        pub vault_name: pulumi_wasm_rust::Output<String>,
+        pub vault_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackupPolicyKubernetesClusterArgs,
     ) -> BackupPolicyKubernetesClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_repeating_time_intervals_binding = args
             .backup_repeating_time_intervals
@@ -181,23 +181,23 @@ pub mod backup_policy_kubernetes_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackupPolicyKubernetesClusterResult {
-            backup_repeating_time_intervals: pulumi_wasm_rust::__private::into_domain(
+            backup_repeating_time_intervals: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupRepeatingTimeIntervals"),
             ),
-            default_retention_rule: pulumi_wasm_rust::__private::into_domain(
+            default_retention_rule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultRetentionRule"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            retention_rules: pulumi_wasm_rust::__private::into_domain(
+            retention_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionRules"),
             ),
-            time_zone: pulumi_wasm_rust::__private::into_domain(
+            time_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeZone"),
             ),
-            vault_name: pulumi_wasm_rust::__private::into_domain(
+            vault_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vaultName"),
             ),
         }

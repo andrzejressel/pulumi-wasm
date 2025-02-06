@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = account_member::create(
@@ -30,44 +30,44 @@
 /// ```
 ///
 pub mod account_member {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountMemberArgs {
         /// Account ID to create the account member in.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The email address of the user who you wish to manage. Following creation, this field becomes read only via the API and cannot be updated.
         #[builder(into)]
-        pub email_address: pulumi_wasm_rust::InputOrOutput<String>,
+        pub email_address: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of account role IDs that you want to assign to a member.
         #[builder(into)]
-        pub role_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub role_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// A member's status in the account. Available values: `accepted`, `pending`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AccountMemberResult {
         /// Account ID to create the account member in.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// The email address of the user who you wish to manage. Following creation, this field becomes read only via the API and cannot be updated.
-        pub email_address: pulumi_wasm_rust::Output<String>,
+        pub email_address: pulumi_gestalt_rust::Output<String>,
         /// List of account role IDs that you want to assign to a member.
-        pub role_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub role_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A member's status in the account. Available values: `accepted`, `pending`.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccountMemberArgs,
     ) -> AccountMemberResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let email_address_binding = args.email_address.get_output(context).get_inner();
@@ -98,16 +98,18 @@ pub mod account_member {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccountMemberResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            email_address: pulumi_wasm_rust::__private::into_domain(
+            email_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emailAddress"),
             ),
-            role_ids: pulumi_wasm_rust::__private::into_domain(
+            role_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleIds"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

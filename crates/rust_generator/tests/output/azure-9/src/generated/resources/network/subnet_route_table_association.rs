@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -66,34 +66,34 @@
 /// ```
 ///
 pub mod subnet_route_table_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubnetRouteTableAssociationArgs {
         /// The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub route_table_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Subnet. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubnetRouteTableAssociationResult {
         /// The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
-        pub route_table_id: pulumi_wasm_rust::Output<String>,
+        pub route_table_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Subnet. Changing this forces a new resource to be created.
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SubnetRouteTableAssociationArgs,
     ) -> SubnetRouteTableAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let route_table_id_binding = args.route_table_id.get_output(context).get_inner();
         let subnet_id_binding = args.subnet_id.get_output(context).get_inner();
@@ -115,10 +115,10 @@ pub mod subnet_route_table_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SubnetRouteTableAssociationResult {
-            route_table_id: pulumi_wasm_rust::__private::into_domain(
+            route_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routeTableId"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
         }

@@ -8,8 +8,8 @@
 /// ### Create an ssm document in JSON format
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foo = document::create(
@@ -28,8 +28,8 @@
 /// ### Create an ssm document in YAML format
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foo = document::create(
@@ -56,113 +56,113 @@
 /// The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 ///
 pub mod document {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DocumentArgs {
         /// One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
         #[builder(into, default)]
-        pub attachments_sources: pulumi_wasm_rust::InputOrOutput<
+        pub attachments_sources: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ssm::DocumentAttachmentsSource>>,
         >,
         /// The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
         #[builder(into)]
-        pub content: pulumi_wasm_rust::InputOrOutput<String>,
+        pub content: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
         #[builder(into, default)]
-        pub document_format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub document_format: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
         #[builder(into)]
-        pub document_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub document_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the document.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Additional permissions to attach to the document. See Permissions below for details.
         #[builder(into, default)]
-        pub permissions: pulumi_wasm_rust::InputOrOutput<
+        pub permissions: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
         #[builder(into, default)]
-        pub target_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub target_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
         #[builder(into, default)]
-        pub version_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DocumentResult {
         /// The Amazon Resource Name (ARN) of the document.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
-        pub attachments_sources: pulumi_wasm_rust::Output<
+        pub attachments_sources: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::ssm::DocumentAttachmentsSource>>,
         >,
         /// The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
-        pub content: pulumi_wasm_rust::Output<String>,
+        pub content: pulumi_gestalt_rust::Output<String>,
         /// The date the document was created.
-        pub created_date: pulumi_wasm_rust::Output<String>,
+        pub created_date: pulumi_gestalt_rust::Output<String>,
         /// The default version of the document.
-        pub default_version: pulumi_wasm_rust::Output<String>,
+        pub default_version: pulumi_gestalt_rust::Output<String>,
         /// A description of what the parameter does, how to use it, the default value, and whether or not the parameter is optional.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
-        pub document_format: pulumi_wasm_rust::Output<Option<String>>,
+        pub document_format: pulumi_gestalt_rust::Output<Option<String>>,
         /// The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
-        pub document_type: pulumi_wasm_rust::Output<String>,
+        pub document_type: pulumi_gestalt_rust::Output<String>,
         /// The document version.
-        pub document_version: pulumi_wasm_rust::Output<String>,
+        pub document_version: pulumi_gestalt_rust::Output<String>,
         /// The Sha256 or Sha1 hash created by the system when the document was created.
-        pub hash: pulumi_wasm_rust::Output<String>,
+        pub hash: pulumi_gestalt_rust::Output<String>,
         /// The hash type of the document. Valid values: `Sha256`, `Sha1`.
-        pub hash_type: pulumi_wasm_rust::Output<String>,
+        pub hash_type: pulumi_gestalt_rust::Output<String>,
         /// The latest version of the document.
-        pub latest_version: pulumi_wasm_rust::Output<String>,
+        pub latest_version: pulumi_gestalt_rust::Output<String>,
         /// The name of the document.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Web Services user that created the document.
-        pub owner: pulumi_wasm_rust::Output<String>,
+        pub owner: pulumi_gestalt_rust::Output<String>,
         /// One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ssm::DocumentParameter>,
         >,
         /// Additional permissions to attach to the document. See Permissions below for details.
-        pub permissions: pulumi_wasm_rust::Output<
+        pub permissions: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
-        pub platform_types: pulumi_wasm_rust::Output<Vec<String>>,
+        pub platform_types: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The schema version of the document.
-        pub schema_version: pulumi_wasm_rust::Output<String>,
+        pub schema_version: pulumi_gestalt_rust::Output<String>,
         /// The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
-        pub target_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
-        pub version_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_name: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DocumentArgs,
     ) -> DocumentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let attachments_sources_binding = args
             .attachments_sources
@@ -224,61 +224,63 @@ pub mod document {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DocumentResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            attachments_sources: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            attachments_sources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attachmentsSources"),
             ),
-            content: pulumi_wasm_rust::__private::into_domain(
+            content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("content"),
             ),
-            created_date: pulumi_wasm_rust::__private::into_domain(
+            created_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdDate"),
             ),
-            default_version: pulumi_wasm_rust::__private::into_domain(
+            default_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultVersion"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            document_format: pulumi_wasm_rust::__private::into_domain(
+            document_format: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("documentFormat"),
             ),
-            document_type: pulumi_wasm_rust::__private::into_domain(
+            document_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("documentType"),
             ),
-            document_version: pulumi_wasm_rust::__private::into_domain(
+            document_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("documentVersion"),
             ),
-            hash: pulumi_wasm_rust::__private::into_domain(o.extract_field("hash")),
-            hash_type: pulumi_wasm_rust::__private::into_domain(
+            hash: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hash")),
+            hash_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hashType"),
             ),
-            latest_version: pulumi_wasm_rust::__private::into_domain(
+            latest_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("latestVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            permissions: pulumi_wasm_rust::__private::into_domain(
+            permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissions"),
             ),
-            platform_types: pulumi_wasm_rust::__private::into_domain(
+            platform_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platformTypes"),
             ),
-            schema_version: pulumi_wasm_rust::__private::into_domain(
+            schema_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schemaVersion"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            target_type: pulumi_wasm_rust::__private::into_domain(
+            target_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetType"),
             ),
-            version_name: pulumi_wasm_rust::__private::into_domain(
+            version_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionName"),
             ),
         }

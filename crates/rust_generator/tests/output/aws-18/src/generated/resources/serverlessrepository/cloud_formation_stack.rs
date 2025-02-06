@@ -34,55 +34,57 @@
 /// $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator
 /// ```
 pub mod cloud_formation_stack {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CloudFormationStackArgs {
         /// The ARN of the application from the Serverless Application Repository.
         #[builder(into)]
-        pub application_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
         #[builder(into)]
-        pub capabilities: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub capabilities: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of Parameter structures that specify input parameters for the stack.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The version of the application to deploy. If not supplied, deploys the latest version.
         #[builder(into, default)]
-        pub semantic_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub semantic_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CloudFormationStackResult {
         /// The ARN of the application from the Serverless Application Repository.
-        pub application_id: pulumi_wasm_rust::Output<String>,
+        pub application_id: pulumi_gestalt_rust::Output<String>,
         /// A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
-        pub capabilities: pulumi_wasm_rust::Output<Vec<String>>,
+        pub capabilities: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A map of outputs from the stack.
-        pub outputs: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub outputs: pulumi_gestalt_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
         /// A map of Parameter structures that specify input parameters for the stack.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The version of the application to deploy. If not supplied, deploys the latest version.
-        pub semantic_version: pulumi_wasm_rust::Output<String>,
+        pub semantic_version: pulumi_gestalt_rust::Output<String>,
         /// A list of tags to associate with this stack. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -91,11 +93,11 @@ pub mod cloud_formation_stack {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CloudFormationStackArgs,
     ) -> CloudFormationStackResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_id_binding = args.application_id.get_output(context).get_inner();
         let capabilities_binding = args.capabilities.get_output(context).get_inner();
@@ -140,24 +142,24 @@ pub mod cloud_formation_stack {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CloudFormationStackResult {
-            application_id: pulumi_wasm_rust::__private::into_domain(
+            application_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationId"),
             ),
-            capabilities: pulumi_wasm_rust::__private::into_domain(
+            capabilities: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capabilities"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            outputs: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            outputs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outputs"),
             ),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            semantic_version: pulumi_wasm_rust::__private::into_domain(
+            semantic_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("semanticVersion"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

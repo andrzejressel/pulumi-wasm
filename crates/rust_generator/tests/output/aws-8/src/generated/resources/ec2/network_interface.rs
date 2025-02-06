@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = network_interface::create(
@@ -49,139 +49,139 @@
 /// $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
 /// ```
 pub mod network_interface {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkInterfaceArgs {
         /// Configuration block to define the attachment of the ENI. See Attachment below for more details!
         #[builder(into, default)]
-        pub attachments: pulumi_wasm_rust::InputOrOutput<
+        pub attachments: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::NetworkInterfaceAttachment>>,
         >,
         /// Description for the network interface.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
         #[builder(into, default)]
-        pub enable_primary_ipv6: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_primary_ipv6: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
         #[builder(into, default)]
-        pub interface_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub interface_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Number of IPv4 prefixes that AWS automatically assigns to the network interface.
         #[builder(into, default)]
-        pub ipv4_prefix_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub ipv4_prefix_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// One or more IPv4 prefixes assigned to the network interface.
         #[builder(into, default)]
-        pub ipv4_prefixes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub ipv4_prefixes: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         #[builder(into, default)]
-        pub ipv6_address_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub ipv6_address_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
         #[builder(into, default)]
-        pub ipv6_address_list_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ipv6_address_list_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// List of private IPs to assign to the ENI in sequential order.
         #[builder(into, default)]
-        pub ipv6_address_lists: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub ipv6_address_lists: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
         #[builder(into, default)]
-        pub ipv6_addresses: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub ipv6_addresses: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Number of IPv6 prefixes that AWS automatically assigns to the network interface.
         #[builder(into, default)]
-        pub ipv6_prefix_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub ipv6_prefix_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// One or more IPv6 prefixes assigned to the network interface.
         #[builder(into, default)]
-        pub ipv6_prefixes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub ipv6_prefixes: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         #[builder(into, default)]
-        pub private_ip: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub private_ip: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
         #[builder(into, default)]
-        pub private_ip_list_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub private_ip_list_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         #[builder(into, default)]
-        pub private_ip_lists: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub private_ip_lists: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of private IPs to assign to the ENI without regard to order.
         #[builder(into, default)]
-        pub private_ips: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub private_ips: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
         #[builder(into, default)]
-        pub private_ips_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub private_ips_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// List of security group IDs to assign to the ENI.
         #[builder(into, default)]
-        pub security_groups: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub security_groups: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Whether to enable source destination checking for the ENI. Default true.
         #[builder(into, default)]
-        pub source_dest_check: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub source_dest_check: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Subnet ID to create the ENI in.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct NetworkInterfaceResult {
         /// ARN of the network interface.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Configuration block to define the attachment of the ENI. See Attachment below for more details!
-        pub attachments: pulumi_wasm_rust::Output<
+        pub attachments: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ec2::NetworkInterfaceAttachment>,
         >,
         /// Description for the network interface.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Enables assigning a primary IPv6 Global Unicast Address (GUA) to the network interface (ENI) in dual-stack or IPv6-only subnets. This ensures the instance attached to the ENI retains a consistent IPv6 address. Once enabled, the first IPv6 GUA becomes the primary IPv6 address and cannot be disabled. The primary IPv6 address remains assigned until the instance is terminated or the ENI is detached. Enabling and subsequent disabling forces recreation of the ENI.
-        pub enable_primary_ipv6: pulumi_wasm_rust::Output<bool>,
+        pub enable_primary_ipv6: pulumi_gestalt_rust::Output<bool>,
         /// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter. Changing `interface_type` will cause the resource to be destroyed and re-created.
-        pub interface_type: pulumi_wasm_rust::Output<String>,
+        pub interface_type: pulumi_gestalt_rust::Output<String>,
         /// Number of IPv4 prefixes that AWS automatically assigns to the network interface.
-        pub ipv4_prefix_count: pulumi_wasm_rust::Output<i32>,
+        pub ipv4_prefix_count: pulumi_gestalt_rust::Output<i32>,
         /// One or more IPv4 prefixes assigned to the network interface.
-        pub ipv4_prefixes: pulumi_wasm_rust::Output<Vec<String>>,
+        pub ipv4_prefixes: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
-        pub ipv6_address_count: pulumi_wasm_rust::Output<i32>,
+        pub ipv6_address_count: pulumi_gestalt_rust::Output<i32>,
         /// Whether `ipv6_address_list` is allowed and controls the IPs to assign to the ENI and `ipv6_addresses` and `ipv6_address_count` become read-only. Default is `false`.
-        pub ipv6_address_list_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ipv6_address_list_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// List of private IPs to assign to the ENI in sequential order.
-        pub ipv6_address_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub ipv6_address_lists: pulumi_gestalt_rust::Output<Vec<String>>,
         /// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
-        pub ipv6_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub ipv6_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Number of IPv6 prefixes that AWS automatically assigns to the network interface.
-        pub ipv6_prefix_count: pulumi_wasm_rust::Output<i32>,
+        pub ipv6_prefix_count: pulumi_gestalt_rust::Output<i32>,
         /// One or more IPv6 prefixes assigned to the network interface.
-        pub ipv6_prefixes: pulumi_wasm_rust::Output<Vec<String>>,
+        pub ipv6_prefixes: pulumi_gestalt_rust::Output<Vec<String>>,
         /// MAC address of the network interface.
-        pub mac_address: pulumi_wasm_rust::Output<String>,
-        pub outpost_arn: pulumi_wasm_rust::Output<String>,
+        pub mac_address: pulumi_gestalt_rust::Output<String>,
+        pub outpost_arn: pulumi_gestalt_rust::Output<String>,
         /// AWS account ID of the owner of the network interface.
-        pub owner_id: pulumi_wasm_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
         /// Private DNS name of the network interface (IPv4).
-        pub private_dns_name: pulumi_wasm_rust::Output<String>,
-        pub private_ip: pulumi_wasm_rust::Output<String>,
+        pub private_dns_name: pulumi_gestalt_rust::Output<String>,
+        pub private_ip: pulumi_gestalt_rust::Output<String>,
         /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default is `false`.
-        pub private_ip_list_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub private_ip_list_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
-        pub private_ip_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub private_ip_lists: pulumi_gestalt_rust::Output<Vec<String>>,
         /// List of private IPs to assign to the ENI without regard to order.
-        pub private_ips: pulumi_wasm_rust::Output<Vec<String>>,
+        pub private_ips: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
-        pub private_ips_count: pulumi_wasm_rust::Output<i32>,
+        pub private_ips_count: pulumi_gestalt_rust::Output<i32>,
         /// List of security group IDs to assign to the ENI.
-        pub security_groups: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_groups: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Whether to enable source destination checking for the ENI. Default true.
-        pub source_dest_check: pulumi_wasm_rust::Output<Option<bool>>,
+        pub source_dest_check: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Subnet ID to create the ENI in.
         ///
         /// The following arguments are optional:
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -190,11 +190,11 @@ pub mod network_interface {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkInterfaceArgs,
     ) -> NetworkInterfaceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let attachments_binding = args.attachments.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -343,81 +343,81 @@ pub mod network_interface {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkInterfaceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            attachments: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            attachments: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attachments"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            enable_primary_ipv6: pulumi_wasm_rust::__private::into_domain(
+            enable_primary_ipv6: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enablePrimaryIpv6"),
             ),
-            interface_type: pulumi_wasm_rust::__private::into_domain(
+            interface_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("interfaceType"),
             ),
-            ipv4_prefix_count: pulumi_wasm_rust::__private::into_domain(
+            ipv4_prefix_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv4PrefixCount"),
             ),
-            ipv4_prefixes: pulumi_wasm_rust::__private::into_domain(
+            ipv4_prefixes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv4Prefixes"),
             ),
-            ipv6_address_count: pulumi_wasm_rust::__private::into_domain(
+            ipv6_address_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6AddressCount"),
             ),
-            ipv6_address_list_enabled: pulumi_wasm_rust::__private::into_domain(
+            ipv6_address_list_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6AddressListEnabled"),
             ),
-            ipv6_address_lists: pulumi_wasm_rust::__private::into_domain(
+            ipv6_address_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6AddressLists"),
             ),
-            ipv6_addresses: pulumi_wasm_rust::__private::into_domain(
+            ipv6_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6Addresses"),
             ),
-            ipv6_prefix_count: pulumi_wasm_rust::__private::into_domain(
+            ipv6_prefix_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6PrefixCount"),
             ),
-            ipv6_prefixes: pulumi_wasm_rust::__private::into_domain(
+            ipv6_prefixes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6Prefixes"),
             ),
-            mac_address: pulumi_wasm_rust::__private::into_domain(
+            mac_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("macAddress"),
             ),
-            outpost_arn: pulumi_wasm_rust::__private::into_domain(
+            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outpostArn"),
             ),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            private_dns_name: pulumi_wasm_rust::__private::into_domain(
+            private_dns_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateDnsName"),
             ),
-            private_ip: pulumi_wasm_rust::__private::into_domain(
+            private_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIp"),
             ),
-            private_ip_list_enabled: pulumi_wasm_rust::__private::into_domain(
+            private_ip_list_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpListEnabled"),
             ),
-            private_ip_lists: pulumi_wasm_rust::__private::into_domain(
+            private_ip_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpLists"),
             ),
-            private_ips: pulumi_wasm_rust::__private::into_domain(
+            private_ips: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIps"),
             ),
-            private_ips_count: pulumi_wasm_rust::__private::into_domain(
+            private_ips_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpsCount"),
             ),
-            security_groups: pulumi_wasm_rust::__private::into_domain(
+            security_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroups"),
             ),
-            source_dest_check: pulumi_wasm_rust::__private::into_domain(
+            source_dest_check: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceDestCheck"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

@@ -39,66 +39,66 @@
 /// $ pulumi import aws:securityhub/automationRule:AutomationRule example arn:aws:securityhub:us-west-2:123456789012:automation-rule/473eddde-f5c4-4ae5-85c7-e922f271fffc
 /// ```
 pub mod automation_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AutomationRuleArgs {
         /// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
         #[builder(into, default)]
-        pub actions: pulumi_wasm_rust::InputOrOutput<
+        pub actions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::securityhub::AutomationRuleAction>>,
         >,
         /// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         #[builder(into, default)]
-        pub criteria: pulumi_wasm_rust::InputOrOutput<
+        pub criteria: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::securityhub::AutomationRuleCriteria>,
         >,
         /// The description of the rule.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::InputOrOutput<String>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
         #[builder(into, default)]
-        pub is_terminal: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_terminal: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the rule.
         #[builder(into)]
-        pub rule_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rule_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
         #[builder(into)]
-        pub rule_order: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub rule_order: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Whether the rule is active after it is created.
         #[builder(into, default)]
-        pub rule_status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub rule_status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AutomationRuleResult {
         /// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
-        pub actions: pulumi_wasm_rust::Output<
+        pub actions: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::securityhub::AutomationRuleAction>>,
         >,
         /// The ARN of the Security Hub automation rule.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-        pub criteria: pulumi_wasm_rust::Output<
+        pub criteria: pulumi_gestalt_rust::Output<
             Option<super::super::types::securityhub::AutomationRuleCriteria>,
         >,
         /// The description of the rule.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
-        pub is_terminal: pulumi_wasm_rust::Output<bool>,
+        pub is_terminal: pulumi_gestalt_rust::Output<bool>,
         /// The name of the rule.
-        pub rule_name: pulumi_wasm_rust::Output<String>,
+        pub rule_name: pulumi_gestalt_rust::Output<String>,
         /// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
-        pub rule_order: pulumi_wasm_rust::Output<i32>,
+        pub rule_order: pulumi_gestalt_rust::Output<i32>,
         /// Whether the rule is active after it is created.
-        pub rule_status: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub rule_status: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -107,11 +107,11 @@ pub mod automation_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AutomationRuleArgs,
     ) -> AutomationRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let actions_binding = args.actions.get_output(context).get_inner();
         let criteria_binding = args.criteria.get_output(context).get_inner();
@@ -162,30 +162,30 @@ pub mod automation_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AutomationRuleResult {
-            actions: pulumi_wasm_rust::__private::into_domain(
+            actions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actions"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            criteria: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            criteria: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("criteria"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            is_terminal: pulumi_wasm_rust::__private::into_domain(
+            is_terminal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isTerminal"),
             ),
-            rule_name: pulumi_wasm_rust::__private::into_domain(
+            rule_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleName"),
             ),
-            rule_order: pulumi_wasm_rust::__private::into_domain(
+            rule_order: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleOrder"),
             ),
-            rule_status: pulumi_wasm_rust::__private::into_domain(
+            rule_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleStatus"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

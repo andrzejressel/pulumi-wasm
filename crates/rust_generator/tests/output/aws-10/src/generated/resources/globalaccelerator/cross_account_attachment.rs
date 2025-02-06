@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = cross_account_attachment::create(
@@ -21,8 +21,8 @@
 /// ### Usage with Optional Arguments
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = cross_account_attachment::create(
@@ -50,7 +50,7 @@
 /// $ pulumi import aws:globalaccelerator/crossAccountAttachment:CrossAccountAttachment example arn:aws:globalaccelerator::012345678910:attachment/01234567-abcd-8910-efgh-123456789012
 /// ```
 pub mod cross_account_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CrossAccountAttachmentArgs {
@@ -58,13 +58,13 @@ pub mod cross_account_attachment {
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of AWS account IDs that are allowed to associate resources with the accelerator.
         #[builder(into, default)]
-        pub principals: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub principals: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of resources to be associated with the accelerator.
         #[builder(into, default)]
-        pub resources: pulumi_wasm_rust::InputOrOutput<
+        pub resources: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::globalaccelerator::CrossAccountAttachmentResource,
@@ -73,26 +73,26 @@ pub mod cross_account_attachment {
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CrossAccountAttachmentResult {
         /// ARN of the Cross Account Attachment.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Creation Time when the Cross Account Attachment.
-        pub created_time: pulumi_wasm_rust::Output<String>,
+        pub created_time: pulumi_gestalt_rust::Output<String>,
         /// Last modified time of the Cross Account Attachment.
-        pub last_modified_time: pulumi_wasm_rust::Output<String>,
+        pub last_modified_time: pulumi_gestalt_rust::Output<String>,
         /// Name of the Cross Account Attachment.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// List of AWS account IDs that are allowed to associate resources with the accelerator.
-        pub principals: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub principals: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// List of resources to be associated with the accelerator.
-        pub resources: pulumi_wasm_rust::Output<
+        pub resources: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::globalaccelerator::CrossAccountAttachmentResource,
@@ -100,11 +100,11 @@ pub mod cross_account_attachment {
             >,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -113,11 +113,11 @@ pub mod cross_account_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CrossAccountAttachmentArgs,
     ) -> CrossAccountAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let principals_binding = args.principals.get_output(context).get_inner();
@@ -149,22 +149,22 @@ pub mod cross_account_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CrossAccountAttachmentResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            created_time: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            created_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdTime"),
             ),
-            last_modified_time: pulumi_wasm_rust::__private::into_domain(
+            last_modified_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModifiedTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            principals: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            principals: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principals"),
             ),
-            resources: pulumi_wasm_rust::__private::into_domain(
+            resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resources"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

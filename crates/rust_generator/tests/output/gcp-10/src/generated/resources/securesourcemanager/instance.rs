@@ -476,8 +476,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = instance::create(
@@ -526,7 +526,7 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
@@ -535,36 +535,36 @@ pub mod instance {
         ///
         /// - - -
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Customer-managed encryption key name, in the format projects/*/locations/*/keyRings/*/cryptoKeys/*.
         #[builder(into, default)]
-        pub kms_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Labels as key value pairs.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location for the Instance.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Private settings for private instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub private_config: pulumi_wasm_rust::InputOrOutput<
+        pub private_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::securesourcemanager::InstancePrivateConfig>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration for Workforce Identity Federation to support third party identity provider.
         /// If unset, defaults to the Google OIDC IdP.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub workforce_identity_federation_config: pulumi_wasm_rust::InputOrOutput<
+        pub workforce_identity_federation_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::securesourcemanager::InstanceWorkforceIdentityFederationConfig,
             >,
@@ -573,57 +573,57 @@ pub mod instance {
     #[allow(dead_code)]
     pub struct InstanceResult {
         /// Time the Instance was created in UTC.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A list of hostnames for this instance.
         /// Structure is documented below.
-        pub host_configs: pulumi_wasm_rust::Output<
+        pub host_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::securesourcemanager::InstanceHostConfig>,
         >,
         /// The name for the Instance.
         ///
         ///
         /// - - -
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
         /// Customer-managed encryption key name, in the format projects/*/locations/*/keyRings/*/cryptoKeys/*.
-        pub kms_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// Labels as key value pairs.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location for the Instance.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource name for the Instance.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Private settings for private instance.
         /// Structure is documented below.
-        pub private_config: pulumi_wasm_rust::Output<
+        pub private_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::securesourcemanager::InstancePrivateConfig>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The current state of the Instance.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Provides information about the current instance state.
-        pub state_note: pulumi_wasm_rust::Output<String>,
+        pub state_note: pulumi_gestalt_rust::Output<String>,
         /// Time the Instance was updated in UTC.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// Configuration for Workforce Identity Federation to support third party identity provider.
         /// If unset, defaults to the Google OIDC IdP.
         /// Structure is documented below.
-        pub workforce_identity_federation_config: pulumi_wasm_rust::Output<
+        pub workforce_identity_federation_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::securesourcemanager::InstanceWorkforceIdentityFederationConfig,
             >,
@@ -634,11 +634,11 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let instance_id_binding = args.instance_id.get_output(context).get_inner();
         let kms_key_binding = args.kms_key.get_output(context).get_inner();
@@ -687,41 +687,45 @@ pub mod instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            host_configs: pulumi_wasm_rust::__private::into_domain(
+            host_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostConfigs"),
             ),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            kms_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("kmsKey")),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            kms_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("kmsKey"),
+            ),
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            private_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            private_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateConfig"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            state_note: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            state_note: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateNote"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            workforce_identity_federation_config: pulumi_wasm_rust::__private::into_domain(
+            workforce_identity_federation_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workforceIdentityFederationConfig"),
             ),
         }

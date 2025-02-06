@@ -88,39 +88,39 @@
 ///       arguments: {}
 /// ```
 pub mod certificate_authority_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateAuthorityCertificateArgs {
         /// PEM-encoded certificate for the Certificate Authority.
         #[builder(into)]
-        pub certificate: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARN of the Certificate Authority.
         #[builder(into)]
-        pub certificate_authority_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate_authority_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
         #[builder(into, default)]
-        pub certificate_chain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_chain: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CertificateAuthorityCertificateResult {
         /// PEM-encoded certificate for the Certificate Authority.
-        pub certificate: pulumi_wasm_rust::Output<String>,
+        pub certificate: pulumi_gestalt_rust::Output<String>,
         /// ARN of the Certificate Authority.
-        pub certificate_authority_arn: pulumi_wasm_rust::Output<String>,
+        pub certificate_authority_arn: pulumi_gestalt_rust::Output<String>,
         /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
-        pub certificate_chain: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_chain: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CertificateAuthorityCertificateArgs,
     ) -> CertificateAuthorityCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_binding = args.certificate.get_output(context).get_inner();
         let certificate_authority_arn_binding = args
@@ -153,13 +153,13 @@ pub mod certificate_authority_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CertificateAuthorityCertificateResult {
-            certificate: pulumi_wasm_rust::__private::into_domain(
+            certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificate"),
             ),
-            certificate_authority_arn: pulumi_wasm_rust::__private::into_domain(
+            certificate_authority_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateAuthorityArn"),
             ),
-            certificate_chain: pulumi_wasm_rust::__private::into_domain(
+            certificate_chain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateChain"),
             ),
         }

@@ -6,8 +6,8 @@
 /// ### Basic
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = user::create(
@@ -40,8 +40,8 @@
 /// ### With hierarchy_group_id
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = user::create(
@@ -77,8 +77,8 @@
 /// ### With identity_info filled
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = user::create(
@@ -112,8 +112,8 @@
 /// ### With phone_config phone type as desk phone
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = user::create(
@@ -140,8 +140,8 @@
 /// ### With multiple Security profile ids specified in security_profile_ids
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = user::create(
@@ -178,96 +178,96 @@
 /// $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 /// ```
 pub mod user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserArgs {
         /// The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
         #[builder(into, default)]
-        pub directory_user_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub directory_user_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The identifier of the hierarchy group for the user.
         #[builder(into, default)]
-        pub hierarchy_group_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub hierarchy_group_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A block that contains information about the identity of the user. Documented below.
         #[builder(into, default)]
-        pub identity_info: pulumi_wasm_rust::InputOrOutput<
+        pub identity_info: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::connect::UserIdentityInfo>,
         >,
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\@]+`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A block that contains information about the phone settings for the user. Documented below.
         #[builder(into)]
-        pub phone_config: pulumi_wasm_rust::InputOrOutput<
+        pub phone_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::connect::UserPhoneConfig,
         >,
         /// The identifier of the routing profile for the user.
         #[builder(into)]
-        pub routing_profile_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub routing_profile_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         #[builder(into)]
-        pub security_profile_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub security_profile_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Tags to apply to the user. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct UserResult {
         /// The Amazon Resource Name (ARN) of the user.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
-        pub directory_user_id: pulumi_wasm_rust::Output<String>,
+        pub directory_user_id: pulumi_gestalt_rust::Output<String>,
         /// The identifier of the hierarchy group for the user.
-        pub hierarchy_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub hierarchy_group_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A block that contains information about the identity of the user. Documented below.
-        pub identity_info: pulumi_wasm_rust::Output<
+        pub identity_info: pulumi_gestalt_rust::Output<
             Option<super::super::types::connect::UserIdentityInfo>,
         >,
         /// Specifies the identifier of the hosting Amazon Connect Instance.
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
         /// The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\@]+`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_gestalt_rust::Output<Option<String>>,
         /// A block that contains information about the phone settings for the user. Documented below.
-        pub phone_config: pulumi_wasm_rust::Output<
+        pub phone_config: pulumi_gestalt_rust::Output<
             super::super::types::connect::UserPhoneConfig,
         >,
         /// The identifier of the routing profile for the user.
-        pub routing_profile_id: pulumi_wasm_rust::Output<String>,
+        pub routing_profile_id: pulumi_gestalt_rust::Output<String>,
         /// A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-        pub security_profile_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_profile_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Tags to apply to the user. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The identifier for the user.
-        pub user_id: pulumi_wasm_rust::Output<String>,
+        pub user_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserArgs,
     ) -> UserResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let directory_user_id_binding = args
             .directory_user_id
@@ -340,37 +340,39 @@ pub mod user {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            directory_user_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            directory_user_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("directoryUserId"),
             ),
-            hierarchy_group_id: pulumi_wasm_rust::__private::into_domain(
+            hierarchy_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hierarchyGroupId"),
             ),
-            identity_info: pulumi_wasm_rust::__private::into_domain(
+            identity_info: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identityInfo"),
             ),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            phone_config: pulumi_wasm_rust::__private::into_domain(
+            phone_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("phoneConfig"),
             ),
-            routing_profile_id: pulumi_wasm_rust::__private::into_domain(
+            routing_profile_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routingProfileId"),
             ),
-            security_profile_ids: pulumi_wasm_rust::__private::into_domain(
+            security_profile_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityProfileIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            user_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("userId")),
+            user_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("userId"),
+            ),
         }
     }
 }

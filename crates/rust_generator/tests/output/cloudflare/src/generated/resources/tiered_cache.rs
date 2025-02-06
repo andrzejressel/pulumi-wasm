@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = tiered_cache::create(
@@ -18,34 +18,34 @@
 /// }
 /// ```
 pub mod tiered_cache {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TieredCacheArgs {
         /// The typed of tiered cache to utilize on the zone. Available values: `generic`, `smart`, `off`.
         #[builder(into)]
-        pub cache_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cache_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TieredCacheResult {
         /// The typed of tiered cache to utilize on the zone. Available values: `generic`, `smart`, `off`.
-        pub cache_type: pulumi_wasm_rust::Output<String>,
+        pub cache_type: pulumi_gestalt_rust::Output<String>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TieredCacheArgs,
     ) -> TieredCacheResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cache_type_binding = args.cache_type.get_output(context).get_inner();
         let zone_id_binding = args.zone_id.get_output(context).get_inner();
@@ -66,10 +66,12 @@ pub mod tiered_cache {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TieredCacheResult {
-            cache_type: pulumi_wasm_rust::__private::into_domain(
+            cache_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cacheType"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

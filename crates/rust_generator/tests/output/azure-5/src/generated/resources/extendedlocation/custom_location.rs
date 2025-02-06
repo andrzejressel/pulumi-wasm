@@ -11,73 +11,73 @@
 /// ```
 ///
 pub mod custom_location {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomLocationArgs {
         /// An `authentication` block as defined below.
         #[builder(into, default)]
-        pub authentication: pulumi_wasm_rust::InputOrOutput<
+        pub authentication: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::extendedlocation::CustomLocationAuthentication>,
         >,
         /// Specifies the list of Cluster Extension IDs.
         #[builder(into)]
-        pub cluster_extension_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub cluster_extension_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Specifies the display name of the Custom Location.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the host resource ID.
         #[builder(into)]
-        pub host_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub host_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
         #[builder(into, default)]
-        pub host_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub host_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Azure location where the Custom Location should exist. Changing this forces a new Custom Location to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name which should be used for this Custom Location. Changing this forces a new Custom Location to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the namespace of the Custom Location. Changing this forces a new Custom Location to be created.
         #[builder(into)]
-        pub namespace: pulumi_wasm_rust::InputOrOutput<String>,
+        pub namespace: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Resource Group where the Custom Location should exist. Changing this forces a new Custom Location to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CustomLocationResult {
         /// An `authentication` block as defined below.
-        pub authentication: pulumi_wasm_rust::Output<
+        pub authentication: pulumi_gestalt_rust::Output<
             Option<super::super::types::extendedlocation::CustomLocationAuthentication>,
         >,
         /// Specifies the list of Cluster Extension IDs.
-        pub cluster_extension_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub cluster_extension_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Specifies the display name of the Custom Location.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the host resource ID.
-        pub host_resource_id: pulumi_wasm_rust::Output<String>,
+        pub host_resource_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the host type of the Custom Location. The only possible values is `KubernetesCluster`.
-        pub host_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub host_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the Azure location where the Custom Location should exist. Changing this forces a new Custom Location to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name which should be used for this Custom Location. Changing this forces a new Custom Location to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the namespace of the Custom Location. Changing this forces a new Custom Location to be created.
-        pub namespace: pulumi_wasm_rust::Output<String>,
+        pub namespace: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Resource Group where the Custom Location should exist. Changing this forces a new Custom Location to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CustomLocationArgs,
     ) -> CustomLocationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authentication_binding = args.authentication.get_output(context).get_inner();
         let cluster_extension_ids_binding = args
@@ -142,29 +142,29 @@ pub mod custom_location {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CustomLocationResult {
-            authentication: pulumi_wasm_rust::__private::into_domain(
+            authentication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authentication"),
             ),
-            cluster_extension_ids: pulumi_wasm_rust::__private::into_domain(
+            cluster_extension_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterExtensionIds"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            host_resource_id: pulumi_wasm_rust::__private::into_domain(
+            host_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostResourceId"),
             ),
-            host_type: pulumi_wasm_rust::__private::into_domain(
+            host_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostType"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            namespace: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            namespace: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespace"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
         }

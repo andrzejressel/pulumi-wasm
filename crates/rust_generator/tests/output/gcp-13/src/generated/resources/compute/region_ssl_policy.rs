@@ -39,7 +39,7 @@
 /// ```
 ///
 pub mod region_ssl_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegionSslPolicyArgs {
@@ -51,16 +51,16 @@ pub mod region_ssl_policy {
         /// *must* be present when using the `CUSTOM` profile. This argument
         /// *must not* be present when using any other profile.
         #[builder(into, default)]
-        pub custom_features: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub custom_features: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The minimum version of SSL protocol that can be used by the clients
         /// to establish a connection with the load balancer.
         /// Default value is `TLS_1_0`.
         /// Possible values are: `TLS_1_0`, `TLS_1_1`, `TLS_1_2`.
         #[builder(into, default)]
-        pub min_tls_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub min_tls_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -72,7 +72,7 @@ pub mod region_ssl_policy {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Profile specifies the set of SSL features that can be used by the
         /// load balancer when negotiating SSL with clients. If using `CUSTOM`,
         /// the set of SSL features to enable must be specified in the
@@ -83,19 +83,19 @@ pub mod region_ssl_policy {
         /// Default value is `COMPATIBLE`.
         /// Possible values are: `COMPATIBLE`, `MODERN`, `RESTRICTED`, `CUSTOM`.
         #[builder(into, default)]
-        pub profile: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub profile: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region where the regional SSL policy resides.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RegionSslPolicyResult {
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// A list of features enabled when the selected profile is CUSTOM. The
         /// method returns the set of features that can be specified in this
         /// list. This field must be empty if the profile is not CUSTOM.
@@ -103,19 +103,19 @@ pub mod region_ssl_policy {
         /// for which ciphers are available to use. **Note**: this argument
         /// *must* be present when using the `CUSTOM` profile. This argument
         /// *must not* be present when using any other profile.
-        pub custom_features: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub custom_features: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// An optional description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The list of features enabled in the SSL policy.
-        pub enabled_features: pulumi_wasm_rust::Output<Vec<String>>,
+        pub enabled_features: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Fingerprint of this resource. A hash of the contents stored in this
         /// object. This field is used in optimistic locking.
-        pub fingerprint: pulumi_wasm_rust::Output<String>,
+        pub fingerprint: pulumi_gestalt_rust::Output<String>,
         /// The minimum version of SSL protocol that can be used by the clients
         /// to establish a connection with the load balancer.
         /// Default value is `TLS_1_0`.
         /// Possible values are: `TLS_1_0`, `TLS_1_1`, `TLS_1_2`.
-        pub min_tls_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub min_tls_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -126,7 +126,7 @@ pub mod region_ssl_policy {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Profile specifies the set of SSL features that can be used by the
         /// load balancer when negotiating SSL with clients. If using `CUSTOM`,
         /// the set of SSL features to enable must be specified in the
@@ -136,25 +136,25 @@ pub mod region_ssl_policy {
         /// `CUSTOM` is used, the `custom_features` attribute **must be set**.
         /// Default value is `COMPATIBLE`.
         /// Possible values are: `COMPATIBLE`, `MODERN`, `RESTRICTED`, `CUSTOM`.
-        pub profile: pulumi_wasm_rust::Output<Option<String>>,
+        pub profile: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The region where the regional SSL policy resides.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RegionSslPolicyArgs,
     ) -> RegionSslPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let custom_features_binding = args
             .custom_features
@@ -206,33 +206,35 @@ pub mod region_ssl_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RegionSslPolicyResult {
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            custom_features: pulumi_wasm_rust::__private::into_domain(
+            custom_features: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customFeatures"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            enabled_features: pulumi_wasm_rust::__private::into_domain(
+            enabled_features: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabledFeatures"),
             ),
-            fingerprint: pulumi_wasm_rust::__private::into_domain(
+            fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fingerprint"),
             ),
-            min_tls_version: pulumi_wasm_rust::__private::into_domain(
+            min_tls_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minTlsVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            profile: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("profile"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
         }

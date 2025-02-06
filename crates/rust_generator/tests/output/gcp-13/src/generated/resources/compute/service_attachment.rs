@@ -404,19 +404,19 @@
 /// ```
 ///
 pub mod service_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceAttachmentArgs {
         /// The connection preference to use for this service attachment. Valid
         /// values include "ACCEPT_AUTOMATIC", "ACCEPT_MANUAL".
         #[builder(into)]
-        pub connection_preference: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connection_preference: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An array of projects that are allowed to connect to this service
         /// attachment.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub consumer_accept_lists: pulumi_wasm_rust::InputOrOutput<
+        pub consumer_accept_lists: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::compute::ServiceAttachmentConsumerAcceptList>,
             >,
@@ -424,16 +424,18 @@ pub mod service_attachment {
         /// An array of projects that are not allowed to connect to this service
         /// attachment.
         #[builder(into, default)]
-        pub consumer_reject_lists: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub consumer_reject_lists: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If specified, the domain name will be used during the integration between
         /// the PSC connected endpoints and the Cloud DNS. For example, this is a
         /// valid domain name: "p.mycompany.com.". Current max number of domain names
         /// supported is 1.
         #[builder(into, default)]
-        pub domain_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub domain_names: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// If true, enable the proxy protocol which is for supplying client TCP/IP
         /// address data in TCP connections that traverse proxies on their way to
         /// destination servers.
@@ -441,7 +443,7 @@ pub mod service_attachment {
         ///
         /// - - -
         #[builder(into)]
-        pub enable_proxy_protocol: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub enable_proxy_protocol: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// Name of the resource. The name must be 1-63 characters long, and
         /// comply with RFC1035. Specifically, the name must be 1-63 characters
         /// long and match the regular expression `a-z?`
@@ -449,111 +451,111 @@ pub mod service_attachment {
         /// following characters must be a dash, lowercase letter, or digit,
         /// except the last character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An array of subnets that is provided for NAT in this service attachment.
         #[builder(into)]
-        pub nat_subnets: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub nat_subnets: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The number of consumer spokes that connected Private Service Connect endpoints can be propagated to through Network Connectivity Center.
         /// This limit lets the service producer limit how many propagated Private Service Connect connections can be established to this service attachment from a single consumer.
         /// If the connection preference of the service attachment is ACCEPT_MANUAL, the limit applies to each project or network that is listed in the consumer accept list.
         /// If the connection preference of the service attachment is ACCEPT_AUTOMATIC, the limit applies to each project that contains a connected endpoint.
         /// If unspecified, the default propagated connection limit is 250.
         #[builder(into, default)]
-        pub propagated_connection_limit: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub propagated_connection_limit: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// This flag determines whether a consumer accept/reject list change can reconcile the statuses of existing ACCEPTED or REJECTED PSC endpoints.
         /// If false, connection policy update will only affect existing PENDING PSC endpoints. Existing ACCEPTED/REJECTED endpoints will remain untouched regardless how the connection policy is modified .
         /// If true, update will affect both PENDING and ACCEPTED/REJECTED PSC endpoints. For example, an ACCEPTED PSC endpoint will be moved to REJECTED if its project is added to the reject list.
         #[builder(into, default)]
-        pub reconcile_connections: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub reconcile_connections: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// URL of the region where the resource resides.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The URL of a service serving the endpoint identified by this service attachment.
         #[builder(into)]
-        pub target_service: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_service: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServiceAttachmentResult {
         /// An array of the consumer forwarding rules connected to this service
         /// attachment.
         /// Structure is documented below.
-        pub connected_endpoints: pulumi_wasm_rust::Output<
+        pub connected_endpoints: pulumi_gestalt_rust::Output<
             Vec<super::super::types::compute::ServiceAttachmentConnectedEndpoint>,
         >,
         /// The connection preference to use for this service attachment. Valid
         /// values include "ACCEPT_AUTOMATIC", "ACCEPT_MANUAL".
-        pub connection_preference: pulumi_wasm_rust::Output<String>,
+        pub connection_preference: pulumi_gestalt_rust::Output<String>,
         /// An array of projects that are allowed to connect to this service
         /// attachment.
         /// Structure is documented below.
-        pub consumer_accept_lists: pulumi_wasm_rust::Output<
+        pub consumer_accept_lists: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::compute::ServiceAttachmentConsumerAcceptList>,
             >,
         >,
         /// An array of projects that are not allowed to connect to this service
         /// attachment.
-        pub consumer_reject_lists: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub consumer_reject_lists: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// An optional description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// If specified, the domain name will be used during the integration between
         /// the PSC connected endpoints and the Cloud DNS. For example, this is a
         /// valid domain name: "p.mycompany.com.". Current max number of domain names
         /// supported is 1.
-        pub domain_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub domain_names: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// If true, enable the proxy protocol which is for supplying client TCP/IP
         /// address data in TCP connections that traverse proxies on their way to
         /// destination servers.
         ///
         ///
         /// - - -
-        pub enable_proxy_protocol: pulumi_wasm_rust::Output<bool>,
+        pub enable_proxy_protocol: pulumi_gestalt_rust::Output<bool>,
         /// Fingerprint of this resource. This field is used internally during
         /// updates of this resource.
-        pub fingerprint: pulumi_wasm_rust::Output<String>,
+        pub fingerprint: pulumi_gestalt_rust::Output<String>,
         /// Name of the resource. The name must be 1-63 characters long, and
         /// comply with RFC1035. Specifically, the name must be 1-63 characters
         /// long and match the regular expression `a-z?`
         /// which means the first character must be a lowercase letter, and all
         /// following characters must be a dash, lowercase letter, or digit,
         /// except the last character, which cannot be a dash.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// An array of subnets that is provided for NAT in this service attachment.
-        pub nat_subnets: pulumi_wasm_rust::Output<Vec<String>>,
+        pub nat_subnets: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The number of consumer spokes that connected Private Service Connect endpoints can be propagated to through Network Connectivity Center.
         /// This limit lets the service producer limit how many propagated Private Service Connect connections can be established to this service attachment from a single consumer.
         /// If the connection preference of the service attachment is ACCEPT_MANUAL, the limit applies to each project or network that is listed in the consumer accept list.
         /// If the connection preference of the service attachment is ACCEPT_AUTOMATIC, the limit applies to each project that contains a connected endpoint.
         /// If unspecified, the default propagated connection limit is 250.
-        pub propagated_connection_limit: pulumi_wasm_rust::Output<i32>,
+        pub propagated_connection_limit: pulumi_gestalt_rust::Output<i32>,
         /// This flag determines whether a consumer accept/reject list change can reconcile the statuses of existing ACCEPTED or REJECTED PSC endpoints.
         /// If false, connection policy update will only affect existing PENDING PSC endpoints. Existing ACCEPTED/REJECTED endpoints will remain untouched regardless how the connection policy is modified .
         /// If true, update will affect both PENDING and ACCEPTED/REJECTED PSC endpoints. For example, an ACCEPTED PSC endpoint will be moved to REJECTED if its project is added to the reject list.
-        pub reconcile_connections: pulumi_wasm_rust::Output<bool>,
+        pub reconcile_connections: pulumi_gestalt_rust::Output<bool>,
         /// URL of the region where the resource resides.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// The URL of a service serving the endpoint identified by this service attachment.
-        pub target_service: pulumi_wasm_rust::Output<String>,
+        pub target_service: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServiceAttachmentArgs,
     ) -> ServiceAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let connection_preference_binding = args
             .connection_preference
@@ -647,48 +649,50 @@ pub mod service_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServiceAttachmentResult {
-            connected_endpoints: pulumi_wasm_rust::__private::into_domain(
+            connected_endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectedEndpoints"),
             ),
-            connection_preference: pulumi_wasm_rust::__private::into_domain(
+            connection_preference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionPreference"),
             ),
-            consumer_accept_lists: pulumi_wasm_rust::__private::into_domain(
+            consumer_accept_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("consumerAcceptLists"),
             ),
-            consumer_reject_lists: pulumi_wasm_rust::__private::into_domain(
+            consumer_reject_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("consumerRejectLists"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            domain_names: pulumi_wasm_rust::__private::into_domain(
+            domain_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainNames"),
             ),
-            enable_proxy_protocol: pulumi_wasm_rust::__private::into_domain(
+            enable_proxy_protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableProxyProtocol"),
             ),
-            fingerprint: pulumi_wasm_rust::__private::into_domain(
+            fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fingerprint"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            nat_subnets: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            nat_subnets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("natSubnets"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            propagated_connection_limit: pulumi_wasm_rust::__private::into_domain(
+            propagated_connection_limit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("propagatedConnectionLimit"),
             ),
-            reconcile_connections: pulumi_wasm_rust::__private::into_domain(
+            reconcile_connections: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconcileConnections"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            target_service: pulumi_wasm_rust::__private::into_domain(
+            target_service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetService"),
             ),
         }

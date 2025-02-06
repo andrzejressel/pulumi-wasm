@@ -28,44 +28,44 @@
 /// $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
 /// ```
 pub mod custom_key_store {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomKeyStoreArgs {
         /// Cluster ID of CloudHSM.
         #[builder(into)]
-        pub cloud_hsm_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cloud_hsm_cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Unique name for Custom Key Store.
         #[builder(into)]
-        pub custom_key_store_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub custom_key_store_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Password for `kmsuser` on CloudHSM.
         #[builder(into)]
-        pub key_store_password: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_store_password: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Customer certificate used for signing on CloudHSM.
         #[builder(into)]
-        pub trust_anchor_certificate: pulumi_wasm_rust::InputOrOutput<String>,
+        pub trust_anchor_certificate: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CustomKeyStoreResult {
         /// Cluster ID of CloudHSM.
-        pub cloud_hsm_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cloud_hsm_cluster_id: pulumi_gestalt_rust::Output<String>,
         /// Unique name for Custom Key Store.
-        pub custom_key_store_name: pulumi_wasm_rust::Output<String>,
+        pub custom_key_store_name: pulumi_gestalt_rust::Output<String>,
         /// Password for `kmsuser` on CloudHSM.
-        pub key_store_password: pulumi_wasm_rust::Output<String>,
+        pub key_store_password: pulumi_gestalt_rust::Output<String>,
         /// Customer certificate used for signing on CloudHSM.
-        pub trust_anchor_certificate: pulumi_wasm_rust::Output<String>,
+        pub trust_anchor_certificate: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CustomKeyStoreArgs,
     ) -> CustomKeyStoreResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cloud_hsm_cluster_id_binding = args
             .cloud_hsm_cluster_id
@@ -108,16 +108,16 @@ pub mod custom_key_store {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CustomKeyStoreResult {
-            cloud_hsm_cluster_id: pulumi_wasm_rust::__private::into_domain(
+            cloud_hsm_cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudHsmClusterId"),
             ),
-            custom_key_store_name: pulumi_wasm_rust::__private::into_domain(
+            custom_key_store_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customKeyStoreName"),
             ),
-            key_store_password: pulumi_wasm_rust::__private::into_domain(
+            key_store_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyStorePassword"),
             ),
-            trust_anchor_certificate: pulumi_wasm_rust::__private::into_domain(
+            trust_anchor_certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trustAnchorCertificate"),
             ),
         }

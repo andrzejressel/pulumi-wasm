@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = static_route::create(
@@ -32,64 +32,64 @@
 /// ```
 ///
 pub mod static_route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StaticRouteArgs {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of Cloudflare colocation regions for this static route.
         #[builder(into, default)]
-        pub colo_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub colo_names: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// List of Cloudflare colocation names for this static route.
         #[builder(into, default)]
-        pub colo_regions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub colo_regions: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Description of the static route.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The nexthop IP address where traffic will be routed to.
         #[builder(into)]
-        pub nexthop: pulumi_wasm_rust::InputOrOutput<String>,
+        pub nexthop: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Your network prefix using CIDR notation.
         #[builder(into)]
-        pub prefix: pulumi_wasm_rust::InputOrOutput<String>,
+        pub prefix: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The priority for the static route.
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The optional weight for ECMP routes. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub weight: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub weight: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct StaticRouteResult {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of Cloudflare colocation regions for this static route.
-        pub colo_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub colo_names: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// List of Cloudflare colocation names for this static route.
-        pub colo_regions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub colo_regions: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Description of the static route.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The nexthop IP address where traffic will be routed to.
-        pub nexthop: pulumi_wasm_rust::Output<String>,
+        pub nexthop: pulumi_gestalt_rust::Output<String>,
         /// Your network prefix using CIDR notation.
-        pub prefix: pulumi_wasm_rust::Output<String>,
+        pub prefix: pulumi_gestalt_rust::Output<String>,
         /// The priority for the static route.
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_gestalt_rust::Output<i32>,
         /// The optional weight for ECMP routes. **Modifying this attribute will force creation of a new resource.**
-        pub weight: pulumi_wasm_rust::Output<Option<i32>>,
+        pub weight: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StaticRouteArgs,
     ) -> StaticRouteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let colo_names_binding = args.colo_names.get_output(context).get_inner();
@@ -140,26 +140,30 @@ pub mod static_route {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StaticRouteResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            colo_names: pulumi_wasm_rust::__private::into_domain(
+            colo_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coloNames"),
             ),
-            colo_regions: pulumi_wasm_rust::__private::into_domain(
+            colo_regions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coloRegions"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            nexthop: pulumi_wasm_rust::__private::into_domain(
+            nexthop: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nexthop"),
             ),
-            prefix: pulumi_wasm_rust::__private::into_domain(o.extract_field("prefix")),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            prefix: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("prefix"),
+            ),
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            weight: pulumi_wasm_rust::__private::into_domain(o.extract_field("weight")),
+            weight: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("weight"),
+            ),
         }
     }
 }

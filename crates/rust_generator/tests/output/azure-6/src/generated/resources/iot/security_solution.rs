@@ -40,98 +40,104 @@
 /// ```
 ///
 pub mod security_solution {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecuritySolutionArgs {
         /// A `additional_workspace` block as defined below.
         #[builder(into, default)]
-        pub additional_workspaces: pulumi_wasm_rust::InputOrOutput<
+        pub additional_workspaces: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::SecuritySolutionAdditionalWorkspace>>,
         >,
         /// A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
         #[builder(into, default)]
-        pub disabled_data_sources: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub disabled_data_sources: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Specifies the Display Name for this Iot Security Solution.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Is the Iot Security Solution enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A list of data which is to exported to analytic workspace. Valid values include `RawEvents`.
         #[builder(into, default)]
-        pub events_to_exports: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub events_to_exports: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the IoT Hub resource IDs to which this Iot Security Solution is applied.
         #[builder(into)]
-        pub iothub_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub iothub_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Log Analytics Workspace ID to which the security data will be sent.
         #[builder(into, default)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub log_analytics_workspace_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Should IP addressed be unmasked in the log? Defaults to `false`.
         #[builder(into, default)]
-        pub log_unmasked_ips_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub log_unmasked_ips_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An Azure Resource Graph query used to set the resources monitored.
         #[builder(into, default)]
-        pub query_for_resources: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub query_for_resources: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of subscription Ids on which the user defined resources query should be executed.
         #[builder(into, default)]
-        pub query_subscription_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub query_subscription_ids: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// A `recommendations_enabled` block of options to enable or disable as defined below.
         #[builder(into, default)]
-        pub recommendations_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub recommendations_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::iot::SecuritySolutionRecommendationsEnabled>,
         >,
         /// Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct SecuritySolutionResult {
         /// A `additional_workspace` block as defined below.
-        pub additional_workspaces: pulumi_wasm_rust::Output<
+        pub additional_workspaces: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::iot::SecuritySolutionAdditionalWorkspace>>,
         >,
         /// A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`.
-        pub disabled_data_sources: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub disabled_data_sources: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specifies the Display Name for this Iot Security Solution.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// Is the Iot Security Solution enabled? Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A list of data which is to exported to analytic workspace. Valid values include `RawEvents`.
-        pub events_to_exports: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub events_to_exports: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specifies the IoT Hub resource IDs to which this Iot Security Solution is applied.
-        pub iothub_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub iothub_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Log Analytics Workspace ID to which the security data will be sent.
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub log_analytics_workspace_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Should IP addressed be unmasked in the log? Defaults to `false`.
-        pub log_unmasked_ips_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub log_unmasked_ips_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// An Azure Resource Graph query used to set the resources monitored.
-        pub query_for_resources: pulumi_wasm_rust::Output<String>,
+        pub query_for_resources: pulumi_gestalt_rust::Output<String>,
         /// A list of subscription Ids on which the user defined resources query should be executed.
-        pub query_subscription_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub query_subscription_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A `recommendations_enabled` block of options to enable or disable as defined below.
-        pub recommendations_enabled: pulumi_wasm_rust::Output<
+        pub recommendations_enabled: pulumi_gestalt_rust::Output<
             super::super::types::iot::SecuritySolutionRecommendationsEnabled,
         >,
         /// Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -140,11 +146,11 @@ pub mod security_solution {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SecuritySolutionArgs,
     ) -> SecuritySolutionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let additional_workspaces_binding = args
             .additional_workspaces
@@ -257,47 +263,47 @@ pub mod security_solution {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SecuritySolutionResult {
-            additional_workspaces: pulumi_wasm_rust::__private::into_domain(
+            additional_workspaces: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalWorkspaces"),
             ),
-            disabled_data_sources: pulumi_wasm_rust::__private::into_domain(
+            disabled_data_sources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disabledDataSources"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            events_to_exports: pulumi_wasm_rust::__private::into_domain(
+            events_to_exports: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventsToExports"),
             ),
-            iothub_ids: pulumi_wasm_rust::__private::into_domain(
+            iothub_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iothubIds"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
+            log_analytics_workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logAnalyticsWorkspaceId"),
             ),
-            log_unmasked_ips_enabled: pulumi_wasm_rust::__private::into_domain(
+            log_unmasked_ips_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logUnmaskedIpsEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            query_for_resources: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            query_for_resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("queryForResources"),
             ),
-            query_subscription_ids: pulumi_wasm_rust::__private::into_domain(
+            query_subscription_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("querySubscriptionIds"),
             ),
-            recommendations_enabled: pulumi_wasm_rust::__private::into_domain(
+            recommendations_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recommendationsEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

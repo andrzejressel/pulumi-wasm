@@ -59,46 +59,50 @@
 /// ```
 ///
 pub mod api_tag_description {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiTagDescriptionArgs {
         /// The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
         #[builder(into)]
-        pub api_tag_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_tag_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description of the Tag.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description of the external documentation resources describing the tag.
         #[builder(into, default)]
-        pub external_documentation_description: pulumi_wasm_rust::InputOrOutput<
+        pub external_documentation_description: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The URL of external documentation resources describing the tag.
         #[builder(into, default)]
-        pub external_documentation_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub external_documentation_url: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct ApiTagDescriptionResult {
         /// The The ID of the API Management API Tag. Changing this forces a new API Management API Tag Description to be created.
-        pub api_tag_id: pulumi_wasm_rust::Output<String>,
+        pub api_tag_id: pulumi_gestalt_rust::Output<String>,
         /// The description of the Tag.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The description of the external documentation resources describing the tag.
-        pub external_documentation_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub external_documentation_description: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// The URL of external documentation resources describing the tag.
-        pub external_documentation_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub external_documentation_url: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApiTagDescriptionArgs,
     ) -> ApiTagDescriptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_tag_id_binding = args.api_tag_id.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -135,16 +139,16 @@ pub mod api_tag_description {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApiTagDescriptionResult {
-            api_tag_id: pulumi_wasm_rust::__private::into_domain(
+            api_tag_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiTagId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            external_documentation_description: pulumi_wasm_rust::__private::into_domain(
+            external_documentation_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalDocumentationDescription"),
             ),
-            external_documentation_url: pulumi_wasm_rust::__private::into_domain(
+            external_documentation_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalDocumentationUrl"),
             ),
         }

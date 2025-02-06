@@ -19,8 +19,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let database = database::create(
@@ -38,8 +38,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let database = database::create(
@@ -111,8 +111,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let datastoreModeDatabase = database::create(
@@ -130,8 +130,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let datastoreModeDatabase = database::create(
@@ -225,34 +225,36 @@
 /// ```
 ///
 pub mod database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatabaseArgs {
         /// The App Engine integration mode to use for this database.
         /// Possible values are: `ENABLED`, `DISABLED`.
         #[builder(into, default)]
-        pub app_engine_integration_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub app_engine_integration_mode: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The CMEK (Customer Managed Encryption Key) configuration for a Firestore
         /// database. If not present, the database is secured by the default Google
         /// encryption key.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cmek_config: pulumi_wasm_rust::InputOrOutput<
+        pub cmek_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::firestore::DatabaseCmekConfig>,
         >,
         /// The concurrency control mode to use for this database.
         /// Possible values are: `OPTIMISTIC`, `PESSIMISTIC`, `OPTIMISTIC_WITH_ENTITY_GROUPS`.
         #[builder(into, default)]
-        pub concurrency_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub concurrency_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub delete_protection_state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub delete_protection_state: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location of the database. Available locations are listed at
         /// https://cloud.google.com/firestore/docs/locations.
         #[builder(into)]
-        pub location_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID to use for the database, which will become the final
         /// component of the database's resource name. This value should be 4-63
         /// characters. Valid characters are /[a-z][0-9]-/ with first character
@@ -260,7 +262,7 @@ pub mod database {
         /// UUID-like /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/.
         /// "(default)" database id is also valid.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether to enable the PITR feature on this database.
         /// If `POINT_IN_TIME_RECOVERY_ENABLED` is selected, reads are supported on selected versions of the data from within the past 7 days.
         /// versionRetentionPeriod and earliestVersionTime can be used to determine the supported versions. These include reads against any timestamp within the past hour
@@ -269,13 +271,13 @@ pub mod database {
         /// Default value is `POINT_IN_TIME_RECOVERY_DISABLED`.
         /// Possible values are: `POINT_IN_TIME_RECOVERY_ENABLED`, `POINT_IN_TIME_RECOVERY_DISABLED`.
         #[builder(into, default)]
-        pub point_in_time_recovery_enablement: pulumi_wasm_rust::InputOrOutput<
+        pub point_in_time_recovery_enablement: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of the database.
         /// See https://cloud.google.com/datastore/docs/firestore-or-datastore
         /// for information about how to choose.
@@ -284,50 +286,50 @@ pub mod database {
         ///
         /// - - -
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DatabaseResult {
         /// The App Engine integration mode to use for this database.
         /// Possible values are: `ENABLED`, `DISABLED`.
-        pub app_engine_integration_mode: pulumi_wasm_rust::Output<String>,
+        pub app_engine_integration_mode: pulumi_gestalt_rust::Output<String>,
         /// The CMEK (Customer Managed Encryption Key) configuration for a Firestore
         /// database. If not present, the database is secured by the default Google
         /// encryption key.
         /// Structure is documented below.
-        pub cmek_config: pulumi_wasm_rust::Output<
+        pub cmek_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::firestore::DatabaseCmekConfig>,
         >,
         /// The concurrency control mode to use for this database.
         /// Possible values are: `OPTIMISTIC`, `PESSIMISTIC`, `OPTIMISTIC_WITH_ENTITY_GROUPS`.
-        pub concurrency_mode: pulumi_wasm_rust::Output<String>,
+        pub concurrency_mode: pulumi_gestalt_rust::Output<String>,
         /// Output only. The timestamp at which this database was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
-        pub delete_protection_state: pulumi_wasm_rust::Output<String>,
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
+        pub delete_protection_state: pulumi_gestalt_rust::Output<String>,
+        pub deletion_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Output only. The earliest timestamp at which older versions of the data can be read from the database. See versionRetentionPeriod above; this field is populated with now - versionRetentionPeriod.
         /// This value is continuously updated, and becomes stale the moment it is queried. If you are using this value to recover data, make sure to account for the time from the moment when the value is queried to the moment when you initiate the recovery.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub earliest_version_time: pulumi_wasm_rust::Output<String>,
+        pub earliest_version_time: pulumi_gestalt_rust::Output<String>,
         /// Output only. This checksum is computed by the server based on the value of other fields,
         /// and may be sent on update and delete requests to ensure the client has an
         /// up-to-date value before proceeding.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Output only. The keyPrefix for this database.
         /// This keyPrefix is used, in combination with the project id ("~") to construct the application id
         /// that is returned from the Cloud Datastore APIs in Google App Engine first generation runtimes.
         /// This value may be empty in which case the appid to use for URL-encoded keys is the project_id (eg: foo instead of v~foo).
-        pub key_prefix: pulumi_wasm_rust::Output<String>,
+        pub key_prefix: pulumi_gestalt_rust::Output<String>,
         /// The location of the database. Available locations are listed at
         /// https://cloud.google.com/firestore/docs/locations.
-        pub location_id: pulumi_wasm_rust::Output<String>,
+        pub location_id: pulumi_gestalt_rust::Output<String>,
         /// The ID to use for the database, which will become the final
         /// component of the database's resource name. This value should be 4-63
         /// characters. Valid characters are /[a-z][0-9]-/ with first character
         /// a letter and the last a letter or a number. Must not be
         /// UUID-like /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/.
         /// "(default)" database id is also valid.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Whether to enable the PITR feature on this database.
         /// If `POINT_IN_TIME_RECOVERY_ENABLED` is selected, reads are supported on selected versions of the data from within the past 7 days.
         /// versionRetentionPeriod and earliestVersionTime can be used to determine the supported versions. These include reads against any timestamp within the past hour
@@ -335,10 +337,12 @@ pub mod database {
         /// If `POINT_IN_TIME_RECOVERY_DISABLED` is selected, reads are supported on any version of the data from within the past 1 hour.
         /// Default value is `POINT_IN_TIME_RECOVERY_DISABLED`.
         /// Possible values are: `POINT_IN_TIME_RECOVERY_ENABLED`, `POINT_IN_TIME_RECOVERY_DISABLED`.
-        pub point_in_time_recovery_enablement: pulumi_wasm_rust::Output<Option<String>>,
+        pub point_in_time_recovery_enablement: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The type of the database.
         /// See https://cloud.google.com/datastore/docs/firestore-or-datastore
         /// for information about how to choose.
@@ -346,27 +350,27 @@ pub mod database {
         ///
         ///
         /// - - -
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// Output only. The system-generated UUID4 for this Database.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Output only. The timestamp at which this database was most recently updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// Output only. The period during which past versions of data are retained in the database.
         /// Any read or query can specify a readTime within this window, and will read the state of the database at that time.
         /// If the PITR feature is enabled, the retention period is 7 days. Otherwise, the retention period is 1 hour.
         /// A duration in seconds with up to nine fractional digits, ending with 's'. Example: "3.5s".
-        pub version_retention_period: pulumi_wasm_rust::Output<String>,
+        pub version_retention_period: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatabaseArgs,
     ) -> DatabaseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_engine_integration_mode_binding = args
             .app_engine_integration_mode
@@ -442,47 +446,47 @@ pub mod database {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatabaseResult {
-            app_engine_integration_mode: pulumi_wasm_rust::__private::into_domain(
+            app_engine_integration_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appEngineIntegrationMode"),
             ),
-            cmek_config: pulumi_wasm_rust::__private::into_domain(
+            cmek_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cmekConfig"),
             ),
-            concurrency_mode: pulumi_wasm_rust::__private::into_domain(
+            concurrency_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("concurrencyMode"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            delete_protection_state: pulumi_wasm_rust::__private::into_domain(
+            delete_protection_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteProtectionState"),
             ),
-            deletion_policy: pulumi_wasm_rust::__private::into_domain(
+            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionPolicy"),
             ),
-            earliest_version_time: pulumi_wasm_rust::__private::into_domain(
+            earliest_version_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("earliestVersionTime"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            key_prefix: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            key_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyPrefix"),
             ),
-            location_id: pulumi_wasm_rust::__private::into_domain(
+            location_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("locationId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            point_in_time_recovery_enablement: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            point_in_time_recovery_enablement: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pointInTimeRecoveryEnablement"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            version_retention_period: pulumi_wasm_rust::__private::into_domain(
+            version_retention_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionRetentionPeriod"),
             ),
         }

@@ -19,17 +19,17 @@ impl PulumiWasmSource for GithubPulumiWasmSource {
         let wasm_location = BaseDirs::new()
             .context("Unable to get user directories")?
             .cache_dir()
-            .join("pulumi-wasm")
-            .join(format!("pulumi-wasm-{version}-{profile}.wasm"));
+            .join("pulumi-gestalt")
+            .join(format!("pulumi-gestalt-{version}-{profile}.wasm"));
 
         let url = format!(
-            "https://github.com/andrzejressel/pulumi-wasm-releases/releases/download/v{version}/pulumi_wasm-{profile}.wasm"
+            "https://github.com/andrzejressel/pulumi-gestalt-releases/releases/download/v{version}/pulumi_gestalt-{profile}.wasm"
         );
 
         download_file_and_cache(wasm_location, &url)
             .await
             .context(format!(
-            "Cannot download pulumi-wasm in version {version} with profile {profile}. Url: [{url}]"
+            "Cannot download pulumi-gestalt in version {version} with profile {profile}. Url: [{url}]"
         ))
     }
 }
@@ -45,7 +45,7 @@ async fn download_file_and_cache(cache: PathBuf, url: &String) -> Result<Vec<u8>
         let bytes = response
             .bytes()
             .await
-            .context("Failed to download pulumi_wasm")?;
+            .context("Failed to download pulumi_gestalt")?;
 
         if !status.is_success() {
             bail!(
@@ -56,7 +56,7 @@ async fn download_file_and_cache(cache: PathBuf, url: &String) -> Result<Vec<u8>
 
         tokio::fs::write(&cache, &bytes)
             .await
-            .context("Failed to write pulumi_wasm file")?;
+            .context("Failed to write pulumi_gestalt file")?;
         Ok(bytes.to_vec())
     } else {
         fs::read(&cache).context(format!("Cannot read file: {}", cache.to_str().unwrap()))
@@ -81,11 +81,11 @@ impl PulumiWasmSource for FileSource {
 #[cfg(test)]
 mod tests {
     use super::*;
-    mod pulumi_wasm_source {
+    mod pulumi_gestalt_source {
         use super::*;
 
         #[tokio::test]
-        async fn should_download_existing_pulumi_wasm() -> Result<()> {
+        async fn should_download_existing_pulumi_gestalt() -> Result<()> {
             let source = GithubPulumiWasmSource {};
             let res = source.get("25.1.10-72ba8cc", false).await?;
             assert!(!res.is_empty());
@@ -93,7 +93,7 @@ mod tests {
         }
 
         #[tokio::test]
-        async fn should_download_existing_debug_pulumi_wasm() -> Result<()> {
+        async fn should_download_existing_debug_pulumi_gestalt() -> Result<()> {
             let source = GithubPulumiWasmSource {};
             let res = source.get("25.1.10-72ba8cc", true).await?;
             assert!(!res.is_empty());
@@ -109,7 +109,7 @@ mod tests {
                 .expect_err("Expected error");
             assert_eq!(
                 err.to_string(),
-                "Cannot download pulumi-wasm in version 0.0.0-NIGHTLY-nonexistent with profile release. Url: [https://github.com/andrzejressel/pulumi-wasm-releases/releases/download/v0.0.0-NIGHTLY-nonexistent/pulumi_wasm-release.wasm]"
+                "Cannot download pulumi-gestalt in version 0.0.0-NIGHTLY-nonexistent with profile release. Url: [https://github.com/andrzejressel/pulumi-gestalt-releases/releases/download/v0.0.0-NIGHTLY-nonexistent/pulumi_gestalt-release.wasm]"
             );
             Ok(())
         }

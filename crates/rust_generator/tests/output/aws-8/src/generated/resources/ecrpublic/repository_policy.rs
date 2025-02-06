@@ -56,36 +56,36 @@
 /// $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
 /// ```
 pub mod repository_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryPolicyArgs {
         /// The policy document. This is a JSON formatted string.
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the repository to apply the policy.
         #[builder(into)]
-        pub repository_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub repository_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RepositoryPolicyResult {
         /// The policy document. This is a JSON formatted string.
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_gestalt_rust::Output<String>,
         /// The registry ID where the repository was created.
-        pub registry_id: pulumi_wasm_rust::Output<String>,
+        pub registry_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the repository to apply the policy.
-        pub repository_name: pulumi_wasm_rust::Output<String>,
+        pub repository_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RepositoryPolicyArgs,
     ) -> RepositoryPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let policy_binding = args.policy.get_output(context).get_inner();
         let repository_name_binding = args
@@ -109,11 +109,13 @@ pub mod repository_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RepositoryPolicyResult {
-            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
-            registry_id: pulumi_wasm_rust::__private::into_domain(
+            policy: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("policy"),
+            ),
+            registry_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registryId"),
             ),
-            repository_name: pulumi_wasm_rust::__private::into_domain(
+            repository_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repositoryName"),
             ),
         }

@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm_generator"
+name = "pulumi_gestalt_generator"
 version.workspace = true
 edition.workspace = true
 
@@ -98,7 +98,7 @@ quote.workspace = true
 proc-macro2.workspace = true
 itertools.workspace = true
 rinja.workspace = true
-pulumi_wasm_rust.workspace = true
+pulumi_gestalt_rust.workspace = true
 pathdiff.workspace = true
 
 [dev-dependencies]

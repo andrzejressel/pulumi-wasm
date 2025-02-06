@@ -1,8 +1,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -35,90 +35,94 @@
 /// ```
 ///
 pub mod service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceArgs {
         /// One or more `additional_location` blocks as defined below.
         #[builder(into, default)]
-        pub additional_locations: pulumi_wasm_rust::InputOrOutput<
+        pub additional_locations: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::apimanagement::ServiceAdditionalLocation>>,
         >,
         /// One or more `certificate` blocks (up to 10) as defined below.
         #[builder(into, default)]
-        pub certificates: pulumi_wasm_rust::InputOrOutput<
+        pub certificates: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::apimanagement::ServiceCertificate>>,
         >,
         /// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
         #[builder(into, default)]
-        pub client_certificate_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub client_certificate_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A `delegation` block as defined below.
         #[builder(into, default)]
-        pub delegation: pulumi_wasm_rust::InputOrOutput<
+        pub delegation: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ServiceDelegation>,
         >,
         /// Disable the gateway in main region? This is only supported when `additional_location` is set.
         #[builder(into, default)]
-        pub gateway_disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub gateway_disabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A `hostname_configuration` block as defined below.
         #[builder(into, default)]
-        pub hostname_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub hostname_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ServiceHostnameConfiguration>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ServiceIdentity>,
         >,
         /// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The version which the control plane API calls to API Management service are limited with version equal to or newer than.
         #[builder(into, default)]
-        pub min_api_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub min_api_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the API Management Service. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Email address from which the notification will be sent.
         #[builder(into, default)]
-        pub notification_sender_email: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub notification_sender_email: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A `protocols` block as defined below.
         #[builder(into, default)]
-        pub protocols: pulumi_wasm_rust::InputOrOutput<
+        pub protocols: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ServiceProtocols>,
         >,
         /// ID of a standard SKU IPv4 Public IP.
         ///
         /// > **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
         #[builder(into, default)]
-        pub public_ip_address_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub public_ip_address_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Is public access to the service allowed? Defaults to `true`.
         ///
         /// > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The email of publisher/company.
         #[builder(into)]
-        pub publisher_email: pulumi_wasm_rust::InputOrOutput<String>,
+        pub publisher_email: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of publisher/company.
         #[builder(into)]
-        pub publisher_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub publisher_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `security` block as defined below.
         #[builder(into, default)]
-        pub security: pulumi_wasm_rust::InputOrOutput<
+        pub security: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ServiceSecurity>,
         >,
         /// A `sign_in` block as defined below.
         #[builder(into, default)]
-        pub sign_in: pulumi_wasm_rust::InputOrOutput<
+        pub sign_in: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ServiceSignIn>,
         >,
         /// A `sign_up` block as defined below.
         #[builder(into, default)]
-        pub sign_up: pulumi_wasm_rust::InputOrOutput<
+        pub sign_up: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ServiceSignUp>,
         >,
         /// `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
@@ -127,20 +131,20 @@ pub mod service {
         ///
         /// > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags assigned to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `tenant_access` block as defined below.
         #[builder(into, default)]
-        pub tenant_access: pulumi_wasm_rust::InputOrOutput<
+        pub tenant_access: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ServiceTenantAccess>,
         >,
         /// A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         #[builder(into, default)]
-        pub virtual_network_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub virtual_network_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::apimanagement::ServiceVirtualNetworkConfiguration,
             >,
@@ -149,91 +153,91 @@ pub mod service {
         ///
         /// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
         #[builder(into, default)]
-        pub virtual_network_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub virtual_network_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies a list of Availability Zones in which this API Management service should be located.
         ///
         /// > **NOTE:** Availability zones are only supported in the Premium tier.
         #[builder(into, default)]
-        pub zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub zones: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ServiceResult {
         /// One or more `additional_location` blocks as defined below.
-        pub additional_locations: pulumi_wasm_rust::Output<
+        pub additional_locations: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::apimanagement::ServiceAdditionalLocation>>,
         >,
         /// One or more `certificate` blocks (up to 10) as defined below.
-        pub certificates: pulumi_wasm_rust::Output<
+        pub certificates: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::apimanagement::ServiceCertificate>>,
         >,
         /// Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
-        pub client_certificate_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub client_certificate_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `delegation` block as defined below.
-        pub delegation: pulumi_wasm_rust::Output<
+        pub delegation: pulumi_gestalt_rust::Output<
             super::super::types::apimanagement::ServiceDelegation,
         >,
         /// The URL for the Developer Portal associated with this API Management service.
-        pub developer_portal_url: pulumi_wasm_rust::Output<String>,
+        pub developer_portal_url: pulumi_gestalt_rust::Output<String>,
         /// Disable the gateway in main region? This is only supported when `additional_location` is set.
-        pub gateway_disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub gateway_disabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The URL of the Regional Gateway for the API Management Service in the specified region.
-        pub gateway_regional_url: pulumi_wasm_rust::Output<String>,
+        pub gateway_regional_url: pulumi_gestalt_rust::Output<String>,
         /// The URL of the Gateway for the API Management Service.
-        pub gateway_url: pulumi_wasm_rust::Output<String>,
+        pub gateway_url: pulumi_gestalt_rust::Output<String>,
         /// A `hostname_configuration` block as defined below.
-        pub hostname_configuration: pulumi_wasm_rust::Output<
+        pub hostname_configuration: pulumi_gestalt_rust::Output<
             super::super::types::apimanagement::ServiceHostnameConfiguration,
         >,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::apimanagement::ServiceIdentity>,
         >,
         /// The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The URL for the Management API associated with this API Management service.
-        pub management_api_url: pulumi_wasm_rust::Output<String>,
+        pub management_api_url: pulumi_gestalt_rust::Output<String>,
         /// The version which the control plane API calls to API Management service are limited with version equal to or newer than.
-        pub min_api_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub min_api_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the API Management Service. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Email address from which the notification will be sent.
-        pub notification_sender_email: pulumi_wasm_rust::Output<String>,
+        pub notification_sender_email: pulumi_gestalt_rust::Output<String>,
         /// The URL for the Publisher Portal associated with this API Management service.
-        pub portal_url: pulumi_wasm_rust::Output<String>,
+        pub portal_url: pulumi_gestalt_rust::Output<String>,
         /// The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
-        pub private_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub private_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A `protocols` block as defined below.
-        pub protocols: pulumi_wasm_rust::Output<
+        pub protocols: pulumi_gestalt_rust::Output<
             super::super::types::apimanagement::ServiceProtocols,
         >,
         /// ID of a standard SKU IPv4 Public IP.
         ///
         /// > **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
-        pub public_ip_address_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub public_ip_address_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-        pub public_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub public_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Is public access to the service allowed? Defaults to `true`.
         ///
         /// > **NOTE:** This option is applicable only to the Management plane, not the API gateway or Developer portal. It is required to be `true` on the creation.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The email of publisher/company.
-        pub publisher_email: pulumi_wasm_rust::Output<String>,
+        pub publisher_email: pulumi_gestalt_rust::Output<String>,
         /// The name of publisher/company.
-        pub publisher_name: pulumi_wasm_rust::Output<String>,
+        pub publisher_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
-        pub scm_url: pulumi_wasm_rust::Output<String>,
+        pub scm_url: pulumi_gestalt_rust::Output<String>,
         /// A `security` block as defined below.
-        pub security: pulumi_wasm_rust::Output<
+        pub security: pulumi_gestalt_rust::Output<
             super::super::types::apimanagement::ServiceSecurity,
         >,
         /// A `sign_in` block as defined below.
-        pub sign_in: pulumi_wasm_rust::Output<
+        pub sign_in: pulumi_gestalt_rust::Output<
             super::super::types::apimanagement::ServiceSignIn,
         >,
         /// A `sign_up` block as defined below.
-        pub sign_up: pulumi_wasm_rust::Output<
+        pub sign_up: pulumi_gestalt_rust::Output<
             super::super::types::apimanagement::ServiceSignUp,
         >,
         /// `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
@@ -241,17 +245,17 @@ pub mod service {
         /// > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
         ///
         /// > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags assigned to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `tenant_access` block as defined below.
-        pub tenant_access: pulumi_wasm_rust::Output<
+        pub tenant_access: pulumi_gestalt_rust::Output<
             super::super::types::apimanagement::ServiceTenantAccess,
         >,
         /// A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
-        pub virtual_network_configuration: pulumi_wasm_rust::Output<
+        pub virtual_network_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::apimanagement::ServiceVirtualNetworkConfiguration,
             >,
@@ -259,22 +263,22 @@ pub mod service {
         /// The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
         ///
         /// > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
-        pub virtual_network_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtual_network_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies a list of Availability Zones in which this API Management service should be located.
         ///
         /// > **NOTE:** Availability zones are only supported in the Premium tier.
-        pub zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub zones: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServiceArgs,
     ) -> ServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let additional_locations_binding = args
             .additional_locations
@@ -451,96 +455,102 @@ pub mod service {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServiceResult {
-            additional_locations: pulumi_wasm_rust::__private::into_domain(
+            additional_locations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalLocations"),
             ),
-            certificates: pulumi_wasm_rust::__private::into_domain(
+            certificates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificates"),
             ),
-            client_certificate_enabled: pulumi_wasm_rust::__private::into_domain(
+            client_certificate_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertificateEnabled"),
             ),
-            delegation: pulumi_wasm_rust::__private::into_domain(
+            delegation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("delegation"),
             ),
-            developer_portal_url: pulumi_wasm_rust::__private::into_domain(
+            developer_portal_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("developerPortalUrl"),
             ),
-            gateway_disabled: pulumi_wasm_rust::__private::into_domain(
+            gateway_disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayDisabled"),
             ),
-            gateway_regional_url: pulumi_wasm_rust::__private::into_domain(
+            gateway_regional_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayRegionalUrl"),
             ),
-            gateway_url: pulumi_wasm_rust::__private::into_domain(
+            gateway_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayUrl"),
             ),
-            hostname_configuration: pulumi_wasm_rust::__private::into_domain(
+            hostname_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostnameConfiguration"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            management_api_url: pulumi_wasm_rust::__private::into_domain(
+            management_api_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managementApiUrl"),
             ),
-            min_api_version: pulumi_wasm_rust::__private::into_domain(
+            min_api_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minApiVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notification_sender_email: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notification_sender_email: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationSenderEmail"),
             ),
-            portal_url: pulumi_wasm_rust::__private::into_domain(
+            portal_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("portalUrl"),
             ),
-            private_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            private_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpAddresses"),
             ),
-            protocols: pulumi_wasm_rust::__private::into_domain(
+            protocols: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocols"),
             ),
-            public_ip_address_id: pulumi_wasm_rust::__private::into_domain(
+            public_ip_address_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicIpAddressId"),
             ),
-            public_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            public_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicIpAddresses"),
             ),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            publisher_email: pulumi_wasm_rust::__private::into_domain(
+            publisher_email: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publisherEmail"),
             ),
-            publisher_name: pulumi_wasm_rust::__private::into_domain(
+            publisher_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publisherName"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            scm_url: pulumi_wasm_rust::__private::into_domain(o.extract_field("scmUrl")),
-            security: pulumi_wasm_rust::__private::into_domain(
+            scm_url: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("scmUrl"),
+            ),
+            security: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("security"),
             ),
-            sign_in: pulumi_wasm_rust::__private::into_domain(o.extract_field("signIn")),
-            sign_up: pulumi_wasm_rust::__private::into_domain(o.extract_field("signUp")),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sign_in: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("signIn"),
+            ),
+            sign_up: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("signUp"),
+            ),
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tenant_access: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tenant_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tenantAccess"),
             ),
-            virtual_network_configuration: pulumi_wasm_rust::__private::into_domain(
+            virtual_network_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualNetworkConfiguration"),
             ),
-            virtual_network_type: pulumi_wasm_rust::__private::into_domain(
+            virtual_network_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualNetworkType"),
             ),
-            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
+            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

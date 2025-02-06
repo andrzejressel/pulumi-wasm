@@ -7,8 +7,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = target_group_attachment::create(
@@ -33,8 +33,8 @@
 /// ### Lambda Target
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = target_group::create(
@@ -68,8 +68,8 @@
 /// ### Registering Multiple Targets
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = instance::create("example", InstanceArgs::builder().build_struct());
@@ -93,48 +93,48 @@
 /// You cannot import Target Group Attachments.
 ///
 pub mod target_group_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TargetGroupAttachmentArgs {
         /// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
         #[builder(into, default)]
-        pub availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub availability_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The port on which targets receive traffic.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ARN of the target group with which to register targets.
         #[builder(into)]
-        pub target_group_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_group_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub target_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TargetGroupAttachmentResult {
         /// The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
-        pub availability_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_zone: pulumi_gestalt_rust::Output<Option<String>>,
         /// The port on which targets receive traffic.
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The ARN of the target group with which to register targets.
-        pub target_group_arn: pulumi_wasm_rust::Output<String>,
+        pub target_group_arn: pulumi_gestalt_rust::Output<String>,
         /// The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
         ///
         /// The following arguments are optional:
-        pub target_id: pulumi_wasm_rust::Output<String>,
+        pub target_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TargetGroupAttachmentArgs,
     ) -> TargetGroupAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let availability_zone_binding = args
             .availability_zone
@@ -171,14 +171,14 @@ pub mod target_group_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TargetGroupAttachmentResult {
-            availability_zone: pulumi_wasm_rust::__private::into_domain(
+            availability_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZone"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            target_group_arn: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            target_group_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetGroupArn"),
             ),
-            target_id: pulumi_wasm_rust::__private::into_domain(
+            target_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetId"),
             ),
         }

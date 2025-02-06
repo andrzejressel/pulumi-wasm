@@ -107,7 +107,7 @@
 /// ```
 ///
 pub mod azure_node_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AzureNodePoolArgs {
@@ -118,50 +118,50 @@ pub mod azure_node_pool {
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Autoscaler configuration for this node pool.
         #[builder(into)]
-        pub autoscaling: pulumi_wasm_rust::InputOrOutput<
+        pub autoscaling: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::container::AzureNodePoolAutoscaling,
         >,
         /// Optional. The Azure availability zone of the nodes in this nodepool. When unspecified, it defaults to `1`.
         #[builder(into, default)]
-        pub azure_availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub azure_availability_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The azureCluster for the resource
         #[builder(into)]
-        pub cluster: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The node configuration of the node pool.
         #[builder(into)]
-        pub config: pulumi_wasm_rust::InputOrOutput<
+        pub config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::container::AzureNodePoolConfig,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Management configuration for this node pool.
         #[builder(into, default)]
-        pub management: pulumi_wasm_rust::InputOrOutput<
+        pub management: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::container::AzureNodePoolManagement>,
         >,
         /// The constraint on the maximum number of pods that can be run simultaneously on a node in the node pool.
         #[builder(into)]
-        pub max_pods_constraint: pulumi_wasm_rust::InputOrOutput<
+        pub max_pods_constraint: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::container::AzureNodePoolMaxPodsConstraint,
         >,
         /// The name of this resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARM ID of the subnet where the node pool VMs run. Make sure it's a subnet under the virtual network in the cluster configuration.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Kubernetes version (e.g. `1.19.10-gke.1000`) running on this node pool.
         #[builder(into)]
-        pub version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AzureNodePoolResult {
@@ -171,65 +171,65 @@ pub mod azure_node_pool {
         /// alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between. **Note**: This field is
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// `effective_annotations` for all of the annotations present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Autoscaler configuration for this node pool.
-        pub autoscaling: pulumi_wasm_rust::Output<
+        pub autoscaling: pulumi_gestalt_rust::Output<
             super::super::types::container::AzureNodePoolAutoscaling,
         >,
         /// Optional. The Azure availability zone of the nodes in this nodepool. When unspecified, it defaults to `1`.
-        pub azure_availability_zone: pulumi_wasm_rust::Output<String>,
+        pub azure_availability_zone: pulumi_gestalt_rust::Output<String>,
         /// The azureCluster for the resource
-        pub cluster: pulumi_wasm_rust::Output<String>,
+        pub cluster: pulumi_gestalt_rust::Output<String>,
         /// The node configuration of the node pool.
-        pub config: pulumi_wasm_rust::Output<
+        pub config: pulumi_gestalt_rust::Output<
             super::super::types::container::AzureNodePoolConfig,
         >,
         /// Output only. The time at which this node pool was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub create_time: pulumi_gestalt_rust::Output<String>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Allows clients to perform consistent read-modify-writes through optimistic concurrency control. May be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The location for the resource
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The Management configuration for this node pool.
-        pub management: pulumi_wasm_rust::Output<
+        pub management: pulumi_gestalt_rust::Output<
             super::super::types::container::AzureNodePoolManagement,
         >,
         /// The constraint on the maximum number of pods that can be run simultaneously on a node in the node pool.
-        pub max_pods_constraint: pulumi_wasm_rust::Output<
+        pub max_pods_constraint: pulumi_gestalt_rust::Output<
             super::super::types::container::AzureNodePoolMaxPodsConstraint,
         >,
         /// The name of this resource.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The project for the resource
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Output only. If set, there are currently pending changes to the node pool.
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// Output only. The current state of the node pool. Possible values: STATE_UNSPECIFIED, PROVISIONING, RUNNING, RECONCILING, STOPPING, ERROR, DEGRADED
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The ARM ID of the subnet where the node pool VMs run. Make sure it's a subnet under the virtual network in the cluster configuration.
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
         /// Output only. A globally unique identifier for the node pool.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Output only. The time at which this node pool was last updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// The Kubernetes version (e.g. `1.19.10-gke.1000`) running on this node pool.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AzureNodePoolArgs,
     ) -> AzureNodePoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let autoscaling_binding = args.autoscaling.get_output(context).get_inner();
@@ -306,51 +306,55 @@ pub mod azure_node_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AzureNodePoolResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            autoscaling: pulumi_wasm_rust::__private::into_domain(
+            autoscaling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoscaling"),
             ),
-            azure_availability_zone: pulumi_wasm_rust::__private::into_domain(
+            azure_availability_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("azureAvailabilityZone"),
             ),
-            cluster: pulumi_wasm_rust::__private::into_domain(
+            cluster: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cluster"),
             ),
-            config: pulumi_wasm_rust::__private::into_domain(o.extract_field("config")),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            config: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("config"),
+            ),
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            management: pulumi_wasm_rust::__private::into_domain(
+            management: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("management"),
             ),
-            max_pods_constraint: pulumi_wasm_rust::__private::into_domain(
+            max_pods_constraint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxPodsConstraint"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

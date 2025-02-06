@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -44,68 +44,70 @@
 /// ```
 ///
 pub mod registry_agent_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegistryAgentPoolArgs {
         /// Name of Azure Container Registry to create an Agent Pool for. Changing this forces a new Azure Container Registry Agent Pool to be created.
         #[builder(into)]
-        pub container_registry_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub container_registry_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// VMSS instance count. Defaults to `1`.
         #[builder(into, default)]
-        pub instance_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub instance_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The Azure Region where the Azure Container Registry Agent Pool should exist. Changing this forces a new Azure Container Registry Agent Pool to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Azure Container Registry Agent Pool. Changing this forces a new Azure Container Registry Agent Pool to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Azure Container Registry Agent Pool should exist. Changing this forces a new Azure Container Registry Agent Pool to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Azure Container Registry Agent Pool.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Sets the VM your agent pool will run on. Valid values are: `S1` (2 vCPUs, 3 GiB RAM), `S2` (4 vCPUs, 8 GiB RAM), `S3` (8 vCPUs, 16 GiB RAM) or `I6` (64 vCPUs, 216 GiB RAM, Isolated). Defaults to `S1`. Changing this forces a new Azure Container Registry Agent Pool to be created.
         #[builder(into, default)]
-        pub tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Virtual Network Subnet Resource where the agent machines will be running. Changing this forces a new Azure Container Registry Agent Pool to be created.
         #[builder(into, default)]
-        pub virtual_network_subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub virtual_network_subnet_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct RegistryAgentPoolResult {
         /// Name of Azure Container Registry to create an Agent Pool for. Changing this forces a new Azure Container Registry Agent Pool to be created.
-        pub container_registry_name: pulumi_wasm_rust::Output<String>,
+        pub container_registry_name: pulumi_gestalt_rust::Output<String>,
         /// VMSS instance count. Defaults to `1`.
-        pub instance_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub instance_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The Azure Region where the Azure Container Registry Agent Pool should exist. Changing this forces a new Azure Container Registry Agent Pool to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Azure Container Registry Agent Pool. Changing this forces a new Azure Container Registry Agent Pool to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Azure Container Registry Agent Pool should exist. Changing this forces a new Azure Container Registry Agent Pool to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Azure Container Registry Agent Pool.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Sets the VM your agent pool will run on. Valid values are: `S1` (2 vCPUs, 3 GiB RAM), `S2` (4 vCPUs, 8 GiB RAM), `S3` (8 vCPUs, 16 GiB RAM) or `I6` (64 vCPUs, 216 GiB RAM, Isolated). Defaults to `S1`. Changing this forces a new Azure Container Registry Agent Pool to be created.
-        pub tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub tier: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Virtual Network Subnet Resource where the agent machines will be running. Changing this forces a new Azure Container Registry Agent Pool to be created.
-        pub virtual_network_subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtual_network_subnet_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RegistryAgentPoolArgs,
     ) -> RegistryAgentPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let container_registry_name_binding = args
             .container_registry_name
@@ -165,22 +167,22 @@ pub mod registry_agent_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RegistryAgentPoolResult {
-            container_registry_name: pulumi_wasm_rust::__private::into_domain(
+            container_registry_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerRegistryName"),
             ),
-            instance_count: pulumi_wasm_rust::__private::into_domain(
+            instance_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceCount"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tier: pulumi_wasm_rust::__private::into_domain(o.extract_field("tier")),
-            virtual_network_subnet_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tier: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tier")),
+            virtual_network_subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualNetworkSubnetId"),
             ),
         }

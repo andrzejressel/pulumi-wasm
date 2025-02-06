@@ -35,120 +35,120 @@
 /// $ pulumi import aws:bedrock/customModel:CustomModel example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
 /// ```
 pub mod custom_model {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomModelArgs {
         /// The Amazon Resource Name (ARN) of the base model.
         #[builder(into)]
-        pub base_model_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub base_model_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The custom model is encrypted at rest using this key. Specify the key ARN.
         #[builder(into, default)]
-        pub custom_model_kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub custom_model_kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name for the custom model.
         #[builder(into)]
-        pub custom_model_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub custom_model_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         #[builder(into, default)]
-        pub customization_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub customization_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
         #[builder(into)]
-        pub hyperparameters: pulumi_wasm_rust::InputOrOutput<
+        pub hyperparameters: pulumi_gestalt_rust::InputOrOutput<
             std::collections::HashMap<String, String>,
         >,
         /// A name for the customization job.
         #[builder(into)]
-        pub job_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub job_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// S3 location for the output data.
         #[builder(into, default)]
-        pub output_data_config: pulumi_wasm_rust::InputOrOutput<
+        pub output_data_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::CustomModelOutputDataConfig>,
         >,
         /// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::CustomModelTimeouts>,
         >,
         /// Information about the training dataset.
         #[builder(into, default)]
-        pub training_data_config: pulumi_wasm_rust::InputOrOutput<
+        pub training_data_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::CustomModelTrainingDataConfig>,
         >,
         /// Information about the validation dataset.
         #[builder(into, default)]
-        pub validation_data_config: pulumi_wasm_rust::InputOrOutput<
+        pub validation_data_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::CustomModelValidationDataConfig>,
         >,
         /// Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
         #[builder(into, default)]
-        pub vpc_config: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::CustomModelVpcConfig>,
         >,
     }
     #[allow(dead_code)]
     pub struct CustomModelResult {
         /// The Amazon Resource Name (ARN) of the base model.
-        pub base_model_identifier: pulumi_wasm_rust::Output<String>,
+        pub base_model_identifier: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the output model.
-        pub custom_model_arn: pulumi_wasm_rust::Output<String>,
+        pub custom_model_arn: pulumi_gestalt_rust::Output<String>,
         /// The custom model is encrypted at rest using this key. Specify the key ARN.
-        pub custom_model_kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_model_kms_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name for the custom model.
-        pub custom_model_name: pulumi_wasm_rust::Output<String>,
+        pub custom_model_name: pulumi_gestalt_rust::Output<String>,
         /// The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
-        pub customization_type: pulumi_wasm_rust::Output<String>,
+        pub customization_type: pulumi_gestalt_rust::Output<String>,
         /// [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
-        pub hyperparameters: pulumi_wasm_rust::Output<
+        pub hyperparameters: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The ARN of the customization job.
-        pub job_arn: pulumi_wasm_rust::Output<String>,
+        pub job_arn: pulumi_gestalt_rust::Output<String>,
         /// A name for the customization job.
-        pub job_name: pulumi_wasm_rust::Output<String>,
+        pub job_name: pulumi_gestalt_rust::Output<String>,
         /// The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
-        pub job_status: pulumi_wasm_rust::Output<String>,
+        pub job_status: pulumi_gestalt_rust::Output<String>,
         /// S3 location for the output data.
-        pub output_data_config: pulumi_wasm_rust::Output<
+        pub output_data_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::CustomModelOutputDataConfig>,
         >,
         /// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::CustomModelTimeouts>,
         >,
         /// Information about the training dataset.
-        pub training_data_config: pulumi_wasm_rust::Output<
+        pub training_data_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::CustomModelTrainingDataConfig>,
         >,
         /// Metrics associated with the customization job.
-        pub training_metrics: pulumi_wasm_rust::Output<
+        pub training_metrics: pulumi_gestalt_rust::Output<
             Vec<super::super::types::bedrock::CustomModelTrainingMetric>,
         >,
         /// Information about the validation dataset.
-        pub validation_data_config: pulumi_wasm_rust::Output<
+        pub validation_data_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::CustomModelValidationDataConfig>,
         >,
         /// The loss metric for each validator that you provided.
-        pub validation_metrics: pulumi_wasm_rust::Output<
+        pub validation_metrics: pulumi_gestalt_rust::Output<
             Vec<super::super::types::bedrock::CustomModelValidationMetric>,
         >,
         /// Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
-        pub vpc_config: pulumi_wasm_rust::Output<
+        pub vpc_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::CustomModelVpcConfig>,
         >,
     }
@@ -157,11 +157,11 @@ pub mod custom_model {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CustomModelArgs,
     ) -> CustomModelResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let base_model_identifier_binding = args
             .base_model_identifier
@@ -261,57 +261,59 @@ pub mod custom_model {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CustomModelResult {
-            base_model_identifier: pulumi_wasm_rust::__private::into_domain(
+            base_model_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("baseModelIdentifier"),
             ),
-            custom_model_arn: pulumi_wasm_rust::__private::into_domain(
+            custom_model_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customModelArn"),
             ),
-            custom_model_kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            custom_model_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customModelKmsKeyId"),
             ),
-            custom_model_name: pulumi_wasm_rust::__private::into_domain(
+            custom_model_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customModelName"),
             ),
-            customization_type: pulumi_wasm_rust::__private::into_domain(
+            customization_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customizationType"),
             ),
-            hyperparameters: pulumi_wasm_rust::__private::into_domain(
+            hyperparameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hyperparameters"),
             ),
-            job_arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("jobArn")),
-            job_name: pulumi_wasm_rust::__private::into_domain(
+            job_arn: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("jobArn"),
+            ),
+            job_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jobName"),
             ),
-            job_status: pulumi_wasm_rust::__private::into_domain(
+            job_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jobStatus"),
             ),
-            output_data_config: pulumi_wasm_rust::__private::into_domain(
+            output_data_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outputDataConfig"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            training_data_config: pulumi_wasm_rust::__private::into_domain(
+            training_data_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trainingDataConfig"),
             ),
-            training_metrics: pulumi_wasm_rust::__private::into_domain(
+            training_metrics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trainingMetrics"),
             ),
-            validation_data_config: pulumi_wasm_rust::__private::into_domain(
+            validation_data_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationDataConfig"),
             ),
-            validation_metrics: pulumi_wasm_rust::__private::into_domain(
+            validation_metrics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationMetrics"),
             ),
-            vpc_config: pulumi_wasm_rust::__private::into_domain(
+            vpc_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcConfig"),
             ),
         }

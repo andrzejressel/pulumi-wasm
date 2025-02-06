@@ -5,8 +5,8 @@
 /// ### Attachment Routing
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = prefix_list_reference::create(
@@ -27,8 +27,8 @@
 /// ### Blackhole Routing
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = prefix_list_reference::create(
@@ -52,51 +52,51 @@
 /// $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
 /// ```
 pub mod prefix_list_reference {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrefixListReferenceArgs {
         /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
         #[builder(into, default)]
-        pub blackhole: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub blackhole: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Identifier of EC2 Prefix List.
         #[builder(into)]
-        pub prefix_list_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub prefix_list_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Identifier of EC2 Transit Gateway Attachment.
         #[builder(into, default)]
-        pub transit_gateway_attachment_id: pulumi_wasm_rust::InputOrOutput<
+        pub transit_gateway_attachment_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Identifier of EC2 Transit Gateway Route Table.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub transit_gateway_route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub transit_gateway_route_table_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PrefixListReferenceResult {
         /// Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
-        pub blackhole: pulumi_wasm_rust::Output<Option<bool>>,
+        pub blackhole: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Identifier of EC2 Prefix List.
-        pub prefix_list_id: pulumi_wasm_rust::Output<String>,
-        pub prefix_list_owner_id: pulumi_wasm_rust::Output<String>,
+        pub prefix_list_id: pulumi_gestalt_rust::Output<String>,
+        pub prefix_list_owner_id: pulumi_gestalt_rust::Output<String>,
         /// Identifier of EC2 Transit Gateway Attachment.
-        pub transit_gateway_attachment_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub transit_gateway_attachment_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Identifier of EC2 Transit Gateway Route Table.
         ///
         /// The following arguments are optional:
-        pub transit_gateway_route_table_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_route_table_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PrefixListReferenceArgs,
     ) -> PrefixListReferenceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let blackhole_binding = args.blackhole.get_output(context).get_inner();
         let prefix_list_id_binding = args.prefix_list_id.get_output(context).get_inner();
@@ -134,19 +134,19 @@ pub mod prefix_list_reference {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PrefixListReferenceResult {
-            blackhole: pulumi_wasm_rust::__private::into_domain(
+            blackhole: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blackhole"),
             ),
-            prefix_list_id: pulumi_wasm_rust::__private::into_domain(
+            prefix_list_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("prefixListId"),
             ),
-            prefix_list_owner_id: pulumi_wasm_rust::__private::into_domain(
+            prefix_list_owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("prefixListOwnerId"),
             ),
-            transit_gateway_attachment_id: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_attachment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayAttachmentId"),
             ),
-            transit_gateway_route_table_id: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_route_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayRouteTableId"),
             ),
         }

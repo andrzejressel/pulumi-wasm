@@ -29,8 +29,8 @@
 /// Lightsail user data is handled differently than ec2 user data. Lightsail user data only accepts a single lined string. The below example shows installing apache and creating the index page.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let custom = instance::create(
@@ -75,113 +75,113 @@
 /// $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom_gitlab'
 /// ```
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
         /// The add on configuration for the instance. Detailed below.
         #[builder(into, default)]
-        pub add_on: pulumi_wasm_rust::InputOrOutput<
+        pub add_on: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lightsail::InstanceAddOn>,
         >,
         /// The Availability Zone in which to create your instance. A
         /// list of available zones can be obtained using the AWS CLI command:
         /// [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
         #[builder(into)]
-        pub availability_zone: pulumi_wasm_rust::InputOrOutput<String>,
+        pub availability_zone: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID for a virtual private server image. A list of available
         /// blueprint IDs can be obtained using the AWS CLI command:
         /// [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
         #[builder(into)]
-        pub blueprint_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub blueprint_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The bundle of specification information. A list of available
         /// bundle IDs can be obtained using the AWS CLI command:
         /// [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
         #[builder(into)]
-        pub bundle_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bundle_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
         #[builder(into, default)]
-        pub ip_address_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_address_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of your key pair. Created in the
         /// Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
         #[builder(into, default)]
-        pub key_pair_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_pair_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Single lined launch script as a string to configure server with additional user data
         #[builder(into, default)]
-        pub user_data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_data: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
         /// The add on configuration for the instance. Detailed below.
-        pub add_on: pulumi_wasm_rust::Output<
+        pub add_on: pulumi_gestalt_rust::Output<
             Option<super::super::types::lightsail::InstanceAddOn>,
         >,
         /// The ARN of the Lightsail instance (matches `id`).
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The Availability Zone in which to create your instance. A
         /// list of available zones can be obtained using the AWS CLI command:
         /// [`aws lightsail get-regions --include-availability-zones`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-regions.html).
-        pub availability_zone: pulumi_wasm_rust::Output<String>,
+        pub availability_zone: pulumi_gestalt_rust::Output<String>,
         /// The ID for a virtual private server image. A list of available
         /// blueprint IDs can be obtained using the AWS CLI command:
         /// [`aws lightsail get-blueprints`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-blueprints.html).
-        pub blueprint_id: pulumi_wasm_rust::Output<String>,
+        pub blueprint_id: pulumi_gestalt_rust::Output<String>,
         /// The bundle of specification information. A list of available
         /// bundle IDs can be obtained using the AWS CLI command:
         /// [`aws lightsail get-bundles`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lightsail/get-bundles.html).
-        pub bundle_id: pulumi_wasm_rust::Output<String>,
+        pub bundle_id: pulumi_gestalt_rust::Output<String>,
         /// The number of vCPUs the instance has.
-        pub cpu_count: pulumi_wasm_rust::Output<i32>,
+        pub cpu_count: pulumi_gestalt_rust::Output<i32>,
         /// The timestamp when the instance was created.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// The IP address type of the Lightsail Instance. Valid Values: `dualstack` | `ipv4`.
-        pub ip_address_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of IPv6 addresses for the Lightsail instance.
-        pub ipv6_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub ipv6_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A Boolean value indicating whether this instance has a static IP assigned to it.
-        pub is_static_ip: pulumi_wasm_rust::Output<bool>,
+        pub is_static_ip: pulumi_gestalt_rust::Output<bool>,
         /// The name of your key pair. Created in the
         /// Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
-        pub key_pair_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_pair_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Lightsail Instance. Names must be unique within each AWS Region in your Lightsail account.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The private IP address of the instance.
-        pub private_ip_address: pulumi_wasm_rust::Output<String>,
+        pub private_ip_address: pulumi_gestalt_rust::Output<String>,
         /// The public IP address of the instance.
-        pub public_ip_address: pulumi_wasm_rust::Output<String>,
+        pub public_ip_address: pulumi_gestalt_rust::Output<String>,
         /// The amount of RAM in GB on the instance (e.g., 1.0).
-        pub ram_size: pulumi_wasm_rust::Output<f64>,
+        pub ram_size: pulumi_gestalt_rust::Output<f64>,
         /// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Single lined launch script as a string to configure server with additional user data
-        pub user_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_data: pulumi_gestalt_rust::Output<Option<String>>,
         /// The user name for connecting to the instance (e.g., ec2-user).
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub username: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let add_on_binding = args.add_on.get_output(context).get_inner();
         let availability_zone_binding = args
@@ -243,53 +243,55 @@ pub mod instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceResult {
-            add_on: pulumi_wasm_rust::__private::into_domain(o.extract_field("addOn")),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone: pulumi_wasm_rust::__private::into_domain(
+            add_on: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("addOn"),
+            ),
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            availability_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZone"),
             ),
-            blueprint_id: pulumi_wasm_rust::__private::into_domain(
+            blueprint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blueprintId"),
             ),
-            bundle_id: pulumi_wasm_rust::__private::into_domain(
+            bundle_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bundleId"),
             ),
-            cpu_count: pulumi_wasm_rust::__private::into_domain(
+            cpu_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cpuCount"),
             ),
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            ip_address_type: pulumi_wasm_rust::__private::into_domain(
+            ip_address_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddressType"),
             ),
-            ipv6_addresses: pulumi_wasm_rust::__private::into_domain(
+            ipv6_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6Addresses"),
             ),
-            is_static_ip: pulumi_wasm_rust::__private::into_domain(
+            is_static_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isStaticIp"),
             ),
-            key_pair_name: pulumi_wasm_rust::__private::into_domain(
+            key_pair_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyPairName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            private_ip_address: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            private_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpAddress"),
             ),
-            public_ip_address: pulumi_wasm_rust::__private::into_domain(
+            public_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicIpAddress"),
             ),
-            ram_size: pulumi_wasm_rust::__private::into_domain(
+            ram_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ramSize"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            user_data: pulumi_wasm_rust::__private::into_domain(
+            user_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userData"),
             ),
-            username: pulumi_wasm_rust::__private::into_domain(
+            username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("username"),
             ),
         }

@@ -8,109 +8,109 @@
 /// $ pulumi import aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration example <matchmakingconfiguration-id>
 /// ```
 pub mod matchmaking_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MatchmakingConfigurationArgs {
         /// Specifies if the match that was created with this configuration must be accepted by matched players.
         #[builder(into, default)]
-        pub acceptance_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub acceptance_required: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
         #[builder(into, default)]
-        pub acceptance_timeout_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub acceptance_timeout_seconds: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The number of player slots in a match to keep open for future players.
         #[builder(into, default)]
-        pub additional_player_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub additional_player_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The method used to backfill game sessions that are created with this matchmaking configuration.
         #[builder(into, default)]
-        pub backfill_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub backfill_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Information to be added to all events related to this matchmaking configuration.
         #[builder(into, default)]
-        pub custom_event_data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub custom_event_data: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A human-readable description of the matchmaking configuration.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
         #[builder(into, default)]
-        pub flex_match_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub flex_match_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more custom game properties. See below.
         #[builder(into, default)]
-        pub game_properties: pulumi_wasm_rust::InputOrOutput<
+        pub game_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::gamelift::MatchmakingConfigurationGameProperty>,
             >,
         >,
         /// A set of custom game session properties.
         #[builder(into, default)]
-        pub game_session_data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub game_session_data: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARNs of the GameLift game session queue resources.
         #[builder(into, default)]
-        pub game_session_queue_arns: pulumi_wasm_rust::InputOrOutput<
+        pub game_session_queue_arns: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Name of the matchmaking configuration
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An SNS topic ARN that is set up to receive matchmaking notifications.
         #[builder(into, default)]
-        pub notification_target: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub notification_target: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
         #[builder(into)]
-        pub request_timeout_seconds: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub request_timeout_seconds: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// A rule set names for the matchmaking rule set to use with this configuration.
         #[builder(into)]
-        pub rule_set_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rule_set_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct MatchmakingConfigurationResult {
         /// Specifies if the match that was created with this configuration must be accepted by matched players.
-        pub acceptance_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub acceptance_required: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
-        pub acceptance_timeout_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub acceptance_timeout_seconds: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The number of player slots in a match to keep open for future players.
-        pub additional_player_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub additional_player_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Matchmaking Configuration ARN.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The method used to backfill game sessions that are created with this matchmaking configuration.
-        pub backfill_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub backfill_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The time when the Matchmaking Configuration was created.
-        pub creation_time: pulumi_wasm_rust::Output<String>,
+        pub creation_time: pulumi_gestalt_rust::Output<String>,
         /// Information to be added to all events related to this matchmaking configuration.
-        pub custom_event_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_event_data: pulumi_gestalt_rust::Output<Option<String>>,
         /// A human-readable description of the matchmaking configuration.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Indicates whether this matchmaking configuration is being used with GameLift hosting or as a standalone matchmaking solution.
-        pub flex_match_mode: pulumi_wasm_rust::Output<String>,
+        pub flex_match_mode: pulumi_gestalt_rust::Output<String>,
         /// One or more custom game properties. See below.
-        pub game_properties: pulumi_wasm_rust::Output<
+        pub game_properties: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::gamelift::MatchmakingConfigurationGameProperty>,
             >,
         >,
         /// A set of custom game session properties.
-        pub game_session_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub game_session_data: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ARNs of the GameLift game session queue resources.
-        pub game_session_queue_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub game_session_queue_arns: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Name of the matchmaking configuration
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// An SNS topic ARN that is set up to receive matchmaking notifications.
-        pub notification_target: pulumi_wasm_rust::Output<Option<String>>,
+        pub notification_target: pulumi_gestalt_rust::Output<Option<String>>,
         /// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
-        pub request_timeout_seconds: pulumi_wasm_rust::Output<i32>,
-        pub rule_set_arn: pulumi_wasm_rust::Output<String>,
+        pub request_timeout_seconds: pulumi_gestalt_rust::Output<i32>,
+        pub rule_set_arn: pulumi_gestalt_rust::Output<String>,
         /// A rule set names for the matchmaking rule set to use with this configuration.
-        pub rule_set_name: pulumi_wasm_rust::Output<String>,
+        pub rule_set_name: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -119,11 +119,11 @@ pub mod matchmaking_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MatchmakingConfigurationArgs,
     ) -> MatchmakingConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let acceptance_required_binding = args
             .acceptance_required
@@ -240,55 +240,55 @@ pub mod matchmaking_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MatchmakingConfigurationResult {
-            acceptance_required: pulumi_wasm_rust::__private::into_domain(
+            acceptance_required: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("acceptanceRequired"),
             ),
-            acceptance_timeout_seconds: pulumi_wasm_rust::__private::into_domain(
+            acceptance_timeout_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("acceptanceTimeoutSeconds"),
             ),
-            additional_player_count: pulumi_wasm_rust::__private::into_domain(
+            additional_player_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalPlayerCount"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            backfill_mode: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            backfill_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backfillMode"),
             ),
-            creation_time: pulumi_wasm_rust::__private::into_domain(
+            creation_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTime"),
             ),
-            custom_event_data: pulumi_wasm_rust::__private::into_domain(
+            custom_event_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customEventData"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            flex_match_mode: pulumi_wasm_rust::__private::into_domain(
+            flex_match_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("flexMatchMode"),
             ),
-            game_properties: pulumi_wasm_rust::__private::into_domain(
+            game_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gameProperties"),
             ),
-            game_session_data: pulumi_wasm_rust::__private::into_domain(
+            game_session_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gameSessionData"),
             ),
-            game_session_queue_arns: pulumi_wasm_rust::__private::into_domain(
+            game_session_queue_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gameSessionQueueArns"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notification_target: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notification_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationTarget"),
             ),
-            request_timeout_seconds: pulumi_wasm_rust::__private::into_domain(
+            request_timeout_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestTimeoutSeconds"),
             ),
-            rule_set_arn: pulumi_wasm_rust::__private::into_domain(
+            rule_set_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleSetArn"),
             ),
-            rule_set_name: pulumi_wasm_rust::__private::into_domain(
+            rule_set_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleSetName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let peer = bgp_peer::create(
@@ -18,64 +18,64 @@
 /// }
 /// ```
 pub mod bgp_peer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BgpPeerArgs {
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
         #[builder(into)]
-        pub address_family: pulumi_wasm_rust::InputOrOutput<String>,
+        pub address_family: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The IPv4 CIDR address to use to send traffic to Amazon.
         /// Required for IPv4 BGP peers on public virtual interfaces.
         #[builder(into, default)]
-        pub amazon_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub amazon_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         #[builder(into)]
-        pub bgp_asn: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub bgp_asn: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The authentication key for BGP configuration.
         #[builder(into, default)]
-        pub bgp_auth_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub bgp_auth_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IPv4 CIDR destination address to which Amazon should send traffic.
         /// Required for IPv4 BGP peers on public virtual interfaces.
         #[builder(into, default)]
-        pub customer_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub customer_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Direct Connect virtual interface on which to create the BGP peer.
         #[builder(into)]
-        pub virtual_interface_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_interface_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BgpPeerResult {
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
-        pub address_family: pulumi_wasm_rust::Output<String>,
+        pub address_family: pulumi_gestalt_rust::Output<String>,
         /// The IPv4 CIDR address to use to send traffic to Amazon.
         /// Required for IPv4 BGP peers on public virtual interfaces.
-        pub amazon_address: pulumi_wasm_rust::Output<String>,
+        pub amazon_address: pulumi_gestalt_rust::Output<String>,
         /// The Direct Connect endpoint on which the BGP peer terminates.
-        pub aws_device: pulumi_wasm_rust::Output<String>,
+        pub aws_device: pulumi_gestalt_rust::Output<String>,
         /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-        pub bgp_asn: pulumi_wasm_rust::Output<i32>,
+        pub bgp_asn: pulumi_gestalt_rust::Output<i32>,
         /// The authentication key for BGP configuration.
-        pub bgp_auth_key: pulumi_wasm_rust::Output<String>,
+        pub bgp_auth_key: pulumi_gestalt_rust::Output<String>,
         /// The ID of the BGP peer.
-        pub bgp_peer_id: pulumi_wasm_rust::Output<String>,
+        pub bgp_peer_id: pulumi_gestalt_rust::Output<String>,
         /// The Up/Down state of the BGP peer.
-        pub bgp_status: pulumi_wasm_rust::Output<String>,
+        pub bgp_status: pulumi_gestalt_rust::Output<String>,
         /// The IPv4 CIDR destination address to which Amazon should send traffic.
         /// Required for IPv4 BGP peers on public virtual interfaces.
-        pub customer_address: pulumi_wasm_rust::Output<String>,
+        pub customer_address: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Direct Connect virtual interface on which to create the BGP peer.
-        pub virtual_interface_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_interface_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BgpPeerArgs,
     ) -> BgpPeerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let address_family_binding = args.address_family.get_output(context).get_inner();
         let amazon_address_binding = args.amazon_address.get_output(context).get_inner();
@@ -122,29 +122,31 @@ pub mod bgp_peer {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BgpPeerResult {
-            address_family: pulumi_wasm_rust::__private::into_domain(
+            address_family: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addressFamily"),
             ),
-            amazon_address: pulumi_wasm_rust::__private::into_domain(
+            amazon_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("amazonAddress"),
             ),
-            aws_device: pulumi_wasm_rust::__private::into_domain(
+            aws_device: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsDevice"),
             ),
-            bgp_asn: pulumi_wasm_rust::__private::into_domain(o.extract_field("bgpAsn")),
-            bgp_auth_key: pulumi_wasm_rust::__private::into_domain(
+            bgp_asn: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bgpAsn"),
+            ),
+            bgp_auth_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bgpAuthKey"),
             ),
-            bgp_peer_id: pulumi_wasm_rust::__private::into_domain(
+            bgp_peer_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bgpPeerId"),
             ),
-            bgp_status: pulumi_wasm_rust::__private::into_domain(
+            bgp_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bgpStatus"),
             ),
-            customer_address: pulumi_wasm_rust::__private::into_domain(
+            customer_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerAddress"),
             ),
-            virtual_interface_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_interface_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualInterfaceId"),
             ),
         }

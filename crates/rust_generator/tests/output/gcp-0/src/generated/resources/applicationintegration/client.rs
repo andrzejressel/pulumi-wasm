@@ -14,8 +14,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = client::create(
@@ -110,63 +110,63 @@
 /// ```
 ///
 pub mod client {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClientArgs {
         /// Cloud KMS config for AuthModule to encrypt/decrypt credentials.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cloud_kms_config: pulumi_wasm_rust::InputOrOutput<
+        pub cloud_kms_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::applicationintegration::ClientCloudKmsConfig>,
         >,
         /// Indicates if sample integrations should be created along with provisioning.
         #[builder(into, default)]
-        pub create_sample_integrations: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub create_sample_integrations: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Location in which client needs to be provisioned.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User input run-as service account, if empty, will bring up a new default service account.
         #[builder(into, default)]
-        pub run_as_service_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub run_as_service_account: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ClientResult {
         /// Cloud KMS config for AuthModule to encrypt/decrypt credentials.
         /// Structure is documented below.
-        pub cloud_kms_config: pulumi_wasm_rust::Output<
+        pub cloud_kms_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::applicationintegration::ClientCloudKmsConfig>,
         >,
         /// Indicates if sample integrations should be created along with provisioning.
-        pub create_sample_integrations: pulumi_wasm_rust::Output<Option<bool>>,
+        pub create_sample_integrations: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Location in which client needs to be provisioned.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// User input run-as service account, if empty, will bring up a new default service account.
-        pub run_as_service_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub run_as_service_account: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClientArgs,
     ) -> ClientResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cloud_kms_config_binding = args
             .cloud_kms_config
@@ -211,19 +211,19 @@ pub mod client {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClientResult {
-            cloud_kms_config: pulumi_wasm_rust::__private::into_domain(
+            cloud_kms_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudKmsConfig"),
             ),
-            create_sample_integrations: pulumi_wasm_rust::__private::into_domain(
+            create_sample_integrations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createSampleIntegrations"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            run_as_service_account: pulumi_wasm_rust::__private::into_domain(
+            run_as_service_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runAsServiceAccount"),
             ),
         }

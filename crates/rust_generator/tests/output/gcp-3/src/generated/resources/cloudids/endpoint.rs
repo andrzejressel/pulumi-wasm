@@ -70,77 +70,77 @@
 /// ```
 ///
 pub mod endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointArgs {
         /// An optional description of the endpoint.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location for the endpoint.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the endpoint in the format projects/{project_id}/locations/{locationId}/endpoints/{endpointId}.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the VPC network that is connected to the IDS endpoint. This can either contain the VPC network name itself (like "src-net") or the full URL to the network (like "projects/{project_id}/global/networks/src-net").
         #[builder(into)]
-        pub network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The minimum alert severity level that is reported by the endpoint.
         /// Possible values are: `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
         #[builder(into)]
-        pub severity: pulumi_wasm_rust::InputOrOutput<String>,
+        pub severity: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration for threat IDs excluded from generating alerts. Limit: 99 IDs.
         #[builder(into, default)]
-        pub threat_exceptions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub threat_exceptions: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct EndpointResult {
         /// Creation timestamp in RFC 3339 text format.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// An optional description of the endpoint.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// URL of the endpoint's network address to which traffic is to be sent by Packet Mirroring.
-        pub endpoint_forwarding_rule: pulumi_wasm_rust::Output<String>,
+        pub endpoint_forwarding_rule: pulumi_gestalt_rust::Output<String>,
         /// Internal IP address of the endpoint's network entry point.
-        pub endpoint_ip: pulumi_wasm_rust::Output<String>,
+        pub endpoint_ip: pulumi_gestalt_rust::Output<String>,
         /// The location for the endpoint.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Name of the endpoint in the format projects/{project_id}/locations/{locationId}/endpoints/{endpointId}.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Name of the VPC network that is connected to the IDS endpoint. This can either contain the VPC network name itself (like "src-net") or the full URL to the network (like "projects/{project_id}/global/networks/src-net").
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The minimum alert severity level that is reported by the endpoint.
         /// Possible values are: `INFORMATIONAL`, `LOW`, `MEDIUM`, `HIGH`, `CRITICAL`.
-        pub severity: pulumi_wasm_rust::Output<String>,
+        pub severity: pulumi_gestalt_rust::Output<String>,
         /// Configuration for threat IDs excluded from generating alerts. Limit: 99 IDs.
-        pub threat_exceptions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub threat_exceptions: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Last update timestamp in RFC 3339 text format.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EndpointArgs,
     ) -> EndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let location_binding = args.location.get_output(context).get_inner();
@@ -189,35 +189,35 @@ pub mod endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EndpointResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            endpoint_forwarding_rule: pulumi_wasm_rust::__private::into_domain(
+            endpoint_forwarding_rule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointForwardingRule"),
             ),
-            endpoint_ip: pulumi_wasm_rust::__private::into_domain(
+            endpoint_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointIp"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            severity: pulumi_wasm_rust::__private::into_domain(
+            severity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("severity"),
             ),
-            threat_exceptions: pulumi_wasm_rust::__private::into_domain(
+            threat_exceptions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("threatExceptions"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

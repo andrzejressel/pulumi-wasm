@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let processor = document_ai_processor::create(
@@ -53,59 +53,59 @@
 /// ```
 ///
 pub mod document_ai_processor {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DocumentAiProcessorArgs {
         /// The display name. Must be unique.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The KMS key used for encryption/decryption in CMEK scenarios. See https://cloud.google.com/security-key-management.
         #[builder(into, default)]
-        pub kms_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location of the resource.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of processor. For possible types see the [official list](https://cloud.google.com/document-ai/docs/reference/rest/v1/projects.locations/fetchProcessorTypes#google.cloud.documentai.v1.DocumentProcessorService.FetchProcessorTypes)
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DocumentAiProcessorResult {
         /// The display name. Must be unique.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The KMS key used for encryption/decryption in CMEK scenarios. See https://cloud.google.com/security-key-management.
-        pub kms_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The location of the resource.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the processor.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The type of processor. For possible types see the [official list](https://cloud.google.com/document-ai/docs/reference/rest/v1/projects.locations/fetchProcessorTypes#google.cloud.documentai.v1.DocumentProcessorService.FetchProcessorTypes)
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DocumentAiProcessorArgs,
     ) -> DocumentAiProcessorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let display_name_binding = args.display_name.get_output(context).get_inner();
         let kms_key_name_binding = args.kms_key_name.get_output(context).get_inner();
@@ -142,20 +142,20 @@ pub mod document_ai_processor {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DocumentAiProcessorResult {
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            kms_key_name: pulumi_wasm_rust::__private::into_domain(
+            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyName"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

@@ -1,35 +1,35 @@
 pub mod get_notification_channel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetNotificationChannelArgs {
         /// Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::InputOrOutput<
+        pub filters: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::super::types::devopsguru::GetNotificationChannelFilter>,
             >,
         >,
         /// Unique identifier for the notification channel.
         #[builder(into)]
-        pub id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// SNS noficiation channel configurations. See the `sns` attribute reference below.
         #[builder(into, default)]
-        pub sns: pulumi_wasm_rust::InputOrOutput<
+        pub sns: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::super::types::devopsguru::GetNotificationChannelSn>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetNotificationChannelResult {
         /// Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::super::types::devopsguru::GetNotificationChannelFilter>,
             >,
         >,
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// SNS noficiation channel configurations. See the `sns` attribute reference below.
-        pub sns: pulumi_wasm_rust::Output<
+        pub sns: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::super::types::devopsguru::GetNotificationChannelSn>>,
         >,
     }
@@ -38,10 +38,10 @@ pub mod get_notification_channel {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetNotificationChannelArgs,
     ) -> GetNotificationChannelResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let filters_binding = args.filters.get_output(context).get_inner();
         let id_binding = args.id.get_output(context).get_inner();
@@ -66,11 +66,11 @@ pub mod get_notification_channel {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetNotificationChannelResult {
-            filters: pulumi_wasm_rust::__private::into_domain(
+            filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            sns: pulumi_wasm_rust::__private::into_domain(o.extract_field("sns")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            sns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sns")),
         }
     }
 }

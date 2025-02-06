@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = transit_gateway_connect_peer_association::create(
@@ -29,44 +29,44 @@
 /// $ pulumi import aws:networkmanager/transitGatewayConnectPeerAssociation:TransitGatewayConnectPeerAssociation example global-network-0d47f6t230mz46dy4,arn:aws:ec2:us-west-2:123456789012:transit-gateway-connect-peer/tgw-connect-peer-12345678
 /// ```
 pub mod transit_gateway_connect_peer_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TransitGatewayConnectPeerAssociationArgs {
         /// The ID of the device.
         #[builder(into)]
-        pub device_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub device_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the global network.
         #[builder(into)]
-        pub global_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub global_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the link.
         #[builder(into, default)]
-        pub link_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub link_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) of the Connect peer.
         #[builder(into)]
-        pub transit_gateway_connect_peer_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub transit_gateway_connect_peer_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TransitGatewayConnectPeerAssociationResult {
         /// The ID of the device.
-        pub device_id: pulumi_wasm_rust::Output<String>,
+        pub device_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the global network.
-        pub global_network_id: pulumi_wasm_rust::Output<String>,
+        pub global_network_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the link.
-        pub link_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub link_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Amazon Resource Name (ARN) of the Connect peer.
-        pub transit_gateway_connect_peer_arn: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_connect_peer_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TransitGatewayConnectPeerAssociationArgs,
     ) -> TransitGatewayConnectPeerAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let device_id_binding = args.device_id.get_output(context).get_inner();
         let global_network_id_binding = args
@@ -104,14 +104,16 @@ pub mod transit_gateway_connect_peer_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TransitGatewayConnectPeerAssociationResult {
-            device_id: pulumi_wasm_rust::__private::into_domain(
+            device_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deviceId"),
             ),
-            global_network_id: pulumi_wasm_rust::__private::into_domain(
+            global_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalNetworkId"),
             ),
-            link_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("linkId")),
-            transit_gateway_connect_peer_arn: pulumi_wasm_rust::__private::into_domain(
+            link_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("linkId"),
+            ),
+            transit_gateway_connect_peer_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayConnectPeerArn"),
             ),
         }

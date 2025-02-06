@@ -55,8 +55,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let cloudrunNeg = region_network_endpoint_group::create(
@@ -172,8 +172,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let appengineNeg = region_network_endpoint_group::create(
@@ -191,8 +191,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let pscNeg = region_network_endpoint_group::create(
@@ -291,8 +291,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = network::create(
@@ -314,8 +314,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = network::create(
@@ -337,8 +337,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = network::create(
@@ -398,7 +398,7 @@
 /// ```
 ///
 pub mod region_network_endpoint_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegionNetworkEndpointGroupArgs {
@@ -406,27 +406,27 @@ pub mod region_network_endpoint_group {
         /// Only one of cloud_run, app_engine, cloud_function or serverless_deployment may be set.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub app_engine: pulumi_wasm_rust::InputOrOutput<
+        pub app_engine: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RegionNetworkEndpointGroupAppEngine>,
         >,
         /// This field is only used for SERVERLESS NEGs.
         /// Only one of cloud_run, app_engine, cloud_function or serverless_deployment may be set.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cloud_function: pulumi_wasm_rust::InputOrOutput<
+        pub cloud_function: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RegionNetworkEndpointGroupCloudFunction>,
         >,
         /// This field is only used for SERVERLESS NEGs.
         /// Only one of cloud_run, app_engine, cloud_function or serverless_deployment may be set.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cloud_run: pulumi_wasm_rust::InputOrOutput<
+        pub cloud_run: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RegionNetworkEndpointGroupCloudRun>,
         >,
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the resource; provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -435,43 +435,43 @@ pub mod region_network_endpoint_group {
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// This field is only used for PSC and INTERNET NEGs.
         /// The URL of the network to which all network endpoints in the NEG belong. Uses
         /// "default" project network if unspecified.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Type of network endpoints in this network endpoint group. Defaults to SERVERLESS.
         /// Default value is `SERVERLESS`.
         /// Possible values are: `SERVERLESS`, `PRIVATE_SERVICE_CONNECT`, `INTERNET_IP_PORT`, `INTERNET_FQDN_PORT`, `GCE_VM_IP_PORTMAP`.
         #[builder(into, default)]
-        pub network_endpoint_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network_endpoint_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// This field is only used for PSC NEGs.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub psc_data: pulumi_wasm_rust::InputOrOutput<
+        pub psc_data: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RegionNetworkEndpointGroupPscData>,
         >,
         /// This field is only used for PSC and INTERNET NEGs.
         /// The target service url used to set up private service connection to
         /// a Google API or a PSC Producer Service Attachment.
         #[builder(into, default)]
-        pub psc_target_service: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub psc_target_service: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A reference to the region where the regional NEGs reside.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub region: pulumi_wasm_rust::InputOrOutput<String>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<String>,
         /// This field is only used for SERVERLESS NEGs.
         /// Only one of cloudRun, appEngine, cloudFunction or serverlessDeployment may be set.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub serverless_deployment: pulumi_wasm_rust::InputOrOutput<
+        pub serverless_deployment: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::compute::RegionNetworkEndpointGroupServerlessDeployment,
             >,
@@ -479,31 +479,31 @@ pub mod region_network_endpoint_group {
         /// This field is only used for PSC NEGs.
         /// Optional URL of the subnetwork to which all network endpoints in the NEG belong.
         #[builder(into, default)]
-        pub subnetwork: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subnetwork: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RegionNetworkEndpointGroupResult {
         /// This field is only used for SERVERLESS NEGs.
         /// Only one of cloud_run, app_engine, cloud_function or serverless_deployment may be set.
         /// Structure is documented below.
-        pub app_engine: pulumi_wasm_rust::Output<
+        pub app_engine: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RegionNetworkEndpointGroupAppEngine>,
         >,
         /// This field is only used for SERVERLESS NEGs.
         /// Only one of cloud_run, app_engine, cloud_function or serverless_deployment may be set.
         /// Structure is documented below.
-        pub cloud_function: pulumi_wasm_rust::Output<
+        pub cloud_function: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RegionNetworkEndpointGroupCloudFunction>,
         >,
         /// This field is only used for SERVERLESS NEGs.
         /// Only one of cloud_run, app_engine, cloud_function or serverless_deployment may be set.
         /// Structure is documented below.
-        pub cloud_run: pulumi_wasm_rust::Output<
+        pub cloud_run: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RegionNetworkEndpointGroupCloudRun>,
         >,
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the resource; provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -511,56 +511,56 @@ pub mod region_network_endpoint_group {
         /// first character must be a lowercase letter, and all following
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// This field is only used for PSC and INTERNET NEGs.
         /// The URL of the network to which all network endpoints in the NEG belong. Uses
         /// "default" project network if unspecified.
-        pub network: pulumi_wasm_rust::Output<Option<String>>,
+        pub network: pulumi_gestalt_rust::Output<Option<String>>,
         /// Type of network endpoints in this network endpoint group. Defaults to SERVERLESS.
         /// Default value is `SERVERLESS`.
         /// Possible values are: `SERVERLESS`, `PRIVATE_SERVICE_CONNECT`, `INTERNET_IP_PORT`, `INTERNET_FQDN_PORT`, `GCE_VM_IP_PORTMAP`.
-        pub network_endpoint_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_endpoint_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// This field is only used for PSC NEGs.
         /// Structure is documented below.
-        pub psc_data: pulumi_wasm_rust::Output<
+        pub psc_data: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RegionNetworkEndpointGroupPscData>,
         >,
         /// This field is only used for PSC and INTERNET NEGs.
         /// The target service url used to set up private service connection to
         /// a Google API or a PSC Producer Service Attachment.
-        pub psc_target_service: pulumi_wasm_rust::Output<Option<String>>,
+        pub psc_target_service: pulumi_gestalt_rust::Output<Option<String>>,
         /// A reference to the region where the regional NEGs reside.
         ///
         ///
         /// - - -
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// This field is only used for SERVERLESS NEGs.
         /// Only one of cloudRun, appEngine, cloudFunction or serverlessDeployment may be set.
         /// Structure is documented below.
-        pub serverless_deployment: pulumi_wasm_rust::Output<
+        pub serverless_deployment: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::compute::RegionNetworkEndpointGroupServerlessDeployment,
             >,
         >,
         /// This field is only used for PSC NEGs.
         /// Optional URL of the subnetwork to which all network endpoints in the NEG belong.
-        pub subnetwork: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnetwork: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RegionNetworkEndpointGroupArgs,
     ) -> RegionNetworkEndpointGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_engine_binding = args.app_engine.get_output(context).get_inner();
         let cloud_function_binding = args.cloud_function.get_output(context).get_inner();
@@ -646,42 +646,44 @@ pub mod region_network_endpoint_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RegionNetworkEndpointGroupResult {
-            app_engine: pulumi_wasm_rust::__private::into_domain(
+            app_engine: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appEngine"),
             ),
-            cloud_function: pulumi_wasm_rust::__private::into_domain(
+            cloud_function: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudFunction"),
             ),
-            cloud_run: pulumi_wasm_rust::__private::into_domain(
+            cloud_run: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudRun"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            network_endpoint_type: pulumi_wasm_rust::__private::into_domain(
+            network_endpoint_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkEndpointType"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            psc_data: pulumi_wasm_rust::__private::into_domain(
+            psc_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pscData"),
             ),
-            psc_target_service: pulumi_wasm_rust::__private::into_domain(
+            psc_target_service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pscTargetService"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            serverless_deployment: pulumi_wasm_rust::__private::into_domain(
+            serverless_deployment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverlessDeployment"),
             ),
-            subnetwork: pulumi_wasm_rust::__private::into_domain(
+            subnetwork: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetwork"),
             ),
         }

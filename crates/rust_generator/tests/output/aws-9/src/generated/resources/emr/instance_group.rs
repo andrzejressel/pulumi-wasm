@@ -8,8 +8,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let task = instance_group::create(
@@ -32,24 +32,24 @@
 /// $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
 /// ```
 pub mod instance_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceGroupArgs {
         /// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
         #[builder(into, default)]
-        pub autoscaling_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub autoscaling_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         #[builder(into, default)]
-        pub bid_price: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub bid_price: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
         ///
         /// ```ignore
-        /// use pulumi_wasm_rust::Output;
-        /// use pulumi_wasm_rust::{add_export, pulumi_main};
+        /// use pulumi_gestalt_rust::Output;
+        /// use pulumi_gestalt_rust::{add_export, pulumi_main};
         /// #[pulumi_main]
         /// fn test_main() -> Result<(), Error> {
         ///     let task = instance_group::create(
@@ -63,38 +63,38 @@ pub mod instance_group {
         /// }
         /// ```
         #[builder(into, default)]
-        pub configurations_json: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub configurations_json: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub ebs_configs: pulumi_wasm_rust::InputOrOutput<
+        pub ebs_configs: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::emr::InstanceGroupEbsConfig>>,
         >,
         /// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub ebs_optimized: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ebs_optimized: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// target number of instances for the instance group. defaults to 0.
         #[builder(into, default)]
-        pub instance_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub instance_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub instance_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Human friendly name given to the instance group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceGroupResult {
         /// The autoscaling policy document. This is a JSON formatted string. See [EMR Auto Scaling](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html)
-        pub autoscaling_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub autoscaling_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// If set, the bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        pub bid_price: pulumi_wasm_rust::Output<Option<String>>,
+        pub bid_price: pulumi_gestalt_rust::Output<Option<String>>,
         /// ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_gestalt_rust::Output<String>,
         /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
         ///
         /// ```ignore
-        /// use pulumi_wasm_rust::Output;
-        /// use pulumi_wasm_rust::{add_export, pulumi_main};
+        /// use pulumi_gestalt_rust::Output;
+        /// use pulumi_gestalt_rust::{add_export, pulumi_main};
         /// #[pulumi_main]
         /// fn test_main() -> Result<(), Error> {
         ///     let task = instance_group::create(
@@ -107,34 +107,34 @@ pub mod instance_group {
         ///     );
         /// }
         /// ```
-        pub configurations_json: pulumi_wasm_rust::Output<Option<String>>,
+        pub configurations_json: pulumi_gestalt_rust::Output<Option<String>>,
         /// One or more `ebs_config` blocks as defined below. Changing this forces a new resource to be created.
-        pub ebs_configs: pulumi_wasm_rust::Output<
+        pub ebs_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::emr::InstanceGroupEbsConfig>,
         >,
         /// Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
-        pub ebs_optimized: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ebs_optimized: pulumi_gestalt_rust::Output<Option<bool>>,
         /// target number of instances for the instance group. defaults to 0.
-        pub instance_count: pulumi_wasm_rust::Output<i32>,
+        pub instance_count: pulumi_gestalt_rust::Output<i32>,
         /// The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
-        pub instance_type: pulumi_wasm_rust::Output<String>,
+        pub instance_type: pulumi_gestalt_rust::Output<String>,
         /// Human friendly name given to the instance group. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The number of instances currently running in this instance group.
-        pub running_instance_count: pulumi_wasm_rust::Output<i32>,
+        pub running_instance_count: pulumi_gestalt_rust::Output<i32>,
         /// The current status of the instance group.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceGroupArgs,
     ) -> InstanceGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let autoscaling_policy_binding = args
             .autoscaling_policy
@@ -196,35 +196,37 @@ pub mod instance_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceGroupResult {
-            autoscaling_policy: pulumi_wasm_rust::__private::into_domain(
+            autoscaling_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoscalingPolicy"),
             ),
-            bid_price: pulumi_wasm_rust::__private::into_domain(
+            bid_price: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bidPrice"),
             ),
-            cluster_id: pulumi_wasm_rust::__private::into_domain(
+            cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterId"),
             ),
-            configurations_json: pulumi_wasm_rust::__private::into_domain(
+            configurations_json: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationsJson"),
             ),
-            ebs_configs: pulumi_wasm_rust::__private::into_domain(
+            ebs_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ebsConfigs"),
             ),
-            ebs_optimized: pulumi_wasm_rust::__private::into_domain(
+            ebs_optimized: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ebsOptimized"),
             ),
-            instance_count: pulumi_wasm_rust::__private::into_domain(
+            instance_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceCount"),
             ),
-            instance_type: pulumi_wasm_rust::__private::into_domain(
+            instance_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            running_instance_count: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            running_instance_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runningInstanceCount"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = routing_control::create(
@@ -20,8 +20,8 @@
 /// ```
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = routing_control::create(
@@ -47,47 +47,47 @@
 /// $ pulumi import aws:route53recoverycontrol/routingControl:RoutingControl mycontrol arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8/routingcontrol/d5d90e587870494b
 /// ```
 pub mod routing_control {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RoutingControlArgs {
         /// ARN of the cluster in which this routing control will reside.
         #[builder(into)]
-        pub cluster_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARN of the control panel in which this routing control will reside.
         #[builder(into, default)]
-        pub control_panel_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub control_panel_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name describing the routing control.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RoutingControlResult {
         /// ARN of the routing control.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// ARN of the cluster in which this routing control will reside.
-        pub cluster_arn: pulumi_wasm_rust::Output<String>,
+        pub cluster_arn: pulumi_gestalt_rust::Output<String>,
         /// ARN of the control panel in which this routing control will reside.
-        pub control_panel_arn: pulumi_wasm_rust::Output<String>,
+        pub control_panel_arn: pulumi_gestalt_rust::Output<String>,
         /// The name describing the routing control.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Status of routing control. `PENDING` when it is being created/updated, `PENDING_DELETION` when it is being deleted, and `DEPLOYED` otherwise.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RoutingControlArgs,
     ) -> RoutingControlResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_arn_binding = args.cluster_arn.get_output(context).get_inner();
         let control_panel_arn_binding = args
@@ -116,15 +116,17 @@ pub mod routing_control {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RoutingControlResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            cluster_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            cluster_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterArn"),
             ),
-            control_panel_arn: pulumi_wasm_rust::__private::into_domain(
+            control_panel_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("controlPanelArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

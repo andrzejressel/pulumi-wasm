@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = stack::create(
@@ -37,48 +37,48 @@
 /// $ pulumi import aws:appstream/userStackAssociation:UserStackAssociation example userName/auhtenticationType/stackName
 /// ```
 pub mod user_stack_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserStackAssociationArgs {
         /// Authentication type for the user.
         #[builder(into)]
-        pub authentication_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub authentication_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether a welcome email is sent to a user after the user is created in the user pool.
         #[builder(into, default)]
-        pub send_email_notification: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub send_email_notification: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Name of the stack that is associated with the user.
         #[builder(into)]
-        pub stack_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub stack_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Email address of the user who is associated with the stack.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub user_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserStackAssociationResult {
         /// Authentication type for the user.
-        pub authentication_type: pulumi_wasm_rust::Output<String>,
+        pub authentication_type: pulumi_gestalt_rust::Output<String>,
         /// Whether a welcome email is sent to a user after the user is created in the user pool.
-        pub send_email_notification: pulumi_wasm_rust::Output<Option<bool>>,
+        pub send_email_notification: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Name of the stack that is associated with the user.
-        pub stack_name: pulumi_wasm_rust::Output<String>,
+        pub stack_name: pulumi_gestalt_rust::Output<String>,
         /// Email address of the user who is associated with the stack.
         ///
         /// The following arguments are optional:
-        pub user_name: pulumi_wasm_rust::Output<String>,
+        pub user_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserStackAssociationArgs,
     ) -> UserStackAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authentication_type_binding = args
             .authentication_type
@@ -115,16 +115,16 @@ pub mod user_stack_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserStackAssociationResult {
-            authentication_type: pulumi_wasm_rust::__private::into_domain(
+            authentication_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationType"),
             ),
-            send_email_notification: pulumi_wasm_rust::__private::into_domain(
+            send_email_notification: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sendEmailNotification"),
             ),
-            stack_name: pulumi_wasm_rust::__private::into_domain(
+            stack_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stackName"),
             ),
-            user_name: pulumi_wasm_rust::__private::into_domain(
+            user_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userName"),
             ),
         }

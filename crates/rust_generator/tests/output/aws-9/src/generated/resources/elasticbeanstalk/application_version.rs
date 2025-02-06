@@ -43,65 +43,65 @@
 ///       key: ${defaultBucketObjectv2.id}
 /// ```
 pub mod application_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationVersionArgs {
         /// Name of the Beanstalk Application the version is associated with.
         #[builder(into)]
-        pub application: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application: pulumi_gestalt_rust::InputOrOutput<String>,
         /// S3 bucket that contains the Application Version source bundle.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Short description of the Application Version.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         #[builder(into, default)]
-        pub force_delete: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_delete: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// S3 object that is the Application Version source bundle.
         #[builder(into)]
-        pub key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Unique name for the this Application Version.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Pre-processes and validates the environment manifest (env.yaml ) and configuration files (*.config files in the .ebextensions folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment. You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional. It validates Elastic Beanstalk configuration files. It doesn’t validate your application’s configuration files, like proxy server or Docker configuration.
         #[builder(into, default)]
-        pub process: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub process: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ApplicationVersionResult {
         /// Name of the Beanstalk Application the version is associated with.
-        pub application: pulumi_wasm_rust::Output<String>,
+        pub application: pulumi_gestalt_rust::Output<String>,
         /// ARN assigned by AWS for this Elastic Beanstalk Application.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// S3 bucket that contains the Application Version source bundle.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// Short description of the Application Version.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
-        pub force_delete: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_delete: pulumi_gestalt_rust::Output<Option<bool>>,
         /// S3 object that is the Application Version source bundle.
-        pub key: pulumi_wasm_rust::Output<String>,
+        pub key: pulumi_gestalt_rust::Output<String>,
         /// Unique name for the this Application Version.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Pre-processes and validates the environment manifest (env.yaml ) and configuration files (*.config files in the .ebextensions folder) in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment. You must turn processing on for application versions that you create using AWS CodeBuild or AWS CodeCommit. For application versions built from a source bundle in Amazon S3, processing is optional. It validates Elastic Beanstalk configuration files. It doesn’t validate your application’s configuration files, like proxy server or Docker configuration.
-        pub process: pulumi_wasm_rust::Output<Option<bool>>,
+        pub process: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -110,11 +110,11 @@ pub mod application_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApplicationVersionArgs,
     ) -> ApplicationVersionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_binding = args.application.get_output(context).get_inner();
         let bucket_binding = args.bucket.get_output(context).get_inner();
@@ -165,24 +165,26 @@ pub mod application_version {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApplicationVersionResult {
-            application: pulumi_wasm_rust::__private::into_domain(
+            application: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("application"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            force_delete: pulumi_wasm_rust::__private::into_domain(
+            force_delete: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDelete"),
             ),
-            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            process: pulumi_wasm_rust::__private::into_domain(
+            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            process: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("process"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

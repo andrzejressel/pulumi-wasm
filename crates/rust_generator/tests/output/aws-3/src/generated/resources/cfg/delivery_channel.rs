@@ -71,58 +71,58 @@
 /// $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
 /// ```
 pub mod delivery_channel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeliveryChannelArgs {
         /// The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the S3 bucket used to store the configuration history.
         #[builder(into)]
-        pub s3_bucket_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub s3_bucket_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The prefix for the specified S3 bucket.
         #[builder(into, default)]
-        pub s3_key_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub s3_key_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
         #[builder(into, default)]
-        pub s3_kms_key_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub s3_kms_key_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Options for how AWS Config delivers configuration snapshots. See below
         #[builder(into, default)]
-        pub snapshot_delivery_properties: pulumi_wasm_rust::InputOrOutput<
+        pub snapshot_delivery_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cfg::DeliveryChannelSnapshotDeliveryProperties>,
         >,
         /// The ARN of the SNS topic that AWS Config delivers notifications to.
         #[builder(into, default)]
-        pub sns_topic_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sns_topic_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DeliveryChannelResult {
         /// The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the S3 bucket used to store the configuration history.
-        pub s3_bucket_name: pulumi_wasm_rust::Output<String>,
+        pub s3_bucket_name: pulumi_gestalt_rust::Output<String>,
         /// The prefix for the specified S3 bucket.
-        pub s3_key_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_key_prefix: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
-        pub s3_kms_key_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_kms_key_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Options for how AWS Config delivers configuration snapshots. See below
-        pub snapshot_delivery_properties: pulumi_wasm_rust::Output<
+        pub snapshot_delivery_properties: pulumi_gestalt_rust::Output<
             Option<super::super::types::cfg::DeliveryChannelSnapshotDeliveryProperties>,
         >,
         /// The ARN of the SNS topic that AWS Config delivers notifications to.
-        pub sns_topic_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub sns_topic_arn: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DeliveryChannelArgs,
     ) -> DeliveryChannelResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let s3_bucket_name_binding = args.s3_bucket_name.get_output(context).get_inner();
@@ -166,20 +166,20 @@ pub mod delivery_channel {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DeliveryChannelResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            s3_bucket_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            s3_bucket_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3BucketName"),
             ),
-            s3_key_prefix: pulumi_wasm_rust::__private::into_domain(
+            s3_key_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3KeyPrefix"),
             ),
-            s3_kms_key_arn: pulumi_wasm_rust::__private::into_domain(
+            s3_kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3KmsKeyArn"),
             ),
-            snapshot_delivery_properties: pulumi_wasm_rust::__private::into_domain(
+            snapshot_delivery_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotDeliveryProperties"),
             ),
-            sns_topic_arn: pulumi_wasm_rust::__private::into_domain(
+            sns_topic_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snsTopicArn"),
             ),
         }

@@ -28,38 +28,38 @@
 /// $ pulumi import aws:batch/schedulingPolicy:SchedulingPolicy test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
 /// ```
 pub mod scheduling_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SchedulingPolicyArgs {
         #[builder(into, default)]
-        pub fair_share_policy: pulumi_wasm_rust::InputOrOutput<
+        pub fair_share_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::batch::SchedulingPolicyFairSharePolicy>,
         >,
         /// Specifies the name of the scheduling policy.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct SchedulingPolicyResult {
         /// The Amazon Resource Name of the scheduling policy.
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub fair_share_policy: pulumi_wasm_rust::Output<
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub fair_share_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::batch::SchedulingPolicyFairSharePolicy>,
         >,
         /// Specifies the name of the scheduling policy.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -68,11 +68,11 @@ pub mod scheduling_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SchedulingPolicyArgs,
     ) -> SchedulingPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let fair_share_policy_binding = args
             .fair_share_policy
@@ -101,13 +101,13 @@ pub mod scheduling_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SchedulingPolicyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            fair_share_policy: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            fair_share_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fairSharePolicy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

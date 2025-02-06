@@ -17,102 +17,102 @@
 ///         Name: HelloWorld
 /// ```
 pub mod snapshot_import {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotImportArgs {
         /// The client-specific data. Detailed below.
         #[builder(into, default)]
-        pub client_data: pulumi_wasm_rust::InputOrOutput<
+        pub client_data: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ebs::SnapshotImportClientData>,
         >,
         /// The description string for the import snapshot task.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Information about the disk container. Detailed below.
         #[builder(into)]
-        pub disk_container: pulumi_wasm_rust::InputOrOutput<
+        pub disk_container: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::ebs::SnapshotImportDiskContainer,
         >,
         /// Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         #[builder(into, default)]
-        pub encrypted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub encrypted: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Indicates whether to permanently restore an archived snapshot.
         #[builder(into, default)]
-        pub permanent_restore: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub permanent_restore: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
         #[builder(into, default)]
-        pub role_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         #[builder(into, default)]
-        pub storage_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the snapshot.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         #[builder(into, default)]
-        pub temporary_restore_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub temporary_restore_days: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct SnapshotImportResult {
         /// Amazon Resource Name (ARN) of the EBS Snapshot.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The client-specific data. Detailed below.
-        pub client_data: pulumi_wasm_rust::Output<
+        pub client_data: pulumi_gestalt_rust::Output<
             Option<super::super::types::ebs::SnapshotImportClientData>,
         >,
         /// The data encryption key identifier for the snapshot.
-        pub data_encryption_key_id: pulumi_wasm_rust::Output<String>,
+        pub data_encryption_key_id: pulumi_gestalt_rust::Output<String>,
         /// The description string for the import snapshot task.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Information about the disk container. Detailed below.
-        pub disk_container: pulumi_wasm_rust::Output<
+        pub disk_container: pulumi_gestalt_rust::Output<
             super::super::types::ebs::SnapshotImportDiskContainer,
         >,
         /// Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
-        pub encrypted: pulumi_wasm_rust::Output<Option<bool>>,
+        pub encrypted: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
-        pub outpost_arn: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<Option<String>>,
+        pub outpost_arn: pulumi_gestalt_rust::Output<String>,
         /// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-        pub owner_alias: pulumi_wasm_rust::Output<String>,
+        pub owner_alias: pulumi_gestalt_rust::Output<String>,
         /// The AWS account ID of the EBS snapshot owner.
-        pub owner_id: pulumi_wasm_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether to permanently restore an archived snapshot.
-        pub permanent_restore: pulumi_wasm_rust::Output<Option<bool>>,
+        pub permanent_restore: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
-        pub role_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-        pub storage_tier: pulumi_wasm_rust::Output<String>,
+        pub storage_tier: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the snapshot.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-        pub temporary_restore_days: pulumi_wasm_rust::Output<Option<i32>>,
-        pub volume_id: pulumi_wasm_rust::Output<String>,
+        pub temporary_restore_days: pulumi_gestalt_rust::Output<Option<i32>>,
+        pub volume_id: pulumi_gestalt_rust::Output<String>,
         /// The size of the drive in GiBs.
-        pub volume_size: pulumi_wasm_rust::Output<i32>,
+        pub volume_size: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SnapshotImportArgs,
     ) -> SnapshotImportResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let client_data_binding = args.client_data.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -179,54 +179,54 @@ pub mod snapshot_import {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SnapshotImportResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            client_data: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            client_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientData"),
             ),
-            data_encryption_key_id: pulumi_wasm_rust::__private::into_domain(
+            data_encryption_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataEncryptionKeyId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            disk_container: pulumi_wasm_rust::__private::into_domain(
+            disk_container: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diskContainer"),
             ),
-            encrypted: pulumi_wasm_rust::__private::into_domain(
+            encrypted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encrypted"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            outpost_arn: pulumi_wasm_rust::__private::into_domain(
+            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outpostArn"),
             ),
-            owner_alias: pulumi_wasm_rust::__private::into_domain(
+            owner_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerAlias"),
             ),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            permanent_restore: pulumi_wasm_rust::__private::into_domain(
+            permanent_restore: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permanentRestore"),
             ),
-            role_name: pulumi_wasm_rust::__private::into_domain(
+            role_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleName"),
             ),
-            storage_tier: pulumi_wasm_rust::__private::into_domain(
+            storage_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageTier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            temporary_restore_days: pulumi_wasm_rust::__private::into_domain(
+            temporary_restore_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("temporaryRestoreDays"),
             ),
-            volume_id: pulumi_wasm_rust::__private::into_domain(
+            volume_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeId"),
             ),
-            volume_size: pulumi_wasm_rust::__private::into_domain(
+            volume_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeSize"),
             ),
         }

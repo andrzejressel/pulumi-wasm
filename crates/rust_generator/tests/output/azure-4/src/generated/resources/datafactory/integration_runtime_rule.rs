@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -42,69 +42,69 @@
 /// ```
 ///
 pub mod integration_runtime_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationRuntimeRuleArgs {
         /// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
         #[builder(into, default)]
-        pub cleanup_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub cleanup_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         #[builder(into, default)]
-        pub compute_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub compute_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
         #[builder(into, default)]
-        pub core_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub core_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Integration runtime description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
         #[builder(into, default)]
-        pub time_to_live_min: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub time_to_live_min: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub virtual_network_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub virtual_network_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct IntegrationRuntimeRuleResult {
         /// Cluster will not be recycled and it will be used in next data flow activity run until TTL (time to live) is reached if this is set as `false`. Defaults to `true`.
-        pub cleanup_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub cleanup_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
-        pub compute_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub compute_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
-        pub core_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub core_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// Integration runtime description.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
-        pub time_to_live_min: pulumi_wasm_rust::Output<Option<i32>>,
+        pub time_to_live_min: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Is Integration Runtime compute provisioned within Managed Virtual Network? Changing this forces a new resource to be created.
-        pub virtual_network_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub virtual_network_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IntegrationRuntimeRuleArgs,
     ) -> IntegrationRuntimeRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cleanup_enabled_binding = args
             .cleanup_enabled
@@ -173,29 +173,29 @@ pub mod integration_runtime_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IntegrationRuntimeRuleResult {
-            cleanup_enabled: pulumi_wasm_rust::__private::into_domain(
+            cleanup_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cleanupEnabled"),
             ),
-            compute_type: pulumi_wasm_rust::__private::into_domain(
+            compute_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("computeType"),
             ),
-            core_count: pulumi_wasm_rust::__private::into_domain(
+            core_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coreCount"),
             ),
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            time_to_live_min: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            time_to_live_min: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeToLiveMin"),
             ),
-            virtual_network_enabled: pulumi_wasm_rust::__private::into_domain(
+            virtual_network_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualNetworkEnabled"),
             ),
         }

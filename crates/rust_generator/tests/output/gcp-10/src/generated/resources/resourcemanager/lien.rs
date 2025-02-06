@@ -8,8 +8,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let lien = lien::create(
@@ -45,7 +45,7 @@
 /// ```
 ///
 pub mod lien {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LienArgs {
@@ -53,17 +53,17 @@ pub mod lien {
         /// of the Lien, intended to be inspected programmatically. Maximum length of
         /// 200 characters.
         #[builder(into)]
-        pub origin: pulumi_wasm_rust::InputOrOutput<String>,
+        pub origin: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A reference to the resource this Lien is attached to.
         /// The server will validate the parent against those for which Liens are supported.
         /// Since a variety of objects can have Liens against them, you must provide the type
         /// prefix (e.g. "projects/my-project-name").
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Concise user-visible strings indicating why an action cannot be performed
         /// on a resource. Maximum length of 200 characters.
         #[builder(into)]
-        pub reason: pulumi_wasm_rust::InputOrOutput<String>,
+        pub reason: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The types of operations which should be blocked as a result of this Lien.
         /// Each value should correspond to an IAM permission. The server will validate
         /// the permissions against those for which Liens are supported.  An empty
@@ -73,26 +73,26 @@ pub mod lien {
         ///
         /// - - -
         #[builder(into)]
-        pub restrictions: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub restrictions: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct LienResult {
         /// Time of creation
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// A system-generated unique identifier for this Lien.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A stable, user-visible/meaningful string identifying the origin
         /// of the Lien, intended to be inspected programmatically. Maximum length of
         /// 200 characters.
-        pub origin: pulumi_wasm_rust::Output<String>,
+        pub origin: pulumi_gestalt_rust::Output<String>,
         /// A reference to the resource this Lien is attached to.
         /// The server will validate the parent against those for which Liens are supported.
         /// Since a variety of objects can have Liens against them, you must provide the type
         /// prefix (e.g. "projects/my-project-name").
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// Concise user-visible strings indicating why an action cannot be performed
         /// on a resource. Maximum length of 200 characters.
-        pub reason: pulumi_wasm_rust::Output<String>,
+        pub reason: pulumi_gestalt_rust::Output<String>,
         /// The types of operations which should be blocked as a result of this Lien.
         /// Each value should correspond to an IAM permission. The server will validate
         /// the permissions against those for which Liens are supported.  An empty
@@ -101,18 +101,18 @@ pub mod lien {
         ///
         ///
         /// - - -
-        pub restrictions: pulumi_wasm_rust::Output<Vec<String>>,
+        pub restrictions: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LienArgs,
     ) -> LienResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let origin_binding = args.origin.get_output(context).get_inner();
         let parent_binding = args.parent.get_output(context).get_inner();
@@ -143,14 +143,20 @@ pub mod lien {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LienResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            origin: pulumi_wasm_rust::__private::into_domain(o.extract_field("origin")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            reason: pulumi_wasm_rust::__private::into_domain(o.extract_field("reason")),
-            restrictions: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            origin: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("origin"),
+            ),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            reason: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("reason"),
+            ),
+            restrictions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restrictions"),
             ),
         }

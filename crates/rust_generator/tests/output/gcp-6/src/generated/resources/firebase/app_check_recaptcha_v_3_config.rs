@@ -69,7 +69,7 @@
 /// ```
 ///
 pub mod app_check_recaptcha_v_3_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppCheckRecaptchaV3ConfigArgs {
@@ -79,21 +79,21 @@ pub mod app_check_recaptcha_v_3_config {
         ///
         /// - - -
         #[builder(into)]
-        pub app_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The site secret used to identify your service for reCAPTCHA v3 verification.
         /// For security reasons, this field will never be populated in any response.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
         #[builder(into)]
-        pub site_secret: pulumi_wasm_rust::InputOrOutput<String>,
+        pub site_secret: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the duration for which App Check tokens exchanged from reCAPTCHA V3 artifacts will be valid.
         /// If unset, a default value of 1 hour is assumed. Must be between 30 minutes and 7 days, inclusive.
         /// A duration in seconds with up to nine fractional digits, ending with 's'. Example: "3.5s".
         #[builder(into, default)]
-        pub token_ttl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub token_ttl: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AppCheckRecaptchaV3ConfigResult {
@@ -102,33 +102,33 @@ pub mod app_check_recaptcha_v_3_config {
         ///
         ///
         /// - - -
-        pub app_id: pulumi_wasm_rust::Output<String>,
+        pub app_id: pulumi_gestalt_rust::Output<String>,
         /// The relative resource name of the reCAPTCHA V3 configuration object
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The site secret used to identify your service for reCAPTCHA v3 verification.
         /// For security reasons, this field will never be populated in any response.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
-        pub site_secret: pulumi_wasm_rust::Output<String>,
+        pub site_secret: pulumi_gestalt_rust::Output<String>,
         /// Whether the siteSecret was previously set. Since we will never return the siteSecret field, this field is the only way to find out whether it was previously set.
-        pub site_secret_set: pulumi_wasm_rust::Output<bool>,
+        pub site_secret_set: pulumi_gestalt_rust::Output<bool>,
         /// Specifies the duration for which App Check tokens exchanged from reCAPTCHA V3 artifacts will be valid.
         /// If unset, a default value of 1 hour is assumed. Must be between 30 minutes and 7 days, inclusive.
         /// A duration in seconds with up to nine fractional digits, ending with 's'. Example: "3.5s".
-        pub token_ttl: pulumi_wasm_rust::Output<String>,
+        pub token_ttl: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AppCheckRecaptchaV3ConfigArgs,
     ) -> AppCheckRecaptchaV3ConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_id_binding = args.app_id.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -160,18 +160,20 @@ pub mod app_check_recaptcha_v_3_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AppCheckRecaptchaV3ConfigResult {
-            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            app_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("appId"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            site_secret: pulumi_wasm_rust::__private::into_domain(
+            site_secret: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("siteSecret"),
             ),
-            site_secret_set: pulumi_wasm_rust::__private::into_domain(
+            site_secret_set: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("siteSecretSet"),
             ),
-            token_ttl: pulumi_wasm_rust::__private::into_domain(
+            token_ttl: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tokenTtl"),
             ),
         }

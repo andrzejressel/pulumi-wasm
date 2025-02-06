@@ -67,19 +67,19 @@
 /// ```
 ///
 pub mod service_connection_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceConnectionPolicyArgs {
         /// Free-text description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User-defined labels.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the ServiceConnectionPolicy.
@@ -87,21 +87,21 @@ pub mod service_connection_policy {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of a ServiceConnectionPolicy. Format: projects/{project}/locations/{location}/serviceConnectionPolicies/{service_connection_policy} See: https://google.aip.dev/122#fields-representing-resource-names
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource path of the consumer network. Example: - projects/{projectNumOrId}/global/networks/{resourceId}.
         #[builder(into)]
-        pub network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration used for Private Service Connect connections. Used when Infrastructure is PSC.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub psc_config: pulumi_wasm_rust::InputOrOutput<
+        pub psc_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::networkconnectivity::ServiceConnectionPolicyPscConfig,
             >,
@@ -109,76 +109,76 @@ pub mod service_connection_policy {
         /// The service class identifier for which this ServiceConnectionPolicy is for. The service class identifier is a unique, symbolic representation of a ServiceClass.
         /// It is provided by the Service Producer. Google services have a prefix of gcp. For example, gcp-cloud-sql. 3rd party services do not. For example, test-service-a3dfcx.
         #[builder(into)]
-        pub service_class: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_class: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServiceConnectionPolicyResult {
         /// The timestamp when the resource was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Free-text description of the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The etag is computed by the server, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The type of underlying resources used to create the connection.
-        pub infrastructure: pulumi_wasm_rust::Output<String>,
+        pub infrastructure: pulumi_gestalt_rust::Output<String>,
         /// User-defined labels.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the ServiceConnectionPolicy.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of a ServiceConnectionPolicy. Format: projects/{project}/locations/{location}/serviceConnectionPolicies/{service_connection_policy} See: https://google.aip.dev/122#fields-representing-resource-names
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The resource path of the consumer network. Example: - projects/{projectNumOrId}/global/networks/{resourceId}.
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Configuration used for Private Service Connect connections. Used when Infrastructure is PSC.
         /// Structure is documented below.
-        pub psc_config: pulumi_wasm_rust::Output<
+        pub psc_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::networkconnectivity::ServiceConnectionPolicyPscConfig,
             >,
         >,
         /// Information about each Private Service Connect connection.
         /// Structure is documented below.
-        pub psc_connections: pulumi_wasm_rust::Output<
+        pub psc_connections: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::networkconnectivity::ServiceConnectionPolicyPscConnection,
             >,
         >,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The service class identifier for which this ServiceConnectionPolicy is for. The service class identifier is a unique, symbolic representation of a ServiceClass.
         /// It is provided by the Service Producer. Google services have a prefix of gcp. For example, gcp-cloud-sql. 3rd party services do not. For example, test-service-a3dfcx.
-        pub service_class: pulumi_wasm_rust::Output<String>,
+        pub service_class: pulumi_gestalt_rust::Output<String>,
         /// The timestamp when the resource was updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServiceConnectionPolicyArgs,
     ) -> ServiceConnectionPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let labels_binding = args.labels.get_output(context).get_inner();
@@ -230,43 +230,45 @@ pub mod service_connection_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServiceConnectionPolicyResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            infrastructure: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            infrastructure: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("infrastructure"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            psc_config: pulumi_wasm_rust::__private::into_domain(
+            psc_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pscConfig"),
             ),
-            psc_connections: pulumi_wasm_rust::__private::into_domain(
+            psc_connections: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pscConnections"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            service_class: pulumi_wasm_rust::__private::into_domain(
+            service_class: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceClass"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

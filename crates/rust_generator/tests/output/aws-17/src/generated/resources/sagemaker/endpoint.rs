@@ -23,45 +23,45 @@
 /// $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
 /// ```
 pub mod endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EndpointArgs {
         /// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
         #[builder(into, default)]
-        pub deployment_config: pulumi_wasm_rust::InputOrOutput<
+        pub deployment_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sagemaker::EndpointDeploymentConfig>,
         >,
         /// The name of the endpoint configuration to use.
         #[builder(into)]
-        pub endpoint_config_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub endpoint_config_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the endpoint. If omitted, the provider will assign a random, unique name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct EndpointResult {
         /// The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
-        pub deployment_config: pulumi_wasm_rust::Output<
+        pub deployment_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::sagemaker::EndpointDeploymentConfig>,
         >,
         /// The name of the endpoint configuration to use.
-        pub endpoint_config_name: pulumi_wasm_rust::Output<String>,
+        pub endpoint_config_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the endpoint. If omitted, the provider will assign a random, unique name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -70,11 +70,11 @@ pub mod endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EndpointArgs,
     ) -> EndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let deployment_config_binding = args
             .deployment_config
@@ -111,16 +111,16 @@ pub mod endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EndpointResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            deployment_config: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            deployment_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentConfig"),
             ),
-            endpoint_config_name: pulumi_wasm_rust::__private::into_domain(
+            endpoint_config_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointConfigName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

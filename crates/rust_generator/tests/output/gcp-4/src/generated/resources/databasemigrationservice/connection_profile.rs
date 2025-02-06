@@ -397,14 +397,14 @@
 /// ```
 ///
 pub mod connection_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionProfileArgs {
         /// Specifies required connection parameters, and the parameters required to create an AlloyDB destination cluster.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub alloydb: pulumi_wasm_rust::InputOrOutput<
+        pub alloydb: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::databasemigrationservice::ConnectionProfileAlloydb,
             >,
@@ -412,7 +412,7 @@ pub mod connection_profile {
         /// Specifies required connection parameters, and, optionally, the parameters required to create a Cloud SQL destination database instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cloudsql: pulumi_wasm_rust::InputOrOutput<
+        pub cloudsql: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::databasemigrationservice::ConnectionProfileCloudsql,
             >,
@@ -422,31 +422,31 @@ pub mod connection_profile {
         ///
         /// - - -
         #[builder(into)]
-        pub connection_profile_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connection_profile_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The connection profile display name.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource labels for connection profile to use to annotate any related underlying resources such as Compute Engine VMs.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location where the connection profile should reside.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies connection parameters required specifically for MySQL databases.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub mysql: pulumi_wasm_rust::InputOrOutput<
+        pub mysql: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::databasemigrationservice::ConnectionProfileMysql>,
         >,
         /// Specifies connection parameters required specifically for Oracle databases.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub oracle: pulumi_wasm_rust::InputOrOutput<
+        pub oracle: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::databasemigrationservice::ConnectionProfileOracle,
             >,
@@ -454,7 +454,7 @@ pub mod connection_profile {
         /// Specifies connection parameters required specifically for PostgreSQL databases.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub postgresql: pulumi_wasm_rust::InputOrOutput<
+        pub postgresql: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::databasemigrationservice::ConnectionProfilePostgresql,
             >,
@@ -462,20 +462,20 @@ pub mod connection_profile {
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ConnectionProfileResult {
         /// Specifies required connection parameters, and the parameters required to create an AlloyDB destination cluster.
         /// Structure is documented below.
-        pub alloydb: pulumi_wasm_rust::Output<
+        pub alloydb: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::databasemigrationservice::ConnectionProfileAlloydb,
             >,
         >,
         /// Specifies required connection parameters, and, optionally, the parameters required to create a Cloud SQL destination database instance.
         /// Structure is documented below.
-        pub cloudsql: pulumi_wasm_rust::Output<
+        pub cloudsql: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::databasemigrationservice::ConnectionProfileCloudsql,
             >,
@@ -484,73 +484,73 @@ pub mod connection_profile {
         ///
         ///
         /// - - -
-        pub connection_profile_id: pulumi_wasm_rust::Output<String>,
+        pub connection_profile_id: pulumi_gestalt_rust::Output<String>,
         /// Output only. The timestamp when the resource was created. A timestamp in RFC3339 UTC 'Zulu' format, accurate to nanoseconds. Example: '2014-10-02T15:01:23.045123456Z'.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The database provider.
-        pub dbprovider: pulumi_wasm_rust::Output<String>,
+        pub dbprovider: pulumi_gestalt_rust::Output<String>,
         /// The connection profile display name.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Output only. The error details in case of state FAILED.
         /// Structure is documented below.
-        pub errors: pulumi_wasm_rust::Output<
+        pub errors: pulumi_gestalt_rust::Output<
             Vec<super::super::types::databasemigrationservice::ConnectionProfileError>,
         >,
         /// The resource labels for connection profile to use to annotate any related underlying resources such as Compute Engine VMs.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location where the connection profile should reside.
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies connection parameters required specifically for MySQL databases.
         /// Structure is documented below.
-        pub mysql: pulumi_wasm_rust::Output<
+        pub mysql: pulumi_gestalt_rust::Output<
             Option<super::super::types::databasemigrationservice::ConnectionProfileMysql>,
         >,
         /// The name of this connection profile resource in the form of projects/{project}/locations/{location}/connectionProfiles/{connectionProfile}.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies connection parameters required specifically for Oracle databases.
         /// Structure is documented below.
-        pub oracle: pulumi_wasm_rust::Output<
+        pub oracle: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::databasemigrationservice::ConnectionProfileOracle,
             >,
         >,
         /// Specifies connection parameters required specifically for PostgreSQL databases.
         /// Structure is documented below.
-        pub postgresql: pulumi_wasm_rust::Output<
+        pub postgresql: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::databasemigrationservice::ConnectionProfilePostgresql,
             >,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The current connection profile state.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectionProfileArgs,
     ) -> ConnectionProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let alloydb_binding = args.alloydb.get_output(context).get_inner();
         let cloudsql_binding = args.cloudsql.get_output(context).get_inner();
@@ -615,45 +615,51 @@ pub mod connection_profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectionProfileResult {
-            alloydb: pulumi_wasm_rust::__private::into_domain(
+            alloydb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("alloydb"),
             ),
-            cloudsql: pulumi_wasm_rust::__private::into_domain(
+            cloudsql: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudsql"),
             ),
-            connection_profile_id: pulumi_wasm_rust::__private::into_domain(
+            connection_profile_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionProfileId"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            dbprovider: pulumi_wasm_rust::__private::into_domain(
+            dbprovider: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbprovider"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            errors: pulumi_wasm_rust::__private::into_domain(o.extract_field("errors")),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            errors: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("errors"),
+            ),
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            mysql: pulumi_wasm_rust::__private::into_domain(o.extract_field("mysql")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            oracle: pulumi_wasm_rust::__private::into_domain(o.extract_field("oracle")),
-            postgresql: pulumi_wasm_rust::__private::into_domain(
+            mysql: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mysql")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            oracle: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("oracle"),
+            ),
+            postgresql: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("postgresql"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

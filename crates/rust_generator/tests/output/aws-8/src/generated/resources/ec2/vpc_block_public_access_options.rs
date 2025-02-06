@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = vpc_block_public_access_options::create(
@@ -26,27 +26,27 @@
 /// $ pulumi import aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions example us-east-1
 /// ```
 pub mod vpc_block_public_access_options {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcBlockPublicAccessOptionsArgs {
         /// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
         #[builder(into)]
-        pub internet_gateway_block_mode: pulumi_wasm_rust::InputOrOutput<String>,
+        pub internet_gateway_block_mode: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ec2::VpcBlockPublicAccessOptionsTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct VpcBlockPublicAccessOptionsResult {
         /// The AWS account id to which these options apply.
-        pub aws_account_id: pulumi_wasm_rust::Output<String>,
+        pub aws_account_id: pulumi_gestalt_rust::Output<String>,
         /// The AWS region to which these options apply.
-        pub aws_region: pulumi_wasm_rust::Output<String>,
+        pub aws_region: pulumi_gestalt_rust::Output<String>,
         /// Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
-        pub internet_gateway_block_mode: pulumi_wasm_rust::Output<String>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub internet_gateway_block_mode: pulumi_gestalt_rust::Output<String>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::ec2::VpcBlockPublicAccessOptionsTimeouts>,
         >,
     }
@@ -55,11 +55,11 @@ pub mod vpc_block_public_access_options {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpcBlockPublicAccessOptionsArgs,
     ) -> VpcBlockPublicAccessOptionsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let internet_gateway_block_mode_binding = args
             .internet_gateway_block_mode
@@ -84,16 +84,16 @@ pub mod vpc_block_public_access_options {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpcBlockPublicAccessOptionsResult {
-            aws_account_id: pulumi_wasm_rust::__private::into_domain(
+            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsAccountId"),
             ),
-            aws_region: pulumi_wasm_rust::__private::into_domain(
+            aws_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsRegion"),
             ),
-            internet_gateway_block_mode: pulumi_wasm_rust::__private::into_domain(
+            internet_gateway_block_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("internetGatewayBlockMode"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

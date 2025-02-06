@@ -23,47 +23,47 @@
 /// $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
 /// ```
 pub mod cluster_snapshot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterSnapshotArgs {
         /// The cluster identifier for which you want a snapshot.
         #[builder(into)]
-        pub cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
         #[builder(into, default)]
-        pub manual_snapshot_retention_period: pulumi_wasm_rust::InputOrOutput<
+        pub manual_snapshot_retention_period: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
         #[builder(into)]
-        pub snapshot_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub snapshot_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ClusterSnapshotResult {
         /// Amazon Resource Name (ARN) of the snapshot.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The cluster identifier for which you want a snapshot.
-        pub cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub cluster_identifier: pulumi_gestalt_rust::Output<String>,
         /// The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
-        pub kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<String>,
         /// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
-        pub manual_snapshot_retention_period: pulumi_wasm_rust::Output<Option<i32>>,
+        pub manual_snapshot_retention_period: pulumi_gestalt_rust::Output<Option<i32>>,
         /// For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
-        pub owner_account: pulumi_wasm_rust::Output<String>,
+        pub owner_account: pulumi_gestalt_rust::Output<String>,
         /// A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account.
-        pub snapshot_identifier: pulumi_wasm_rust::Output<String>,
+        pub snapshot_identifier: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -72,11 +72,11 @@ pub mod cluster_snapshot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterSnapshotArgs,
     ) -> ClusterSnapshotResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_identifier_binding = args
             .cluster_identifier
@@ -116,24 +116,24 @@ pub mod cluster_snapshot {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterSnapshotResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            cluster_identifier: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterIdentifier"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            manual_snapshot_retention_period: pulumi_wasm_rust::__private::into_domain(
+            manual_snapshot_retention_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("manualSnapshotRetentionPeriod"),
             ),
-            owner_account: pulumi_wasm_rust::__private::into_domain(
+            owner_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerAccount"),
             ),
-            snapshot_identifier: pulumi_wasm_rust::__private::into_domain(
+            snapshot_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotIdentifier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

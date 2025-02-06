@@ -28,94 +28,94 @@
 ///         Name: HelloWorld_copy_snap
 /// ```
 pub mod snapshot_copy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SnapshotCopyArgs {
         /// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
         #[builder(into, default)]
-        pub completion_duration_minutes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub completion_duration_minutes: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A description of what the snapshot is.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether the snapshot is encrypted.
         #[builder(into, default)]
-        pub encrypted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub encrypted: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ARN for the KMS encryption key.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Indicates whether to permanently restore an archived snapshot.
         #[builder(into, default)]
-        pub permanent_restore: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub permanent_restore: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The region of the source snapshot.
         #[builder(into)]
-        pub source_region: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_region: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ARN for the snapshot to be copied.
         #[builder(into)]
-        pub source_snapshot_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_snapshot_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         #[builder(into, default)]
-        pub storage_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags for the snapshot.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
         #[builder(into, default)]
-        pub temporary_restore_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub temporary_restore_days: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct SnapshotCopyResult {
         /// Amazon Resource Name (ARN) of the EBS Snapshot.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
-        pub completion_duration_minutes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub completion_duration_minutes: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The data encryption key identifier for the snapshot.
-        pub data_encryption_key_id: pulumi_wasm_rust::Output<String>,
+        pub data_encryption_key_id: pulumi_gestalt_rust::Output<String>,
         /// A description of what the snapshot is.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether the snapshot is encrypted.
-        pub encrypted: pulumi_wasm_rust::Output<Option<bool>>,
+        pub encrypted: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ARN for the KMS encryption key.
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
-        pub outpost_arn: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<Option<String>>,
+        pub outpost_arn: pulumi_gestalt_rust::Output<String>,
         /// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
-        pub owner_alias: pulumi_wasm_rust::Output<String>,
+        pub owner_alias: pulumi_gestalt_rust::Output<String>,
         /// The AWS account ID of the snapshot owner.
-        pub owner_id: pulumi_wasm_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether to permanently restore an archived snapshot.
-        pub permanent_restore: pulumi_wasm_rust::Output<Option<bool>>,
+        pub permanent_restore: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The region of the source snapshot.
-        pub source_region: pulumi_wasm_rust::Output<String>,
+        pub source_region: pulumi_gestalt_rust::Output<String>,
         /// The ARN for the snapshot to be copied.
-        pub source_snapshot_id: pulumi_wasm_rust::Output<String>,
+        pub source_snapshot_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
-        pub storage_tier: pulumi_wasm_rust::Output<String>,
+        pub storage_tier: pulumi_gestalt_rust::Output<String>,
         /// A map of tags for the snapshot.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
-        pub temporary_restore_days: pulumi_wasm_rust::Output<Option<i32>>,
-        pub volume_id: pulumi_wasm_rust::Output<String>,
+        pub temporary_restore_days: pulumi_gestalt_rust::Output<Option<i32>>,
+        pub volume_id: pulumi_gestalt_rust::Output<String>,
         /// The size of the drive in GiBs.
-        pub volume_size: pulumi_wasm_rust::Output<i32>,
+        pub volume_size: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SnapshotCopyArgs,
     ) -> SnapshotCopyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let completion_duration_minutes_binding = args
             .completion_duration_minutes
@@ -188,54 +188,54 @@ pub mod snapshot_copy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SnapshotCopyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            completion_duration_minutes: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            completion_duration_minutes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("completionDurationMinutes"),
             ),
-            data_encryption_key_id: pulumi_wasm_rust::__private::into_domain(
+            data_encryption_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataEncryptionKeyId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            encrypted: pulumi_wasm_rust::__private::into_domain(
+            encrypted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encrypted"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            outpost_arn: pulumi_wasm_rust::__private::into_domain(
+            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outpostArn"),
             ),
-            owner_alias: pulumi_wasm_rust::__private::into_domain(
+            owner_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerAlias"),
             ),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            permanent_restore: pulumi_wasm_rust::__private::into_domain(
+            permanent_restore: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permanentRestore"),
             ),
-            source_region: pulumi_wasm_rust::__private::into_domain(
+            source_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceRegion"),
             ),
-            source_snapshot_id: pulumi_wasm_rust::__private::into_domain(
+            source_snapshot_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceSnapshotId"),
             ),
-            storage_tier: pulumi_wasm_rust::__private::into_domain(
+            storage_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageTier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            temporary_restore_days: pulumi_wasm_rust::__private::into_domain(
+            temporary_restore_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("temporaryRestoreDays"),
             ),
-            volume_id: pulumi_wasm_rust::__private::into_domain(
+            volume_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeId"),
             ),
-            volume_size: pulumi_wasm_rust::__private::into_domain(
+            volume_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeSize"),
             ),
         }

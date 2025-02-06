@@ -1,41 +1,41 @@
 pub mod get_document {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDocumentArgs {
         /// The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
         #[builder(into, default)]
-        pub document_format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub document_format: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The document version.
         #[builder(into, default)]
-        pub document_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub document_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the document.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetDocumentResult {
         /// ARN of the document. If the document is an AWS managed document, this value will be set to the name of the document instead.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The content for the SSM document in JSON or YAML format.
-        pub content: pulumi_wasm_rust::Output<String>,
-        pub document_format: pulumi_wasm_rust::Output<Option<String>>,
+        pub content: pulumi_gestalt_rust::Output<String>,
+        pub document_format: pulumi_gestalt_rust::Output<Option<String>>,
         /// The type of the document.
-        pub document_type: pulumi_wasm_rust::Output<String>,
-        pub document_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub document_type: pulumi_gestalt_rust::Output<String>,
+        pub document_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetDocumentArgs,
     ) -> GetDocumentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let document_format_binding = args
             .document_format
@@ -66,21 +66,21 @@ pub mod get_document {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetDocumentResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            content: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("content"),
             ),
-            document_format: pulumi_wasm_rust::__private::into_domain(
+            document_format: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("documentFormat"),
             ),
-            document_type: pulumi_wasm_rust::__private::into_domain(
+            document_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("documentType"),
             ),
-            document_version: pulumi_wasm_rust::__private::into_domain(
+            document_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("documentVersion"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

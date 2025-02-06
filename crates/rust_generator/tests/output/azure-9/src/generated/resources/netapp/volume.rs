@@ -11,209 +11,215 @@
 /// ```
 ///
 pub mod volume {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VolumeArgs {
         /// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub azure_vmware_data_store_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub azure_vmware_data_store_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub create_from_snapshot_resource_id: pulumi_wasm_rust::InputOrOutput<
+        pub create_from_snapshot_resource_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// A `data_protection_backup_policy` block as defined below.
         #[builder(into, default)]
-        pub data_protection_backup_policy: pulumi_wasm_rust::InputOrOutput<
+        pub data_protection_backup_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::netapp::VolumeDataProtectionBackupPolicy>,
         >,
         /// A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub data_protection_replication: pulumi_wasm_rust::InputOrOutput<
+        pub data_protection_replication: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::netapp::VolumeDataProtectionReplication>,
         >,
         /// A `data_protection_snapshot_policy` block as defined below.
         #[builder(into, default)]
-        pub data_protection_snapshot_policy: pulumi_wasm_rust::InputOrOutput<
+        pub data_protection_snapshot_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::netapp::VolumeDataProtectionSnapshotPolicy>,
         >,
         /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub encryption_key_source: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub encryption_key_source: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `export_policy_rule` block defined below.
         #[builder(into, default)]
-        pub export_policy_rules: pulumi_wasm_rust::InputOrOutput<
+        pub export_policy_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::netapp::VolumeExportPolicyRule>>,
         >,
         /// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account`
         /// having a defined AD connection.
         #[builder(into, default)]
-        pub kerberos_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub kerberos_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub key_vault_private_endpoint_id: pulumi_wasm_rust::InputOrOutput<
+        pub key_vault_private_endpoint_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the NetApp Volume. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
         #[builder(into, default)]
-        pub network_features: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network_features: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub pool_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub pool_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
         #[builder(into, default)]
-        pub protocols: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub protocols: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub security_style: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub security_style: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub service_level: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_level: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Enable SMB encryption.
         #[builder(into, default)]
-        pub smb3_protocol_encryption_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub smb3_protocol_encryption_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
         #[builder(into, default)]
-        pub smb_access_based_enumeration_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub smb_access_based_enumeration_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Enable SMB Continuous Availability.
         #[builder(into, default)]
-        pub smb_continuous_availability_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub smb_continuous_availability_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
         #[builder(into, default)]
-        pub smb_non_browsable_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub smb_non_browsable_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
         #[builder(into, default)]
-        pub snapshot_directory_visible: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub snapshot_directory_visible: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The maximum Storage Quota allowed for a file system in Gigabytes.
         #[builder(into)]
-        pub storage_quota_in_gb: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub storage_quota_in_gb: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         ///
         /// > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Throughput of this volume in Mibps.
         #[builder(into, default)]
-        pub throughput_in_mibps: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub throughput_in_mibps: pulumi_gestalt_rust::InputOrOutput<Option<f64>>,
         /// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub volume_path: pulumi_wasm_rust::InputOrOutput<String>,
+        pub volume_path: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VolumeResult {
         /// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_gestalt_rust::Output<String>,
         /// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
-        pub azure_vmware_data_store_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub azure_vmware_data_store_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
-        pub create_from_snapshot_resource_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub create_from_snapshot_resource_id: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// A `data_protection_backup_policy` block as defined below.
-        pub data_protection_backup_policy: pulumi_wasm_rust::Output<
+        pub data_protection_backup_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::netapp::VolumeDataProtectionBackupPolicy>,
         >,
         /// A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.
-        pub data_protection_replication: pulumi_wasm_rust::Output<
+        pub data_protection_replication: pulumi_gestalt_rust::Output<
             Option<super::super::types::netapp::VolumeDataProtectionReplication>,
         >,
         /// A `data_protection_snapshot_policy` block as defined below.
-        pub data_protection_snapshot_policy: pulumi_wasm_rust::Output<
+        pub data_protection_snapshot_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::netapp::VolumeDataProtectionSnapshotPolicy>,
         >,
         /// The encryption key source, it can be `Microsoft.NetApp` for platform managed keys or `Microsoft.KeyVault` for customer-managed keys. This is required with `key_vault_private_endpoint_id`. Changing this forces a new resource to be created.
-        pub encryption_key_source: pulumi_wasm_rust::Output<String>,
+        pub encryption_key_source: pulumi_gestalt_rust::Output<String>,
         /// One or more `export_policy_rule` block defined below.
-        pub export_policy_rules: pulumi_wasm_rust::Output<
+        pub export_policy_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::netapp::VolumeExportPolicyRule>>,
         >,
         /// Enable to allow Kerberos secured volumes. Requires appropriate export rules as well as the parent `azure.netapp.Account`
         /// having a defined AD connection.
-        pub kerberos_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub kerberos_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
-        pub key_vault_private_endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_private_endpoint_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A list of IPv4 Addresses which should be used to mount the volume.
-        pub mount_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub mount_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The name of the NetApp Volume. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features).
-        pub network_features: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_features: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created.
-        pub pool_name: pulumi_wasm_rust::Output<String>,
+        pub pool_name: pulumi_gestalt_rust::Output<String>,
         /// The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document.
-        pub protocols: pulumi_wasm_rust::Output<Vec<String>>,
+        pub protocols: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created.
-        pub security_style: pulumi_wasm_rust::Output<String>,
+        pub security_style: pulumi_gestalt_rust::Output<String>,
         /// The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created.
-        pub service_level: pulumi_wasm_rust::Output<String>,
+        pub service_level: pulumi_gestalt_rust::Output<String>,
         /// Enable SMB encryption.
-        pub smb3_protocol_encryption_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub smb3_protocol_encryption_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Limits enumeration of files and folders (that is, listing the contents) in SMB only to users with allowed access on the share. For instance, if a user doesn't have access to read a file or folder in a share with access-based enumeration enabled, then the file or folder doesn't show up in directory listings. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=security%20for%20administrators.-,Access%2Dbased%20enumeration,in%20an%20Azure%20NetApp%20Files%20SMB%20volume.%20Only%20contosoadmin%20has%20access.,-In%20the%20below)
-        pub smb_access_based_enumeration_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub smb_access_based_enumeration_enabled: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// Enable SMB Continuous Availability.
-        pub smb_continuous_availability_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub smb_continuous_availability_enabled: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// Limits clients from browsing for an SMB share by hiding the share from view in Windows Explorer or when listing shares in "net view." Only end users that know the absolute paths to the share are able to find the share. Defaults to `false`. For more information, please refer to [Understand NAS share permissions in Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/network-attached-storage-permissions#:~:text=Non%2Dbrowsable%20shares,find%20the%20share.)
-        pub smb_non_browsable_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub smb_non_browsable_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true.
-        pub snapshot_directory_visible: pulumi_wasm_rust::Output<Option<bool>>,
+        pub snapshot_directory_visible: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The maximum Storage Quota allowed for a file system in Gigabytes.
-        pub storage_quota_in_gb: pulumi_wasm_rust::Output<i32>,
+        pub storage_quota_in_gb: pulumi_gestalt_rust::Output<i32>,
         /// The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created.
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
         ///
         /// > **Note:** It is highly recommended to use the **lifecycle** property as noted in the example since it will prevent an accidental deletion of the volume if the `protocols` argument changes to a different protocol type.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Throughput of this volume in Mibps.
-        pub throughput_in_mibps: pulumi_wasm_rust::Output<f64>,
+        pub throughput_in_mibps: pulumi_gestalt_rust::Output<f64>,
         /// A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created.
-        pub volume_path: pulumi_wasm_rust::Output<String>,
+        pub volume_path: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature).
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VolumeArgs,
     ) -> VolumeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_name_binding = args.account_name.get_output(context).get_inner();
         let azure_vmware_data_store_enabled_binding = args
@@ -423,90 +429,90 @@ pub mod volume {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VolumeResult {
-            account_name: pulumi_wasm_rust::__private::into_domain(
+            account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountName"),
             ),
-            azure_vmware_data_store_enabled: pulumi_wasm_rust::__private::into_domain(
+            azure_vmware_data_store_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("azureVmwareDataStoreEnabled"),
             ),
-            create_from_snapshot_resource_id: pulumi_wasm_rust::__private::into_domain(
+            create_from_snapshot_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createFromSnapshotResourceId"),
             ),
-            data_protection_backup_policy: pulumi_wasm_rust::__private::into_domain(
+            data_protection_backup_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataProtectionBackupPolicy"),
             ),
-            data_protection_replication: pulumi_wasm_rust::__private::into_domain(
+            data_protection_replication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataProtectionReplication"),
             ),
-            data_protection_snapshot_policy: pulumi_wasm_rust::__private::into_domain(
+            data_protection_snapshot_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataProtectionSnapshotPolicy"),
             ),
-            encryption_key_source: pulumi_wasm_rust::__private::into_domain(
+            encryption_key_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionKeySource"),
             ),
-            export_policy_rules: pulumi_wasm_rust::__private::into_domain(
+            export_policy_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exportPolicyRules"),
             ),
-            kerberos_enabled: pulumi_wasm_rust::__private::into_domain(
+            kerberos_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kerberosEnabled"),
             ),
-            key_vault_private_endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_private_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultPrivateEndpointId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            mount_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            mount_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mountIpAddresses"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_features: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_features: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkFeatures"),
             ),
-            pool_name: pulumi_wasm_rust::__private::into_domain(
+            pool_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("poolName"),
             ),
-            protocols: pulumi_wasm_rust::__private::into_domain(
+            protocols: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocols"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            security_style: pulumi_wasm_rust::__private::into_domain(
+            security_style: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityStyle"),
             ),
-            service_level: pulumi_wasm_rust::__private::into_domain(
+            service_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceLevel"),
             ),
-            smb3_protocol_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
+            smb3_protocol_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("smb3ProtocolEncryptionEnabled"),
             ),
-            smb_access_based_enumeration_enabled: pulumi_wasm_rust::__private::into_domain(
+            smb_access_based_enumeration_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("smbAccessBasedEnumerationEnabled"),
             ),
-            smb_continuous_availability_enabled: pulumi_wasm_rust::__private::into_domain(
+            smb_continuous_availability_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("smbContinuousAvailabilityEnabled"),
             ),
-            smb_non_browsable_enabled: pulumi_wasm_rust::__private::into_domain(
+            smb_non_browsable_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("smbNonBrowsableEnabled"),
             ),
-            snapshot_directory_visible: pulumi_wasm_rust::__private::into_domain(
+            snapshot_directory_visible: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotDirectoryVisible"),
             ),
-            storage_quota_in_gb: pulumi_wasm_rust::__private::into_domain(
+            storage_quota_in_gb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageQuotaInGb"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            throughput_in_mibps: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            throughput_in_mibps: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("throughputInMibps"),
             ),
-            volume_path: pulumi_wasm_rust::__private::into_domain(
+            volume_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumePath"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

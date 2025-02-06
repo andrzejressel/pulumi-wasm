@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = voice_connector::create(
@@ -35,54 +35,54 @@
 /// $ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
 /// ```
 pub mod voice_connector_termination {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VoiceConnectorTerminationArgs {
         /// The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
         #[builder(into)]
-        pub calling_regions: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub calling_regions: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The IP addresses allowed to make calls, in CIDR format.
         #[builder(into)]
-        pub cidr_allow_lists: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub cidr_allow_lists: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The limit on calls per second. Max value based on account service quota. Default value of `1`.
         #[builder(into, default)]
-        pub cps_limit: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub cps_limit: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The default caller ID phone number.
         #[builder(into, default)]
-        pub default_phone_number: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_phone_number: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// When termination settings are disabled, outbound calls can not be made.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The Amazon Chime Voice Connector ID.
         #[builder(into)]
-        pub voice_connector_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub voice_connector_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VoiceConnectorTerminationResult {
         /// The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
-        pub calling_regions: pulumi_wasm_rust::Output<Vec<String>>,
+        pub calling_regions: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The IP addresses allowed to make calls, in CIDR format.
-        pub cidr_allow_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub cidr_allow_lists: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The limit on calls per second. Max value based on account service quota. Default value of `1`.
-        pub cps_limit: pulumi_wasm_rust::Output<Option<i32>>,
+        pub cps_limit: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The default caller ID phone number.
-        pub default_phone_number: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_phone_number: pulumi_gestalt_rust::Output<Option<String>>,
         /// When termination settings are disabled, outbound calls can not be made.
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The Amazon Chime Voice Connector ID.
-        pub voice_connector_id: pulumi_wasm_rust::Output<String>,
+        pub voice_connector_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VoiceConnectorTerminationArgs,
     ) -> VoiceConnectorTerminationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let calling_regions_binding = args
             .calling_regions
@@ -136,22 +136,22 @@ pub mod voice_connector_termination {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VoiceConnectorTerminationResult {
-            calling_regions: pulumi_wasm_rust::__private::into_domain(
+            calling_regions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("callingRegions"),
             ),
-            cidr_allow_lists: pulumi_wasm_rust::__private::into_domain(
+            cidr_allow_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cidrAllowLists"),
             ),
-            cps_limit: pulumi_wasm_rust::__private::into_domain(
+            cps_limit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cpsLimit"),
             ),
-            default_phone_number: pulumi_wasm_rust::__private::into_domain(
+            default_phone_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultPhoneNumber"),
             ),
-            disabled: pulumi_wasm_rust::__private::into_domain(
+            disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disabled"),
             ),
-            voice_connector_id: pulumi_wasm_rust::__private::into_domain(
+            voice_connector_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("voiceConnectorId"),
             ),
         }

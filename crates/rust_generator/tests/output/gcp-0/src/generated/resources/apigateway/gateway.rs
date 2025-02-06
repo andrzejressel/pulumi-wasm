@@ -39,7 +39,7 @@
 /// ```
 ///
 pub mod gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GatewayArgs {
@@ -47,81 +47,81 @@ pub mod gateway {
         /// When changing api configs please ensure the new config is a new resource and the
         /// lifecycle rule `create_before_destroy` is set.
         #[builder(into)]
-        pub api_config: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_config: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A user-visible name for the API.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier to assign to the Gateway. Must be unique within scope of the parent resource(project).
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub gateway_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Resource labels to represent user-provided metadata.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region of the gateway for the API.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GatewayResult {
         /// Resource name of the API Config for this Gateway. Format: projects/{project}/locations/global/apis/{api}/configs/{apiConfig}.
         /// When changing api configs please ensure the new config is a new resource and the
         /// lifecycle rule `create_before_destroy` is set.
-        pub api_config: pulumi_wasm_rust::Output<String>,
+        pub api_config: pulumi_gestalt_rust::Output<String>,
         /// The default API Gateway host name of the form {gatewayId}-{hash}.{region_code}.gateway.dev.
-        pub default_hostname: pulumi_wasm_rust::Output<String>,
+        pub default_hostname: pulumi_gestalt_rust::Output<String>,
         /// A user-visible name for the API.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Identifier to assign to the Gateway. Must be unique within scope of the parent resource(project).
         ///
         ///
         /// - - -
-        pub gateway_id: pulumi_wasm_rust::Output<String>,
+        pub gateway_id: pulumi_gestalt_rust::Output<String>,
         /// Resource labels to represent user-provided metadata.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource name of the Gateway. Format: projects/{project}/locations/{region}/gateways/{gateway}
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The region of the gateway for the API.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GatewayArgs,
     ) -> GatewayResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_config_binding = args.api_config.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -162,30 +162,34 @@ pub mod gateway {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GatewayResult {
-            api_config: pulumi_wasm_rust::__private::into_domain(
+            api_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiConfig"),
             ),
-            default_hostname: pulumi_wasm_rust::__private::into_domain(
+            default_hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultHostname"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            gateway_id: pulumi_wasm_rust::__private::into_domain(
+            gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayId"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
         }
     }
 }

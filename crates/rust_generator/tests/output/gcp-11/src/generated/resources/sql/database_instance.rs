@@ -15,8 +15,8 @@
 /// ### SQL Second Generation Instance
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let main = database_instance::create(
@@ -85,8 +85,8 @@
 /// ### ENTERPRISE_PLUS Instance with data_cache_config
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let main = database_instance::create(
@@ -113,8 +113,8 @@
 /// ### Cloud SQL Instance with PSC connectivity
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let main = database_instance::create(
@@ -154,8 +154,8 @@
 /// ### Cloud SQL Instance with PSC auto connections
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let main = database_instance::create(
@@ -259,7 +259,7 @@
 /// no diff isn't sufficient to know that your config could reproduce the imported resource.
 ///
 pub mod database_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatabaseInstanceArgs {
@@ -267,7 +267,7 @@ pub mod database_instance {
         /// resource creation, this provider will attempt to clone another instance as indicated in the context. The
         /// configuration is detailed below.
         #[builder(into, default)]
-        pub clone: pulumi_wasm_rust::InputOrOutput<
+        pub clone: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sql::DatabaseInstanceClone>,
         >,
         /// The MySQL, PostgreSQL or
@@ -280,11 +280,11 @@ pub mod database_instance {
         /// [Database Version Policies](https://cloud.google.com/sql/docs/db-versions)
         /// includes an up-to-date reference of supported versions.
         #[builder(into)]
-        pub database_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether or not to allow the provider to destroy the instance. Unless this field is set to false
         /// in state, a `destroy` or `update` command that deletes the instance will fail. Defaults to `true`.
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The full path to the encryption key used for the CMEK disk encryption.  Setting
         /// up disk encryption currently requires manual steps outside of this provider.
         /// The provided key must be in the same region as the SQL instance.  In order
@@ -294,74 +294,74 @@ pub mod database_instance {
         /// That service account needs the `Cloud KMS > Cloud KMS CryptoKey Encrypter/Decrypter` role on your
         /// key - please see [this step](https://cloud.google.com/sql/docs/mysql/configure-cmek#grantkey).
         #[builder(into, default)]
-        pub encryption_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub encryption_key_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of the instance. The supported values are `SQL_INSTANCE_TYPE_UNSPECIFIED`, `CLOUD_SQL_INSTANCE`, `ON_PREMISES_INSTANCE` and `READ_REPLICA_INSTANCE`.
         #[builder(into, default)]
-        pub instance_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub instance_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The current software version on the instance. This attribute can not be set during creation. Refer to `available_maintenance_versions` attribute to see what `maintenance_version` are available for upgrade. When this attribute gets updated, it will cause an instance restart. Setting a `maintenance_version` value that is older than the current one on the instance will be ignored.
         #[builder(into, default)]
-        pub maintenance_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub maintenance_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the existing instance that will
         /// act as the master in the replication setup. Note, this requires the master to
         /// have `binary_log_enabled` set, as well as existing backups.
         #[builder(into, default)]
-        pub master_instance_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub master_instance_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the instance. If the name is left
         /// blank, the provider will randomly generate one when the instance is first
         /// created. This is done because after a name is used, it cannot be reused for
         /// up to [one week](https://cloud.google.com/sql/docs/delete-instance).
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region the instance will sit in. If a region is not provided in the resource definition,
         /// the provider region will be used instead.
         ///
         /// - - -
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The configuration for replication. The
         /// configuration is detailed below.
         #[builder(into, default)]
-        pub replica_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub replica_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sql::DatabaseInstanceReplicaConfiguration>,
         >,
         /// List of replica names. Can be updated.
         #[builder(into, default)]
-        pub replica_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub replica_names: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The context needed to restore the database to a backup run. This field will
         /// cause the provider to trigger the database to restore from the backup run indicated. The configuration is detailed below.
         /// **NOTE:** Restoring from a backup is an imperative action and not recommended via this provider. Adding or modifying this
         /// block during resource creation/update will trigger the restore action after the resource is created/updated.
         #[builder(into, default)]
-        pub restore_backup_context: pulumi_wasm_rust::InputOrOutput<
+        pub restore_backup_context: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sql::DatabaseInstanceRestoreBackupContext>,
         >,
         /// Initial root password. Can be updated. Required for MS SQL Server.
         #[builder(into, default)]
-        pub root_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub root_password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The settings to use for the database. The
         /// configuration is detailed below. Required if `clone` is not set.
         #[builder(into, default)]
-        pub settings: pulumi_wasm_rust::InputOrOutput<
+        pub settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sql::DatabaseInstanceSettings>,
         >,
     }
     #[allow(dead_code)]
     pub struct DatabaseInstanceResult {
         /// The list of all maintenance versions applicable on the instance.
-        pub available_maintenance_versions: pulumi_wasm_rust::Output<Vec<String>>,
+        pub available_maintenance_versions: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The context needed to create this instance as a clone of another instance. When this field is set during
         /// resource creation, this provider will attempt to clone another instance as indicated in the context. The
         /// configuration is detailed below.
-        pub clone: pulumi_wasm_rust::Output<
+        pub clone: pulumi_gestalt_rust::Output<
             Option<super::super::types::sql::DatabaseInstanceClone>,
         >,
         /// The connection name of the instance to be used in
         /// connection strings. For example, when connecting with [Cloud SQL Proxy](https://cloud.google.com/sql/docs/mysql/connect-admin-proxy).
-        pub connection_name: pulumi_wasm_rust::Output<String>,
+        pub connection_name: pulumi_gestalt_rust::Output<String>,
         /// The MySQL, PostgreSQL or
         /// SQL Server version to use. Supported values include `MYSQL_5_6`,
         /// `MYSQL_5_7`, `MYSQL_8_0`, `POSTGRES_9_6`,`POSTGRES_10`, `POSTGRES_11`,
@@ -371,12 +371,12 @@ pub mod database_instance {
         /// `SQLSERVER_2019_WEB`.
         /// [Database Version Policies](https://cloud.google.com/sql/docs/db-versions)
         /// includes an up-to-date reference of supported versions.
-        pub database_version: pulumi_wasm_rust::Output<String>,
+        pub database_version: pulumi_gestalt_rust::Output<String>,
         /// Whether or not to allow the provider to destroy the instance. Unless this field is set to false
         /// in state, a `destroy` or `update` command that deletes the instance will fail. Defaults to `true`.
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The DNS name of the instance. See [Connect to an instance using Private Service Connect](https://cloud.google.com/sql/docs/mysql/configure-private-service-connect#view-summary-information-cloud-sql-instances-psc-enabled) for more details.
-        pub dns_name: pulumi_wasm_rust::Output<String>,
+        pub dns_name: pulumi_gestalt_rust::Output<String>,
         /// The full path to the encryption key used for the CMEK disk encryption.  Setting
         /// up disk encryption currently requires manual steps outside of this provider.
         /// The provided key must be in the same region as the SQL instance.  In order
@@ -385,66 +385,66 @@ pub mod database_instance {
         /// manually, please see [this step](https://cloud.google.com/sql/docs/mysql/configure-cmek#service-account).
         /// That service account needs the `Cloud KMS > Cloud KMS CryptoKey Encrypter/Decrypter` role on your
         /// key - please see [this step](https://cloud.google.com/sql/docs/mysql/configure-cmek#grantkey).
-        pub encryption_key_name: pulumi_wasm_rust::Output<String>,
+        pub encryption_key_name: pulumi_gestalt_rust::Output<String>,
         /// The first IPv4 address of any type assigned.
-        pub first_ip_address: pulumi_wasm_rust::Output<String>,
+        pub first_ip_address: pulumi_gestalt_rust::Output<String>,
         /// The type of the instance. The supported values are `SQL_INSTANCE_TYPE_UNSPECIFIED`, `CLOUD_SQL_INSTANCE`, `ON_PREMISES_INSTANCE` and `READ_REPLICA_INSTANCE`.
-        pub instance_type: pulumi_wasm_rust::Output<String>,
-        pub ip_addresses: pulumi_wasm_rust::Output<
+        pub instance_type: pulumi_gestalt_rust::Output<String>,
+        pub ip_addresses: pulumi_gestalt_rust::Output<
             Vec<super::super::types::sql::DatabaseInstanceIpAddress>,
         >,
         /// The current software version on the instance. This attribute can not be set during creation. Refer to `available_maintenance_versions` attribute to see what `maintenance_version` are available for upgrade. When this attribute gets updated, it will cause an instance restart. Setting a `maintenance_version` value that is older than the current one on the instance will be ignored.
-        pub maintenance_version: pulumi_wasm_rust::Output<String>,
+        pub maintenance_version: pulumi_gestalt_rust::Output<String>,
         /// The name of the existing instance that will
         /// act as the master in the replication setup. Note, this requires the master to
         /// have `binary_log_enabled` set, as well as existing backups.
-        pub master_instance_name: pulumi_wasm_rust::Output<String>,
+        pub master_instance_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the instance. If the name is left
         /// blank, the provider will randomly generate one when the instance is first
         /// created. This is done because after a name is used, it cannot be reused for
         /// up to [one week](https://cloud.google.com/sql/docs/delete-instance).
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The first private (`PRIVATE`) IPv4 address assigned.
-        pub private_ip_address: pulumi_wasm_rust::Output<String>,
+        pub private_ip_address: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// the URI that points to the service attachment of the instance.
-        pub psc_service_attachment_link: pulumi_wasm_rust::Output<String>,
+        pub psc_service_attachment_link: pulumi_gestalt_rust::Output<String>,
         /// The first public (`PRIMARY`) IPv4 address assigned.
-        pub public_ip_address: pulumi_wasm_rust::Output<String>,
+        pub public_ip_address: pulumi_gestalt_rust::Output<String>,
         /// The region the instance will sit in. If a region is not provided in the resource definition,
         /// the provider region will be used instead.
         ///
         /// - - -
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The configuration for replication. The
         /// configuration is detailed below.
-        pub replica_configuration: pulumi_wasm_rust::Output<
+        pub replica_configuration: pulumi_gestalt_rust::Output<
             super::super::types::sql::DatabaseInstanceReplicaConfiguration,
         >,
         /// List of replica names. Can be updated.
-        pub replica_names: pulumi_wasm_rust::Output<Vec<String>>,
+        pub replica_names: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The context needed to restore the database to a backup run. This field will
         /// cause the provider to trigger the database to restore from the backup run indicated. The configuration is detailed below.
         /// **NOTE:** Restoring from a backup is an imperative action and not recommended via this provider. Adding or modifying this
         /// block during resource creation/update will trigger the restore action after the resource is created/updated.
-        pub restore_backup_context: pulumi_wasm_rust::Output<
+        pub restore_backup_context: pulumi_gestalt_rust::Output<
             Option<super::super::types::sql::DatabaseInstanceRestoreBackupContext>,
         >,
         /// Initial root password. Can be updated. Required for MS SQL Server.
-        pub root_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub root_password: pulumi_gestalt_rust::Output<Option<String>>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
-        pub server_ca_certs: pulumi_wasm_rust::Output<
+        pub self_link: pulumi_gestalt_rust::Output<String>,
+        pub server_ca_certs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::sql::DatabaseInstanceServerCaCert>,
         >,
         /// The service account email address assigned to the
         /// instance.
-        pub service_account_email_address: pulumi_wasm_rust::Output<String>,
+        pub service_account_email_address: pulumi_gestalt_rust::Output<String>,
         /// The settings to use for the database. The
         /// configuration is detailed below. Required if `clone` is not set.
-        pub settings: pulumi_wasm_rust::Output<
+        pub settings: pulumi_gestalt_rust::Output<
             super::super::types::sql::DatabaseInstanceSettings,
         >,
     }
@@ -453,11 +453,11 @@ pub mod database_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatabaseInstanceArgs,
     ) -> DatabaseInstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let clone_binding = args.clone.get_output(context).get_inner();
         let database_version_binding = args
@@ -564,76 +564,78 @@ pub mod database_instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatabaseInstanceResult {
-            available_maintenance_versions: pulumi_wasm_rust::__private::into_domain(
+            available_maintenance_versions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availableMaintenanceVersions"),
             ),
-            clone: pulumi_wasm_rust::__private::into_domain(o.extract_field("clone")),
-            connection_name: pulumi_wasm_rust::__private::into_domain(
+            clone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("clone")),
+            connection_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionName"),
             ),
-            database_version: pulumi_wasm_rust::__private::into_domain(
+            database_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseVersion"),
             ),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            dns_name: pulumi_wasm_rust::__private::into_domain(
+            dns_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsName"),
             ),
-            encryption_key_name: pulumi_wasm_rust::__private::into_domain(
+            encryption_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionKeyName"),
             ),
-            first_ip_address: pulumi_wasm_rust::__private::into_domain(
+            first_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("firstIpAddress"),
             ),
-            instance_type: pulumi_wasm_rust::__private::into_domain(
+            instance_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceType"),
             ),
-            ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddresses"),
             ),
-            maintenance_version: pulumi_wasm_rust::__private::into_domain(
+            maintenance_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceVersion"),
             ),
-            master_instance_name: pulumi_wasm_rust::__private::into_domain(
+            master_instance_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("masterInstanceName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            private_ip_address: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            private_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpAddress"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            psc_service_attachment_link: pulumi_wasm_rust::__private::into_domain(
+            psc_service_attachment_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pscServiceAttachmentLink"),
             ),
-            public_ip_address: pulumi_wasm_rust::__private::into_domain(
+            public_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicIpAddress"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            replica_configuration: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            replica_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicaConfiguration"),
             ),
-            replica_names: pulumi_wasm_rust::__private::into_domain(
+            replica_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicaNames"),
             ),
-            restore_backup_context: pulumi_wasm_rust::__private::into_domain(
+            restore_backup_context: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restoreBackupContext"),
             ),
-            root_password: pulumi_wasm_rust::__private::into_domain(
+            root_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rootPassword"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            server_ca_certs: pulumi_wasm_rust::__private::into_domain(
+            server_ca_certs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverCaCerts"),
             ),
-            service_account_email_address: pulumi_wasm_rust::__private::into_domain(
+            service_account_email_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccountEmailAddress"),
             ),
-            settings: pulumi_wasm_rust::__private::into_domain(
+            settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("settings"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foo = load_balancer_cookie_stickiness_policy::create(
@@ -33,52 +33,52 @@
 /// }
 /// ```
 pub mod load_balancer_cookie_stickiness_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LoadBalancerCookieStickinessPolicyArgs {
         /// The time period after which
         /// the session cookie should be considered stale, expressed in seconds.
         #[builder(into, default)]
-        pub cookie_expiration_period: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub cookie_expiration_period: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The load balancer port to which the policy
         /// should be applied. This must be an active listener on the load
         /// balancer.
         #[builder(into)]
-        pub lb_port: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub lb_port: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The load balancer to which the policy
         /// should be attached.
         #[builder(into)]
-        pub load_balancer: pulumi_wasm_rust::InputOrOutput<String>,
+        pub load_balancer: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the stickiness policy.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LoadBalancerCookieStickinessPolicyResult {
         /// The time period after which
         /// the session cookie should be considered stale, expressed in seconds.
-        pub cookie_expiration_period: pulumi_wasm_rust::Output<Option<i32>>,
+        pub cookie_expiration_period: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The load balancer port to which the policy
         /// should be applied. This must be an active listener on the load
         /// balancer.
-        pub lb_port: pulumi_wasm_rust::Output<i32>,
+        pub lb_port: pulumi_gestalt_rust::Output<i32>,
         /// The load balancer to which the policy
         /// should be attached.
-        pub load_balancer: pulumi_wasm_rust::Output<String>,
+        pub load_balancer: pulumi_gestalt_rust::Output<String>,
         /// The name of the stickiness policy.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LoadBalancerCookieStickinessPolicyArgs,
     ) -> LoadBalancerCookieStickinessPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cookie_expiration_period_binding = args
             .cookie_expiration_period
@@ -113,14 +113,16 @@ pub mod load_balancer_cookie_stickiness_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LoadBalancerCookieStickinessPolicyResult {
-            cookie_expiration_period: pulumi_wasm_rust::__private::into_domain(
+            cookie_expiration_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cookieExpirationPeriod"),
             ),
-            lb_port: pulumi_wasm_rust::__private::into_domain(o.extract_field("lbPort")),
-            load_balancer: pulumi_wasm_rust::__private::into_domain(
+            lb_port: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("lbPort"),
+            ),
+            load_balancer: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancer"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

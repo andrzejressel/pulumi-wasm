@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let anonymous = linked_service_odbc::create(
@@ -62,72 +62,72 @@
 /// ```
 ///
 pub mod linked_service_odbc {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkedServiceOdbcArgs {
         /// A map of additional properties to associate with the Data Factory Linked Service ODBC.
         #[builder(into, default)]
-        pub additional_properties: pulumi_wasm_rust::InputOrOutput<
+        pub additional_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service ODBC.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A `basic_authentication` block as defined below.
         #[builder(into, default)]
-        pub basic_authentication: pulumi_wasm_rust::InputOrOutput<
+        pub basic_authentication: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::LinkedServiceOdbcBasicAuthentication,
             >,
         >,
         /// The connection string in which to authenticate with ODBC.
         #[builder(into)]
-        pub connection_string: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connection_string: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description for the Data Factory Linked Service ODBC.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The integration runtime reference to associate with the Data Factory Linked Service ODBC.
         #[builder(into, default)]
-        pub integration_runtime_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub integration_runtime_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Data Factory Linked Service ODBC. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of parameters to associate with the Data Factory Linked Service ODBC.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LinkedServiceOdbcResult {
         /// A map of additional properties to associate with the Data Factory Linked Service ODBC.
-        pub additional_properties: pulumi_wasm_rust::Output<
+        pub additional_properties: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service ODBC.
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A `basic_authentication` block as defined below.
-        pub basic_authentication: pulumi_wasm_rust::Output<
+        pub basic_authentication: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::datafactory::LinkedServiceOdbcBasicAuthentication,
             >,
         >,
         /// The connection string in which to authenticate with ODBC.
-        pub connection_string: pulumi_wasm_rust::Output<String>,
+        pub connection_string: pulumi_gestalt_rust::Output<String>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// The description for the Data Factory Linked Service ODBC.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The integration runtime reference to associate with the Data Factory Linked Service ODBC.
-        pub integration_runtime_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub integration_runtime_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Data Factory Linked Service ODBC. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A map of parameters to associate with the Data Factory Linked Service ODBC.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -136,11 +136,11 @@ pub mod linked_service_odbc {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LinkedServiceOdbcArgs,
     ) -> LinkedServiceOdbcResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let additional_properties_binding = args
             .additional_properties
@@ -211,29 +211,29 @@ pub mod linked_service_odbc {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LinkedServiceOdbcResult {
-            additional_properties: pulumi_wasm_rust::__private::into_domain(
+            additional_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalProperties"),
             ),
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            basic_authentication: pulumi_wasm_rust::__private::into_domain(
+            basic_authentication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("basicAuthentication"),
             ),
-            connection_string: pulumi_wasm_rust::__private::into_domain(
+            connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionString"),
             ),
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            integration_runtime_name: pulumi_wasm_rust::__private::into_domain(
+            integration_runtime_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationRuntimeName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
         }

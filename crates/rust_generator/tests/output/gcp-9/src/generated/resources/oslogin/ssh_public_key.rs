@@ -50,52 +50,52 @@
 /// ```
 ///
 pub mod ssh_public_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SshPublicKeyArgs {
         /// An expiration time in microseconds since epoch.
         #[builder(into, default)]
-        pub expiration_time_usec: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub expiration_time_usec: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Public key text in SSH format, defined by RFC4253 section 6.6.
         #[builder(into)]
-        pub key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The project ID of the Google Cloud Platform project.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The user email.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub user: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SshPublicKeyResult {
         /// An expiration time in microseconds since epoch.
-        pub expiration_time_usec: pulumi_wasm_rust::Output<Option<String>>,
+        pub expiration_time_usec: pulumi_gestalt_rust::Output<Option<String>>,
         /// The SHA-256 fingerprint of the SSH public key.
-        pub fingerprint: pulumi_wasm_rust::Output<String>,
+        pub fingerprint: pulumi_gestalt_rust::Output<String>,
         /// Public key text in SSH format, defined by RFC4253 section 6.6.
-        pub key: pulumi_wasm_rust::Output<String>,
+        pub key: pulumi_gestalt_rust::Output<String>,
         /// The project ID of the Google Cloud Platform project.
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
         /// The user email.
         ///
         ///
         /// - - -
-        pub user: pulumi_wasm_rust::Output<String>,
+        pub user: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SshPublicKeyArgs,
     ) -> SshPublicKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let expiration_time_usec_binding = args
             .expiration_time_usec
@@ -129,17 +129,17 @@ pub mod ssh_public_key {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SshPublicKeyResult {
-            expiration_time_usec: pulumi_wasm_rust::__private::into_domain(
+            expiration_time_usec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expirationTimeUsec"),
             ),
-            fingerprint: pulumi_wasm_rust::__private::into_domain(
+            fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fingerprint"),
             ),
-            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            user: pulumi_wasm_rust::__private::into_domain(o.extract_field("user")),
+            user: pulumi_gestalt_rust::__private::into_domain(o.extract_field("user")),
         }
     }
 }

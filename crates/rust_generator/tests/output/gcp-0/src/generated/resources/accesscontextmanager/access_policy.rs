@@ -63,55 +63,55 @@
 /// ```
 ///
 pub mod access_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessPolicyArgs {
         /// The parent of this AccessPolicy in the Cloud Resource Hierarchy.
         /// Format: 'organizations/{{organization_id}}'
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Folder or project on which this policy is applicable.
         /// Format: 'folders/{{folder_id}}' or 'projects/{{project_number}}'
         #[builder(into, default)]
-        pub scopes: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub scopes: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Human readable title. Does not affect behavior.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub title: pulumi_wasm_rust::InputOrOutput<String>,
+        pub title: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AccessPolicyResult {
         /// Time the AccessPolicy was created in UTC.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Resource name of the AccessPolicy. Format: '{{policy_id}}'
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The parent of this AccessPolicy in the Cloud Resource Hierarchy.
         /// Format: 'organizations/{{organization_id}}'
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// Folder or project on which this policy is applicable.
         /// Format: 'folders/{{folder_id}}' or 'projects/{{project_number}}'
-        pub scopes: pulumi_wasm_rust::Output<Option<String>>,
+        pub scopes: pulumi_gestalt_rust::Output<Option<String>>,
         /// Human readable title. Does not affect behavior.
         ///
         ///
         /// - - -
-        pub title: pulumi_wasm_rust::Output<String>,
+        pub title: pulumi_gestalt_rust::Output<String>,
         /// Time the AccessPolicy was updated in UTC.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccessPolicyArgs,
     ) -> AccessPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let parent_binding = args.parent.get_output(context).get_inner();
         let scopes_binding = args.scopes.get_output(context).get_inner();
@@ -137,14 +137,18 @@ pub mod access_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccessPolicyResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            scopes: pulumi_wasm_rust::__private::into_domain(o.extract_field("scopes")),
-            title: pulumi_wasm_rust::__private::into_domain(o.extract_field("title")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            scopes: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("scopes"),
+            ),
+            title: pulumi_gestalt_rust::__private::into_domain(o.extract_field("title")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

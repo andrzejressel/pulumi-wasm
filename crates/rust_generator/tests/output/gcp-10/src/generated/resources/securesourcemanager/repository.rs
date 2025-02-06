@@ -11,8 +11,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = repository::create(
@@ -36,8 +36,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = repository::create(
@@ -98,68 +98,68 @@
 /// ```
 ///
 pub mod repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryArgs {
         /// Description of the repository, which cannot exceed 500 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Initial configurations for the repository.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub initial_config: pulumi_wasm_rust::InputOrOutput<
+        pub initial_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::securesourcemanager::RepositoryInitialConfig>,
         >,
         /// The name of the instance in which the repository is hosted.
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location for the Repository.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID for the Repository.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub repository_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub repository_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RepositoryResult {
         /// Time the repository was created in UTC.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Description of the repository, which cannot exceed 500 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Initial configurations for the repository.
         /// Structure is documented below.
-        pub initial_config: pulumi_wasm_rust::Output<
+        pub initial_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::securesourcemanager::RepositoryInitialConfig>,
         >,
         /// The name of the instance in which the repository is hosted.
-        pub instance: pulumi_wasm_rust::Output<String>,
+        pub instance: pulumi_gestalt_rust::Output<String>,
         /// The location for the Repository.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource name for the Repository.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The ID for the Repository.
         ///
         ///
         /// - - -
-        pub repository_id: pulumi_wasm_rust::Output<String>,
+        pub repository_id: pulumi_gestalt_rust::Output<String>,
         /// Unique identifier of the repository.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Time the repository was updated in UTC.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// URIs for the repository.
         /// Structure is documented below.
-        pub uris: pulumi_wasm_rust::Output<
+        pub uris: pulumi_gestalt_rust::Output<
             Vec<super::super::types::securesourcemanager::RepositoryUri>,
         >,
     }
@@ -168,11 +168,11 @@ pub mod repository {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RepositoryArgs,
     ) -> RepositoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let initial_config_binding = args.initial_config.get_output(context).get_inner();
@@ -213,33 +213,33 @@ pub mod repository {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RepositoryResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            initial_config: pulumi_wasm_rust::__private::into_domain(
+            initial_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("initialConfig"),
             ),
-            instance: pulumi_wasm_rust::__private::into_domain(
+            instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instance"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            repository_id: pulumi_wasm_rust::__private::into_domain(
+            repository_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repositoryId"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            uris: pulumi_wasm_rust::__private::into_domain(o.extract_field("uris")),
+            uris: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uris")),
         }
     }
 }

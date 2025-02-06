@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = principal_portfolio_association::create(
@@ -27,48 +27,48 @@
 /// $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f,IAM
 /// ```
 pub mod principal_portfolio_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrincipalPortfolioAssociationArgs {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         #[builder(into, default)]
-        pub accept_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub accept_language: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Portfolio identifier.
         #[builder(into)]
-        pub portfolio_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub portfolio_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Principal ARN.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub principal_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub principal_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         #[builder(into, default)]
-        pub principal_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub principal_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PrincipalPortfolioAssociationResult {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        pub accept_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub accept_language: pulumi_gestalt_rust::Output<Option<String>>,
         /// Portfolio identifier.
-        pub portfolio_id: pulumi_wasm_rust::Output<String>,
+        pub portfolio_id: pulumi_gestalt_rust::Output<String>,
         /// Principal ARN.
         ///
         /// The following arguments are optional:
-        pub principal_arn: pulumi_wasm_rust::Output<String>,
+        pub principal_arn: pulumi_gestalt_rust::Output<String>,
         /// Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
-        pub principal_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub principal_type: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PrincipalPortfolioAssociationArgs,
     ) -> PrincipalPortfolioAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let accept_language_binding = args
             .accept_language
@@ -103,16 +103,16 @@ pub mod principal_portfolio_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PrincipalPortfolioAssociationResult {
-            accept_language: pulumi_wasm_rust::__private::into_domain(
+            accept_language: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("acceptLanguage"),
             ),
-            portfolio_id: pulumi_wasm_rust::__private::into_domain(
+            portfolio_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("portfolioId"),
             ),
-            principal_arn: pulumi_wasm_rust::__private::into_domain(
+            principal_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principalArn"),
             ),
-            principal_type: pulumi_wasm_rust::__private::into_domain(
+            principal_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principalType"),
             ),
         }

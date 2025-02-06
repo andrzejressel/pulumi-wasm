@@ -1,8 +1,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let cluster = cluster::create(
@@ -46,56 +46,56 @@
 /// ```
 ///
 pub mod database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatabaseArgs {
         /// Specifies the name of the Kusto Cluster this database will be added to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The time the data that should be kept in cache for fast queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
         #[builder(into, default)]
-        pub hot_cache_period: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub hot_cache_period: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Kusto Database to create. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
         #[builder(into, default)]
-        pub soft_delete_period: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub soft_delete_period: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DatabaseResult {
         /// Specifies the name of the Kusto Cluster this database will be added to. Changing this forces a new resource to be created.
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_gestalt_rust::Output<String>,
         /// The time the data that should be kept in cache for fast queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
-        pub hot_cache_period: pulumi_wasm_rust::Output<Option<String>>,
+        pub hot_cache_period: pulumi_gestalt_rust::Output<Option<String>>,
         /// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the Kusto Database to create. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The size of the database in bytes.
-        pub size: pulumi_wasm_rust::Output<f64>,
+        pub size: pulumi_gestalt_rust::Output<f64>,
         /// The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
-        pub soft_delete_period: pulumi_wasm_rust::Output<Option<String>>,
+        pub soft_delete_period: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatabaseArgs,
     ) -> DatabaseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
         let hot_cache_period_binding = args
@@ -145,21 +145,21 @@ pub mod database {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatabaseResult {
-            cluster_name: pulumi_wasm_rust::__private::into_domain(
+            cluster_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterName"),
             ),
-            hot_cache_period: pulumi_wasm_rust::__private::into_domain(
+            hot_cache_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hotCachePeriod"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
-            soft_delete_period: pulumi_wasm_rust::__private::into_domain(
+            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
+            soft_delete_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("softDeletePeriod"),
             ),
         }

@@ -14,8 +14,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let app = application::create(
@@ -72,7 +72,7 @@
 /// ```
 ///
 pub mod firewall_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FirewallRuleArgs {
@@ -82,24 +82,24 @@ pub mod firewall_rule {
         ///
         /// - - -
         #[builder(into)]
-        pub action: pulumi_wasm_rust::InputOrOutput<String>,
+        pub action: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An optional string description of this rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A positive integer that defines the order of rule evaluation.
         /// Rules with the lowest priority are evaluated first.
         /// A default rule at priority Int32.MaxValue matches all IPv4 and
         /// IPv6 traffic when no previous rule matches. Only the action of
         /// this rule can be modified by the user.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// IP address or range, defined using CIDR notation, of requests that this rule applies to.
         #[builder(into)]
-        pub source_range: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_range: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FirewallRuleResult {
@@ -108,31 +108,31 @@ pub mod firewall_rule {
         ///
         ///
         /// - - -
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_gestalt_rust::Output<String>,
         /// An optional string description of this rule.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A positive integer that defines the order of rule evaluation.
         /// Rules with the lowest priority are evaluated first.
         /// A default rule at priority Int32.MaxValue matches all IPv4 and
         /// IPv6 traffic when no previous rule matches. Only the action of
         /// this rule can be modified by the user.
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// IP address or range, defined using CIDR notation, of requests that this rule applies to.
-        pub source_range: pulumi_wasm_rust::Output<String>,
+        pub source_range: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FirewallRuleArgs,
     ) -> FirewallRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let action_binding = args.action.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -168,17 +168,19 @@ pub mod firewall_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FirewallRuleResult {
-            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            action: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("action"),
+            ),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            source_range: pulumi_wasm_rust::__private::into_domain(
+            source_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceRange"),
             ),
         }

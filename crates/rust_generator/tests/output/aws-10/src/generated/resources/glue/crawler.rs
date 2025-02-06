@@ -5,8 +5,8 @@
 /// ### DynamoDB Target Example
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = crawler::create(
@@ -26,8 +26,8 @@
 /// ### JDBC Target Example
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = crawler::create(
@@ -51,8 +51,8 @@
 /// ### S3 Target Example
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = crawler::create(
@@ -75,8 +75,8 @@
 /// ### Catalog Target Example
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = crawler::create(
@@ -106,8 +106,8 @@
 /// ### MongoDB Target Example
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = crawler::create(
@@ -161,179 +161,179 @@
 /// $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
 /// ```
 pub mod crawler {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CrawlerArgs {
         /// List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
         #[builder(into, default)]
-        pub catalog_targets: pulumi_wasm_rust::InputOrOutput<
+        pub catalog_targets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::glue::CrawlerCatalogTarget>>,
         >,
         /// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         #[builder(into, default)]
-        pub classifiers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub classifiers: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
         #[builder(into, default)]
-        pub configuration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub configuration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Glue database where results are written.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of nested Delta Lake target arguments. See Delta Target below.
         #[builder(into, default)]
-        pub delta_targets: pulumi_wasm_rust::InputOrOutput<
+        pub delta_targets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::glue::CrawlerDeltaTarget>>,
         >,
         /// Description of the crawler.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of nested DynamoDB target arguments. See Dynamodb Target below.
         #[builder(into, default)]
-        pub dynamodb_targets: pulumi_wasm_rust::InputOrOutput<
+        pub dynamodb_targets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::glue::CrawlerDynamodbTarget>>,
         >,
         /// List of nested Hudi target arguments. See Iceberg Target below.
         #[builder(into, default)]
-        pub hudi_targets: pulumi_wasm_rust::InputOrOutput<
+        pub hudi_targets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::glue::CrawlerHudiTarget>>,
         >,
         /// List of nested Iceberg target arguments. See Iceberg Target below.
         #[builder(into, default)]
-        pub iceberg_targets: pulumi_wasm_rust::InputOrOutput<
+        pub iceberg_targets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::glue::CrawlerIcebergTarget>>,
         >,
         /// List of nested JDBC target arguments. See JDBC Target below.
         #[builder(into, default)]
-        pub jdbc_targets: pulumi_wasm_rust::InputOrOutput<
+        pub jdbc_targets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::glue::CrawlerJdbcTarget>>,
         >,
         /// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
         #[builder(into, default)]
-        pub lake_formation_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub lake_formation_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::glue::CrawlerLakeFormationConfiguration>,
         >,
         /// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
         #[builder(into, default)]
-        pub lineage_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub lineage_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::glue::CrawlerLineageConfiguration>,
         >,
         /// List of nested MongoDB target arguments. See MongoDB Target below.
         #[builder(into, default)]
-        pub mongodb_targets: pulumi_wasm_rust::InputOrOutput<
+        pub mongodb_targets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::glue::CrawlerMongodbTarget>>,
         >,
         /// Name of the crawler.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
         #[builder(into, default)]
-        pub recrawl_policy: pulumi_wasm_rust::InputOrOutput<
+        pub recrawl_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::glue::CrawlerRecrawlPolicy>,
         >,
         /// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         #[builder(into)]
-        pub role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of nested Amazon S3 target arguments. See S3 Target below.
         #[builder(into, default)]
-        pub s3_targets: pulumi_wasm_rust::InputOrOutput<
+        pub s3_targets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::glue::CrawlerS3Target>>,
         >,
         /// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
         #[builder(into, default)]
-        pub schedule: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub schedule: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
         #[builder(into, default)]
-        pub schema_change_policy: pulumi_wasm_rust::InputOrOutput<
+        pub schema_change_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::glue::CrawlerSchemaChangePolicy>,
         >,
         /// The name of Security Configuration to be used by the crawler
         #[builder(into, default)]
-        pub security_configuration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub security_configuration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The table prefix used for catalog tables that are created.
         #[builder(into, default)]
-        pub table_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub table_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CrawlerResult {
         /// The ARN of the crawler
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
-        pub catalog_targets: pulumi_wasm_rust::Output<
+        pub catalog_targets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::glue::CrawlerCatalogTarget>>,
         >,
         /// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
-        pub classifiers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub classifiers: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
-        pub configuration: pulumi_wasm_rust::Output<Option<String>>,
+        pub configuration: pulumi_gestalt_rust::Output<Option<String>>,
         /// Glue database where results are written.
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_gestalt_rust::Output<String>,
         /// List of nested Delta Lake target arguments. See Delta Target below.
-        pub delta_targets: pulumi_wasm_rust::Output<
+        pub delta_targets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::glue::CrawlerDeltaTarget>>,
         >,
         /// Description of the crawler.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of nested DynamoDB target arguments. See Dynamodb Target below.
-        pub dynamodb_targets: pulumi_wasm_rust::Output<
+        pub dynamodb_targets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::glue::CrawlerDynamodbTarget>>,
         >,
         /// List of nested Hudi target arguments. See Iceberg Target below.
-        pub hudi_targets: pulumi_wasm_rust::Output<
+        pub hudi_targets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::glue::CrawlerHudiTarget>>,
         >,
         /// List of nested Iceberg target arguments. See Iceberg Target below.
-        pub iceberg_targets: pulumi_wasm_rust::Output<
+        pub iceberg_targets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::glue::CrawlerIcebergTarget>>,
         >,
         /// List of nested JDBC target arguments. See JDBC Target below.
-        pub jdbc_targets: pulumi_wasm_rust::Output<
+        pub jdbc_targets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::glue::CrawlerJdbcTarget>>,
         >,
         /// Specifies Lake Formation configuration settings for the crawler. See Lake Formation Configuration below.
-        pub lake_formation_configuration: pulumi_wasm_rust::Output<
+        pub lake_formation_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::glue::CrawlerLakeFormationConfiguration>,
         >,
         /// Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
-        pub lineage_configuration: pulumi_wasm_rust::Output<
+        pub lineage_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::glue::CrawlerLineageConfiguration>,
         >,
         /// List of nested MongoDB target arguments. See MongoDB Target below.
-        pub mongodb_targets: pulumi_wasm_rust::Output<
+        pub mongodb_targets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::glue::CrawlerMongodbTarget>>,
         >,
         /// Name of the crawler.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
-        pub recrawl_policy: pulumi_wasm_rust::Output<
+        pub recrawl_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::glue::CrawlerRecrawlPolicy>,
         >,
         /// The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_gestalt_rust::Output<String>,
         /// List of nested Amazon S3 target arguments. See S3 Target below.
-        pub s3_targets: pulumi_wasm_rust::Output<
+        pub s3_targets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::glue::CrawlerS3Target>>,
         >,
         /// A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
-        pub schedule: pulumi_wasm_rust::Output<Option<String>>,
+        pub schedule: pulumi_gestalt_rust::Output<Option<String>>,
         /// Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
-        pub schema_change_policy: pulumi_wasm_rust::Output<
+        pub schema_change_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::glue::CrawlerSchemaChangePolicy>,
         >,
         /// The name of Security Configuration to be used by the crawler
-        pub security_configuration: pulumi_wasm_rust::Output<Option<String>>,
+        pub security_configuration: pulumi_gestalt_rust::Output<Option<String>>,
         /// The table prefix used for catalog tables that are created.
-        pub table_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub table_prefix: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -342,11 +342,11 @@ pub mod crawler {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CrawlerArgs,
     ) -> CrawlerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let catalog_targets_binding = args
             .catalog_targets
@@ -491,68 +491,68 @@ pub mod crawler {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CrawlerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            catalog_targets: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            catalog_targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("catalogTargets"),
             ),
-            classifiers: pulumi_wasm_rust::__private::into_domain(
+            classifiers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("classifiers"),
             ),
-            configuration: pulumi_wasm_rust::__private::into_domain(
+            configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configuration"),
             ),
-            database_name: pulumi_wasm_rust::__private::into_domain(
+            database_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseName"),
             ),
-            delta_targets: pulumi_wasm_rust::__private::into_domain(
+            delta_targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deltaTargets"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            dynamodb_targets: pulumi_wasm_rust::__private::into_domain(
+            dynamodb_targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dynamodbTargets"),
             ),
-            hudi_targets: pulumi_wasm_rust::__private::into_domain(
+            hudi_targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hudiTargets"),
             ),
-            iceberg_targets: pulumi_wasm_rust::__private::into_domain(
+            iceberg_targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("icebergTargets"),
             ),
-            jdbc_targets: pulumi_wasm_rust::__private::into_domain(
+            jdbc_targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jdbcTargets"),
             ),
-            lake_formation_configuration: pulumi_wasm_rust::__private::into_domain(
+            lake_formation_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lakeFormationConfiguration"),
             ),
-            lineage_configuration: pulumi_wasm_rust::__private::into_domain(
+            lineage_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lineageConfiguration"),
             ),
-            mongodb_targets: pulumi_wasm_rust::__private::into_domain(
+            mongodb_targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mongodbTargets"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            recrawl_policy: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            recrawl_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recrawlPolicy"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
-            s3_targets: pulumi_wasm_rust::__private::into_domain(
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
+            s3_targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3Targets"),
             ),
-            schedule: pulumi_wasm_rust::__private::into_domain(
+            schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedule"),
             ),
-            schema_change_policy: pulumi_wasm_rust::__private::into_domain(
+            schema_change_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schemaChangePolicy"),
             ),
-            security_configuration: pulumi_wasm_rust::__private::into_domain(
+            security_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityConfiguration"),
             ),
-            table_prefix: pulumi_wasm_rust::__private::into_domain(
+            table_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tablePrefix"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

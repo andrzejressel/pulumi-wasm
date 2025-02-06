@@ -21,41 +21,41 @@
 /// $ pulumi import aws:ram/resourceShare:ResourceShare example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12
 /// ```
 pub mod resource_share {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceShareArgs {
         /// Indicates whether principals outside your organization can be associated with a resource share.
         #[builder(into, default)]
-        pub allow_external_principals: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_external_principals: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the resource share.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
         #[builder(into, default)]
-        pub permission_arns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub permission_arns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ResourceShareResult {
         /// Indicates whether principals outside your organization can be associated with a resource share.
-        pub allow_external_principals: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_external_principals: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The Amazon Resource Name (ARN) of the resource share.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource share.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
-        pub permission_arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub permission_arns: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -64,11 +64,11 @@ pub mod resource_share {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResourceShareArgs,
     ) -> ResourceShareResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allow_external_principals_binding = args
             .allow_external_principals
@@ -105,16 +105,16 @@ pub mod resource_share {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResourceShareResult {
-            allow_external_principals: pulumi_wasm_rust::__private::into_domain(
+            allow_external_principals: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowExternalPrincipals"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            permission_arns: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            permission_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissionArns"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

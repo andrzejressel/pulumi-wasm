@@ -5,7 +5,7 @@ use crate::model::{
 use crate::utils::sanitize_identifier;
 use anyhow::{anyhow, Context, Result};
 use convert_case::{Case, Casing};
-use pulumi_wasm_rust::generate_string_const;
+use pulumi_gestalt_rust::generate_string_const;
 use serde::Deserialize;
 use std::collections::{BTreeMap, BTreeSet, HashSet};
 

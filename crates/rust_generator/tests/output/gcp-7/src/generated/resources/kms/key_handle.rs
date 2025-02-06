@@ -154,7 +154,7 @@
 /// ```
 ///
 pub mod key_handle {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KeyHandleArgs {
@@ -164,50 +164,50 @@ pub mod key_handle {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource name for the KeyHandle.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Selector of the resource type where we want to protect resources.
         /// For example, `storage.googleapis.com/Bucket`.
         #[builder(into)]
-        pub resource_type_selector: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_type_selector: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct KeyHandleResult {
         /// A reference to a Cloud KMS CryptoKey that can be used for CMEK in the requested
         /// product/project/location, for example
         /// `projects/1/locations/us-east1/keyRings/foo/cryptoKeys/bar-ffffff`
-        pub kms_key: pulumi_wasm_rust::Output<String>,
+        pub kms_key: pulumi_gestalt_rust::Output<String>,
         /// The location for the KeyHandle.
         /// A full list of valid locations can be found by running `gcloud kms locations list`.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource name for the KeyHandle.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Selector of the resource type where we want to protect resources.
         /// For example, `storage.googleapis.com/Bucket`.
-        pub resource_type_selector: pulumi_wasm_rust::Output<String>,
+        pub resource_type_selector: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: KeyHandleArgs,
     ) -> KeyHandleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -241,15 +241,17 @@ pub mod key_handle {
         };
         let o = register_interface::register(context.get_inner(), &request);
         KeyHandleResult {
-            kms_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("kmsKey")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            kms_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("kmsKey"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            resource_type_selector: pulumi_wasm_rust::__private::into_domain(
+            resource_type_selector: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceTypeSelector"),
             ),
         }

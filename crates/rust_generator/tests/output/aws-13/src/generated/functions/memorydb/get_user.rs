@@ -1,44 +1,44 @@
 pub mod get_user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetUserArgs {
         /// Map of tags assigned to the user.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the user.
         #[builder(into)]
-        pub user_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetUserResult {
         /// Access permissions string used for this user.
-        pub access_string: pulumi_wasm_rust::Output<String>,
+        pub access_string: pulumi_gestalt_rust::Output<String>,
         /// ARN of the user.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Denotes the user's authentication properties.
-        pub authentication_modes: pulumi_wasm_rust::Output<
+        pub authentication_modes: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::memorydb::GetUserAuthenticationMode>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Minimum engine version supported for the user.
-        pub minimum_engine_version: pulumi_wasm_rust::Output<String>,
+        pub minimum_engine_version: pulumi_gestalt_rust::Output<String>,
         /// Map of tags assigned to the user.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
-        pub user_name: pulumi_wasm_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
+        pub user_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetUserArgs,
     ) -> GetUserResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let tags_binding = args.tags.get_output(context).get_inner();
         let user_name_binding = args.user_name.get_output(context).get_inner();
@@ -58,19 +58,19 @@ pub mod get_user {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetUserResult {
-            access_string: pulumi_wasm_rust::__private::into_domain(
+            access_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessString"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_modes: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            authentication_modes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationModes"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            minimum_engine_version: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            minimum_engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minimumEngineVersion"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            user_name: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            user_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userName"),
             ),
         }

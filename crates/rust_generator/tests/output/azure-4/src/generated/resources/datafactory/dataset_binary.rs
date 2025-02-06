@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -60,103 +60,103 @@
 /// ```
 ///
 pub mod dataset_binary {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatasetBinaryArgs {
         /// A map of additional properties to associate with the Data Factory Binary Dataset.
         #[builder(into, default)]
-        pub additional_properties: pulumi_wasm_rust::InputOrOutput<
+        pub additional_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Binary Dataset.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A `azure_blob_storage_location` block as defined below.
         #[builder(into, default)]
-        pub azure_blob_storage_location: pulumi_wasm_rust::InputOrOutput<
+        pub azure_blob_storage_location: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::DatasetBinaryAzureBlobStorageLocation,
             >,
         >,
         /// A `compression` block as defined below.
         #[builder(into, default)]
-        pub compression: pulumi_wasm_rust::InputOrOutput<
+        pub compression: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datafactory::DatasetBinaryCompression>,
         >,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description for the Data Factory Dataset.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         #[builder(into, default)]
-        pub folder: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub folder: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `http_server_location` block as defined below.
         #[builder(into, default)]
-        pub http_server_location: pulumi_wasm_rust::InputOrOutput<
+        pub http_server_location: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datafactory::DatasetBinaryHttpServerLocation>,
         >,
         /// The Data Factory Linked Service name in which to associate the Binary Dataset with.
         #[builder(into)]
-        pub linked_service_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub linked_service_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
         ///
         /// The following supported locations for a Binary Dataset. One of these should be specified:
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `sftp_server_location` block as defined below.
         #[builder(into, default)]
-        pub sftp_server_location: pulumi_wasm_rust::InputOrOutput<
+        pub sftp_server_location: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datafactory::DatasetBinarySftpServerLocation>,
         >,
     }
     #[allow(dead_code)]
     pub struct DatasetBinaryResult {
         /// A map of additional properties to associate with the Data Factory Binary Dataset.
-        pub additional_properties: pulumi_wasm_rust::Output<
+        pub additional_properties: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Binary Dataset.
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A `azure_blob_storage_location` block as defined below.
-        pub azure_blob_storage_location: pulumi_wasm_rust::Output<
+        pub azure_blob_storage_location: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::datafactory::DatasetBinaryAzureBlobStorageLocation,
             >,
         >,
         /// A `compression` block as defined below.
-        pub compression: pulumi_wasm_rust::Output<
+        pub compression: pulumi_gestalt_rust::Output<
             Option<super::super::types::datafactory::DatasetBinaryCompression>,
         >,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// The description for the Data Factory Dataset.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-        pub folder: pulumi_wasm_rust::Output<Option<String>>,
+        pub folder: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `http_server_location` block as defined below.
-        pub http_server_location: pulumi_wasm_rust::Output<
+        pub http_server_location: pulumi_gestalt_rust::Output<
             Option<super::super::types::datafactory::DatasetBinaryHttpServerLocation>,
         >,
         /// The Data Factory Linked Service name in which to associate the Binary Dataset with.
-        pub linked_service_name: pulumi_wasm_rust::Output<String>,
+        pub linked_service_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies a list of parameters to associate with the Data Factory Binary Dataset.
         ///
         /// The following supported locations for a Binary Dataset. One of these should be specified:
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `sftp_server_location` block as defined below.
-        pub sftp_server_location: pulumi_wasm_rust::Output<
+        pub sftp_server_location: pulumi_gestalt_rust::Output<
             Option<super::super::types::datafactory::DatasetBinarySftpServerLocation>,
         >,
     }
@@ -165,11 +165,11 @@ pub mod dataset_binary {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatasetBinaryArgs,
     ) -> DatasetBinaryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let additional_properties_binding = args
             .additional_properties
@@ -258,36 +258,38 @@ pub mod dataset_binary {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatasetBinaryResult {
-            additional_properties: pulumi_wasm_rust::__private::into_domain(
+            additional_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalProperties"),
             ),
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            azure_blob_storage_location: pulumi_wasm_rust::__private::into_domain(
+            azure_blob_storage_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("azureBlobStorageLocation"),
             ),
-            compression: pulumi_wasm_rust::__private::into_domain(
+            compression: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("compression"),
             ),
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            folder: pulumi_wasm_rust::__private::into_domain(o.extract_field("folder")),
-            http_server_location: pulumi_wasm_rust::__private::into_domain(
+            folder: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("folder"),
+            ),
+            http_server_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpServerLocation"),
             ),
-            linked_service_name: pulumi_wasm_rust::__private::into_domain(
+            linked_service_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("linkedServiceName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            sftp_server_location: pulumi_wasm_rust::__private::into_domain(
+            sftp_server_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sftpServerLocation"),
             ),
         }

@@ -24,48 +24,48 @@
 ///       ami: ${serverRandomPet.keepers.amiId}
 /// ```
 pub mod random_pet {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RandomPetArgs {
         /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         #[builder(into, default)]
-        pub keepers: pulumi_wasm_rust::InputOrOutput<
+        pub keepers: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The length (in words) of the pet name. Defaults to 2
         #[builder(into, default)]
-        pub length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub length: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A string to prefix the name with.
         #[builder(into, default)]
-        pub prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The character to separate words in the pet name. Defaults to "-"
         #[builder(into, default)]
-        pub separator: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub separator: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RandomPetResult {
         /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
-        pub keepers: pulumi_wasm_rust::Output<
+        pub keepers: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The length (in words) of the pet name. Defaults to 2
-        pub length: pulumi_wasm_rust::Output<i32>,
+        pub length: pulumi_gestalt_rust::Output<i32>,
         /// A string to prefix the name with.
-        pub prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub prefix: pulumi_gestalt_rust::Output<Option<String>>,
         /// The character to separate words in the pet name. Defaults to "-"
-        pub separator: pulumi_wasm_rust::Output<String>,
+        pub separator: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RandomPetArgs,
     ) -> RandomPetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let keepers_binding = args.keepers.get_output(context).get_inner();
         let length_binding = args.length.get_output(context).get_inner();
@@ -96,12 +96,16 @@ pub mod random_pet {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RandomPetResult {
-            keepers: pulumi_wasm_rust::__private::into_domain(
+            keepers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keepers"),
             ),
-            length: pulumi_wasm_rust::__private::into_domain(o.extract_field("length")),
-            prefix: pulumi_wasm_rust::__private::into_domain(o.extract_field("prefix")),
-            separator: pulumi_wasm_rust::__private::into_domain(
+            length: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("length"),
+            ),
+            prefix: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("prefix"),
+            ),
+            separator: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("separator"),
             ),
         }

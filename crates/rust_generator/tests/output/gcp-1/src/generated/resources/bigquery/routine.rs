@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let sproc = routine::create(
@@ -39,8 +39,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let sproc = routine::create(
@@ -102,8 +102,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let pyspark = routine::create(
@@ -142,8 +142,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let pysparkMainfile = routine::create(
@@ -220,8 +220,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let customMaskingRoutine = routine::create(
@@ -306,53 +306,53 @@
 /// ```
 ///
 pub mod routine {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RoutineArgs {
         /// Input/output argument of a function or a stored procedure.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub arguments: pulumi_wasm_rust::InputOrOutput<
+        pub arguments: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::bigquery::RoutineArgument>>,
         >,
         /// If set to DATA_MASKING, the function is validated and made available as a masking function. For more information, see https://cloud.google.com/bigquery/docs/user-defined-functions#custom-mask
         /// Possible values are: `DATA_MASKING`.
         #[builder(into, default)]
-        pub data_governance_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub data_governance_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the dataset containing this routine
         #[builder(into)]
-        pub dataset_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dataset_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The body of the routine. For functions, this is the expression in the AS clause.
         /// If language=SQL, it is the substring inside (but excluding) the parentheses.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub definition_body: pulumi_wasm_rust::InputOrOutput<String>,
+        pub definition_body: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description of the routine if defined.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The determinism level of the JavaScript UDF if defined.
         /// Possible values are: `DETERMINISM_LEVEL_UNSPECIFIED`, `DETERMINISTIC`, `NOT_DETERMINISTIC`.
         #[builder(into, default)]
-        pub determinism_level: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub determinism_level: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. If language = "JAVASCRIPT", this field stores the path of the
         /// imported JAVASCRIPT libraries.
         #[builder(into, default)]
-        pub imported_libraries: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub imported_libraries: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The language of the routine.
         /// Possible values are: `SQL`, `JAVASCRIPT`, `PYTHON`, `JAVA`, `SCALA`.
         #[builder(into, default)]
-        pub language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub language: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Remote function specific options.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub remote_function_options: pulumi_wasm_rust::InputOrOutput<
+        pub remote_function_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::RoutineRemoteFunctionOptions>,
         >,
         /// Optional. Can be set only if routineType = "TABLE_VALUED_FUNCTION".
@@ -360,7 +360,7 @@ pub mod routine {
         /// that references this routine. If present, then the columns in the evaluated table result will
         /// be cast to match the column types specificed in return table type, at query time.
         #[builder(into, default)]
-        pub return_table_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub return_table_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A JSON schema for the return type. Optional if language = "SQL"; required otherwise.
         /// If absent, the return type is inferred from definitionBody at query time in each query
         /// that references this routine. If present, then the evaluated result will be cast to
@@ -371,18 +371,18 @@ pub mod routine {
         /// cannot suppress the recurring diff this causes. As a workaround, we recommend using
         /// the schema as returned by the API.
         #[builder(into, default)]
-        pub return_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub return_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the the routine. The ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_). The maximum length is 256 characters.
         #[builder(into)]
-        pub routine_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub routine_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of routine.
         /// Possible values are: `SCALAR_FUNCTION`, `PROCEDURE`, `TABLE_VALUED_FUNCTION`.
         #[builder(into)]
-        pub routine_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub routine_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Optional. If language is one of "PYTHON", "JAVA", "SCALA", this field stores the options for spark stored procedure.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spark_options: pulumi_wasm_rust::InputOrOutput<
+        pub spark_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::RoutineSparkOptions>,
         >,
     }
@@ -390,50 +390,50 @@ pub mod routine {
     pub struct RoutineResult {
         /// Input/output argument of a function or a stored procedure.
         /// Structure is documented below.
-        pub arguments: pulumi_wasm_rust::Output<
+        pub arguments: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::bigquery::RoutineArgument>>,
         >,
         /// The time when this routine was created, in milliseconds since the
         /// epoch.
-        pub creation_time: pulumi_wasm_rust::Output<i32>,
+        pub creation_time: pulumi_gestalt_rust::Output<i32>,
         /// If set to DATA_MASKING, the function is validated and made available as a masking function. For more information, see https://cloud.google.com/bigquery/docs/user-defined-functions#custom-mask
         /// Possible values are: `DATA_MASKING`.
-        pub data_governance_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_governance_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the dataset containing this routine
-        pub dataset_id: pulumi_wasm_rust::Output<String>,
+        pub dataset_id: pulumi_gestalt_rust::Output<String>,
         /// The body of the routine. For functions, this is the expression in the AS clause.
         /// If language=SQL, it is the substring inside (but excluding) the parentheses.
         ///
         ///
         /// - - -
-        pub definition_body: pulumi_wasm_rust::Output<String>,
+        pub definition_body: pulumi_gestalt_rust::Output<String>,
         /// The description of the routine if defined.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The determinism level of the JavaScript UDF if defined.
         /// Possible values are: `DETERMINISM_LEVEL_UNSPECIFIED`, `DETERMINISTIC`, `NOT_DETERMINISTIC`.
-        pub determinism_level: pulumi_wasm_rust::Output<Option<String>>,
+        pub determinism_level: pulumi_gestalt_rust::Output<Option<String>>,
         /// Optional. If language = "JAVASCRIPT", this field stores the path of the
         /// imported JAVASCRIPT libraries.
-        pub imported_libraries: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub imported_libraries: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The language of the routine.
         /// Possible values are: `SQL`, `JAVASCRIPT`, `PYTHON`, `JAVA`, `SCALA`.
-        pub language: pulumi_wasm_rust::Output<Option<String>>,
+        pub language: pulumi_gestalt_rust::Output<Option<String>>,
         /// The time when this routine was modified, in milliseconds since the
         /// epoch.
-        pub last_modified_time: pulumi_wasm_rust::Output<i32>,
+        pub last_modified_time: pulumi_gestalt_rust::Output<i32>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Remote function specific options.
         /// Structure is documented below.
-        pub remote_function_options: pulumi_wasm_rust::Output<
+        pub remote_function_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::RoutineRemoteFunctionOptions>,
         >,
         /// Optional. Can be set only if routineType = "TABLE_VALUED_FUNCTION".
         /// If absent, the return table type is inferred from definitionBody at query time in each query
         /// that references this routine. If present, then the columns in the evaluated table result will
         /// be cast to match the column types specificed in return table type, at query time.
-        pub return_table_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub return_table_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// A JSON schema for the return type. Optional if language = "SQL"; required otherwise.
         /// If absent, the return type is inferred from definitionBody at query time in each query
         /// that references this routine. If present, then the evaluated result will be cast to
@@ -443,15 +443,15 @@ pub mod routine {
         /// d the order of values or replaced STRUCT field type with RECORD field type, we currently
         /// cannot suppress the recurring diff this causes. As a workaround, we recommend using
         /// the schema as returned by the API.
-        pub return_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub return_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the the routine. The ID must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_). The maximum length is 256 characters.
-        pub routine_id: pulumi_wasm_rust::Output<String>,
+        pub routine_id: pulumi_gestalt_rust::Output<String>,
         /// The type of routine.
         /// Possible values are: `SCALAR_FUNCTION`, `PROCEDURE`, `TABLE_VALUED_FUNCTION`.
-        pub routine_type: pulumi_wasm_rust::Output<String>,
+        pub routine_type: pulumi_gestalt_rust::Output<String>,
         /// Optional. If language is one of "PYTHON", "JAVA", "SCALA", this field stores the options for spark stored procedure.
         /// Structure is documented below.
-        pub spark_options: pulumi_wasm_rust::Output<
+        pub spark_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::RoutineSparkOptions>,
         >,
     }
@@ -460,11 +460,11 @@ pub mod routine {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RoutineArgs,
     ) -> RoutineResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let arguments_binding = args.arguments.get_output(context).get_inner();
         let data_governance_type_binding = args
@@ -568,55 +568,55 @@ pub mod routine {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RoutineResult {
-            arguments: pulumi_wasm_rust::__private::into_domain(
+            arguments: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("arguments"),
             ),
-            creation_time: pulumi_wasm_rust::__private::into_domain(
+            creation_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTime"),
             ),
-            data_governance_type: pulumi_wasm_rust::__private::into_domain(
+            data_governance_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataGovernanceType"),
             ),
-            dataset_id: pulumi_wasm_rust::__private::into_domain(
+            dataset_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("datasetId"),
             ),
-            definition_body: pulumi_wasm_rust::__private::into_domain(
+            definition_body: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("definitionBody"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            determinism_level: pulumi_wasm_rust::__private::into_domain(
+            determinism_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("determinismLevel"),
             ),
-            imported_libraries: pulumi_wasm_rust::__private::into_domain(
+            imported_libraries: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("importedLibraries"),
             ),
-            language: pulumi_wasm_rust::__private::into_domain(
+            language: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("language"),
             ),
-            last_modified_time: pulumi_wasm_rust::__private::into_domain(
+            last_modified_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModifiedTime"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            remote_function_options: pulumi_wasm_rust::__private::into_domain(
+            remote_function_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remoteFunctionOptions"),
             ),
-            return_table_type: pulumi_wasm_rust::__private::into_domain(
+            return_table_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("returnTableType"),
             ),
-            return_type: pulumi_wasm_rust::__private::into_domain(
+            return_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("returnType"),
             ),
-            routine_id: pulumi_wasm_rust::__private::into_domain(
+            routine_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routineId"),
             ),
-            routine_type: pulumi_wasm_rust::__private::into_domain(
+            routine_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routineType"),
             ),
-            spark_options: pulumi_wasm_rust::__private::into_domain(
+            spark_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sparkOptions"),
             ),
         }

@@ -11,8 +11,8 @@
 /// ### AWS Partition General Purpose Bucket
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket_v_2::create(
@@ -29,8 +29,8 @@
 /// ### S3 on Outposts Bucket
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket::create(
@@ -73,73 +73,73 @@
 /// $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
 /// ```
 pub mod access_point {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessPointArgs {
         /// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// AWS account ID associated with the S3 bucket associated with this access point.
         #[builder(into, default)]
-        pub bucket_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub bucket_account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name you want to assign to this access point. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-access-points.html?icmpid=docs_amazons3_console#access-points-names) for naming conditions.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
         #[builder(into, default)]
-        pub policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
         #[builder(into, default)]
-        pub public_access_block_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub public_access_block_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::s3::AccessPointPublicAccessBlockConfiguration>,
         >,
         /// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
         #[builder(into, default)]
-        pub vpc_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::s3::AccessPointVpcConfiguration>,
         >,
     }
     #[allow(dead_code)]
     pub struct AccessPointResult {
         /// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// Alias of the S3 Access Point.
-        pub alias: pulumi_wasm_rust::Output<String>,
+        pub alias: pulumi_gestalt_rust::Output<String>,
         /// ARN of the S3 Access Point.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Name of an AWS Partition S3 General Purpose Bucket or the ARN of S3 on Outposts Bucket that you want to associate this access point with.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// AWS account ID associated with the S3 bucket associated with this access point.
-        pub bucket_account_id: pulumi_wasm_rust::Output<String>,
+        pub bucket_account_id: pulumi_gestalt_rust::Output<String>,
         /// DNS domain name of the S3 Access Point in the format _`name`_-_`account_id`_.s3-accesspoint._region_.amazonaws.com.
         /// Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// VPC endpoints for the S3 Access Point.
-        pub endpoints: pulumi_wasm_rust::Output<
+        pub endpoints: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Indicates whether this access point currently has a policy that allows public access.
-        pub has_public_access_policy: pulumi_wasm_rust::Output<bool>,
+        pub has_public_access_policy: pulumi_gestalt_rust::Output<bool>,
         /// Name you want to assign to this access point. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-access-points.html?icmpid=docs_amazons3_console#access-points-names) for naming conditions.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
-        pub network_origin: pulumi_wasm_rust::Output<String>,
+        pub network_origin: pulumi_gestalt_rust::Output<String>,
         /// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_gestalt_rust::Output<String>,
         /// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
-        pub public_access_block_configuration: pulumi_wasm_rust::Output<
+        pub public_access_block_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::s3::AccessPointPublicAccessBlockConfiguration>,
         >,
         /// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
-        pub vpc_configuration: pulumi_wasm_rust::Output<
+        pub vpc_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::s3::AccessPointVpcConfiguration>,
         >,
     }
@@ -148,11 +148,11 @@ pub mod access_point {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccessPointArgs,
     ) -> AccessPointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let bucket_binding = args.bucket.get_output(context).get_inner();
@@ -207,33 +207,37 @@ pub mod access_point {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccessPointResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            bucket_account_id: pulumi_wasm_rust::__private::into_domain(
+            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            bucket_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bucketAccountId"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            endpoints: pulumi_wasm_rust::__private::into_domain(
+            endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoints"),
             ),
-            has_public_access_policy: pulumi_wasm_rust::__private::into_domain(
+            has_public_access_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hasPublicAccessPolicy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_origin: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_origin: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkOrigin"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
-            public_access_block_configuration: pulumi_wasm_rust::__private::into_domain(
+            policy: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("policy"),
+            ),
+            public_access_block_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicAccessBlockConfiguration"),
             ),
-            vpc_configuration: pulumi_wasm_rust::__private::into_domain(
+            vpc_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcConfiguration"),
             ),
         }

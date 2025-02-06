@@ -10,42 +10,42 @@
 /// $ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
 /// ```
 pub mod multi_region_access_point_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MultiRegionAccessPointPolicyArgs {
         /// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
         #[builder(into)]
-        pub details: pulumi_wasm_rust::InputOrOutput<
+        pub details: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::s3control::MultiRegionAccessPointPolicyDetails,
         >,
     }
     #[allow(dead_code)]
     pub struct MultiRegionAccessPointPolicyResult {
         /// The AWS account ID for the owner of the Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
-        pub details: pulumi_wasm_rust::Output<
+        pub details: pulumi_gestalt_rust::Output<
             super::super::types::s3control::MultiRegionAccessPointPolicyDetails,
         >,
         /// The last established policy for the Multi-Region Access Point.
-        pub established: pulumi_wasm_rust::Output<String>,
+        pub established: pulumi_gestalt_rust::Output<String>,
         /// The proposed policy for the Multi-Region Access Point.
-        pub proposed: pulumi_wasm_rust::Output<String>,
+        pub proposed: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MultiRegionAccessPointPolicyArgs,
     ) -> MultiRegionAccessPointPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let details_binding = args.details.get_output(context).get_inner();
@@ -67,16 +67,16 @@ pub mod multi_region_access_point_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MultiRegionAccessPointPolicyResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            details: pulumi_wasm_rust::__private::into_domain(
+            details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("details"),
             ),
-            established: pulumi_wasm_rust::__private::into_domain(
+            established: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("established"),
             ),
-            proposed: pulumi_wasm_rust::__private::into_domain(
+            proposed: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("proposed"),
             ),
         }

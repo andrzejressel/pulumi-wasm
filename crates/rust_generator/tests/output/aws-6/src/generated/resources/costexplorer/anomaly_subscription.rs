@@ -5,8 +5,8 @@
 /// ### Basic Example
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = anomaly_monitor::create(
@@ -50,8 +50,8 @@
 /// ### Using a Percentage Threshold
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = anomaly_subscription::create(
@@ -85,8 +85,8 @@
 /// ### Using an `and` Expression
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = anomaly_subscription::create(
@@ -209,35 +209,35 @@
 /// $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
 /// ```
 pub mod anomaly_subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AnomalySubscriptionArgs {
         /// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
         #[builder(into)]
-        pub frequency: pulumi_wasm_rust::InputOrOutput<String>,
+        pub frequency: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of cost anomaly monitors.
         #[builder(into)]
-        pub monitor_arn_lists: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub monitor_arn_lists: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The name for the subscription.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A subscriber configuration. Multiple subscribers can be defined.
         #[builder(into)]
-        pub subscribers: pulumi_wasm_rust::InputOrOutput<
+        pub subscribers: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::costexplorer::AnomalySubscriptionSubscriber>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
         #[builder(into, default)]
-        pub threshold_expression: pulumi_wasm_rust::InputOrOutput<
+        pub threshold_expression: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::costexplorer::AnomalySubscriptionThresholdExpression,
             >,
@@ -246,29 +246,29 @@ pub mod anomaly_subscription {
     #[allow(dead_code)]
     pub struct AnomalySubscriptionResult {
         /// The unique identifier for the AWS account in which the anomaly subscription ought to be created.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// ARN of the anomaly subscription.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The frequency that anomaly reports are sent. Valid Values: `DAILY` | `IMMEDIATE` | `WEEKLY`.
-        pub frequency: pulumi_wasm_rust::Output<String>,
+        pub frequency: pulumi_gestalt_rust::Output<String>,
         /// A list of cost anomaly monitors.
-        pub monitor_arn_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub monitor_arn_lists: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The name for the subscription.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A subscriber configuration. Multiple subscribers can be defined.
-        pub subscribers: pulumi_wasm_rust::Output<
+        pub subscribers: pulumi_gestalt_rust::Output<
             Vec<super::super::types::costexplorer::AnomalySubscriptionSubscriber>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// An Expression object used to specify the anomalies that you want to generate alerts for. See Threshold Expression.
-        pub threshold_expression: pulumi_wasm_rust::Output<
+        pub threshold_expression: pulumi_gestalt_rust::Output<
             super::super::types::costexplorer::AnomalySubscriptionThresholdExpression,
         >,
     }
@@ -277,11 +277,11 @@ pub mod anomaly_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AnomalySubscriptionArgs,
     ) -> AnomalySubscriptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let frequency_binding = args.frequency.get_output(context).get_inner();
@@ -333,25 +333,25 @@ pub mod anomaly_subscription {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AnomalySubscriptionResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            frequency: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            frequency: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frequency"),
             ),
-            monitor_arn_lists: pulumi_wasm_rust::__private::into_domain(
+            monitor_arn_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitorArnLists"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            subscribers: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            subscribers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscribers"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            threshold_expression: pulumi_wasm_rust::__private::into_domain(
+            threshold_expression: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("thresholdExpression"),
             ),
         }

@@ -24,49 +24,49 @@
 /// $ pulumi import aws:apprunner/vpcIngressConnection:VpcIngressConnection example "arn:aws:apprunner:us-west-2:837424938642:vpcingressconnection/example/b379f86381d74825832c2e82080342fa"
 /// ```
 pub mod vpc_ingress_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcIngressConnectionArgs {
         /// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
         #[builder(into)]
-        pub ingress_vpc_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub ingress_vpc_configuration: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::apprunner::VpcIngressConnectionIngressVpcConfiguration,
         >,
         /// A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
         #[builder(into)]
-        pub service_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct VpcIngressConnectionResult {
         /// The Amazon Resource Name (ARN) of the VPC Ingress Connection.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The domain name associated with the VPC Ingress Connection resource.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
-        pub ingress_vpc_configuration: pulumi_wasm_rust::Output<
+        pub ingress_vpc_configuration: pulumi_gestalt_rust::Output<
             super::super::types::apprunner::VpcIngressConnectionIngressVpcConfiguration,
         >,
         /// A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
-        pub service_arn: pulumi_wasm_rust::Output<String>,
+        pub service_arn: pulumi_gestalt_rust::Output<String>,
         /// The current status of the VPC Ingress Connection.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -75,11 +75,11 @@ pub mod vpc_ingress_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpcIngressConnectionArgs,
     ) -> VpcIngressConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let ingress_vpc_configuration_binding = args
             .ingress_vpc_configuration
@@ -113,20 +113,22 @@ pub mod vpc_ingress_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpcIngressConnectionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            ingress_vpc_configuration: pulumi_wasm_rust::__private::into_domain(
+            ingress_vpc_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ingressVpcConfiguration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            service_arn: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            service_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceArn"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

@@ -11,8 +11,8 @@
 /// ### Create Empty Cached iSCSI Volume
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = caches_iscsi_volume::create(
@@ -52,91 +52,91 @@
 /// $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
 /// ```
 pub mod caches_iscsi_volume {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CachesIscsiVolumeArgs {
         /// The Amazon Resource Name (ARN) of the gateway.
         #[builder(into)]
-        pub gateway_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub gateway_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
         #[builder(into, default)]
-        pub kms_encrypted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub kms_encrypted: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
         #[builder(into, default)]
-        pub kms_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         #[builder(into)]
-        pub network_interface_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network_interface_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
         #[builder(into, default)]
-        pub snapshot_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub snapshot_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
         #[builder(into, default)]
-        pub source_volume_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_volume_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         #[builder(into)]
-        pub target_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The size of the volume in bytes.
         #[builder(into)]
-        pub volume_size_in_bytes: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub volume_size_in_bytes: pulumi_gestalt_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct CachesIscsiVolumeResult {
         /// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Whether mutual CHAP is enabled for the iSCSI target.
-        pub chap_enabled: pulumi_wasm_rust::Output<bool>,
+        pub chap_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The Amazon Resource Name (ARN) of the gateway.
-        pub gateway_arn: pulumi_wasm_rust::Output<String>,
+        pub gateway_arn: pulumi_gestalt_rust::Output<String>,
         /// Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
-        pub kms_encrypted: pulumi_wasm_rust::Output<Option<bool>>,
+        pub kms_encrypted: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kms_encrypted` is set.
-        pub kms_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// Logical disk number.
-        pub lun_number: pulumi_wasm_rust::Output<i32>,
+        pub lun_number: pulumi_gestalt_rust::Output<i32>,
         /// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
-        pub network_interface_id: pulumi_wasm_rust::Output<String>,
+        pub network_interface_id: pulumi_gestalt_rust::Output<String>,
         /// The port used to communicate with iSCSI targets.
-        pub network_interface_port: pulumi_wasm_rust::Output<i32>,
+        pub network_interface_port: pulumi_gestalt_rust::Output<i32>,
         /// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
-        pub snapshot_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub snapshot_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volume_size_in_bytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
-        pub source_volume_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_volume_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
-        pub target_arn: pulumi_wasm_rust::Output<String>,
+        pub target_arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
-        pub target_name: pulumi_wasm_rust::Output<String>,
+        pub target_name: pulumi_gestalt_rust::Output<String>,
         /// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
-        pub volume_arn: pulumi_wasm_rust::Output<String>,
+        pub volume_arn: pulumi_gestalt_rust::Output<String>,
         /// Volume ID, e.g., `vol-12345678`.
-        pub volume_id: pulumi_wasm_rust::Output<String>,
+        pub volume_id: pulumi_gestalt_rust::Output<String>,
         /// The size of the volume in bytes.
-        pub volume_size_in_bytes: pulumi_wasm_rust::Output<i32>,
+        pub volume_size_in_bytes: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CachesIscsiVolumeArgs,
     ) -> CachesIscsiVolumeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let gateway_arn_binding = args.gateway_arn.get_output(context).get_inner();
         let kms_encrypted_binding = args.kms_encrypted.get_output(context).get_inner();
@@ -201,49 +201,51 @@ pub mod caches_iscsi_volume {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CachesIscsiVolumeResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            chap_enabled: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            chap_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("chapEnabled"),
             ),
-            gateway_arn: pulumi_wasm_rust::__private::into_domain(
+            gateway_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayArn"),
             ),
-            kms_encrypted: pulumi_wasm_rust::__private::into_domain(
+            kms_encrypted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsEncrypted"),
             ),
-            kms_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("kmsKey")),
-            lun_number: pulumi_wasm_rust::__private::into_domain(
+            kms_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("kmsKey"),
+            ),
+            lun_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lunNumber"),
             ),
-            network_interface_id: pulumi_wasm_rust::__private::into_domain(
+            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkInterfaceId"),
             ),
-            network_interface_port: pulumi_wasm_rust::__private::into_domain(
+            network_interface_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkInterfacePort"),
             ),
-            snapshot_id: pulumi_wasm_rust::__private::into_domain(
+            snapshot_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotId"),
             ),
-            source_volume_arn: pulumi_wasm_rust::__private::into_domain(
+            source_volume_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceVolumeArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            target_arn: pulumi_wasm_rust::__private::into_domain(
+            target_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetArn"),
             ),
-            target_name: pulumi_wasm_rust::__private::into_domain(
+            target_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetName"),
             ),
-            volume_arn: pulumi_wasm_rust::__private::into_domain(
+            volume_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeArn"),
             ),
-            volume_id: pulumi_wasm_rust::__private::into_domain(
+            volume_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeId"),
             ),
-            volume_size_in_bytes: pulumi_wasm_rust::__private::into_domain(
+            volume_size_in_bytes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeSizeInBytes"),
             ),
         }

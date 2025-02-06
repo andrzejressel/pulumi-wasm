@@ -7,8 +7,8 @@
 /// ### Dedicated)
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -34,8 +34,8 @@
 /// ### Shared / Consumption Plan)
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -62,8 +62,8 @@
 /// ### Linux)
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -91,8 +91,8 @@
 /// ### Windows Container)
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -125,7 +125,7 @@
 /// ```
 ///
 pub mod plan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PlanArgs {
@@ -133,96 +133,100 @@ pub mod plan {
         ///
         /// > **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
         #[builder(into, default)]
-        pub app_service_environment_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub app_service_environment_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Whether to create a xenon App Service Plan.
         #[builder(into, default)]
-        pub is_xenon: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_xenon: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
         #[builder(into, default)]
-        pub kind: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kind: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
         #[builder(into, default)]
-        pub maximum_elastic_worker_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub maximum_elastic_worker_count: pulumi_gestalt_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
         #[builder(into, default)]
-        pub per_site_scaling: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub per_site_scaling: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Is this App Service Plan `Reserved`.
         #[builder(into, default)]
-        pub reserved: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub reserved: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `sku` block as documented below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<
+        pub sku: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::appservice::PlanSku,
         >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
         #[builder(into, default)]
-        pub zone_redundant: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub zone_redundant: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct PlanResult {
         /// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
         ///
         /// > **NOTE:** Attaching to an App Service Environment requires the App Service Plan use a `Premium` SKU (when using an ASEv1) and the `Isolated` SKU (for an ASEv2).
-        pub app_service_environment_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub app_service_environment_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether to create a xenon App Service Plan.
-        pub is_xenon: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_xenon: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption), `xenon` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** When creating a `Linux` App Service Plan, the `reserved` field must be set to `true`, and when creating a `Windows`/`app` App Service Plan the `reserved` field must be set to `false`.
-        pub kind: pulumi_wasm_rust::Output<Option<String>>,
+        pub kind: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
-        pub maximum_elastic_worker_count: pulumi_wasm_rust::Output<i32>,
+        pub maximum_elastic_worker_count: pulumi_gestalt_rust::Output<i32>,
         /// The maximum number of workers supported with the App Service Plan's sku.
-        pub maximum_number_of_workers: pulumi_wasm_rust::Output<i32>,
+        pub maximum_number_of_workers: pulumi_gestalt_rust::Output<i32>,
         /// Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
-        pub per_site_scaling: pulumi_wasm_rust::Output<Option<bool>>,
+        pub per_site_scaling: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Is this App Service Plan `Reserved`.
-        pub reserved: pulumi_wasm_rust::Output<Option<bool>>,
+        pub reserved: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `sku` block as documented below.
-        pub sku: pulumi_wasm_rust::Output<super::super::types::appservice::PlanSku>,
+        pub sku: pulumi_gestalt_rust::Output<super::super::types::appservice::PlanSku>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Requires either `PremiumV2` or `PremiumV3` SKU and that at least 3 instances. For more information, please see the [App Service Team Blog](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html).
-        pub zone_redundant: pulumi_wasm_rust::Output<Option<bool>>,
+        pub zone_redundant: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PlanArgs,
     ) -> PlanResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_service_environment_id_binding = args
             .app_service_environment_id
@@ -305,35 +309,35 @@ pub mod plan {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PlanResult {
-            app_service_environment_id: pulumi_wasm_rust::__private::into_domain(
+            app_service_environment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appServiceEnvironmentId"),
             ),
-            is_xenon: pulumi_wasm_rust::__private::into_domain(
+            is_xenon: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isXenon"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maximum_elastic_worker_count: pulumi_wasm_rust::__private::into_domain(
+            maximum_elastic_worker_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumElasticWorkerCount"),
             ),
-            maximum_number_of_workers: pulumi_wasm_rust::__private::into_domain(
+            maximum_number_of_workers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumNumberOfWorkers"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            per_site_scaling: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            per_site_scaling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("perSiteScaling"),
             ),
-            reserved: pulumi_wasm_rust::__private::into_domain(
+            reserved: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reserved"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            zone_redundant: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            zone_redundant: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("zoneRedundant"),
             ),
         }

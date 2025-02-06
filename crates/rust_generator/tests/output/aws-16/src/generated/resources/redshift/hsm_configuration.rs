@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = hsm_configuration::create(
@@ -29,56 +29,56 @@
 /// $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
 /// ```
 pub mod hsm_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HsmConfigurationArgs {
         /// A text description of the HSM configuration to be created.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::InputOrOutput<String>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The identifier to be assigned to the new Amazon Redshift HSM configuration.
         #[builder(into)]
-        pub hsm_configuration_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hsm_configuration_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The IP address that the Amazon Redshift cluster must use to access the HSM.
         #[builder(into)]
-        pub hsm_ip_address: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hsm_ip_address: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
         #[builder(into)]
-        pub hsm_partition_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hsm_partition_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The password required to access the HSM partition.
         #[builder(into)]
-        pub hsm_partition_password: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hsm_partition_password: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
         #[builder(into)]
-        pub hsm_server_public_certificate: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hsm_server_public_certificate: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct HsmConfigurationResult {
         /// Amazon Resource Name (ARN) of the Hsm Client Certificate.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A text description of the HSM configuration to be created.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// The identifier to be assigned to the new Amazon Redshift HSM configuration.
-        pub hsm_configuration_identifier: pulumi_wasm_rust::Output<String>,
+        pub hsm_configuration_identifier: pulumi_gestalt_rust::Output<String>,
         /// The IP address that the Amazon Redshift cluster must use to access the HSM.
-        pub hsm_ip_address: pulumi_wasm_rust::Output<String>,
+        pub hsm_ip_address: pulumi_gestalt_rust::Output<String>,
         /// The name of the partition in the HSM where the Amazon Redshift clusters will store their database encryption keys.
-        pub hsm_partition_name: pulumi_wasm_rust::Output<String>,
+        pub hsm_partition_name: pulumi_gestalt_rust::Output<String>,
         /// The password required to access the HSM partition.
-        pub hsm_partition_password: pulumi_wasm_rust::Output<String>,
+        pub hsm_partition_password: pulumi_gestalt_rust::Output<String>,
         /// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
-        pub hsm_server_public_certificate: pulumi_wasm_rust::Output<String>,
+        pub hsm_server_public_certificate: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -87,11 +87,11 @@ pub mod hsm_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HsmConfigurationArgs,
     ) -> HsmConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let hsm_configuration_identifier_binding = args
@@ -149,27 +149,27 @@ pub mod hsm_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HsmConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            hsm_configuration_identifier: pulumi_wasm_rust::__private::into_domain(
+            hsm_configuration_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hsmConfigurationIdentifier"),
             ),
-            hsm_ip_address: pulumi_wasm_rust::__private::into_domain(
+            hsm_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hsmIpAddress"),
             ),
-            hsm_partition_name: pulumi_wasm_rust::__private::into_domain(
+            hsm_partition_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hsmPartitionName"),
             ),
-            hsm_partition_password: pulumi_wasm_rust::__private::into_domain(
+            hsm_partition_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hsmPartitionPassword"),
             ),
-            hsm_server_public_certificate: pulumi_wasm_rust::__private::into_domain(
+            hsm_server_public_certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hsmServerPublicCertificate"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

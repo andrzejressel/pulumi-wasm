@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = block_public_access_configuration::create(
@@ -23,8 +23,8 @@
 /// By default, each AWS region is equipped with a block public access configuration that prevents EMR clusters from being launched if they have security group rules permitting public access on any port except for port 22. The default configuration can be managed using this resource.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = block_public_access_configuration::create(
@@ -49,8 +49,8 @@
 /// The resource permits specification of multiple `permitted_public_security_group_rule_range` blocks.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = block_public_access_configuration::create(
@@ -75,8 +75,8 @@
 /// To permit EMR clusters to be launched in the configured region regardless of associated security group rules, the Block Public Access feature can be disabled using this resource.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = block_public_access_configuration::create(
@@ -96,7 +96,7 @@
 /// $ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
 /// ```
 pub mod block_public_access_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BlockPublicAccessConfigurationArgs {
@@ -104,10 +104,10 @@ pub mod block_public_access_configuration {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub block_public_security_group_rules: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub block_public_security_group_rules: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
         #[builder(into, default)]
-        pub permitted_public_security_group_rule_ranges: pulumi_wasm_rust::InputOrOutput<
+        pub permitted_public_security_group_rule_ranges: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::emr::BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange,
@@ -120,9 +120,9 @@ pub mod block_public_access_configuration {
         /// Enable or disable EMR Block Public Access.
         ///
         /// The following arguments are optional:
-        pub block_public_security_group_rules: pulumi_wasm_rust::Output<bool>,
+        pub block_public_security_group_rules: pulumi_gestalt_rust::Output<bool>,
         /// Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
-        pub permitted_public_security_group_rule_ranges: pulumi_wasm_rust::Output<
+        pub permitted_public_security_group_rule_ranges: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::emr::BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange,
@@ -135,11 +135,11 @@ pub mod block_public_access_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BlockPublicAccessConfigurationArgs,
     ) -> BlockPublicAccessConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let block_public_security_group_rules_binding = args
             .block_public_security_group_rules
@@ -167,10 +167,10 @@ pub mod block_public_access_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BlockPublicAccessConfigurationResult {
-            block_public_security_group_rules: pulumi_wasm_rust::__private::into_domain(
+            block_public_security_group_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blockPublicSecurityGroupRules"),
             ),
-            permitted_public_security_group_rule_ranges: pulumi_wasm_rust::__private::into_domain(
+            permitted_public_security_group_rule_ranges: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permittedPublicSecurityGroupRuleRanges"),
             ),
         }

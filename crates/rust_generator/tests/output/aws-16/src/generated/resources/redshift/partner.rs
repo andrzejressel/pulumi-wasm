@@ -21,48 +21,48 @@
 /// $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
 /// ```
 pub mod partner {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PartnerArgs {
         /// The Amazon Web Services account ID that owns the cluster.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The cluster identifier of the cluster that receives data from the partner.
         #[builder(into)]
-        pub cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the database that receives data from the partner.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the partner that is authorized to send data.
         #[builder(into)]
-        pub partner_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub partner_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PartnerResult {
         /// The Amazon Web Services account ID that owns the cluster.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// The cluster identifier of the cluster that receives data from the partner.
-        pub cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub cluster_identifier: pulumi_gestalt_rust::Output<String>,
         /// The name of the database that receives data from the partner.
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the partner that is authorized to send data.
-        pub partner_name: pulumi_wasm_rust::Output<String>,
+        pub partner_name: pulumi_gestalt_rust::Output<String>,
         /// (Optional) The partner integration status.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// (Optional) The status message provided by the partner.
-        pub status_message: pulumi_wasm_rust::Output<String>,
+        pub status_message: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PartnerArgs,
     ) -> PartnerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let cluster_identifier_binding = args
@@ -96,20 +96,22 @@ pub mod partner {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PartnerResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            cluster_identifier: pulumi_wasm_rust::__private::into_domain(
+            cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterIdentifier"),
             ),
-            database_name: pulumi_wasm_rust::__private::into_domain(
+            database_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseName"),
             ),
-            partner_name: pulumi_wasm_rust::__private::into_domain(
+            partner_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partnerName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            status_message: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            status_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statusMessage"),
             ),
         }

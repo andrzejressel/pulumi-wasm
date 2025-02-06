@@ -17,8 +17,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foobar = region_commitment::create(
@@ -41,8 +41,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foobar = region_commitment::create(
@@ -97,7 +97,7 @@
 /// ```
 ///
 pub mod region_commitment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegionCommitmentArgs {
@@ -106,24 +106,24 @@ pub mod region_commitment {
         /// If the field is set to true, the commitment will be automatically renewed for either
         /// one or three years according to the terms of the existing commitment.
         #[builder(into, default)]
-        pub auto_renew: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_renew: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The category of the commitment. Category MACHINE specifies commitments composed of
         /// machine resources such as VCPU or MEMORY, listed in resources. Category LICENSE
         /// specifies commitments composed of software licenses, listed in licenseResources.
         /// Note that only MACHINE commitments should have a Type specified.
         /// Possible values are: `LICENSE`, `MACHINE`.
         #[builder(into, default)]
-        pub category: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub category: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the already existing reservations to attach to the Commitment.
         #[builder(into, default)]
-        pub existing_reservations: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub existing_reservations: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The license specification required as part of a license commitment.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub license_resource: pulumi_wasm_rust::InputOrOutput<
+        pub license_resource: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RegionCommitmentLicenseResource>,
         >,
         /// Name of the resource. The name must be 1-63 characters long and match
@@ -132,7 +132,7 @@ pub mod region_commitment {
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The plan for this commitment, which determines duration and discount rate.
         /// The currently supported plans are TWELVE_MONTH (1 year), and THIRTY_SIX_MONTH (3 years).
         /// Possible values are: `TWELVE_MONTH`, `THIRTY_SIX_MONTH`.
@@ -140,19 +140,19 @@ pub mod region_commitment {
         ///
         /// - - -
         #[builder(into)]
-        pub plan: pulumi_wasm_rust::InputOrOutput<String>,
+        pub plan: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// URL of the region where this commitment may be used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of commitment amounts for particular resources.
         /// Note that VCPU and MEMORY resource commitments must occur together.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub resources: pulumi_wasm_rust::InputOrOutput<
+        pub resources: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RegionCommitmentResource>>,
         >,
         /// The type of commitment, which affects the discount rate and the eligible resources.
@@ -161,7 +161,7 @@ pub mod region_commitment {
         /// `GENERAL_PURPOSE_T2D`, `GENERAL_PURPOSE_C3`, `COMPUTE_OPTIMIZED_C2`, `COMPUTE_OPTIMIZED_C2D` and
         /// `GRAPHICS_OPTIMIZED_G2`
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RegionCommitmentResult {
@@ -169,26 +169,26 @@ pub mod region_commitment {
         /// The default value is false if not specified.
         /// If the field is set to true, the commitment will be automatically renewed for either
         /// one or three years according to the terms of the existing commitment.
-        pub auto_renew: pulumi_wasm_rust::Output<bool>,
+        pub auto_renew: pulumi_gestalt_rust::Output<bool>,
         /// The category of the commitment. Category MACHINE specifies commitments composed of
         /// machine resources such as VCPU or MEMORY, listed in resources. Category LICENSE
         /// specifies commitments composed of software licenses, listed in licenseResources.
         /// Note that only MACHINE commitments should have a Type specified.
         /// Possible values are: `LICENSE`, `MACHINE`.
-        pub category: pulumi_wasm_rust::Output<String>,
+        pub category: pulumi_gestalt_rust::Output<String>,
         /// Unique identifier for the resource.
-        pub commitment_id: pulumi_wasm_rust::Output<i32>,
+        pub commitment_id: pulumi_gestalt_rust::Output<i32>,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Commitment end time in RFC3339 text format.
-        pub end_timestamp: pulumi_wasm_rust::Output<String>,
+        pub end_timestamp: pulumi_gestalt_rust::Output<String>,
         /// Specifies the already existing reservations to attach to the Commitment.
-        pub existing_reservations: pulumi_wasm_rust::Output<String>,
+        pub existing_reservations: pulumi_gestalt_rust::Output<String>,
         /// The license specification required as part of a license commitment.
         /// Structure is documented below.
-        pub license_resource: pulumi_wasm_rust::Output<
+        pub license_resource: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RegionCommitmentLicenseResource>,
         >,
         /// Name of the resource. The name must be 1-63 characters long and match
@@ -196,51 +196,51 @@ pub mod region_commitment {
         /// first character must be a lowercase letter, and all following
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The plan for this commitment, which determines duration and discount rate.
         /// The currently supported plans are TWELVE_MONTH (1 year), and THIRTY_SIX_MONTH (3 years).
         /// Possible values are: `TWELVE_MONTH`, `THIRTY_SIX_MONTH`.
         ///
         ///
         /// - - -
-        pub plan: pulumi_wasm_rust::Output<String>,
+        pub plan: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// URL of the region where this commitment may be used.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// A list of commitment amounts for particular resources.
         /// Note that VCPU and MEMORY resource commitments must occur together.
         /// Structure is documented below.
-        pub resources: pulumi_wasm_rust::Output<
+        pub resources: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::RegionCommitmentResource>>,
         >,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// Commitment start time in RFC3339 text format.
-        pub start_timestamp: pulumi_wasm_rust::Output<String>,
+        pub start_timestamp: pulumi_gestalt_rust::Output<String>,
         /// Status of the commitment with regards to eventual expiration
         /// (each commitment has an end date defined).
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// A human-readable explanation of the status.
-        pub status_message: pulumi_wasm_rust::Output<String>,
+        pub status_message: pulumi_gestalt_rust::Output<String>,
         /// The type of commitment, which affects the discount rate and the eligible resources.
         /// The type could be one of the following value: `MEMORY_OPTIMIZED`, `ACCELERATOR_OPTIMIZED`,
         /// `GENERAL_PURPOSE_N1`, `GENERAL_PURPOSE_N2`, `GENERAL_PURPOSE_N2D`, `GENERAL_PURPOSE_E2`,
         /// `GENERAL_PURPOSE_T2D`, `GENERAL_PURPOSE_C3`, `COMPUTE_OPTIMIZED_C2`, `COMPUTE_OPTIMIZED_C2D` and
         /// `GRAPHICS_OPTIMIZED_G2`
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RegionCommitmentArgs,
     ) -> RegionCommitmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_renew_binding = args.auto_renew.get_output(context).get_inner();
         let category_binding = args.category.get_output(context).get_inner();
@@ -312,50 +312,54 @@ pub mod region_commitment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RegionCommitmentResult {
-            auto_renew: pulumi_wasm_rust::__private::into_domain(
+            auto_renew: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoRenew"),
             ),
-            category: pulumi_wasm_rust::__private::into_domain(
+            category: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("category"),
             ),
-            commitment_id: pulumi_wasm_rust::__private::into_domain(
+            commitment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("commitmentId"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            end_timestamp: pulumi_wasm_rust::__private::into_domain(
+            end_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endTimestamp"),
             ),
-            existing_reservations: pulumi_wasm_rust::__private::into_domain(
+            existing_reservations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("existingReservations"),
             ),
-            license_resource: pulumi_wasm_rust::__private::into_domain(
+            license_resource: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenseResource"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            resources: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resources"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            start_timestamp: pulumi_wasm_rust::__private::into_domain(
+            start_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startTimestamp"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            status_message: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            status_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statusMessage"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

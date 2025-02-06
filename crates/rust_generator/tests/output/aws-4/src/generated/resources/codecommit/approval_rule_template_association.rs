@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = approval_rule_template_association::create(
@@ -27,34 +27,34 @@
 /// $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
 /// ```
 pub mod approval_rule_template_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApprovalRuleTemplateAssociationArgs {
         /// The name for the approval rule template.
         #[builder(into)]
-        pub approval_rule_template_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub approval_rule_template_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the repository that you want to associate with the template.
         #[builder(into)]
-        pub repository_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub repository_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ApprovalRuleTemplateAssociationResult {
         /// The name for the approval rule template.
-        pub approval_rule_template_name: pulumi_wasm_rust::Output<String>,
+        pub approval_rule_template_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the repository that you want to associate with the template.
-        pub repository_name: pulumi_wasm_rust::Output<String>,
+        pub repository_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApprovalRuleTemplateAssociationArgs,
     ) -> ApprovalRuleTemplateAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let approval_rule_template_name_binding = args
             .approval_rule_template_name
@@ -82,10 +82,10 @@ pub mod approval_rule_template_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApprovalRuleTemplateAssociationResult {
-            approval_rule_template_name: pulumi_wasm_rust::__private::into_domain(
+            approval_rule_template_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("approvalRuleTemplateName"),
             ),
-            repository_name: pulumi_wasm_rust::__private::into_domain(
+            repository_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repositoryName"),
             ),
         }

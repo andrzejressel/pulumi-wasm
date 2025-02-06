@@ -42,70 +42,70 @@
 /// $ pulumi import aws:schemas/schema:Schema test name/registry
 /// ```
 pub mod schema {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SchemaArgs {
         /// The schema specification. Must be a valid Open API 3.0 spec.
         #[builder(into)]
-        pub content: pulumi_wasm_rust::InputOrOutput<String>,
+        pub content: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description of the schema. Maximum of 256 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the registry in which this schema belongs.
         #[builder(into)]
-        pub registry_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub registry_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SchemaResult {
         /// The Amazon Resource Name (ARN) of the discoverer.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The schema specification. Must be a valid Open API 3.0 spec.
-        pub content: pulumi_wasm_rust::Output<String>,
+        pub content: pulumi_gestalt_rust::Output<String>,
         /// The description of the schema. Maximum of 256 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The last modified date of the schema.
-        pub last_modified: pulumi_wasm_rust::Output<String>,
+        pub last_modified: pulumi_gestalt_rust::Output<String>,
         /// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the registry in which this schema belongs.
-        pub registry_name: pulumi_wasm_rust::Output<String>,
+        pub registry_name: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The type of the schema. Valid values: `OpenApi3` or `JSONSchemaDraft4`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// The version of the schema.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
         /// The created date of the version of the schema.
-        pub version_created_date: pulumi_wasm_rust::Output<String>,
+        pub version_created_date: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SchemaArgs,
     ) -> SchemaResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let content_binding = args.content.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -146,29 +146,29 @@ pub mod schema {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SchemaResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            content: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("content"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            last_modified: pulumi_wasm_rust::__private::into_domain(
+            last_modified: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModified"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            registry_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            registry_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registryName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            version: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("version"),
             ),
-            version_created_date: pulumi_wasm_rust::__private::into_domain(
+            version_created_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionCreatedDate"),
             ),
         }

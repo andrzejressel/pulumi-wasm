@@ -75,39 +75,39 @@
 /// ```
 ///
 pub mod deny_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DenyPolicyArgs {
         /// The display name of the rule.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the policy.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The attachment point is identified by its URL-encoded full resource name.
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Rules to be applied.
         /// Structure is documented below.
         #[builder(into)]
-        pub rules: pulumi_wasm_rust::InputOrOutput<
+        pub rules: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::iam::DenyPolicyRule>,
         >,
     }
     #[allow(dead_code)]
     pub struct DenyPolicyResult {
         /// The display name of the rule.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The hash of the resource. Used internally during updates.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The name of the policy.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The attachment point is identified by its URL-encoded full resource name.
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// Rules to be applied.
         /// Structure is documented below.
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::iam::DenyPolicyRule>,
         >,
     }
@@ -116,11 +116,11 @@ pub mod deny_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DenyPolicyArgs,
     ) -> DenyPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let display_name_binding = args.display_name.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -151,13 +151,15 @@ pub mod deny_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DenyPolicyResult {
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
         }
     }
 }

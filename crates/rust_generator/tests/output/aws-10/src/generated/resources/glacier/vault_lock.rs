@@ -37,8 +37,8 @@
 /// ### Permanently Applying Glacier Vault Lock Policy
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = vault_lock::create(
@@ -60,44 +60,44 @@
 /// $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault
 /// ```
 pub mod vault_lock {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VaultLockArgs {
         /// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
         #[builder(into)]
-        pub complete_lock: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub complete_lock: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
         #[builder(into, default)]
-        pub ignore_deletion_error: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ignore_deletion_error: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Glacier Vault.
         #[builder(into)]
-        pub vault_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vault_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VaultLockResult {
         /// Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
-        pub complete_lock: pulumi_wasm_rust::Output<bool>,
+        pub complete_lock: pulumi_gestalt_rust::Output<bool>,
         /// Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
-        pub ignore_deletion_error: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ignore_deletion_error: pulumi_gestalt_rust::Output<Option<bool>>,
         /// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_gestalt_rust::Output<String>,
         /// The name of the Glacier Vault.
-        pub vault_name: pulumi_wasm_rust::Output<String>,
+        pub vault_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VaultLockArgs,
     ) -> VaultLockResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let complete_lock_binding = args.complete_lock.get_output(context).get_inner();
         let ignore_deletion_error_binding = args
@@ -131,14 +131,16 @@ pub mod vault_lock {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VaultLockResult {
-            complete_lock: pulumi_wasm_rust::__private::into_domain(
+            complete_lock: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("completeLock"),
             ),
-            ignore_deletion_error: pulumi_wasm_rust::__private::into_domain(
+            ignore_deletion_error: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ignoreDeletionError"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
-            vault_name: pulumi_wasm_rust::__private::into_domain(
+            policy: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("policy"),
+            ),
+            vault_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vaultName"),
             ),
         }

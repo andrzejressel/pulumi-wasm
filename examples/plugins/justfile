@@ -1,10 +1,10 @@
 set windows-shell := ["pwsh.exe", "-c"]
-binary := "../../target/release/pulumi_wasm_runner"
-wasm := "../../target/wasm32-wasip1/release/pulumi_wasm_example_plugins.wasm"
-pulumi_wasm := "../../target/wasm32-wasip1/release/pulumi_wasm.wasm"
+binary := "../../target/release/pulumi_gestalt_runner"
+wasm := "../../target/wasm32-wasip1/release/pulumi_gestalt_example_plugins.wasm"
+pulumi_gestalt := "../../target/wasm32-wasip1/release/pulumi_gestalt.wasm"
 
 run:
-    {{binary}} run --pulumi-wasm "{{pulumi_wasm}}" "{{wasm}}"
+    {{binary}} run --pulumi-gestalt "{{pulumi_gestalt}}" "{{wasm}}"
 
 plugins TEMP_FILE:
     {{binary}} plugins "{{wasm}}" "{{TEMP_FILE}}"
@@ -16,9 +16,9 @@ local-test:
     $ErrorActionPreference = "Stop"
     $PSNativeCommandUseErrorActionPreference = $true
 
-    cargo build -p pulumi_wasm_runner --release
-    cargo component build -p pulumi_wasm --release
-    cargo component build -p pulumi_wasm_example_plugins --release
+    cargo build -p pulumi_gestalt_runner --release
+    cargo component build -p pulumi_gestalt --release
+    cargo component build -p pulumi_gestalt_example_plugins --release
     $env:PULUMI_CONFIG_PASSPHRASE=" "
     pulumi destroy -y
     pulumi up -y

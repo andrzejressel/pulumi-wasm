@@ -1,64 +1,64 @@
 pub mod get_dedicated_host {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDedicatedHostArgs {
         /// Configuration block. Detailed below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::InputOrOutput<
+        pub filters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2::GetDedicatedHostFilter>>,
         >,
         /// ID of the Dedicated Host.
         #[builder(into, default)]
-        pub host_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub host_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetDedicatedHostResult {
         /// ARN of the Dedicated Host.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Outpost hardware asset on which the Dedicated Host is allocated.
-        pub asset_id: pulumi_wasm_rust::Output<String>,
+        pub asset_id: pulumi_gestalt_rust::Output<String>,
         /// Whether auto-placement is on or off.
-        pub auto_placement: pulumi_wasm_rust::Output<String>,
+        pub auto_placement: pulumi_gestalt_rust::Output<String>,
         /// Availability Zone of the Dedicated Host.
-        pub availability_zone: pulumi_wasm_rust::Output<String>,
+        pub availability_zone: pulumi_gestalt_rust::Output<String>,
         /// Number of cores on the Dedicated Host.
-        pub cores: pulumi_wasm_rust::Output<i32>,
-        pub filters: pulumi_wasm_rust::Output<
+        pub cores: pulumi_gestalt_rust::Output<i32>,
+        pub filters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::super::types::ec2::GetDedicatedHostFilter>>,
         >,
-        pub host_id: pulumi_wasm_rust::Output<String>,
+        pub host_id: pulumi_gestalt_rust::Output<String>,
         /// Whether host recovery is enabled or disabled for the Dedicated Host.
-        pub host_recovery: pulumi_wasm_rust::Output<String>,
+        pub host_recovery: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Instance family supported by the Dedicated Host. For example, "m5".
-        pub instance_family: pulumi_wasm_rust::Output<String>,
+        pub instance_family: pulumi_gestalt_rust::Output<String>,
         /// Instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
-        pub instance_type: pulumi_wasm_rust::Output<String>,
+        pub instance_type: pulumi_gestalt_rust::Output<String>,
         /// ARN of the AWS Outpost on which the Dedicated Host is allocated.
-        pub outpost_arn: pulumi_wasm_rust::Output<String>,
+        pub outpost_arn: pulumi_gestalt_rust::Output<String>,
         /// ID of the AWS account that owns the Dedicated Host.
-        pub owner_id: pulumi_wasm_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
         /// Number of sockets on the Dedicated Host.
-        pub sockets: pulumi_wasm_rust::Output<i32>,
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub sockets: pulumi_gestalt_rust::Output<i32>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// Total number of vCPUs on the Dedicated Host.
-        pub total_vcpus: pulumi_wasm_rust::Output<i32>,
+        pub total_vcpus: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetDedicatedHostArgs,
     ) -> GetDedicatedHostResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let filters_binding = args.filters.get_output(context).get_inner();
         let host_id_binding = args.host_id.get_output(context).get_inner();
@@ -83,42 +83,44 @@ pub mod get_dedicated_host {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetDedicatedHostResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            asset_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            asset_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assetId"),
             ),
-            auto_placement: pulumi_wasm_rust::__private::into_domain(
+            auto_placement: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoPlacement"),
             ),
-            availability_zone: pulumi_wasm_rust::__private::into_domain(
+            availability_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZone"),
             ),
-            cores: pulumi_wasm_rust::__private::into_domain(o.extract_field("cores")),
-            filters: pulumi_wasm_rust::__private::into_domain(
+            cores: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cores")),
+            filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filters"),
             ),
-            host_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("hostId")),
-            host_recovery: pulumi_wasm_rust::__private::into_domain(
+            host_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("hostId"),
+            ),
+            host_recovery: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostRecovery"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            instance_family: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            instance_family: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceFamily"),
             ),
-            instance_type: pulumi_wasm_rust::__private::into_domain(
+            instance_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceType"),
             ),
-            outpost_arn: pulumi_wasm_rust::__private::into_domain(
+            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outpostArn"),
             ),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            sockets: pulumi_wasm_rust::__private::into_domain(
+            sockets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sockets"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            total_vcpus: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            total_vcpus: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("totalVcpus"),
             ),
         }

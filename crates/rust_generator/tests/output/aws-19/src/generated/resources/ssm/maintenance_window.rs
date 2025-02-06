@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let production = maintenance_window::create(
@@ -27,79 +27,79 @@
 /// $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
 /// ```
 pub mod maintenance_window {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MaintenanceWindowArgs {
         /// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
         #[builder(into, default)]
-        pub allow_unassociated_targets: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_unassociated_targets: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
         #[builder(into)]
-        pub cutoff: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub cutoff: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// A description for the maintenance window.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The duration of the Maintenance Window in hours.
         #[builder(into)]
-        pub duration: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub duration: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Whether the maintenance window is enabled. Default: `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
         #[builder(into, default)]
-        pub end_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub end_date: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the maintenance window.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
         #[builder(into)]
-        pub schedule: pulumi_wasm_rust::InputOrOutput<String>,
+        pub schedule: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
         #[builder(into, default)]
-        pub schedule_offset: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub schedule_offset: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
         #[builder(into, default)]
-        pub schedule_timezone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub schedule_timezone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
         #[builder(into, default)]
-        pub start_date: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub start_date: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct MaintenanceWindowResult {
         /// Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
-        pub allow_unassociated_targets: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_unassociated_targets: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
-        pub cutoff: pulumi_wasm_rust::Output<i32>,
+        pub cutoff: pulumi_gestalt_rust::Output<i32>,
         /// A description for the maintenance window.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The duration of the Maintenance Window in hours.
-        pub duration: pulumi_wasm_rust::Output<i32>,
+        pub duration: pulumi_gestalt_rust::Output<i32>,
         /// Whether the maintenance window is enabled. Default: `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
-        pub end_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub end_date: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the maintenance window.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
-        pub schedule: pulumi_wasm_rust::Output<String>,
+        pub schedule: pulumi_gestalt_rust::Output<String>,
         /// The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
-        pub schedule_offset: pulumi_wasm_rust::Output<Option<i32>>,
+        pub schedule_offset: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
-        pub schedule_timezone: pulumi_wasm_rust::Output<Option<String>>,
+        pub schedule_timezone: pulumi_gestalt_rust::Output<Option<String>>,
         /// Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
-        pub start_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub start_date: pulumi_gestalt_rust::Output<Option<String>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -108,11 +108,11 @@ pub mod maintenance_window {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MaintenanceWindowArgs,
     ) -> MaintenanceWindowResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allow_unassociated_targets_binding = args
             .allow_unassociated_targets
@@ -192,37 +192,39 @@ pub mod maintenance_window {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MaintenanceWindowResult {
-            allow_unassociated_targets: pulumi_wasm_rust::__private::into_domain(
+            allow_unassociated_targets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowUnassociatedTargets"),
             ),
-            cutoff: pulumi_wasm_rust::__private::into_domain(o.extract_field("cutoff")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            cutoff: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("cutoff"),
+            ),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            duration: pulumi_wasm_rust::__private::into_domain(
+            duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("duration"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            end_date: pulumi_wasm_rust::__private::into_domain(
+            end_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endDate"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            schedule: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedule"),
             ),
-            schedule_offset: pulumi_wasm_rust::__private::into_domain(
+            schedule_offset: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scheduleOffset"),
             ),
-            schedule_timezone: pulumi_wasm_rust::__private::into_domain(
+            schedule_timezone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scheduleTimezone"),
             ),
-            start_date: pulumi_wasm_rust::__private::into_domain(
+            start_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startDate"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -93,61 +93,61 @@
 /// ```
 ///
 pub mod attached_database_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AttachedDatabaseConfigurationArgs {
         /// Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
         #[builder(into, default)]
-        pub default_principal_modification_kind: pulumi_wasm_rust::InputOrOutput<
+        pub default_principal_modification_kind: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `sharing` block as defined below.
         #[builder(into, default)]
-        pub sharing: pulumi_wasm_rust::InputOrOutput<
+        pub sharing: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::kusto::AttachedDatabaseConfigurationSharing>,
         >,
     }
     #[allow(dead_code)]
     pub struct AttachedDatabaseConfigurationResult {
         /// The list of databases from the `cluster_resource_id` which are currently attached to the cluster.
-        pub attached_database_names: pulumi_wasm_rust::Output<Vec<String>>,
+        pub attached_database_names: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_gestalt_rust::Output<String>,
         /// The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created.
-        pub cluster_resource_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_resource_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_gestalt_rust::Output<String>,
         /// The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`.
-        pub default_principal_modification_kind: pulumi_wasm_rust::Output<
+        pub default_principal_modification_kind: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `sharing` block as defined below.
-        pub sharing: pulumi_wasm_rust::Output<
+        pub sharing: pulumi_gestalt_rust::Output<
             Option<super::super::types::kusto::AttachedDatabaseConfigurationSharing>,
         >,
     }
@@ -156,11 +156,11 @@ pub mod attached_database_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AttachedDatabaseConfigurationArgs,
     ) -> AttachedDatabaseConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_name_binding = args.cluster_name.get_output(context).get_inner();
         let cluster_resource_id_binding = args
@@ -221,29 +221,31 @@ pub mod attached_database_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AttachedDatabaseConfigurationResult {
-            attached_database_names: pulumi_wasm_rust::__private::into_domain(
+            attached_database_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attachedDatabaseNames"),
             ),
-            cluster_name: pulumi_wasm_rust::__private::into_domain(
+            cluster_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterName"),
             ),
-            cluster_resource_id: pulumi_wasm_rust::__private::into_domain(
+            cluster_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterResourceId"),
             ),
-            database_name: pulumi_wasm_rust::__private::into_domain(
+            database_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseName"),
             ),
-            default_principal_modification_kind: pulumi_wasm_rust::__private::into_domain(
+            default_principal_modification_kind: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultPrincipalModificationKind"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sharing: pulumi_wasm_rust::__private::into_domain(o.extract_field("sharing")),
+            sharing: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("sharing"),
+            ),
         }
     }
 }

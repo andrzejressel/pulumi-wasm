@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foo = vpc_endpoint::create(
@@ -32,27 +32,27 @@
 /// $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
 /// ```
 pub mod vpc_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcEndpointArgs {
         /// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
         #[builder(into)]
-        pub domain_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Options to specify the subnets and security groups for the endpoint.
         #[builder(into)]
-        pub vpc_options: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_options: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::opensearch::VpcEndpointVpcOptions,
         >,
     }
     #[allow(dead_code)]
     pub struct VpcEndpointResult {
         /// Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
-        pub domain_arn: pulumi_wasm_rust::Output<String>,
+        pub domain_arn: pulumi_gestalt_rust::Output<String>,
         /// The connection endpoint ID for connecting to the domain.
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_gestalt_rust::Output<String>,
         /// Options to specify the subnets and security groups for the endpoint.
-        pub vpc_options: pulumi_wasm_rust::Output<
+        pub vpc_options: pulumi_gestalt_rust::Output<
             super::super::types::opensearch::VpcEndpointVpcOptions,
         >,
     }
@@ -61,11 +61,11 @@ pub mod vpc_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpcEndpointArgs,
     ) -> VpcEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_arn_binding = args.domain_arn.get_output(context).get_inner();
         let vpc_options_binding = args.vpc_options.get_output(context).get_inner();
@@ -86,13 +86,13 @@ pub mod vpc_endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpcEndpointResult {
-            domain_arn: pulumi_wasm_rust::__private::into_domain(
+            domain_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainArn"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            vpc_options: pulumi_wasm_rust::__private::into_domain(
+            vpc_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcOptions"),
             ),
         }

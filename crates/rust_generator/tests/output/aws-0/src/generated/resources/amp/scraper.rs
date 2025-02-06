@@ -9,64 +9,64 @@
 /// $ pulumi import aws:amp/scraper:Scraper example s-0123abc-0000-0123-a000-000000000000
 /// ```
 pub mod scraper {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ScraperArgs {
         /// a name to associate with the managed scraper. This is for your use, and does not need to be unique.
         #[builder(into, default)]
-        pub alias: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub alias: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block for the managed scraper to send metrics to. See `destination`.
         #[builder(into, default)]
-        pub destination: pulumi_wasm_rust::InputOrOutput<
+        pub destination: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::amp::ScraperDestination>,
         >,
         /// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
         #[builder(into)]
-        pub scrape_configuration: pulumi_wasm_rust::InputOrOutput<String>,
+        pub scrape_configuration: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub source: pulumi_wasm_rust::InputOrOutput<
+        pub source: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::amp::ScraperSource>,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::amp::ScraperTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct ScraperResult {
         /// a name to associate with the managed scraper. This is for your use, and does not need to be unique.
-        pub alias: pulumi_wasm_rust::Output<Option<String>>,
+        pub alias: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Amazon Resource Name (ARN) of the new scraper.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for the managed scraper to send metrics to. See `destination`.
-        pub destination: pulumi_wasm_rust::Output<
+        pub destination: pulumi_gestalt_rust::Output<
             Option<super::super::types::amp::ScraperDestination>,
         >,
         /// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// The configuration file to use in the new scraper. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration).
-        pub scrape_configuration: pulumi_wasm_rust::Output<String>,
+        pub scrape_configuration: pulumi_gestalt_rust::Output<String>,
         /// Configuration block to specify where the managed scraper will collect metrics from. See `source`.
         ///
         /// The following arguments are optional:
-        pub source: pulumi_wasm_rust::Output<
+        pub source: pulumi_gestalt_rust::Output<
             Option<super::super::types::amp::ScraperSource>,
         >,
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::amp::ScraperTimeouts>,
         >,
     }
@@ -75,11 +75,11 @@ pub mod scraper {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ScraperArgs,
     ) -> ScraperResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let alias_binding = args.alias.get_output(context).get_inner();
         let destination_binding = args.destination.get_output(context).get_inner();
@@ -123,23 +123,25 @@ pub mod scraper {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ScraperResult {
-            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            destination: pulumi_wasm_rust::__private::into_domain(
+            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            destination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destination"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            scrape_configuration: pulumi_wasm_rust::__private::into_domain(
+            scrape_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scrapeConfiguration"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            source: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("source"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

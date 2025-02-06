@@ -7,8 +7,8 @@
 /// The global replication group depends on the primary group existing. Secondary replication groups depend on the global replication group. the provider dependency management will handle this transparently using resource value references.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = global_replication_group::create(
@@ -56,8 +56,8 @@
 /// The secondary replication group will be created with Redis 6.2.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = global_replication_group::create(
@@ -99,20 +99,20 @@
 /// $ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1
 /// ```
 pub mod global_replication_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GlobalReplicationGroupArgs {
         /// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
         /// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
         #[builder(into, default)]
-        pub automatic_failover_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub automatic_failover_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The instance class used.
         /// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
         /// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
         /// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
         #[builder(into, default)]
-        pub cache_node_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cache_node_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Redis version to use for the Global Replication Group.
         /// When creating, by default the Global Replication Group inherits the version of the primary replication group.
         /// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
@@ -122,48 +122,50 @@ pub mod global_replication_group {
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         #[builder(into, default)]
-        pub engine_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub engine_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A user-created description for the global replication group.
         #[builder(into, default)]
-        pub global_replication_group_description: pulumi_wasm_rust::InputOrOutput<
+        pub global_replication_group_description: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
         #[builder(into)]
-        pub global_replication_group_id_suffix: pulumi_wasm_rust::InputOrOutput<String>,
+        pub global_replication_group_id_suffix: pulumi_gestalt_rust::InputOrOutput<
+            String,
+        >,
         /// The number of node groups (shards) on the global replication group.
         #[builder(into, default)]
-        pub num_node_groups: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub num_node_groups: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// An ElastiCache Parameter Group to use for the Global Replication Group.
         /// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
         /// Specifying without a major version upgrade will fail.
         /// Note that ElastiCache creates a copy of this parameter group for each member replication group.
         #[builder(into, default)]
-        pub parameter_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parameter_group_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         #[builder(into)]
-        pub primary_replication_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub primary_replication_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GlobalReplicationGroupResult {
         /// The ARN of the ElastiCache Global Replication Group.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A flag that indicate whether the encryption at rest is enabled.
-        pub at_rest_encryption_enabled: pulumi_wasm_rust::Output<bool>,
+        pub at_rest_encryption_enabled: pulumi_gestalt_rust::Output<bool>,
         /// A flag that indicate whether AuthToken (password) is enabled.
-        pub auth_token_enabled: pulumi_wasm_rust::Output<bool>,
+        pub auth_token_enabled: pulumi_gestalt_rust::Output<bool>,
         /// Specifies whether read-only replicas will be automatically promoted to read/write primary if the existing primary fails.
         /// When creating, by default the Global Replication Group inherits the automatic failover setting of the primary replication group.
-        pub automatic_failover_enabled: pulumi_wasm_rust::Output<bool>,
+        pub automatic_failover_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The instance class used.
         /// See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html)
         /// and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
         /// When creating, by default the Global Replication Group inherits the node type of the primary replication group.
-        pub cache_node_type: pulumi_wasm_rust::Output<String>,
+        pub cache_node_type: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether the Global Datastore is cluster enabled.
-        pub cluster_enabled: pulumi_wasm_rust::Output<bool>,
+        pub cluster_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The name of the cache engine to be used for the clusters in this global replication group.
-        pub engine: pulumi_wasm_rust::Output<String>,
+        pub engine: pulumi_gestalt_rust::Output<String>,
         /// Redis version to use for the Global Replication Group.
         /// When creating, by default the Global Replication Group inherits the version of the primary replication group.
         /// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
@@ -172,44 +174,44 @@ pub mod global_replication_group {
         /// When the version is 6, the major and minor version can be set, e.g., `6.2`,
         /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
         /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
-        pub engine_version: pulumi_wasm_rust::Output<String>,
+        pub engine_version: pulumi_gestalt_rust::Output<String>,
         /// The full version number of the cache engine running on the members of this global replication group.
-        pub engine_version_actual: pulumi_wasm_rust::Output<String>,
+        pub engine_version_actual: pulumi_gestalt_rust::Output<String>,
         /// Set of node groups (shards) on the global replication group.
         /// Has the values:
-        pub global_node_groups: pulumi_wasm_rust::Output<
+        pub global_node_groups: pulumi_gestalt_rust::Output<
             Vec<super::super::types::elasticache::GlobalReplicationGroupGlobalNodeGroup>,
         >,
         /// A user-created description for the global replication group.
-        pub global_replication_group_description: pulumi_wasm_rust::Output<
+        pub global_replication_group_description: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// The full ID of the global replication group.
-        pub global_replication_group_id: pulumi_wasm_rust::Output<String>,
+        pub global_replication_group_id: pulumi_gestalt_rust::Output<String>,
         /// The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
-        pub global_replication_group_id_suffix: pulumi_wasm_rust::Output<String>,
+        pub global_replication_group_id_suffix: pulumi_gestalt_rust::Output<String>,
         /// The number of node groups (shards) on the global replication group.
-        pub num_node_groups: pulumi_wasm_rust::Output<i32>,
+        pub num_node_groups: pulumi_gestalt_rust::Output<i32>,
         /// An ElastiCache Parameter Group to use for the Global Replication Group.
         /// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
         /// Specifying without a major version upgrade will fail.
         /// Note that ElastiCache creates a copy of this parameter group for each member replication group.
-        pub parameter_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub parameter_group_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
-        pub primary_replication_group_id: pulumi_wasm_rust::Output<String>,
+        pub primary_replication_group_id: pulumi_gestalt_rust::Output<String>,
         /// A flag that indicates whether the encryption in transit is enabled.
-        pub transit_encryption_enabled: pulumi_wasm_rust::Output<bool>,
+        pub transit_encryption_enabled: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GlobalReplicationGroupArgs,
     ) -> GlobalReplicationGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let automatic_failover_enabled_binding = args
             .automatic_failover_enabled
@@ -282,51 +284,53 @@ pub mod global_replication_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GlobalReplicationGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            at_rest_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            at_rest_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("atRestEncryptionEnabled"),
             ),
-            auth_token_enabled: pulumi_wasm_rust::__private::into_domain(
+            auth_token_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authTokenEnabled"),
             ),
-            automatic_failover_enabled: pulumi_wasm_rust::__private::into_domain(
+            automatic_failover_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automaticFailoverEnabled"),
             ),
-            cache_node_type: pulumi_wasm_rust::__private::into_domain(
+            cache_node_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cacheNodeType"),
             ),
-            cluster_enabled: pulumi_wasm_rust::__private::into_domain(
+            cluster_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterEnabled"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
-            engine_version: pulumi_wasm_rust::__private::into_domain(
+            engine: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("engine"),
+            ),
+            engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineVersion"),
             ),
-            engine_version_actual: pulumi_wasm_rust::__private::into_domain(
+            engine_version_actual: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineVersionActual"),
             ),
-            global_node_groups: pulumi_wasm_rust::__private::into_domain(
+            global_node_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalNodeGroups"),
             ),
-            global_replication_group_description: pulumi_wasm_rust::__private::into_domain(
+            global_replication_group_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalReplicationGroupDescription"),
             ),
-            global_replication_group_id: pulumi_wasm_rust::__private::into_domain(
+            global_replication_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalReplicationGroupId"),
             ),
-            global_replication_group_id_suffix: pulumi_wasm_rust::__private::into_domain(
+            global_replication_group_id_suffix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalReplicationGroupIdSuffix"),
             ),
-            num_node_groups: pulumi_wasm_rust::__private::into_domain(
+            num_node_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("numNodeGroups"),
             ),
-            parameter_group_name: pulumi_wasm_rust::__private::into_domain(
+            parameter_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameterGroupName"),
             ),
-            primary_replication_group_id: pulumi_wasm_rust::__private::into_domain(
+            primary_replication_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryReplicationGroupId"),
             ),
-            transit_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
+            transit_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitEncryptionEnabled"),
             ),
         }

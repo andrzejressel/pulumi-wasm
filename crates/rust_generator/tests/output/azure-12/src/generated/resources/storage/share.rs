@@ -7,8 +7,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -57,7 +57,7 @@
 /// ```
 ///
 pub mod share {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ShareArgs {
@@ -65,88 +65,88 @@ pub mod share {
         ///
         /// ~>**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` requires `Premium` `access_tier`.
         #[builder(into, default)]
-        pub access_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub access_tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `acl` blocks as defined below.
         #[builder(into, default)]
-        pub acls: pulumi_wasm_rust::InputOrOutput<
+        pub acls: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::storage::ShareAcl>>,
         >,
         /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         ///
         /// ~>**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
         #[builder(into, default)]
-        pub enabled_protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub enabled_protocol: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of MetaData for this File Share.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The maximum size of the share, in gigabytes.
         ///
         /// ~>**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `azure.storage.Account`.
         ///
         /// ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
         #[builder(into)]
-        pub quota: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub quota: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
         #[builder(into, default)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
         #[builder(into, default)]
-        pub storage_account_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_account_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ShareResult {
         /// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
         ///
         /// ~>**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` requires `Premium` `access_tier`.
-        pub access_tier: pulumi_wasm_rust::Output<String>,
+        pub access_tier: pulumi_gestalt_rust::Output<String>,
         /// One or more `acl` blocks as defined below.
-        pub acls: pulumi_wasm_rust::Output<
+        pub acls: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::storage::ShareAcl>>,
         >,
         /// The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created.
         ///
         /// ~>**NOTE:** The `FileStorage` `account_kind` of the `azure.storage.Account` is required for the `NFS` protocol.
-        pub enabled_protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub enabled_protocol: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of MetaData for this File Share.
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The maximum size of the share, in gigabytes.
         ///
         /// ~>**NOTE:** For Standard storage accounts, by default this must be `1` GB (or higher) and at most `5120` GB (`5` TB). This can be set to a value larger than `5120` GB if `large_file_share_enabled` is set to `true` in the parent `azure.storage.Account`.
         ///
         /// ~>**NOTE:** For Premium FileStorage storage accounts, this must be greater than `100` GB and at most `102400` GB (`100` TB).
-        pub quota: pulumi_wasm_rust::Output<i32>,
+        pub quota: pulumi_gestalt_rust::Output<i32>,
         /// The Resource Manager ID of this File Share.
-        pub resource_manager_id: pulumi_wasm_rust::Output<String>,
+        pub resource_manager_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** One of `storage_account_name` or `storage_account_id` must be specified. When specifying `storage_account_id` the resource will use the Resource Manager API, rather than the Data Plane API.
-        pub storage_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the storage account in which to create the share. Changing this forces a new resource to be created. This property is deprecated in favour of `storage_account_id`.
-        pub storage_account_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The URL of the File Share
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub url: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ShareArgs,
     ) -> ShareResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_tier_binding = args.access_tier.get_output(context).get_inner();
         let acls_binding = args.acls.get_output(context).get_inner();
@@ -206,28 +206,28 @@ pub mod share {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ShareResult {
-            access_tier: pulumi_wasm_rust::__private::into_domain(
+            access_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessTier"),
             ),
-            acls: pulumi_wasm_rust::__private::into_domain(o.extract_field("acls")),
-            enabled_protocol: pulumi_wasm_rust::__private::into_domain(
+            acls: pulumi_gestalt_rust::__private::into_domain(o.extract_field("acls")),
+            enabled_protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabledProtocol"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            quota: pulumi_wasm_rust::__private::into_domain(o.extract_field("quota")),
-            resource_manager_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            quota: pulumi_gestalt_rust::__private::into_domain(o.extract_field("quota")),
+            resource_manager_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceManagerId"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
-            storage_account_name: pulumi_wasm_rust::__private::into_domain(
+            storage_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountName"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
+            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

@@ -72,7 +72,7 @@
 /// ```
 ///
 pub mod app_check_debug_token {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppCheckDebugTokenArgs {
@@ -84,14 +84,14 @@ pub mod app_check_debug_token {
         ///
         /// - - -
         #[builder(into)]
-        pub app_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A human readable display name used to identify this debug token.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The secret token itself. Must be provided during creation, and must be a UUID4,
         /// case insensitive. You may use a method of your choice such as random/random_uuid
         /// to generate the token.
@@ -100,7 +100,7 @@ pub mod app_check_debug_token {
         /// For security reasons, this field will never be populated in any response.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
         #[builder(into)]
-        pub token: pulumi_wasm_rust::InputOrOutput<String>,
+        pub token: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AppCheckDebugTokenResult {
@@ -111,14 +111,14 @@ pub mod app_check_debug_token {
         ///
         ///
         /// - - -
-        pub app_id: pulumi_wasm_rust::Output<String>,
+        pub app_id: pulumi_gestalt_rust::Output<String>,
         /// The last segment of the resource name of the debug token.
-        pub debug_token_id: pulumi_wasm_rust::Output<String>,
+        pub debug_token_id: pulumi_gestalt_rust::Output<String>,
         /// A human readable display name used to identify this debug token.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The secret token itself. Must be provided during creation, and must be a UUID4,
         /// case insensitive. You may use a method of your choice such as random/random_uuid
         /// to generate the token.
@@ -126,18 +126,18 @@ pub mod app_check_debug_token {
         /// this debug token to revoke it.
         /// For security reasons, this field will never be populated in any response.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
-        pub token: pulumi_wasm_rust::Output<String>,
+        pub token: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AppCheckDebugTokenArgs,
     ) -> AppCheckDebugTokenResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_id_binding = args.app_id.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -168,17 +168,19 @@ pub mod app_check_debug_token {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AppCheckDebugTokenResult {
-            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
-            debug_token_id: pulumi_wasm_rust::__private::into_domain(
+            app_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("appId"),
+            ),
+            debug_token_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("debugTokenId"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            token: pulumi_wasm_rust::__private::into_domain(o.extract_field("token")),
+            token: pulumi_gestalt_rust::__private::into_domain(o.extract_field("token")),
         }
     }
 }

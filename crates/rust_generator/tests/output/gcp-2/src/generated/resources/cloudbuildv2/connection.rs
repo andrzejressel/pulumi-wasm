@@ -169,7 +169,7 @@
 /// ```
 ///
 pub mod connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionArgs {
@@ -177,42 +177,42 @@ pub mod connection {
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration for connections to Bitbucket Cloud.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub bitbucket_cloud_config: pulumi_wasm_rust::InputOrOutput<
+        pub bitbucket_cloud_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudbuildv2::ConnectionBitbucketCloudConfig>,
         >,
         /// Configuration for connections to Bitbucket Data Center.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub bitbucket_data_center_config: pulumi_wasm_rust::InputOrOutput<
+        pub bitbucket_data_center_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::cloudbuildv2::ConnectionBitbucketDataCenterConfig,
             >,
         >,
         /// If disabled is set to true, functionality is disabled for this connection. Repository based API methods and webhooks processing for repositories in this connection will be disabled.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Configuration for connections to github.com.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub github_config: pulumi_wasm_rust::InputOrOutput<
+        pub github_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudbuildv2::ConnectionGithubConfig>,
         >,
         /// Configuration for connections to an instance of GitHub Enterprise.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub github_enterprise_config: pulumi_wasm_rust::InputOrOutput<
+        pub github_enterprise_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudbuildv2::ConnectionGithubEnterpriseConfig>,
         >,
         /// Configuration for connections to gitlab.com or an instance of GitLab Enterprise.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub gitlab_config: pulumi_wasm_rust::InputOrOutput<
+        pub gitlab_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudbuildv2::ConnectionGitlabConfig>,
         >,
         /// The location for the resource
@@ -220,89 +220,89 @@ pub mod connection {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Immutable. The resource name of the connection.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ConnectionResult {
         /// Allows clients to store small amounts of arbitrary data.
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration for connections to Bitbucket Cloud.
         /// Structure is documented below.
-        pub bitbucket_cloud_config: pulumi_wasm_rust::Output<
+        pub bitbucket_cloud_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudbuildv2::ConnectionBitbucketCloudConfig>,
         >,
         /// Configuration for connections to Bitbucket Data Center.
         /// Structure is documented below.
-        pub bitbucket_data_center_config: pulumi_wasm_rust::Output<
+        pub bitbucket_data_center_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::cloudbuildv2::ConnectionBitbucketDataCenterConfig,
             >,
         >,
         /// Output only. Server assigned timestamp for when the connection was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// If disabled is set to true, functionality is disabled for this connection. Repository based API methods and webhooks processing for repositories in this connection will be disabled.
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub disabled: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Configuration for connections to github.com.
         /// Structure is documented below.
-        pub github_config: pulumi_wasm_rust::Output<
+        pub github_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudbuildv2::ConnectionGithubConfig>,
         >,
         /// Configuration for connections to an instance of GitHub Enterprise.
         /// Structure is documented below.
-        pub github_enterprise_config: pulumi_wasm_rust::Output<
+        pub github_enterprise_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudbuildv2::ConnectionGithubEnterpriseConfig>,
         >,
         /// Configuration for connections to gitlab.com or an instance of GitLab Enterprise.
         /// Structure is documented below.
-        pub gitlab_config: pulumi_wasm_rust::Output<
+        pub gitlab_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudbuildv2::ConnectionGitlabConfig>,
         >,
         /// Output only. Installation state of the Connection.
         /// Structure is documented below.
-        pub installation_states: pulumi_wasm_rust::Output<
+        pub installation_states: pulumi_gestalt_rust::Output<
             Vec<super::super::types::cloudbuildv2::ConnectionInstallationState>,
         >,
         /// The location for the resource
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Immutable. The resource name of the connection.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Output only. Set to true when the connection is being set up or updated in the background.
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// Output only. Server assigned timestamp for when the connection was updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectionArgs,
     ) -> ConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let bitbucket_cloud_config_binding = args
@@ -372,48 +372,48 @@ pub mod connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectionResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            bitbucket_cloud_config: pulumi_wasm_rust::__private::into_domain(
+            bitbucket_cloud_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bitbucketCloudConfig"),
             ),
-            bitbucket_data_center_config: pulumi_wasm_rust::__private::into_domain(
+            bitbucket_data_center_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bitbucketDataCenterConfig"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            disabled: pulumi_wasm_rust::__private::into_domain(
+            disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disabled"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            github_config: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            github_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("githubConfig"),
             ),
-            github_enterprise_config: pulumi_wasm_rust::__private::into_domain(
+            github_enterprise_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("githubEnterpriseConfig"),
             ),
-            gitlab_config: pulumi_wasm_rust::__private::into_domain(
+            gitlab_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gitlabConfig"),
             ),
-            installation_states: pulumi_wasm_rust::__private::into_domain(
+            installation_states: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("installationStates"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

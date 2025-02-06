@@ -41,76 +41,76 @@
 /// ```
 ///
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
         /// Specifies the base64-encoded public certificate used by the agent to do the initial handshake to the backend services in Azure. Changing this forces a new Arc Kubernetes Cluster to be created.
         #[builder(into)]
-        pub agent_public_key_certificate: pulumi_wasm_rust::InputOrOutput<String>,
+        pub agent_public_key_certificate: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
         #[builder(into)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::arckubernetes::ClusterIdentity,
         >,
         /// Specifies the Azure Region where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name which should be used for this Arc Kubernetes Cluster. Changing this forces a new Arc Kubernetes Cluster to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Arc Kubernetes Cluster.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ClusterResult {
         /// Specifies the base64-encoded public certificate used by the agent to do the initial handshake to the backend services in Azure. Changing this forces a new Arc Kubernetes Cluster to be created.
-        pub agent_public_key_certificate: pulumi_wasm_rust::Output<String>,
+        pub agent_public_key_certificate: pulumi_gestalt_rust::Output<String>,
         /// Version of the agent running on the cluster resource.
-        pub agent_version: pulumi_wasm_rust::Output<String>,
+        pub agent_version: pulumi_gestalt_rust::Output<String>,
         /// The distribution running on this Arc Kubernetes Cluster.
-        pub distribution: pulumi_wasm_rust::Output<String>,
+        pub distribution: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             super::super::types::arckubernetes::ClusterIdentity,
         >,
         /// The infrastructure on which the Arc Kubernetes Cluster is running on.
-        pub infrastructure: pulumi_wasm_rust::Output<String>,
+        pub infrastructure: pulumi_gestalt_rust::Output<String>,
         /// The Kubernetes version of the cluster resource.
-        pub kubernetes_version: pulumi_wasm_rust::Output<String>,
+        pub kubernetes_version: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Azure Region where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name which should be used for this Arc Kubernetes Cluster. Changing this forces a new Arc Kubernetes Cluster to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The cluster offering.
-        pub offering: pulumi_wasm_rust::Output<String>,
+        pub offering: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Resource Group where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Arc Kubernetes Cluster.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Number of CPU cores present in the cluster resource.
-        pub total_core_count: pulumi_wasm_rust::Output<i32>,
+        pub total_core_count: pulumi_gestalt_rust::Output<i32>,
         /// Number of nodes present in the cluster resource.
-        pub total_node_count: pulumi_wasm_rust::Output<i32>,
+        pub total_node_count: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let agent_public_key_certificate_binding = args
             .agent_public_key_certificate
@@ -157,39 +157,39 @@ pub mod cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterResult {
-            agent_public_key_certificate: pulumi_wasm_rust::__private::into_domain(
+            agent_public_key_certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentPublicKeyCertificate"),
             ),
-            agent_version: pulumi_wasm_rust::__private::into_domain(
+            agent_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentVersion"),
             ),
-            distribution: pulumi_wasm_rust::__private::into_domain(
+            distribution: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("distribution"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            infrastructure: pulumi_wasm_rust::__private::into_domain(
+            infrastructure: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("infrastructure"),
             ),
-            kubernetes_version: pulumi_wasm_rust::__private::into_domain(
+            kubernetes_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kubernetesVersion"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            offering: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            offering: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("offering"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            total_core_count: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            total_core_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("totalCoreCount"),
             ),
-            total_node_count: pulumi_wasm_rust::__private::into_domain(
+            total_node_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("totalNodeCount"),
             ),
         }

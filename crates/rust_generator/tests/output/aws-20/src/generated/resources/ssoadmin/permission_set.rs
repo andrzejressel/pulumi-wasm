@@ -30,53 +30,53 @@
 /// $ pulumi import aws:ssoadmin/permissionSet:PermissionSet example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
 /// ```
 pub mod permission_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PermissionSetArgs {
         /// The description of the Permission Set.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         #[builder(into)]
-        pub instance_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Permission Set.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The relay state URL used to redirect users within the application during the federation authentication process.
         #[builder(into, default)]
-        pub relay_state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub relay_state: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
         #[builder(into, default)]
-        pub session_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub session_duration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct PermissionSetResult {
         /// The Amazon Resource Name (ARN) of the Permission Set.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        pub created_date: pulumi_wasm_rust::Output<String>,
+        pub created_date: pulumi_gestalt_rust::Output<String>,
         /// The description of the Permission Set.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        pub instance_arn: pulumi_wasm_rust::Output<String>,
+        pub instance_arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the Permission Set.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The relay state URL used to redirect users within the application during the federation authentication process.
-        pub relay_state: pulumi_wasm_rust::Output<Option<String>>,
+        pub relay_state: pulumi_gestalt_rust::Output<Option<String>>,
         /// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
-        pub session_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub session_duration: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -85,11 +85,11 @@ pub mod permission_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PermissionSetArgs,
     ) -> PermissionSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let instance_arn_binding = args.instance_arn.get_output(context).get_inner();
@@ -133,25 +133,25 @@ pub mod permission_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PermissionSetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            created_date: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            created_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdDate"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            instance_arn: pulumi_wasm_rust::__private::into_domain(
+            instance_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            relay_state: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            relay_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("relayState"),
             ),
-            session_duration: pulumi_wasm_rust::__private::into_domain(
+            session_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sessionDuration"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

@@ -7,8 +7,8 @@
 /// ### Instance Target Group
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let main = vpc::create(
@@ -113,94 +113,94 @@
 /// $ pulumi import aws:alb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
 /// ```
 pub mod target_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TargetGroupArgs {
         /// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
         #[builder(into, default)]
-        pub connection_termination: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub connection_termination: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         #[builder(into, default)]
-        pub deregistration_delay: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub deregistration_delay: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Health Check configuration block. Detailed below.
         #[builder(into, default)]
-        pub health_check: pulumi_wasm_rust::InputOrOutput<
+        pub health_check: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alb::TargetGroupHealthCheck>,
         >,
         /// The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
         #[builder(into, default)]
-        pub ip_address_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_address_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         #[builder(into, default)]
-        pub lambda_multi_value_headers_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub lambda_multi_value_headers_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
         #[builder(into, default)]
-        pub load_balancing_algorithm_type: pulumi_wasm_rust::InputOrOutput<
+        pub load_balancing_algorithm_type: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
         #[builder(into, default)]
-        pub load_balancing_anomaly_mitigation: pulumi_wasm_rust::InputOrOutput<
+        pub load_balancing_anomaly_mitigation: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
         #[builder(into, default)]
-        pub load_balancing_cross_zone_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub load_balancing_cross_zone_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
         #[builder(into, default)]
-        pub preserve_client_ip: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub preserve_client_ip: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Protocol to use for routing traffic to the targets.
         /// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
         /// Required when `target_type` is `instance`, `ip`, or `alb`.
         /// Does not apply when `target_type` is `lambda`.
         #[builder(into, default)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
         #[builder(into, default)]
-        pub protocol_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub protocol_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
         #[builder(into, default)]
-        pub proxy_protocol_v2: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub proxy_protocol_v2: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
         #[builder(into, default)]
-        pub slow_start: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub slow_start: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Stickiness configuration block. Detailed below.
         #[builder(into, default)]
-        pub stickiness: pulumi_wasm_rust::InputOrOutput<
+        pub stickiness: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alb::TargetGroupStickiness>,
         >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
         #[builder(into, default)]
-        pub target_failovers: pulumi_wasm_rust::InputOrOutput<
+        pub target_failovers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::alb::TargetGroupTargetFailover>>,
         >,
         /// Target health requirements block. See target_group_health for more information.
         #[builder(into, default)]
-        pub target_group_health: pulumi_wasm_rust::InputOrOutput<
+        pub target_group_health: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::alb::TargetGroupTargetGroupHealth>,
         >,
         /// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
         #[builder(into, default)]
-        pub target_health_states: pulumi_wasm_rust::InputOrOutput<
+        pub target_health_states: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::alb::TargetGroupTargetHealthState>>,
         >,
         /// Type of target that you must specify when registering targets with this target group.
@@ -215,78 +215,80 @@ pub mod target_group {
         ///
         /// Application Load Balancers do not support the `alb` target type.
         #[builder(into, default)]
-        pub target_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub target_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
         #[builder(into, default)]
-        pub vpc_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub vpc_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TargetGroupResult {
         /// ARN of the Target Group (matches `id`).
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// ARN suffix for use with CloudWatch Metrics.
-        pub arn_suffix: pulumi_wasm_rust::Output<String>,
+        pub arn_suffix: pulumi_gestalt_rust::Output<String>,
         /// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
-        pub connection_termination: pulumi_wasm_rust::Output<bool>,
+        pub connection_termination: pulumi_gestalt_rust::Output<bool>,
         /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-        pub deregistration_delay: pulumi_wasm_rust::Output<Option<i32>>,
+        pub deregistration_delay: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Health Check configuration block. Detailed below.
-        pub health_check: pulumi_wasm_rust::Output<
+        pub health_check: pulumi_gestalt_rust::Output<
             super::super::types::alb::TargetGroupHealthCheck,
         >,
         /// The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
-        pub ip_address_type: pulumi_wasm_rust::Output<String>,
+        pub ip_address_type: pulumi_gestalt_rust::Output<String>,
         /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
-        pub lambda_multi_value_headers_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub lambda_multi_value_headers_enabled: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// ARNs of the Load Balancers associated with the Target Group.
-        pub load_balancer_arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub load_balancer_arns: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin`, `least_outstanding_requests`, or `weighted_random`. The default is `round_robin`.
-        pub load_balancing_algorithm_type: pulumi_wasm_rust::Output<String>,
+        pub load_balancing_algorithm_type: pulumi_gestalt_rust::Output<String>,
         /// Determines whether to enable target anomaly mitigation.  Target anomaly mitigation is only supported by the `weighted_random` load balancing algorithm type.  See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#automatic-target-weights) for more information.  The value is `"on"` or `"off"`. The default is `"off"`.
-        pub load_balancing_anomaly_mitigation: pulumi_wasm_rust::Output<String>,
+        pub load_balancing_anomaly_mitigation: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether cross zone load balancing is enabled. The value is `"true"`, `"false"` or `"use_load_balancer_configuration"`. The default is `"use_load_balancer_configuration"`.
-        pub load_balancing_cross_zone_enabled: pulumi_wasm_rust::Output<String>,
+        pub load_balancing_cross_zone_enabled: pulumi_gestalt_rust::Output<String>,
         /// Name of the target group. If omitted, this provider will assign a random, unique name. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
-        pub name_prefix: pulumi_wasm_rust::Output<String>,
+        pub name_prefix: pulumi_gestalt_rust::Output<String>,
         /// Port on which targets receive traffic, unless overridden when registering a specific target. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
-        pub preserve_client_ip: pulumi_wasm_rust::Output<String>,
+        pub preserve_client_ip: pulumi_gestalt_rust::Output<String>,
         /// Protocol to use for routing traffic to the targets.
         /// Should be one of `GENEVE`, `HTTP`, `HTTPS`, `TCP`, `TCP_UDP`, `TLS`, or `UDP`.
         /// Required when `target_type` is `instance`, `ip`, or `alb`.
         /// Does not apply when `target_type` is `lambda`.
-        pub protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub protocol: pulumi_gestalt_rust::Output<Option<String>>,
         /// Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
-        pub protocol_version: pulumi_wasm_rust::Output<String>,
+        pub protocol_version: pulumi_gestalt_rust::Output<String>,
         /// Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
-        pub proxy_protocol_v2: pulumi_wasm_rust::Output<Option<bool>>,
+        pub proxy_protocol_v2: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-        pub slow_start: pulumi_wasm_rust::Output<Option<i32>>,
+        pub slow_start: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Stickiness configuration block. Detailed below.
-        pub stickiness: pulumi_wasm_rust::Output<
+        pub stickiness: pulumi_gestalt_rust::Output<
             super::super::types::alb::TargetGroupStickiness,
         >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
-        pub target_failovers: pulumi_wasm_rust::Output<
+        pub target_failovers: pulumi_gestalt_rust::Output<
             Vec<super::super::types::alb::TargetGroupTargetFailover>,
         >,
         /// Target health requirements block. See target_group_health for more information.
-        pub target_group_health: pulumi_wasm_rust::Output<
+        pub target_group_health: pulumi_gestalt_rust::Output<
             super::super::types::alb::TargetGroupTargetGroupHealth,
         >,
         /// Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
-        pub target_health_states: pulumi_wasm_rust::Output<
+        pub target_health_states: pulumi_gestalt_rust::Output<
             Vec<super::super::types::alb::TargetGroupTargetHealthState>,
         >,
         /// Type of target that you must specify when registering targets with this target group.
@@ -300,20 +302,20 @@ pub mod target_group {
         /// Network Load Balancers do not support the `lambda` target type.
         ///
         /// Application Load Balancers do not support the `alb` target type.
-        pub target_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub target_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Identifier of the VPC in which to create the target group. Required when `target_type` is `instance`, `ip` or `alb`. Does not apply when `target_type` is `lambda`.
-        pub vpc_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TargetGroupArgs,
     ) -> TargetGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let connection_termination_binding = args
             .connection_termination
@@ -478,77 +480,77 @@ pub mod target_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TargetGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            arn_suffix: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            arn_suffix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("arnSuffix"),
             ),
-            connection_termination: pulumi_wasm_rust::__private::into_domain(
+            connection_termination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionTermination"),
             ),
-            deregistration_delay: pulumi_wasm_rust::__private::into_domain(
+            deregistration_delay: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deregistrationDelay"),
             ),
-            health_check: pulumi_wasm_rust::__private::into_domain(
+            health_check: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("healthCheck"),
             ),
-            ip_address_type: pulumi_wasm_rust::__private::into_domain(
+            ip_address_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddressType"),
             ),
-            lambda_multi_value_headers_enabled: pulumi_wasm_rust::__private::into_domain(
+            lambda_multi_value_headers_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lambdaMultiValueHeadersEnabled"),
             ),
-            load_balancer_arns: pulumi_wasm_rust::__private::into_domain(
+            load_balancer_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancerArns"),
             ),
-            load_balancing_algorithm_type: pulumi_wasm_rust::__private::into_domain(
+            load_balancing_algorithm_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancingAlgorithmType"),
             ),
-            load_balancing_anomaly_mitigation: pulumi_wasm_rust::__private::into_domain(
+            load_balancing_anomaly_mitigation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancingAnomalyMitigation"),
             ),
-            load_balancing_cross_zone_enabled: pulumi_wasm_rust::__private::into_domain(
+            load_balancing_cross_zone_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancingCrossZoneEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            name_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namePrefix"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            preserve_client_ip: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            preserve_client_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preserveClientIp"),
             ),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            protocol_version: pulumi_wasm_rust::__private::into_domain(
+            protocol_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocolVersion"),
             ),
-            proxy_protocol_v2: pulumi_wasm_rust::__private::into_domain(
+            proxy_protocol_v2: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("proxyProtocolV2"),
             ),
-            slow_start: pulumi_wasm_rust::__private::into_domain(
+            slow_start: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("slowStart"),
             ),
-            stickiness: pulumi_wasm_rust::__private::into_domain(
+            stickiness: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stickiness"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            target_failovers: pulumi_wasm_rust::__private::into_domain(
+            target_failovers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetFailovers"),
             ),
-            target_group_health: pulumi_wasm_rust::__private::into_domain(
+            target_group_health: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetGroupHealth"),
             ),
-            target_health_states: pulumi_wasm_rust::__private::into_domain(
+            target_health_states: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetHealthStates"),
             ),
-            target_type: pulumi_wasm_rust::__private::into_domain(
+            target_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetType"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

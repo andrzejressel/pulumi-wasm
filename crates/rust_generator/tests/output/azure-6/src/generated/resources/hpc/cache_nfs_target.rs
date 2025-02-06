@@ -120,68 +120,70 @@
 /// ```
 ///
 pub mod cache_nfs_target {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CacheNfsTargetArgs {
         /// The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cache_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cache_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
         #[builder(into)]
-        pub namespace_junctions: pulumi_wasm_rust::InputOrOutput<
+        pub namespace_junctions: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::hpc::CacheNfsTargetNamespaceJunction>,
         >,
         /// The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub target_host_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_host_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
         #[builder(into)]
-        pub usage_model: pulumi_wasm_rust::InputOrOutput<String>,
+        pub usage_model: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
         #[builder(into, default)]
-        pub verification_timer_in_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub verification_timer_in_seconds: pulumi_gestalt_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
         #[builder(into, default)]
-        pub write_back_timer_in_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub write_back_timer_in_seconds: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct CacheNfsTargetResult {
         /// The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
-        pub cache_name: pulumi_wasm_rust::Output<String>,
+        pub cache_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Can be specified multiple times to define multiple `namespace_junction`. Each `namespace_junction` block supports fields documented below.
-        pub namespace_junctions: pulumi_wasm_rust::Output<
+        pub namespace_junctions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::hpc::CacheNfsTargetNamespaceJunction>,
         >,
         /// The name of the Resource Group in which to create the HPC Cache NFS Target. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
-        pub target_host_name: pulumi_wasm_rust::Output<String>,
+        pub target_host_name: pulumi_gestalt_rust::Output<String>,
         /// The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
-        pub usage_model: pulumi_wasm_rust::Output<String>,
+        pub usage_model: pulumi_gestalt_rust::Output<String>,
         /// The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`.
-        pub verification_timer_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub verification_timer_in_seconds: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`.
-        pub write_back_timer_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub write_back_timer_in_seconds: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CacheNfsTargetArgs,
     ) -> CacheNfsTargetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cache_name_binding = args.cache_name.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -247,26 +249,26 @@ pub mod cache_nfs_target {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CacheNfsTargetResult {
-            cache_name: pulumi_wasm_rust::__private::into_domain(
+            cache_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cacheName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            namespace_junctions: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            namespace_junctions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceJunctions"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            target_host_name: pulumi_wasm_rust::__private::into_domain(
+            target_host_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetHostName"),
             ),
-            usage_model: pulumi_wasm_rust::__private::into_domain(
+            usage_model: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("usageModel"),
             ),
-            verification_timer_in_seconds: pulumi_wasm_rust::__private::into_domain(
+            verification_timer_in_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("verificationTimerInSeconds"),
             ),
-            write_back_timer_in_seconds: pulumi_wasm_rust::__private::into_domain(
+            write_back_timer_in_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("writeBackTimerInSeconds"),
             ),
         }

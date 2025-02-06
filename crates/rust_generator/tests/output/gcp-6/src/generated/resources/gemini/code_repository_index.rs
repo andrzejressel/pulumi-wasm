@@ -4,8 +4,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = code_repository_index::create(
@@ -46,7 +46,7 @@
 /// ```
 ///
 pub mod code_repository_index {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CodeRepositoryIndexArgs {
@@ -55,25 +55,25 @@ pub mod code_repository_index {
         ///
         /// - - -
         #[builder(into)]
-        pub code_repository_index_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub code_repository_index_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Optional. Immutable. Customer-managed encryption key name, in the format
         /// projects/*/locations/*/keyRings/*/cryptoKeys/*.
         #[builder(into, default)]
-        pub kms_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. Labels as key value pairs.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the Code Repository Index, for example `us-central1`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CodeRepositoryIndexResult {
@@ -81,32 +81,32 @@ pub mod code_repository_index {
         ///
         ///
         /// - - -
-        pub code_repository_index_id: pulumi_wasm_rust::Output<String>,
+        pub code_repository_index_id: pulumi_gestalt_rust::Output<String>,
         /// Output only. Create time stamp.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Optional. Immutable. Customer-managed encryption key name, in the format
         /// projects/*/locations/*/keyRings/*/cryptoKeys/*.
-        pub kms_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// Optional. Labels as key value pairs.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the Code Repository Index, for example `us-central1`.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Immutable. Identifier. Name of Code Repository Index.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Output only. Code Repository Index instance State.
@@ -116,20 +116,20 @@ pub mod code_repository_index {
         /// ACTIVE
         /// DELETING
         /// SUSPENDED
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Output only. Update time stamp.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CodeRepositoryIndexArgs,
     ) -> CodeRepositoryIndexResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let code_repository_index_id_binding = args
             .code_repository_index_id
@@ -168,29 +168,33 @@ pub mod code_repository_index {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CodeRepositoryIndexResult {
-            code_repository_index_id: pulumi_wasm_rust::__private::into_domain(
+            code_repository_index_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("codeRepositoryIndexId"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            kms_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("kmsKey")),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            kms_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("kmsKey"),
+            ),
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

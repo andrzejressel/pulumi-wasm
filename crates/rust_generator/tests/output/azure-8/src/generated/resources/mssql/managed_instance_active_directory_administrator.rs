@@ -84,49 +84,51 @@
 /// ```
 ///
 pub mod managed_instance_active_directory_administrator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedInstanceActiveDirectoryAdministratorArgs {
         /// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
         #[builder(into, default)]
-        pub azuread_authentication_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub azuread_authentication_only: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The login name of the principal to set as the Managed Instance Administrator.
         #[builder(into)]
-        pub login_username: pulumi_wasm_rust::InputOrOutput<String>,
+        pub login_username: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub managed_instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub managed_instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Object ID of the principal to set as the Managed Instance Administrator.
         #[builder(into)]
-        pub object_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub object_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Azure Active Directory Tenant ID.
         #[builder(into)]
-        pub tenant_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub tenant_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ManagedInstanceActiveDirectoryAdministratorResult {
         /// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users.
-        pub azuread_authentication_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub azuread_authentication_only: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The login name of the principal to set as the Managed Instance Administrator.
-        pub login_username: pulumi_wasm_rust::Output<String>,
+        pub login_username: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created.
-        pub managed_instance_id: pulumi_wasm_rust::Output<String>,
+        pub managed_instance_id: pulumi_gestalt_rust::Output<String>,
         /// The Object ID of the principal to set as the Managed Instance Administrator.
-        pub object_id: pulumi_wasm_rust::Output<String>,
+        pub object_id: pulumi_gestalt_rust::Output<String>,
         /// The Azure Active Directory Tenant ID.
-        pub tenant_id: pulumi_wasm_rust::Output<String>,
+        pub tenant_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ManagedInstanceActiveDirectoryAdministratorArgs,
     ) -> ManagedInstanceActiveDirectoryAdministratorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let azuread_authentication_only_binding = args
             .azuread_authentication_only
@@ -169,19 +171,19 @@ pub mod managed_instance_active_directory_administrator {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ManagedInstanceActiveDirectoryAdministratorResult {
-            azuread_authentication_only: pulumi_wasm_rust::__private::into_domain(
+            azuread_authentication_only: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("azureadAuthenticationOnly"),
             ),
-            login_username: pulumi_wasm_rust::__private::into_domain(
+            login_username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loginUsername"),
             ),
-            managed_instance_id: pulumi_wasm_rust::__private::into_domain(
+            managed_instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedInstanceId"),
             ),
-            object_id: pulumi_wasm_rust::__private::into_domain(
+            object_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("objectId"),
             ),
-            tenant_id: pulumi_wasm_rust::__private::into_domain(
+            tenant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tenantId"),
             ),
         }

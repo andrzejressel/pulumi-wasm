@@ -50,8 +50,8 @@
 /// AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = catalog_database::create(
@@ -126,8 +126,8 @@
 /// ### Grant Permissions For A Lake Formation S3 Resource
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = permissions::create(
@@ -148,8 +148,8 @@
 /// ### Grant Permissions For A Glue Catalog Database
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = permissions::create(
@@ -171,8 +171,8 @@
 /// ### Grant Permissions Using Tag-Based Access Control
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = permissions::create(
@@ -199,47 +199,47 @@
 /// }
 /// ```
 pub mod permissions {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PermissionsArgs {
         /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         #[builder(into, default)]
-        pub catalog_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub catalog_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
         #[builder(into, default)]
-        pub catalog_resource: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub catalog_resource: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Configuration block for a data cells filter resource. Detailed below.
         #[builder(into, default)]
-        pub data_cells_filter: pulumi_wasm_rust::InputOrOutput<
+        pub data_cells_filter: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lakeformation::PermissionsDataCellsFilter>,
         >,
         /// Configuration block for a data location resource. Detailed below.
         #[builder(into, default)]
-        pub data_location: pulumi_wasm_rust::InputOrOutput<
+        pub data_location: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lakeformation::PermissionsDataLocation>,
         >,
         /// Configuration block for a database resource. Detailed below.
         #[builder(into, default)]
-        pub database: pulumi_wasm_rust::InputOrOutput<
+        pub database: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lakeformation::PermissionsDatabase>,
         >,
         /// Configuration block for an LF-tag resource. Detailed below.
         #[builder(into, default)]
-        pub lf_tag: pulumi_wasm_rust::InputOrOutput<
+        pub lf_tag: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lakeformation::PermissionsLfTag>,
         >,
         /// Configuration block for an LF-tag policy resource. Detailed below.
         #[builder(into, default)]
-        pub lf_tag_policy: pulumi_wasm_rust::InputOrOutput<
+        pub lf_tag_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lakeformation::PermissionsLfTagPolicy>,
         >,
         /// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         #[builder(into)]
-        pub permissions: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub permissions: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Subset of `permissions` which the principal can pass.
         #[builder(into, default)]
-        pub permissions_with_grant_options: pulumi_wasm_rust::InputOrOutput<
+        pub permissions_with_grant_options: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, Federated Users, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
@@ -248,64 +248,64 @@ pub mod permissions {
         ///
         /// One of the following is required:
         #[builder(into)]
-        pub principal: pulumi_wasm_rust::InputOrOutput<String>,
+        pub principal: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block for a table resource. Detailed below.
         #[builder(into, default)]
-        pub table: pulumi_wasm_rust::InputOrOutput<
+        pub table: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lakeformation::PermissionsTable>,
         >,
         /// Configuration block for a table with columns resource. Detailed below.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub table_with_columns: pulumi_wasm_rust::InputOrOutput<
+        pub table_with_columns: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lakeformation::PermissionsTableWithColumns>,
         >,
     }
     #[allow(dead_code)]
     pub struct PermissionsResult {
         /// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
-        pub catalog_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub catalog_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
-        pub catalog_resource: pulumi_wasm_rust::Output<Option<bool>>,
+        pub catalog_resource: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Configuration block for a data cells filter resource. Detailed below.
-        pub data_cells_filter: pulumi_wasm_rust::Output<
+        pub data_cells_filter: pulumi_gestalt_rust::Output<
             Option<super::super::types::lakeformation::PermissionsDataCellsFilter>,
         >,
         /// Configuration block for a data location resource. Detailed below.
-        pub data_location: pulumi_wasm_rust::Output<
+        pub data_location: pulumi_gestalt_rust::Output<
             super::super::types::lakeformation::PermissionsDataLocation,
         >,
         /// Configuration block for a database resource. Detailed below.
-        pub database: pulumi_wasm_rust::Output<
+        pub database: pulumi_gestalt_rust::Output<
             super::super::types::lakeformation::PermissionsDatabase,
         >,
         /// Configuration block for an LF-tag resource. Detailed below.
-        pub lf_tag: pulumi_wasm_rust::Output<
+        pub lf_tag: pulumi_gestalt_rust::Output<
             super::super::types::lakeformation::PermissionsLfTag,
         >,
         /// Configuration block for an LF-tag policy resource. Detailed below.
-        pub lf_tag_policy: pulumi_wasm_rust::Output<
+        pub lf_tag_policy: pulumi_gestalt_rust::Output<
             super::super::types::lakeformation::PermissionsLfTagPolicy,
         >,
         /// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
-        pub permissions: pulumi_wasm_rust::Output<Vec<String>>,
+        pub permissions: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Subset of `permissions` which the principal can pass.
-        pub permissions_with_grant_options: pulumi_wasm_rust::Output<Vec<String>>,
+        pub permissions_with_grant_options: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, Federated Users, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         ///
         /// > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `aws.lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
         ///
         /// One of the following is required:
-        pub principal: pulumi_wasm_rust::Output<String>,
+        pub principal: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for a table resource. Detailed below.
-        pub table: pulumi_wasm_rust::Output<
+        pub table: pulumi_gestalt_rust::Output<
             super::super::types::lakeformation::PermissionsTable,
         >,
         /// Configuration block for a table with columns resource. Detailed below.
         ///
         /// The following arguments are optional:
-        pub table_with_columns: pulumi_wasm_rust::Output<
+        pub table_with_columns: pulumi_gestalt_rust::Output<
             super::super::types::lakeformation::PermissionsTableWithColumns,
         >,
     }
@@ -314,11 +314,11 @@ pub mod permissions {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PermissionsArgs,
     ) -> PermissionsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
         let catalog_resource_binding = args
@@ -401,36 +401,38 @@ pub mod permissions {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PermissionsResult {
-            catalog_id: pulumi_wasm_rust::__private::into_domain(
+            catalog_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("catalogId"),
             ),
-            catalog_resource: pulumi_wasm_rust::__private::into_domain(
+            catalog_resource: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("catalogResource"),
             ),
-            data_cells_filter: pulumi_wasm_rust::__private::into_domain(
+            data_cells_filter: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataCellsFilter"),
             ),
-            data_location: pulumi_wasm_rust::__private::into_domain(
+            data_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataLocation"),
             ),
-            database: pulumi_wasm_rust::__private::into_domain(
+            database: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("database"),
             ),
-            lf_tag: pulumi_wasm_rust::__private::into_domain(o.extract_field("lfTag")),
-            lf_tag_policy: pulumi_wasm_rust::__private::into_domain(
+            lf_tag: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("lfTag"),
+            ),
+            lf_tag_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lfTagPolicy"),
             ),
-            permissions: pulumi_wasm_rust::__private::into_domain(
+            permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissions"),
             ),
-            permissions_with_grant_options: pulumi_wasm_rust::__private::into_domain(
+            permissions_with_grant_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissionsWithGrantOptions"),
             ),
-            principal: pulumi_wasm_rust::__private::into_domain(
+            principal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principal"),
             ),
-            table: pulumi_wasm_rust::__private::into_domain(o.extract_field("table")),
-            table_with_columns: pulumi_wasm_rust::__private::into_domain(
+            table: pulumi_gestalt_rust::__private::into_domain(o.extract_field("table")),
+            table_with_columns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tableWithColumns"),
             ),
         }

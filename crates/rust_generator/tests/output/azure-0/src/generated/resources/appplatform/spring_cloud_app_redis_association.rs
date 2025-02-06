@@ -54,49 +54,49 @@
 /// ```
 ///
 pub mod spring_cloud_app_redis_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudAppRedisAssociationArgs {
         /// Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Redis Cache access key.
         #[builder(into)]
-        pub redis_access_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub redis_access_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the Redis Cache resource ID. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub redis_cache_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub redis_cache_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the Spring Cloud Application resource ID in which the Association is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub spring_cloud_app_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub spring_cloud_app_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Should SSL be used when connecting to Redis? Defaults to `true`.
         #[builder(into, default)]
-        pub ssl_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ssl_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudAppRedisAssociationResult {
         /// Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Redis Cache access key.
-        pub redis_access_key: pulumi_wasm_rust::Output<String>,
+        pub redis_access_key: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Redis Cache resource ID. Changing this forces a new resource to be created.
-        pub redis_cache_id: pulumi_wasm_rust::Output<String>,
+        pub redis_cache_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Spring Cloud Application resource ID in which the Association is created. Changing this forces a new resource to be created.
-        pub spring_cloud_app_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_app_id: pulumi_gestalt_rust::Output<String>,
         /// Should SSL be used when connecting to Redis? Defaults to `true`.
-        pub ssl_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ssl_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SpringCloudAppRedisAssociationArgs,
     ) -> SpringCloudAppRedisAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let redis_access_key_binding = args
@@ -139,17 +139,17 @@ pub mod spring_cloud_app_redis_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SpringCloudAppRedisAssociationResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            redis_access_key: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            redis_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redisAccessKey"),
             ),
-            redis_cache_id: pulumi_wasm_rust::__private::into_domain(
+            redis_cache_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redisCacheId"),
             ),
-            spring_cloud_app_id: pulumi_wasm_rust::__private::into_domain(
+            spring_cloud_app_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("springCloudAppId"),
             ),
-            ssl_enabled: pulumi_wasm_rust::__private::into_domain(
+            ssl_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sslEnabled"),
             ),
         }

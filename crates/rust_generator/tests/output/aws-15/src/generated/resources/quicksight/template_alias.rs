@@ -22,50 +22,50 @@
 /// $ pulumi import aws:quicksight/templateAlias:TemplateAlias example 123456789012,example-id,example-alias
 /// ```
 pub mod template_alias {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TemplateAliasArgs {
         /// Display name of the template alias.
         #[builder(into)]
-        pub alias_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub alias_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub aws_account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the template.
         #[builder(into)]
-        pub template_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub template_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Version number of the template.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub template_version_number: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub template_version_number: pulumi_gestalt_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct TemplateAliasResult {
         /// Display name of the template alias.
-        pub alias_name: pulumi_wasm_rust::Output<String>,
+        pub alias_name: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the template alias.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// AWS account ID.
-        pub aws_account_id: pulumi_wasm_rust::Output<String>,
+        pub aws_account_id: pulumi_gestalt_rust::Output<String>,
         /// ID of the template.
-        pub template_id: pulumi_wasm_rust::Output<String>,
+        pub template_id: pulumi_gestalt_rust::Output<String>,
         /// Version number of the template.
         ///
         /// The following arguments are optional:
-        pub template_version_number: pulumi_wasm_rust::Output<i32>,
+        pub template_version_number: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TemplateAliasArgs,
     ) -> TemplateAliasResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let alias_name_binding = args.alias_name.get_output(context).get_inner();
         let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
@@ -99,17 +99,17 @@ pub mod template_alias {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TemplateAliasResult {
-            alias_name: pulumi_wasm_rust::__private::into_domain(
+            alias_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("aliasName"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            aws_account_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsAccountId"),
             ),
-            template_id: pulumi_wasm_rust::__private::into_domain(
+            template_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("templateId"),
             ),
-            template_version_number: pulumi_wasm_rust::__private::into_domain(
+            template_version_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("templateVersionNumber"),
             ),
         }

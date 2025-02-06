@@ -38,8 +38,8 @@
 /// ## gcp.apigee.EnvironmentIamBinding
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let binding = environment_iam_binding::create(
@@ -57,8 +57,8 @@
 /// ## gcp.apigee.EnvironmentIamMember
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let member = environment_iam_member::create(
@@ -120,8 +120,8 @@
 /// ## gcp.apigee.EnvironmentIamBinding
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let binding = environment_iam_binding::create(
@@ -139,8 +139,8 @@
 /// ## gcp.apigee.EnvironmentIamMember
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let member = environment_iam_member::create(
@@ -190,17 +190,17 @@
 ///  full name of the custom role, e.g. `[projects/my-project|organizations/my-org]/roles/my-custom-role`.
 ///
 pub mod environment_iam_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentIamBindingArgs {
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::InputOrOutput<
+        pub condition: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apigee::EnvironmentIamBindingCondition>,
         >,
         /// Used to find the parent resource to bind the IAM policy to
         #[builder(into)]
-        pub env_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub env_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Identities that will be granted the privilege in `role`.
         /// Each entry can have one of the following values:
         /// * **allUsers**: A special identifier that represents anyone who is on the internet; with or without a Google account.
@@ -213,24 +213,24 @@ pub mod environment_iam_binding {
         /// * **projectEditor:projectid**: Editors of the given project. For example, "projectEditor:my-example-project"
         /// * **projectViewer:projectid**: Viewers of the given project. For example, "projectViewer:my-example-project"
         #[builder(into)]
-        pub members: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub members: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub org_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The role that should be applied. Only one
         /// `gcp.apigee.EnvironmentIamBinding` can be used per role. Note that custom roles must be of the format
         /// `[projects|organizations]/{parent-name}/roles/{role-name}`.
         #[builder(into)]
-        pub role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentIamBindingResult {
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_gestalt_rust::Output<
             Option<super::super::types::apigee::EnvironmentIamBindingCondition>,
         >,
         /// Used to find the parent resource to bind the IAM policy to
-        pub env_id: pulumi_wasm_rust::Output<String>,
+        pub env_id: pulumi_gestalt_rust::Output<String>,
         /// (Computed) The etag of the IAM policy.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Identities that will be granted the privilege in `role`.
         /// Each entry can have one of the following values:
         /// * **allUsers**: A special identifier that represents anyone who is on the internet; with or without a Google account.
@@ -242,23 +242,23 @@ pub mod environment_iam_binding {
         /// * **projectOwner:projectid**: Owners of the given project. For example, "projectOwner:my-example-project"
         /// * **projectEditor:projectid**: Editors of the given project. For example, "projectEditor:my-example-project"
         /// * **projectViewer:projectid**: Viewers of the given project. For example, "projectViewer:my-example-project"
-        pub members: pulumi_wasm_rust::Output<Vec<String>>,
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub members: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub org_id: pulumi_gestalt_rust::Output<String>,
         /// The role that should be applied. Only one
         /// `gcp.apigee.EnvironmentIamBinding` can be used per role. Note that custom roles must be of the format
         /// `[projects|organizations]/{parent-name}/roles/{role-name}`.
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvironmentIamBindingArgs,
     ) -> EnvironmentIamBindingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let condition_binding = args.condition.get_output(context).get_inner();
         let env_id_binding = args.env_id.get_output(context).get_inner();
@@ -294,16 +294,20 @@ pub mod environment_iam_binding {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvironmentIamBindingResult {
-            condition: pulumi_wasm_rust::__private::into_domain(
+            condition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("condition"),
             ),
-            env_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("envId")),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            members: pulumi_wasm_rust::__private::into_domain(
+            env_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("envId"),
+            ),
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            members: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("members"),
             ),
-            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
+            org_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("orgId"),
+            ),
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
         }
     }
 }

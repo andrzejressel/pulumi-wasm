@@ -6,8 +6,8 @@
 /// Build an image with the `docker.RemoteImage` resource and then push it to a registry:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let helloworld = registry_image::create(
@@ -28,37 +28,37 @@
 /// }
 /// ```
 pub mod registry_image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegistryImageArgs {
         /// If `true`, the verification of TLS certificates of the server/registry is disabled. Defaults to `false`
         #[builder(into, default)]
-        pub insecure_skip_verify: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub insecure_skip_verify: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker registry on destroy operation. Defaults to `false`
         #[builder(into, default)]
-        pub keep_remotely: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub keep_remotely: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the Docker image.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of arbitrary strings that, when changed, will force the `docker.RegistryImage` resource to be replaced. This can be used to repush a local image
         #[builder(into, default)]
-        pub triggers: pulumi_wasm_rust::InputOrOutput<
+        pub triggers: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RegistryImageResult {
         /// If `true`, the verification of TLS certificates of the server/registry is disabled. Defaults to `false`
-        pub insecure_skip_verify: pulumi_wasm_rust::Output<Option<bool>>,
+        pub insecure_skip_verify: pulumi_gestalt_rust::Output<Option<bool>>,
         /// If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker registry on destroy operation. Defaults to `false`
-        pub keep_remotely: pulumi_wasm_rust::Output<Option<bool>>,
+        pub keep_remotely: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the Docker image.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The sha256 digest of the image.
-        pub sha256_digest: pulumi_wasm_rust::Output<String>,
+        pub sha256_digest: pulumi_gestalt_rust::Output<String>,
         /// A map of arbitrary strings that, when changed, will force the `docker.RegistryImage` resource to be replaced. This can be used to repush a local image
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -67,11 +67,11 @@ pub mod registry_image {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RegistryImageArgs,
     ) -> RegistryImageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let insecure_skip_verify_binding = args
             .insecure_skip_verify
@@ -105,17 +105,17 @@ pub mod registry_image {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RegistryImageResult {
-            insecure_skip_verify: pulumi_wasm_rust::__private::into_domain(
+            insecure_skip_verify: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("insecureSkipVerify"),
             ),
-            keep_remotely: pulumi_wasm_rust::__private::into_domain(
+            keep_remotely: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keepRemotely"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            sha256_digest: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            sha256_digest: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sha256Digest"),
             ),
-            triggers: pulumi_wasm_rust::__private::into_domain(
+            triggers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggers"),
             ),
         }

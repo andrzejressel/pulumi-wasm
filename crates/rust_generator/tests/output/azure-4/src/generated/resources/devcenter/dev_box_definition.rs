@@ -38,45 +38,45 @@
 /// ```
 ///
 pub mod dev_box_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DevBoxDefinitionArgs {
         /// The ID of the associated Dev Center. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub dev_center_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dev_center_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the image for the Dev Center Dev Box Definition.
         #[builder(into)]
-        pub image_reference_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub image_reference_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Azure Region where the Dev Center Dev Box Definition should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of this Dev Center Dev Box Definition. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the SKU for the Dev Center Dev Box Definition.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Dev Center Dev Box Definition.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DevBoxDefinitionResult {
         /// The ID of the associated Dev Center. Changing this forces a new resource to be created.
-        pub dev_center_id: pulumi_wasm_rust::Output<String>,
+        pub dev_center_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the image for the Dev Center Dev Box Definition.
-        pub image_reference_id: pulumi_wasm_rust::Output<String>,
+        pub image_reference_id: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region where the Dev Center Dev Box Definition should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of this Dev Center Dev Box Definition. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the SKU for the Dev Center Dev Box Definition.
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Dev Center Dev Box Definition.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -85,11 +85,11 @@ pub mod dev_box_definition {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DevBoxDefinitionArgs,
     ) -> DevBoxDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let dev_center_id_binding = args.dev_center_id.get_output(context).get_inner();
         let image_reference_id_binding = args
@@ -133,20 +133,20 @@ pub mod dev_box_definition {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DevBoxDefinitionResult {
-            dev_center_id: pulumi_wasm_rust::__private::into_domain(
+            dev_center_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("devCenterId"),
             ),
-            image_reference_id: pulumi_wasm_rust::__private::into_domain(
+            image_reference_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageReferenceId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

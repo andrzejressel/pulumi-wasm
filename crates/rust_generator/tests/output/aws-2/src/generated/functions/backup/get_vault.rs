@@ -1,40 +1,40 @@
 pub mod get_vault {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetVaultArgs {
         /// Name of the backup vault.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Metadata that you can assign to help organize the resources that you create.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetVaultResult {
         /// ARN of the vault.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Server-side encryption key that is used to protect your backups.
-        pub kms_key_arn: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub kms_key_arn: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Number of recovery points that are stored in a backup vault.
-        pub recovery_points: pulumi_wasm_rust::Output<i32>,
+        pub recovery_points: pulumi_gestalt_rust::Output<i32>,
         /// Metadata that you can assign to help organize the resources that you create.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetVaultArgs,
     ) -> GetVaultResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();
@@ -54,16 +54,16 @@ pub mod get_vault {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetVaultResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            kms_key_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            recovery_points: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            recovery_points: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryPoints"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

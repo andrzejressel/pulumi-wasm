@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -49,64 +49,64 @@
 /// ```
 ///
 pub mod open_id_connect_provider {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OpenIdConnectProviderArgs {
         /// The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Client ID used for the Client Application.
         #[builder(into)]
-        pub client_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub client_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Client Secret used for the Client Application.
         #[builder(into)]
-        pub client_secret: pulumi_wasm_rust::InputOrOutput<String>,
+        pub client_secret: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A description of this OpenID Connect Provider.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A user-friendly name for this OpenID Connect Provider.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The URI of the Metadata endpoint.
         #[builder(into)]
-        pub metadata_endpoint: pulumi_wasm_rust::InputOrOutput<String>,
+        pub metadata_endpoint: pulumi_gestalt_rust::InputOrOutput<String>,
         /// the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OpenIdConnectProviderResult {
         /// The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_gestalt_rust::Output<String>,
         /// The Client ID used for the Client Application.
-        pub client_id: pulumi_wasm_rust::Output<String>,
+        pub client_id: pulumi_gestalt_rust::Output<String>,
         /// The Client Secret used for the Client Application.
-        pub client_secret: pulumi_wasm_rust::Output<String>,
+        pub client_secret: pulumi_gestalt_rust::Output<String>,
         /// A description of this OpenID Connect Provider.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A user-friendly name for this OpenID Connect Provider.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The URI of the Metadata endpoint.
-        pub metadata_endpoint: pulumi_wasm_rust::Output<String>,
+        pub metadata_endpoint: pulumi_gestalt_rust::Output<String>,
         /// the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OpenIdConnectProviderArgs,
     ) -> OpenIdConnectProviderResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_management_name_binding = args
             .api_management_name
@@ -167,26 +167,26 @@ pub mod open_id_connect_provider {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OpenIdConnectProviderResult {
-            api_management_name: pulumi_wasm_rust::__private::into_domain(
+            api_management_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementName"),
             ),
-            client_id: pulumi_wasm_rust::__private::into_domain(
+            client_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientId"),
             ),
-            client_secret: pulumi_wasm_rust::__private::into_domain(
+            client_secret: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientSecret"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            metadata_endpoint: pulumi_wasm_rust::__private::into_domain(
+            metadata_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadataEndpoint"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
         }

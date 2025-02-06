@@ -100,7 +100,7 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
@@ -110,7 +110,7 @@ pub mod instance {
         /// the instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub autoscaling_config: pulumi_wasm_rust::InputOrOutput<
+        pub autoscaling_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::spanner::InstanceAutoscalingConfig>,
         >,
         /// The name of the instance's configuration (similar but not
@@ -120,13 +120,13 @@ pub mod instance {
         /// In order to obtain a valid list please consult the
         /// [Configuration section of the docs](https://cloud.google.com/spanner/docs/instances).
         #[builder(into)]
-        pub config: pulumi_wasm_rust::InputOrOutput<String>,
+        pub config: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Controls the default backup behavior for new databases within the instance.
         /// Note that `AUTOMATIC` is not permitted for free instances, as backups and backup schedules are not allowed for free instances.
         /// if unset or NONE, no default backup schedule will be created for new databases within the instance.
         /// Possible values are: `NONE`, `AUTOMATIC`.
         #[builder(into, default)]
-        pub default_backup_schedule_type: pulumi_wasm_rust::InputOrOutput<
+        pub default_backup_schedule_type: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The descriptive name for this instance as it appears in UIs. Must be
@@ -135,22 +135,22 @@ pub mod instance {
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The edition selected for this instance. Different editions provide different capabilities at different price points.
         /// Possible values are: `EDITION_UNSPECIFIED`, `STANDARD`, `ENTERPRISE`, `ENTERPRISE_PLUS`.
         #[builder(into, default)]
-        pub edition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub edition: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// When deleting a spanner instance, this boolean option will delete all backups of this instance.
         /// This must be set to true if you created a backup manually in the console.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// An object containing a list of "key": value pairs.
         /// Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A unique identifier for the instance, which cannot be changed after
@@ -158,15 +158,15 @@ pub mod instance {
         /// in length.
         /// If not provided, a random string starting with `tf-` will be selected.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub num_nodes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub num_nodes: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         #[builder(into, default)]
-        pub processing_units: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub processing_units: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
@@ -175,7 +175,7 @@ pub mod instance {
         /// OUTPUT_ONLY fields and reflect the current compute capacity allocated to
         /// the instance.
         /// Structure is documented below.
-        pub autoscaling_config: pulumi_wasm_rust::Output<
+        pub autoscaling_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::spanner::InstanceAutoscalingConfig>,
         >,
         /// The name of the instance's configuration (similar but not
@@ -184,64 +184,64 @@ pub mod instance {
         /// is stored. Values are typically of the form `regional-europe-west1` , `us-central` etc.
         /// In order to obtain a valid list please consult the
         /// [Configuration section of the docs](https://cloud.google.com/spanner/docs/instances).
-        pub config: pulumi_wasm_rust::Output<String>,
+        pub config: pulumi_gestalt_rust::Output<String>,
         /// Controls the default backup behavior for new databases within the instance.
         /// Note that `AUTOMATIC` is not permitted for free instances, as backups and backup schedules are not allowed for free instances.
         /// if unset or NONE, no default backup schedule will be created for new databases within the instance.
         /// Possible values are: `NONE`, `AUTOMATIC`.
-        pub default_backup_schedule_type: pulumi_wasm_rust::Output<String>,
+        pub default_backup_schedule_type: pulumi_gestalt_rust::Output<String>,
         /// The descriptive name for this instance as it appears in UIs. Must be
         /// unique per project and between 4 and 30 characters in length.
         ///
         ///
         /// - - -
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The edition selected for this instance. Different editions provide different capabilities at different price points.
         /// Possible values are: `EDITION_UNSPECIFIED`, `STANDARD`, `ENTERPRISE`, `ENTERPRISE_PLUS`.
-        pub edition: pulumi_wasm_rust::Output<String>,
+        pub edition: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// When deleting a spanner instance, this boolean option will delete all backups of this instance.
         /// This must be set to true if you created a backup manually in the console.
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An object containing a list of "key": value pairs.
         /// Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A unique identifier for the instance, which cannot be changed after
         /// the instance is created. The name must be between 6 and 30 characters
         /// in length.
         /// If not provided, a random string starting with `tf-` will be selected.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub num_nodes: pulumi_wasm_rust::Output<i32>,
-        pub processing_units: pulumi_wasm_rust::Output<i32>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub num_nodes: pulumi_gestalt_rust::Output<i32>,
+        pub processing_units: pulumi_gestalt_rust::Output<i32>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Instance status: `CREATING` or `READY`.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let autoscaling_config_binding = args
             .autoscaling_config
@@ -316,40 +316,44 @@ pub mod instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceResult {
-            autoscaling_config: pulumi_wasm_rust::__private::into_domain(
+            autoscaling_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoscalingConfig"),
             ),
-            config: pulumi_wasm_rust::__private::into_domain(o.extract_field("config")),
-            default_backup_schedule_type: pulumi_wasm_rust::__private::into_domain(
+            config: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("config"),
+            ),
+            default_backup_schedule_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultBackupScheduleType"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            edition: pulumi_wasm_rust::__private::into_domain(
+            edition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edition"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            force_destroy: pulumi_wasm_rust::__private::into_domain(
+            force_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDestroy"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            num_nodes: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            num_nodes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("numNodes"),
             ),
-            processing_units: pulumi_wasm_rust::__private::into_domain(
+            processing_units: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("processingUnits"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

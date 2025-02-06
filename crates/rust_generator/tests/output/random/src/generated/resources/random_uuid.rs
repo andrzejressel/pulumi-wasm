@@ -24,35 +24,35 @@
 ///
 ///
 pub mod random_uuid {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RandomUuidArgs {
         /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         #[builder(into, default)]
-        pub keepers: pulumi_wasm_rust::InputOrOutput<
+        pub keepers: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RandomUuidResult {
         /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
-        pub keepers: pulumi_wasm_rust::Output<
+        pub keepers: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The generated uuid presented in string format.
-        pub result: pulumi_wasm_rust::Output<String>,
+        pub result: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RandomUuidArgs,
     ) -> RandomUuidResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let keepers_binding = args.keepers.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
@@ -68,10 +68,12 @@ pub mod random_uuid {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RandomUuidResult {
-            keepers: pulumi_wasm_rust::__private::into_domain(
+            keepers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keepers"),
             ),
-            result: pulumi_wasm_rust::__private::into_domain(o.extract_field("result")),
+            result: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("result"),
+            ),
         }
     }
 }

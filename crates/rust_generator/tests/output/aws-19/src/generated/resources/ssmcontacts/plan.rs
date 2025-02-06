@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = plan::create(
@@ -24,8 +24,8 @@
 /// ### Usage with SSM Contact
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let contact = contact::create(
@@ -45,8 +45,8 @@
 /// ### Usage With All Fields
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let contactOne = contact::create(
@@ -96,25 +96,25 @@
 /// $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
 /// ```
 pub mod plan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PlanArgs {
         /// The Amazon Resource Name (ARN) of the contact or escalation plan.
         #[builder(into)]
-        pub contact_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub contact_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         #[builder(into)]
-        pub stages: pulumi_wasm_rust::InputOrOutput<
+        pub stages: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::ssmcontacts::PlanStage>,
         >,
     }
     #[allow(dead_code)]
     pub struct PlanResult {
         /// The Amazon Resource Name (ARN) of the contact or escalation plan.
-        pub contact_id: pulumi_wasm_rust::Output<String>,
+        pub contact_id: pulumi_gestalt_rust::Output<String>,
         /// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
-        pub stages: pulumi_wasm_rust::Output<
+        pub stages: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ssmcontacts::PlanStage>,
         >,
     }
@@ -123,11 +123,11 @@ pub mod plan {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PlanArgs,
     ) -> PlanResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let contact_id_binding = args.contact_id.get_output(context).get_inner();
         let stages_binding = args.stages.get_output(context).get_inner();
@@ -148,10 +148,12 @@ pub mod plan {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PlanResult {
-            contact_id: pulumi_wasm_rust::__private::into_domain(
+            contact_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contactId"),
             ),
-            stages: pulumi_wasm_rust::__private::into_domain(o.extract_field("stages")),
+            stages: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("stages"),
+            ),
         }
     }
 }

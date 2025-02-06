@@ -52,57 +52,57 @@
 /// ```
 ///
 pub mod grafana_managed_private_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GrafanaManagedPrivateEndpointArgs {
         /// The id of the associated managed Grafana. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         #[builder(into)]
-        pub grafana_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub grafana_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies a list of private link group IDs. The value of this will depend on the private link resource to which you are connecting. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         #[builder(into, default)]
-        pub group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub group_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Azure Region where the Dashboard Grafana Managed Private Endpoint should exist. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Dashboard Grafana Managed Private Endpoint. Must be between 2 and 20 alphanumeric characters or dashes, must begin with letter and end with a letter or number. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the resource to which this Dashboard Grafana Managed Private Endpoint will connect. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         #[builder(into)]
-        pub private_link_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub private_link_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
         #[builder(into, default)]
-        pub private_link_resource_region: pulumi_wasm_rust::InputOrOutput<
+        pub private_link_resource_region: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// A message to provide in the request which will be seen by approvers.
         #[builder(into, default)]
-        pub request_message: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub request_message: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Dashboard Grafana Managed Private Endpoint.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GrafanaManagedPrivateEndpointResult {
         /// The id of the associated managed Grafana. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
-        pub grafana_id: pulumi_wasm_rust::Output<String>,
+        pub grafana_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies a list of private link group IDs. The value of this will depend on the private link resource to which you are connecting. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
-        pub group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub group_ids: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The Azure Region where the Dashboard Grafana Managed Private Endpoint should exist. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Dashboard Grafana Managed Private Endpoint. Must be between 2 and 20 alphanumeric characters or dashes, must begin with letter and end with a letter or number. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the resource to which this Dashboard Grafana Managed Private Endpoint will connect. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
-        pub private_link_resource_id: pulumi_wasm_rust::Output<String>,
+        pub private_link_resource_id: pulumi_gestalt_rust::Output<String>,
         /// The region in which to create the private link. Changing this forces a new Dashboard Grafana Managed Private Endpoint to be created.
-        pub private_link_resource_region: pulumi_wasm_rust::Output<Option<String>>,
+        pub private_link_resource_region: pulumi_gestalt_rust::Output<Option<String>>,
         /// A message to provide in the request which will be seen by approvers.
-        pub request_message: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_message: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags which should be assigned to the Dashboard Grafana Managed Private Endpoint.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -111,11 +111,11 @@ pub mod grafana_managed_private_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GrafanaManagedPrivateEndpointArgs,
     ) -> GrafanaManagedPrivateEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let grafana_id_binding = args.grafana_id.get_output(context).get_inner();
         let group_ids_binding = args.group_ids.get_output(context).get_inner();
@@ -176,26 +176,26 @@ pub mod grafana_managed_private_endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GrafanaManagedPrivateEndpointResult {
-            grafana_id: pulumi_wasm_rust::__private::into_domain(
+            grafana_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("grafanaId"),
             ),
-            group_ids: pulumi_wasm_rust::__private::into_domain(
+            group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupIds"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            private_link_resource_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            private_link_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateLinkResourceId"),
             ),
-            private_link_resource_region: pulumi_wasm_rust::__private::into_domain(
+            private_link_resource_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateLinkResourceRegion"),
             ),
-            request_message: pulumi_wasm_rust::__private::into_domain(
+            request_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestMessage"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

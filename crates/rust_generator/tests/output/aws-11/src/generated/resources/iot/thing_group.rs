@@ -31,62 +31,62 @@
 /// $ pulumi import aws:iot/thingGroup:ThingGroup example example
 /// ```
 pub mod thing_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ThingGroupArgs {
         /// The name of the Thing Group.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the parent Thing Group.
         #[builder(into, default)]
-        pub parent_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parent_group_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Thing Group properties. Defined below.
         #[builder(into, default)]
-        pub properties: pulumi_wasm_rust::InputOrOutput<
+        pub properties: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::iot::ThingGroupProperties>,
         >,
         /// Key-value mapping of resource tags
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ThingGroupResult {
         /// The ARN of the Thing Group.
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub metadatas: pulumi_wasm_rust::Output<
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub metadatas: pulumi_gestalt_rust::Output<
             Vec<super::super::types::iot::ThingGroupMetadata>,
         >,
         /// The name of the Thing Group.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the parent Thing Group.
-        pub parent_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent_group_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Thing Group properties. Defined below.
-        pub properties: pulumi_wasm_rust::Output<
+        pub properties: pulumi_gestalt_rust::Output<
             Option<super::super::types::iot::ThingGroupProperties>,
         >,
         /// Key-value mapping of resource tags
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The current version of the Thing Group record in the registry.
-        pub version: pulumi_wasm_rust::Output<i32>,
+        pub version: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ThingGroupArgs,
     ) -> ThingGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let parent_group_name_binding = args
@@ -120,22 +120,24 @@ pub mod thing_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ThingGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            metadatas: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            metadatas: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadatas"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parentGroupName"),
             ),
-            properties: pulumi_wasm_rust::__private::into_domain(
+            properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("properties"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

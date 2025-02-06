@@ -30,8 +30,8 @@
 /// ### Edge Optimized (ACM Certificate)
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = domain_name::create(
@@ -62,8 +62,8 @@
 /// ### Regional (ACM Certificate)
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = domain_name::create(
@@ -113,121 +113,123 @@
 /// $ pulumi import aws:apigateway/domainName:DomainName example dev.api.internal.example.com/abcde12345
 /// ```
 pub mod domain_name {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainNameArgs {
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
         #[builder(into, default)]
-        pub certificate_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Certificate issued for the domain name being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         #[builder(into, default)]
-        pub certificate_body: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_body: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Certificate for the CA that issued the certificate, along with any intermediate CA certificates required to create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         #[builder(into, default)]
-        pub certificate_chain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_chain: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Unique name to use when registering this certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`. Required if `certificate_arn` is not set.
         #[builder(into, default)]
-        pub certificate_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Private key associated with the domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
         #[builder(into, default)]
-        pub certificate_private_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_private_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Fully-qualified domain name to register.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block defining API endpoint information including type. See below.
         #[builder(into, default)]
-        pub endpoint_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub endpoint_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apigateway::DomainNameEndpointConfiguration>,
         >,
         /// Mutual TLS authentication configuration for the domain name. See below.
         #[builder(into, default)]
-        pub mutual_tls_authentication: pulumi_wasm_rust::InputOrOutput<
+        pub mutual_tls_authentication: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apigateway::DomainNameMutualTlsAuthentication>,
         >,
         /// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
         #[builder(into, default)]
-        pub ownership_verification_certificate_arn: pulumi_wasm_rust::InputOrOutput<
+        pub ownership_verification_certificate_arn: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
         #[builder(into, default)]
-        pub policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         ///
         /// When uploading a certificate, the following arguments are supported:
         #[builder(into, default)]
-        pub regional_certificate_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub regional_certificate_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         #[builder(into, default)]
-        pub regional_certificate_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub regional_certificate_name: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
         #[builder(into, default)]
-        pub security_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub security_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         ///
         /// When referencing an AWS-managed certificate, the following arguments are supported:
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DomainNameResult {
         /// ARN of domain name.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificate_name`, `certificate_body`, `certificate_chain`, `certificate_private_key`, `regional_certificate_arn`, and `regional_certificate_name`.
-        pub certificate_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Certificate issued for the domain name being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
-        pub certificate_body: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_body: pulumi_gestalt_rust::Output<Option<String>>,
         /// Certificate for the CA that issued the certificate, along with any intermediate CA certificates required to create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
-        pub certificate_chain: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_chain: pulumi_gestalt_rust::Output<Option<String>>,
         /// Unique name to use when registering this certificate as an IAM server certificate. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`. Required if `certificate_arn` is not set.
-        pub certificate_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Private key associated with the domain certificate given in `certificate_body`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificate_arn`, `regional_certificate_arn`, and `regional_certificate_name`.
-        pub certificate_private_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_private_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// Upload date associated with the domain certificate.
-        pub certificate_upload_date: pulumi_wasm_rust::Output<String>,
+        pub certificate_upload_date: pulumi_gestalt_rust::Output<String>,
         /// Hostname created by Cloudfront to represent the distribution that implements this domain name mapping.
-        pub cloudfront_domain_name: pulumi_wasm_rust::Output<String>,
+        pub cloudfront_domain_name: pulumi_gestalt_rust::Output<String>,
         /// For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`) that can be used to create a Route53 alias record for the distribution.
-        pub cloudfront_zone_id: pulumi_wasm_rust::Output<String>,
+        pub cloudfront_zone_id: pulumi_gestalt_rust::Output<String>,
         /// Fully-qualified domain name to register.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// The identifier for the domain name resource. Supported only for private custom domain names.
-        pub domain_name_id: pulumi_wasm_rust::Output<String>,
+        pub domain_name_id: pulumi_gestalt_rust::Output<String>,
         /// Configuration block defining API endpoint information including type. See below.
-        pub endpoint_configuration: pulumi_wasm_rust::Output<
+        pub endpoint_configuration: pulumi_gestalt_rust::Output<
             super::super::types::apigateway::DomainNameEndpointConfiguration,
         >,
         /// Mutual TLS authentication configuration for the domain name. See below.
-        pub mutual_tls_authentication: pulumi_wasm_rust::Output<
+        pub mutual_tls_authentication: pulumi_gestalt_rust::Output<
             Option<super::super::types::apigateway::DomainNameMutualTlsAuthentication>,
         >,
         /// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
-        pub ownership_verification_certificate_arn: pulumi_wasm_rust::Output<String>,
+        pub ownership_verification_certificate_arn: pulumi_gestalt_rust::Output<String>,
         /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
-        pub policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         ///
         /// When uploading a certificate, the following arguments are supported:
-        pub regional_certificate_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub regional_certificate_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
-        pub regional_certificate_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub regional_certificate_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Hostname for the custom domain's regional endpoint.
-        pub regional_domain_name: pulumi_wasm_rust::Output<String>,
+        pub regional_domain_name: pulumi_gestalt_rust::Output<String>,
         /// Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
-        pub regional_zone_id: pulumi_wasm_rust::Output<String>,
+        pub regional_zone_id: pulumi_gestalt_rust::Output<String>,
         /// Transport Layer Security (TLS) version + cipher suite for this DomainName. Valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
-        pub security_policy: pulumi_wasm_rust::Output<String>,
+        pub security_policy: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         ///
         /// When referencing an AWS-managed certificate, the following arguments are supported:
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -236,11 +238,11 @@ pub mod domain_name {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DomainNameArgs,
     ) -> DomainNameResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_arn_binding = args
             .certificate_arn
@@ -354,64 +356,66 @@ pub mod domain_name {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DomainNameResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            certificate_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateArn"),
             ),
-            certificate_body: pulumi_wasm_rust::__private::into_domain(
+            certificate_body: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateBody"),
             ),
-            certificate_chain: pulumi_wasm_rust::__private::into_domain(
+            certificate_chain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateChain"),
             ),
-            certificate_name: pulumi_wasm_rust::__private::into_domain(
+            certificate_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateName"),
             ),
-            certificate_private_key: pulumi_wasm_rust::__private::into_domain(
+            certificate_private_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificatePrivateKey"),
             ),
-            certificate_upload_date: pulumi_wasm_rust::__private::into_domain(
+            certificate_upload_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateUploadDate"),
             ),
-            cloudfront_domain_name: pulumi_wasm_rust::__private::into_domain(
+            cloudfront_domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudfrontDomainName"),
             ),
-            cloudfront_zone_id: pulumi_wasm_rust::__private::into_domain(
+            cloudfront_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudfrontZoneId"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            domain_name_id: pulumi_wasm_rust::__private::into_domain(
+            domain_name_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainNameId"),
             ),
-            endpoint_configuration: pulumi_wasm_rust::__private::into_domain(
+            endpoint_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointConfiguration"),
             ),
-            mutual_tls_authentication: pulumi_wasm_rust::__private::into_domain(
+            mutual_tls_authentication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mutualTlsAuthentication"),
             ),
-            ownership_verification_certificate_arn: pulumi_wasm_rust::__private::into_domain(
+            ownership_verification_certificate_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownershipVerificationCertificateArn"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
-            regional_certificate_arn: pulumi_wasm_rust::__private::into_domain(
+            policy: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("policy"),
+            ),
+            regional_certificate_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("regionalCertificateArn"),
             ),
-            regional_certificate_name: pulumi_wasm_rust::__private::into_domain(
+            regional_certificate_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("regionalCertificateName"),
             ),
-            regional_domain_name: pulumi_wasm_rust::__private::into_domain(
+            regional_domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("regionalDomainName"),
             ),
-            regional_zone_id: pulumi_wasm_rust::__private::into_domain(
+            regional_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("regionalZoneId"),
             ),
-            security_policy: pulumi_wasm_rust::__private::into_domain(
+            security_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityPolicy"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

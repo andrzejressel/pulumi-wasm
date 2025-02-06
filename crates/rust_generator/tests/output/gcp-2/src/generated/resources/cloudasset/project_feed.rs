@@ -76,7 +76,7 @@
 /// ```
 ///
 pub mod project_feed {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectFeedArgs {
@@ -85,40 +85,40 @@ pub mod project_feed {
         /// //compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1. See
         /// https://cloud.google.com/apis/design/resourceNames#fullResourceName for more info.
         #[builder(into, default)]
-        pub asset_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub asset_names: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A list of types of the assets to receive updates. You must specify either or both of assetNames and assetTypes. Only
         /// asset updates matching specified assetNames and assetTypes are exported to the feed. For example:
         /// "compute.googleapis.com/Disk" See https://cloud.google.com/asset-inventory/docs/supported-asset-types for a list of all
         /// supported asset types.
         #[builder(into, default)]
-        pub asset_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub asset_types: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The project whose identity will be used when sending messages to the destination pubsub topic. It also specifies the
         /// project for API enablement check, quota, and billing. If not specified, the resource's project will be used.
         #[builder(into, default)]
-        pub billing_project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub billing_project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A condition which determines whether an asset update should be published. If specified, an asset will be returned only
         /// when the expression evaluates to true. When set, expression field must be a valid CEL expression on a TemporalAsset with
         /// name temporal_asset. Example: a Feed with expression "temporal_asset.deleted == true" will only publish Asset deletions.
         /// Other fields of condition are optional.
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::InputOrOutput<
+        pub condition: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudasset::ProjectFeedCondition>,
         >,
         /// Asset content type. If not specified, no content but the asset name and type will be returned. Possible values:
         /// ["CONTENT_TYPE_UNSPECIFIED", "RESOURCE", "IAM_POLICY", "ORG_POLICY", "OS_INVENTORY", "ACCESS_POLICY"]
         #[builder(into, default)]
-        pub content_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// This is the client-assigned asset feed identifier and it needs to be unique under a specific parent.
         #[builder(into)]
-        pub feed_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub feed_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Output configuration for asset feed destination.
         /// Structure is documented below.
         #[builder(into)]
-        pub feed_output_config: pulumi_wasm_rust::InputOrOutput<
+        pub feed_output_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cloudasset::ProjectFeedFeedOutputConfig,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ProjectFeedResult {
@@ -126,46 +126,46 @@ pub mod project_feed {
         /// Only asset updates matching specified assetNames and assetTypes are exported to the feed. For example:
         /// //compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1. See
         /// https://cloud.google.com/apis/design/resourceNames#fullResourceName for more info.
-        pub asset_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub asset_names: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A list of types of the assets to receive updates. You must specify either or both of assetNames and assetTypes. Only
         /// asset updates matching specified assetNames and assetTypes are exported to the feed. For example:
         /// "compute.googleapis.com/Disk" See https://cloud.google.com/asset-inventory/docs/supported-asset-types for a list of all
         /// supported asset types.
-        pub asset_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub asset_types: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The project whose identity will be used when sending messages to the destination pubsub topic. It also specifies the
         /// project for API enablement check, quota, and billing. If not specified, the resource's project will be used.
-        pub billing_project: pulumi_wasm_rust::Output<Option<String>>,
+        pub billing_project: pulumi_gestalt_rust::Output<Option<String>>,
         /// A condition which determines whether an asset update should be published. If specified, an asset will be returned only
         /// when the expression evaluates to true. When set, expression field must be a valid CEL expression on a TemporalAsset with
         /// name temporal_asset. Example: a Feed with expression "temporal_asset.deleted == true" will only publish Asset deletions.
         /// Other fields of condition are optional.
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudasset::ProjectFeedCondition>,
         >,
         /// Asset content type. If not specified, no content but the asset name and type will be returned. Possible values:
         /// ["CONTENT_TYPE_UNSPECIFIED", "RESOURCE", "IAM_POLICY", "ORG_POLICY", "OS_INVENTORY", "ACCESS_POLICY"]
-        pub content_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// This is the client-assigned asset feed identifier and it needs to be unique under a specific parent.
-        pub feed_id: pulumi_wasm_rust::Output<String>,
+        pub feed_id: pulumi_gestalt_rust::Output<String>,
         /// Output configuration for asset feed destination.
         /// Structure is documented below.
-        pub feed_output_config: pulumi_wasm_rust::Output<
+        pub feed_output_config: pulumi_gestalt_rust::Output<
             super::super::types::cloudasset::ProjectFeedFeedOutputConfig,
         >,
         /// The format will be projects/{projectNumber}/feeds/{client-assigned_feed_identifier}.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProjectFeedArgs,
     ) -> ProjectFeedResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let asset_names_binding = args.asset_names.get_output(context).get_inner();
         let asset_types_binding = args.asset_types.get_output(context).get_inner();
@@ -222,27 +222,31 @@ pub mod project_feed {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProjectFeedResult {
-            asset_names: pulumi_wasm_rust::__private::into_domain(
+            asset_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assetNames"),
             ),
-            asset_types: pulumi_wasm_rust::__private::into_domain(
+            asset_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assetTypes"),
             ),
-            billing_project: pulumi_wasm_rust::__private::into_domain(
+            billing_project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("billingProject"),
             ),
-            condition: pulumi_wasm_rust::__private::into_domain(
+            condition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("condition"),
             ),
-            content_type: pulumi_wasm_rust::__private::into_domain(
+            content_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentType"),
             ),
-            feed_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("feedId")),
-            feed_output_config: pulumi_wasm_rust::__private::into_domain(
+            feed_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("feedId"),
+            ),
+            feed_output_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("feedOutputConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

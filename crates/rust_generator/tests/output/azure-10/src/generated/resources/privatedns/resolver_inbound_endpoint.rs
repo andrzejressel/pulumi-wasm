@@ -64,44 +64,44 @@
 /// ```
 ///
 pub mod resolver_inbound_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResolverInboundEndpointArgs {
         /// One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         #[builder(into)]
-        pub ip_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub ip_configurations: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::privatedns::ResolverInboundEndpointIpConfigurations,
         >,
         /// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         #[builder(into)]
-        pub private_dns_resolver_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub private_dns_resolver_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ResolverInboundEndpointResult {
         /// One `ip_configurations` block as defined below. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
-        pub ip_configurations: pulumi_wasm_rust::Output<
+        pub ip_configurations: pulumi_gestalt_rust::Output<
             super::super::types::privatedns::ResolverInboundEndpointIpConfigurations,
         >,
         /// Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
-        pub private_dns_resolver_id: pulumi_wasm_rust::Output<String>,
+        pub private_dns_resolver_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -110,11 +110,11 @@ pub mod resolver_inbound_endpoint {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResolverInboundEndpointArgs,
     ) -> ResolverInboundEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let ip_configurations_binding = args
             .ip_configurations
@@ -157,17 +157,17 @@ pub mod resolver_inbound_endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResolverInboundEndpointResult {
-            ip_configurations: pulumi_wasm_rust::__private::into_domain(
+            ip_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipConfigurations"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            private_dns_resolver_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            private_dns_resolver_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateDnsResolverId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

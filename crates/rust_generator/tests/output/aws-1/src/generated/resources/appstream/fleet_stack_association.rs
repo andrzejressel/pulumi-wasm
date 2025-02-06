@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = fleet::create(
@@ -40,34 +40,34 @@
 /// $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
 /// ```
 pub mod fleet_stack_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FleetStackAssociationArgs {
         /// Name of the fleet.
         #[builder(into)]
-        pub fleet_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub fleet_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the stack.
         #[builder(into)]
-        pub stack_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub stack_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FleetStackAssociationResult {
         /// Name of the fleet.
-        pub fleet_name: pulumi_wasm_rust::Output<String>,
+        pub fleet_name: pulumi_gestalt_rust::Output<String>,
         /// Name of the stack.
-        pub stack_name: pulumi_wasm_rust::Output<String>,
+        pub stack_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FleetStackAssociationArgs,
     ) -> FleetStackAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let fleet_name_binding = args.fleet_name.get_output(context).get_inner();
         let stack_name_binding = args.stack_name.get_output(context).get_inner();
@@ -88,10 +88,10 @@ pub mod fleet_stack_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FleetStackAssociationResult {
-            fleet_name: pulumi_wasm_rust::__private::into_domain(
+            fleet_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fleetName"),
             ),
-            stack_name: pulumi_wasm_rust::__private::into_domain(
+            stack_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stackName"),
             ),
         }

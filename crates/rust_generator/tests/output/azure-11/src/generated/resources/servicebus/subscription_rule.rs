@@ -102,59 +102,59 @@
 /// ```
 ///
 pub mod subscription_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SubscriptionRuleArgs {
         /// Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
         #[builder(into, default)]
-        pub action: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub action: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
         #[builder(into, default)]
-        pub correlation_filter: pulumi_wasm_rust::InputOrOutput<
+        pub correlation_filter: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::servicebus::SubscriptionRuleCorrelationFilter>,
         >,
         /// Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
         #[builder(into)]
-        pub filter_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub filter_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
         #[builder(into, default)]
-        pub sql_filter: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sql_filter: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub subscription_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subscription_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SubscriptionRuleResult {
         /// Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
-        pub action: pulumi_wasm_rust::Output<Option<String>>,
+        pub action: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
-        pub correlation_filter: pulumi_wasm_rust::Output<
+        pub correlation_filter: pulumi_gestalt_rust::Output<
             Option<super::super::types::servicebus::SubscriptionRuleCorrelationFilter>,
         >,
         /// Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
-        pub filter_type: pulumi_wasm_rust::Output<String>,
+        pub filter_type: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
-        pub sql_filter: pulumi_wasm_rust::Output<Option<String>>,
-        pub sql_filter_compatibility_level: pulumi_wasm_rust::Output<i32>,
+        pub sql_filter: pulumi_gestalt_rust::Output<Option<String>>,
+        pub sql_filter_compatibility_level: pulumi_gestalt_rust::Output<i32>,
         /// The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
-        pub subscription_id: pulumi_wasm_rust::Output<String>,
+        pub subscription_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SubscriptionRuleArgs,
     ) -> SubscriptionRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let action_binding = args.action.get_output(context).get_inner();
         let correlation_filter_binding = args
@@ -201,21 +201,23 @@ pub mod subscription_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SubscriptionRuleResult {
-            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
-            correlation_filter: pulumi_wasm_rust::__private::into_domain(
+            action: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("action"),
+            ),
+            correlation_filter: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("correlationFilter"),
             ),
-            filter_type: pulumi_wasm_rust::__private::into_domain(
+            filter_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filterType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            sql_filter: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            sql_filter: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sqlFilter"),
             ),
-            sql_filter_compatibility_level: pulumi_wasm_rust::__private::into_domain(
+            sql_filter_compatibility_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sqlFilterCompatibilityLevel"),
             ),
-            subscription_id: pulumi_wasm_rust::__private::into_domain(
+            subscription_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscriptionId"),
             ),
         }

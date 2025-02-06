@@ -15,8 +15,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let appConnection = app_connection::create(
@@ -133,98 +133,98 @@
 /// ```
 ///
 pub mod app_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppConnectionArgs {
         /// Address of the remote application endpoint for the BeyondCorp AppConnection.
         /// Structure is documented below.
         #[builder(into)]
-        pub application_endpoint: pulumi_wasm_rust::InputOrOutput<
+        pub application_endpoint: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::beyondcorp::AppConnectionApplicationEndpoint,
         >,
         /// List of AppConnectors that are authorised to be associated with this AppConnection
         #[builder(into, default)]
-        pub connectors: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub connectors: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// An arbitrary user-provided name for the AppConnection.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Gateway used by the AppConnection.
         #[builder(into, default)]
-        pub gateway: pulumi_wasm_rust::InputOrOutput<
+        pub gateway: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::beyondcorp::AppConnectionGateway>,
         >,
         /// Resource labels to represent user provided metadata. **Note**: This field is non-authoritative, and will only manage the
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// ID of the AppConnection.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region of the AppConnection.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of network connectivity used by the AppConnection. Refer to
         /// https://cloud.google.com/beyondcorp/docs/reference/rest/v1/projects.locations.appConnections#type for a list of possible
         /// values.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AppConnectionResult {
         /// Address of the remote application endpoint for the BeyondCorp AppConnection.
         /// Structure is documented below.
-        pub application_endpoint: pulumi_wasm_rust::Output<
+        pub application_endpoint: pulumi_gestalt_rust::Output<
             super::super::types::beyondcorp::AppConnectionApplicationEndpoint,
         >,
         /// List of AppConnectors that are authorised to be associated with this AppConnection
-        pub connectors: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub connectors: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// An arbitrary user-provided name for the AppConnection.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Gateway used by the AppConnection.
-        pub gateway: pulumi_wasm_rust::Output<
+        pub gateway: pulumi_gestalt_rust::Output<
             super::super::types::beyondcorp::AppConnectionGateway,
         >,
         /// Resource labels to represent user provided metadata. **Note**: This field is non-authoritative, and will only manage the
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// ID of the AppConnection.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The region of the AppConnection.
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_gestalt_rust::Output<Option<String>>,
         /// The type of network connectivity used by the AppConnection. Refer to
         /// https://cloud.google.com/beyondcorp/docs/reference/rest/v1/projects.locations.appConnections#type for a list of possible
         /// values.
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AppConnectionArgs,
     ) -> AppConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_endpoint_binding = args
             .application_endpoint
@@ -283,31 +283,35 @@ pub mod app_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AppConnectionResult {
-            application_endpoint: pulumi_wasm_rust::__private::into_domain(
+            application_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationEndpoint"),
             ),
-            connectors: pulumi_wasm_rust::__private::into_domain(
+            connectors: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectors"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            gateway: pulumi_wasm_rust::__private::into_domain(
+            gateway: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gateway"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

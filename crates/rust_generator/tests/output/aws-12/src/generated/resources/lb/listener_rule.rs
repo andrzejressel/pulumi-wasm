@@ -142,54 +142,54 @@
 /// $ pulumi import aws:lb/listenerRule:ListenerRule front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener-rule/app/test/8e4497da625e2d8a/9ab28ade35828f96/67b3d2d36dd7c26b
 /// ```
 pub mod listener_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListenerRuleArgs {
         /// An Action block. Action blocks are documented below.
         #[builder(into)]
-        pub actions: pulumi_wasm_rust::InputOrOutput<
+        pub actions: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::lb::ListenerRuleAction>,
         >,
         /// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
         #[builder(into)]
-        pub conditions: pulumi_wasm_rust::InputOrOutput<
+        pub conditions: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::lb::ListenerRuleCondition>,
         >,
         /// The ARN of the listener to which to attach the rule.
         #[builder(into)]
-        pub listener_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub listener_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ListenerRuleResult {
         /// An Action block. Action blocks are documented below.
-        pub actions: pulumi_wasm_rust::Output<
+        pub actions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::lb::ListenerRuleAction>,
         >,
         /// The ARN of the rule (matches `id`)
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
-        pub conditions: pulumi_wasm_rust::Output<
+        pub conditions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::lb::ListenerRuleCondition>,
         >,
         /// The ARN of the listener to which to attach the rule.
-        pub listener_arn: pulumi_wasm_rust::Output<String>,
+        pub listener_arn: pulumi_gestalt_rust::Output<String>,
         /// The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_gestalt_rust::Output<i32>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -198,11 +198,11 @@ pub mod listener_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ListenerRuleArgs,
     ) -> ListenerRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let actions_binding = args.actions.get_output(context).get_inner();
         let conditions_binding = args.conditions.get_output(context).get_inner();
@@ -238,21 +238,21 @@ pub mod listener_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ListenerRuleResult {
-            actions: pulumi_wasm_rust::__private::into_domain(
+            actions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actions"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            conditions: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            conditions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("conditions"),
             ),
-            listener_arn: pulumi_wasm_rust::__private::into_domain(
+            listener_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("listenerArn"),
             ),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

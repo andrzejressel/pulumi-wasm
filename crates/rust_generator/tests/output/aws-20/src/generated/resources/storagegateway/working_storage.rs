@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = working_storage::create(
@@ -27,34 +27,34 @@
 /// $ pulumi import aws:storagegateway/workingStorage:WorkingStorage example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
 /// ```
 pub mod working_storage {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkingStorageArgs {
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         #[builder(into)]
-        pub disk_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub disk_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the gateway.
         #[builder(into)]
-        pub gateway_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub gateway_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkingStorageResult {
         /// Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-        pub disk_id: pulumi_wasm_rust::Output<String>,
+        pub disk_id: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the gateway.
-        pub gateway_arn: pulumi_wasm_rust::Output<String>,
+        pub gateway_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkingStorageArgs,
     ) -> WorkingStorageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let disk_id_binding = args.disk_id.get_output(context).get_inner();
         let gateway_arn_binding = args.gateway_arn.get_output(context).get_inner();
@@ -75,8 +75,10 @@ pub mod working_storage {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkingStorageResult {
-            disk_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("diskId")),
-            gateway_arn: pulumi_wasm_rust::__private::into_domain(
+            disk_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("diskId"),
+            ),
+            gateway_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayArn"),
             ),
         }

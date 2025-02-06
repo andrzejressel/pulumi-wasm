@@ -67,19 +67,19 @@
 /// ```
 ///
 pub mod backup {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupArgs {
         /// A description of the backup with 2048 characters or less. Requests with longer descriptions will be rejected.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Resource labels to represent user-provided metadata.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the location of the instance. This can be a region for ENTERPRISE tier instances.
@@ -87,7 +87,7 @@ pub mod backup {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource name of the backup. The name must be unique within the specified instance.
         /// The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -96,46 +96,46 @@ pub mod backup {
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the file share in the source Cloud Filestore instance that the backup is created from.
         #[builder(into)]
-        pub source_file_share: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_file_share: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource name of the source Cloud Filestore instance, in the format projects/{projectId}/locations/{locationId}/instances/{instanceId}, used to create this backup.
         #[builder(into)]
-        pub source_instance: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_instance: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BackupResult {
         /// The amount of bytes needed to allocate a full copy of the snapshot content.
-        pub capacity_gb: pulumi_wasm_rust::Output<String>,
+        pub capacity_gb: pulumi_gestalt_rust::Output<String>,
         /// The time when the snapshot was created in RFC3339 text format.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// A description of the backup with 2048 characters or less. Requests with longer descriptions will be rejected.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Amount of bytes that will be downloaded if the backup is restored.
-        pub download_bytes: pulumi_wasm_rust::Output<String>,
+        pub download_bytes: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// KMS key name used for data encryption.
-        pub kms_key_name: pulumi_wasm_rust::Output<String>,
+        pub kms_key_name: pulumi_gestalt_rust::Output<String>,
         /// Resource labels to represent user-provided metadata.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the location of the instance. This can be a region for ENTERPRISE tier instances.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the backup. The name must be unique within the specified instance.
         /// The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -143,36 +143,36 @@ pub mod backup {
         /// first character must be a lowercase letter, and all following
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Name of the file share in the source Cloud Filestore instance that the backup is created from.
-        pub source_file_share: pulumi_wasm_rust::Output<String>,
+        pub source_file_share: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the source Cloud Filestore instance, in the format projects/{projectId}/locations/{locationId}/instances/{instanceId}, used to create this backup.
-        pub source_instance: pulumi_wasm_rust::Output<String>,
+        pub source_instance: pulumi_gestalt_rust::Output<String>,
         /// The service tier of the source Cloud Filestore instance that this backup is created from.
-        pub source_instance_tier: pulumi_wasm_rust::Output<String>,
+        pub source_instance_tier: pulumi_gestalt_rust::Output<String>,
         /// The backup state.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The size of the storage used by the backup. As backups share storage, this number is expected to change with backup creation/deletion.
-        pub storage_bytes: pulumi_wasm_rust::Output<String>,
+        pub storage_bytes: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackupArgs,
     ) -> BackupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let labels_binding = args.labels.get_output(context).get_inner();
@@ -224,46 +224,48 @@ pub mod backup {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackupResult {
-            capacity_gb: pulumi_wasm_rust::__private::into_domain(
+            capacity_gb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capacityGb"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            download_bytes: pulumi_wasm_rust::__private::into_domain(
+            download_bytes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("downloadBytes"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            kms_key_name: pulumi_wasm_rust::__private::into_domain(
+            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyName"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            source_file_share: pulumi_wasm_rust::__private::into_domain(
+            source_file_share: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceFileShare"),
             ),
-            source_instance: pulumi_wasm_rust::__private::into_domain(
+            source_instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceInstance"),
             ),
-            source_instance_tier: pulumi_wasm_rust::__private::into_domain(
+            source_instance_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceInstanceTier"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            storage_bytes: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            storage_bytes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageBytes"),
             ),
         }

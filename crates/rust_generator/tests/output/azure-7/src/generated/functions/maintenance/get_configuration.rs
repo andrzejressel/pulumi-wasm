@@ -1,41 +1,41 @@
 pub mod get_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetConfigurationArgs {
         /// Specifies the name of the Maintenance Configuration.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Resource Group where this Maintenance Configuration exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetConfigurationResult {
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The in guest user patch mode.
-        pub in_guest_user_patch_mode: pulumi_wasm_rust::Output<String>,
+        pub in_guest_user_patch_mode: pulumi_gestalt_rust::Output<String>,
         /// An `install_patches` block as defined below.
-        pub install_patches: pulumi_wasm_rust::Output<
+        pub install_patches: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::maintenance::GetConfigurationInstallPatch>,
         >,
         /// The Azure location where the resource exists.
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The properties assigned to the resource.
-        pub properties: pulumi_wasm_rust::Output<
+        pub properties: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The scope of the Maintenance Configuration.
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags assigned to the resource.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// The visibility of the Maintenance Configuration.
-        pub visibility: pulumi_wasm_rust::Output<String>,
+        pub visibility: pulumi_gestalt_rust::Output<String>,
         /// A `window` block as defined below.
-        pub windows: pulumi_wasm_rust::Output<
+        pub windows: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::maintenance::GetConfigurationWindow>,
         >,
     }
@@ -44,10 +44,10 @@ pub mod get_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetConfigurationArgs,
     ) -> GetConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -70,29 +70,31 @@ pub mod get_configuration {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetConfigurationResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            in_guest_user_patch_mode: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            in_guest_user_patch_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inGuestUserPatchMode"),
             ),
-            install_patches: pulumi_wasm_rust::__private::into_domain(
+            install_patches: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("installPatches"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            properties: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("properties"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            visibility: pulumi_wasm_rust::__private::into_domain(
+            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            visibility: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("visibility"),
             ),
-            windows: pulumi_wasm_rust::__private::into_domain(o.extract_field("windows")),
+            windows: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("windows"),
+            ),
         }
     }
 }

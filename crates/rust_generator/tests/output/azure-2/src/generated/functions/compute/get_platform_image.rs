@@ -1,43 +1,43 @@
 pub mod get_platform_image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPlatformImageArgs {
         /// Specifies the Location to pull information about this Platform Image from.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the Offer associated with the Platform Image.
         #[builder(into)]
-        pub offer: pulumi_wasm_rust::InputOrOutput<String>,
+        pub offer: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the Publisher associated with the Platform Image.
         #[builder(into)]
-        pub publisher: pulumi_wasm_rust::InputOrOutput<String>,
+        pub publisher: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the SKU of the Platform Image.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The version of the Platform Image.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetPlatformImageResult {
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub offer: pulumi_wasm_rust::Output<String>,
-        pub publisher: pulumi_wasm_rust::Output<String>,
-        pub sku: pulumi_wasm_rust::Output<String>,
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub offer: pulumi_gestalt_rust::Output<String>,
+        pub publisher: pulumi_gestalt_rust::Output<String>,
+        pub sku: pulumi_gestalt_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetPlatformImageArgs,
     ) -> GetPlatformImageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let offer_binding = args.offer.get_output(context).get_inner();
@@ -72,16 +72,18 @@ pub mod get_platform_image {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetPlatformImageResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            offer: pulumi_wasm_rust::__private::into_domain(o.extract_field("offer")),
-            publisher: pulumi_wasm_rust::__private::into_domain(
+            offer: pulumi_gestalt_rust::__private::into_domain(o.extract_field("offer")),
+            publisher: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publisher"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

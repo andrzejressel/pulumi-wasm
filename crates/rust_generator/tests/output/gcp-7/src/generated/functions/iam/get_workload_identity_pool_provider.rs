@@ -1,49 +1,51 @@
 pub mod get_workload_identity_pool_provider {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetWorkloadIdentityPoolProviderArgs {
         /// The project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The id of the pool which is the
         /// final component of the pool resource name.
         #[builder(into)]
-        pub workload_identity_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workload_identity_pool_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The id of the provider which is the
         /// final component of the resource name.
         ///
         /// - - -
         #[builder(into)]
-        pub workload_identity_pool_provider_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workload_identity_pool_provider_id: pulumi_gestalt_rust::InputOrOutput<
+            String,
+        >,
     }
     #[allow(dead_code)]
     pub struct GetWorkloadIdentityPoolProviderResult {
-        pub attribute_condition: pulumi_wasm_rust::Output<String>,
-        pub attribute_mapping: pulumi_wasm_rust::Output<
+        pub attribute_condition: pulumi_gestalt_rust::Output<String>,
+        pub attribute_mapping: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub aws: pulumi_wasm_rust::Output<
+        pub aws: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::iam::GetWorkloadIdentityPoolProviderAw>,
         >,
-        pub description: pulumi_wasm_rust::Output<String>,
-        pub disabled: pulumi_wasm_rust::Output<bool>,
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
+        pub disabled: pulumi_gestalt_rust::Output<bool>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub oidcs: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub oidcs: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::iam::GetWorkloadIdentityPoolProviderOidc>,
         >,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
-        pub samls: pulumi_wasm_rust::Output<
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
+        pub samls: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::iam::GetWorkloadIdentityPoolProviderSaml>,
         >,
-        pub state: pulumi_wasm_rust::Output<String>,
-        pub workload_identity_pool_id: pulumi_wasm_rust::Output<String>,
-        pub workload_identity_pool_provider_id: pulumi_wasm_rust::Output<String>,
-        pub x509s: pulumi_wasm_rust::Output<
+        pub state: pulumi_gestalt_rust::Output<String>,
+        pub workload_identity_pool_id: pulumi_gestalt_rust::Output<String>,
+        pub workload_identity_pool_provider_id: pulumi_gestalt_rust::Output<String>,
+        pub x509s: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::iam::GetWorkloadIdentityPoolProviderX509>,
         >,
     }
@@ -52,10 +54,10 @@ pub mod get_workload_identity_pool_provider {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetWorkloadIdentityPoolProviderArgs,
     ) -> GetWorkloadIdentityPoolProviderResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let project_binding = args.project.get_output(context).get_inner();
         let workload_identity_pool_id_binding = args
@@ -87,37 +89,37 @@ pub mod get_workload_identity_pool_provider {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetWorkloadIdentityPoolProviderResult {
-            attribute_condition: pulumi_wasm_rust::__private::into_domain(
+            attribute_condition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attributeCondition"),
             ),
-            attribute_mapping: pulumi_wasm_rust::__private::into_domain(
+            attribute_mapping: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attributeMapping"),
             ),
-            aws: pulumi_wasm_rust::__private::into_domain(o.extract_field("aws")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            aws: pulumi_gestalt_rust::__private::into_domain(o.extract_field("aws")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            disabled: pulumi_wasm_rust::__private::into_domain(
+            disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disabled"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            oidcs: pulumi_wasm_rust::__private::into_domain(o.extract_field("oidcs")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            oidcs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("oidcs")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            samls: pulumi_wasm_rust::__private::into_domain(o.extract_field("samls")),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            workload_identity_pool_id: pulumi_wasm_rust::__private::into_domain(
+            samls: pulumi_gestalt_rust::__private::into_domain(o.extract_field("samls")),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            workload_identity_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workloadIdentityPoolId"),
             ),
-            workload_identity_pool_provider_id: pulumi_wasm_rust::__private::into_domain(
+            workload_identity_pool_provider_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workloadIdentityPoolProviderId"),
             ),
-            x509s: pulumi_wasm_rust::__private::into_domain(o.extract_field("x509s")),
+            x509s: pulumi_gestalt_rust::__private::into_domain(o.extract_field("x509s")),
         }
     }
 }

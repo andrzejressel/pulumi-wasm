@@ -11,41 +11,41 @@
 /// $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
 /// ```
 pub mod shared_directory {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SharedDirectoryArgs {
         /// Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
         #[builder(into)]
-        pub directory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub directory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
         #[builder(into, default)]
-        pub method: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub method: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
         #[builder(into, default)]
-        pub notes: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub notes: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub target: pulumi_wasm_rust::InputOrOutput<
+        pub target: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::directoryservice::SharedDirectoryTarget,
         >,
     }
     #[allow(dead_code)]
     pub struct SharedDirectoryResult {
         /// Identifier of the Managed Microsoft AD directory that you want to share with other accounts.
-        pub directory_id: pulumi_wasm_rust::Output<String>,
+        pub directory_id: pulumi_gestalt_rust::Output<String>,
         /// Method used when sharing a directory. Valid values are `ORGANIZATIONS` and `HANDSHAKE`. Default is `HANDSHAKE`.
-        pub method: pulumi_wasm_rust::Output<Option<String>>,
+        pub method: pulumi_gestalt_rust::Output<Option<String>>,
         /// Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
-        pub notes: pulumi_wasm_rust::Output<Option<String>>,
+        pub notes: pulumi_gestalt_rust::Output<Option<String>>,
         /// Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
-        pub shared_directory_id: pulumi_wasm_rust::Output<String>,
+        pub shared_directory_id: pulumi_gestalt_rust::Output<String>,
         /// Identifier for the directory consumer account with whom the directory is to be shared. See below.
         ///
         /// The following arguments are optional:
-        pub target: pulumi_wasm_rust::Output<
+        pub target: pulumi_gestalt_rust::Output<
             super::super::types::directoryservice::SharedDirectoryTarget,
         >,
     }
@@ -54,11 +54,11 @@ pub mod shared_directory {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SharedDirectoryArgs,
     ) -> SharedDirectoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let directory_id_binding = args.directory_id.get_output(context).get_inner();
         let method_binding = args.method.get_output(context).get_inner();
@@ -89,15 +89,19 @@ pub mod shared_directory {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SharedDirectoryResult {
-            directory_id: pulumi_wasm_rust::__private::into_domain(
+            directory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("directoryId"),
             ),
-            method: pulumi_wasm_rust::__private::into_domain(o.extract_field("method")),
-            notes: pulumi_wasm_rust::__private::into_domain(o.extract_field("notes")),
-            shared_directory_id: pulumi_wasm_rust::__private::into_domain(
+            method: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("method"),
+            ),
+            notes: pulumi_gestalt_rust::__private::into_domain(o.extract_field("notes")),
+            shared_directory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sharedDirectoryId"),
             ),
-            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
+            target: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("target"),
+            ),
         }
     }
 }

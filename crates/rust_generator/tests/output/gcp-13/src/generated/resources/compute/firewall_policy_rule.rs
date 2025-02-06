@@ -88,118 +88,118 @@
 /// ```
 ///
 pub mod firewall_policy_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FirewallPolicyRuleArgs {
         /// The Action to perform when the client connection triggers the rule. Valid actions are "allow", "deny", "goto_next" and "apply_security_profile_group".
         #[builder(into)]
-        pub action: pulumi_wasm_rust::InputOrOutput<String>,
+        pub action: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An optional description for this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The direction in which this rule applies.
         /// Possible values are: `INGRESS`, `EGRESS`.
         #[builder(into)]
-        pub direction: pulumi_wasm_rust::InputOrOutput<String>,
+        pub direction: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Denotes whether the firewall policy rule is disabled. When set to true, the firewall policy rule is not enforced and
         /// traffic behaves as if it did not exist. If this is unspecified, the firewall policy rule will be enabled.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Denotes whether to enable logging for a particular rule. If logging is enabled, logs will be exported to the configured
         /// export destination in Stackdriver. Logs may be exported to BigQuery or Pub/Sub. Note: you cannot enable logging on
         /// "goto_next" rules.
         #[builder(into, default)]
-        pub enable_logging: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_logging: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The firewall policy of the resource.
         #[builder(into)]
-        pub firewall_policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub firewall_policy: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A match condition that incoming traffic is evaluated against. If it evaluates to true, the corresponding 'action' is enforced.
         /// Structure is documented below.
         #[builder(into)]
-        pub match_: pulumi_wasm_rust::InputOrOutput<
+        pub match_: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::compute::FirewallPolicyRuleMatch,
         >,
         /// An integer indicating the priority of a rule in the list.
         /// The priority must be a positive value between 0 and 2147483647.
         /// Rules are evaluated from highest to lowest priority where 0 is the highest priority and 2147483647 is the lowest prority.
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// A fully-qualified URL of a SecurityProfile resource instance. Example:
         /// https://networksecurity.googleapis.com/v1/projects/{project}/locations/{location}/securityProfileGroups/my-security-profile-group
         /// Must be specified if action = 'apply_security_profile_group' and cannot be specified for other actions.
         #[builder(into, default)]
-        pub security_profile_group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub security_profile_group: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of network resource URLs to which this rule applies. This field allows you to control which network's VMs get
         /// this rule. If this field is left blank, all VMs within the organization will receive the rule.
         #[builder(into, default)]
-        pub target_resources: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub target_resources: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A list of service accounts indicating the sets of instances that are applied with this rule.
         #[builder(into, default)]
-        pub target_service_accounts: pulumi_wasm_rust::InputOrOutput<
+        pub target_service_accounts: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Boolean flag indicating if the traffic should be TLS decrypted. Can be set only if action =
         /// 'apply_security_profile_group' and cannot be set for other actions.
         #[builder(into, default)]
-        pub tls_inspect: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub tls_inspect: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct FirewallPolicyRuleResult {
         /// The Action to perform when the client connection triggers the rule. Valid actions are "allow", "deny", "goto_next" and "apply_security_profile_group".
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_gestalt_rust::Output<String>,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional description for this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The direction in which this rule applies.
         /// Possible values are: `INGRESS`, `EGRESS`.
-        pub direction: pulumi_wasm_rust::Output<String>,
+        pub direction: pulumi_gestalt_rust::Output<String>,
         /// Denotes whether the firewall policy rule is disabled. When set to true, the firewall policy rule is not enforced and
         /// traffic behaves as if it did not exist. If this is unspecified, the firewall policy rule will be enabled.
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Denotes whether to enable logging for a particular rule. If logging is enabled, logs will be exported to the configured
         /// export destination in Stackdriver. Logs may be exported to BigQuery or Pub/Sub. Note: you cannot enable logging on
         /// "goto_next" rules.
-        pub enable_logging: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_logging: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The firewall policy of the resource.
-        pub firewall_policy: pulumi_wasm_rust::Output<String>,
+        pub firewall_policy: pulumi_gestalt_rust::Output<String>,
         /// Type of the resource. Always `compute#firewallPolicyRule` for firewall policy rules
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_gestalt_rust::Output<String>,
         /// A match condition that incoming traffic is evaluated against. If it evaluates to true, the corresponding 'action' is enforced.
         /// Structure is documented below.
-        pub match_: pulumi_wasm_rust::Output<
+        pub match_: pulumi_gestalt_rust::Output<
             super::super::types::compute::FirewallPolicyRuleMatch,
         >,
         /// An integer indicating the priority of a rule in the list.
         /// The priority must be a positive value between 0 and 2147483647.
         /// Rules are evaluated from highest to lowest priority where 0 is the highest priority and 2147483647 is the lowest prority.
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_gestalt_rust::Output<i32>,
         /// Calculation of the complexity of a single firewall policy rule.
-        pub rule_tuple_count: pulumi_wasm_rust::Output<i32>,
+        pub rule_tuple_count: pulumi_gestalt_rust::Output<i32>,
         /// A fully-qualified URL of a SecurityProfile resource instance. Example:
         /// https://networksecurity.googleapis.com/v1/projects/{project}/locations/{location}/securityProfileGroups/my-security-profile-group
         /// Must be specified if action = 'apply_security_profile_group' and cannot be specified for other actions.
-        pub security_profile_group: pulumi_wasm_rust::Output<Option<String>>,
+        pub security_profile_group: pulumi_gestalt_rust::Output<Option<String>>,
         /// A list of network resource URLs to which this rule applies. This field allows you to control which network's VMs get
         /// this rule. If this field is left blank, all VMs within the organization will receive the rule.
-        pub target_resources: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub target_resources: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A list of service accounts indicating the sets of instances that are applied with this rule.
-        pub target_service_accounts: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub target_service_accounts: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Boolean flag indicating if the traffic should be TLS decrypted. Can be set only if action =
         /// 'apply_security_profile_group' and cannot be set for other actions.
-        pub tls_inspect: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tls_inspect: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FirewallPolicyRuleArgs,
     ) -> FirewallPolicyRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let action_binding = args.action.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -282,43 +282,47 @@ pub mod firewall_policy_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FirewallPolicyRuleResult {
-            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            action: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("action"),
+            ),
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            direction: pulumi_wasm_rust::__private::into_domain(
+            direction: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("direction"),
             ),
-            disabled: pulumi_wasm_rust::__private::into_domain(
+            disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disabled"),
             ),
-            enable_logging: pulumi_wasm_rust::__private::into_domain(
+            enable_logging: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableLogging"),
             ),
-            firewall_policy: pulumi_wasm_rust::__private::into_domain(
+            firewall_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("firewallPolicy"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            match_: pulumi_wasm_rust::__private::into_domain(o.extract_field("match")),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            match_: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("match"),
+            ),
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            rule_tuple_count: pulumi_wasm_rust::__private::into_domain(
+            rule_tuple_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleTupleCount"),
             ),
-            security_profile_group: pulumi_wasm_rust::__private::into_domain(
+            security_profile_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityProfileGroup"),
             ),
-            target_resources: pulumi_wasm_rust::__private::into_domain(
+            target_resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetResources"),
             ),
-            target_service_accounts: pulumi_wasm_rust::__private::into_domain(
+            target_service_accounts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetServiceAccounts"),
             ),
-            tls_inspect: pulumi_wasm_rust::__private::into_domain(
+            tls_inspect: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tlsInspect"),
             ),
         }

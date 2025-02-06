@@ -251,56 +251,56 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
         /// Looker instance Admin settings.
         #[builder(into, default)]
-        pub admin_settings: pulumi_wasm_rust::InputOrOutput<
+        pub admin_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::looker::InstanceAdminSettings>,
         >,
         /// Network name in the consumer project in the format of: projects/{project}/global/networks/{network} Note that the
         /// consumer network may be in a different GCP project than the consumer project that is hosting the Looker Instance.
         #[builder(into, default)]
-        pub consumer_network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub consumer_network: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Custom domain settings for a Looker instance.
         #[builder(into, default)]
-        pub custom_domain: pulumi_wasm_rust::InputOrOutput<
+        pub custom_domain: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::looker::InstanceCustomDomain>,
         >,
         /// Policy to determine if the cluster should be deleted forcefully. If setting deletion_policy = "FORCE", the Looker
         /// instance will be deleted regardless of its nested resources. If set to "DEFAULT", Looker instances that still have
         /// nested resources will return an error. Possible values: DEFAULT, FORCE
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Maintenance denial period for this instance. You must allow at least 14 days of maintenance availability between any two
         /// deny maintenance periods.
         #[builder(into, default)]
-        pub deny_maintenance_period: pulumi_wasm_rust::InputOrOutput<
+        pub deny_maintenance_period: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::looker::InstanceDenyMaintenancePeriod>,
         >,
         /// Looker instance encryption settings.
         #[builder(into, default)]
-        pub encryption_config: pulumi_wasm_rust::InputOrOutput<
+        pub encryption_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::looker::InstanceEncryptionConfig>,
         >,
         /// FIPS 140-2 Encryption enablement for Looker (Google Cloud Core).
         #[builder(into, default)]
-        pub fips_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub fips_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Maintenance window for an instance. Maintenance of your instance takes place once a month, and will require your
         /// instance to be restarted during updates, which will temporarily disrupt service.
         #[builder(into, default)]
-        pub maintenance_window: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance_window: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::looker::InstanceMaintenanceWindow>,
         >,
         /// The ID of the instance or a fully qualified identifier for the instance.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Looker Instance OAuth login settings.
         /// Structure is documented below.
         #[builder(into)]
-        pub oauth_config: pulumi_wasm_rust::InputOrOutput<
+        pub oauth_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::looker::InstanceOauthConfig,
         >,
         /// Platform editions for a Looker instance. Each edition maps to a set of instance features, like its size. Must be one of
@@ -313,91 +313,91 @@ pub mod instance {
         /// "LOOKER_CORE_ENTERPRISE_ANNUAL", "LOOKER_CORE_EMBED_ANNUAL", "LOOKER_CORE_NONPROD_STANDARD_ANNUAL",
         /// "LOOKER_CORE_NONPROD_ENTERPRISE_ANNUAL", "LOOKER_CORE_NONPROD_EMBED_ANNUAL"]
         #[builder(into, default)]
-        pub platform_edition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub platform_edition: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether private IP is enabled on the Looker instance.
         #[builder(into, default)]
-        pub private_ip_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub private_ip_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Information for Private Service Connect (PSC) setup for a Looker instance.
         #[builder(into, default)]
-        pub psc_config: pulumi_wasm_rust::InputOrOutput<
+        pub psc_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::looker::InstancePscConfig>,
         >,
         /// Whether Public Service Connect (PSC) is enabled on the Looker instance
         #[builder(into, default)]
-        pub psc_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub psc_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether public IP is enabled on the Looker instance.
         #[builder(into, default)]
-        pub public_ip_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_ip_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the Looker region of the instance.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of a reserved IP address range within the consumer network, to be used for private service access connection. User
         /// may or may not specify this in a request.
         #[builder(into, default)]
-        pub reserved_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub reserved_range: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Metadata about users for a Looker instance. These settings are only available when platform edition LOOKER_CORE_STANDARD
         /// is set. There are ten Standard and two Developer users included in the cost of the product. You can allocate additional
         /// Standard, Viewer, and Developer users for this instance. It is an optional step and can be modified later. With the
         /// Standard edition of Looker (Google Cloud core), you can provision up to 50 total users, distributed across Viewer,
         /// Standard, and Developer.
         #[builder(into, default)]
-        pub user_metadata: pulumi_wasm_rust::InputOrOutput<
+        pub user_metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::looker::InstanceUserMetadata>,
         >,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
         /// Looker instance Admin settings.
-        pub admin_settings: pulumi_wasm_rust::Output<
+        pub admin_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::looker::InstanceAdminSettings>,
         >,
         /// Network name in the consumer project in the format of: projects/{project}/global/networks/{network} Note that the
         /// consumer network may be in a different GCP project than the consumer project that is hosting the Looker Instance.
-        pub consumer_network: pulumi_wasm_rust::Output<Option<String>>,
+        pub consumer_network: pulumi_gestalt_rust::Output<Option<String>>,
         /// The time the instance was created in RFC3339 UTC "Zulu" format,
         /// accurate to nanoseconds.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Custom domain settings for a Looker instance.
-        pub custom_domain: pulumi_wasm_rust::Output<
+        pub custom_domain: pulumi_gestalt_rust::Output<
             Option<super::super::types::looker::InstanceCustomDomain>,
         >,
         /// Policy to determine if the cluster should be deleted forcefully. If setting deletion_policy = "FORCE", the Looker
         /// instance will be deleted regardless of its nested resources. If set to "DEFAULT", Looker instances that still have
         /// nested resources will return an error. Possible values: DEFAULT, FORCE
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Maintenance denial period for this instance. You must allow at least 14 days of maintenance availability between any two
         /// deny maintenance periods.
-        pub deny_maintenance_period: pulumi_wasm_rust::Output<
+        pub deny_maintenance_period: pulumi_gestalt_rust::Output<
             Option<super::super::types::looker::InstanceDenyMaintenancePeriod>,
         >,
         /// Public Egress IP (IPv4).
-        pub egress_public_ip: pulumi_wasm_rust::Output<String>,
+        pub egress_public_ip: pulumi_gestalt_rust::Output<String>,
         /// Looker instance encryption settings.
-        pub encryption_config: pulumi_wasm_rust::Output<
+        pub encryption_config: pulumi_gestalt_rust::Output<
             super::super::types::looker::InstanceEncryptionConfig,
         >,
         /// FIPS 140-2 Encryption enablement for Looker (Google Cloud Core).
-        pub fips_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub fips_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Private Ingress IP (IPv4).
-        pub ingress_private_ip: pulumi_wasm_rust::Output<String>,
+        pub ingress_private_ip: pulumi_gestalt_rust::Output<String>,
         /// Public Ingress IP (IPv4).
-        pub ingress_public_ip: pulumi_wasm_rust::Output<String>,
+        pub ingress_public_ip: pulumi_gestalt_rust::Output<String>,
         /// Looker instance URI which can be used to access the Looker Instance UI.
-        pub looker_uri: pulumi_wasm_rust::Output<String>,
+        pub looker_uri: pulumi_gestalt_rust::Output<String>,
         /// The Looker version that the instance is using.
-        pub looker_version: pulumi_wasm_rust::Output<String>,
+        pub looker_version: pulumi_gestalt_rust::Output<String>,
         /// Maintenance window for an instance. Maintenance of your instance takes place once a month, and will require your
         /// instance to be restarted during updates, which will temporarily disrupt service.
-        pub maintenance_window: pulumi_wasm_rust::Output<
+        pub maintenance_window: pulumi_gestalt_rust::Output<
             Option<super::super::types::looker::InstanceMaintenanceWindow>,
         >,
         /// The ID of the instance or a fully qualified identifier for the instance.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Looker Instance OAuth login settings.
         /// Structure is documented below.
-        pub oauth_config: pulumi_wasm_rust::Output<
+        pub oauth_config: pulumi_gestalt_rust::Output<
             super::super::types::looker::InstanceOauthConfig,
         >,
         /// Platform editions for a Looker instance. Each edition maps to a set of instance features, like its size. Must be one of
@@ -409,32 +409,32 @@ pub mod instance {
         /// value: "LOOKER_CORE_TRIAL" Possible values: ["LOOKER_CORE_TRIAL", "LOOKER_CORE_STANDARD", "LOOKER_CORE_STANDARD_ANNUAL",
         /// "LOOKER_CORE_ENTERPRISE_ANNUAL", "LOOKER_CORE_EMBED_ANNUAL", "LOOKER_CORE_NONPROD_STANDARD_ANNUAL",
         /// "LOOKER_CORE_NONPROD_ENTERPRISE_ANNUAL", "LOOKER_CORE_NONPROD_EMBED_ANNUAL"]
-        pub platform_edition: pulumi_wasm_rust::Output<Option<String>>,
+        pub platform_edition: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether private IP is enabled on the Looker instance.
-        pub private_ip_enabled: pulumi_wasm_rust::Output<Option<bool>>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub private_ip_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Information for Private Service Connect (PSC) setup for a Looker instance.
-        pub psc_config: pulumi_wasm_rust::Output<
+        pub psc_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::looker::InstancePscConfig>,
         >,
         /// Whether Public Service Connect (PSC) is enabled on the Looker instance
-        pub psc_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub psc_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether public IP is enabled on the Looker instance.
-        pub public_ip_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_ip_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the Looker region of the instance.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// Name of a reserved IP address range within the consumer network, to be used for private service access connection. User
         /// may or may not specify this in a request.
-        pub reserved_range: pulumi_wasm_rust::Output<Option<String>>,
+        pub reserved_range: pulumi_gestalt_rust::Output<Option<String>>,
         /// The time the instance was updated in RFC3339 UTC "Zulu" format,
         /// accurate to nanoseconds.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// Metadata about users for a Looker instance. These settings are only available when platform edition LOOKER_CORE_STANDARD
         /// is set. There are ten Standard and two Developer users included in the cost of the product. You can allocate additional
         /// Standard, Viewer, and Developer users for this instance. It is an optional step and can be modified later. With the
         /// Standard edition of Looker (Google Cloud core), you can provision up to 50 total users, distributed across Viewer,
         /// Standard, and Developer.
-        pub user_metadata: pulumi_wasm_rust::Output<
+        pub user_metadata: pulumi_gestalt_rust::Output<
             Option<super::super::types::looker::InstanceUserMetadata>,
         >,
     }
@@ -443,11 +443,11 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let admin_settings_binding = args.admin_settings.get_output(context).get_inner();
         let consumer_network_binding = args
@@ -577,78 +577,80 @@ pub mod instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceResult {
-            admin_settings: pulumi_wasm_rust::__private::into_domain(
+            admin_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminSettings"),
             ),
-            consumer_network: pulumi_wasm_rust::__private::into_domain(
+            consumer_network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("consumerNetwork"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            custom_domain: pulumi_wasm_rust::__private::into_domain(
+            custom_domain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customDomain"),
             ),
-            deletion_policy: pulumi_wasm_rust::__private::into_domain(
+            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionPolicy"),
             ),
-            deny_maintenance_period: pulumi_wasm_rust::__private::into_domain(
+            deny_maintenance_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("denyMaintenancePeriod"),
             ),
-            egress_public_ip: pulumi_wasm_rust::__private::into_domain(
+            egress_public_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("egressPublicIp"),
             ),
-            encryption_config: pulumi_wasm_rust::__private::into_domain(
+            encryption_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionConfig"),
             ),
-            fips_enabled: pulumi_wasm_rust::__private::into_domain(
+            fips_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fipsEnabled"),
             ),
-            ingress_private_ip: pulumi_wasm_rust::__private::into_domain(
+            ingress_private_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ingressPrivateIp"),
             ),
-            ingress_public_ip: pulumi_wasm_rust::__private::into_domain(
+            ingress_public_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ingressPublicIp"),
             ),
-            looker_uri: pulumi_wasm_rust::__private::into_domain(
+            looker_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lookerUri"),
             ),
-            looker_version: pulumi_wasm_rust::__private::into_domain(
+            looker_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lookerVersion"),
             ),
-            maintenance_window: pulumi_wasm_rust::__private::into_domain(
+            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceWindow"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            oauth_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            oauth_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("oauthConfig"),
             ),
-            platform_edition: pulumi_wasm_rust::__private::into_domain(
+            platform_edition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platformEdition"),
             ),
-            private_ip_enabled: pulumi_wasm_rust::__private::into_domain(
+            private_ip_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpEnabled"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            psc_config: pulumi_wasm_rust::__private::into_domain(
+            psc_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pscConfig"),
             ),
-            psc_enabled: pulumi_wasm_rust::__private::into_domain(
+            psc_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pscEnabled"),
             ),
-            public_ip_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_ip_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicIpEnabled"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            reserved_range: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            reserved_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reservedRange"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            user_metadata: pulumi_wasm_rust::__private::into_domain(
+            user_metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userMetadata"),
             ),
         }

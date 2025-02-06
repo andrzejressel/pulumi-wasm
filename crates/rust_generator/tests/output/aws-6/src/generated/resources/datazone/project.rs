@@ -18,8 +18,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = project::create(
@@ -40,59 +40,59 @@
 /// $ pulumi import aws:datazone/project:Project example domain-1234:project-1234
 /// ```
 pub mod project {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectArgs {
         /// Description of project.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
         #[builder(into)]
-        pub domain_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
         #[builder(into, default)]
-        pub glossary_terms: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub glossary_terms: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional flag to delete all child entities within the project.
         #[builder(into, default)]
-        pub skip_deletion_check: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub skip_deletion_check: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datazone::ProjectTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct ProjectResult {
         /// Timestamp of when the project was made.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// Creator of the project.
-        pub created_by: pulumi_wasm_rust::Output<String>,
+        pub created_by: pulumi_gestalt_rust::Output<String>,
         /// Description of project.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Identifier of domain which the project is part of. Must follow the regex of `^dzd[-_][a-zA-Z0-9_-]{1,36}$`.
-        pub domain_identifier: pulumi_wasm_rust::Output<String>,
+        pub domain_identifier: pulumi_gestalt_rust::Output<String>,
         /// List of error messages if operation cannot be completed.
-        pub failure_reasons: pulumi_wasm_rust::Output<
+        pub failure_reasons: pulumi_gestalt_rust::Output<
             Vec<super::super::types::datazone::ProjectFailureReason>,
         >,
         /// List of glossary terms that can be used in the project. The list cannot be empty or include over 20 values. Each value must follow the regex of `[a-zA-Z0-9_-]{1,36}$`.
-        pub glossary_terms: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub glossary_terms: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Timestamp of when the project was last updated.
-        pub last_updated_at: pulumi_wasm_rust::Output<String>,
+        pub last_updated_at: pulumi_gestalt_rust::Output<String>,
         /// Name of the project. Must follow the regex of `^[\w -]+$`. and have a length of at most 64.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
-        pub project_status: pulumi_wasm_rust::Output<String>,
+        pub project_status: pulumi_gestalt_rust::Output<String>,
         /// Optional flag to delete all child entities within the project.
-        pub skip_deletion_check: pulumi_wasm_rust::Output<Option<bool>>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub skip_deletion_check: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::datazone::ProjectTimeouts>,
         >,
     }
@@ -101,11 +101,11 @@ pub mod project {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProjectArgs,
     ) -> ProjectResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let domain_identifier_binding = args
@@ -152,35 +152,35 @@ pub mod project {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProjectResult {
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            created_by: pulumi_wasm_rust::__private::into_domain(
+            created_by: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdBy"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            domain_identifier: pulumi_wasm_rust::__private::into_domain(
+            domain_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainIdentifier"),
             ),
-            failure_reasons: pulumi_wasm_rust::__private::into_domain(
+            failure_reasons: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("failureReasons"),
             ),
-            glossary_terms: pulumi_wasm_rust::__private::into_domain(
+            glossary_terms: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("glossaryTerms"),
             ),
-            last_updated_at: pulumi_wasm_rust::__private::into_domain(
+            last_updated_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdatedAt"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project_status: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("projectStatus"),
             ),
-            skip_deletion_check: pulumi_wasm_rust::__private::into_domain(
+            skip_deletion_check: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skipDeletionCheck"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

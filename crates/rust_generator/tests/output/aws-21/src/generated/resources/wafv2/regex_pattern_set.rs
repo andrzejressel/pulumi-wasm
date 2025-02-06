@@ -26,51 +26,51 @@
 /// $ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
 /// ```
 pub mod regex_pattern_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegexPatternSetArgs {
         /// A friendly description of the regular expression pattern set.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A friendly name of the regular expression pattern set.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
         #[builder(into, default)]
-        pub regular_expressions: pulumi_wasm_rust::InputOrOutput<
+        pub regular_expressions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::wafv2::RegexPatternSetRegularExpression>>,
         >,
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         #[builder(into)]
-        pub scope: pulumi_wasm_rust::InputOrOutput<String>,
+        pub scope: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RegexPatternSetResult {
         /// The Amazon Resource Name (ARN) that identifies the cluster.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A friendly description of the regular expression pattern set.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
-        pub lock_token: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
+        pub lock_token: pulumi_gestalt_rust::Output<String>,
         /// A friendly name of the regular expression pattern set.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
-        pub regular_expressions: pulumi_wasm_rust::Output<
+        pub regular_expressions: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::wafv2::RegexPatternSetRegularExpression>>,
         >,
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_gestalt_rust::Output<String>,
         /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -79,11 +79,11 @@ pub mod regex_pattern_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RegexPatternSetArgs,
     ) -> RegexPatternSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -122,20 +122,20 @@ pub mod regex_pattern_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RegexPatternSetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            lock_token: pulumi_wasm_rust::__private::into_domain(
+            lock_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lockToken"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            regular_expressions: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            regular_expressions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("regularExpressions"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

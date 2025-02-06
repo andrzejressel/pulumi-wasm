@@ -25,70 +25,70 @@
 /// ```
 ///
 pub mod keystores_aliases_pkcs_12 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KeystoresAliasesPkcs12Args {
         /// Alias Name
         #[builder(into)]
-        pub alias: pulumi_wasm_rust::InputOrOutput<String>,
+        pub alias: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Environment associated with the alias
         #[builder(into)]
-        pub environment: pulumi_wasm_rust::InputOrOutput<String>,
+        pub environment: pulumi_gestalt_rust::InputOrOutput<String>,
         /// PKCS12 file content
         ///
         /// - - -
         #[builder(into)]
-        pub file: pulumi_wasm_rust::InputOrOutput<String>,
+        pub file: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Hash of the pkcs file
         #[builder(into)]
-        pub filehash: pulumi_wasm_rust::InputOrOutput<String>,
+        pub filehash: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Keystore Name
         #[builder(into)]
-        pub keystore: pulumi_wasm_rust::InputOrOutput<String>,
+        pub keystore: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Organization ID associated with the alias, without organization/ prefix
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub org_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Password for the PKCS12 file if it's encrypted
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct KeystoresAliasesPkcs12Result {
         /// Alias Name
-        pub alias: pulumi_wasm_rust::Output<String>,
+        pub alias: pulumi_gestalt_rust::Output<String>,
         /// Chain of certificates under this alias.
         /// Structure is documented below.
-        pub certs_infos: pulumi_wasm_rust::Output<
+        pub certs_infos: pulumi_gestalt_rust::Output<
             Vec<super::super::types::apigee::KeystoresAliasesPkcs12CertsInfo>,
         >,
         /// Environment associated with the alias
-        pub environment: pulumi_wasm_rust::Output<String>,
+        pub environment: pulumi_gestalt_rust::Output<String>,
         /// PKCS12 file content
         ///
         /// - - -
-        pub file: pulumi_wasm_rust::Output<String>,
+        pub file: pulumi_gestalt_rust::Output<String>,
         /// Hash of the pkcs file
-        pub filehash: pulumi_wasm_rust::Output<String>,
+        pub filehash: pulumi_gestalt_rust::Output<String>,
         /// Keystore Name
-        pub keystore: pulumi_wasm_rust::Output<String>,
+        pub keystore: pulumi_gestalt_rust::Output<String>,
         /// Organization ID associated with the alias, without organization/ prefix
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_gestalt_rust::Output<String>,
         /// Password for the PKCS12 file if it's encrypted
-        pub password: pulumi_wasm_rust::Output<String>,
+        pub password: pulumi_gestalt_rust::Output<String>,
         /// Optional.Type of Alias
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: KeystoresAliasesPkcs12Args,
     ) -> KeystoresAliasesPkcs12Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let alias_binding = args.alias.get_output(context).get_inner();
         let environment_binding = args.environment.get_output(context).get_inner();
@@ -134,25 +134,27 @@ pub mod keystores_aliases_pkcs_12 {
         };
         let o = register_interface::register(context.get_inner(), &request);
         KeystoresAliasesPkcs12Result {
-            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
-            certs_infos: pulumi_wasm_rust::__private::into_domain(
+            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
+            certs_infos: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certsInfos"),
             ),
-            environment: pulumi_wasm_rust::__private::into_domain(
+            environment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environment"),
             ),
-            file: pulumi_wasm_rust::__private::into_domain(o.extract_field("file")),
-            filehash: pulumi_wasm_rust::__private::into_domain(
+            file: pulumi_gestalt_rust::__private::into_domain(o.extract_field("file")),
+            filehash: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filehash"),
             ),
-            keystore: pulumi_wasm_rust::__private::into_domain(
+            keystore: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keystore"),
             ),
-            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
-            password: pulumi_wasm_rust::__private::into_domain(
+            org_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("orgId"),
+            ),
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

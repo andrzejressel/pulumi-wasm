@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -64,70 +64,72 @@
 /// ```
 ///
 pub mod spring_cloud_api_portal {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudApiPortalArgs {
         /// Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
         #[builder(into, default)]
-        pub api_try_out_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub api_try_out_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies a list of Spring Cloud Gateway.
         #[builder(into, default)]
-        pub gateway_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub gateway_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// is only https is allowed?
         #[builder(into, default)]
-        pub https_only_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub https_only_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         #[builder(into, default)]
-        pub instance_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub instance_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Is the public network access enabled?
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created.
         #[builder(into)]
-        pub spring_cloud_service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub spring_cloud_service_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `sso` block as defined below.
         #[builder(into, default)]
-        pub sso: pulumi_wasm_rust::InputOrOutput<
+        pub sso: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appplatform::SpringCloudApiPortalSso>,
         >,
     }
     #[allow(dead_code)]
     pub struct SpringCloudApiPortalResult {
         /// Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
-        pub api_try_out_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub api_try_out_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies a list of Spring Cloud Gateway.
-        pub gateway_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub gateway_ids: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// is only https is allowed?
-        pub https_only_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub https_only_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
-        pub instance_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub instance_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Is the public network access enabled?
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created.
-        pub spring_cloud_service_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_service_id: pulumi_gestalt_rust::Output<String>,
         /// A `sso` block as defined below.
-        pub sso: pulumi_wasm_rust::Output<
+        pub sso: pulumi_gestalt_rust::Output<
             Option<super::super::types::appplatform::SpringCloudApiPortalSso>,
         >,
         /// TODO.
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub url: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SpringCloudApiPortalArgs,
     ) -> SpringCloudApiPortalResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_try_out_enabled_binding = args
             .api_try_out_enabled
@@ -190,27 +192,27 @@ pub mod spring_cloud_api_portal {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SpringCloudApiPortalResult {
-            api_try_out_enabled: pulumi_wasm_rust::__private::into_domain(
+            api_try_out_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiTryOutEnabled"),
             ),
-            gateway_ids: pulumi_wasm_rust::__private::into_domain(
+            gateway_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayIds"),
             ),
-            https_only_enabled: pulumi_wasm_rust::__private::into_domain(
+            https_only_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpsOnlyEnabled"),
             ),
-            instance_count: pulumi_wasm_rust::__private::into_domain(
+            instance_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceCount"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            spring_cloud_service_id: pulumi_wasm_rust::__private::into_domain(
+            spring_cloud_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("springCloudServiceId"),
             ),
-            sso: pulumi_wasm_rust::__private::into_domain(o.extract_field("sso")),
-            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
+            sso: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sso")),
+            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -72,71 +72,71 @@
 /// ```
 ///
 pub mod local_user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LocalUserArgs {
         /// The home directory of the Storage Account Local User.
         #[builder(into, default)]
-        pub home_directory: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub home_directory: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `permission_scope` blocks as defined below.
         #[builder(into, default)]
-        pub permission_scopes: pulumi_wasm_rust::InputOrOutput<
+        pub permission_scopes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::storage::LocalUserPermissionScope>>,
         >,
         /// One or more `ssh_authorized_key` blocks as defined below.
         #[builder(into, default)]
-        pub ssh_authorized_keys: pulumi_wasm_rust::InputOrOutput<
+        pub ssh_authorized_keys: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::storage::LocalUserSshAuthorizedKey>>,
         >,
         /// Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub ssh_key_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ssh_key_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub ssh_password_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ssh_password_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Storage Account that this Storage Account Local User resides in. Changing this forces a new Storage Account Local User to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LocalUserResult {
         /// The home directory of the Storage Account Local User.
-        pub home_directory: pulumi_wasm_rust::Output<Option<String>>,
+        pub home_directory: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The value of the password, which is only available when `ssh_password_enabled` is set to `true`.
-        pub password: pulumi_wasm_rust::Output<String>,
+        pub password: pulumi_gestalt_rust::Output<String>,
         /// One or more `permission_scope` blocks as defined below.
-        pub permission_scopes: pulumi_wasm_rust::Output<
+        pub permission_scopes: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::storage::LocalUserPermissionScope>>,
         >,
         /// The unique Security Identifier of this Storage Account Local User.
-        pub sid: pulumi_wasm_rust::Output<String>,
+        pub sid: pulumi_gestalt_rust::Output<String>,
         /// One or more `ssh_authorized_key` blocks as defined below.
-        pub ssh_authorized_keys: pulumi_wasm_rust::Output<
+        pub ssh_authorized_keys: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::storage::LocalUserSshAuthorizedKey>>,
         >,
         /// Specifies whether SSH Key Authentication is enabled. Defaults to `false`.
-        pub ssh_key_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ssh_key_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies whether SSH Password Authentication is enabled. Defaults to `false`.
-        pub ssh_password_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ssh_password_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the Storage Account that this Storage Account Local User resides in. Changing this forces a new Storage Account Local User to be created.
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LocalUserArgs,
     ) -> LocalUserResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let home_directory_binding = args.home_directory.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -197,27 +197,27 @@ pub mod local_user {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LocalUserResult {
-            home_directory: pulumi_wasm_rust::__private::into_domain(
+            home_directory: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("homeDirectory"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            permission_scopes: pulumi_wasm_rust::__private::into_domain(
+            permission_scopes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissionScopes"),
             ),
-            sid: pulumi_wasm_rust::__private::into_domain(o.extract_field("sid")),
-            ssh_authorized_keys: pulumi_wasm_rust::__private::into_domain(
+            sid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sid")),
+            ssh_authorized_keys: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sshAuthorizedKeys"),
             ),
-            ssh_key_enabled: pulumi_wasm_rust::__private::into_domain(
+            ssh_key_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sshKeyEnabled"),
             ),
-            ssh_password_enabled: pulumi_wasm_rust::__private::into_domain(
+            ssh_password_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sshPasswordEnabled"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
         }

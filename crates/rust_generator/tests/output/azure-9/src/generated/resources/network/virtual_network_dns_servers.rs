@@ -39,34 +39,34 @@
 /// ```
 ///
 pub mod virtual_network_dns_servers {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualNetworkDnsServersArgs {
         /// List of IP addresses of DNS servers
         #[builder(into, default)]
-        pub dns_servers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub dns_servers: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VirtualNetworkDnsServersResult {
         /// List of IP addresses of DNS servers
-        pub dns_servers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub dns_servers: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
-        pub virtual_network_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_network_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VirtualNetworkDnsServersArgs,
     ) -> VirtualNetworkDnsServersResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let dns_servers_binding = args.dns_servers.get_output(context).get_inner();
         let virtual_network_id_binding = args
@@ -91,10 +91,10 @@ pub mod virtual_network_dns_servers {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VirtualNetworkDnsServersResult {
-            dns_servers: pulumi_wasm_rust::__private::into_domain(
+            dns_servers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsServers"),
             ),
-            virtual_network_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualNetworkId"),
             ),
         }

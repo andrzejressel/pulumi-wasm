@@ -1,38 +1,38 @@
 pub mod get_budget_resource_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetBudgetResourceGroupArgs {
         /// The name of this Consumption Budget.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the subscription.
         #[builder(into)]
-        pub resource_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetBudgetResourceGroupResult {
         /// The total amount of cost to track with the budget.
-        pub amount: pulumi_wasm_rust::Output<f64>,
+        pub amount: pulumi_gestalt_rust::Output<f64>,
         /// A `filter` block as defined below.
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::consumption::GetBudgetResourceGroupFilter>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The name of the tag used for the filter.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `notification` block as defined below.
-        pub notifications: pulumi_wasm_rust::Output<
+        pub notifications: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::consumption::GetBudgetResourceGroupNotification,
             >,
         >,
-        pub resource_group_id: pulumi_wasm_rust::Output<String>,
+        pub resource_group_id: pulumi_gestalt_rust::Output<String>,
         /// The time covered by a budget.
-        pub time_grain: pulumi_wasm_rust::Output<String>,
+        pub time_grain: pulumi_gestalt_rust::Output<String>,
         /// A `time_period` block as defined below.
-        pub time_periods: pulumi_wasm_rust::Output<
+        pub time_periods: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::consumption::GetBudgetResourceGroupTimePeriod,
             >,
@@ -43,10 +43,10 @@ pub mod get_budget_resource_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetBudgetResourceGroupArgs,
     ) -> GetBudgetResourceGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_id_binding = args
@@ -70,22 +70,24 @@ pub mod get_budget_resource_group {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetBudgetResourceGroupResult {
-            amount: pulumi_wasm_rust::__private::into_domain(o.extract_field("amount")),
-            filters: pulumi_wasm_rust::__private::into_domain(
+            amount: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("amount"),
+            ),
+            filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notifications: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notifications: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notifications"),
             ),
-            resource_group_id: pulumi_wasm_rust::__private::into_domain(
+            resource_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupId"),
             ),
-            time_grain: pulumi_wasm_rust::__private::into_domain(
+            time_grain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeGrain"),
             ),
-            time_periods: pulumi_wasm_rust::__private::into_domain(
+            time_periods: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timePeriods"),
             ),
         }

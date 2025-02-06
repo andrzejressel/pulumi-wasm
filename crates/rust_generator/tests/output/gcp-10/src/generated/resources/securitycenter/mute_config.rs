@@ -14,8 +14,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = mute_config::create(
@@ -43,23 +43,23 @@
 /// ```
 ///
 pub mod mute_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MuteConfigArgs {
         /// A description of the mute config.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An expression that defines the filter to apply across create/update
         /// events of findings. While creating a filter string, be mindful of
         /// the scope in which the mute configuration is being created. E.g.,
         /// If a filter contains project = X but is created under the
         /// project = Y scope, it might not match any findings.
         #[builder(into)]
-        pub filter: pulumi_wasm_rust::InputOrOutput<String>,
+        pub filter: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Unique identifier provided by the client within the parent scope.
         #[builder(into)]
-        pub mute_config_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub mute_config_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Resource name of the new mute configs's parent. Its format is
         /// "organizations/[organization_id]", "folders/[folder_id]", or
         /// "projects/[project_id]".
@@ -67,54 +67,54 @@ pub mod mute_config {
         ///
         /// - - -
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MuteConfigResult {
         /// The time at which the mute config was created. This field is set by
         /// the server and will be ignored if provided on config creation.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// A description of the mute config.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// An expression that defines the filter to apply across create/update
         /// events of findings. While creating a filter string, be mindful of
         /// the scope in which the mute configuration is being created. E.g.,
         /// If a filter contains project = X but is created under the
         /// project = Y scope, it might not match any findings.
-        pub filter: pulumi_wasm_rust::Output<String>,
+        pub filter: pulumi_gestalt_rust::Output<String>,
         /// Email address of the user who last edited the mute config. This
         /// field is set by the server and will be ignored if provided on
         /// config creation or update.
-        pub most_recent_editor: pulumi_wasm_rust::Output<String>,
+        pub most_recent_editor: pulumi_gestalt_rust::Output<String>,
         /// Unique identifier provided by the client within the parent scope.
-        pub mute_config_id: pulumi_wasm_rust::Output<String>,
+        pub mute_config_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the mute config. Its format is
         /// organizations/{organization}/muteConfigs/{configId},
         /// folders/{folder}/muteConfigs/{configId},
         /// or projects/{project}/muteConfigs/{configId}
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Resource name of the new mute configs's parent. Its format is
         /// "organizations/[organization_id]", "folders/[folder_id]", or
         /// "projects/[project_id]".
         ///
         ///
         /// - - -
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// Output only. The most recent time at which the mute config was
         /// updated. This field is set by the server and will be ignored if
         /// provided on config creation or update.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MuteConfigArgs,
     ) -> MuteConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let filter_binding = args.filter.get_output(context).get_inner();
@@ -145,22 +145,26 @@ pub mod mute_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MuteConfigResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
-            most_recent_editor: pulumi_wasm_rust::__private::into_domain(
+            filter: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("filter"),
+            ),
+            most_recent_editor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mostRecentEditor"),
             ),
-            mute_config_id: pulumi_wasm_rust::__private::into_domain(
+            mute_config_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("muteConfigId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

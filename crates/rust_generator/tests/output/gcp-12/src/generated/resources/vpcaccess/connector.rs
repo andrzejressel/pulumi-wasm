@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let connector = connector::create(
@@ -33,8 +33,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let connector = connector::create(
@@ -90,98 +90,98 @@
 /// ```
 ///
 pub mod connector {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectorArgs {
         /// The range of internal addresses that follows RFC 4632 notation. Example: `10.132.0.0/28`.
         #[builder(into, default)]
-        pub ip_cidr_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_cidr_range: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Machine type of VM Instance underlying connector. Default is e2-micro
         #[builder(into, default)]
-        pub machine_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub machine_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Maximum value of instances in autoscaling group underlying the connector. Value must be between 3 and 10, inclusive. Must be
         /// higher than the value specified by min_instances.
         #[builder(into, default)]
-        pub max_instances: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_instances: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Maximum throughput of the connector in Mbps, must be greater than `min_throughput`. Default is 300. Refers to the expected throughput
         /// when using an e2-micro machine type. Value must be a multiple of 100 from 300 through 1000. Must be higher than the value specified by
         /// min_throughput. Only one of `max_throughput` and `max_instances` can be specified. The use of max_throughput is discouraged in favor of max_instances.
         #[builder(into, default)]
-        pub max_throughput: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_throughput: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Minimum value of instances in autoscaling group underlying the connector. Value must be between 2 and 9, inclusive. Must be
         /// lower than the value specified by max_instances.
         #[builder(into, default)]
-        pub min_instances: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub min_instances: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Minimum throughput of the connector in Mbps. Default and min is 200. Refers to the expected throughput when using an e2-micro machine type.
         /// Value must be a multiple of 100 from 200 through 900. Must be lower than the value specified by max_throughput.
         /// Only one of `min_throughput` and `min_instances` can be specified. The use of min_throughput is discouraged in favor of min_instances.
         #[builder(into, default)]
-        pub min_throughput: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub min_throughput: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name of the resource (Max 25 characters).
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name or self_link of the VPC network. Required if `ip_cidr_range` is set.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Region where the VPC Access connector resides. If it is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The subnet in which to house the connector
         /// Structure is documented below.
         #[builder(into, default)]
-        pub subnet: pulumi_wasm_rust::InputOrOutput<
+        pub subnet: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::vpcaccess::ConnectorSubnet>,
         >,
     }
     #[allow(dead_code)]
     pub struct ConnectorResult {
         /// List of projects using the connector.
-        pub connected_projects: pulumi_wasm_rust::Output<Vec<String>>,
+        pub connected_projects: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The range of internal addresses that follows RFC 4632 notation. Example: `10.132.0.0/28`.
-        pub ip_cidr_range: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_cidr_range: pulumi_gestalt_rust::Output<Option<String>>,
         /// Machine type of VM Instance underlying connector. Default is e2-micro
-        pub machine_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub machine_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Maximum value of instances in autoscaling group underlying the connector. Value must be between 3 and 10, inclusive. Must be
         /// higher than the value specified by min_instances.
-        pub max_instances: pulumi_wasm_rust::Output<i32>,
+        pub max_instances: pulumi_gestalt_rust::Output<i32>,
         /// Maximum throughput of the connector in Mbps, must be greater than `min_throughput`. Default is 300. Refers to the expected throughput
         /// when using an e2-micro machine type. Value must be a multiple of 100 from 300 through 1000. Must be higher than the value specified by
         /// min_throughput. Only one of `max_throughput` and `max_instances` can be specified. The use of max_throughput is discouraged in favor of max_instances.
-        pub max_throughput: pulumi_wasm_rust::Output<i32>,
+        pub max_throughput: pulumi_gestalt_rust::Output<i32>,
         /// Minimum value of instances in autoscaling group underlying the connector. Value must be between 2 and 9, inclusive. Must be
         /// lower than the value specified by max_instances.
-        pub min_instances: pulumi_wasm_rust::Output<i32>,
+        pub min_instances: pulumi_gestalt_rust::Output<i32>,
         /// Minimum throughput of the connector in Mbps. Default and min is 200. Refers to the expected throughput when using an e2-micro machine type.
         /// Value must be a multiple of 100 from 200 through 900. Must be lower than the value specified by max_throughput.
         /// Only one of `min_throughput` and `min_instances` can be specified. The use of min_throughput is discouraged in favor of min_instances.
-        pub min_throughput: pulumi_wasm_rust::Output<i32>,
+        pub min_throughput: pulumi_gestalt_rust::Output<i32>,
         /// The name of the resource (Max 25 characters).
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Name or self_link of the VPC network. Required if `ip_cidr_range` is set.
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Region where the VPC Access connector resides. If it is not provided, the provider region is used.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The fully qualified name of this VPC connector
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// State of the VPC access connector.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The subnet in which to house the connector
         /// Structure is documented below.
-        pub subnet: pulumi_wasm_rust::Output<
+        pub subnet: pulumi_gestalt_rust::Output<
             Option<super::super::types::vpcaccess::ConnectorSubnet>,
         >,
     }
@@ -190,11 +190,11 @@ pub mod connector {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectorArgs,
     ) -> ConnectorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let ip_cidr_range_binding = args.ip_cidr_range.get_output(context).get_inner();
         let machine_type_binding = args.machine_type.get_output(context).get_inner();
@@ -260,40 +260,44 @@ pub mod connector {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectorResult {
-            connected_projects: pulumi_wasm_rust::__private::into_domain(
+            connected_projects: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectedProjects"),
             ),
-            ip_cidr_range: pulumi_wasm_rust::__private::into_domain(
+            ip_cidr_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipCidrRange"),
             ),
-            machine_type: pulumi_wasm_rust::__private::into_domain(
+            machine_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("machineType"),
             ),
-            max_instances: pulumi_wasm_rust::__private::into_domain(
+            max_instances: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxInstances"),
             ),
-            max_throughput: pulumi_wasm_rust::__private::into_domain(
+            max_throughput: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxThroughput"),
             ),
-            min_instances: pulumi_wasm_rust::__private::into_domain(
+            min_instances: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minInstances"),
             ),
-            min_throughput: pulumi_wasm_rust::__private::into_domain(
+            min_throughput: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minThroughput"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            subnet: pulumi_wasm_rust::__private::into_domain(o.extract_field("subnet")),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            subnet: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("subnet"),
+            ),
         }
     }
 }

@@ -109,8 +109,8 @@
 /// ### Real time alerts usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let myConfiguration = media_insights_pipeline_configuration::create(
@@ -161,8 +161,8 @@
 /// ### Transcribe processor usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let myConfiguration = media_insights_pipeline_configuration::create(
@@ -197,8 +197,8 @@
 /// ### Voice analytics processor usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let myConfiguration = media_insights_pipeline_configuration::create(
@@ -239,8 +239,8 @@
 /// ### S3 Recording sink usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let myConfiguration = media_insights_pipeline_configuration::create(
@@ -269,61 +269,61 @@
 /// $ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456
 /// ```
 pub mod media_insights_pipeline_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MediaInsightsPipelineConfigurationArgs {
         /// Collection of processors and sinks to transform media and deliver data.
         #[builder(into)]
-        pub elements: pulumi_wasm_rust::InputOrOutput<
+        pub elements: pulumi_gestalt_rust::InputOrOutput<
             Vec<
                 super::super::types::chimesdkmediapipelines::MediaInsightsPipelineConfigurationElement,
             >,
         >,
         /// Configuration name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
         #[builder(into, default)]
-        pub real_time_alert_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub real_time_alert_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::chimesdkmediapipelines::MediaInsightsPipelineConfigurationRealTimeAlertConfiguration,
             >,
         >,
         /// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
         #[builder(into)]
-        pub resource_access_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_access_role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of tags for the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct MediaInsightsPipelineConfigurationResult {
         /// ARN of the Media Insights Pipeline Configuration.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Collection of processors and sinks to transform media and deliver data.
-        pub elements: pulumi_wasm_rust::Output<
+        pub elements: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::chimesdkmediapipelines::MediaInsightsPipelineConfigurationElement,
             >,
         >,
         /// Configuration name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
-        pub real_time_alert_configuration: pulumi_wasm_rust::Output<
+        pub real_time_alert_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::chimesdkmediapipelines::MediaInsightsPipelineConfigurationRealTimeAlertConfiguration,
             >,
         >,
         /// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
-        pub resource_access_role_arn: pulumi_wasm_rust::Output<String>,
+        pub resource_access_role_arn: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of tags for the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -332,11 +332,11 @@ pub mod media_insights_pipeline_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MediaInsightsPipelineConfigurationArgs,
     ) -> MediaInsightsPipelineConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let elements_binding = args.elements.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -379,19 +379,19 @@ pub mod media_insights_pipeline_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MediaInsightsPipelineConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            elements: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            elements: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("elements"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            real_time_alert_configuration: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            real_time_alert_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("realTimeAlertConfiguration"),
             ),
-            resource_access_role_arn: pulumi_wasm_rust::__private::into_domain(
+            resource_access_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceAccessRoleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

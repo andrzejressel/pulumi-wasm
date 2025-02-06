@@ -44,53 +44,53 @@
 /// ```
 ///
 pub mod hyperv_network_mapping {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HypervNetworkMappingArgs {
         /// The name of the HyperV network mapping. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Recovery Services Vault where the HyperV network mapping should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub recovery_vault_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Name of the primary network. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub source_network_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_network_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of source System Center Virtual Machine Manager where the source network exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub source_system_center_virtual_machine_manager_name: pulumi_wasm_rust::InputOrOutput<
+        pub source_system_center_virtual_machine_manager_name: pulumi_gestalt_rust::InputOrOutput<
             String,
         >,
         /// The id of the recovery network. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub target_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HypervNetworkMappingResult {
         /// The name of the HyperV network mapping. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Recovery Services Vault where the HyperV network mapping should be created. Changing this forces a new resource to be created.
-        pub recovery_vault_id: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_id: pulumi_gestalt_rust::Output<String>,
         /// The Name of the primary network. Changing this forces a new resource to be created.
-        pub source_network_name: pulumi_wasm_rust::Output<String>,
+        pub source_network_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of source System Center Virtual Machine Manager where the source network exists. Changing this forces a new resource to be created.
-        pub source_system_center_virtual_machine_manager_name: pulumi_wasm_rust::Output<
+        pub source_system_center_virtual_machine_manager_name: pulumi_gestalt_rust::Output<
             String,
         >,
         /// The id of the recovery network. Changing this forces a new resource to be created.
-        pub target_network_id: pulumi_wasm_rust::Output<String>,
+        pub target_network_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HypervNetworkMappingArgs,
     ) -> HypervNetworkMappingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let recovery_vault_id_binding = args
@@ -138,17 +138,17 @@ pub mod hyperv_network_mapping {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HypervNetworkMappingResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            recovery_vault_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            recovery_vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryVaultId"),
             ),
-            source_network_name: pulumi_wasm_rust::__private::into_domain(
+            source_network_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceNetworkName"),
             ),
-            source_system_center_virtual_machine_manager_name: pulumi_wasm_rust::__private::into_domain(
+            source_system_center_virtual_machine_manager_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceSystemCenterVirtualMachineManagerName"),
             ),
-            target_network_id: pulumi_wasm_rust::__private::into_domain(
+            target_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetNetworkId"),
             ),
         }

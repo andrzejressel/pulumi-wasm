@@ -56,39 +56,39 @@
 /// $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
 /// ```
 pub mod analytics_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AnalyticsConfigurationArgs {
         /// Name of the bucket this analytics configuration is associated with.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::InputOrOutput<
+        pub filter: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::s3::AnalyticsConfigurationFilter>,
         >,
         /// Unique identifier of the analytics configuration for the bucket.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration for the analytics data export (documented below).
         #[builder(into, default)]
-        pub storage_class_analysis: pulumi_wasm_rust::InputOrOutput<
+        pub storage_class_analysis: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::s3::AnalyticsConfigurationStorageClassAnalysis>,
         >,
     }
     #[allow(dead_code)]
     pub struct AnalyticsConfigurationResult {
         /// Name of the bucket this analytics configuration is associated with.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// Object filtering that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-        pub filter: pulumi_wasm_rust::Output<
+        pub filter: pulumi_gestalt_rust::Output<
             Option<super::super::types::s3::AnalyticsConfigurationFilter>,
         >,
         /// Unique identifier of the analytics configuration for the bucket.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Configuration for the analytics data export (documented below).
-        pub storage_class_analysis: pulumi_wasm_rust::Output<
+        pub storage_class_analysis: pulumi_gestalt_rust::Output<
             Option<super::super::types::s3::AnalyticsConfigurationStorageClassAnalysis>,
         >,
     }
@@ -97,11 +97,11 @@ pub mod analytics_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AnalyticsConfigurationArgs,
     ) -> AnalyticsConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let filter_binding = args.filter.get_output(context).get_inner();
@@ -135,10 +135,14 @@ pub mod analytics_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AnalyticsConfigurationResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            storage_class_analysis: pulumi_wasm_rust::__private::into_domain(
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            filter: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("filter"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            storage_class_analysis: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageClassAnalysis"),
             ),
         }

@@ -43,8 +43,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let caAuthority = authority::create(
@@ -153,8 +153,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = certificate::create(
@@ -218,8 +218,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let caAuthority = authority::create(
@@ -330,8 +330,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = certificate::create(
@@ -370,8 +370,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = certificate::create(
@@ -425,29 +425,29 @@
 /// ```
 ///
 pub mod certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateArgs {
         /// A human-readable description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Set of label tags associated with the Certificate resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Certificate Manager location. If not specified, "global" is used.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration and state of a Managed Certificate.
         /// Certificate Manager provisions and renews Managed Certificates
         /// automatically, for as long as it's authorized to do so.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub managed: pulumi_wasm_rust::InputOrOutput<
+        pub managed: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::certificatemanager::CertificateManaged>,
         >,
         /// A user-defined name of the certificate. Certificate names must be unique
@@ -457,11 +457,11 @@ pub mod certificate {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The scope of the certificate.
         /// DEFAULT: Certificates with default scope are served from core Google data centers.
         /// If unsure, choose this option.
@@ -470,37 +470,37 @@ pub mod certificate {
         /// ALL_REGIONS: Certificates with ALL_REGIONS scope are served from all GCP regions (You can only use ALL_REGIONS with global certs).
         /// See https://cloud.google.com/compute/docs/regions-zones
         #[builder(into, default)]
-        pub scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub scope: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Certificate data for a SelfManaged Certificate.
         /// SelfManaged Certificates are uploaded by the user. Updating such
         /// certificates before they expire remains the user's responsibility.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub self_managed: pulumi_wasm_rust::InputOrOutput<
+        pub self_managed: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::certificatemanager::CertificateSelfManaged>,
         >,
     }
     #[allow(dead_code)]
     pub struct CertificateResult {
         /// A human-readable description of the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Set of label tags associated with the Certificate resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Certificate Manager location. If not specified, "global" is used.
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration and state of a Managed Certificate.
         /// Certificate Manager provisions and renews Managed Certificates
         /// automatically, for as long as it's authorized to do so.
         /// Structure is documented below.
-        pub managed: pulumi_wasm_rust::Output<
+        pub managed: pulumi_gestalt_rust::Output<
             Option<super::super::types::certificatemanager::CertificateManaged>,
         >,
         /// A user-defined name of the certificate. Certificate names must be unique
@@ -509,17 +509,17 @@ pub mod certificate {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The list of Subject Alternative Names of dnsName type defined in the certificate (see RFC 5280 4.2.1.6)
-        pub san_dnsnames: pulumi_wasm_rust::Output<Vec<String>>,
+        pub san_dnsnames: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The scope of the certificate.
         /// DEFAULT: Certificates with default scope are served from core Google data centers.
         /// If unsure, choose this option.
@@ -527,12 +527,12 @@ pub mod certificate {
         /// See https://cloud.google.com/vpc/docs/edge-locations.
         /// ALL_REGIONS: Certificates with ALL_REGIONS scope are served from all GCP regions (You can only use ALL_REGIONS with global certs).
         /// See https://cloud.google.com/compute/docs/regions-zones
-        pub scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub scope: pulumi_gestalt_rust::Output<Option<String>>,
         /// Certificate data for a SelfManaged Certificate.
         /// SelfManaged Certificates are uploaded by the user. Updating such
         /// certificates before they expire remains the user's responsibility.
         /// Structure is documented below.
-        pub self_managed: pulumi_wasm_rust::Output<
+        pub self_managed: pulumi_gestalt_rust::Output<
             Option<super::super::types::certificatemanager::CertificateSelfManaged>,
         >,
     }
@@ -541,11 +541,11 @@ pub mod certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CertificateArgs,
     ) -> CertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let labels_binding = args.labels.get_output(context).get_inner();
@@ -596,31 +596,33 @@ pub mod certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CertificateResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            managed: pulumi_wasm_rust::__private::into_domain(
+            managed: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managed"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            san_dnsnames: pulumi_wasm_rust::__private::into_domain(
+            san_dnsnames: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sanDnsnames"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
-            self_managed: pulumi_wasm_rust::__private::into_domain(
+            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            self_managed: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfManaged"),
             ),
         }

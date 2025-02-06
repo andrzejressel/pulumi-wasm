@@ -251,14 +251,14 @@
 /// ```
 ///
 pub mod bare_metal_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BareMetalClusterArgs {
         /// The Admin Cluster this Bare Metal User Cluster belongs to.
         /// This is the full resource name of the Admin Cluster's hub membership.
         #[builder(into)]
-        pub admin_cluster_membership: pulumi_wasm_rust::InputOrOutput<String>,
+        pub admin_cluster_membership: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Annotations on the Bare Metal User Cluster. This field has the same restrictions as Kubernetes annotations. The total
         /// size of all keys and values combined is limited to 256k. Key can have 2 segments: prefix (optional) and name (required),
         /// separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with
@@ -266,91 +266,91 @@ pub mod bare_metal_cluster {
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// 'effective_annotations' for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A human readable description of this Bare Metal User Cluster.
         #[builder(into)]
-        pub bare_metal_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bare_metal_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Binary Authorization related configurations.
         #[builder(into, default)]
-        pub binary_authorization: pulumi_wasm_rust::InputOrOutput<
+        pub binary_authorization: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterBinaryAuthorization>,
         >,
         /// Specifies the User Cluster's observability infrastructure.
         #[builder(into, default)]
-        pub cluster_operations: pulumi_wasm_rust::InputOrOutput<
+        pub cluster_operations: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterClusterOperations>,
         >,
         /// Specifies the control plane configuration.
         /// Structure is documented below.
         #[builder(into)]
-        pub control_plane: pulumi_wasm_rust::InputOrOutput<
+        pub control_plane: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::gkeonprem::BareMetalClusterControlPlane,
         >,
         /// (Output)
         /// The description of the validation check.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the load balancer configuration.
         /// Structure is documented below.
         #[builder(into)]
-        pub load_balancer: pulumi_wasm_rust::InputOrOutput<
+        pub load_balancer: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::gkeonprem::BareMetalClusterLoadBalancer,
         >,
         /// The location of the resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the workload node configurations.
         #[builder(into, default)]
-        pub maintenance_config: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterMaintenanceConfig>,
         >,
         /// The bare metal cluster name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Network configuration.
         /// Structure is documented below.
         #[builder(into)]
-        pub network_config: pulumi_wasm_rust::InputOrOutput<
+        pub network_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::gkeonprem::BareMetalClusterNetworkConfig,
         >,
         /// Specifies the node access related settings for the bare metal user cluster.
         #[builder(into, default)]
-        pub node_access_config: pulumi_wasm_rust::InputOrOutput<
+        pub node_access_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterNodeAccessConfig>,
         >,
         /// Specifies the workload node configurations.
         #[builder(into, default)]
-        pub node_config: pulumi_wasm_rust::InputOrOutput<
+        pub node_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterNodeConfig>,
         >,
         /// OS environment related configurations.
         #[builder(into, default)]
-        pub os_environment_config: pulumi_wasm_rust::InputOrOutput<
+        pub os_environment_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterOsEnvironmentConfig>,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the cluster proxy configuration.
         #[builder(into, default)]
-        pub proxy: pulumi_wasm_rust::InputOrOutput<
+        pub proxy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterProxy>,
         >,
         /// Specifies the security related settings for the Bare Metal User Cluster.
         #[builder(into, default)]
-        pub security_config: pulumi_wasm_rust::InputOrOutput<
+        pub security_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterSecurityConfig>,
         >,
         /// Specifies the cluster storage configuration.
         /// Structure is documented below.
         #[builder(into)]
-        pub storage: pulumi_wasm_rust::InputOrOutput<
+        pub storage: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::gkeonprem::BareMetalClusterStorage,
         >,
         /// The cluster upgrade policy.
         #[builder(into, default)]
-        pub upgrade_policy: pulumi_wasm_rust::InputOrOutput<
+        pub upgrade_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkeonprem::BareMetalClusterUpgradePolicy>,
         >,
     }
@@ -358,49 +358,49 @@ pub mod bare_metal_cluster {
     pub struct BareMetalClusterResult {
         /// The Admin Cluster this Bare Metal User Cluster belongs to.
         /// This is the full resource name of the Admin Cluster's hub membership.
-        pub admin_cluster_membership: pulumi_wasm_rust::Output<String>,
+        pub admin_cluster_membership: pulumi_gestalt_rust::Output<String>,
         /// Annotations on the Bare Metal User Cluster. This field has the same restrictions as Kubernetes annotations. The total
         /// size of all keys and values combined is limited to 256k. Key can have 2 segments: prefix (optional) and name (required),
         /// separated by a slash (/). Prefix must be a DNS subdomain. Name must be 63 characters or less, begin and end with
         /// alphanumerics, with dashes (-), underscores (_), dots (.), and alphanumerics between. **Note**: This field is
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// 'effective_annotations' for all of the annotations present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A human readable description of this Bare Metal User Cluster.
-        pub bare_metal_version: pulumi_wasm_rust::Output<String>,
+        pub bare_metal_version: pulumi_gestalt_rust::Output<String>,
         /// Binary Authorization related configurations.
-        pub binary_authorization: pulumi_wasm_rust::Output<
+        pub binary_authorization: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkeonprem::BareMetalClusterBinaryAuthorization>,
         >,
         /// Specifies the User Cluster's observability infrastructure.
-        pub cluster_operations: pulumi_wasm_rust::Output<
+        pub cluster_operations: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkeonprem::BareMetalClusterClusterOperations>,
         >,
         /// Specifies the control plane configuration.
         /// Structure is documented below.
-        pub control_plane: pulumi_wasm_rust::Output<
+        pub control_plane: pulumi_gestalt_rust::Output<
             super::super::types::gkeonprem::BareMetalClusterControlPlane,
         >,
         /// The time the cluster was created, in RFC3339 text format.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The time the cluster was deleted, in RFC3339 text format.
-        pub delete_time: pulumi_wasm_rust::Output<String>,
+        pub delete_time: pulumi_gestalt_rust::Output<String>,
         /// (Output)
         /// The description of the validation check.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The IP address name of Bare Metal User Cluster's API server.
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_gestalt_rust::Output<String>,
         /// This checksum is computed by the server based on the value of other
         /// fields, and may be sent on update and delete requests to ensure the
         /// client has an up-to-date value before proceeding.
         /// Allows clients to perform consistent read-modify-writes
         /// through optimistic concurrency control.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Fleet related configuration.
         /// Fleets are a Google Cloud concept for logically organizing clusters,
         /// letting you use and manage multi-cluster capabilities and apply
@@ -408,12 +408,12 @@ pub mod bare_metal_cluster {
         /// See [Anthos Fleets](https://cloud.google.com/anthos/multicluster-management/fleets) for
         /// more details on Anthos multi-cluster capabilities using Fleets.
         /// Structure is documented below.
-        pub fleets: pulumi_wasm_rust::Output<
+        pub fleets: pulumi_gestalt_rust::Output<
             Vec<super::super::types::gkeonprem::BareMetalClusterFleet>,
         >,
         /// Specifies the load balancer configuration.
         /// Structure is documented below.
-        pub load_balancer: pulumi_wasm_rust::Output<
+        pub load_balancer: pulumi_gestalt_rust::Output<
             super::super::types::gkeonprem::BareMetalClusterLoadBalancer,
         >,
         /// The object name of the Bare Metal Cluster custom resource on the
@@ -426,68 +426,68 @@ pub mod bare_metal_cluster {
         /// All users should use this name to access their cluster using gkectl or
         /// kubectl and should expect to see the local name when viewing admin
         /// cluster controller logs.
-        pub local_name: pulumi_wasm_rust::Output<String>,
+        pub local_name: pulumi_gestalt_rust::Output<String>,
         /// The location of the resource.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the workload node configurations.
-        pub maintenance_config: pulumi_wasm_rust::Output<
+        pub maintenance_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkeonprem::BareMetalClusterMaintenanceConfig>,
         >,
         /// The bare metal cluster name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Network configuration.
         /// Structure is documented below.
-        pub network_config: pulumi_wasm_rust::Output<
+        pub network_config: pulumi_gestalt_rust::Output<
             super::super::types::gkeonprem::BareMetalClusterNetworkConfig,
         >,
         /// Specifies the node access related settings for the bare metal user cluster.
-        pub node_access_config: pulumi_wasm_rust::Output<
+        pub node_access_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkeonprem::BareMetalClusterNodeAccessConfig>,
         >,
         /// Specifies the workload node configurations.
-        pub node_config: pulumi_wasm_rust::Output<
+        pub node_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkeonprem::BareMetalClusterNodeConfig>,
         >,
         /// OS environment related configurations.
-        pub os_environment_config: pulumi_wasm_rust::Output<
+        pub os_environment_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkeonprem::BareMetalClusterOsEnvironmentConfig>,
         >,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Specifies the cluster proxy configuration.
-        pub proxy: pulumi_wasm_rust::Output<
+        pub proxy: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkeonprem::BareMetalClusterProxy>,
         >,
         /// If set, there are currently changes in flight to the Bare Metal User Cluster.
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// Specifies the security related settings for the Bare Metal User Cluster.
-        pub security_config: pulumi_wasm_rust::Output<
+        pub security_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkeonprem::BareMetalClusterSecurityConfig>,
         >,
         /// (Output)
         /// The lifecycle state of the condition.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// (Output)
         /// Specifies the detailed validation check status
         /// Structure is documented below.
-        pub statuses: pulumi_wasm_rust::Output<
+        pub statuses: pulumi_gestalt_rust::Output<
             Vec<super::super::types::gkeonprem::BareMetalClusterStatus>,
         >,
         /// Specifies the cluster storage configuration.
         /// Structure is documented below.
-        pub storage: pulumi_wasm_rust::Output<
+        pub storage: pulumi_gestalt_rust::Output<
             super::super::types::gkeonprem::BareMetalClusterStorage,
         >,
         /// The unique identifier of the Bare Metal User Cluster.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// The time the cluster was last updated, in RFC3339 text format.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// The cluster upgrade policy.
-        pub upgrade_policy: pulumi_wasm_rust::Output<
+        pub upgrade_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkeonprem::BareMetalClusterUpgradePolicy>,
         >,
         /// Specifies the security related settings for the Bare Metal User Cluster.
         /// Structure is documented below.
-        pub validation_checks: pulumi_wasm_rust::Output<
+        pub validation_checks: pulumi_gestalt_rust::Output<
             Vec<super::super::types::gkeonprem::BareMetalClusterValidationCheck>,
         >,
     }
@@ -496,11 +496,11 @@ pub mod bare_metal_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BareMetalClusterArgs,
     ) -> BareMetalClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let admin_cluster_membership_binding = args
             .admin_cluster_membership
@@ -635,91 +635,93 @@ pub mod bare_metal_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BareMetalClusterResult {
-            admin_cluster_membership: pulumi_wasm_rust::__private::into_domain(
+            admin_cluster_membership: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminClusterMembership"),
             ),
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            bare_metal_version: pulumi_wasm_rust::__private::into_domain(
+            bare_metal_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bareMetalVersion"),
             ),
-            binary_authorization: pulumi_wasm_rust::__private::into_domain(
+            binary_authorization: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("binaryAuthorization"),
             ),
-            cluster_operations: pulumi_wasm_rust::__private::into_domain(
+            cluster_operations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterOperations"),
             ),
-            control_plane: pulumi_wasm_rust::__private::into_domain(
+            control_plane: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("controlPlane"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            delete_time: pulumi_wasm_rust::__private::into_domain(
+            delete_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            fleets: pulumi_wasm_rust::__private::into_domain(o.extract_field("fleets")),
-            load_balancer: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            fleets: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("fleets"),
+            ),
+            load_balancer: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancer"),
             ),
-            local_name: pulumi_wasm_rust::__private::into_domain(
+            local_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localName"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maintenance_config: pulumi_wasm_rust::__private::into_domain(
+            maintenance_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkConfig"),
             ),
-            node_access_config: pulumi_wasm_rust::__private::into_domain(
+            node_access_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeAccessConfig"),
             ),
-            node_config: pulumi_wasm_rust::__private::into_domain(
+            node_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeConfig"),
             ),
-            os_environment_config: pulumi_wasm_rust::__private::into_domain(
+            os_environment_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("osEnvironmentConfig"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            proxy: pulumi_wasm_rust::__private::into_domain(o.extract_field("proxy")),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            proxy: pulumi_gestalt_rust::__private::into_domain(o.extract_field("proxy")),
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            security_config: pulumi_wasm_rust::__private::into_domain(
+            security_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityConfig"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            statuses: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            statuses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statuses"),
             ),
-            storage: pulumi_wasm_rust::__private::into_domain(
+            storage: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storage"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            upgrade_policy: pulumi_wasm_rust::__private::into_domain(
+            upgrade_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("upgradePolicy"),
             ),
-            validation_checks: pulumi_wasm_rust::__private::into_domain(
+            validation_checks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationChecks"),
             ),
         }

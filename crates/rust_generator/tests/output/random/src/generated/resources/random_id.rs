@@ -51,51 +51,51 @@
 ///
 ///
 pub mod random_id {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RandomIdArgs {
         /// The number of random bytes to produce. The minimum value is 1, which produces eight bits of randomness.
         #[builder(into)]
-        pub byte_length: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub byte_length: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
         #[builder(into, default)]
-        pub keepers: pulumi_wasm_rust::InputOrOutput<
+        pub keepers: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Arbitrary string to prefix the output value with. This string is supplied as-is, meaning it is not guaranteed to be URL-safe or base64 encoded.
         #[builder(into, default)]
-        pub prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RandomIdResult {
         /// The generated id presented in base64 without additional transformations.
-        pub b64_std: pulumi_wasm_rust::Output<String>,
+        pub b64_std: pulumi_gestalt_rust::Output<String>,
         /// The generated id presented in base64, using the URL-friendly character set: case-sensitive letters, digits and the characters `_` and `-`.
-        pub b64_url: pulumi_wasm_rust::Output<String>,
+        pub b64_url: pulumi_gestalt_rust::Output<String>,
         /// The number of random bytes to produce. The minimum value is 1, which produces eight bits of randomness.
-        pub byte_length: pulumi_wasm_rust::Output<i32>,
+        pub byte_length: pulumi_gestalt_rust::Output<i32>,
         /// The generated id presented in non-padded decimal digits.
-        pub dec: pulumi_wasm_rust::Output<String>,
+        pub dec: pulumi_gestalt_rust::Output<String>,
         /// The generated id presented in padded hexadecimal digits. This result will always be twice as long as the requested byte length.
-        pub hex: pulumi_wasm_rust::Output<String>,
+        pub hex: pulumi_gestalt_rust::Output<String>,
         /// Arbitrary map of values that, when changed, will trigger recreation of resource. See the main provider documentation for more information.
-        pub keepers: pulumi_wasm_rust::Output<
+        pub keepers: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Arbitrary string to prefix the output value with. This string is supplied as-is, meaning it is not guaranteed to be URL-safe or base64 encoded.
-        pub prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub prefix: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RandomIdArgs,
     ) -> RandomIdResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let byte_length_binding = args.byte_length.get_output(context).get_inner();
         let keepers_binding = args.keepers.get_output(context).get_inner();
@@ -121,17 +121,23 @@ pub mod random_id {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RandomIdResult {
-            b64_std: pulumi_wasm_rust::__private::into_domain(o.extract_field("b64Std")),
-            b64_url: pulumi_wasm_rust::__private::into_domain(o.extract_field("b64Url")),
-            byte_length: pulumi_wasm_rust::__private::into_domain(
+            b64_std: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("b64Std"),
+            ),
+            b64_url: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("b64Url"),
+            ),
+            byte_length: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("byteLength"),
             ),
-            dec: pulumi_wasm_rust::__private::into_domain(o.extract_field("dec")),
-            hex: pulumi_wasm_rust::__private::into_domain(o.extract_field("hex")),
-            keepers: pulumi_wasm_rust::__private::into_domain(
+            dec: pulumi_gestalt_rust::__private::into_domain(o.extract_field("dec")),
+            hex: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hex")),
+            keepers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keepers"),
             ),
-            prefix: pulumi_wasm_rust::__private::into_domain(o.extract_field("prefix")),
+            prefix: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("prefix"),
+            ),
         }
     }
 }

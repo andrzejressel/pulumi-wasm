@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -46,44 +46,44 @@
 /// ```
 ///
 pub mod identity_provider_twitter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IdentityProviderTwitterArgs {
         /// App Consumer API key for Twitter.
         #[builder(into)]
-        pub api_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Name of the API Management Service where this Twitter Identity Provider should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// App Consumer API secret key for Twitter.
         #[builder(into)]
-        pub api_secret_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_secret_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IdentityProviderTwitterResult {
         /// App Consumer API key for Twitter.
-        pub api_key: pulumi_wasm_rust::Output<String>,
+        pub api_key: pulumi_gestalt_rust::Output<String>,
         /// The Name of the API Management Service where this Twitter Identity Provider should be created. Changing this forces a new resource to be created.
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_gestalt_rust::Output<String>,
         /// App Consumer API secret key for Twitter.
-        pub api_secret_key: pulumi_wasm_rust::Output<String>,
+        pub api_secret_key: pulumi_gestalt_rust::Output<String>,
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IdentityProviderTwitterArgs,
     ) -> IdentityProviderTwitterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_key_binding = args.api_key.get_output(context).get_inner();
         let api_management_name_binding = args
@@ -121,14 +121,16 @@ pub mod identity_provider_twitter {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IdentityProviderTwitterResult {
-            api_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiKey")),
-            api_management_name: pulumi_wasm_rust::__private::into_domain(
+            api_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiKey"),
+            ),
+            api_management_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementName"),
             ),
-            api_secret_key: pulumi_wasm_rust::__private::into_domain(
+            api_secret_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiSecretKey"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
         }

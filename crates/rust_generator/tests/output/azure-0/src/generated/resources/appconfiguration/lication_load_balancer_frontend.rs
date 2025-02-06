@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = lication_load_balancer::create(
@@ -34,32 +34,32 @@
 /// ```
 ///
 pub mod lication_load_balancer_frontend {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LicationLoadBalancerFrontendArgs {
         /// The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub application_load_balancer_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_load_balancer_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Application Gateway for Containers Frontend. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Application Gateway for Containers Frontend.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LicationLoadBalancerFrontendResult {
         /// The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
-        pub application_load_balancer_id: pulumi_wasm_rust::Output<String>,
+        pub application_load_balancer_id: pulumi_gestalt_rust::Output<String>,
         /// The Fully Qualified Domain Name of the DNS record associated to an Application Gateway for Containers Frontend.
-        pub fully_qualified_domain_name: pulumi_wasm_rust::Output<String>,
+        pub fully_qualified_domain_name: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Application Gateway for Containers Frontend. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Application Gateway for Containers Frontend.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -68,11 +68,11 @@ pub mod lication_load_balancer_frontend {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LicationLoadBalancerFrontendArgs,
     ) -> LicationLoadBalancerFrontendResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_load_balancer_id_binding = args
             .application_load_balancer_id
@@ -102,14 +102,14 @@ pub mod lication_load_balancer_frontend {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LicationLoadBalancerFrontendResult {
-            application_load_balancer_id: pulumi_wasm_rust::__private::into_domain(
+            application_load_balancer_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationLoadBalancerId"),
             ),
-            fully_qualified_domain_name: pulumi_wasm_rust::__private::into_domain(
+            fully_qualified_domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fullyQualifiedDomainName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

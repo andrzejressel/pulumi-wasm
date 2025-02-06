@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -54,44 +54,44 @@
 /// ```
 ///
 pub mod linked_storage_account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkedStorageAccountArgs {
         /// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
         #[builder(into)]
-        pub data_source_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_source_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The storage account resource ids to be linked.
         #[builder(into)]
-        pub storage_account_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub storage_account_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
         #[builder(into)]
-        pub workspace_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workspace_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LinkedStorageAccountResult {
         /// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
-        pub data_source_type: pulumi_wasm_rust::Output<String>,
+        pub data_source_type: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The storage account resource ids to be linked.
-        pub storage_account_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub storage_account_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
-        pub workspace_resource_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_resource_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LinkedStorageAccountArgs,
     ) -> LinkedStorageAccountResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_source_type_binding = args
             .data_source_type
@@ -134,16 +134,16 @@ pub mod linked_storage_account {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LinkedStorageAccountResult {
-            data_source_type: pulumi_wasm_rust::__private::into_domain(
+            data_source_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSourceType"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            storage_account_ids: pulumi_wasm_rust::__private::into_domain(
+            storage_account_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountIds"),
             ),
-            workspace_resource_id: pulumi_wasm_rust::__private::into_domain(
+            workspace_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceResourceId"),
             ),
         }

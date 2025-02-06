@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -42,50 +42,50 @@
 /// ```
 ///
 pub mod email_service_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EmailServiceDomainArgs {
         /// Describes how a Domains resource is being managed. Possible values are `AzureManaged`, `CustomerManaged`, `CustomerManagedInExchangeOnline`. Changing this forces a new Email Communication Service to be created.
         #[builder(into)]
-        pub domain_management: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_management: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource ID of the Email Communication Service where the Domain belongs to. Changing this forces a new Email Communication Service to be created.
         #[builder(into)]
-        pub email_service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub email_service_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Email Communication Service.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Describes user engagement tracking is enabled or disabled. Defaults to `false`.
         #[builder(into, default)]
-        pub user_engagement_tracking_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub user_engagement_tracking_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
     }
     #[allow(dead_code)]
     pub struct EmailServiceDomainResult {
         /// Describes how a Domains resource is being managed. Possible values are `AzureManaged`, `CustomerManaged`, `CustomerManagedInExchangeOnline`. Changing this forces a new Email Communication Service to be created.
-        pub domain_management: pulumi_wasm_rust::Output<String>,
+        pub domain_management: pulumi_gestalt_rust::Output<String>,
         /// The resource ID of the Email Communication Service where the Domain belongs to. Changing this forces a new Email Communication Service to be created.
-        pub email_service_id: pulumi_wasm_rust::Output<String>,
+        pub email_service_id: pulumi_gestalt_rust::Output<String>,
         /// P2 sender domain that is displayed to the email recipients [RFC 5322].
-        pub from_sender_domain: pulumi_wasm_rust::Output<String>,
+        pub from_sender_domain: pulumi_gestalt_rust::Output<String>,
         /// P1 sender domain that is present on the email envelope [RFC 5321].
-        pub mail_from_sender_domain: pulumi_wasm_rust::Output<String>,
+        pub mail_from_sender_domain: pulumi_gestalt_rust::Output<String>,
         /// The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Email Communication Service.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Describes user engagement tracking is enabled or disabled. Defaults to `false`.
-        pub user_engagement_tracking_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub user_engagement_tracking_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// (Optional) An `verification_records` block as defined below.
-        pub verification_records: pulumi_wasm_rust::Output<
+        pub verification_records: pulumi_gestalt_rust::Output<
             Vec<super::super::types::communication::EmailServiceDomainVerificationRecord>,
         >,
     }
@@ -94,11 +94,11 @@ pub mod email_service_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EmailServiceDomainArgs,
     ) -> EmailServiceDomainResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_management_binding = args
             .domain_management
@@ -143,24 +143,24 @@ pub mod email_service_domain {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EmailServiceDomainResult {
-            domain_management: pulumi_wasm_rust::__private::into_domain(
+            domain_management: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainManagement"),
             ),
-            email_service_id: pulumi_wasm_rust::__private::into_domain(
+            email_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emailServiceId"),
             ),
-            from_sender_domain: pulumi_wasm_rust::__private::into_domain(
+            from_sender_domain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fromSenderDomain"),
             ),
-            mail_from_sender_domain: pulumi_wasm_rust::__private::into_domain(
+            mail_from_sender_domain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mailFromSenderDomain"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            user_engagement_tracking_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            user_engagement_tracking_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userEngagementTrackingEnabled"),
             ),
-            verification_records: pulumi_wasm_rust::__private::into_domain(
+            verification_records: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("verificationRecords"),
             ),
         }

@@ -147,20 +147,20 @@
 /// ```
 ///
 pub mod bitbucket_server_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BitbucketServerConfigArgs {
         /// Immutable. API Key that will be attached to webhook. Once this field has been set, it cannot be changed.
         /// Changing this field will result in deleting/ recreating the resource.
         #[builder(into)]
-        pub api_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID to use for the BitbucketServerConfig, which will become the final component of the BitbucketServerConfig's resource name.
         #[builder(into)]
-        pub config_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub config_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Connected Bitbucket Server repositories for this config.
         #[builder(into, default)]
-        pub connected_repositories: pulumi_wasm_rust::InputOrOutput<
+        pub connected_repositories: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::cloudbuild::BitbucketServerConfigConnectedRepository,
@@ -170,42 +170,42 @@ pub mod bitbucket_server_config {
         /// Immutable. The URI of the Bitbucket Server host. Once this field has been set, it cannot be changed.
         /// If you need to change it, please create another BitbucketServerConfig.
         #[builder(into)]
-        pub host_uri: pulumi_wasm_rust::InputOrOutput<String>,
+        pub host_uri: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location of this bitbucket server config.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The network to be used when reaching out to the Bitbucket Server instance. The VPC network must be enabled for private
         /// service connection. This should be set if the Bitbucket Server instance is hosted on-premises and not reachable by
         /// public internet. If this field is left empty, no network peering will occur and calls to the Bitbucket Server instance
         /// will be made over the public internet. Must be in the format projects/{project}/global/networks/{network}, where
         /// {project} is a project number or id and {network} is the name of a VPC network in the project.
         #[builder(into, default)]
-        pub peered_network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub peered_network: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Secret Manager secrets needed by the config.
         /// Structure is documented below.
         #[builder(into)]
-        pub secrets: pulumi_wasm_rust::InputOrOutput<
+        pub secrets: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cloudbuild::BitbucketServerConfigSecrets,
         >,
         /// SSL certificate to use for requests to Bitbucket Server. The format should be PEM format but the extension can be one of
         /// .pem, .cer, or .crt.
         #[builder(into, default)]
-        pub ssl_ca: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ssl_ca: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Username of the account Cloud Build will use on Bitbucket Server.
         #[builder(into)]
-        pub username: pulumi_wasm_rust::InputOrOutput<String>,
+        pub username: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BitbucketServerConfigResult {
         /// Immutable. API Key that will be attached to webhook. Once this field has been set, it cannot be changed.
         /// Changing this field will result in deleting/ recreating the resource.
-        pub api_key: pulumi_wasm_rust::Output<String>,
+        pub api_key: pulumi_gestalt_rust::Output<String>,
         /// The ID to use for the BitbucketServerConfig, which will become the final component of the BitbucketServerConfig's resource name.
-        pub config_id: pulumi_wasm_rust::Output<String>,
+        pub config_id: pulumi_gestalt_rust::Output<String>,
         /// Connected Bitbucket Server repositories for this config.
-        pub connected_repositories: pulumi_wasm_rust::Output<
+        pub connected_repositories: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::cloudbuild::BitbucketServerConfigConnectedRepository,
@@ -214,41 +214,41 @@ pub mod bitbucket_server_config {
         >,
         /// Immutable. The URI of the Bitbucket Server host. Once this field has been set, it cannot be changed.
         /// If you need to change it, please create another BitbucketServerConfig.
-        pub host_uri: pulumi_wasm_rust::Output<String>,
+        pub host_uri: pulumi_gestalt_rust::Output<String>,
         /// The location of this bitbucket server config.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource name for the config.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The network to be used when reaching out to the Bitbucket Server instance. The VPC network must be enabled for private
         /// service connection. This should be set if the Bitbucket Server instance is hosted on-premises and not reachable by
         /// public internet. If this field is left empty, no network peering will occur and calls to the Bitbucket Server instance
         /// will be made over the public internet. Must be in the format projects/{project}/global/networks/{network}, where
         /// {project} is a project number or id and {network} is the name of a VPC network in the project.
-        pub peered_network: pulumi_wasm_rust::Output<Option<String>>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub peered_network: pulumi_gestalt_rust::Output<Option<String>>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Secret Manager secrets needed by the config.
         /// Structure is documented below.
-        pub secrets: pulumi_wasm_rust::Output<
+        pub secrets: pulumi_gestalt_rust::Output<
             super::super::types::cloudbuild::BitbucketServerConfigSecrets,
         >,
         /// SSL certificate to use for requests to Bitbucket Server. The format should be PEM format but the extension can be one of
         /// .pem, .cer, or .crt.
-        pub ssl_ca: pulumi_wasm_rust::Output<Option<String>>,
+        pub ssl_ca: pulumi_gestalt_rust::Output<Option<String>>,
         /// Username of the account Cloud Build will use on Bitbucket Server.
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub username: pulumi_gestalt_rust::Output<String>,
         /// Output only. UUID included in webhook requests. The UUID is used to look up the corresponding config.
-        pub webhook_key: pulumi_wasm_rust::Output<String>,
+        pub webhook_key: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BitbucketServerConfigArgs,
     ) -> BitbucketServerConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_key_binding = args.api_key.get_output(context).get_inner();
         let config_id_binding = args.config_id.get_output(context).get_inner();
@@ -312,34 +312,38 @@ pub mod bitbucket_server_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BitbucketServerConfigResult {
-            api_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiKey")),
-            config_id: pulumi_wasm_rust::__private::into_domain(
+            api_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiKey"),
+            ),
+            config_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configId"),
             ),
-            connected_repositories: pulumi_wasm_rust::__private::into_domain(
+            connected_repositories: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectedRepositories"),
             ),
-            host_uri: pulumi_wasm_rust::__private::into_domain(
+            host_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostUri"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            peered_network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            peered_network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peeredNetwork"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            secrets: pulumi_wasm_rust::__private::into_domain(
+            secrets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secrets"),
             ),
-            ssl_ca: pulumi_wasm_rust::__private::into_domain(o.extract_field("sslCa")),
-            username: pulumi_wasm_rust::__private::into_domain(
+            ssl_ca: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("sslCa"),
+            ),
+            username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("username"),
             ),
-            webhook_key: pulumi_wasm_rust::__private::into_domain(
+            webhook_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("webhookKey"),
             ),
         }

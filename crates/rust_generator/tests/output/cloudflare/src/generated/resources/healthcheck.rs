@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let httpHealthCheck = healthcheck::create(
@@ -69,132 +69,132 @@
 /// ```
 ///
 pub mod healthcheck {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HealthcheckArgs {
         /// The hostname or IP address of the origin server to run health checks on.
         #[builder(into)]
-        pub address: pulumi_wasm_rust::InputOrOutput<String>,
+        pub address: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Do not validate the certificate when the health check uses HTTPS. Defaults to `false`.
         #[builder(into, default)]
-        pub allow_insecure: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_insecure: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A list of regions from which to run health checks. If not set, Cloudflare will pick a default region. Available values: `WNAM`, `ENAM`, `WEU`, `EEU`, `NSAM`, `SSAM`, `OC`, `ME`, `NAF`, `SAF`, `IN`, `SEAS`, `NEAS`, `ALL_REGIONS`.
         #[builder(into, default)]
-        pub check_regions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub check_regions: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The number of consecutive fails required from a health check before changing the health to unhealthy. Defaults to `1`.
         #[builder(into, default)]
-        pub consecutive_fails: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub consecutive_fails: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The number of consecutive successes required from a health check before changing the health to healthy. Defaults to `1`.
         #[builder(into, default)]
-        pub consecutive_successes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub consecutive_successes: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A human-readable description of the health check.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A case-insensitive sub-string to look for in the response body. If this string is not found the origin will be marked as unhealthy.
         #[builder(into, default)]
-        pub expected_body: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub expected_body: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The expected HTTP response codes (e.g. '200') or code ranges (e.g. '2xx' for all codes starting with 2) of the health check.
         #[builder(into, default)]
-        pub expected_codes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub expected_codes: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Follow redirects if the origin returns a 3xx status code. Defaults to `false`.
         #[builder(into, default)]
-        pub follow_redirects: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub follow_redirects: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The HTTP request headers to send in the health check. It is recommended you set a Host header by default. The User-Agent header cannot be overridden.
         #[builder(into, default)]
-        pub headers: pulumi_wasm_rust::InputOrOutput<
+        pub headers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::HealthcheckHeader>>,
         >,
         /// The interval between each health check. Shorter intervals may give quicker notifications if the origin status changes, but will increase the load on the origin as we check from multiple locations. Defaults to `60`.
         #[builder(into, default)]
-        pub interval: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub interval: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The HTTP method to use for the health check. Available values: `connection_established`, `GET`, `HEAD`.
         #[builder(into, default)]
-        pub method: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub method: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A short name to identify the health check. Only alphanumeric characters, hyphens, and underscores are allowed.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The endpoint path to health check against. Defaults to `/`.
         #[builder(into, default)]
-        pub path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Port number to connect to for the health check. Defaults to `80`.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Retries are attempted immediately. Defaults to `2`.
         #[builder(into, default)]
-        pub retries: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub retries: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// If suspended, no health checks are sent to the origin. Defaults to `false`.
         #[builder(into, default)]
-        pub suspended: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub suspended: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The timeout (in seconds) before marking the health check as failed. Defaults to `5`.
         #[builder(into, default)]
-        pub timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub timeout: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The protocol to use for the health check. Available values: `TCP`, `HTTP`, `HTTPS`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HealthcheckResult {
         /// The hostname or IP address of the origin server to run health checks on.
-        pub address: pulumi_wasm_rust::Output<String>,
+        pub address: pulumi_gestalt_rust::Output<String>,
         /// Do not validate the certificate when the health check uses HTTPS. Defaults to `false`.
-        pub allow_insecure: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_insecure: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A list of regions from which to run health checks. If not set, Cloudflare will pick a default region. Available values: `WNAM`, `ENAM`, `WEU`, `EEU`, `NSAM`, `SSAM`, `OC`, `ME`, `NAF`, `SAF`, `IN`, `SEAS`, `NEAS`, `ALL_REGIONS`.
-        pub check_regions: pulumi_wasm_rust::Output<Vec<String>>,
+        pub check_regions: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The number of consecutive fails required from a health check before changing the health to unhealthy. Defaults to `1`.
-        pub consecutive_fails: pulumi_wasm_rust::Output<Option<i32>>,
+        pub consecutive_fails: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The number of consecutive successes required from a health check before changing the health to healthy. Defaults to `1`.
-        pub consecutive_successes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub consecutive_successes: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Creation time.
-        pub created_on: pulumi_wasm_rust::Output<String>,
+        pub created_on: pulumi_gestalt_rust::Output<String>,
         /// A human-readable description of the health check.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A case-insensitive sub-string to look for in the response body. If this string is not found the origin will be marked as unhealthy.
-        pub expected_body: pulumi_wasm_rust::Output<Option<String>>,
+        pub expected_body: pulumi_gestalt_rust::Output<Option<String>>,
         /// The expected HTTP response codes (e.g. '200') or code ranges (e.g. '2xx' for all codes starting with 2) of the health check.
-        pub expected_codes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub expected_codes: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Follow redirects if the origin returns a 3xx status code. Defaults to `false`.
-        pub follow_redirects: pulumi_wasm_rust::Output<Option<bool>>,
+        pub follow_redirects: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The HTTP request headers to send in the health check. It is recommended you set a Host header by default. The User-Agent header cannot be overridden.
-        pub headers: pulumi_wasm_rust::Output<
+        pub headers: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::HealthcheckHeader>>,
         >,
         /// The interval between each health check. Shorter intervals may give quicker notifications if the origin status changes, but will increase the load on the origin as we check from multiple locations. Defaults to `60`.
-        pub interval: pulumi_wasm_rust::Output<Option<i32>>,
+        pub interval: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The HTTP method to use for the health check. Available values: `connection_established`, `GET`, `HEAD`.
-        pub method: pulumi_wasm_rust::Output<String>,
+        pub method: pulumi_gestalt_rust::Output<String>,
         /// Last modified time.
-        pub modified_on: pulumi_wasm_rust::Output<String>,
+        pub modified_on: pulumi_gestalt_rust::Output<String>,
         /// A short name to identify the health check. Only alphanumeric characters, hyphens, and underscores are allowed.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The endpoint path to health check against. Defaults to `/`.
-        pub path: pulumi_wasm_rust::Output<Option<String>>,
+        pub path: pulumi_gestalt_rust::Output<Option<String>>,
         /// Port number to connect to for the health check. Defaults to `80`.
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The number of retries to attempt in case of a timeout before marking the origin as unhealthy. Retries are attempted immediately. Defaults to `2`.
-        pub retries: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retries: pulumi_gestalt_rust::Output<Option<i32>>,
         /// If suspended, no health checks are sent to the origin. Defaults to `false`.
-        pub suspended: pulumi_wasm_rust::Output<Option<bool>>,
+        pub suspended: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The timeout (in seconds) before marking the health check as failed. Defaults to `5`.
-        pub timeout: pulumi_wasm_rust::Output<Option<i32>>,
+        pub timeout: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The protocol to use for the health check. Available values: `TCP`, `HTTP`, `HTTPS`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HealthcheckArgs,
     ) -> HealthcheckResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let address_binding = args.address.get_output(context).get_inner();
         let allow_insecure_binding = args.allow_insecure.get_output(context).get_inner();
@@ -314,60 +314,64 @@ pub mod healthcheck {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HealthcheckResult {
-            address: pulumi_wasm_rust::__private::into_domain(
+            address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("address"),
             ),
-            allow_insecure: pulumi_wasm_rust::__private::into_domain(
+            allow_insecure: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowInsecure"),
             ),
-            check_regions: pulumi_wasm_rust::__private::into_domain(
+            check_regions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("checkRegions"),
             ),
-            consecutive_fails: pulumi_wasm_rust::__private::into_domain(
+            consecutive_fails: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("consecutiveFails"),
             ),
-            consecutive_successes: pulumi_wasm_rust::__private::into_domain(
+            consecutive_successes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("consecutiveSuccesses"),
             ),
-            created_on: pulumi_wasm_rust::__private::into_domain(
+            created_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdOn"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            expected_body: pulumi_wasm_rust::__private::into_domain(
+            expected_body: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expectedBody"),
             ),
-            expected_codes: pulumi_wasm_rust::__private::into_domain(
+            expected_codes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expectedCodes"),
             ),
-            follow_redirects: pulumi_wasm_rust::__private::into_domain(
+            follow_redirects: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("followRedirects"),
             ),
-            headers: pulumi_wasm_rust::__private::into_domain(
+            headers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("headers"),
             ),
-            interval: pulumi_wasm_rust::__private::into_domain(
+            interval: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("interval"),
             ),
-            method: pulumi_wasm_rust::__private::into_domain(o.extract_field("method")),
-            modified_on: pulumi_wasm_rust::__private::into_domain(
+            method: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("method"),
+            ),
+            modified_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modifiedOn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            retries: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            retries: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retries"),
             ),
-            suspended: pulumi_wasm_rust::__private::into_domain(
+            suspended: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("suspended"),
             ),
-            timeout: pulumi_wasm_rust::__private::into_domain(
+            timeout: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeout"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

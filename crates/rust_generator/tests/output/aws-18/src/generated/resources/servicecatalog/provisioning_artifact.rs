@@ -11,8 +11,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = provisioning_artifact::create(
@@ -37,82 +37,84 @@
 /// $ pulumi import aws:servicecatalog/provisioningArtifact:ProvisioningArtifact example pa-ij2b6lusy6dec:prod-el3an0rma3
 /// ```
 pub mod provisioning_artifact {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProvisioningArtifactArgs {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
         #[builder(into, default)]
-        pub accept_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub accept_language: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
         #[builder(into, default)]
-        pub active: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub active: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
         #[builder(into, default)]
-        pub disable_template_validation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disable_template_validation: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
         #[builder(into, default)]
-        pub guidance: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub guidance: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier of the product.
         #[builder(into)]
-        pub product_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub product_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
         #[builder(into, default)]
-        pub template_physical_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub template_physical_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Template source as URL of the CloudFormation template in Amazon S3.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub template_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub template_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ProvisioningArtifactResult {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). The default value is `en`.
-        pub accept_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub accept_language: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether the product version is active. Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact. Default is `true`.
-        pub active: pulumi_wasm_rust::Output<Option<bool>>,
+        pub active: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Time when the provisioning artifact was created.
-        pub created_time: pulumi_wasm_rust::Output<String>,
+        pub created_time: pulumi_gestalt_rust::Output<String>,
         /// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
-        pub disable_template_validation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_template_validation: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Information set by the administrator to provide guidance to end users about which provisioning artifacts to use. Valid values are `DEFAULT` and `DEPRECATED`. The default is `DEFAULT`. Users are able to make updates to a provisioned product of a deprecated version but cannot launch new provisioned products using a deprecated version.
-        pub guidance: pulumi_wasm_rust::Output<Option<String>>,
+        pub guidance: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Identifier of the product.
-        pub product_id: pulumi_wasm_rust::Output<String>,
+        pub product_id: pulumi_gestalt_rust::Output<String>,
         /// Provisioning artifact identifier.
-        pub provisioning_artifact_id: pulumi_wasm_rust::Output<String>,
+        pub provisioning_artifact_id: pulumi_gestalt_rust::Output<String>,
         /// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
-        pub template_physical_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_physical_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Template source as URL of the CloudFormation template in Amazon S3.
         ///
         /// The following arguments are optional:
-        pub template_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_url: pulumi_gestalt_rust::Output<Option<String>>,
         /// Type of provisioning artifact. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_ProvisioningArtifactProperties.html) for valid list of values.
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProvisioningArtifactArgs,
     ) -> ProvisioningArtifactResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let accept_language_binding = args
             .accept_language
@@ -182,36 +184,38 @@ pub mod provisioning_artifact {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProvisioningArtifactResult {
-            accept_language: pulumi_wasm_rust::__private::into_domain(
+            accept_language: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("acceptLanguage"),
             ),
-            active: pulumi_wasm_rust::__private::into_domain(o.extract_field("active")),
-            created_time: pulumi_wasm_rust::__private::into_domain(
+            active: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("active"),
+            ),
+            created_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            disable_template_validation: pulumi_wasm_rust::__private::into_domain(
+            disable_template_validation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disableTemplateValidation"),
             ),
-            guidance: pulumi_wasm_rust::__private::into_domain(
+            guidance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("guidance"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            product_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            product_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("productId"),
             ),
-            provisioning_artifact_id: pulumi_wasm_rust::__private::into_domain(
+            provisioning_artifact_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("provisioningArtifactId"),
             ),
-            template_physical_id: pulumi_wasm_rust::__private::into_domain(
+            template_physical_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("templatePhysicalId"),
             ),
-            template_url: pulumi_wasm_rust::__private::into_domain(
+            template_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("templateUrl"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

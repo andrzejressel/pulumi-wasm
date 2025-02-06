@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = service_network_vpc_association::create(
@@ -28,60 +28,60 @@
 /// $ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
 /// ```
 pub mod service_network_vpc_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceNetworkVpcAssociationArgs {
         /// The IDs of the security groups.
         #[builder(into, default)]
-        pub security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub security_group_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
         /// The following arguments are optional:
         #[builder(into)]
-        pub service_network_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_network_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the VPC.
         #[builder(into)]
-        pub vpc_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpc_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServiceNetworkVpcAssociationResult {
         /// The ARN of the Association.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The account that created the association.
-        pub created_by: pulumi_wasm_rust::Output<String>,
+        pub created_by: pulumi_gestalt_rust::Output<String>,
         /// The IDs of the security groups.
-        pub security_group_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub security_group_ids: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
         /// The following arguments are optional:
-        pub service_network_identifier: pulumi_wasm_rust::Output<String>,
+        pub service_network_identifier: pulumi_gestalt_rust::Output<String>,
         /// The operations status. Valid Values are CREATE_IN_PROGRESS | ACTIVE | DELETE_IN_PROGRESS | CREATE_FAILED | DELETE_FAILED
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The ID of the VPC.
-        pub vpc_identifier: pulumi_wasm_rust::Output<String>,
+        pub vpc_identifier: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServiceNetworkVpcAssociationArgs,
     ) -> ServiceNetworkVpcAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let security_group_ids_binding = args
             .security_group_ids
@@ -119,22 +119,24 @@ pub mod service_network_vpc_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServiceNetworkVpcAssociationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            created_by: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            created_by: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdBy"),
             ),
-            security_group_ids: pulumi_wasm_rust::__private::into_domain(
+            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroupIds"),
             ),
-            service_network_identifier: pulumi_wasm_rust::__private::into_domain(
+            service_network_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceNetworkIdentifier"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vpc_identifier: pulumi_wasm_rust::__private::into_domain(
+            vpc_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcIdentifier"),
             ),
         }

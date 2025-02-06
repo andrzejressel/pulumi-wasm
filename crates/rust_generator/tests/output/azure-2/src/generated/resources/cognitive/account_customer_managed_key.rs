@@ -135,39 +135,39 @@
 /// ```
 ///
 pub mod account_customer_managed_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountCustomerManagedKeyArgs {
         /// The ID of the Cognitive Account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cognitive_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cognitive_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
         #[builder(into, default)]
-        pub identity_client_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub identity_client_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
         #[builder(into)]
-        pub key_vault_key_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_vault_key_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AccountCustomerManagedKeyResult {
         /// The ID of the Cognitive Account. Changing this forces a new resource to be created.
-        pub cognitive_account_id: pulumi_wasm_rust::Output<String>,
+        pub cognitive_account_id: pulumi_gestalt_rust::Output<String>,
         /// The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
-        pub identity_client_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub identity_client_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
-        pub key_vault_key_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_key_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccountCustomerManagedKeyArgs,
     ) -> AccountCustomerManagedKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cognitive_account_id_binding = args
             .cognitive_account_id
@@ -203,13 +203,13 @@ pub mod account_customer_managed_key {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccountCustomerManagedKeyResult {
-            cognitive_account_id: pulumi_wasm_rust::__private::into_domain(
+            cognitive_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cognitiveAccountId"),
             ),
-            identity_client_id: pulumi_wasm_rust::__private::into_domain(
+            identity_client_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identityClientId"),
             ),
-            key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultKeyId"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let sample = cluster::create(
@@ -48,25 +48,25 @@
 /// $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
 /// ```
 pub mod managed_scaling_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedScalingPolicyArgs {
         /// ID of the EMR cluster
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block with compute limit settings. Described below.
         #[builder(into)]
-        pub compute_limits: pulumi_wasm_rust::InputOrOutput<
+        pub compute_limits: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::emr::ManagedScalingPolicyComputeLimit>,
         >,
     }
     #[allow(dead_code)]
     pub struct ManagedScalingPolicyResult {
         /// ID of the EMR cluster
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_gestalt_rust::Output<String>,
         /// Configuration block with compute limit settings. Described below.
-        pub compute_limits: pulumi_wasm_rust::Output<
+        pub compute_limits: pulumi_gestalt_rust::Output<
             Vec<super::super::types::emr::ManagedScalingPolicyComputeLimit>,
         >,
     }
@@ -75,11 +75,11 @@ pub mod managed_scaling_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ManagedScalingPolicyArgs,
     ) -> ManagedScalingPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
         let compute_limits_binding = args.compute_limits.get_output(context).get_inner();
@@ -100,10 +100,10 @@ pub mod managed_scaling_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ManagedScalingPolicyResult {
-            cluster_id: pulumi_wasm_rust::__private::into_domain(
+            cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterId"),
             ),
-            compute_limits: pulumi_wasm_rust::__private::into_domain(
+            compute_limits: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("computeLimits"),
             ),
         }

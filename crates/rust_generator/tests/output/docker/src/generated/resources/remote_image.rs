@@ -10,8 +10,8 @@
 /// for further updates of the image
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let ubuntu = remote_image::create(
@@ -27,8 +27,8 @@
 /// you need to use it in combination with `docker.RegistryImage` as follows:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let ubuntuRegistryImage = get_registry_image::invoke(
@@ -68,56 +68,56 @@
 /// You can use the `triggers` argument to specify when the image should be rebuild. This is for example helpful when you want to rebuild the docker image whenever the source code changes.
 ///
 pub mod remote_image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RemoteImageArgs {
         /// Configuration to build an image. Please see [docker build command reference](https://docs.docker.com/engine/reference/commandline/build/#options) too.
         #[builder(into, default)]
-        pub build: pulumi_wasm_rust::InputOrOutput<
+        pub build: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::RemoteImageBuild>,
         >,
         /// Always remove intermediate containers
         #[builder(into, default)]
-        pub force_remove: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_remove: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.
         #[builder(into, default)]
-        pub keep_locally: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub keep_locally: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// type of ulimit, e.g. `nofile`
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Set platform if server is multi-platform capable
         #[builder(into, default)]
-        pub platform: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub platform: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of values which cause an image pull when changed. This is used to store the image digest from the registry when using the docker*registry*image.
         #[builder(into, default)]
-        pub pull_triggers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub pull_triggers: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A map of arbitrary strings that, when changed, will force the `docker.RemoteImage` resource to be replaced. This can be used to rebuild an image when contents of source code folders change
         #[builder(into, default)]
-        pub triggers: pulumi_wasm_rust::InputOrOutput<
+        pub triggers: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RemoteImageResult {
         /// Configuration to build an image. Please see [docker build command reference](https://docs.docker.com/engine/reference/commandline/build/#options) too.
-        pub build: pulumi_wasm_rust::Output<Option<super::types::RemoteImageBuild>>,
+        pub build: pulumi_gestalt_rust::Output<Option<super::types::RemoteImageBuild>>,
         /// Always remove intermediate containers
-        pub force_remove: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_remove: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the image (as seen when executing `docker inspect` on the image). Can be used to reference the image via its ID in other resources.
-        pub image_id: pulumi_wasm_rust::Output<String>,
+        pub image_id: pulumi_gestalt_rust::Output<String>,
         /// If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.
-        pub keep_locally: pulumi_wasm_rust::Output<Option<bool>>,
+        pub keep_locally: pulumi_gestalt_rust::Output<Option<bool>>,
         /// type of ulimit, e.g. `nofile`
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Set platform if server is multi-platform capable
-        pub platform: pulumi_wasm_rust::Output<Option<String>>,
+        pub platform: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of values which cause an image pull when changed. This is used to store the image digest from the registry when using the docker*registry*image.
-        pub pull_triggers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub pull_triggers: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The image sha256 digest in the form of `repo[:tag]@sha256:<hash>`.
-        pub repo_digest: pulumi_wasm_rust::Output<String>,
+        pub repo_digest: pulumi_gestalt_rust::Output<String>,
         /// A map of arbitrary strings that, when changed, will force the `docker.RemoteImage` resource to be replaced. This can be used to rebuild an image when contents of source code folders change
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -126,11 +126,11 @@ pub mod remote_image {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RemoteImageArgs,
     ) -> RemoteImageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let build_binding = args.build.get_output(context).get_inner();
         let force_remove_binding = args.force_remove.get_output(context).get_inner();
@@ -176,27 +176,27 @@ pub mod remote_image {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RemoteImageResult {
-            build: pulumi_wasm_rust::__private::into_domain(o.extract_field("build")),
-            force_remove: pulumi_wasm_rust::__private::into_domain(
+            build: pulumi_gestalt_rust::__private::into_domain(o.extract_field("build")),
+            force_remove: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceRemove"),
             ),
-            image_id: pulumi_wasm_rust::__private::into_domain(
+            image_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageId"),
             ),
-            keep_locally: pulumi_wasm_rust::__private::into_domain(
+            keep_locally: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keepLocally"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            platform: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            platform: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platform"),
             ),
-            pull_triggers: pulumi_wasm_rust::__private::into_domain(
+            pull_triggers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pullTriggers"),
             ),
-            repo_digest: pulumi_wasm_rust::__private::into_domain(
+            repo_digest: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repoDigest"),
             ),
-            triggers: pulumi_wasm_rust::__private::into_domain(
+            triggers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggers"),
             ),
         }

@@ -43,41 +43,41 @@
 /// $ pulumi import aws:iam/signingCertificate:SigningCertificate certificate IDIDIDIDID:user-name
 /// ```
 pub mod signing_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SigningCertificateArgs {
         /// The contents of the signing certificate in PEM-encoded format.
         #[builder(into)]
-        pub certificate_body: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate_body: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the user the signing certificate is for.
         #[builder(into)]
-        pub user_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SigningCertificateResult {
         /// The contents of the signing certificate in PEM-encoded format.
-        pub certificate_body: pulumi_wasm_rust::Output<String>,
+        pub certificate_body: pulumi_gestalt_rust::Output<String>,
         /// The ID for the signing certificate.
-        pub certificate_id: pulumi_wasm_rust::Output<String>,
+        pub certificate_id: pulumi_gestalt_rust::Output<String>,
         /// The status you want to assign to the certificate. `Active` means that the certificate can be used for programmatic calls to Amazon Web Services `Inactive` means that the certificate cannot be used.
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the user the signing certificate is for.
-        pub user_name: pulumi_wasm_rust::Output<String>,
+        pub user_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SigningCertificateArgs,
     ) -> SigningCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_body_binding = args
             .certificate_body
@@ -106,14 +106,16 @@ pub mod signing_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SigningCertificateResult {
-            certificate_body: pulumi_wasm_rust::__private::into_domain(
+            certificate_body: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateBody"),
             ),
-            certificate_id: pulumi_wasm_rust::__private::into_domain(
+            certificate_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            user_name: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            user_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userName"),
             ),
         }

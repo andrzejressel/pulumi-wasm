@@ -61,55 +61,55 @@
 /// ```
 ///
 pub mod shared_private_link_resource {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SharedPrivateLinkResourceArgs {
         /// The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         #[builder(into, default)]
-        pub request_message: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub request_message: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The id of the Signalr Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub signalr_service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub signalr_service_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub sub_resource_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sub_resource_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
         #[builder(into)]
-        pub target_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SharedPrivateLinkResourceResult {
         /// The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The request message for requesting approval of the Shared Private Link Enabled Remote Resource.
-        pub request_message: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_message: pulumi_gestalt_rust::Output<Option<String>>,
         /// The id of the Signalr Service. Changing this forces a new resource to be created.
-        pub signalr_service_id: pulumi_wasm_rust::Output<String>,
+        pub signalr_service_id: pulumi_gestalt_rust::Output<String>,
         /// The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created.
-        pub sub_resource_name: pulumi_wasm_rust::Output<String>,
+        pub sub_resource_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The `sub_resource_name` should match with the type of the `target_resource_id` that's being specified.
-        pub target_resource_id: pulumi_wasm_rust::Output<String>,
+        pub target_resource_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SharedPrivateLinkResourceArgs,
     ) -> SharedPrivateLinkResourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let request_message_binding = args
@@ -158,18 +158,20 @@ pub mod shared_private_link_resource {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SharedPrivateLinkResourceResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            request_message: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            request_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestMessage"),
             ),
-            signalr_service_id: pulumi_wasm_rust::__private::into_domain(
+            signalr_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signalrServiceId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            sub_resource_name: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            sub_resource_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subResourceName"),
             ),
-            target_resource_id: pulumi_wasm_rust::__private::into_domain(
+            target_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetResourceId"),
             ),
         }

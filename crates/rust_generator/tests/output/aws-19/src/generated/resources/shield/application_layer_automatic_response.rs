@@ -29,18 +29,18 @@
 ///       arguments: {}
 /// ```
 pub mod application_layer_automatic_response {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationLayerAutomaticResponseArgs {
         /// One of `COUNT` or `BLOCK`
         #[builder(into)]
-        pub action: pulumi_wasm_rust::InputOrOutput<String>,
+        pub action: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
         #[builder(into)]
-        pub resource_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::shield::ApplicationLayerAutomaticResponseTimeouts,
             >,
@@ -49,10 +49,10 @@ pub mod application_layer_automatic_response {
     #[allow(dead_code)]
     pub struct ApplicationLayerAutomaticResponseResult {
         /// One of `COUNT` or `BLOCK`
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_gestalt_rust::Output<String>,
         /// ARN of the resource to protect (Cloudfront Distributions and ALBs only at this time).
-        pub resource_arn: pulumi_wasm_rust::Output<String>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub resource_arn: pulumi_gestalt_rust::Output<String>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::shield::ApplicationLayerAutomaticResponseTimeouts,
             >,
@@ -63,11 +63,11 @@ pub mod application_layer_automatic_response {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApplicationLayerAutomaticResponseArgs,
     ) -> ApplicationLayerAutomaticResponseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let action_binding = args.action.get_output(context).get_inner();
         let resource_arn_binding = args.resource_arn.get_output(context).get_inner();
@@ -94,11 +94,13 @@ pub mod application_layer_automatic_response {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApplicationLayerAutomaticResponseResult {
-            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
-            resource_arn: pulumi_wasm_rust::__private::into_domain(
+            action: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("action"),
+            ),
+            resource_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceArn"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

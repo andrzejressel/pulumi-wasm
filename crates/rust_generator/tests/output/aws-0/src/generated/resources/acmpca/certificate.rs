@@ -50,53 +50,53 @@
 /// $ pulumi import aws:acmpca/certificate:Certificate cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
 /// ```
 pub mod certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateArgs {
         /// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
         #[builder(into, default)]
-        pub api_passthrough: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub api_passthrough: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN of the certificate authority.
         #[builder(into)]
-        pub certificate_authority_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate_authority_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Certificate Signing Request in PEM format.
         #[builder(into)]
-        pub certificate_signing_request: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate_signing_request: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         #[builder(into)]
-        pub signing_algorithm: pulumi_wasm_rust::InputOrOutput<String>,
+        pub signing_algorithm: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Template to use when issuing a certificate.
         /// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
         #[builder(into, default)]
-        pub template_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub template_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configures end of the validity period for the certificate. See validity block below.
         #[builder(into)]
-        pub validity: pulumi_wasm_rust::InputOrOutput<
+        pub validity: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::acmpca::CertificateValidity,
         >,
     }
     #[allow(dead_code)]
     pub struct CertificateResult {
         /// Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
-        pub api_passthrough: pulumi_wasm_rust::Output<Option<String>>,
+        pub api_passthrough: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of the certificate.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// PEM-encoded certificate value.
-        pub certificate: pulumi_wasm_rust::Output<String>,
+        pub certificate: pulumi_gestalt_rust::Output<String>,
         /// ARN of the certificate authority.
-        pub certificate_authority_arn: pulumi_wasm_rust::Output<String>,
+        pub certificate_authority_arn: pulumi_gestalt_rust::Output<String>,
         /// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
-        pub certificate_chain: pulumi_wasm_rust::Output<String>,
+        pub certificate_chain: pulumi_gestalt_rust::Output<String>,
         /// Certificate Signing Request in PEM format.
-        pub certificate_signing_request: pulumi_wasm_rust::Output<String>,
+        pub certificate_signing_request: pulumi_gestalt_rust::Output<String>,
         /// Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
-        pub signing_algorithm: pulumi_wasm_rust::Output<String>,
+        pub signing_algorithm: pulumi_gestalt_rust::Output<String>,
         /// Template to use when issuing a certificate.
         /// See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-        pub template_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configures end of the validity period for the certificate. See validity block below.
-        pub validity: pulumi_wasm_rust::Output<
+        pub validity: pulumi_gestalt_rust::Output<
             super::super::types::acmpca::CertificateValidity,
         >,
     }
@@ -105,11 +105,11 @@ pub mod certificate {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CertificateArgs,
     ) -> CertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_passthrough_binding = args
             .api_passthrough
@@ -162,29 +162,29 @@ pub mod certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CertificateResult {
-            api_passthrough: pulumi_wasm_rust::__private::into_domain(
+            api_passthrough: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiPassthrough"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            certificate: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificate"),
             ),
-            certificate_authority_arn: pulumi_wasm_rust::__private::into_domain(
+            certificate_authority_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateAuthorityArn"),
             ),
-            certificate_chain: pulumi_wasm_rust::__private::into_domain(
+            certificate_chain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateChain"),
             ),
-            certificate_signing_request: pulumi_wasm_rust::__private::into_domain(
+            certificate_signing_request: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateSigningRequest"),
             ),
-            signing_algorithm: pulumi_wasm_rust::__private::into_domain(
+            signing_algorithm: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signingAlgorithm"),
             ),
-            template_arn: pulumi_wasm_rust::__private::into_domain(
+            template_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("templateArn"),
             ),
-            validity: pulumi_wasm_rust::__private::into_domain(
+            validity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validity"),
             ),
         }

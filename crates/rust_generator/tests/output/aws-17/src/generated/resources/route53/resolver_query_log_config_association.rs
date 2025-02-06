@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resolver_query_log_config_association::create(
@@ -27,34 +27,34 @@
 /// $ pulumi import aws:route53/resolverQueryLogConfigAssociation:ResolverQueryLogConfigAssociation example rqlca-b320624fef3c4d70
 /// ```
 pub mod resolver_query_log_config_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResolverQueryLogConfigAssociationArgs {
         /// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         #[builder(into)]
-        pub resolver_query_log_config_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resolver_query_log_config_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of a VPC that you want this query logging configuration to log queries for.
         #[builder(into)]
-        pub resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResolverQueryLogConfigAssociationResult {
         /// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
-        pub resolver_query_log_config_id: pulumi_wasm_rust::Output<String>,
+        pub resolver_query_log_config_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of a VPC that you want this query logging configuration to log queries for.
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResolverQueryLogConfigAssociationArgs,
     ) -> ResolverQueryLogConfigAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let resolver_query_log_config_id_binding = args
             .resolver_query_log_config_id
@@ -79,10 +79,10 @@ pub mod resolver_query_log_config_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResolverQueryLogConfigAssociationResult {
-            resolver_query_log_config_id: pulumi_wasm_rust::__private::into_domain(
+            resolver_query_log_config_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resolverQueryLogConfigId"),
             ),
-            resource_id: pulumi_wasm_rust::__private::into_domain(
+            resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceId"),
             ),
         }

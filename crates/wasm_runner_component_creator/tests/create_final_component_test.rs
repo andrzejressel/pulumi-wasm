@@ -1,6 +1,6 @@
 use anyhow::Result;
 use async_trait::async_trait;
-use pulumi_wasm_runner_component_creator::source::PulumiWasmSource;
+use pulumi_gestalt_runner_component_creator::source::PulumiWasmSource;
 use wac_graph::types::Package;
 use wac_graph::CompositionGraph;
 use wit_component::{dummy_module, embed_component_metadata, ComponentEncoder, StringEncoding};
@@ -10,8 +10,8 @@ use wit_parser::{PackageId, Resolve};
 #[tokio::test]
 async fn should_combine_wasm_components() -> Result<()> {
     let mut resolve = Resolve::new();
-    resolve.add_pulumi_wasm_stable().unwrap();
-    resolve.add_pulumi_wasm("0.0.0-DEV").unwrap();
+    resolve.add_pulumi_gestalt_stable().unwrap();
+    resolve.add_pulumi_gestalt("0.0.0-DEV").unwrap();
 
     let pkg = resolve
         .push_str(
@@ -20,9 +20,9 @@ async fn should_combine_wasm_components() -> Result<()> {
     package test:wit;
 
     world root {
-        import component:pulumi-wasm/output-interface@0.0.0-DEV;
-        export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
-        import component:pulumi-wasm-external/pulumi-settings@0.0.0-STABLE-DEV;
+        import component:pulumi-gestalt/output-interface@0.0.0-DEV;
+        export component:pulumi-gestalt-external/pulumi-main@0.0.0-STABLE-DEV;
+        import component:pulumi-gestalt-external/pulumi-settings@0.0.0-STABLE-DEV;
     }
 "#,
         )
@@ -41,10 +41,13 @@ async fn should_combine_wasm_components() -> Result<()> {
         .encode()
         .unwrap();
 
-    let result =
-        pulumi_wasm_runner_component_creator::create(&TestProgramSource {}, encoded.clone(), true)
-            .await
-            .unwrap();
+    let result = pulumi_gestalt_runner_component_creator::create(
+        &TestProgramSource {},
+        encoded.clone(),
+        true,
+    )
+    .await
+    .unwrap();
 
     assert_component_only_exports_main_and_settings(&result)?;
 
@@ -52,11 +55,11 @@ async fn should_combine_wasm_components() -> Result<()> {
 }
 
 #[tokio::test]
-async fn return_error_when_multiple_versions_of_pulumi_wasm_is_found() -> Result<()> {
+async fn return_error_when_multiple_versions_of_pulumi_gestalt_is_found() -> Result<()> {
     let mut resolve = Resolve::new();
-    resolve.add_pulumi_wasm_stable().unwrap();
-    resolve.add_pulumi_wasm("0.0.0-DEV").unwrap();
-    resolve.add_pulumi_wasm("0.0.1-DEV").unwrap();
+    resolve.add_pulumi_gestalt_stable().unwrap();
+    resolve.add_pulumi_gestalt("0.0.0-DEV").unwrap();
+    resolve.add_pulumi_gestalt("0.0.1-DEV").unwrap();
 
     let pkg = resolve
         .push_str(
@@ -65,9 +68,9 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_is_found() -> Result
     package test:wit;
 
     world root {
-        import component:pulumi-wasm/output-interface@0.0.0-DEV;
-        import component:pulumi-wasm/output-interface@0.0.1-DEV;
-        export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
+        import component:pulumi-gestalt/output-interface@0.0.0-DEV;
+        import component:pulumi-gestalt/output-interface@0.0.1-DEV;
+        export component:pulumi-gestalt-external/pulumi-main@0.0.0-STABLE-DEV;
     }
 "#,
         )
@@ -86,10 +89,13 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_is_found() -> Result
         .encode()
         .unwrap();
 
-    let error =
-        pulumi_wasm_runner_component_creator::create(&TestProgramSource {}, encoded.clone(), true)
-            .await
-            .expect_err("Expected creator to return error");
+    let error = pulumi_gestalt_runner_component_creator::create(
+        &TestProgramSource {},
+        encoded.clone(),
+        true,
+    )
+    .await
+    .expect_err("Expected creator to return error");
 
     assert_eq!(
         error.to_string(),
@@ -101,11 +107,12 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_is_found() -> Result
 }
 
 #[tokio::test]
-async fn return_error_when_multiple_versions_of_pulumi_wasm_in_providers_is_found() -> Result<()> {
+async fn return_error_when_multiple_versions_of_pulumi_gestalt_in_providers_is_found() -> Result<()>
+{
     let mut resolve = Resolve::new();
-    resolve.add_pulumi_wasm_stable().unwrap();
-    resolve.add_pulumi_wasm("0.0.0-DEV").unwrap();
-    resolve.add_pulumi_wasm("0.0.1-DEV").unwrap();
+    resolve.add_pulumi_gestalt_stable().unwrap();
+    resolve.add_pulumi_gestalt("0.0.0-DEV").unwrap();
+    resolve.add_pulumi_gestalt("0.0.1-DEV").unwrap();
     resolve
         .add_provider("docker", "1.0.0", "0.0.0-DEV")
         .unwrap();
@@ -120,8 +127,8 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_in_providers_is_foun
     package test:wit;
 
     world root {
-        import component:pulumi-wasm/output-interface@0.0.0-DEV;
-        export component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV;
+        import component:pulumi-gestalt/output-interface@0.0.0-DEV;
+        export component:pulumi-gestalt-external/pulumi-main@0.0.0-STABLE-DEV;
         import pulumi:cloudflare/container@1.0.0--0.0.1-DEV;
         import pulumi:docker/container@1.0.0--0.0.0-DEV;
     }
@@ -142,10 +149,13 @@ async fn return_error_when_multiple_versions_of_pulumi_wasm_in_providers_is_foun
         .encode()
         .unwrap();
 
-    let error =
-        pulumi_wasm_runner_component_creator::create(&TestProgramSource {}, encoded.clone(), true)
-            .await
-            .expect_err("Expected creator to return error");
+    let error = pulumi_gestalt_runner_component_creator::create(
+        &TestProgramSource {},
+        encoded.clone(),
+        true,
+    )
+    .await
+    .expect_err("Expected creator to return error");
 
     assert_eq!(
         error.to_string(),
@@ -169,7 +179,7 @@ fn assert_component_only_exports_main_and_settings(result: &[u8]) -> Result<()> 
 
     assert_eq!(
         exports_names,
-        vec!["component:pulumi-wasm-external/pulumi-main@0.0.0-STABLE-DEV".to_string()]
+        vec!["component:pulumi-gestalt-external/pulumi-main@0.0.0-STABLE-DEV".to_string()]
     );
 
     let imports_names: Vec<_> = graph.types()[graph[main_package_id].ty()]
@@ -188,8 +198,8 @@ struct TestProgramSource {}
 impl PulumiWasmSource for TestProgramSource {
     async fn get(&self, version: &str, debug: bool) -> Result<Vec<u8>> {
         let mut resolve = Resolve::new();
-        resolve.add_pulumi_wasm_stable().unwrap();
-        let pkg = resolve.add_pulumi_wasm(version).unwrap();
+        resolve.add_pulumi_gestalt_stable().unwrap();
+        let pkg = resolve.add_pulumi_gestalt(version).unwrap();
 
         let world = resolve.select_world(pkg, None).unwrap();
 
@@ -213,10 +223,13 @@ trait ResolveExt {
         &mut self,
         provider_name: impl Into<String>,
         provider_version: impl Into<String>,
-        pulumi_wasm_version: impl Into<String>,
+        pulumi_gestalt_version: impl Into<String>,
     ) -> Result<PackageId>;
-    fn add_pulumi_wasm(&mut self, pulumi_wasm_version: impl Into<String>) -> Result<PackageId>;
-    fn add_pulumi_wasm_stable(&mut self) -> Result<()>;
+    fn add_pulumi_gestalt(
+        &mut self,
+        pulumi_gestalt_version: impl Into<String>,
+    ) -> Result<PackageId>;
+    fn add_pulumi_gestalt_stable(&mut self) -> Result<()>;
 }
 
 impl ResolveExt for Resolve {
@@ -224,23 +237,23 @@ impl ResolveExt for Resolve {
         &mut self,
         provider_name: impl Into<String>,
         provider_version: impl Into<String>,
-        pulumi_wasm_version: impl Into<String>,
+        pulumi_gestalt_version: impl Into<String>,
     ) -> Result<PackageId> {
         let provider_name = provider_name.into();
         let provider_version = provider_version.into();
-        let pulumi_wasm_version = pulumi_wasm_version.into();
+        let pulumi_gestalt_version = pulumi_gestalt_version.into();
         self.push_str(
-            format!("{provider_name}-{provider_version}-{pulumi_wasm_version}.wit"),
+            format!("{provider_name}-{provider_version}-{pulumi_gestalt_version}.wit"),
             format!(
                 r#"
-    package pulumi:{provider_name}@{provider_version}--{pulumi_wasm_version};
+    package pulumi:{provider_name}@{provider_version}--{pulumi_gestalt_version};
 
     world root {{
         export container;
     }}
 
     interface container {{
-        use component:pulumi-wasm/output-interface@{pulumi_wasm_version}.{{output}};
+        use component:pulumi-gestalt/output-interface@{pulumi_gestalt_version}.{{output}};
         test: func();
     }}
 "#
@@ -249,16 +262,19 @@ impl ResolveExt for Resolve {
         )
     }
 
-    fn add_pulumi_wasm(&mut self, pulumi_wasm_version: impl Into<String>) -> Result<PackageId> {
-        let pulumi_wasm_version = pulumi_wasm_version.into();
+    fn add_pulumi_gestalt(
+        &mut self,
+        pulumi_gestalt_version: impl Into<String>,
+    ) -> Result<PackageId> {
+        let pulumi_gestalt_version = pulumi_gestalt_version.into();
         self.push_str(
-            format!("pulumi-wasm-{pulumi_wasm_version}.wit"),
+            format!("pulumi-gestalt-{pulumi_gestalt_version}.wit"),
             format!(
                 r#"
-    package component:pulumi-wasm@{pulumi_wasm_version};
+    package component:pulumi-gestalt@{pulumi_gestalt_version};
 
     world root {{
-        export component:pulumi-wasm-external/pulumi-settings@0.0.0-STABLE-DEV;
+        export component:pulumi-gestalt-external/pulumi-settings@0.0.0-STABLE-DEV;
         export output-interface;
     }}
 
@@ -281,11 +297,11 @@ impl ResolveExt for Resolve {
         )
     }
 
-    fn add_pulumi_wasm_stable(&mut self) -> Result<()> {
+    fn add_pulumi_gestalt_stable(&mut self) -> Result<()> {
         self.push_str(
-            "pulumi-wasm-stable.wit",
+            "pulumi-gestalt-stable.wit",
             r#"
-    package component:pulumi-wasm-external@0.0.0-STABLE-DEV;
+    package component:pulumi-gestalt-external@0.0.0-STABLE-DEV;
 
     interface pulumi-main {
         main: func();

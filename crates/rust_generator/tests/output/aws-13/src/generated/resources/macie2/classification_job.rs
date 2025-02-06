@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = account::create("test", AccountArgs::builder().build_struct());
@@ -37,91 +37,91 @@
 /// $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
 /// ```
 pub mod classification_job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClassificationJobArgs {
         /// The custom data identifiers to use for data analysis and classification.
         #[builder(into, default)]
-        pub custom_data_identifier_ids: pulumi_wasm_rust::InputOrOutput<
+        pub custom_data_identifier_ids: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// A custom description of the job. The description can contain as many as 200 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether to analyze all existing, eligible objects immediately after the job is created.
         #[builder(into, default)]
-        pub initial_run: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub initial_run: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
         #[builder(into, default)]
-        pub job_status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub job_status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
         #[builder(into)]
-        pub job_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub job_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         #[builder(into, default)]
-        pub name_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
         #[builder(into)]
-        pub s3_job_definition: pulumi_wasm_rust::InputOrOutput<
+        pub s3_job_definition: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::macie2::ClassificationJobS3JobDefinition,
         >,
         /// The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
         #[builder(into, default)]
-        pub sampling_percentage: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub sampling_percentage: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         #[builder(into, default)]
-        pub schedule_frequency: pulumi_wasm_rust::InputOrOutput<
+        pub schedule_frequency: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::macie2::ClassificationJobScheduleFrequency>,
         >,
         /// A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ClassificationJobResult {
         /// The date and time, in UTC and extended RFC 3339 format, when the job was created.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// The custom data identifiers to use for data analysis and classification.
-        pub custom_data_identifier_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub custom_data_identifier_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A custom description of the job. The description can contain as many as 200 characters.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether to analyze all existing, eligible objects immediately after the job is created.
-        pub initial_run: pulumi_wasm_rust::Output<Option<bool>>,
-        pub job_arn: pulumi_wasm_rust::Output<String>,
-        pub job_id: pulumi_wasm_rust::Output<String>,
+        pub initial_run: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub job_arn: pulumi_gestalt_rust::Output<String>,
+        pub job_id: pulumi_gestalt_rust::Output<String>,
         /// The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
-        pub job_status: pulumi_wasm_rust::Output<String>,
+        pub job_status: pulumi_gestalt_rust::Output<String>,
         /// The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
-        pub job_type: pulumi_wasm_rust::Output<String>,
+        pub job_type: pulumi_gestalt_rust::Output<String>,
         /// A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        pub name_prefix: pulumi_wasm_rust::Output<String>,
+        pub name_prefix: pulumi_gestalt_rust::Output<String>,
         /// The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
-        pub s3_job_definition: pulumi_wasm_rust::Output<
+        pub s3_job_definition: pulumi_gestalt_rust::Output<
             super::super::types::macie2::ClassificationJobS3JobDefinition,
         >,
         /// The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
-        pub sampling_percentage: pulumi_wasm_rust::Output<i32>,
+        pub sampling_percentage: pulumi_gestalt_rust::Output<i32>,
         /// The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
-        pub schedule_frequency: pulumi_wasm_rust::Output<
+        pub schedule_frequency: pulumi_gestalt_rust::Output<
             super::super::types::macie2::ClassificationJobScheduleFrequency,
         >,
         /// A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be canceled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
-        pub user_paused_details: pulumi_wasm_rust::Output<
+        pub user_paused_details: pulumi_gestalt_rust::Output<
             Vec<super::super::types::macie2::ClassificationJobUserPausedDetail>,
         >,
     }
@@ -130,11 +130,11 @@ pub mod classification_job {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClassificationJobArgs,
     ) -> ClassificationJobResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let custom_data_identifier_ids_binding = args
             .custom_data_identifier_ids
@@ -212,44 +212,48 @@ pub mod classification_job {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClassificationJobResult {
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            custom_data_identifier_ids: pulumi_wasm_rust::__private::into_domain(
+            custom_data_identifier_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customDataIdentifierIds"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            initial_run: pulumi_wasm_rust::__private::into_domain(
+            initial_run: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("initialRun"),
             ),
-            job_arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("jobArn")),
-            job_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("jobId")),
-            job_status: pulumi_wasm_rust::__private::into_domain(
+            job_arn: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("jobArn"),
+            ),
+            job_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("jobId"),
+            ),
+            job_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jobStatus"),
             ),
-            job_type: pulumi_wasm_rust::__private::into_domain(
+            job_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jobType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            name_prefix: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            name_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namePrefix"),
             ),
-            s3_job_definition: pulumi_wasm_rust::__private::into_domain(
+            s3_job_definition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3JobDefinition"),
             ),
-            sampling_percentage: pulumi_wasm_rust::__private::into_domain(
+            sampling_percentage: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("samplingPercentage"),
             ),
-            schedule_frequency: pulumi_wasm_rust::__private::into_domain(
+            schedule_frequency: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scheduleFrequency"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            user_paused_details: pulumi_wasm_rust::__private::into_domain(
+            user_paused_details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userPausedDetails"),
             ),
         }

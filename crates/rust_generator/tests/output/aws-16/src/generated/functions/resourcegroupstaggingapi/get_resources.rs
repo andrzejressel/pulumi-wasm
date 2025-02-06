@@ -1,23 +1,27 @@
 pub mod get_resources {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetResourcesArgs {
         /// Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `include_compliance_details` argument is also set to `true`.
         #[builder(into, default)]
-        pub exclude_compliant_resources: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub exclude_compliant_resources: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specifies whether to include details regarding the compliance with the effective tag policy.
         #[builder(into, default)]
-        pub include_compliance_details: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub include_compliance_details: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
         #[builder(into, default)]
-        pub resource_arn_lists: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub resource_arn_lists: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
         #[builder(into, default)]
-        pub resource_type_filters: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub resource_type_filters: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resource_arn_list`.
         #[builder(into, default)]
-        pub tag_filters: pulumi_wasm_rust::InputOrOutput<
+        pub tag_filters: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::resourcegroupstaggingapi::GetResourcesTagFilter,
@@ -27,19 +31,19 @@ pub mod get_resources {
     }
     #[allow(dead_code)]
     pub struct GetResourcesResult {
-        pub exclude_compliant_resources: pulumi_wasm_rust::Output<Option<bool>>,
+        pub exclude_compliant_resources: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub include_compliance_details: pulumi_wasm_rust::Output<Option<bool>>,
-        pub resource_arn_lists: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub include_compliance_details: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub resource_arn_lists: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// List of objects matching the search criteria.
-        pub resource_tag_mapping_lists: pulumi_wasm_rust::Output<
+        pub resource_tag_mapping_lists: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::resourcegroupstaggingapi::GetResourcesResourceTagMappingList,
             >,
         >,
-        pub resource_type_filters: pulumi_wasm_rust::Output<Option<Vec<String>>>,
-        pub tag_filters: pulumi_wasm_rust::Output<
+        pub resource_type_filters: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
+        pub tag_filters: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::super::types::resourcegroupstaggingapi::GetResourcesTagFilter,
@@ -52,10 +56,10 @@ pub mod get_resources {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetResourcesArgs,
     ) -> GetResourcesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let exclude_compliant_resources_binding = args
             .exclude_compliant_resources
@@ -102,23 +106,23 @@ pub mod get_resources {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetResourcesResult {
-            exclude_compliant_resources: pulumi_wasm_rust::__private::into_domain(
+            exclude_compliant_resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("excludeCompliantResources"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            include_compliance_details: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            include_compliance_details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("includeComplianceDetails"),
             ),
-            resource_arn_lists: pulumi_wasm_rust::__private::into_domain(
+            resource_arn_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceArnLists"),
             ),
-            resource_tag_mapping_lists: pulumi_wasm_rust::__private::into_domain(
+            resource_tag_mapping_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceTagMappingLists"),
             ),
-            resource_type_filters: pulumi_wasm_rust::__private::into_domain(
+            resource_type_filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceTypeFilters"),
             ),
-            tag_filters: pulumi_wasm_rust::__private::into_domain(
+            tag_filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagFilters"),
             ),
         }

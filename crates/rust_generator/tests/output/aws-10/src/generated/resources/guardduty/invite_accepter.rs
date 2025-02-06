@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let member = invite_accepter::create(
@@ -39,34 +39,34 @@
 /// $ pulumi import aws:guardduty/inviteAccepter:InviteAccepter member 00b00fd5aecc0ab60a708659477e9617
 /// ```
 pub mod invite_accepter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InviteAccepterArgs {
         /// The detector ID of the member GuardDuty account.
         #[builder(into)]
-        pub detector_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub detector_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// AWS account ID for primary account.
         #[builder(into)]
-        pub master_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub master_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct InviteAccepterResult {
         /// The detector ID of the member GuardDuty account.
-        pub detector_id: pulumi_wasm_rust::Output<String>,
+        pub detector_id: pulumi_gestalt_rust::Output<String>,
         /// AWS account ID for primary account.
-        pub master_account_id: pulumi_wasm_rust::Output<String>,
+        pub master_account_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InviteAccepterArgs,
     ) -> InviteAccepterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let detector_id_binding = args.detector_id.get_output(context).get_inner();
         let master_account_id_binding = args
@@ -90,10 +90,10 @@ pub mod invite_accepter {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InviteAccepterResult {
-            detector_id: pulumi_wasm_rust::__private::into_domain(
+            detector_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("detectorId"),
             ),
-            master_account_id: pulumi_wasm_rust::__private::into_domain(
+            master_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("masterAccountId"),
             ),
         }

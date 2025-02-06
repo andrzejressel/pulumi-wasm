@@ -59,69 +59,69 @@
 /// ```
 ///
 pub mod account_queue_properties {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountQueuePropertiesArgs {
         /// A `cors_rule` block as defined above.
         #[builder(into, default)]
-        pub cors_rules: pulumi_wasm_rust::InputOrOutput<
+        pub cors_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::storage::AccountQueuePropertiesCorsRule>>,
         >,
         /// A `hour_metrics` block as defined below.
         ///
         /// > **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
         #[builder(into, default)]
-        pub hour_metrics: pulumi_wasm_rust::InputOrOutput<
+        pub hour_metrics: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::storage::AccountQueuePropertiesHourMetrics>,
         >,
         /// A `logging` block as defined below.
         #[builder(into, default)]
-        pub logging: pulumi_wasm_rust::InputOrOutput<
+        pub logging: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::storage::AccountQueuePropertiesLogging>,
         >,
         /// A `minute_metrics` block as defined below.
         #[builder(into, default)]
-        pub minute_metrics: pulumi_wasm_rust::InputOrOutput<
+        pub minute_metrics: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::storage::AccountQueuePropertiesMinuteMetrics>,
         >,
         /// The ID of the Storage Account to set Queue Properties on. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AccountQueuePropertiesResult {
         /// A `cors_rule` block as defined above.
-        pub cors_rules: pulumi_wasm_rust::Output<
+        pub cors_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::storage::AccountQueuePropertiesCorsRule>>,
         >,
         /// A `hour_metrics` block as defined below.
         ///
         /// > **NOTE:** At least one of `cors_rule`, `logging`, `minute_metrics`, or `hour_metrics` must be specified.
-        pub hour_metrics: pulumi_wasm_rust::Output<
+        pub hour_metrics: pulumi_gestalt_rust::Output<
             super::super::types::storage::AccountQueuePropertiesHourMetrics,
         >,
         /// A `logging` block as defined below.
-        pub logging: pulumi_wasm_rust::Output<
+        pub logging: pulumi_gestalt_rust::Output<
             super::super::types::storage::AccountQueuePropertiesLogging,
         >,
         /// A `minute_metrics` block as defined below.
-        pub minute_metrics: pulumi_wasm_rust::Output<
+        pub minute_metrics: pulumi_gestalt_rust::Output<
             super::super::types::storage::AccountQueuePropertiesMinuteMetrics,
         >,
         /// The ID of the Storage Account to set Queue Properties on. Changing this forces a new resource to be created.
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccountQueuePropertiesArgs,
     ) -> AccountQueuePropertiesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cors_rules_binding = args.cors_rules.get_output(context).get_inner();
         let hour_metrics_binding = args.hour_metrics.get_output(context).get_inner();
@@ -160,19 +160,19 @@ pub mod account_queue_properties {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccountQueuePropertiesResult {
-            cors_rules: pulumi_wasm_rust::__private::into_domain(
+            cors_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("corsRules"),
             ),
-            hour_metrics: pulumi_wasm_rust::__private::into_domain(
+            hour_metrics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hourMetrics"),
             ),
-            logging: pulumi_wasm_rust::__private::into_domain(
+            logging: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logging"),
             ),
-            minute_metrics: pulumi_wasm_rust::__private::into_domain(
+            minute_metrics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minuteMetrics"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
         }

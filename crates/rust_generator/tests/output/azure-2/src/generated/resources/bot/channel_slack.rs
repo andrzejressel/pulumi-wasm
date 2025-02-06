@@ -46,64 +46,64 @@
 /// ```
 ///
 pub mod channel_slack {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ChannelSlackArgs {
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub bot_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bot_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Client ID that will be used to authenticate with Slack.
         #[builder(into)]
-        pub client_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub client_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Client Secret that will be used to authenticate with Slack.
         #[builder(into)]
-        pub client_secret: pulumi_wasm_rust::InputOrOutput<String>,
+        pub client_secret: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Slack Landing Page URL.
         #[builder(into, default)]
-        pub landing_page_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub landing_page_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Signing Secret that will be used to sign the requests.
         #[builder(into, default)]
-        pub signing_secret: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub signing_secret: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Verification Token that will be used to authenticate with Slack.
         #[builder(into)]
-        pub verification_token: pulumi_wasm_rust::InputOrOutput<String>,
+        pub verification_token: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ChannelSlackResult {
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
-        pub bot_name: pulumi_wasm_rust::Output<String>,
+        pub bot_name: pulumi_gestalt_rust::Output<String>,
         /// The Client ID that will be used to authenticate with Slack.
-        pub client_id: pulumi_wasm_rust::Output<String>,
+        pub client_id: pulumi_gestalt_rust::Output<String>,
         /// The Client Secret that will be used to authenticate with Slack.
-        pub client_secret: pulumi_wasm_rust::Output<String>,
+        pub client_secret: pulumi_gestalt_rust::Output<String>,
         /// The Slack Landing Page URL.
-        pub landing_page_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub landing_page_url: pulumi_gestalt_rust::Output<Option<String>>,
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The Signing Secret that will be used to sign the requests.
-        pub signing_secret: pulumi_wasm_rust::Output<Option<String>>,
+        pub signing_secret: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Verification Token that will be used to authenticate with Slack.
-        pub verification_token: pulumi_wasm_rust::Output<String>,
+        pub verification_token: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ChannelSlackArgs,
     ) -> ChannelSlackResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bot_name_binding = args.bot_name.get_output(context).get_inner();
         let client_id_binding = args.client_id.get_output(context).get_inner();
@@ -163,28 +163,28 @@ pub mod channel_slack {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ChannelSlackResult {
-            bot_name: pulumi_wasm_rust::__private::into_domain(
+            bot_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("botName"),
             ),
-            client_id: pulumi_wasm_rust::__private::into_domain(
+            client_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientId"),
             ),
-            client_secret: pulumi_wasm_rust::__private::into_domain(
+            client_secret: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientSecret"),
             ),
-            landing_page_url: pulumi_wasm_rust::__private::into_domain(
+            landing_page_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("landingPageUrl"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            signing_secret: pulumi_wasm_rust::__private::into_domain(
+            signing_secret: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signingSecret"),
             ),
-            verification_token: pulumi_wasm_rust::__private::into_domain(
+            verification_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("verificationToken"),
             ),
         }

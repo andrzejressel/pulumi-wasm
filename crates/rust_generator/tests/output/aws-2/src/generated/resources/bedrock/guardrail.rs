@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = guardrail::create(
@@ -86,122 +86,122 @@
 /// $ pulumi import aws:bedrock/guardrail:Guardrail example guardrail-id-12345678,DRAFT
 /// ```
 pub mod guardrail {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GuardrailArgs {
         /// Message to return when the guardrail blocks a prompt.
         #[builder(into)]
-        pub blocked_input_messaging: pulumi_wasm_rust::InputOrOutput<String>,
+        pub blocked_input_messaging: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Message to return when the guardrail blocks a model response.
         #[builder(into)]
-        pub blocked_outputs_messaging: pulumi_wasm_rust::InputOrOutput<String>,
+        pub blocked_outputs_messaging: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Content policy config for a guardrail. See Content Policy Config for more information.
         #[builder(into, default)]
-        pub content_policy_config: pulumi_wasm_rust::InputOrOutput<
+        pub content_policy_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::GuardrailContentPolicyConfig>,
         >,
         /// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
         #[builder(into, default)]
-        pub contextual_grounding_policy_config: pulumi_wasm_rust::InputOrOutput<
+        pub contextual_grounding_policy_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::bedrock::GuardrailContextualGroundingPolicyConfig,
             >,
         >,
         /// Description of the guardrail or its version.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The KMS key with which the guardrail was encrypted at rest.
         #[builder(into, default)]
-        pub kms_key_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the guardrail.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
         #[builder(into, default)]
-        pub sensitive_information_policy_config: pulumi_wasm_rust::InputOrOutput<
+        pub sensitive_information_policy_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::bedrock::GuardrailSensitiveInformationPolicyConfig,
             >,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::GuardrailTimeouts>,
         >,
         /// Topic policy config for a guardrail. See Topic Policy Config for more information.
         #[builder(into, default)]
-        pub topic_policy_config: pulumi_wasm_rust::InputOrOutput<
+        pub topic_policy_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::GuardrailTopicPolicyConfig>,
         >,
         /// Word policy config for a guardrail. See Word Policy Config for more information.
         #[builder(into, default)]
-        pub word_policy_config: pulumi_wasm_rust::InputOrOutput<
+        pub word_policy_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::GuardrailWordPolicyConfig>,
         >,
     }
     #[allow(dead_code)]
     pub struct GuardrailResult {
         /// Message to return when the guardrail blocks a prompt.
-        pub blocked_input_messaging: pulumi_wasm_rust::Output<String>,
+        pub blocked_input_messaging: pulumi_gestalt_rust::Output<String>,
         /// Message to return when the guardrail blocks a model response.
-        pub blocked_outputs_messaging: pulumi_wasm_rust::Output<String>,
+        pub blocked_outputs_messaging: pulumi_gestalt_rust::Output<String>,
         /// Content policy config for a guardrail. See Content Policy Config for more information.
-        pub content_policy_config: pulumi_wasm_rust::Output<
+        pub content_policy_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::GuardrailContentPolicyConfig>,
         >,
         /// Contextual grounding policy config for a guardrail. See Contextual Grounding Policy Config for more information.
-        pub contextual_grounding_policy_config: pulumi_wasm_rust::Output<
+        pub contextual_grounding_policy_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::bedrock::GuardrailContextualGroundingPolicyConfig,
             >,
         >,
         /// Unix epoch timestamp in seconds for when the Guardrail was created.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// Description of the guardrail or its version.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// ARN of the Guardrail.
-        pub guardrail_arn: pulumi_wasm_rust::Output<String>,
+        pub guardrail_arn: pulumi_gestalt_rust::Output<String>,
         /// ID of the Guardrail.
-        pub guardrail_id: pulumi_wasm_rust::Output<String>,
+        pub guardrail_id: pulumi_gestalt_rust::Output<String>,
         /// The KMS key with which the guardrail was encrypted at rest.
-        pub kms_key_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the guardrail.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
-        pub sensitive_information_policy_config: pulumi_wasm_rust::Output<
+        pub sensitive_information_policy_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::bedrock::GuardrailSensitiveInformationPolicyConfig,
             >,
         >,
         /// Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::GuardrailTimeouts>,
         >,
         /// Topic policy config for a guardrail. See Topic Policy Config for more information.
-        pub topic_policy_config: pulumi_wasm_rust::Output<
+        pub topic_policy_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::GuardrailTopicPolicyConfig>,
         >,
         /// Version of the Guardrail.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
         /// Word policy config for a guardrail. See Word Policy Config for more information.
-        pub word_policy_config: pulumi_wasm_rust::Output<
+        pub word_policy_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::GuardrailWordPolicyConfig>,
         >,
     }
@@ -210,11 +210,11 @@ pub mod guardrail {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GuardrailArgs,
     ) -> GuardrailResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let blocked_input_messaging_binding = args
             .blocked_input_messaging
@@ -306,52 +306,54 @@ pub mod guardrail {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GuardrailResult {
-            blocked_input_messaging: pulumi_wasm_rust::__private::into_domain(
+            blocked_input_messaging: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blockedInputMessaging"),
             ),
-            blocked_outputs_messaging: pulumi_wasm_rust::__private::into_domain(
+            blocked_outputs_messaging: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blockedOutputsMessaging"),
             ),
-            content_policy_config: pulumi_wasm_rust::__private::into_domain(
+            content_policy_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentPolicyConfig"),
             ),
-            contextual_grounding_policy_config: pulumi_wasm_rust::__private::into_domain(
+            contextual_grounding_policy_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contextualGroundingPolicyConfig"),
             ),
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            guardrail_arn: pulumi_wasm_rust::__private::into_domain(
+            guardrail_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("guardrailArn"),
             ),
-            guardrail_id: pulumi_wasm_rust::__private::into_domain(
+            guardrail_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("guardrailId"),
             ),
-            kms_key_arn: pulumi_wasm_rust::__private::into_domain(
+            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            sensitive_information_policy_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            sensitive_information_policy_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sensitiveInformationPolicyConfig"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            topic_policy_config: pulumi_wasm_rust::__private::into_domain(
+            topic_policy_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("topicPolicyConfig"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
+            version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("version"),
             ),
-            word_policy_config: pulumi_wasm_rust::__private::into_domain(
+            word_policy_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("wordPolicyConfig"),
             ),
         }

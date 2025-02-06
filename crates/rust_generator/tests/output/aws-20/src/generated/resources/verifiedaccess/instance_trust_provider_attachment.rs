@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = instance::create("example", InstanceArgs::builder().build_struct());
@@ -37,34 +37,34 @@
 /// $ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589
 /// ```
 pub mod instance_trust_provider_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceTrustProviderAttachmentArgs {
         /// The ID of the Verified Access instance to attach the Trust Provider to.
         #[builder(into)]
-        pub verifiedaccess_instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub verifiedaccess_instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Verified Access trust provider.
         #[builder(into)]
-        pub verifiedaccess_trust_provider_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub verifiedaccess_trust_provider_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct InstanceTrustProviderAttachmentResult {
         /// The ID of the Verified Access instance to attach the Trust Provider to.
-        pub verifiedaccess_instance_id: pulumi_wasm_rust::Output<String>,
+        pub verifiedaccess_instance_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Verified Access trust provider.
-        pub verifiedaccess_trust_provider_id: pulumi_wasm_rust::Output<String>,
+        pub verifiedaccess_trust_provider_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceTrustProviderAttachmentArgs,
     ) -> InstanceTrustProviderAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let verifiedaccess_instance_id_binding = args
             .verifiedaccess_instance_id
@@ -92,10 +92,10 @@ pub mod instance_trust_provider_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceTrustProviderAttachmentResult {
-            verifiedaccess_instance_id: pulumi_wasm_rust::__private::into_domain(
+            verifiedaccess_instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("verifiedaccessInstanceId"),
             ),
-            verifiedaccess_trust_provider_id: pulumi_wasm_rust::__private::into_domain(
+            verifiedaccess_trust_provider_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("verifiedaccessTrustProviderId"),
             ),
         }

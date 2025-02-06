@@ -28,8 +28,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let bucket = bucket::create(
@@ -60,13 +60,13 @@
 /// ```
 ///
 pub mod bucket_access_control {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketAccessControlArgs {
         /// The name of the bucket.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The entity holding the permission, in one of the following forms:
         /// user-userId
         /// user-email
@@ -86,20 +86,20 @@ pub mod bucket_access_control {
         ///
         /// - - -
         #[builder(into)]
-        pub entity: pulumi_wasm_rust::InputOrOutput<String>,
+        pub entity: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The access permission for the entity.
         /// Possible values are: `OWNER`, `READER`, `WRITER`.
         #[builder(into, default)]
-        pub role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BucketAccessControlResult {
         /// The name of the bucket.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// The domain associated with the entity.
-        pub domain: pulumi_wasm_rust::Output<String>,
+        pub domain: pulumi_gestalt_rust::Output<String>,
         /// The email address associated with the entity.
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_gestalt_rust::Output<String>,
         /// The entity holding the permission, in one of the following forms:
         /// user-userId
         /// user-email
@@ -118,21 +118,21 @@ pub mod bucket_access_control {
         ///
         ///
         /// - - -
-        pub entity: pulumi_wasm_rust::Output<String>,
+        pub entity: pulumi_gestalt_rust::Output<String>,
         /// The access permission for the entity.
         /// Possible values are: `OWNER`, `READER`, `WRITER`.
-        pub role: pulumi_wasm_rust::Output<Option<String>>,
+        pub role: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BucketAccessControlArgs,
     ) -> BucketAccessControlResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let entity_binding = args.entity.get_output(context).get_inner();
@@ -158,11 +158,17 @@ pub mod bucket_access_control {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BucketAccessControlResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
-            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
-            entity: pulumi_wasm_rust::__private::into_domain(o.extract_field("entity")),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            domain: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("domain"),
+            ),
+            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
+            entity: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("entity"),
+            ),
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
         }
     }
 }

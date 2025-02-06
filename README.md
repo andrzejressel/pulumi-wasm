@@ -1,29 +1,29 @@
 ## Pulumi support for Wasm
 
-![GitHub Release](https://img.shields.io/github/v/release/andrzejressel/pulumi-wasm-releases?include_prereleases&sort=date)
-[![Build](https://github.com/andrzejressel/pulumi-wasm/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/andrzejressel/pulumi-wasm/actions/workflows/build.yml)
-[![Deploy](https://github.com/andrzejressel/pulumi-wasm/actions/workflows/deploy.yml/badge.svg)](https://github.com/andrzejressel/pulumi-wasm/actions/workflows/deploy.yml)
-[![codecov](https://codecov.io/gh/andrzejressel/pulumi-wasm/graph/badge.svg?token=J3IN76CSOP)](https://codecov.io/gh/andrzejressel/pulumi-wasm)
+![GitHub Release](https://img.shields.io/github/v/release/andrzejressel/pulumi-gestalt-releases?include_prereleases&sort=date)
+[![Build](https://github.com/andrzejressel/pulumi-gestalt/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/andrzejressel/pulumi-gestalt/actions/workflows/build.yml)
+[![Deploy](https://github.com/andrzejressel/pulumi-gestalt/actions/workflows/deploy.yml/badge.svg)](https://github.com/andrzejressel/pulumi-gestalt/actions/workflows/deploy.yml)
+[![codecov](https://codecov.io/gh/andrzejressel/pulumi-gestalt/graph/badge.svg?token=J3IN76CSOP)](https://codecov.io/gh/andrzejressel/pulumi-gestalt)
 
 
 Pulumi support for Wasm.
 
 ### Quick start
 
-https://github.com/andrzejressel/pulumi-wasm-example
+https://github.com/andrzejressel/pulumi-gestalt-example
 
 ### Installation
 
 #### Language plugin
 
 ```
-pulumi plugin install language wasm "VERSION" --server github://api.github.com/andrzejressel/pulumi-wasm-releases
+pulumi plugin install language wasm "VERSION" --server github://api.github.com/andrzejressel/pulumi-gestalt-releases
 ```
 
 #### Wasm Runner
 
 ```
-cargo binstall -y --index "sparse+https://cargo.cloudsmith.io/andrzej-ressel-github/pulumi-wasm/" pulumi_wasm_runner@VERSION
+cargo binstall -y --index "sparse+https://cargo.cloudsmith.io/andrzej-ressel-github/pulumi-gestalt/" pulumi_gestalt_runner@VERSION
 ```
 
 ### Acknowledgements

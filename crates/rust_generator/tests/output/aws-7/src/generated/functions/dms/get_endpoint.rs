@@ -1,71 +1,71 @@
 pub mod get_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetEndpointArgs {
         /// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         #[builder(into)]
-        pub endpoint_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub endpoint_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetEndpointResult {
-        pub certificate_arn: pulumi_wasm_rust::Output<String>,
-        pub database_name: pulumi_wasm_rust::Output<String>,
-        pub elasticsearch_settings: pulumi_wasm_rust::Output<
+        pub certificate_arn: pulumi_gestalt_rust::Output<String>,
+        pub database_name: pulumi_gestalt_rust::Output<String>,
+        pub elasticsearch_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::dms::GetEndpointElasticsearchSetting>,
         >,
-        pub endpoint_arn: pulumi_wasm_rust::Output<String>,
-        pub endpoint_id: pulumi_wasm_rust::Output<String>,
-        pub endpoint_type: pulumi_wasm_rust::Output<String>,
-        pub engine_name: pulumi_wasm_rust::Output<String>,
-        pub extra_connection_attributes: pulumi_wasm_rust::Output<String>,
+        pub endpoint_arn: pulumi_gestalt_rust::Output<String>,
+        pub endpoint_id: pulumi_gestalt_rust::Output<String>,
+        pub endpoint_type: pulumi_gestalt_rust::Output<String>,
+        pub engine_name: pulumi_gestalt_rust::Output<String>,
+        pub extra_connection_attributes: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub kafka_settings: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub kafka_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::dms::GetEndpointKafkaSetting>,
         >,
-        pub kinesis_settings: pulumi_wasm_rust::Output<
+        pub kinesis_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::dms::GetEndpointKinesisSetting>,
         >,
-        pub kms_key_arn: pulumi_wasm_rust::Output<String>,
-        pub mongodb_settings: pulumi_wasm_rust::Output<
+        pub kms_key_arn: pulumi_gestalt_rust::Output<String>,
+        pub mongodb_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::dms::GetEndpointMongodbSetting>,
         >,
-        pub password: pulumi_wasm_rust::Output<String>,
-        pub port: pulumi_wasm_rust::Output<i32>,
-        pub postgres_settings: pulumi_wasm_rust::Output<
+        pub password: pulumi_gestalt_rust::Output<String>,
+        pub port: pulumi_gestalt_rust::Output<i32>,
+        pub postgres_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::dms::GetEndpointPostgresSetting>,
         >,
-        pub redis_settings: pulumi_wasm_rust::Output<
+        pub redis_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::dms::GetEndpointRedisSetting>,
         >,
-        pub redshift_settings: pulumi_wasm_rust::Output<
+        pub redshift_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::dms::GetEndpointRedshiftSetting>,
         >,
-        pub s3_settings: pulumi_wasm_rust::Output<
+        pub s3_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::dms::GetEndpointS3Setting>,
         >,
-        pub secrets_manager_access_role_arn: pulumi_wasm_rust::Output<String>,
-        pub secrets_manager_arn: pulumi_wasm_rust::Output<String>,
-        pub server_name: pulumi_wasm_rust::Output<String>,
-        pub service_access_role: pulumi_wasm_rust::Output<String>,
-        pub ssl_mode: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub secrets_manager_access_role_arn: pulumi_gestalt_rust::Output<String>,
+        pub secrets_manager_arn: pulumi_gestalt_rust::Output<String>,
+        pub server_name: pulumi_gestalt_rust::Output<String>,
+        pub service_access_role: pulumi_gestalt_rust::Output<String>,
+        pub ssl_mode: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
+        pub username: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetEndpointArgs,
     ) -> GetEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let endpoint_id_binding = args.endpoint_id.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();
@@ -85,76 +85,76 @@ pub mod get_endpoint {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetEndpointResult {
-            certificate_arn: pulumi_wasm_rust::__private::into_domain(
+            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateArn"),
             ),
-            database_name: pulumi_wasm_rust::__private::into_domain(
+            database_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseName"),
             ),
-            elasticsearch_settings: pulumi_wasm_rust::__private::into_domain(
+            elasticsearch_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("elasticsearchSettings"),
             ),
-            endpoint_arn: pulumi_wasm_rust::__private::into_domain(
+            endpoint_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointArn"),
             ),
-            endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointId"),
             ),
-            endpoint_type: pulumi_wasm_rust::__private::into_domain(
+            endpoint_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointType"),
             ),
-            engine_name: pulumi_wasm_rust::__private::into_domain(
+            engine_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineName"),
             ),
-            extra_connection_attributes: pulumi_wasm_rust::__private::into_domain(
+            extra_connection_attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("extraConnectionAttributes"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            kafka_settings: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            kafka_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kafkaSettings"),
             ),
-            kinesis_settings: pulumi_wasm_rust::__private::into_domain(
+            kinesis_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kinesisSettings"),
             ),
-            kms_key_arn: pulumi_wasm_rust::__private::into_domain(
+            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyArn"),
             ),
-            mongodb_settings: pulumi_wasm_rust::__private::into_domain(
+            mongodb_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mongodbSettings"),
             ),
-            password: pulumi_wasm_rust::__private::into_domain(
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            postgres_settings: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            postgres_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("postgresSettings"),
             ),
-            redis_settings: pulumi_wasm_rust::__private::into_domain(
+            redis_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redisSettings"),
             ),
-            redshift_settings: pulumi_wasm_rust::__private::into_domain(
+            redshift_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redshiftSettings"),
             ),
-            s3_settings: pulumi_wasm_rust::__private::into_domain(
+            s3_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3Settings"),
             ),
-            secrets_manager_access_role_arn: pulumi_wasm_rust::__private::into_domain(
+            secrets_manager_access_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secretsManagerAccessRoleArn"),
             ),
-            secrets_manager_arn: pulumi_wasm_rust::__private::into_domain(
+            secrets_manager_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secretsManagerArn"),
             ),
-            server_name: pulumi_wasm_rust::__private::into_domain(
+            server_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverName"),
             ),
-            service_access_role: pulumi_wasm_rust::__private::into_domain(
+            service_access_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccessRole"),
             ),
-            ssl_mode: pulumi_wasm_rust::__private::into_domain(
+            ssl_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sslMode"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            username: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("username"),
             ),
         }

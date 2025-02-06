@@ -59,53 +59,53 @@
 /// ```
 ///
 pub mod iot_hub_device_update_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IotHubDeviceUpdateInstanceArgs {
         /// Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub device_update_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub device_update_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
         #[builder(into, default)]
-        pub diagnostic_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub diagnostic_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A `diagnostic_storage_account` block as defined below.
         #[builder(into, default)]
-        pub diagnostic_storage_account: pulumi_wasm_rust::InputOrOutput<
+        pub diagnostic_storage_account: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::iot::IotHubDeviceUpdateInstanceDiagnosticStorageAccount,
             >,
         >,
         /// Specifies the ID of the IoT Hub associated with the IoT Hub Device Update Instance. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub iothub_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub iothub_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name which should be used for this IoT Hub Device Update Instance. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the IoT Hub Device Update Instance.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct IotHubDeviceUpdateInstanceResult {
         /// Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
-        pub device_update_account_id: pulumi_wasm_rust::Output<String>,
+        pub device_update_account_id: pulumi_gestalt_rust::Output<String>,
         /// Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`.
-        pub diagnostic_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub diagnostic_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `diagnostic_storage_account` block as defined below.
-        pub diagnostic_storage_account: pulumi_wasm_rust::Output<
+        pub diagnostic_storage_account: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::iot::IotHubDeviceUpdateInstanceDiagnosticStorageAccount,
             >,
         >,
         /// Specifies the ID of the IoT Hub associated with the IoT Hub Device Update Instance. Changing this forces a new resource to be created.
-        pub iothub_id: pulumi_wasm_rust::Output<String>,
+        pub iothub_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name which should be used for this IoT Hub Device Update Instance. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the IoT Hub Device Update Instance.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -114,11 +114,11 @@ pub mod iot_hub_device_update_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IotHubDeviceUpdateInstanceArgs,
     ) -> IotHubDeviceUpdateInstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let device_update_account_id_binding = args
             .device_update_account_id
@@ -169,20 +169,20 @@ pub mod iot_hub_device_update_instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IotHubDeviceUpdateInstanceResult {
-            device_update_account_id: pulumi_wasm_rust::__private::into_domain(
+            device_update_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deviceUpdateAccountId"),
             ),
-            diagnostic_enabled: pulumi_wasm_rust::__private::into_domain(
+            diagnostic_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diagnosticEnabled"),
             ),
-            diagnostic_storage_account: pulumi_wasm_rust::__private::into_domain(
+            diagnostic_storage_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diagnosticStorageAccount"),
             ),
-            iothub_id: pulumi_wasm_rust::__private::into_domain(
+            iothub_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iothubId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

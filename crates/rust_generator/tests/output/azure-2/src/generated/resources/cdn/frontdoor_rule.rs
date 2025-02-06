@@ -262,68 +262,68 @@
 /// ```
 ///
 pub mod frontdoor_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FrontdoorRuleArgs {
         /// An `actions` block as defined below.
         #[builder(into)]
-        pub actions: pulumi_wasm_rust::InputOrOutput<
+        pub actions: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cdn::FrontdoorRuleActions,
         >,
         /// If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         #[builder(into, default)]
-        pub behavior_on_match: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub behavior_on_match: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
         #[builder(into)]
-        pub cdn_frontdoor_rule_set_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cdn_frontdoor_rule_set_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `conditions` block as defined below.
         #[builder(into, default)]
-        pub conditions: pulumi_wasm_rust::InputOrOutput<
+        pub conditions: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cdn::FrontdoorRuleConditions>,
         >,
         /// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
         ///
         /// ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
         #[builder(into)]
-        pub order: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub order: pulumi_gestalt_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct FrontdoorRuleResult {
         /// An `actions` block as defined below.
-        pub actions: pulumi_wasm_rust::Output<
+        pub actions: pulumi_gestalt_rust::Output<
             super::super::types::cdn::FrontdoorRuleActions,
         >,
         /// If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
-        pub behavior_on_match: pulumi_wasm_rust::Output<Option<String>>,
+        pub behavior_on_match: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
-        pub cdn_frontdoor_rule_set_id: pulumi_wasm_rust::Output<String>,
+        pub cdn_frontdoor_rule_set_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Front Door Rule Set containing this Front Door Rule.
-        pub cdn_frontdoor_rule_set_name: pulumi_wasm_rust::Output<String>,
+        pub cdn_frontdoor_rule_set_name: pulumi_gestalt_rust::Output<String>,
         /// A `conditions` block as defined below.
-        pub conditions: pulumi_wasm_rust::Output<
+        pub conditions: pulumi_gestalt_rust::Output<
             Option<super::super::types::cdn::FrontdoorRuleConditions>,
         >,
         /// The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
         ///
         /// ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
-        pub order: pulumi_wasm_rust::Output<i32>,
+        pub order: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FrontdoorRuleArgs,
     ) -> FrontdoorRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let actions_binding = args.actions.get_output(context).get_inner();
         let behavior_on_match_binding = args
@@ -370,23 +370,23 @@ pub mod frontdoor_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FrontdoorRuleResult {
-            actions: pulumi_wasm_rust::__private::into_domain(
+            actions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actions"),
             ),
-            behavior_on_match: pulumi_wasm_rust::__private::into_domain(
+            behavior_on_match: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("behaviorOnMatch"),
             ),
-            cdn_frontdoor_rule_set_id: pulumi_wasm_rust::__private::into_domain(
+            cdn_frontdoor_rule_set_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnFrontdoorRuleSetId"),
             ),
-            cdn_frontdoor_rule_set_name: pulumi_wasm_rust::__private::into_domain(
+            cdn_frontdoor_rule_set_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnFrontdoorRuleSetName"),
             ),
-            conditions: pulumi_wasm_rust::__private::into_domain(
+            conditions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("conditions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            order: pulumi_wasm_rust::__private::into_domain(o.extract_field("order")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            order: pulumi_gestalt_rust::__private::into_domain(o.extract_field("order")),
         }
     }
 }

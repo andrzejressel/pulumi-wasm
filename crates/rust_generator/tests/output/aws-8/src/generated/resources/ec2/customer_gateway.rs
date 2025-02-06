@@ -22,71 +22,71 @@
 /// $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
 /// ```
 pub mod customer_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomerGatewayArgs {
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
         #[builder(into, default)]
-        pub bgp_asn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub bgp_asn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
         #[builder(into, default)]
-        pub bgp_asn_extended: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub bgp_asn_extended: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) for the customer gateway certificate.
         #[builder(into, default)]
-        pub certificate_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A name for the customer gateway device.
         #[builder(into, default)]
-        pub device_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub device_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IPv4 address for the customer gateway device's outside interface.
         #[builder(into, default)]
-        pub ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of customer gateway. The only type AWS
         /// supports at this time is "ipsec.1".
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CustomerGatewayResult {
         /// The ARN of the customer gateway.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
-        pub bgp_asn: pulumi_wasm_rust::Output<Option<String>>,
+        pub bgp_asn: pulumi_gestalt_rust::Output<Option<String>>,
         /// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
-        pub bgp_asn_extended: pulumi_wasm_rust::Output<Option<String>>,
+        pub bgp_asn_extended: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Amazon Resource Name (ARN) for the customer gateway certificate.
-        pub certificate_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// A name for the customer gateway device.
-        pub device_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub device_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The IPv4 address for the customer gateway device's outside interface.
-        pub ip_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address: pulumi_gestalt_rust::Output<Option<String>>,
         /// Tags to apply to the gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The type of customer gateway. The only type AWS
         /// supports at this time is "ipsec.1".
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CustomerGatewayArgs,
     ) -> CustomerGatewayResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bgp_asn_binding = args.bgp_asn.get_output(context).get_inner();
         let bgp_asn_extended_binding = args
@@ -138,25 +138,27 @@ pub mod customer_gateway {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CustomerGatewayResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            bgp_asn: pulumi_wasm_rust::__private::into_domain(o.extract_field("bgpAsn")),
-            bgp_asn_extended: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            bgp_asn: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bgpAsn"),
+            ),
+            bgp_asn_extended: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bgpAsnExtended"),
             ),
-            certificate_arn: pulumi_wasm_rust::__private::into_domain(
+            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateArn"),
             ),
-            device_name: pulumi_wasm_rust::__private::into_domain(
+            device_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deviceName"),
             ),
-            ip_address: pulumi_wasm_rust::__private::into_domain(
+            ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddress"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

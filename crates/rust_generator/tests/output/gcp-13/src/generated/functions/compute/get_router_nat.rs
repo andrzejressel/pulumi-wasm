@@ -1,69 +1,69 @@
 pub mod get_router_nat {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRouterNatArgs {
         /// Name of the NAT service. The name must be 1-63 characters long and
         /// comply with RFC1035.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Region where the router and NAT reside.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Cloud Router in which this NAT will be configured.
         ///
         /// - - -
         #[builder(into)]
-        pub router: pulumi_wasm_rust::InputOrOutput<String>,
+        pub router: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetRouterNatResult {
-        pub auto_network_tier: pulumi_wasm_rust::Output<String>,
-        pub drain_nat_ips: pulumi_wasm_rust::Output<Vec<String>>,
-        pub enable_dynamic_port_allocation: pulumi_wasm_rust::Output<bool>,
-        pub enable_endpoint_independent_mapping: pulumi_wasm_rust::Output<bool>,
-        pub endpoint_types: pulumi_wasm_rust::Output<Vec<String>>,
-        pub icmp_idle_timeout_sec: pulumi_wasm_rust::Output<i32>,
+        pub auto_network_tier: pulumi_gestalt_rust::Output<String>,
+        pub drain_nat_ips: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub enable_dynamic_port_allocation: pulumi_gestalt_rust::Output<bool>,
+        pub enable_endpoint_independent_mapping: pulumi_gestalt_rust::Output<bool>,
+        pub endpoint_types: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub icmp_idle_timeout_sec: pulumi_gestalt_rust::Output<i32>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub initial_nat_ips: pulumi_wasm_rust::Output<Vec<String>>,
-        pub log_configs: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub initial_nat_ips: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub log_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::compute::GetRouterNatLogConfig>,
         >,
-        pub max_ports_per_vm: pulumi_wasm_rust::Output<i32>,
-        pub min_ports_per_vm: pulumi_wasm_rust::Output<i32>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub nat_ip_allocate_option: pulumi_wasm_rust::Output<String>,
-        pub nat_ips: pulumi_wasm_rust::Output<Vec<String>>,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
-        pub router: pulumi_wasm_rust::Output<String>,
-        pub rules: pulumi_wasm_rust::Output<
+        pub max_ports_per_vm: pulumi_gestalt_rust::Output<i32>,
+        pub min_ports_per_vm: pulumi_gestalt_rust::Output<i32>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub nat_ip_allocate_option: pulumi_gestalt_rust::Output<String>,
+        pub nat_ips: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
+        pub region: pulumi_gestalt_rust::Output<Option<String>>,
+        pub router: pulumi_gestalt_rust::Output<String>,
+        pub rules: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::compute::GetRouterNatRule>,
         >,
-        pub source_subnetwork_ip_ranges_to_nat: pulumi_wasm_rust::Output<String>,
-        pub subnetworks: pulumi_wasm_rust::Output<
+        pub source_subnetwork_ip_ranges_to_nat: pulumi_gestalt_rust::Output<String>,
+        pub subnetworks: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::compute::GetRouterNatSubnetwork>,
         >,
-        pub tcp_established_idle_timeout_sec: pulumi_wasm_rust::Output<i32>,
-        pub tcp_time_wait_timeout_sec: pulumi_wasm_rust::Output<i32>,
-        pub tcp_transitory_idle_timeout_sec: pulumi_wasm_rust::Output<i32>,
-        pub type_: pulumi_wasm_rust::Output<String>,
-        pub udp_idle_timeout_sec: pulumi_wasm_rust::Output<i32>,
+        pub tcp_established_idle_timeout_sec: pulumi_gestalt_rust::Output<i32>,
+        pub tcp_time_wait_timeout_sec: pulumi_gestalt_rust::Output<i32>,
+        pub tcp_transitory_idle_timeout_sec: pulumi_gestalt_rust::Output<i32>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
+        pub udp_idle_timeout_sec: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetRouterNatArgs,
     ) -> GetRouterNatResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -93,65 +93,71 @@ pub mod get_router_nat {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetRouterNatResult {
-            auto_network_tier: pulumi_wasm_rust::__private::into_domain(
+            auto_network_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoNetworkTier"),
             ),
-            drain_nat_ips: pulumi_wasm_rust::__private::into_domain(
+            drain_nat_ips: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("drainNatIps"),
             ),
-            enable_dynamic_port_allocation: pulumi_wasm_rust::__private::into_domain(
+            enable_dynamic_port_allocation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableDynamicPortAllocation"),
             ),
-            enable_endpoint_independent_mapping: pulumi_wasm_rust::__private::into_domain(
+            enable_endpoint_independent_mapping: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableEndpointIndependentMapping"),
             ),
-            endpoint_types: pulumi_wasm_rust::__private::into_domain(
+            endpoint_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointTypes"),
             ),
-            icmp_idle_timeout_sec: pulumi_wasm_rust::__private::into_domain(
+            icmp_idle_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("icmpIdleTimeoutSec"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            initial_nat_ips: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            initial_nat_ips: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("initialNatIps"),
             ),
-            log_configs: pulumi_wasm_rust::__private::into_domain(
+            log_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logConfigs"),
             ),
-            max_ports_per_vm: pulumi_wasm_rust::__private::into_domain(
+            max_ports_per_vm: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxPortsPerVm"),
             ),
-            min_ports_per_vm: pulumi_wasm_rust::__private::into_domain(
+            min_ports_per_vm: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minPortsPerVm"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            nat_ip_allocate_option: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            nat_ip_allocate_option: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("natIpAllocateOption"),
             ),
-            nat_ips: pulumi_wasm_rust::__private::into_domain(o.extract_field("natIps")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            nat_ips: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("natIps"),
+            ),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            router: pulumi_wasm_rust::__private::into_domain(o.extract_field("router")),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
-            source_subnetwork_ip_ranges_to_nat: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            router: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("router"),
+            ),
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
+            source_subnetwork_ip_ranges_to_nat: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceSubnetworkIpRangesToNat"),
             ),
-            subnetworks: pulumi_wasm_rust::__private::into_domain(
+            subnetworks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetworks"),
             ),
-            tcp_established_idle_timeout_sec: pulumi_wasm_rust::__private::into_domain(
+            tcp_established_idle_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tcpEstablishedIdleTimeoutSec"),
             ),
-            tcp_time_wait_timeout_sec: pulumi_wasm_rust::__private::into_domain(
+            tcp_time_wait_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tcpTimeWaitTimeoutSec"),
             ),
-            tcp_transitory_idle_timeout_sec: pulumi_wasm_rust::__private::into_domain(
+            tcp_transitory_idle_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tcpTransitoryIdleTimeoutSec"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            udp_idle_timeout_sec: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            udp_idle_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("udpIdleTimeoutSec"),
             ),
         }

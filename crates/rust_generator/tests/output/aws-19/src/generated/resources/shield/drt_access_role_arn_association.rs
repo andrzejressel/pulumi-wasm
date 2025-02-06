@@ -41,23 +41,23 @@
 /// $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
 /// ```
 pub mod drt_access_role_arn_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DrtAccessRoleArnAssociationArgs {
         /// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::shield::DrtAccessRoleArnAssociationTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct DrtAccessRoleArnAssociationResult {
         /// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::shield::DrtAccessRoleArnAssociationTimeouts>,
         >,
     }
@@ -66,11 +66,11 @@ pub mod drt_access_role_arn_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DrtAccessRoleArnAssociationArgs,
     ) -> DrtAccessRoleArnAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let role_arn_binding = args.role_arn.get_output(context).get_inner();
         let timeouts_binding = args.timeouts.get_output(context).get_inner();
@@ -92,10 +92,10 @@ pub mod drt_access_role_arn_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DrtAccessRoleArnAssociationResult {
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

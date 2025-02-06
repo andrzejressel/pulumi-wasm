@@ -16,8 +16,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let nat = router_nat::create(
@@ -64,8 +64,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let addr1 = address::create(
@@ -146,8 +146,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let hub = hub::create(
@@ -256,7 +256,7 @@
 /// ```
 ///
 pub mod router_nat {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouterNatArgs {
@@ -265,11 +265,11 @@ pub mod router_nat {
         /// project-level default tier is used.
         /// Possible values are: `PREMIUM`, `STANDARD`.
         #[builder(into, default)]
-        pub auto_network_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub auto_network_tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of URLs of the IP resources to be drained. These IPs must be
         /// valid static external IPs that have been assigned to the NAT.
         #[builder(into, default)]
-        pub drain_nat_ips: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub drain_nat_ips: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Enable Dynamic Port Allocation.
         /// If minPortsPerVm is set, minPortsPerVm must be set to a power of two greater than or equal to 32.
         /// If minPortsPerVm is not set, a minimum of 32 ports will be allocated to a VM from this NAT config.
@@ -277,13 +277,13 @@ pub mod router_nat {
         /// If maxPortsPerVm is not set, a maximum of 65536 ports will be allocated to a VM from this NAT config.
         /// Mutually exclusive with enableEndpointIndependentMapping.
         #[builder(into, default)]
-        pub enable_dynamic_port_allocation: pulumi_wasm_rust::InputOrOutput<
+        pub enable_dynamic_port_allocation: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Enable endpoint independent mapping.
         /// For more information see the [official documentation](https://cloud.google.com/nat/docs/overview#specs-rfcs).
         #[builder(into, default)]
-        pub enable_endpoint_independent_mapping: pulumi_wasm_rust::InputOrOutput<
+        pub enable_endpoint_independent_mapping: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Specifies the endpoint Types supported by the NAT Gateway.
@@ -291,61 +291,61 @@ pub mod router_nat {
         /// `ENDPOINT_TYPE_VM`, `ENDPOINT_TYPE_SWG`,
         /// `ENDPOINT_TYPE_MANAGED_PROXY_LB`.
         #[builder(into, default)]
-        pub endpoint_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub endpoint_types: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Timeout (in seconds) for ICMP connections. Defaults to 30s if not set.
         #[builder(into, default)]
-        pub icmp_idle_timeout_sec: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub icmp_idle_timeout_sec: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Self-links of NAT IPs to be used as initial value for creation alongside a RouterNatAddress resource.
         /// Conflicts with natIps and drainNatIps. Only valid if natIpAllocateOption is set to MANUAL_ONLY.
         #[builder(into, default)]
-        pub initial_nat_ips: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub initial_nat_ips: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Configuration for logging on NAT
         /// Structure is documented below.
         #[builder(into, default)]
-        pub log_config: pulumi_wasm_rust::InputOrOutput<
+        pub log_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RouterNatLogConfig>,
         >,
         /// Maximum number of ports allocated to a VM from this NAT.
         /// This field can only be set when enableDynamicPortAllocation is enabled.
         #[builder(into, default)]
-        pub max_ports_per_vm: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_ports_per_vm: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Minimum number of ports allocated to a VM from this NAT. Defaults to 64 for static port allocation and 32 dynamic port allocation if not set.
         #[builder(into, default)]
-        pub min_ports_per_vm: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub min_ports_per_vm: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Name of the NAT service. The name must be 1-63 characters long and
         /// comply with RFC1035.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// How external IPs should be allocated for this NAT. Valid values are
         /// `AUTO_ONLY` for only allowing NAT IPs allocated by Google Cloud
         /// Platform, or `MANUAL_ONLY` for only user-allocated NAT IP addresses.
         /// Possible values are: `MANUAL_ONLY`, `AUTO_ONLY`.
         #[builder(into, default)]
-        pub nat_ip_allocate_option: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub nat_ip_allocate_option: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Self-links of NAT IPs. Only valid if natIpAllocateOption
         /// is set to MANUAL_ONLY.
         /// If this field is used alongside with a count created list of address resources `google_compute_address.foobar.*.self_link`,
         /// the access level resource for the address resource must have a `lifecycle` block with `create_before_destroy = true` so
         /// the number of resources can be increased/decreased without triggering the `resourceInUseByAnotherResource` error.
         #[builder(into, default)]
-        pub nat_ips: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub nat_ips: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Region where the router and NAT reside.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Cloud Router in which this NAT will be configured.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub router: pulumi_wasm_rust::InputOrOutput<String>,
+        pub router: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of rules associated with this NAT.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub rules: pulumi_wasm_rust::InputOrOutput<
+        pub rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RouterNatRule>>,
         >,
         /// How NAT should be configured per Subnetwork.
@@ -360,28 +360,30 @@ pub mod router_nat {
         /// other RouterNat section in any Router for this network in this region.
         /// Possible values are: `ALL_SUBNETWORKS_ALL_IP_RANGES`, `ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES`, `LIST_OF_SUBNETWORKS`.
         #[builder(into)]
-        pub source_subnetwork_ip_ranges_to_nat: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_subnetwork_ip_ranges_to_nat: pulumi_gestalt_rust::InputOrOutput<
+            String,
+        >,
         /// One or more subnetwork NAT configurations. Only used if
         /// `source_subnetwork_ip_ranges_to_nat` is set to `LIST_OF_SUBNETWORKS`
         /// Structure is documented below.
         #[builder(into, default)]
-        pub subnetworks: pulumi_wasm_rust::InputOrOutput<
+        pub subnetworks: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RouterNatSubnetwork>>,
         >,
         /// Timeout (in seconds) for TCP established connections.
         /// Defaults to 1200s if not set.
         #[builder(into, default)]
-        pub tcp_established_idle_timeout_sec: pulumi_wasm_rust::InputOrOutput<
+        pub tcp_established_idle_timeout_sec: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// Timeout (in seconds) for TCP connections that are in TIME_WAIT state.
         /// Defaults to 120s if not set.
         #[builder(into, default)]
-        pub tcp_time_wait_timeout_sec: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub tcp_time_wait_timeout_sec: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Timeout (in seconds) for TCP transitory connections.
         /// Defaults to 30s if not set.
         #[builder(into, default)]
-        pub tcp_transitory_idle_timeout_sec: pulumi_wasm_rust::InputOrOutput<
+        pub tcp_transitory_idle_timeout_sec: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// Indicates whether this NAT is used for public or private IP translation.
@@ -391,10 +393,10 @@ pub mod router_nat {
         /// Default value is `PUBLIC`.
         /// Possible values are: `PUBLIC`, `PRIVATE`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Timeout (in seconds) for UDP connections. Defaults to 30s if not set.
         #[builder(into, default)]
-        pub udp_idle_timeout_sec: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub udp_idle_timeout_sec: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct RouterNatResult {
@@ -402,67 +404,67 @@ pub mod router_nat {
         /// Must be one of: PREMIUM, STANDARD. If not specified, then the current
         /// project-level default tier is used.
         /// Possible values are: `PREMIUM`, `STANDARD`.
-        pub auto_network_tier: pulumi_wasm_rust::Output<String>,
+        pub auto_network_tier: pulumi_gestalt_rust::Output<String>,
         /// A list of URLs of the IP resources to be drained. These IPs must be
         /// valid static external IPs that have been assigned to the NAT.
-        pub drain_nat_ips: pulumi_wasm_rust::Output<Vec<String>>,
+        pub drain_nat_ips: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Enable Dynamic Port Allocation.
         /// If minPortsPerVm is set, minPortsPerVm must be set to a power of two greater than or equal to 32.
         /// If minPortsPerVm is not set, a minimum of 32 ports will be allocated to a VM from this NAT config.
         /// If maxPortsPerVm is set, maxPortsPerVm must be set to a power of two greater than minPortsPerVm.
         /// If maxPortsPerVm is not set, a maximum of 65536 ports will be allocated to a VM from this NAT config.
         /// Mutually exclusive with enableEndpointIndependentMapping.
-        pub enable_dynamic_port_allocation: pulumi_wasm_rust::Output<bool>,
+        pub enable_dynamic_port_allocation: pulumi_gestalt_rust::Output<bool>,
         /// Enable endpoint independent mapping.
         /// For more information see the [official documentation](https://cloud.google.com/nat/docs/overview#specs-rfcs).
-        pub enable_endpoint_independent_mapping: pulumi_wasm_rust::Output<bool>,
+        pub enable_endpoint_independent_mapping: pulumi_gestalt_rust::Output<bool>,
         /// Specifies the endpoint Types supported by the NAT Gateway.
         /// Supported values include:
         /// `ENDPOINT_TYPE_VM`, `ENDPOINT_TYPE_SWG`,
         /// `ENDPOINT_TYPE_MANAGED_PROXY_LB`.
-        pub endpoint_types: pulumi_wasm_rust::Output<Vec<String>>,
+        pub endpoint_types: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Timeout (in seconds) for ICMP connections. Defaults to 30s if not set.
-        pub icmp_idle_timeout_sec: pulumi_wasm_rust::Output<Option<i32>>,
+        pub icmp_idle_timeout_sec: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Self-links of NAT IPs to be used as initial value for creation alongside a RouterNatAddress resource.
         /// Conflicts with natIps and drainNatIps. Only valid if natIpAllocateOption is set to MANUAL_ONLY.
-        pub initial_nat_ips: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub initial_nat_ips: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Configuration for logging on NAT
         /// Structure is documented below.
-        pub log_config: pulumi_wasm_rust::Output<
+        pub log_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RouterNatLogConfig>,
         >,
         /// Maximum number of ports allocated to a VM from this NAT.
         /// This field can only be set when enableDynamicPortAllocation is enabled.
-        pub max_ports_per_vm: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_ports_per_vm: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Minimum number of ports allocated to a VM from this NAT. Defaults to 64 for static port allocation and 32 dynamic port allocation if not set.
-        pub min_ports_per_vm: pulumi_wasm_rust::Output<i32>,
+        pub min_ports_per_vm: pulumi_gestalt_rust::Output<i32>,
         /// Name of the NAT service. The name must be 1-63 characters long and
         /// comply with RFC1035.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// How external IPs should be allocated for this NAT. Valid values are
         /// `AUTO_ONLY` for only allowing NAT IPs allocated by Google Cloud
         /// Platform, or `MANUAL_ONLY` for only user-allocated NAT IP addresses.
         /// Possible values are: `MANUAL_ONLY`, `AUTO_ONLY`.
-        pub nat_ip_allocate_option: pulumi_wasm_rust::Output<Option<String>>,
+        pub nat_ip_allocate_option: pulumi_gestalt_rust::Output<Option<String>>,
         /// Self-links of NAT IPs. Only valid if natIpAllocateOption
         /// is set to MANUAL_ONLY.
         /// If this field is used alongside with a count created list of address resources `google_compute_address.foobar.*.self_link`,
         /// the access level resource for the address resource must have a `lifecycle` block with `create_before_destroy = true` so
         /// the number of resources can be increased/decreased without triggering the `resourceInUseByAnotherResource` error.
-        pub nat_ips: pulumi_wasm_rust::Output<Vec<String>>,
+        pub nat_ips: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Region where the router and NAT reside.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The name of the Cloud Router in which this NAT will be configured.
         ///
         ///
         /// - - -
-        pub router: pulumi_wasm_rust::Output<String>,
+        pub router: pulumi_gestalt_rust::Output<String>,
         /// A list of rules associated with this NAT.
         /// Structure is documented below.
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::RouterNatRule>>,
         >,
         /// How NAT should be configured per Subnetwork.
@@ -476,42 +478,42 @@ pub mod router_nat {
         /// ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, then there should not be any
         /// other RouterNat section in any Router for this network in this region.
         /// Possible values are: `ALL_SUBNETWORKS_ALL_IP_RANGES`, `ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES`, `LIST_OF_SUBNETWORKS`.
-        pub source_subnetwork_ip_ranges_to_nat: pulumi_wasm_rust::Output<String>,
+        pub source_subnetwork_ip_ranges_to_nat: pulumi_gestalt_rust::Output<String>,
         /// One or more subnetwork NAT configurations. Only used if
         /// `source_subnetwork_ip_ranges_to_nat` is set to `LIST_OF_SUBNETWORKS`
         /// Structure is documented below.
-        pub subnetworks: pulumi_wasm_rust::Output<
+        pub subnetworks: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::RouterNatSubnetwork>>,
         >,
         /// Timeout (in seconds) for TCP established connections.
         /// Defaults to 1200s if not set.
-        pub tcp_established_idle_timeout_sec: pulumi_wasm_rust::Output<Option<i32>>,
+        pub tcp_established_idle_timeout_sec: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Timeout (in seconds) for TCP connections that are in TIME_WAIT state.
         /// Defaults to 120s if not set.
-        pub tcp_time_wait_timeout_sec: pulumi_wasm_rust::Output<Option<i32>>,
+        pub tcp_time_wait_timeout_sec: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Timeout (in seconds) for TCP transitory connections.
         /// Defaults to 30s if not set.
-        pub tcp_transitory_idle_timeout_sec: pulumi_wasm_rust::Output<Option<i32>>,
+        pub tcp_transitory_idle_timeout_sec: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Indicates whether this NAT is used for public or private IP translation.
         /// If unspecified, it defaults to PUBLIC.
         /// If `PUBLIC` NAT used for public IP translation.
         /// If `PRIVATE` NAT used for private IP translation.
         /// Default value is `PUBLIC`.
         /// Possible values are: `PUBLIC`, `PRIVATE`.
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
         /// Timeout (in seconds) for UDP connections. Defaults to 30s if not set.
-        pub udp_idle_timeout_sec: pulumi_wasm_rust::Output<Option<i32>>,
+        pub udp_idle_timeout_sec: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouterNatArgs,
     ) -> RouterNatResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_network_tier_binding = args
             .auto_network_tier
@@ -681,64 +683,70 @@ pub mod router_nat {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouterNatResult {
-            auto_network_tier: pulumi_wasm_rust::__private::into_domain(
+            auto_network_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoNetworkTier"),
             ),
-            drain_nat_ips: pulumi_wasm_rust::__private::into_domain(
+            drain_nat_ips: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("drainNatIps"),
             ),
-            enable_dynamic_port_allocation: pulumi_wasm_rust::__private::into_domain(
+            enable_dynamic_port_allocation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableDynamicPortAllocation"),
             ),
-            enable_endpoint_independent_mapping: pulumi_wasm_rust::__private::into_domain(
+            enable_endpoint_independent_mapping: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableEndpointIndependentMapping"),
             ),
-            endpoint_types: pulumi_wasm_rust::__private::into_domain(
+            endpoint_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointTypes"),
             ),
-            icmp_idle_timeout_sec: pulumi_wasm_rust::__private::into_domain(
+            icmp_idle_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("icmpIdleTimeoutSec"),
             ),
-            initial_nat_ips: pulumi_wasm_rust::__private::into_domain(
+            initial_nat_ips: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("initialNatIps"),
             ),
-            log_config: pulumi_wasm_rust::__private::into_domain(
+            log_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logConfig"),
             ),
-            max_ports_per_vm: pulumi_wasm_rust::__private::into_domain(
+            max_ports_per_vm: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxPortsPerVm"),
             ),
-            min_ports_per_vm: pulumi_wasm_rust::__private::into_domain(
+            min_ports_per_vm: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minPortsPerVm"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            nat_ip_allocate_option: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            nat_ip_allocate_option: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("natIpAllocateOption"),
             ),
-            nat_ips: pulumi_wasm_rust::__private::into_domain(o.extract_field("natIps")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            nat_ips: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("natIps"),
+            ),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            router: pulumi_wasm_rust::__private::into_domain(o.extract_field("router")),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
-            source_subnetwork_ip_ranges_to_nat: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            router: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("router"),
+            ),
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
+            source_subnetwork_ip_ranges_to_nat: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceSubnetworkIpRangesToNat"),
             ),
-            subnetworks: pulumi_wasm_rust::__private::into_domain(
+            subnetworks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetworks"),
             ),
-            tcp_established_idle_timeout_sec: pulumi_wasm_rust::__private::into_domain(
+            tcp_established_idle_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tcpEstablishedIdleTimeoutSec"),
             ),
-            tcp_time_wait_timeout_sec: pulumi_wasm_rust::__private::into_domain(
+            tcp_time_wait_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tcpTimeWaitTimeoutSec"),
             ),
-            tcp_transitory_idle_timeout_sec: pulumi_wasm_rust::__private::into_domain(
+            tcp_transitory_idle_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tcpTransitoryIdleTimeoutSec"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            udp_idle_timeout_sec: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            udp_idle_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("udpIdleTimeoutSec"),
             ),
         }

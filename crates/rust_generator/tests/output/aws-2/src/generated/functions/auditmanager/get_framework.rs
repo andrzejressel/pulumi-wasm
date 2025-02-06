@@ -1,40 +1,40 @@
 pub mod get_framework {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetFrameworkArgs {
         #[builder(into, default)]
-        pub control_sets: pulumi_wasm_rust::InputOrOutput<
+        pub control_sets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::super::types::auditmanager::GetFrameworkControlSet>>,
         >,
         #[builder(into)]
-        pub framework_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub framework_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the framework.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetFrameworkResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub compliance_type: pulumi_wasm_rust::Output<String>,
-        pub control_sets: pulumi_wasm_rust::Output<
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub compliance_type: pulumi_gestalt_rust::Output<String>,
+        pub control_sets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::super::types::auditmanager::GetFrameworkControlSet>>,
         >,
-        pub description: pulumi_wasm_rust::Output<String>,
-        pub framework_type: pulumi_wasm_rust::Output<String>,
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub description: pulumi_gestalt_rust::Output<String>,
+        pub framework_type: pulumi_gestalt_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetFrameworkArgs,
     ) -> GetFrameworkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let control_sets_binding = args.control_sets.get_output(context).get_inner();
         let framework_type_binding = args.framework_type.get_output(context).get_inner();
@@ -59,22 +59,22 @@ pub mod get_framework {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetFrameworkResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            compliance_type: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            compliance_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("complianceType"),
             ),
-            control_sets: pulumi_wasm_rust::__private::into_domain(
+            control_sets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("controlSets"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            framework_type: pulumi_wasm_rust::__private::into_domain(
+            framework_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frameworkType"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

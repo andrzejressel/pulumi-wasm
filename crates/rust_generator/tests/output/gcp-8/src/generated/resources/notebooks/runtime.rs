@@ -169,14 +169,14 @@
 /// ```
 ///
 pub mod runtime {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RuntimeArgs {
         /// The config settings for accessing runtime.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub access_config: pulumi_wasm_rust::InputOrOutput<
+        pub access_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::notebooks::RuntimeAccessConfig>,
         >,
         /// The labels to associate with this runtime. Label **keys** must
@@ -189,7 +189,7 @@ pub mod runtime {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A reference to the zone where the machine resides.
@@ -197,24 +197,24 @@ pub mod runtime {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name specified for the Notebook runtime.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The config settings for software inside the runtime.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub software_config: pulumi_wasm_rust::InputOrOutput<
+        pub software_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::notebooks::RuntimeSoftwareConfig>,
         >,
         /// Use a Compute Engine VM image to start the managed notebook instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub virtual_machine: pulumi_wasm_rust::InputOrOutput<
+        pub virtual_machine: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::notebooks::RuntimeVirtualMachine>,
         >,
     }
@@ -222,17 +222,17 @@ pub mod runtime {
     pub struct RuntimeResult {
         /// The config settings for accessing runtime.
         /// Structure is documented below.
-        pub access_config: pulumi_wasm_rust::Output<
+        pub access_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::notebooks::RuntimeAccessConfig>,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The health state of this runtime. For a list of possible output
         /// values, see `https://cloud.google.com/vertex-ai/docs/workbench/
         /// reference/rest/v1/projects.locations.runtimes#healthstate`.
-        pub health_state: pulumi_wasm_rust::Output<String>,
+        pub health_state: pulumi_gestalt_rust::Output<String>,
         /// The labels to associate with this runtime. Label **keys** must
         /// contain 1 to 63 characters, and must conform to [RFC 1035]
         /// (https://www.ietf.org/rfc/rfc1035.txt). Label **values** may be
@@ -242,40 +242,40 @@ pub mod runtime {
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A reference to the zone where the machine resides.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Contains Runtime daemon metrics such as Service status and JupyterLab
         /// status
         /// Structure is documented below.
-        pub metrics: pulumi_wasm_rust::Output<
+        pub metrics: pulumi_gestalt_rust::Output<
             Vec<super::super::types::notebooks::RuntimeMetric>,
         >,
         /// The name specified for the Notebook runtime.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The config settings for software inside the runtime.
         /// Structure is documented below.
-        pub software_config: pulumi_wasm_rust::Output<
+        pub software_config: pulumi_gestalt_rust::Output<
             super::super::types::notebooks::RuntimeSoftwareConfig,
         >,
         /// The state of this runtime.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Use a Compute Engine VM image to start the managed notebook instance.
         /// Structure is documented below.
-        pub virtual_machine: pulumi_wasm_rust::Output<
+        pub virtual_machine: pulumi_gestalt_rust::Output<
             Option<super::super::types::notebooks::RuntimeVirtualMachine>,
         >,
     }
@@ -284,11 +284,11 @@ pub mod runtime {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RuntimeArgs,
     ) -> RuntimeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_config_binding = args.access_config.get_output(context).get_inner();
         let labels_binding = args.labels.get_output(context).get_inner();
@@ -340,34 +340,36 @@ pub mod runtime {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RuntimeResult {
-            access_config: pulumi_wasm_rust::__private::into_domain(
+            access_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessConfig"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            health_state: pulumi_wasm_rust::__private::into_domain(
+            health_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("healthState"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            metrics: pulumi_wasm_rust::__private::into_domain(
+            metrics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metrics"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            software_config: pulumi_wasm_rust::__private::into_domain(
+            software_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("softwareConfig"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            virtual_machine: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            virtual_machine: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualMachine"),
             ),
         }

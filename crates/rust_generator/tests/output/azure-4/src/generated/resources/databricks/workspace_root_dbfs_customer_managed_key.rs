@@ -116,37 +116,37 @@
 /// ```
 ///
 pub mod workspace_root_dbfs_customer_managed_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkspaceRootDbfsCustomerManagedKeyArgs {
         #[builder(into, default)]
-        pub key_vault_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_vault_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the Key Vault Key to be used.
         #[builder(into)]
-        pub key_vault_key_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_vault_key_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource ID of the Databricks Workspace.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkspaceRootDbfsCustomerManagedKeyResult {
-        pub key_vault_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_vault_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource ID of the Key Vault Key to be used.
-        pub key_vault_key_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_key_id: pulumi_gestalt_rust::Output<String>,
         /// The resource ID of the Databricks Workspace.
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkspaceRootDbfsCustomerManagedKeyArgs,
     ) -> WorkspaceRootDbfsCustomerManagedKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
         let key_vault_key_id_binding = args
@@ -176,13 +176,13 @@ pub mod workspace_root_dbfs_customer_managed_key {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkspaceRootDbfsCustomerManagedKeyResult {
-            key_vault_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultId"),
             ),
-            key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultKeyId"),
             ),
-            workspace_id: pulumi_wasm_rust::__private::into_domain(
+            workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceId"),
             ),
         }

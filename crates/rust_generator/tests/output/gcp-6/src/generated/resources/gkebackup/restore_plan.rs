@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let allNs = restore_plan::create(
@@ -85,8 +85,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = backup_plan::create(
@@ -170,8 +170,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = backup_plan::create(
@@ -250,8 +250,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let allClusterResources = restore_plan::create(
@@ -321,8 +321,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = backup_plan::create(
@@ -480,8 +480,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = backup_plan::create(
@@ -552,8 +552,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = backup_plan::create(
@@ -646,8 +646,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = backup_plan::create(
@@ -747,39 +747,39 @@
 /// ```
 ///
 pub mod restore_plan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RestorePlanArgs {
         /// A reference to the BackupPlan from which Backups may be used
         /// as the source for Restores created via this RestorePlan.
         #[builder(into)]
-        pub backup_plan: pulumi_wasm_rust::InputOrOutput<String>,
+        pub backup_plan: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The source cluster from which Restores will be created via this RestorePlan.
         #[builder(into)]
-        pub cluster: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster: pulumi_gestalt_rust::InputOrOutput<String>,
         /// User specified descriptive string for this RestorePlan.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Description: A set of custom labels supplied by the user. A list of key->value pairs. Example: { "name": "wrench",
         /// "mass": "1.3kg", "count": "3" }. **Note**: This field is non-authoritative, and will only manage the labels present in
         /// your configuration. Please refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The region of the Restore Plan.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The full name of the BackupPlan Resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Defines the configuration of Restores created via this RestorePlan.
         /// Structure is documented below.
         #[builder(into)]
-        pub restore_config: pulumi_wasm_rust::InputOrOutput<
+        pub restore_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::gkebackup::RestorePlanRestoreConfig,
         >,
     }
@@ -787,53 +787,53 @@ pub mod restore_plan {
     pub struct RestorePlanResult {
         /// A reference to the BackupPlan from which Backups may be used
         /// as the source for Restores created via this RestorePlan.
-        pub backup_plan: pulumi_wasm_rust::Output<String>,
+        pub backup_plan: pulumi_gestalt_rust::Output<String>,
         /// The source cluster from which Restores will be created via this RestorePlan.
-        pub cluster: pulumi_wasm_rust::Output<String>,
+        pub cluster: pulumi_gestalt_rust::Output<String>,
         /// User specified descriptive string for this RestorePlan.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Description: A set of custom labels supplied by the user. A list of key->value pairs. Example: { "name": "wrench",
         /// "mass": "1.3kg", "count": "3" }. **Note**: This field is non-authoritative, and will only manage the labels present in
         /// your configuration. Please refer to the field 'effective_labels' for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The region of the Restore Plan.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The full name of the BackupPlan Resource.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Defines the configuration of Restores created via this RestorePlan.
         /// Structure is documented below.
-        pub restore_config: pulumi_wasm_rust::Output<
+        pub restore_config: pulumi_gestalt_rust::Output<
             super::super::types::gkebackup::RestorePlanRestoreConfig,
         >,
         /// The State of the RestorePlan.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Detailed description of why RestorePlan is in its current state.
-        pub state_reason: pulumi_wasm_rust::Output<String>,
+        pub state_reason: pulumi_gestalt_rust::Output<String>,
         /// Server generated, unique identifier of UUID format.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RestorePlanArgs,
     ) -> RestorePlanResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_plan_binding = args.backup_plan.get_output(context).get_inner();
         let cluster_binding = args.cluster.get_output(context).get_inner();
@@ -884,37 +884,39 @@ pub mod restore_plan {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RestorePlanResult {
-            backup_plan: pulumi_wasm_rust::__private::into_domain(
+            backup_plan: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupPlan"),
             ),
-            cluster: pulumi_wasm_rust::__private::into_domain(
+            cluster: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cluster"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            restore_config: pulumi_wasm_rust::__private::into_domain(
+            restore_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restoreConfig"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            state_reason: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            state_reason: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateReason"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
         }
     }
 }

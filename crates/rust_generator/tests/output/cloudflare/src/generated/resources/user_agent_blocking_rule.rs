@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example1 = user_agent_blocking_rule::create(
@@ -47,53 +47,53 @@
 /// ```
 ///
 pub mod user_agent_blocking_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserAgentBlockingRuleArgs {
         /// The configuration object for the current rule.
         #[builder(into)]
-        pub configuration: pulumi_wasm_rust::InputOrOutput<
+        pub configuration: pulumi_gestalt_rust::InputOrOutput<
             super::types::UserAgentBlockingRuleConfiguration,
         >,
         /// An informative summary of the rule.
         #[builder(into)]
-        pub description: pulumi_wasm_rust::InputOrOutput<String>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The action to apply to a matched request. Available values: `block`, `challenge`, `js_challenge`, `managed_challenge`.
         #[builder(into)]
-        pub mode: pulumi_wasm_rust::InputOrOutput<String>,
+        pub mode: pulumi_gestalt_rust::InputOrOutput<String>,
         /// When true, indicates that the rule is currently paused.
         #[builder(into)]
-        pub paused: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub paused: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserAgentBlockingRuleResult {
         /// The configuration object for the current rule.
-        pub configuration: pulumi_wasm_rust::Output<
+        pub configuration: pulumi_gestalt_rust::Output<
             super::types::UserAgentBlockingRuleConfiguration,
         >,
         /// An informative summary of the rule.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// The action to apply to a matched request. Available values: `block`, `challenge`, `js_challenge`, `managed_challenge`.
-        pub mode: pulumi_wasm_rust::Output<String>,
+        pub mode: pulumi_gestalt_rust::Output<String>,
         /// When true, indicates that the rule is currently paused.
-        pub paused: pulumi_wasm_rust::Output<bool>,
+        pub paused: pulumi_gestalt_rust::Output<bool>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserAgentBlockingRuleArgs,
     ) -> UserAgentBlockingRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let configuration_binding = args.configuration.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -129,15 +129,19 @@ pub mod user_agent_blocking_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserAgentBlockingRuleResult {
-            configuration: pulumi_wasm_rust::__private::into_domain(
+            configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configuration"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
-            paused: pulumi_wasm_rust::__private::into_domain(o.extract_field("paused")),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
+            paused: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("paused"),
+            ),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

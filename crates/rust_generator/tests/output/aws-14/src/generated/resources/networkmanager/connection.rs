@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = connection::create(
@@ -27,56 +27,56 @@
 /// $ pulumi import aws:networkmanager/connection:Connection example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123
 /// ```
 pub mod connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionArgs {
         /// The ID of the second device in the connection.
         #[builder(into)]
-        pub connected_device_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connected_device_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the link for the second device.
         #[builder(into, default)]
-        pub connected_link_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub connected_link_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A description of the connection.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the first device in the connection.
         #[builder(into)]
-        pub device_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub device_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the global network.
         #[builder(into)]
-        pub global_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub global_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the link for the first device.
         #[builder(into, default)]
-        pub link_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub link_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ConnectionResult {
         /// The Amazon Resource Name (ARN) of the connection.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ID of the second device in the connection.
-        pub connected_device_id: pulumi_wasm_rust::Output<String>,
+        pub connected_device_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the link for the second device.
-        pub connected_link_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub connected_link_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A description of the connection.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the first device in the connection.
-        pub device_id: pulumi_wasm_rust::Output<String>,
+        pub device_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the global network.
-        pub global_network_id: pulumi_wasm_rust::Output<String>,
+        pub global_network_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the link for the first device.
-        pub link_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub link_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value tags for the connection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -85,11 +85,11 @@ pub mod connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectionArgs,
     ) -> ConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let connected_device_id_binding = args
             .connected_device_id
@@ -144,25 +144,27 @@ pub mod connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            connected_device_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            connected_device_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectedDeviceId"),
             ),
-            connected_link_id: pulumi_wasm_rust::__private::into_domain(
+            connected_link_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectedLinkId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            device_id: pulumi_wasm_rust::__private::into_domain(
+            device_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deviceId"),
             ),
-            global_network_id: pulumi_wasm_rust::__private::into_domain(
+            global_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalNetworkId"),
             ),
-            link_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("linkId")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            link_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("linkId"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

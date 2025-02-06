@@ -26,52 +26,52 @@
 /// $ pulumi import aws:connect/securityProfile:SecurityProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 /// ```
 pub mod security_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecurityProfileArgs {
         /// Specifies the description of the Security Profile.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Security Profile.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies a list of permissions assigned to the security profile.
         #[builder(into, default)]
-        pub permissions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub permissions: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Tags to apply to the Security Profile. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct SecurityProfileResult {
         /// The Amazon Resource Name (ARN) of the Security Profile.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Specifies the description of the Security Profile.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the identifier of the hosting Amazon Connect Instance.
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Security Profile.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The organization resource identifier for the security profile.
-        pub organization_resource_id: pulumi_wasm_rust::Output<String>,
+        pub organization_resource_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies a list of permissions assigned to the security profile.
-        pub permissions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub permissions: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The identifier for the Security Profile.
-        pub security_profile_id: pulumi_wasm_rust::Output<String>,
+        pub security_profile_id: pulumi_gestalt_rust::Output<String>,
         /// Tags to apply to the Security Profile. If configured with a provider
         /// `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -80,11 +80,11 @@ pub mod security_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SecurityProfileArgs,
     ) -> SecurityProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let instance_id_binding = args.instance_id.get_output(context).get_inner();
@@ -120,25 +120,25 @@ pub mod security_profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SecurityProfileResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            organization_resource_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            organization_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organizationResourceId"),
             ),
-            permissions: pulumi_wasm_rust::__private::into_domain(
+            permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissions"),
             ),
-            security_profile_id: pulumi_wasm_rust::__private::into_domain(
+            security_profile_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityProfileId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

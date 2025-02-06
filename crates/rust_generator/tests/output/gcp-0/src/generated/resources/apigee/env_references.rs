@@ -26,57 +26,57 @@
 /// ```
 ///
 pub mod env_references {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvReferencesArgs {
         /// Optional. A human-readable description of this reference.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Apigee environment group associated with the Apigee environment,
         /// in the format `organizations/{{org_name}}/environments/{{env_name}}`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub env_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub env_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Required. The resource id of this reference. Values must match the regular expression [\w\s-.]+.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Required. The id of the resource to which this reference refers. Must be the id of a resource that exists in the parent environment and is of the given resourceType.
         #[builder(into)]
-        pub refers: pulumi_wasm_rust::InputOrOutput<String>,
+        pub refers: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of resource referred to by this reference. Valid values are 'KeyStore' or 'TrustStore'.
         #[builder(into)]
-        pub resource_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_type: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EnvReferencesResult {
         /// Optional. A human-readable description of this reference.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Apigee environment group associated with the Apigee environment,
         /// in the format `organizations/{{org_name}}/environments/{{env_name}}`.
         ///
         ///
         /// - - -
-        pub env_id: pulumi_wasm_rust::Output<String>,
+        pub env_id: pulumi_gestalt_rust::Output<String>,
         /// Required. The resource id of this reference. Values must match the regular expression [\w\s-.]+.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Required. The id of the resource to which this reference refers. Must be the id of a resource that exists in the parent environment and is of the given resourceType.
-        pub refers: pulumi_wasm_rust::Output<String>,
+        pub refers: pulumi_gestalt_rust::Output<String>,
         /// The type of resource referred to by this reference. Valid values are 'KeyStore' or 'TrustStore'.
-        pub resource_type: pulumi_wasm_rust::Output<String>,
+        pub resource_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvReferencesArgs,
     ) -> EnvReferencesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let env_id_binding = args.env_id.get_output(context).get_inner();
@@ -112,13 +112,17 @@ pub mod env_references {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvReferencesResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            env_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("envId")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            refers: pulumi_wasm_rust::__private::into_domain(o.extract_field("refers")),
-            resource_type: pulumi_wasm_rust::__private::into_domain(
+            env_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("envId"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            refers: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("refers"),
+            ),
+            resource_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceType"),
             ),
         }

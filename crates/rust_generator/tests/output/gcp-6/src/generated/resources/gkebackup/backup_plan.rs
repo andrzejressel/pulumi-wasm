@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = backup_plan::create(
@@ -63,8 +63,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let autopilot = backup_plan::create(
@@ -112,8 +112,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let cmek = backup_plan::create(
@@ -182,8 +182,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let full = backup_plan::create(
@@ -254,8 +254,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let permissive = backup_plan::create(
@@ -327,8 +327,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let primary = cluster::create(
@@ -408,8 +408,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let primary = cluster::create(
@@ -518,34 +518,34 @@
 /// ```
 ///
 pub mod backup_plan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupPlanArgs {
         /// Defines the configuration of Backups created via this BackupPlan.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub backup_config: pulumi_wasm_rust::InputOrOutput<
+        pub backup_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkebackup::BackupPlanBackupConfig>,
         >,
         /// Defines a schedule for automatic Backup creation via this BackupPlan.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub backup_schedule: pulumi_wasm_rust::InputOrOutput<
+        pub backup_schedule: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkebackup::BackupPlanBackupSchedule>,
         >,
         /// The source cluster from which Backups will be created via this BackupPlan.
         #[builder(into)]
-        pub cluster: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster: pulumi_gestalt_rust::InputOrOutput<String>,
         /// This flag indicates whether this BackupPlan has been deactivated.
         /// Setting this field to True locks the BackupPlan such that no further updates will be allowed
         /// (except deletes), including the deactivated field itself. It also prevents any new Backups
         /// from being created via this BackupPlan (including scheduled Backups).
         #[builder(into, default)]
-        pub deactivated: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deactivated: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// User specified descriptive string for this BackupPlan.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Description: A set of custom labels supplied by the user.
         /// A list of key->value pairs.
         /// Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
@@ -553,7 +553,7 @@ pub mod backup_plan {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The region of the Backup Plan.
@@ -561,18 +561,18 @@ pub mod backup_plan {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The full name of the BackupPlan Resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// RetentionPolicy governs lifecycle of Backups created under this plan.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub retention_policy: pulumi_wasm_rust::InputOrOutput<
+        pub retention_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkebackup::BackupPlanRetentionPolicy>,
         >,
     }
@@ -580,25 +580,25 @@ pub mod backup_plan {
     pub struct BackupPlanResult {
         /// Defines the configuration of Backups created via this BackupPlan.
         /// Structure is documented below.
-        pub backup_config: pulumi_wasm_rust::Output<
+        pub backup_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkebackup::BackupPlanBackupConfig>,
         >,
         /// Defines a schedule for automatic Backup creation via this BackupPlan.
         /// Structure is documented below.
-        pub backup_schedule: pulumi_wasm_rust::Output<
+        pub backup_schedule: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkebackup::BackupPlanBackupSchedule>,
         >,
         /// The source cluster from which Backups will be created via this BackupPlan.
-        pub cluster: pulumi_wasm_rust::Output<String>,
+        pub cluster: pulumi_gestalt_rust::Output<String>,
         /// This flag indicates whether this BackupPlan has been deactivated.
         /// Setting this field to True locks the BackupPlan such that no further updates will be allowed
         /// (except deletes), including the deactivated field itself. It also prevents any new Backups
         /// from being created via this BackupPlan (including scheduled Backups).
-        pub deactivated: pulumi_wasm_rust::Output<bool>,
+        pub deactivated: pulumi_gestalt_rust::Output<bool>,
         /// User specified descriptive string for this BackupPlan.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// etag is used for optimistic concurrency control as a way to help prevent simultaneous
@@ -607,55 +607,55 @@ pub mod backup_plan {
         /// in order to avoid race conditions: An etag is returned in the response to backupPlans.get,
         /// and systems are expected to put that etag in the request to backupPlans.patch or
         /// backupPlans.delete to ensure that their change will be applied to the same version of the resource.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Description: A set of custom labels supplied by the user.
         /// A list of key->value pairs.
         /// Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The region of the Backup Plan.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The full name of the BackupPlan Resource.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The number of Kubernetes Pods backed up in the last successful Backup created via this BackupPlan.
-        pub protected_pod_count: pulumi_wasm_rust::Output<i32>,
+        pub protected_pod_count: pulumi_gestalt_rust::Output<i32>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// RetentionPolicy governs lifecycle of Backups created under this plan.
         /// Structure is documented below.
-        pub retention_policy: pulumi_wasm_rust::Output<
+        pub retention_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkebackup::BackupPlanRetentionPolicy>,
         >,
         /// The State of the BackupPlan.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Detailed description of why BackupPlan is in its current state.
-        pub state_reason: pulumi_wasm_rust::Output<String>,
+        pub state_reason: pulumi_gestalt_rust::Output<String>,
         /// Server generated, unique identifier of UUID format.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackupPlanArgs,
     ) -> BackupPlanResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_config_binding = args.backup_config.get_output(context).get_inner();
         let backup_schedule_binding = args
@@ -722,47 +722,49 @@ pub mod backup_plan {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackupPlanResult {
-            backup_config: pulumi_wasm_rust::__private::into_domain(
+            backup_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupConfig"),
             ),
-            backup_schedule: pulumi_wasm_rust::__private::into_domain(
+            backup_schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupSchedule"),
             ),
-            cluster: pulumi_wasm_rust::__private::into_domain(
+            cluster: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cluster"),
             ),
-            deactivated: pulumi_wasm_rust::__private::into_domain(
+            deactivated: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deactivated"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            protected_pod_count: pulumi_wasm_rust::__private::into_domain(
+            protected_pod_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protectedPodCount"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            retention_policy: pulumi_wasm_rust::__private::into_domain(
+            retention_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionPolicy"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            state_reason: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            state_reason: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateReason"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
         }
     }
 }

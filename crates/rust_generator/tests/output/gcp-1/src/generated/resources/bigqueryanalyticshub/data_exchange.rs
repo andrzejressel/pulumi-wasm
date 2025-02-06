@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let dataExchange = data_exchange::create(
@@ -32,8 +32,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let dataExchange = data_exchange::create(
@@ -87,43 +87,43 @@
 /// ```
 ///
 pub mod data_exchange {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataExchangeArgs {
         /// The ID of the data exchange. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
         #[builder(into)]
-        pub data_exchange_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_exchange_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description of the data exchange.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Human-readable display name of the data exchange. The display name must contain only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces ( ), and must not start or end with spaces.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Documentation describing the data exchange.
         #[builder(into, default)]
-        pub documentation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub documentation: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Base64 encoded image representing the data exchange.
         #[builder(into, default)]
-        pub icon: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub icon: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the location this data exchange.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Email or URL of the primary point of contact of the data exchange.
         #[builder(into, default)]
-        pub primary_contact: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub primary_contact: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configurable data sharing environment option for a data exchange.
         /// This field is required for data clean room exchanges.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub sharing_environment_config: pulumi_wasm_rust::InputOrOutput<
+        pub sharing_environment_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::bigqueryanalyticshub::DataExchangeSharingEnvironmentConfig,
             >,
@@ -132,34 +132,34 @@ pub mod data_exchange {
     #[allow(dead_code)]
     pub struct DataExchangeResult {
         /// The ID of the data exchange. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
-        pub data_exchange_id: pulumi_wasm_rust::Output<String>,
+        pub data_exchange_id: pulumi_gestalt_rust::Output<String>,
         /// Description of the data exchange.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Human-readable display name of the data exchange. The display name must contain only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces ( ), and must not start or end with spaces.
         ///
         ///
         /// - - -
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// Documentation describing the data exchange.
-        pub documentation: pulumi_wasm_rust::Output<Option<String>>,
+        pub documentation: pulumi_gestalt_rust::Output<Option<String>>,
         /// Base64 encoded image representing the data exchange.
-        pub icon: pulumi_wasm_rust::Output<Option<String>>,
+        pub icon: pulumi_gestalt_rust::Output<Option<String>>,
         /// Number of listings contained in the data exchange.
-        pub listing_count: pulumi_wasm_rust::Output<i32>,
+        pub listing_count: pulumi_gestalt_rust::Output<i32>,
         /// The name of the location this data exchange.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the data exchange, for example:
         /// "projects/myproject/locations/US/dataExchanges/123"
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Email or URL of the primary point of contact of the data exchange.
-        pub primary_contact: pulumi_wasm_rust::Output<Option<String>>,
+        pub primary_contact: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Configurable data sharing environment option for a data exchange.
         /// This field is required for data clean room exchanges.
         /// Structure is documented below.
-        pub sharing_environment_config: pulumi_wasm_rust::Output<
+        pub sharing_environment_config: pulumi_gestalt_rust::Output<
             super::super::types::bigqueryanalyticshub::DataExchangeSharingEnvironmentConfig,
         >,
     }
@@ -168,11 +168,11 @@ pub mod data_exchange {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DataExchangeArgs,
     ) -> DataExchangeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_exchange_id_binding = args
             .data_exchange_id
@@ -237,33 +237,33 @@ pub mod data_exchange {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DataExchangeResult {
-            data_exchange_id: pulumi_wasm_rust::__private::into_domain(
+            data_exchange_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataExchangeId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            documentation: pulumi_wasm_rust::__private::into_domain(
+            documentation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("documentation"),
             ),
-            icon: pulumi_wasm_rust::__private::into_domain(o.extract_field("icon")),
-            listing_count: pulumi_wasm_rust::__private::into_domain(
+            icon: pulumi_gestalt_rust::__private::into_domain(o.extract_field("icon")),
+            listing_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("listingCount"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            primary_contact: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            primary_contact: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryContact"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            sharing_environment_config: pulumi_wasm_rust::__private::into_domain(
+            sharing_environment_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sharingEnvironmentConfig"),
             ),
         }

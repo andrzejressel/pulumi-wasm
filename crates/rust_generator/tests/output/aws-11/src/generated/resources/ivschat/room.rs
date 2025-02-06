@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = room::create(
@@ -24,71 +24,71 @@
 /// $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
 /// ```
 pub mod room {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RoomArgs {
         /// List of Logging Configuration
         /// ARNs to attach to the room.
         #[builder(into, default)]
-        pub logging_configuration_identifiers: pulumi_wasm_rust::InputOrOutput<
+        pub logging_configuration_identifiers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Maximum number of characters in a single
         /// message. Messages are expected to be UTF-8 encoded and this limit applies
         /// specifically to rune/code-point count, not number of bytes.
         #[builder(into, default)]
-        pub maximum_message_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub maximum_message_length: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Maximum number of messages per
         /// second that can be sent to the room (by all clients).
         #[builder(into, default)]
-        pub maximum_message_rate_per_second: pulumi_wasm_rust::InputOrOutput<
+        pub maximum_message_rate_per_second: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// Configuration information for optional
         /// review of messages.
         #[builder(into, default)]
-        pub message_review_handler: pulumi_wasm_rust::InputOrOutput<
+        pub message_review_handler: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ivschat::RoomMessageReviewHandler>,
         >,
         /// Room name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RoomResult {
         /// ARN of the Room.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// List of Logging Configuration
         /// ARNs to attach to the room.
-        pub logging_configuration_identifiers: pulumi_wasm_rust::Output<
+        pub logging_configuration_identifiers: pulumi_gestalt_rust::Output<
             Option<Vec<String>>,
         >,
         /// Maximum number of characters in a single
         /// message. Messages are expected to be UTF-8 encoded and this limit applies
         /// specifically to rune/code-point count, not number of bytes.
-        pub maximum_message_length: pulumi_wasm_rust::Output<i32>,
+        pub maximum_message_length: pulumi_gestalt_rust::Output<i32>,
         /// Maximum number of messages per
         /// second that can be sent to the room (by all clients).
-        pub maximum_message_rate_per_second: pulumi_wasm_rust::Output<i32>,
+        pub maximum_message_rate_per_second: pulumi_gestalt_rust::Output<i32>,
         /// Configuration information for optional
         /// review of messages.
-        pub message_review_handler: pulumi_wasm_rust::Output<
+        pub message_review_handler: pulumi_gestalt_rust::Output<
             Option<super::super::types::ivschat::RoomMessageReviewHandler>,
         >,
         /// Room name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -97,11 +97,11 @@ pub mod room {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RoomArgs,
     ) -> RoomResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let logging_configuration_identifiers_binding = args
             .logging_configuration_identifiers
@@ -154,22 +154,22 @@ pub mod room {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RoomResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            logging_configuration_identifiers: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            logging_configuration_identifiers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loggingConfigurationIdentifiers"),
             ),
-            maximum_message_length: pulumi_wasm_rust::__private::into_domain(
+            maximum_message_length: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumMessageLength"),
             ),
-            maximum_message_rate_per_second: pulumi_wasm_rust::__private::into_domain(
+            maximum_message_rate_per_second: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumMessageRatePerSecond"),
             ),
-            message_review_handler: pulumi_wasm_rust::__private::into_domain(
+            message_review_handler: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("messageReviewHandler"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

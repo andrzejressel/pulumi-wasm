@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm_example_cpp"
+name = "pulumi_gestalt_example_cpp"
 version.workspace = true
 edition.workspace = true
 
@@ -10,4 +10,4 @@ example_test = []
 
 [dev-dependencies]
 anyhow.workspace = true
-pulumi_wasm_examples_common.workspace = true
+pulumi_gestalt_examples_common.workspace = true

@@ -1,69 +1,69 @@
 pub mod get_table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetTableArgs {
         /// Name of the DynamoDB table.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub server_side_encryption: pulumi_wasm_rust::InputOrOutput<
+        pub server_side_encryption: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::super::types::dynamodb::GetTableServerSideEncryption>,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetTableResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub attributes: pulumi_wasm_rust::Output<
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub attributes: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::dynamodb::GetTableAttribute>,
         >,
-        pub billing_mode: pulumi_wasm_rust::Output<String>,
-        pub deletion_protection_enabled: pulumi_wasm_rust::Output<bool>,
-        pub global_secondary_indexes: pulumi_wasm_rust::Output<
+        pub billing_mode: pulumi_gestalt_rust::Output<String>,
+        pub deletion_protection_enabled: pulumi_gestalt_rust::Output<bool>,
+        pub global_secondary_indexes: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::dynamodb::GetTableGlobalSecondaryIndex>,
         >,
-        pub hash_key: pulumi_wasm_rust::Output<String>,
+        pub hash_key: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub local_secondary_indexes: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub local_secondary_indexes: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::dynamodb::GetTableLocalSecondaryIndex>,
         >,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub point_in_time_recovery: pulumi_wasm_rust::Output<
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub point_in_time_recovery: pulumi_gestalt_rust::Output<
             super::super::super::types::dynamodb::GetTablePointInTimeRecovery,
         >,
-        pub range_key: pulumi_wasm_rust::Output<String>,
-        pub read_capacity: pulumi_wasm_rust::Output<i32>,
-        pub replicas: pulumi_wasm_rust::Output<
+        pub range_key: pulumi_gestalt_rust::Output<String>,
+        pub read_capacity: pulumi_gestalt_rust::Output<i32>,
+        pub replicas: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::dynamodb::GetTableReplica>,
         >,
-        pub server_side_encryption: pulumi_wasm_rust::Output<
+        pub server_side_encryption: pulumi_gestalt_rust::Output<
             super::super::super::types::dynamodb::GetTableServerSideEncryption,
         >,
-        pub stream_arn: pulumi_wasm_rust::Output<String>,
-        pub stream_enabled: pulumi_wasm_rust::Output<bool>,
-        pub stream_label: pulumi_wasm_rust::Output<String>,
-        pub stream_view_type: pulumi_wasm_rust::Output<String>,
-        pub table_class: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
-        pub ttl: pulumi_wasm_rust::Output<
+        pub stream_arn: pulumi_gestalt_rust::Output<String>,
+        pub stream_enabled: pulumi_gestalt_rust::Output<bool>,
+        pub stream_label: pulumi_gestalt_rust::Output<String>,
+        pub stream_view_type: pulumi_gestalt_rust::Output<String>,
+        pub table_class: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
+        pub ttl: pulumi_gestalt_rust::Output<
             super::super::super::types::dynamodb::GetTableTtl,
         >,
-        pub write_capacity: pulumi_wasm_rust::Output<i32>,
+        pub write_capacity: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetTableArgs,
     ) -> GetTableResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let server_side_encryption_binding = args
@@ -91,60 +91,60 @@ pub mod get_table {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetTableResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            attributes: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attributes"),
             ),
-            billing_mode: pulumi_wasm_rust::__private::into_domain(
+            billing_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("billingMode"),
             ),
-            deletion_protection_enabled: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtectionEnabled"),
             ),
-            global_secondary_indexes: pulumi_wasm_rust::__private::into_domain(
+            global_secondary_indexes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalSecondaryIndexes"),
             ),
-            hash_key: pulumi_wasm_rust::__private::into_domain(
+            hash_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hashKey"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            local_secondary_indexes: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            local_secondary_indexes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localSecondaryIndexes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            point_in_time_recovery: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            point_in_time_recovery: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pointInTimeRecovery"),
             ),
-            range_key: pulumi_wasm_rust::__private::into_domain(
+            range_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rangeKey"),
             ),
-            read_capacity: pulumi_wasm_rust::__private::into_domain(
+            read_capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("readCapacity"),
             ),
-            replicas: pulumi_wasm_rust::__private::into_domain(
+            replicas: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicas"),
             ),
-            server_side_encryption: pulumi_wasm_rust::__private::into_domain(
+            server_side_encryption: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverSideEncryption"),
             ),
-            stream_arn: pulumi_wasm_rust::__private::into_domain(
+            stream_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamArn"),
             ),
-            stream_enabled: pulumi_wasm_rust::__private::into_domain(
+            stream_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamEnabled"),
             ),
-            stream_label: pulumi_wasm_rust::__private::into_domain(
+            stream_label: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamLabel"),
             ),
-            stream_view_type: pulumi_wasm_rust::__private::into_domain(
+            stream_view_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamViewType"),
             ),
-            table_class: pulumi_wasm_rust::__private::into_domain(
+            table_class: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tableClass"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
-            write_capacity: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
+            write_capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("writeCapacity"),
             ),
         }

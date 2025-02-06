@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = logging_options::create(
@@ -17,39 +17,39 @@
 /// }
 /// ```
 pub mod logging_options {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LoggingOptionsArgs {
         /// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
         #[builder(into)]
-        pub default_log_level: pulumi_wasm_rust::InputOrOutput<String>,
+        pub default_log_level: pulumi_gestalt_rust::InputOrOutput<String>,
         /// If `true` all logs are disabled. The default is `false`.
         #[builder(into, default)]
-        pub disable_all_logs: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disable_all_logs: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ARN of the role that allows IoT to write to Cloudwatch logs.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LoggingOptionsResult {
         /// The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
-        pub default_log_level: pulumi_wasm_rust::Output<String>,
+        pub default_log_level: pulumi_gestalt_rust::Output<String>,
         /// If `true` all logs are disabled. The default is `false`.
-        pub disable_all_logs: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_all_logs: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ARN of the role that allows IoT to write to Cloudwatch logs.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LoggingOptionsArgs,
     ) -> LoggingOptionsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let default_log_level_binding = args
             .default_log_level
@@ -81,13 +81,13 @@ pub mod logging_options {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LoggingOptionsResult {
-            default_log_level: pulumi_wasm_rust::__private::into_domain(
+            default_log_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultLogLevel"),
             ),
-            disable_all_logs: pulumi_wasm_rust::__private::into_domain(
+            disable_all_logs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disableAllLogs"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
         }

@@ -49,7 +49,7 @@
 /// ```
 ///
 pub mod private_link_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrivateLinkAssociationArgs {
@@ -57,12 +57,12 @@ pub mod private_link_association {
         ///
         /// > **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
         #[builder(into)]
-        pub management_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub management_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
         ///
         /// ```ignore
-        /// use pulumi_wasm_rust::Output;
-        /// use pulumi_wasm_rust::{add_export, pulumi_main};
+        /// use pulumi_gestalt_rust::Output;
+        /// use pulumi_gestalt_rust::{add_export, pulumi_main};
         /// #[pulumi_main]
         /// fn test_main() -> Result<(), Error> {
         ///     let example = private_link_association::create(
@@ -78,25 +78,27 @@ pub mod private_link_association {
         /// }
         /// ```
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
         #[builder(into)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// The Resource ID of Resource Management Private Link. Changing this forces a new Private Link Association to be created.
         #[builder(into)]
-        pub resource_management_private_link_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_management_private_link_id: pulumi_gestalt_rust::InputOrOutput<
+            String,
+        >,
     }
     #[allow(dead_code)]
     pub struct PrivateLinkAssociationResult {
         /// Specifies the Management Group ID within which this Private Link Association should exist. Changing this forces a new Private Link Association to be created.
         ///
         /// > **Note:** For now, `management_group_id` must be the ID of [Root Management Group](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory).
-        pub management_group_id: pulumi_wasm_rust::Output<String>,
+        pub management_group_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of this Private Link Association, which should be a UUID. If `name` is not provided, a UUID will be generated, you should use the `ignore_changes` attribute to ignore changes to this field. Changing this forces a new Private Link Association to be created.
         ///
         /// ```ignore
-        /// use pulumi_wasm_rust::Output;
-        /// use pulumi_wasm_rust::{add_export, pulumi_main};
+        /// use pulumi_gestalt_rust::Output;
+        /// use pulumi_gestalt_rust::{add_export, pulumi_main};
         /// #[pulumi_main]
         /// fn test_main() -> Result<(), Error> {
         ///     let example = private_link_association::create(
@@ -111,24 +113,24 @@ pub mod private_link_association {
         ///     );
         /// }
         /// ```
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<bool>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The Resource ID of Resource Management Private Link. Changing this forces a new Private Link Association to be created.
-        pub resource_management_private_link_id: pulumi_wasm_rust::Output<String>,
+        pub resource_management_private_link_id: pulumi_gestalt_rust::Output<String>,
         /// The Tenant ID.
-        pub tenant_id: pulumi_wasm_rust::Output<String>,
+        pub tenant_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PrivateLinkAssociationArgs,
     ) -> PrivateLinkAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let management_group_id_binding = args
             .management_group_id
@@ -169,17 +171,17 @@ pub mod private_link_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PrivateLinkAssociationResult {
-            management_group_id: pulumi_wasm_rust::__private::into_domain(
+            management_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managementGroupId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            resource_management_private_link_id: pulumi_wasm_rust::__private::into_domain(
+            resource_management_private_link_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceManagementPrivateLinkId"),
             ),
-            tenant_id: pulumi_wasm_rust::__private::into_domain(
+            tenant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tenantId"),
             ),
         }

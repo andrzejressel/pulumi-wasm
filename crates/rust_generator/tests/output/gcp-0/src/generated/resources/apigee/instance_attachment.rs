@@ -28,44 +28,44 @@
 /// ```
 ///
 pub mod instance_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceAttachmentArgs {
         /// The resource ID of the environment.
         #[builder(into)]
-        pub environment: pulumi_wasm_rust::InputOrOutput<String>,
+        pub environment: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Apigee instance associated with the Apigee environment,
         /// in the format `organizations/{{org_name}}/instances/{{instance_name}}`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct InstanceAttachmentResult {
         /// The resource ID of the environment.
-        pub environment: pulumi_wasm_rust::Output<String>,
+        pub environment: pulumi_gestalt_rust::Output<String>,
         /// The Apigee instance associated with the Apigee environment,
         /// in the format `organizations/{{org_name}}/instances/{{instance_name}}`.
         ///
         ///
         /// - - -
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the newly created  attachment (output parameter).
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceAttachmentArgs,
     ) -> InstanceAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let environment_binding = args.environment.get_output(context).get_inner();
         let instance_id_binding = args.instance_id.get_output(context).get_inner();
@@ -86,13 +86,13 @@ pub mod instance_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceAttachmentResult {
-            environment: pulumi_wasm_rust::__private::into_domain(
+            environment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environment"),
             ),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

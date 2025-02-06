@@ -1,31 +1,31 @@
 pub mod get_db_nodes {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDbNodesArgs {
         /// The id of the Cloud VM cluster.
         #[builder(into)]
-        pub cloud_vm_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cloud_vm_cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetDbNodesResult {
-        pub cloud_vm_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cloud_vm_cluster_id: pulumi_gestalt_rust::Output<String>,
         /// A `db_nodes` block as defined below.
-        pub db_nodes: pulumi_wasm_rust::Output<
+        pub db_nodes: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::oracle::GetDbNodesDbNode>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetDbNodesArgs,
     ) -> GetDbNodesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cloud_vm_cluster_id_binding = args
             .cloud_vm_cluster_id
@@ -43,13 +43,13 @@ pub mod get_db_nodes {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetDbNodesResult {
-            cloud_vm_cluster_id: pulumi_wasm_rust::__private::into_domain(
+            cloud_vm_cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudVmClusterId"),
             ),
-            db_nodes: pulumi_wasm_rust::__private::into_domain(
+            db_nodes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbNodes"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

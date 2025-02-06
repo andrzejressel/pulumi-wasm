@@ -1,35 +1,35 @@
 pub mod get_shared_image_versions {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSharedImageVersionsArgs {
         /// The name of the Shared Image in which the Shared Image exists.
         #[builder(into)]
-        pub gallery_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub gallery_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Shared Image in which this Version exists.
         #[builder(into)]
-        pub image_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub image_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group in which the Shared Image Gallery exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to filter the list of images against.
         #[builder(into, default)]
-        pub tags_filter: pulumi_wasm_rust::InputOrOutput<
+        pub tags_filter: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetSharedImageVersionsResult {
-        pub gallery_name: pulumi_wasm_rust::Output<String>,
+        pub gallery_name: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub image_name: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub image_name: pulumi_gestalt_rust::Output<String>,
         /// An `images` block as defined below:
-        pub images: pulumi_wasm_rust::Output<
+        pub images: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::compute::GetSharedImageVersionsImage>,
         >,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
-        pub tags_filter: pulumi_wasm_rust::Output<
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
+        pub tags_filter: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -38,10 +38,10 @@ pub mod get_shared_image_versions {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetSharedImageVersionsArgs,
     ) -> GetSharedImageVersionsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let gallery_name_binding = args.gallery_name.get_output(context).get_inner();
         let image_name_binding = args.image_name.get_output(context).get_inner();
@@ -74,18 +74,20 @@ pub mod get_shared_image_versions {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetSharedImageVersionsResult {
-            gallery_name: pulumi_wasm_rust::__private::into_domain(
+            gallery_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("galleryName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            image_name: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            image_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageName"),
             ),
-            images: pulumi_wasm_rust::__private::into_domain(o.extract_field("images")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            images: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("images"),
+            ),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags_filter: pulumi_wasm_rust::__private::into_domain(
+            tags_filter: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsFilter"),
             ),
         }

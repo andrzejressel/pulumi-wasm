@@ -50,72 +50,72 @@
 /// ```
 ///
 pub mod account_cost_management_export {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountCostManagementExportArgs {
         /// Is the cost management export active? Default is `true`.
         #[builder(into, default)]
-        pub active: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub active: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The id of the billing account on which to create an export. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub billing_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub billing_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `export_data_options` block as defined below.
         #[builder(into)]
-        pub export_data_options: pulumi_wasm_rust::InputOrOutput<
+        pub export_data_options: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::billing::AccountCostManagementExportExportDataOptions,
         >,
         /// A `export_data_storage_location` block as defined below.
         #[builder(into)]
-        pub export_data_storage_location: pulumi_wasm_rust::InputOrOutput<
+        pub export_data_storage_location: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::billing::AccountCostManagementExportExportDataStorageLocation,
         >,
         /// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The date the export will stop capturing information.
         #[builder(into)]
-        pub recurrence_period_end_date: pulumi_wasm_rust::InputOrOutput<String>,
+        pub recurrence_period_end_date: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The date the export will start capturing information.
         #[builder(into)]
-        pub recurrence_period_start_date: pulumi_wasm_rust::InputOrOutput<String>,
+        pub recurrence_period_start_date: pulumi_gestalt_rust::InputOrOutput<String>,
         /// How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
         #[builder(into)]
-        pub recurrence_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub recurrence_type: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AccountCostManagementExportResult {
         /// Is the cost management export active? Default is `true`.
-        pub active: pulumi_wasm_rust::Output<Option<bool>>,
+        pub active: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The id of the billing account on which to create an export. Changing this forces a new resource to be created.
-        pub billing_account_id: pulumi_wasm_rust::Output<String>,
+        pub billing_account_id: pulumi_gestalt_rust::Output<String>,
         /// A `export_data_options` block as defined below.
-        pub export_data_options: pulumi_wasm_rust::Output<
+        pub export_data_options: pulumi_gestalt_rust::Output<
             super::super::types::billing::AccountCostManagementExportExportDataOptions,
         >,
         /// A `export_data_storage_location` block as defined below.
-        pub export_data_storage_location: pulumi_wasm_rust::Output<
+        pub export_data_storage_location: pulumi_gestalt_rust::Output<
             super::super::types::billing::AccountCostManagementExportExportDataStorageLocation,
         >,
         /// Specifies the name of the Cost Management Export. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The date the export will stop capturing information.
-        pub recurrence_period_end_date: pulumi_wasm_rust::Output<String>,
+        pub recurrence_period_end_date: pulumi_gestalt_rust::Output<String>,
         /// The date the export will start capturing information.
-        pub recurrence_period_start_date: pulumi_wasm_rust::Output<String>,
+        pub recurrence_period_start_date: pulumi_gestalt_rust::Output<String>,
         /// How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`.
-        pub recurrence_type: pulumi_wasm_rust::Output<String>,
+        pub recurrence_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccountCostManagementExportArgs,
     ) -> AccountCostManagementExportResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let active_binding = args.active.get_output(context).get_inner();
         let billing_account_id_binding = args
@@ -185,24 +185,26 @@ pub mod account_cost_management_export {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccountCostManagementExportResult {
-            active: pulumi_wasm_rust::__private::into_domain(o.extract_field("active")),
-            billing_account_id: pulumi_wasm_rust::__private::into_domain(
+            active: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("active"),
+            ),
+            billing_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("billingAccountId"),
             ),
-            export_data_options: pulumi_wasm_rust::__private::into_domain(
+            export_data_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exportDataOptions"),
             ),
-            export_data_storage_location: pulumi_wasm_rust::__private::into_domain(
+            export_data_storage_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exportDataStorageLocation"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            recurrence_period_end_date: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            recurrence_period_end_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recurrencePeriodEndDate"),
             ),
-            recurrence_period_start_date: pulumi_wasm_rust::__private::into_domain(
+            recurrence_period_start_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recurrencePeriodStartDate"),
             ),
-            recurrence_type: pulumi_wasm_rust::__private::into_domain(
+            recurrence_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recurrenceType"),
             ),
         }

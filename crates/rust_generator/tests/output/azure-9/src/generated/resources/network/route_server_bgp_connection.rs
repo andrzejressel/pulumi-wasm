@@ -68,44 +68,44 @@
 /// ```
 ///
 pub mod route_server_bgp_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteServerBgpConnectionArgs {
         /// The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The peer autonomous system number for the Route Server Bgp Connection. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub peer_asn: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub peer_asn: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The peer ip address for the Route Server Bgp Connection. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub peer_ip: pulumi_wasm_rust::InputOrOutput<String>,
+        pub peer_ip: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Route Server within which this Bgp connection should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub route_server_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub route_server_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RouteServerBgpConnectionResult {
         /// The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The peer autonomous system number for the Route Server Bgp Connection. Changing this forces a new resource to be created.
-        pub peer_asn: pulumi_wasm_rust::Output<i32>,
+        pub peer_asn: pulumi_gestalt_rust::Output<i32>,
         /// The peer ip address for the Route Server Bgp Connection. Changing this forces a new resource to be created.
-        pub peer_ip: pulumi_wasm_rust::Output<String>,
+        pub peer_ip: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Route Server within which this Bgp connection should be created. Changing this forces a new resource to be created.
-        pub route_server_id: pulumi_wasm_rust::Output<String>,
+        pub route_server_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouteServerBgpConnectionArgs,
     ) -> RouteServerBgpConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let peer_asn_binding = args.peer_asn.get_output(context).get_inner();
@@ -140,12 +140,14 @@ pub mod route_server_bgp_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouteServerBgpConnectionResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            peer_asn: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            peer_asn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peerAsn"),
             ),
-            peer_ip: pulumi_wasm_rust::__private::into_domain(o.extract_field("peerIp")),
-            route_server_id: pulumi_wasm_rust::__private::into_domain(
+            peer_ip: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("peerIp"),
+            ),
+            route_server_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routeServerId"),
             ),
         }

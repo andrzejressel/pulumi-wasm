@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = eip::create(
@@ -30,30 +30,30 @@
 /// }
 /// ```
 pub mod eip_domain_name {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EipDomainNameArgs {
         /// The allocation ID.
         #[builder(into)]
-        pub allocation_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub allocation_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The domain name to modify for the IP address.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ec2::EipDomainNameTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct EipDomainNameResult {
         /// The allocation ID.
-        pub allocation_id: pulumi_wasm_rust::Output<String>,
+        pub allocation_id: pulumi_gestalt_rust::Output<String>,
         /// The domain name to modify for the IP address.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// The DNS pointer (PTR) record for the IP address.
-        pub ptr_record: pulumi_wasm_rust::Output<String>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub ptr_record: pulumi_gestalt_rust::Output<String>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::ec2::EipDomainNameTimeouts>,
         >,
     }
@@ -62,11 +62,11 @@ pub mod eip_domain_name {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EipDomainNameArgs,
     ) -> EipDomainNameResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allocation_id_binding = args.allocation_id.get_output(context).get_inner();
         let domain_name_binding = args.domain_name.get_output(context).get_inner();
@@ -92,16 +92,16 @@ pub mod eip_domain_name {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EipDomainNameResult {
-            allocation_id: pulumi_wasm_rust::__private::into_domain(
+            allocation_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allocationId"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            ptr_record: pulumi_wasm_rust::__private::into_domain(
+            ptr_record: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ptrRecord"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

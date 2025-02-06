@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -60,39 +60,39 @@
 /// ```
 ///
 pub mod hyper_v_replication_policy_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HyperVReplicationPolicyAssociationArgs {
         /// The ID of the HyperV site to which the policy should be associated. Changing this forces a new association to be created.
         #[builder(into)]
-        pub hyperv_site_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hyperv_site_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the replication policy association. Changing this forces a new association to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the HyperV replication policy which to be associated. Changing this forces a new association to be created.
         #[builder(into)]
-        pub policy_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HyperVReplicationPolicyAssociationResult {
         /// The ID of the HyperV site to which the policy should be associated. Changing this forces a new association to be created.
-        pub hyperv_site_id: pulumi_wasm_rust::Output<String>,
+        pub hyperv_site_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the replication policy association. Changing this forces a new association to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the HyperV replication policy which to be associated. Changing this forces a new association to be created.
-        pub policy_id: pulumi_wasm_rust::Output<String>,
+        pub policy_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HyperVReplicationPolicyAssociationArgs,
     ) -> HyperVReplicationPolicyAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let hyperv_site_id_binding = args.hyperv_site_id.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -119,11 +119,11 @@ pub mod hyper_v_replication_policy_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HyperVReplicationPolicyAssociationResult {
-            hyperv_site_id: pulumi_wasm_rust::__private::into_domain(
+            hyperv_site_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hypervSiteId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            policy_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            policy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyId"),
             ),
         }

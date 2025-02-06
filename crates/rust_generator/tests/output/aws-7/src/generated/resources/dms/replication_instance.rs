@@ -89,37 +89,39 @@
 /// $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
 /// ```
 pub mod replication_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReplicationInstanceArgs {
         /// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
         #[builder(into, default)]
-        pub allocated_storage: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub allocated_storage: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Indicates that major version upgrades are allowed.
         #[builder(into, default)]
-        pub allow_major_version_upgrade: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_major_version_upgrade: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
         #[builder(into, default)]
-        pub apply_immediately: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub apply_immediately: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
         #[builder(into, default)]
-        pub auto_minor_version_upgrade: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_minor_version_upgrade: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The EC2 Availability Zone that the replication instance will be created in.
         #[builder(into, default)]
-        pub availability_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub availability_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The engine version number of the replication instance.
         #[builder(into, default)]
-        pub engine_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub engine_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         #[builder(into, default)]
-        pub kms_key_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         #[builder(into, default)]
-        pub multi_az: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub multi_az: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         #[builder(into, default)]
-        pub network_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         ///
         /// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
@@ -127,15 +129,15 @@ pub mod replication_instance {
         /// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
         /// - Constraints: Minimum 30-minute window.
         #[builder(into, default)]
-        pub preferred_maintenance_window: pulumi_wasm_rust::InputOrOutput<
+        pub preferred_maintenance_window: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         #[builder(into, default)]
-        pub publicly_accessible: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub publicly_accessible: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         #[builder(into)]
-        pub replication_instance_class: pulumi_wasm_rust::InputOrOutput<String>,
+        pub replication_instance_class: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The replication instance identifier. This parameter is stored as a lowercase string.
         ///
         /// - Must contain from 1 to 63 alphanumeric characters or hyphens.
@@ -143,86 +145,90 @@ pub mod replication_instance {
         /// - Cannot end with a hyphen
         /// - Cannot contain two consecutive hyphens.
         #[builder(into)]
-        pub replication_instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub replication_instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A subnet group to associate with the replication instance.
         #[builder(into, default)]
-        pub replication_subnet_group_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub replication_subnet_group_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
         #[builder(into, default)]
-        pub vpc_security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub vpc_security_group_ids: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
     }
     #[allow(dead_code)]
     pub struct ReplicationInstanceResult {
         /// The amount of storage (in gigabytes) to be initially allocated for the replication instance.
-        pub allocated_storage: pulumi_wasm_rust::Output<i32>,
+        pub allocated_storage: pulumi_gestalt_rust::Output<i32>,
         /// Indicates that major version upgrades are allowed.
-        pub allow_major_version_upgrade: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_major_version_upgrade: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Indicates whether the changes should be applied immediately or during the next maintenance window. Only used when updating an existing resource.
-        pub apply_immediately: pulumi_wasm_rust::Output<Option<bool>>,
+        pub apply_immediately: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Indicates that minor engine upgrades will be applied automatically to the replication instance during the maintenance window.
-        pub auto_minor_version_upgrade: pulumi_wasm_rust::Output<bool>,
+        pub auto_minor_version_upgrade: pulumi_gestalt_rust::Output<bool>,
         /// The EC2 Availability Zone that the replication instance will be created in.
-        pub availability_zone: pulumi_wasm_rust::Output<String>,
+        pub availability_zone: pulumi_gestalt_rust::Output<String>,
         /// The engine version number of the replication instance.
-        pub engine_version: pulumi_wasm_rust::Output<String>,
+        pub engine_version: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
-        pub kms_key_arn: pulumi_wasm_rust::Output<String>,
+        pub kms_key_arn: pulumi_gestalt_rust::Output<String>,
         /// Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
-        pub multi_az: pulumi_wasm_rust::Output<bool>,
+        pub multi_az: pulumi_gestalt_rust::Output<bool>,
         /// The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
-        pub network_type: pulumi_wasm_rust::Output<String>,
+        pub network_type: pulumi_gestalt_rust::Output<String>,
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         ///
         /// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
         /// - Format: `ddd:hh24:mi-ddd:hh24:mi`
         /// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
         /// - Constraints: Minimum 30-minute window.
-        pub preferred_maintenance_window: pulumi_wasm_rust::Output<String>,
+        pub preferred_maintenance_window: pulumi_gestalt_rust::Output<String>,
         /// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
-        pub publicly_accessible: pulumi_wasm_rust::Output<bool>,
+        pub publicly_accessible: pulumi_gestalt_rust::Output<bool>,
         /// The Amazon Resource Name (ARN) of the replication instance.
-        pub replication_instance_arn: pulumi_wasm_rust::Output<String>,
+        pub replication_instance_arn: pulumi_gestalt_rust::Output<String>,
         /// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
-        pub replication_instance_class: pulumi_wasm_rust::Output<String>,
+        pub replication_instance_class: pulumi_gestalt_rust::Output<String>,
         /// The replication instance identifier. This parameter is stored as a lowercase string.
         ///
         /// - Must contain from 1 to 63 alphanumeric characters or hyphens.
         /// - First character must be a letter.
         /// - Cannot end with a hyphen
         /// - Cannot contain two consecutive hyphens.
-        pub replication_instance_id: pulumi_wasm_rust::Output<String>,
+        pub replication_instance_id: pulumi_gestalt_rust::Output<String>,
         /// A list of the private IP addresses of the replication instance.
-        pub replication_instance_private_ips: pulumi_wasm_rust::Output<Vec<String>>,
+        pub replication_instance_private_ips: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A list of the public IP addresses of the replication instance.
-        pub replication_instance_public_ips: pulumi_wasm_rust::Output<Vec<String>>,
+        pub replication_instance_public_ips: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A subnet group to associate with the replication instance.
-        pub replication_subnet_group_id: pulumi_wasm_rust::Output<String>,
+        pub replication_subnet_group_id: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A list of VPC security group IDs to be used with the replication instance. The VPC security groups must work with the VPC containing the replication instance.
-        pub vpc_security_group_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub vpc_security_group_ids: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ReplicationInstanceArgs,
     ) -> ReplicationInstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allocated_storage_binding = args
             .allocated_storage
@@ -346,62 +352,62 @@ pub mod replication_instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ReplicationInstanceResult {
-            allocated_storage: pulumi_wasm_rust::__private::into_domain(
+            allocated_storage: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allocatedStorage"),
             ),
-            allow_major_version_upgrade: pulumi_wasm_rust::__private::into_domain(
+            allow_major_version_upgrade: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowMajorVersionUpgrade"),
             ),
-            apply_immediately: pulumi_wasm_rust::__private::into_domain(
+            apply_immediately: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applyImmediately"),
             ),
-            auto_minor_version_upgrade: pulumi_wasm_rust::__private::into_domain(
+            auto_minor_version_upgrade: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoMinorVersionUpgrade"),
             ),
-            availability_zone: pulumi_wasm_rust::__private::into_domain(
+            availability_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZone"),
             ),
-            engine_version: pulumi_wasm_rust::__private::into_domain(
+            engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineVersion"),
             ),
-            kms_key_arn: pulumi_wasm_rust::__private::into_domain(
+            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyArn"),
             ),
-            multi_az: pulumi_wasm_rust::__private::into_domain(
+            multi_az: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("multiAz"),
             ),
-            network_type: pulumi_wasm_rust::__private::into_domain(
+            network_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkType"),
             ),
-            preferred_maintenance_window: pulumi_wasm_rust::__private::into_domain(
+            preferred_maintenance_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredMaintenanceWindow"),
             ),
-            publicly_accessible: pulumi_wasm_rust::__private::into_domain(
+            publicly_accessible: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publiclyAccessible"),
             ),
-            replication_instance_arn: pulumi_wasm_rust::__private::into_domain(
+            replication_instance_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationInstanceArn"),
             ),
-            replication_instance_class: pulumi_wasm_rust::__private::into_domain(
+            replication_instance_class: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationInstanceClass"),
             ),
-            replication_instance_id: pulumi_wasm_rust::__private::into_domain(
+            replication_instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationInstanceId"),
             ),
-            replication_instance_private_ips: pulumi_wasm_rust::__private::into_domain(
+            replication_instance_private_ips: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationInstancePrivateIps"),
             ),
-            replication_instance_public_ips: pulumi_wasm_rust::__private::into_domain(
+            replication_instance_public_ips: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationInstancePublicIps"),
             ),
-            replication_subnet_group_id: pulumi_wasm_rust::__private::into_domain(
+            replication_subnet_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationSubnetGroupId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vpc_security_group_ids: pulumi_wasm_rust::__private::into_domain(
+            vpc_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcSecurityGroupIds"),
             ),
         }

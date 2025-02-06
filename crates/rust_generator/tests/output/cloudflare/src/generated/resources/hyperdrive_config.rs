@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let noDefaults = hyperdrive_config::create(
@@ -34,53 +34,53 @@
 /// ```
 ///
 pub mod hyperdrive_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HyperdriveConfigArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The caching details for the Hyperdrive configuration.
         #[builder(into, default)]
-        pub caching: pulumi_wasm_rust::InputOrOutput<
+        pub caching: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::HyperdriveConfigCaching>,
         >,
         /// The name of the Hyperdrive configuration.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The origin details for the Hyperdrive configuration.
         #[builder(into)]
-        pub origin: pulumi_wasm_rust::InputOrOutput<
+        pub origin: pulumi_gestalt_rust::InputOrOutput<
             super::types::HyperdriveConfigOrigin,
         >,
         /// The identifier of this resource. This is the hyperdrive config value.
         #[builder(into, default)]
-        pub resource_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resource_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct HyperdriveConfigResult {
         /// The account identifier to target for the resource.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// The caching details for the Hyperdrive configuration.
-        pub caching: pulumi_wasm_rust::Output<super::types::HyperdriveConfigCaching>,
+        pub caching: pulumi_gestalt_rust::Output<super::types::HyperdriveConfigCaching>,
         /// The name of the Hyperdrive configuration.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The origin details for the Hyperdrive configuration.
-        pub origin: pulumi_wasm_rust::Output<super::types::HyperdriveConfigOrigin>,
+        pub origin: pulumi_gestalt_rust::Output<super::types::HyperdriveConfigOrigin>,
         /// The identifier of this resource. This is the hyperdrive config value.
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HyperdriveConfigArgs,
     ) -> HyperdriveConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let caching_binding = args.caching.get_output(context).get_inner();
@@ -116,15 +116,17 @@ pub mod hyperdrive_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HyperdriveConfigResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            caching: pulumi_wasm_rust::__private::into_domain(
+            caching: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("caching"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            origin: pulumi_wasm_rust::__private::into_domain(o.extract_field("origin")),
-            resource_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            origin: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("origin"),
+            ),
+            resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceId"),
             ),
         }

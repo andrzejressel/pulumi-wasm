@@ -31,79 +31,83 @@
 /// ```
 ///
 pub mod iot_hub_dps {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IotHubDpsArgs {
         /// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
         #[builder(into, default)]
-        pub allocation_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub allocation_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub data_residency_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub data_residency_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// An `ip_filter_rule` block as defined below.
         #[builder(into, default)]
-        pub ip_filter_rules: pulumi_wasm_rust::InputOrOutput<
+        pub ip_filter_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::IotHubDpsIpFilterRule>>,
         >,
         /// A `linked_hub` block as defined below.
         #[builder(into, default)]
-        pub linked_hubs: pulumi_wasm_rust::InputOrOutput<
+        pub linked_hubs: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::IotHubDpsLinkedHub>>,
         >,
         /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether requests from Public Network are allowed. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `sku` block as defined below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<super::super::types::iot::IotHubDpsSku>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<
+            super::super::types::iot::IotHubDpsSku,
+        >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct IotHubDpsResult {
         /// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
-        pub allocation_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub allocation_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created.
-        pub data_residency_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub data_residency_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The device endpoint of the IoT Device Provisioning Service.
-        pub device_provisioning_host_name: pulumi_wasm_rust::Output<String>,
+        pub device_provisioning_host_name: pulumi_gestalt_rust::Output<String>,
         /// The unique identifier of the IoT Device Provisioning Service.
-        pub id_scope: pulumi_wasm_rust::Output<String>,
+        pub id_scope: pulumi_gestalt_rust::Output<String>,
         /// An `ip_filter_rule` block as defined below.
-        pub ip_filter_rules: pulumi_wasm_rust::Output<
+        pub ip_filter_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::iot::IotHubDpsIpFilterRule>>,
         >,
         /// A `linked_hub` block as defined below.
-        pub linked_hubs: pulumi_wasm_rust::Output<
+        pub linked_hubs: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::iot::IotHubDpsLinkedHub>>,
         >,
         /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Whether requests from Public Network are allowed. Defaults to `true`.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The service endpoint of the IoT Device Provisioning Service.
-        pub service_operations_host_name: pulumi_wasm_rust::Output<String>,
+        pub service_operations_host_name: pulumi_gestalt_rust::Output<String>,
         /// A `sku` block as defined below.
-        pub sku: pulumi_wasm_rust::Output<super::super::types::iot::IotHubDpsSku>,
+        pub sku: pulumi_gestalt_rust::Output<super::super::types::iot::IotHubDpsSku>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -112,11 +116,11 @@ pub mod iot_hub_dps {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IotHubDpsArgs,
     ) -> IotHubDpsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allocation_policy_binding = args
             .allocation_policy
@@ -192,39 +196,39 @@ pub mod iot_hub_dps {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IotHubDpsResult {
-            allocation_policy: pulumi_wasm_rust::__private::into_domain(
+            allocation_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allocationPolicy"),
             ),
-            data_residency_enabled: pulumi_wasm_rust::__private::into_domain(
+            data_residency_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataResidencyEnabled"),
             ),
-            device_provisioning_host_name: pulumi_wasm_rust::__private::into_domain(
+            device_provisioning_host_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deviceProvisioningHostName"),
             ),
-            id_scope: pulumi_wasm_rust::__private::into_domain(
+            id_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("idScope"),
             ),
-            ip_filter_rules: pulumi_wasm_rust::__private::into_domain(
+            ip_filter_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipFilterRules"),
             ),
-            linked_hubs: pulumi_wasm_rust::__private::into_domain(
+            linked_hubs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("linkedHubs"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            service_operations_host_name: pulumi_wasm_rust::__private::into_domain(
+            service_operations_host_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceOperationsHostName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

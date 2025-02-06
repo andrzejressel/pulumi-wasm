@@ -38,8 +38,8 @@
 /// ### With Description
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = segment::create(
@@ -61,49 +61,49 @@
 /// $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
 /// ```
 pub mod segment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SegmentArgs {
         /// Specifies the description of the segment.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A name for the segment.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
         #[builder(into)]
-        pub pattern: pulumi_wasm_rust::InputOrOutput<String>,
+        pub pattern: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct SegmentResult {
         /// The ARN of the segment.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The date and time that the segment is created.
-        pub created_time: pulumi_wasm_rust::Output<String>,
+        pub created_time: pulumi_gestalt_rust::Output<String>,
         /// Specifies the description of the segment.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The number of experiments that this segment is used in. This count includes all current experiments, not just those that are currently running.
-        pub experiment_count: pulumi_wasm_rust::Output<i32>,
+        pub experiment_count: pulumi_gestalt_rust::Output<i32>,
         /// The date and time that this segment was most recently updated.
-        pub last_updated_time: pulumi_wasm_rust::Output<String>,
+        pub last_updated_time: pulumi_gestalt_rust::Output<String>,
         /// The number of launches that this segment is used in. This count includes all current launches, not just those that are currently running.
-        pub launch_count: pulumi_wasm_rust::Output<i32>,
+        pub launch_count: pulumi_gestalt_rust::Output<i32>,
         /// A name for the segment.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The pattern to use for the segment. For more information about pattern syntax, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax.html).
-        pub pattern: pulumi_wasm_rust::Output<String>,
+        pub pattern: pulumi_gestalt_rust::Output<String>,
         /// Tags to apply to the segment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -112,11 +112,11 @@ pub mod segment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SegmentArgs,
     ) -> SegmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -147,28 +147,28 @@ pub mod segment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SegmentResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            created_time: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            created_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            experiment_count: pulumi_wasm_rust::__private::into_domain(
+            experiment_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("experimentCount"),
             ),
-            last_updated_time: pulumi_wasm_rust::__private::into_domain(
+            last_updated_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdatedTime"),
             ),
-            launch_count: pulumi_wasm_rust::__private::into_domain(
+            launch_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("launchCount"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            pattern: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            pattern: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pattern"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

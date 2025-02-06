@@ -7,8 +7,8 @@
 /// ### Basic example
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foo = parameter::create(
@@ -54,102 +54,102 @@
 /// $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
 /// ```
 pub mod parameter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ParameterArgs {
         /// Regular expression used to validate the parameter value.
         #[builder(into, default)]
-        pub allowed_pattern: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub allowed_pattern: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN of the parameter.
         #[builder(into, default)]
-        pub arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         #[builder(into, default)]
-        pub data_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub data_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Description of the parameter.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
         #[builder(into, default)]
-        pub insecure_value: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub insecure_value: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// KMS key ID or ARN for encrypting a SecureString.
         #[builder(into, default)]
-        pub key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
         #[builder(into, default)]
-        pub overwrite: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub overwrite: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         #[builder(into, default)]
-        pub tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
         ///
         /// > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
         #[builder(into, default)]
-        pub value: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub value: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ParameterResult {
         /// Regular expression used to validate the parameter value.
-        pub allowed_pattern: pulumi_wasm_rust::Output<Option<String>>,
+        pub allowed_pattern: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of the parameter.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
-        pub data_type: pulumi_wasm_rust::Output<String>,
+        pub data_type: pulumi_gestalt_rust::Output<String>,
         /// Description of the parameter.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Value of the parameter. **Use caution:** This value is _never_ marked as sensitive in the pulumi preview output. This argument is not valid with a `type` of `SecureString`.
-        pub insecure_value: pulumi_wasm_rust::Output<String>,
+        pub insecure_value: pulumi_gestalt_rust::Output<String>,
         /// KMS key ID or ARN for encrypting a SecureString.
-        pub key_id: pulumi_wasm_rust::Output<String>,
+        pub key_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Overwrite an existing parameter. If not specified, defaults to `false` if the resource has not been created by Pulumi to avoid overwrite of existing resource, and will default to `true` otherwise (Pulumi lifecycle rules should then be used to manage the update behavior).
-        pub overwrite: pulumi_wasm_rust::Output<Option<bool>>,
+        pub overwrite: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-        pub tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub tier: pulumi_gestalt_rust::Output<Option<String>>,
         /// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         ///
         /// The following arguments are optional:
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
         ///
         /// > **NOTE:** `aws:ssm:integration` data_type parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_gestalt_rust::Output<String>,
         /// Version of the parameter.
-        pub version: pulumi_wasm_rust::Output<i32>,
+        pub version: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ParameterArgs,
     ) -> ParameterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allowed_pattern_binding = args
             .allowed_pattern
@@ -223,32 +223,36 @@ pub mod parameter {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ParameterResult {
-            allowed_pattern: pulumi_wasm_rust::__private::into_domain(
+            allowed_pattern: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowedPattern"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            data_type: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            data_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataType"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            insecure_value: pulumi_wasm_rust::__private::into_domain(
+            insecure_value: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("insecureValue"),
             ),
-            key_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("keyId")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            overwrite: pulumi_wasm_rust::__private::into_domain(
+            key_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("keyId"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            overwrite: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("overwrite"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            tier: pulumi_wasm_rust::__private::into_domain(o.extract_field("tier")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            tier: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tier")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

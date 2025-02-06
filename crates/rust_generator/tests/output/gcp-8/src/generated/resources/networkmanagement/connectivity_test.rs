@@ -136,13 +136,13 @@
 /// ```
 ///
 pub mod connectivity_test {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectivityTestArgs {
         /// The user-supplied description of the Connectivity Test. Maximum of 512 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Required. Destination specification of the Connectivity Test.
         /// You can use a combination of destination IP address, Compute
         /// Engine VM instance, or VPC network to uniquely identify the
@@ -159,28 +159,28 @@ pub mod connectivity_test {
         /// don't intend to test.
         /// Structure is documented below.
         #[builder(into)]
-        pub destination: pulumi_wasm_rust::InputOrOutput<
+        pub destination: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::networkmanagement::ConnectivityTestDestination,
         >,
         /// Resource labels to represent user-provided metadata. **Note**: This field is non-authoritative, and will only manage the
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Unique name for the connectivity test.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// IP Protocol of the test. When not provided, "TCP" is assumed.
         #[builder(into, default)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Other projects that may be relevant for reachability analysis. This is applicable to scenarios where a test can cross
         /// project boundaries.
         #[builder(into, default)]
-        pub related_projects: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub related_projects: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Required. Source specification of the Connectivity Test.
         /// You can use a combination of source IP address, virtual machine
         /// (VM) instance, or Compute Engine network to uniquely identify the
@@ -201,14 +201,14 @@ pub mod connectivity_test {
         /// you don't intend to test.
         /// Structure is documented below.
         #[builder(into)]
-        pub source: pulumi_wasm_rust::InputOrOutput<
+        pub source: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::networkmanagement::ConnectivityTestSource,
         >,
     }
     #[allow(dead_code)]
     pub struct ConnectivityTestResult {
         /// The user-supplied description of the Connectivity Test. Maximum of 512 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Required. Destination specification of the Connectivity Test.
         /// You can use a combination of destination IP address, Compute
         /// Engine VM instance, or VPC network to uniquely identify the
@@ -224,32 +224,32 @@ pub mod connectivity_test {
         /// is ambiguous. However, the result can include endpoints that you
         /// don't intend to test.
         /// Structure is documented below.
-        pub destination: pulumi_wasm_rust::Output<
+        pub destination: pulumi_gestalt_rust::Output<
             super::super::types::networkmanagement::ConnectivityTestDestination,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Resource labels to represent user-provided metadata. **Note**: This field is non-authoritative, and will only manage the
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Unique name for the connectivity test.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// IP Protocol of the test. When not provided, "TCP" is assumed.
-        pub protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub protocol: pulumi_gestalt_rust::Output<Option<String>>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Other projects that may be relevant for reachability analysis. This is applicable to scenarios where a test can cross
         /// project boundaries.
-        pub related_projects: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub related_projects: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Required. Source specification of the Connectivity Test.
         /// You can use a combination of source IP address, virtual machine
         /// (VM) instance, or Compute Engine network to uniquely identify the
@@ -269,7 +269,7 @@ pub mod connectivity_test {
         /// ambiguous. However, the test result may include endpoints that
         /// you don't intend to test.
         /// Structure is documented below.
-        pub source: pulumi_wasm_rust::Output<
+        pub source: pulumi_gestalt_rust::Output<
             super::super::types::networkmanagement::ConnectivityTestSource,
         >,
     }
@@ -278,11 +278,11 @@ pub mod connectivity_test {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectivityTestArgs,
     ) -> ConnectivityTestResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let destination_binding = args.destination.get_output(context).get_inner();
@@ -336,30 +336,34 @@ pub mod connectivity_test {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectivityTestResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            destination: pulumi_wasm_rust::__private::into_domain(
+            destination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destination"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            related_projects: pulumi_wasm_rust::__private::into_domain(
+            related_projects: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("relatedProjects"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
+            source: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("source"),
+            ),
         }
     }
 }

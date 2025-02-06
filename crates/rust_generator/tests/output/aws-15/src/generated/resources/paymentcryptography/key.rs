@@ -29,70 +29,72 @@
 /// $ pulumi import aws:paymentcryptography/key:Key example arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf
 /// ```
 pub mod key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KeyArgs {
         #[builder(into, default)]
-        pub deletion_window_in_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub deletion_window_in_days: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Whether to enable the key.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether the key is exportable from the service.
         #[builder(into)]
-        pub exportable: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub exportable: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub key_attributes: pulumi_wasm_rust::InputOrOutput<
+        pub key_attributes: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::paymentcryptography::KeyKeyAttributes>,
         >,
         /// Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
         #[builder(into, default)]
-        pub key_check_value_algorithm: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_check_value_algorithm: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::paymentcryptography::KeyTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct KeyResult {
         /// ARN of the key.
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub deletion_window_in_days: pulumi_wasm_rust::Output<i32>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub deletion_window_in_days: pulumi_gestalt_rust::Output<i32>,
         /// Whether to enable the key.
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_gestalt_rust::Output<bool>,
         /// Whether the key is exportable from the service.
-        pub exportable: pulumi_wasm_rust::Output<bool>,
+        pub exportable: pulumi_gestalt_rust::Output<bool>,
         /// Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
         ///
         /// The following arguments are optional:
-        pub key_attributes: pulumi_wasm_rust::Output<
+        pub key_attributes: pulumi_gestalt_rust::Output<
             Option<super::super::types::paymentcryptography::KeyKeyAttributes>,
         >,
         /// Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
-        pub key_check_value: pulumi_wasm_rust::Output<String>,
+        pub key_check_value: pulumi_gestalt_rust::Output<String>,
         /// Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
-        pub key_check_value_algorithm: pulumi_wasm_rust::Output<String>,
+        pub key_check_value_algorithm: pulumi_gestalt_rust::Output<String>,
         /// Source of the key material.
-        pub key_origin: pulumi_wasm_rust::Output<String>,
+        pub key_origin: pulumi_gestalt_rust::Output<String>,
         /// State of key that is being created or deleted.
-        pub key_state: pulumi_wasm_rust::Output<String>,
+        pub key_state: pulumi_gestalt_rust::Output<String>,
         /// Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::paymentcryptography::KeyTimeouts>,
         >,
     }
@@ -101,11 +103,11 @@ pub mod key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: KeyArgs,
     ) -> KeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let deletion_window_in_days_binding = args
             .deletion_window_in_days
@@ -157,36 +159,36 @@ pub mod key {
         };
         let o = register_interface::register(context.get_inner(), &request);
         KeyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            deletion_window_in_days: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            deletion_window_in_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionWindowInDays"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            exportable: pulumi_wasm_rust::__private::into_domain(
+            exportable: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exportable"),
             ),
-            key_attributes: pulumi_wasm_rust::__private::into_domain(
+            key_attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyAttributes"),
             ),
-            key_check_value: pulumi_wasm_rust::__private::into_domain(
+            key_check_value: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyCheckValue"),
             ),
-            key_check_value_algorithm: pulumi_wasm_rust::__private::into_domain(
+            key_check_value_algorithm: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyCheckValueAlgorithm"),
             ),
-            key_origin: pulumi_wasm_rust::__private::into_domain(
+            key_origin: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyOrigin"),
             ),
-            key_state: pulumi_wasm_rust::__private::into_domain(
+            key_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyState"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

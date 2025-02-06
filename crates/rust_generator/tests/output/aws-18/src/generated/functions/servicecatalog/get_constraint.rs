@@ -1,48 +1,48 @@
 pub mod get_constraint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetConstraintArgs {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         #[builder(into, default)]
-        pub accept_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub accept_language: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Description of the constraint.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Constraint identifier.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetConstraintResult {
-        pub accept_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub accept_language: pulumi_gestalt_rust::Output<Option<String>>,
         /// Description of the constraint.
-        pub description: pulumi_wasm_rust::Output<String>,
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Owner of the constraint.
-        pub owner: pulumi_wasm_rust::Output<String>,
+        pub owner: pulumi_gestalt_rust::Output<String>,
         /// Constraint parameters in JSON format.
-        pub parameters: pulumi_wasm_rust::Output<String>,
+        pub parameters: pulumi_gestalt_rust::Output<String>,
         /// Portfolio identifier.
-        pub portfolio_id: pulumi_wasm_rust::Output<String>,
+        pub portfolio_id: pulumi_gestalt_rust::Output<String>,
         /// Product identifier.
-        pub product_id: pulumi_wasm_rust::Output<String>,
+        pub product_id: pulumi_gestalt_rust::Output<String>,
         /// Constraint status.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetConstraintArgs,
     ) -> GetConstraintResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let accept_language_binding = args
             .accept_language
@@ -70,25 +70,27 @@ pub mod get_constraint {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetConstraintResult {
-            accept_language: pulumi_wasm_rust::__private::into_domain(
+            accept_language: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("acceptLanguage"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            portfolio_id: pulumi_wasm_rust::__private::into_domain(
+            portfolio_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("portfolioId"),
             ),
-            product_id: pulumi_wasm_rust::__private::into_domain(
+            product_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("productId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

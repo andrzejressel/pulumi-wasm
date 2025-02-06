@@ -27,8 +27,8 @@
 /// ### API Schema in S3 Bucket
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = agent_agent_action_group::create(
@@ -63,8 +63,8 @@
 /// ### Function Schema (Simplified Schema)
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = agent_agent_action_group::create(
@@ -137,7 +137,7 @@
 /// $ pulumi import aws:bedrock/agentAgentActionGroup:AgentAgentActionGroup example MMAUDBZTH4,GGRRAED6JP,DRAFT
 /// ```
 pub mod agent_agent_action_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AgentAgentActionGroupArgs {
@@ -145,51 +145,51 @@ pub mod agent_agent_action_group {
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub action_group_executor: pulumi_wasm_rust::InputOrOutput<
+        pub action_group_executor: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::bedrock::AgentAgentActionGroupActionGroupExecutor,
             >,
         >,
         /// Name of the action group.
         #[builder(into)]
-        pub action_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub action_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
         #[builder(into, default)]
-        pub action_group_state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub action_group_state: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The unique identifier of the agent for which to create the action group.
         #[builder(into)]
-        pub agent_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub agent_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Version of the agent for which to create the action group. Valid values: `DRAFT`.
         #[builder(into)]
-        pub agent_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub agent_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
         #[builder(into, default)]
-        pub api_schema: pulumi_wasm_rust::InputOrOutput<
+        pub api_schema: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::AgentAgentActionGroupApiSchema>,
         >,
         /// Description of the action group.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Describes the function schema for the action group.
         /// Each function represents an action in an action group.
         /// See `function_schema` Block for details.
         #[builder(into, default)]
-        pub function_schema: pulumi_wasm_rust::InputOrOutput<
+        pub function_schema: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::AgentAgentActionGroupFunctionSchema>,
         >,
         /// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
         #[builder(into, default)]
-        pub parent_action_group_signature: pulumi_wasm_rust::InputOrOutput<
+        pub parent_action_group_signature: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
         #[builder(into, default)]
-        pub prepare_agent: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub prepare_agent: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether the in-use check is skipped when deleting the action group.
         #[builder(into, default)]
-        pub skip_resource_in_use_check: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub skip_resource_in_use_check: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::AgentAgentActionGroupTimeouts>,
         >,
     }
@@ -198,40 +198,40 @@ pub mod agent_agent_action_group {
         /// ARN of the Lambda function containing the business logic that is carried out upon invoking the action or custom control method for handling the information elicited from the user. See `action_group_executor` Block for details.
         ///
         /// The following arguments are optional:
-        pub action_group_executor: pulumi_wasm_rust::Output<
+        pub action_group_executor: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::bedrock::AgentAgentActionGroupActionGroupExecutor,
             >,
         >,
         /// Unique identifier of the action group.
-        pub action_group_id: pulumi_wasm_rust::Output<String>,
+        pub action_group_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the action group.
-        pub action_group_name: pulumi_wasm_rust::Output<String>,
+        pub action_group_name: pulumi_gestalt_rust::Output<String>,
         /// Whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
-        pub action_group_state: pulumi_wasm_rust::Output<String>,
+        pub action_group_state: pulumi_gestalt_rust::Output<String>,
         /// The unique identifier of the agent for which to create the action group.
-        pub agent_id: pulumi_wasm_rust::Output<String>,
+        pub agent_id: pulumi_gestalt_rust::Output<String>,
         /// Version of the agent for which to create the action group. Valid values: `DRAFT`.
-        pub agent_version: pulumi_wasm_rust::Output<String>,
+        pub agent_version: pulumi_gestalt_rust::Output<String>,
         /// Either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html). See `api_schema` Block for details.
-        pub api_schema: pulumi_wasm_rust::Output<
+        pub api_schema: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::AgentAgentActionGroupApiSchema>,
         >,
         /// Description of the action group.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Describes the function schema for the action group.
         /// Each function represents an action in an action group.
         /// See `function_schema` Block for details.
-        pub function_schema: pulumi_wasm_rust::Output<
+        pub function_schema: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::AgentAgentActionGroupFunctionSchema>,
         >,
         /// To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
-        pub parent_action_group_signature: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent_action_group_signature: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether or not to prepare the agent after creation or modification. Defaults to `true`.
-        pub prepare_agent: pulumi_wasm_rust::Output<bool>,
+        pub prepare_agent: pulumi_gestalt_rust::Output<bool>,
         /// Whether the in-use check is skipped when deleting the action group.
-        pub skip_resource_in_use_check: pulumi_wasm_rust::Output<bool>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub skip_resource_in_use_check: pulumi_gestalt_rust::Output<bool>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::AgentAgentActionGroupTimeouts>,
         >,
     }
@@ -240,11 +240,11 @@ pub mod agent_agent_action_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AgentAgentActionGroupArgs,
     ) -> AgentAgentActionGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let action_group_executor_binding = args
             .action_group_executor
@@ -333,43 +333,43 @@ pub mod agent_agent_action_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AgentAgentActionGroupResult {
-            action_group_executor: pulumi_wasm_rust::__private::into_domain(
+            action_group_executor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actionGroupExecutor"),
             ),
-            action_group_id: pulumi_wasm_rust::__private::into_domain(
+            action_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actionGroupId"),
             ),
-            action_group_name: pulumi_wasm_rust::__private::into_domain(
+            action_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actionGroupName"),
             ),
-            action_group_state: pulumi_wasm_rust::__private::into_domain(
+            action_group_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actionGroupState"),
             ),
-            agent_id: pulumi_wasm_rust::__private::into_domain(
+            agent_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentId"),
             ),
-            agent_version: pulumi_wasm_rust::__private::into_domain(
+            agent_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentVersion"),
             ),
-            api_schema: pulumi_wasm_rust::__private::into_domain(
+            api_schema: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiSchema"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            function_schema: pulumi_wasm_rust::__private::into_domain(
+            function_schema: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("functionSchema"),
             ),
-            parent_action_group_signature: pulumi_wasm_rust::__private::into_domain(
+            parent_action_group_signature: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parentActionGroupSignature"),
             ),
-            prepare_agent: pulumi_wasm_rust::__private::into_domain(
+            prepare_agent: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("prepareAgent"),
             ),
-            skip_resource_in_use_check: pulumi_wasm_rust::__private::into_domain(
+            skip_resource_in_use_check: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skipResourceInUseCheck"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

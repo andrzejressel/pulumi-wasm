@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = workload_identity_pool_provider::create(
@@ -319,7 +319,7 @@
 /// ```
 ///
 pub mod workload_identity_pool_provider {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkloadIdentityPoolProviderArgs {
@@ -329,7 +329,7 @@ pub mod workload_identity_pool_provider {
         /// The expression must output a boolean representing whether to allow the federation.
         /// The following keywords may be referenced in the expressions:
         #[builder(into, default)]
-        pub attribute_condition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub attribute_condition: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Maps attributes from authentication credentials issued by an external identity provider
         /// to Google Cloud attributes, such as `subject` and `segment`.
         /// Each key must be a string specifying the Google Cloud IAM attribute to map to.
@@ -382,46 +382,46 @@ pub mod workload_identity_pool_provider {
         /// {"google.subject": "assertion.sub"}
         /// ```
         #[builder(into, default)]
-        pub attribute_mapping: pulumi_wasm_rust::InputOrOutput<
+        pub attribute_mapping: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An Amazon Web Services identity provider. Not compatible with the property oidc or saml.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub aws: pulumi_wasm_rust::InputOrOutput<
+        pub aws: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::iam::WorkloadIdentityPoolProviderAws>,
         >,
         /// A description for the provider. Cannot exceed 256 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether the provider is disabled. You cannot use a disabled provider to exchange tokens.
         /// However, existing tokens still grant access.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A display name for the provider. Cannot exceed 32 characters.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An OpenId Connect 1.0 identity provider. Not compatible with the property aws or saml.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub oidc: pulumi_wasm_rust::InputOrOutput<
+        pub oidc: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::iam::WorkloadIdentityPoolProviderOidc>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An SAML 2.0 identity provider. Not compatible with the property oidc or aws.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub saml: pulumi_wasm_rust::InputOrOutput<
+        pub saml: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::iam::WorkloadIdentityPoolProviderSaml>,
         >,
         /// The ID used for the pool, which is the final component of the pool resource name. This
         /// value should be 4-32 characters, and may contain the characters [a-z0-9-]. The prefix
         /// `gcp-` is reserved for use by Google, and may not be specified.
         #[builder(into)]
-        pub workload_identity_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workload_identity_pool_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID for the provider, which becomes the final component of the resource name. This
         /// value must be 4-32 characters, and may contain the characters [a-z0-9-]. The prefix
         /// `gcp-` is reserved for use by Google, and may not be specified.
@@ -429,12 +429,14 @@ pub mod workload_identity_pool_provider {
         ///
         /// - - -
         #[builder(into)]
-        pub workload_identity_pool_provider_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workload_identity_pool_provider_id: pulumi_gestalt_rust::InputOrOutput<
+            String,
+        >,
         /// An X.509-type identity provider represents a CA. It is trusted to assert a
         /// client identity if the client has a certificate that chains up to this CA.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub x509: pulumi_wasm_rust::InputOrOutput<
+        pub x509: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::iam::WorkloadIdentityPoolProviderX509>,
         >,
     }
@@ -445,7 +447,7 @@ pub mod workload_identity_pool_provider {
         /// provider should not be accepted.
         /// The expression must output a boolean representing whether to allow the federation.
         /// The following keywords may be referenced in the expressions:
-        pub attribute_condition: pulumi_wasm_rust::Output<Option<String>>,
+        pub attribute_condition: pulumi_gestalt_rust::Output<Option<String>>,
         /// Maps attributes from authentication credentials issued by an external identity provider
         /// to Google Cloud attributes, such as `subject` and `segment`.
         /// Each key must be a string specifying the Google Cloud IAM attribute to map to.
@@ -497,35 +499,35 @@ pub mod workload_identity_pool_provider {
         /// ```sh
         /// {"google.subject": "assertion.sub"}
         /// ```
-        pub attribute_mapping: pulumi_wasm_rust::Output<
+        pub attribute_mapping: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An Amazon Web Services identity provider. Not compatible with the property oidc or saml.
         /// Structure is documented below.
-        pub aws: pulumi_wasm_rust::Output<
+        pub aws: pulumi_gestalt_rust::Output<
             Option<super::super::types::iam::WorkloadIdentityPoolProviderAws>,
         >,
         /// A description for the provider. Cannot exceed 256 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether the provider is disabled. You cannot use a disabled provider to exchange tokens.
         /// However, existing tokens still grant access.
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A display name for the provider. Cannot exceed 32 characters.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource name of the provider as
         /// `projects/{project_number}/locations/global/workloadIdentityPools/{workload_identity_pool_id}/providers/{workload_identity_pool_provider_id}`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// An OpenId Connect 1.0 identity provider. Not compatible with the property aws or saml.
         /// Structure is documented below.
-        pub oidc: pulumi_wasm_rust::Output<
+        pub oidc: pulumi_gestalt_rust::Output<
             Option<super::super::types::iam::WorkloadIdentityPoolProviderOidc>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// An SAML 2.0 identity provider. Not compatible with the property oidc or aws.
         /// Structure is documented below.
-        pub saml: pulumi_wasm_rust::Output<
+        pub saml: pulumi_gestalt_rust::Output<
             Option<super::super::types::iam::WorkloadIdentityPoolProviderSaml>,
         >,
         /// The state of the provider.
@@ -535,22 +537,22 @@ pub mod workload_identity_pool_provider {
         /// after approximately 30 days. You can restore a soft-deleted provider using
         /// UndeleteWorkloadIdentityPoolProvider. You cannot reuse the ID of a soft-deleted provider
         /// until it is permanently deleted.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The ID used for the pool, which is the final component of the pool resource name. This
         /// value should be 4-32 characters, and may contain the characters [a-z0-9-]. The prefix
         /// `gcp-` is reserved for use by Google, and may not be specified.
-        pub workload_identity_pool_id: pulumi_wasm_rust::Output<String>,
+        pub workload_identity_pool_id: pulumi_gestalt_rust::Output<String>,
         /// The ID for the provider, which becomes the final component of the resource name. This
         /// value must be 4-32 characters, and may contain the characters [a-z0-9-]. The prefix
         /// `gcp-` is reserved for use by Google, and may not be specified.
         ///
         ///
         /// - - -
-        pub workload_identity_pool_provider_id: pulumi_wasm_rust::Output<String>,
+        pub workload_identity_pool_provider_id: pulumi_gestalt_rust::Output<String>,
         /// An X.509-type identity provider represents a CA. It is trusted to assert a
         /// client identity if the client has a certificate that chains up to this CA.
         /// Structure is documented below.
-        pub x509: pulumi_wasm_rust::Output<
+        pub x509: pulumi_gestalt_rust::Output<
             Option<super::super::types::iam::WorkloadIdentityPoolProviderX509>,
         >,
     }
@@ -559,11 +561,11 @@ pub mod workload_identity_pool_provider {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkloadIdentityPoolProviderArgs,
     ) -> WorkloadIdentityPoolProviderResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let attribute_condition_binding = args
             .attribute_condition
@@ -647,36 +649,36 @@ pub mod workload_identity_pool_provider {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkloadIdentityPoolProviderResult {
-            attribute_condition: pulumi_wasm_rust::__private::into_domain(
+            attribute_condition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attributeCondition"),
             ),
-            attribute_mapping: pulumi_wasm_rust::__private::into_domain(
+            attribute_mapping: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attributeMapping"),
             ),
-            aws: pulumi_wasm_rust::__private::into_domain(o.extract_field("aws")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            aws: pulumi_gestalt_rust::__private::into_domain(o.extract_field("aws")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            disabled: pulumi_wasm_rust::__private::into_domain(
+            disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disabled"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            oidc: pulumi_wasm_rust::__private::into_domain(o.extract_field("oidc")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            oidc: pulumi_gestalt_rust::__private::into_domain(o.extract_field("oidc")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            saml: pulumi_wasm_rust::__private::into_domain(o.extract_field("saml")),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            workload_identity_pool_id: pulumi_wasm_rust::__private::into_domain(
+            saml: pulumi_gestalt_rust::__private::into_domain(o.extract_field("saml")),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            workload_identity_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workloadIdentityPoolId"),
             ),
-            workload_identity_pool_provider_id: pulumi_wasm_rust::__private::into_domain(
+            workload_identity_pool_provider_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workloadIdentityPoolProviderId"),
             ),
-            x509: pulumi_wasm_rust::__private::into_domain(o.extract_field("x509")),
+            x509: pulumi_gestalt_rust::__private::into_domain(o.extract_field("x509")),
         }
     }
 }

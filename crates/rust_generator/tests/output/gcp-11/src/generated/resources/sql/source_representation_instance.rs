@@ -14,8 +14,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let instance = source_representation_instance::create(
@@ -37,8 +37,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let instance = source_representation_instance::create(
@@ -82,100 +82,100 @@
 /// ```
 ///
 pub mod source_representation_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SourceRepresentationInstanceArgs {
         /// The CA certificate on the external server. Include only if SSL/TLS is used on the external server.
         #[builder(into, default)]
-        pub ca_certificate: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ca_certificate: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The client certificate on the external server. Required only for server-client authentication. Include only if SSL/TLS is used on the external server.
         #[builder(into, default)]
-        pub client_certificate: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_certificate: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The private key file for the client certificate on the external server. Required only for server-client authentication. Include only if SSL/TLS is used on the external server.
         #[builder(into, default)]
-        pub client_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The MySQL version running on your source database server.
         /// Possible values are: `MYSQL_5_6`, `MYSQL_5_7`, `MYSQL_8_0`, `POSTGRES_9_6`, `POSTGRES_10`, `POSTGRES_11`, `POSTGRES_12`, `POSTGRES_13`, `POSTGRES_14`.
         #[builder(into)]
-        pub database_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A file in the bucket that contains the data from the external server.
         #[builder(into, default)]
-        pub dump_file_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub dump_file_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IPv4 address and port for the external server, or the the DNS address for the external server. If the external server is hosted on Cloud SQL, the port is 5432.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub host: pulumi_wasm_rust::InputOrOutput<String>,
+        pub host: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the source representation instance. Use any valid Cloud SQL instance name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The password for the replication user account.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The externally accessible port for the source database server.
         /// Defaults to 3306.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Region in which the created instance should reside.
         /// If it is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The replication user account on the external server.
         #[builder(into, default)]
-        pub username: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub username: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SourceRepresentationInstanceResult {
         /// The CA certificate on the external server. Include only if SSL/TLS is used on the external server.
-        pub ca_certificate: pulumi_wasm_rust::Output<Option<String>>,
+        pub ca_certificate: pulumi_gestalt_rust::Output<Option<String>>,
         /// The client certificate on the external server. Required only for server-client authentication. Include only if SSL/TLS is used on the external server.
-        pub client_certificate: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_certificate: pulumi_gestalt_rust::Output<Option<String>>,
         /// The private key file for the client certificate on the external server. Required only for server-client authentication. Include only if SSL/TLS is used on the external server.
-        pub client_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// The MySQL version running on your source database server.
         /// Possible values are: `MYSQL_5_6`, `MYSQL_5_7`, `MYSQL_8_0`, `POSTGRES_9_6`, `POSTGRES_10`, `POSTGRES_11`, `POSTGRES_12`, `POSTGRES_13`, `POSTGRES_14`.
-        pub database_version: pulumi_wasm_rust::Output<String>,
+        pub database_version: pulumi_gestalt_rust::Output<String>,
         /// A file in the bucket that contains the data from the external server.
-        pub dump_file_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub dump_file_path: pulumi_gestalt_rust::Output<Option<String>>,
         /// The IPv4 address and port for the external server, or the the DNS address for the external server. If the external server is hosted on Cloud SQL, the port is 5432.
         ///
         ///
         /// - - -
-        pub host: pulumi_wasm_rust::Output<String>,
+        pub host: pulumi_gestalt_rust::Output<String>,
         /// The name of the source representation instance. Use any valid Cloud SQL instance name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The password for the replication user account.
         /// **Note**: This property is sensitive and will not be displayed in the plan.
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_gestalt_rust::Output<Option<String>>,
         /// The externally accessible port for the source database server.
         /// Defaults to 3306.
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The Region in which the created instance should reside.
         /// If it is not provided, the provider region is used.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The replication user account on the external server.
-        pub username: pulumi_wasm_rust::Output<Option<String>>,
+        pub username: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SourceRepresentationInstanceArgs,
     ) -> SourceRepresentationInstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let ca_certificate_binding = args.ca_certificate.get_output(context).get_inner();
         let client_certificate_binding = args
@@ -253,32 +253,34 @@ pub mod source_representation_instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SourceRepresentationInstanceResult {
-            ca_certificate: pulumi_wasm_rust::__private::into_domain(
+            ca_certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("caCertificate"),
             ),
-            client_certificate: pulumi_wasm_rust::__private::into_domain(
+            client_certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertificate"),
             ),
-            client_key: pulumi_wasm_rust::__private::into_domain(
+            client_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientKey"),
             ),
-            database_version: pulumi_wasm_rust::__private::into_domain(
+            database_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseVersion"),
             ),
-            dump_file_path: pulumi_wasm_rust::__private::into_domain(
+            dump_file_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dumpFilePath"),
             ),
-            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_wasm_rust::__private::into_domain(
+            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            username: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("username"),
             ),
         }

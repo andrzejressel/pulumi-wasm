@@ -8,8 +8,8 @@
 /// ### Basic
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bot_association::create(
@@ -82,25 +82,25 @@
 /// $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
 /// ```
 pub mod bot_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BotAssociationArgs {
         /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration information of an Amazon Lex (V1) bot. Detailed below.
         #[builder(into)]
-        pub lex_bot: pulumi_wasm_rust::InputOrOutput<
+        pub lex_bot: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::connect::BotAssociationLexBot,
         >,
     }
     #[allow(dead_code)]
     pub struct BotAssociationResult {
         /// The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
         /// Configuration information of an Amazon Lex (V1) bot. Detailed below.
-        pub lex_bot: pulumi_wasm_rust::Output<
+        pub lex_bot: pulumi_gestalt_rust::Output<
             super::super::types::connect::BotAssociationLexBot,
         >,
     }
@@ -109,11 +109,11 @@ pub mod bot_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BotAssociationArgs,
     ) -> BotAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let instance_id_binding = args.instance_id.get_output(context).get_inner();
         let lex_bot_binding = args.lex_bot.get_output(context).get_inner();
@@ -134,10 +134,12 @@ pub mod bot_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BotAssociationResult {
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            lex_bot: pulumi_wasm_rust::__private::into_domain(o.extract_field("lexBot")),
+            lex_bot: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("lexBot"),
+            ),
         }
     }
 }

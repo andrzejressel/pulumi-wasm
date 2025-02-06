@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = managed_headers::create(
@@ -30,47 +30,47 @@
 /// }
 /// ```
 pub mod managed_headers {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedHeadersArgs {
         /// The list of managed request headers.
         #[builder(into, default)]
-        pub managed_request_headers: pulumi_wasm_rust::InputOrOutput<
+        pub managed_request_headers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::ManagedHeadersManagedRequestHeader>>,
         >,
         /// The list of managed response headers.
         #[builder(into, default)]
-        pub managed_response_headers: pulumi_wasm_rust::InputOrOutput<
+        pub managed_response_headers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::ManagedHeadersManagedResponseHeader>>,
         >,
         /// The zone identifier to target for the resource.
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ManagedHeadersResult {
         /// The list of managed request headers.
-        pub managed_request_headers: pulumi_wasm_rust::Output<
+        pub managed_request_headers: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::ManagedHeadersManagedRequestHeader>>,
         >,
         /// The list of managed response headers.
-        pub managed_response_headers: pulumi_wasm_rust::Output<
+        pub managed_response_headers: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::ManagedHeadersManagedResponseHeader>>,
         >,
         /// The zone identifier to target for the resource.
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ManagedHeadersArgs,
     ) -> ManagedHeadersResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let managed_request_headers_binding = args
             .managed_request_headers
@@ -102,13 +102,15 @@ pub mod managed_headers {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ManagedHeadersResult {
-            managed_request_headers: pulumi_wasm_rust::__private::into_domain(
+            managed_request_headers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedRequestHeaders"),
             ),
-            managed_response_headers: pulumi_wasm_rust::__private::into_domain(
+            managed_response_headers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedResponseHeaders"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

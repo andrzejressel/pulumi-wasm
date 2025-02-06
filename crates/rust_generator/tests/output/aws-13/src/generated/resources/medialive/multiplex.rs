@@ -37,53 +37,53 @@
 /// $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
 /// ```
 pub mod multiplex {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MultiplexArgs {
         /// A list of availability zones. You must specify exactly two.
         #[builder(into)]
-        pub availability_zones: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub availability_zones: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Multiplex settings. See Multiplex Settings for more details.
         #[builder(into, default)]
-        pub multiplex_settings: pulumi_wasm_rust::InputOrOutput<
+        pub multiplex_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::medialive::MultiplexMultiplexSettings>,
         >,
         /// name of Multiplex.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether to start the Multiplex. Defaults to `false`.
         #[builder(into, default)]
-        pub start_multiplex: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub start_multiplex: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct MultiplexResult {
         /// ARN of the Multiplex.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A list of availability zones. You must specify exactly two.
-        pub availability_zones: pulumi_wasm_rust::Output<Vec<String>>,
+        pub availability_zones: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Multiplex settings. See Multiplex Settings for more details.
-        pub multiplex_settings: pulumi_wasm_rust::Output<
+        pub multiplex_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::medialive::MultiplexMultiplexSettings>,
         >,
         /// name of Multiplex.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Whether to start the Multiplex. Defaults to `false`.
-        pub start_multiplex: pulumi_wasm_rust::Output<Option<bool>>,
+        pub start_multiplex: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A map of tags to assign to the Multiplex. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -92,11 +92,11 @@ pub mod multiplex {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MultiplexArgs,
     ) -> MultiplexResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let availability_zones_binding = args
             .availability_zones
@@ -141,19 +141,19 @@ pub mod multiplex {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MultiplexResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zones: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            availability_zones: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZones"),
             ),
-            multiplex_settings: pulumi_wasm_rust::__private::into_domain(
+            multiplex_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("multiplexSettings"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            start_multiplex: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            start_multiplex: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startMultiplex"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

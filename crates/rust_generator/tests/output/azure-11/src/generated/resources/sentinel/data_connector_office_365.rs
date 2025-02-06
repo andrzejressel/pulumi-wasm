@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -50,62 +50,62 @@
 /// ```
 ///
 pub mod data_connector_office_365 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataConnectorOffice365Args {
         /// Should the Exchange data connector be enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub exchange_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub exchange_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Log Analytics Workspace that this Office 365 Data Connector resides in. Changing this forces a new Office 365 Data Connector to be created.
         #[builder(into)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub log_analytics_workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Office 365 Data Connector. Changing this forces a new Office 365 Data Connector to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Should the SharePoint data connector be enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub sharepoint_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub sharepoint_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Should the Microsoft Teams data connector be enabled? Defaults to `true`.
         ///
         /// > **NOTE:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
         #[builder(into, default)]
-        pub teams_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub teams_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
         ///
         /// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         #[builder(into, default)]
-        pub tenant_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tenant_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DataConnectorOffice365Result {
         /// Should the Exchange data connector be enabled? Defaults to `true`.
-        pub exchange_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub exchange_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the Log Analytics Workspace that this Office 365 Data Connector resides in. Changing this forces a new Office 365 Data Connector to be created.
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_workspace_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Office 365 Data Connector. Changing this forces a new Office 365 Data Connector to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Should the SharePoint data connector be enabled? Defaults to `true`.
-        pub sharepoint_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub sharepoint_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Should the Microsoft Teams data connector be enabled? Defaults to `true`.
         ///
         /// > **NOTE:** At least one of `exchange_enabled`, `sharedpoint_enabled` and `teams_enabled` has to be specified.
-        pub teams_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub teams_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created.
         ///
         /// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
-        pub tenant_id: pulumi_wasm_rust::Output<String>,
+        pub tenant_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DataConnectorOffice365Args,
     ) -> DataConnectorOffice365Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let exchange_enabled_binding = args
             .exchange_enabled
@@ -155,20 +155,20 @@ pub mod data_connector_office_365 {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DataConnectorOffice365Result {
-            exchange_enabled: pulumi_wasm_rust::__private::into_domain(
+            exchange_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exchangeEnabled"),
             ),
-            log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
+            log_analytics_workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logAnalyticsWorkspaceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            sharepoint_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            sharepoint_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sharepointEnabled"),
             ),
-            teams_enabled: pulumi_wasm_rust::__private::into_domain(
+            teams_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("teamsEnabled"),
             ),
-            tenant_id: pulumi_wasm_rust::__private::into_domain(
+            tenant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tenantId"),
             ),
         }

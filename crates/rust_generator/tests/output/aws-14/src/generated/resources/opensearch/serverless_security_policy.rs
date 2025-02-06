@@ -151,50 +151,50 @@
 /// $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
 /// ```
 pub mod serverless_security_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServerlessSecurityPolicyArgs {
         /// Description of the policy. Typically used to store information about the permissions defined in the policy.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the policy.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// JSON policy document to use as the content for the new policy
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Type of security policy. One of `encryption` or `network`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServerlessSecurityPolicyResult {
         /// Description of the policy. Typically used to store information about the permissions defined in the policy.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the policy.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// JSON policy document to use as the content for the new policy
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_gestalt_rust::Output<String>,
         /// Version of the policy.
-        pub policy_version: pulumi_wasm_rust::Output<String>,
+        pub policy_version: pulumi_gestalt_rust::Output<String>,
         /// Type of security policy. One of `encryption` or `network`.
         ///
         /// The following arguments are optional:
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServerlessSecurityPolicyArgs,
     ) -> ServerlessSecurityPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -226,15 +226,17 @@ pub mod serverless_security_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServerlessSecurityPolicyResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
-            policy_version: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            policy: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("policy"),
+            ),
+            policy_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyVersion"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

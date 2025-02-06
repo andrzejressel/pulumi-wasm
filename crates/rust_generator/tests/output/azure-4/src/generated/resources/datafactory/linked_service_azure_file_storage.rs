@@ -42,7 +42,7 @@
 /// ```
 ///
 pub mod linked_service_azure_file_storage {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkedServiceAzureFileStorageArgs {
@@ -50,101 +50,101 @@ pub mod linked_service_azure_file_storage {
         ///
         /// The following supported arguments are specific to Azure File Storage Linked Service:
         #[builder(into, default)]
-        pub additional_properties: pulumi_wasm_rust::InputOrOutput<
+        pub additional_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The connection string.
         #[builder(into)]
-        pub connection_string: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connection_string: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description for the Data Factory Linked Service.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the file share.
         #[builder(into, default)]
-        pub file_share: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub file_share: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Host name of the server.
         #[builder(into, default)]
-        pub host: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub host: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The integration runtime reference to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub integration_runtime_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub integration_runtime_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
         #[builder(into, default)]
-        pub key_vault_password: pulumi_wasm_rust::InputOrOutput<
+        pub key_vault_password: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::LinkedServiceAzureFileStorageKeyVaultPassword,
             >,
         >,
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of parameters to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The password to log in the server.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The user ID to log in the server.
         #[builder(into, default)]
-        pub user_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LinkedServiceAzureFileStorageResult {
         /// A map of additional properties to associate with the Data Factory Linked Service.
         ///
         /// The following supported arguments are specific to Azure File Storage Linked Service:
-        pub additional_properties: pulumi_wasm_rust::Output<
+        pub additional_properties: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service.
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The connection string.
-        pub connection_string: pulumi_wasm_rust::Output<String>,
+        pub connection_string: pulumi_gestalt_rust::Output<String>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// The description for the Data Factory Linked Service.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the file share.
-        pub file_share: pulumi_wasm_rust::Output<Option<String>>,
+        pub file_share: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Host name of the server.
-        pub host: pulumi_wasm_rust::Output<Option<String>>,
+        pub host: pulumi_gestalt_rust::Output<Option<String>>,
         /// The integration runtime reference to associate with the Data Factory Linked Service.
-        pub integration_runtime_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub integration_runtime_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `key_vault_password` block as defined below. Use this argument to store Azure File Storage password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.
-        pub key_vault_password: pulumi_wasm_rust::Output<
+        pub key_vault_password: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::datafactory::LinkedServiceAzureFileStorageKeyVaultPassword,
             >,
         >,
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A map of parameters to associate with the Data Factory Linked Service.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The password to log in the server.
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_gestalt_rust::Output<Option<String>>,
         /// The user ID to log in the server.
-        pub user_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LinkedServiceAzureFileStorageArgs,
     ) -> LinkedServiceAzureFileStorageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let additional_properties_binding = args
             .additional_properties
@@ -236,39 +236,41 @@ pub mod linked_service_azure_file_storage {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LinkedServiceAzureFileStorageResult {
-            additional_properties: pulumi_wasm_rust::__private::into_domain(
+            additional_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalProperties"),
             ),
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            connection_string: pulumi_wasm_rust::__private::into_domain(
+            connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionString"),
             ),
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            file_share: pulumi_wasm_rust::__private::into_domain(
+            file_share: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fileShare"),
             ),
-            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
-            integration_runtime_name: pulumi_wasm_rust::__private::into_domain(
+            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
+            integration_runtime_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationRuntimeName"),
             ),
-            key_vault_password: pulumi_wasm_rust::__private::into_domain(
+            key_vault_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultPassword"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            password: pulumi_wasm_rust::__private::into_domain(
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            user_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("userId")),
+            user_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("userId"),
+            ),
         }
     }
 }

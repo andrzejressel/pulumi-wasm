@@ -87,87 +87,87 @@
 /// $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
 /// ```
 pub mod budget_action {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BudgetActionArgs {
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The trigger threshold of the action. See Action Threshold.
         #[builder(into)]
-        pub action_threshold: pulumi_wasm_rust::InputOrOutput<
+        pub action_threshold: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::budgets::BudgetActionActionThreshold,
         >,
         /// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
         #[builder(into)]
-        pub action_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub action_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
         #[builder(into)]
-        pub approval_model: pulumi_wasm_rust::InputOrOutput<String>,
+        pub approval_model: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of a budget.
         #[builder(into)]
-        pub budget_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub budget_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies all of the type-specific parameters. See Definition.
         #[builder(into)]
-        pub definition: pulumi_wasm_rust::InputOrOutput<
+        pub definition: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::budgets::BudgetActionDefinition,
         >,
         /// The role passed for action execution and reversion. Roles and actions must be in the same account.
         #[builder(into)]
-        pub execution_role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub execution_role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
         #[builder(into)]
-        pub notification_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub notification_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of subscribers. See Subscriber.
         #[builder(into)]
-        pub subscribers: pulumi_wasm_rust::InputOrOutput<
+        pub subscribers: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::budgets::BudgetActionSubscriber>,
         >,
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct BudgetActionResult {
         /// The ID of the target account for budget. Will use current user's account_id by default if omitted.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// The id of the budget action.
-        pub action_id: pulumi_wasm_rust::Output<String>,
+        pub action_id: pulumi_gestalt_rust::Output<String>,
         /// The trigger threshold of the action. See Action Threshold.
-        pub action_threshold: pulumi_wasm_rust::Output<
+        pub action_threshold: pulumi_gestalt_rust::Output<
             super::super::types::budgets::BudgetActionActionThreshold,
         >,
         /// The type of action. This defines the type of tasks that can be carried out by this action. This field also determines the format for definition. Valid values are `APPLY_IAM_POLICY`, `APPLY_SCP_POLICY`, and `RUN_SSM_DOCUMENTS`.
-        pub action_type: pulumi_wasm_rust::Output<String>,
+        pub action_type: pulumi_gestalt_rust::Output<String>,
         /// This specifies if the action needs manual or automatic approval. Valid values are `AUTOMATIC` and `MANUAL`.
-        pub approval_model: pulumi_wasm_rust::Output<String>,
+        pub approval_model: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the budget action.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The name of a budget.
-        pub budget_name: pulumi_wasm_rust::Output<String>,
+        pub budget_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies all of the type-specific parameters. See Definition.
-        pub definition: pulumi_wasm_rust::Output<
+        pub definition: pulumi_gestalt_rust::Output<
             super::super::types::budgets::BudgetActionDefinition,
         >,
         /// The role passed for action execution and reversion. Roles and actions must be in the same account.
-        pub execution_role_arn: pulumi_wasm_rust::Output<String>,
+        pub execution_role_arn: pulumi_gestalt_rust::Output<String>,
         /// The type of a notification. Valid values are `ACTUAL` or `FORECASTED`.
-        pub notification_type: pulumi_wasm_rust::Output<String>,
+        pub notification_type: pulumi_gestalt_rust::Output<String>,
         /// The status of the budget action.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// A list of subscribers. See Subscriber.
-        pub subscribers: pulumi_wasm_rust::Output<
+        pub subscribers: pulumi_gestalt_rust::Output<
             Vec<super::super::types::budgets::BudgetActionSubscriber>,
         >,
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -176,11 +176,11 @@ pub mod budget_action {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BudgetActionArgs,
     ) -> BudgetActionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let action_threshold_binding = args
@@ -250,40 +250,42 @@ pub mod budget_action {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BudgetActionResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            action_id: pulumi_wasm_rust::__private::into_domain(
+            action_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actionId"),
             ),
-            action_threshold: pulumi_wasm_rust::__private::into_domain(
+            action_threshold: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actionThreshold"),
             ),
-            action_type: pulumi_wasm_rust::__private::into_domain(
+            action_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actionType"),
             ),
-            approval_model: pulumi_wasm_rust::__private::into_domain(
+            approval_model: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("approvalModel"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            budget_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            budget_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("budgetName"),
             ),
-            definition: pulumi_wasm_rust::__private::into_domain(
+            definition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("definition"),
             ),
-            execution_role_arn: pulumi_wasm_rust::__private::into_domain(
+            execution_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executionRoleArn"),
             ),
-            notification_type: pulumi_wasm_rust::__private::into_domain(
+            notification_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            subscribers: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            subscribers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscribers"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

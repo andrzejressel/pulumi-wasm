@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -47,100 +47,100 @@
 /// ```
 ///
 pub mod backend {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackendArgs {
         /// The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `credentials` block as documented below.
         #[builder(into, default)]
-        pub credentials: pulumi_wasm_rust::InputOrOutput<
+        pub credentials: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::BackendCredentials>,
         >,
         /// The description of the backend.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the API Management backend. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The protocol used by the backend host. Possible values are `http` or `soap`.
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `proxy` block as documented below.
         #[builder(into, default)]
-        pub proxy: pulumi_wasm_rust::InputOrOutput<
+        pub proxy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::BackendProxy>,
         >,
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
         #[builder(into, default)]
-        pub resource_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resource_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `service_fabric_cluster` block as documented below.
         #[builder(into, default)]
-        pub service_fabric_cluster: pulumi_wasm_rust::InputOrOutput<
+        pub service_fabric_cluster: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::BackendServiceFabricCluster>,
         >,
         /// The title of the backend.
         #[builder(into, default)]
-        pub title: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub title: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `tls` block as documented below.
         #[builder(into, default)]
-        pub tls: pulumi_wasm_rust::InputOrOutput<
+        pub tls: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::BackendTls>,
         >,
         /// The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
         #[builder(into)]
-        pub url: pulumi_wasm_rust::InputOrOutput<String>,
+        pub url: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BackendResult {
         /// The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_gestalt_rust::Output<String>,
         /// A `credentials` block as documented below.
-        pub credentials: pulumi_wasm_rust::Output<
+        pub credentials: pulumi_gestalt_rust::Output<
             Option<super::super::types::apimanagement::BackendCredentials>,
         >,
         /// The description of the backend.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the API Management backend. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The protocol used by the backend host. Possible values are `http` or `soap`.
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_gestalt_rust::Output<String>,
         /// A `proxy` block as documented below.
-        pub proxy: pulumi_wasm_rust::Output<
+        pub proxy: pulumi_gestalt_rust::Output<
             Option<super::super::types::apimanagement::BackendProxy>,
         >,
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster.
-        pub resource_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `service_fabric_cluster` block as documented below.
-        pub service_fabric_cluster: pulumi_wasm_rust::Output<
+        pub service_fabric_cluster: pulumi_gestalt_rust::Output<
             Option<super::super::types::apimanagement::BackendServiceFabricCluster>,
         >,
         /// The title of the backend.
-        pub title: pulumi_wasm_rust::Output<Option<String>>,
+        pub title: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `tls` block as documented below.
-        pub tls: pulumi_wasm_rust::Output<
+        pub tls: pulumi_gestalt_rust::Output<
             Option<super::super::types::apimanagement::BackendTls>,
         >,
         /// The backend host URL should be specified in the format `"https://backend.com/api"`, avoiding trailing slashes (/) to minimize misconfiguration risks. Azure API Management instance will append the backend resource name to this URL. This URL typically serves as the `base-url` in the [`set-backend-service`](https://learn.microsoft.com/azure/api-management/set-backend-service-policy) policy, enabling seamless transitions from frontend to backend.
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub url: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackendArgs,
     ) -> BackendResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_management_name_binding = args
             .api_management_name
@@ -220,32 +220,32 @@ pub mod backend {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackendResult {
-            api_management_name: pulumi_wasm_rust::__private::into_domain(
+            api_management_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementName"),
             ),
-            credentials: pulumi_wasm_rust::__private::into_domain(
+            credentials: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("credentials"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            proxy: pulumi_wasm_rust::__private::into_domain(o.extract_field("proxy")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            proxy: pulumi_gestalt_rust::__private::into_domain(o.extract_field("proxy")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            resource_id: pulumi_wasm_rust::__private::into_domain(
+            resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceId"),
             ),
-            service_fabric_cluster: pulumi_wasm_rust::__private::into_domain(
+            service_fabric_cluster: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceFabricCluster"),
             ),
-            title: pulumi_wasm_rust::__private::into_domain(o.extract_field("title")),
-            tls: pulumi_wasm_rust::__private::into_domain(o.extract_field("tls")),
-            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
+            title: pulumi_gestalt_rust::__private::into_domain(o.extract_field("title")),
+            tls: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tls")),
+            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

@@ -29,49 +29,49 @@
 /// $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
 /// ```
 pub mod approval_rule_template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApprovalRuleTemplateArgs {
         /// The content of the approval rule template. Maximum of 3000 characters.
         #[builder(into)]
-        pub content: pulumi_wasm_rust::InputOrOutput<String>,
+        pub content: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description of the approval rule template. Maximum of 1000 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name for the approval rule template. Maximum of 100 characters.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ApprovalRuleTemplateResult {
         /// The ID of the approval rule template
-        pub approval_rule_template_id: pulumi_wasm_rust::Output<String>,
+        pub approval_rule_template_id: pulumi_gestalt_rust::Output<String>,
         /// The content of the approval rule template. Maximum of 3000 characters.
-        pub content: pulumi_wasm_rust::Output<String>,
+        pub content: pulumi_gestalt_rust::Output<String>,
         /// The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        pub creation_date: pulumi_wasm_rust::Output<String>,
+        pub creation_date: pulumi_gestalt_rust::Output<String>,
         /// The description of the approval rule template. Maximum of 1000 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        pub last_modified_date: pulumi_wasm_rust::Output<String>,
+        pub last_modified_date: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
-        pub last_modified_user: pulumi_wasm_rust::Output<String>,
+        pub last_modified_user: pulumi_gestalt_rust::Output<String>,
         /// The name for the approval rule template. Maximum of 100 characters.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The SHA-256 hash signature for the content of the approval rule template.
-        pub rule_content_sha256: pulumi_wasm_rust::Output<String>,
+        pub rule_content_sha256: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApprovalRuleTemplateArgs,
     ) -> ApprovalRuleTemplateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let content_binding = args.content.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -97,26 +97,26 @@ pub mod approval_rule_template {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApprovalRuleTemplateResult {
-            approval_rule_template_id: pulumi_wasm_rust::__private::into_domain(
+            approval_rule_template_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("approvalRuleTemplateId"),
             ),
-            content: pulumi_wasm_rust::__private::into_domain(
+            content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("content"),
             ),
-            creation_date: pulumi_wasm_rust::__private::into_domain(
+            creation_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationDate"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            last_modified_date: pulumi_wasm_rust::__private::into_domain(
+            last_modified_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModifiedDate"),
             ),
-            last_modified_user: pulumi_wasm_rust::__private::into_domain(
+            last_modified_user: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModifiedUser"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            rule_content_sha256: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            rule_content_sha256: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleContentSha256"),
             ),
         }

@@ -36,7 +36,7 @@
 /// ```
 ///
 pub mod channels_registration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ChannelsRegistrationArgs {
@@ -46,56 +46,60 @@ pub mod channels_registration {
         ///
         /// > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
         #[builder(into, default)]
-        pub cmk_key_vault_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cmk_key_vault_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description of the Bot Channels Registration.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Application Insights API Key to associate with the Bot Channels Registration.
         #[builder(into, default)]
-        pub developer_app_insights_api_key: pulumi_wasm_rust::InputOrOutput<
+        pub developer_app_insights_api_key: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The Application Insights Application ID to associate with the Bot Channels Registration.
         #[builder(into, default)]
-        pub developer_app_insights_application_id: pulumi_wasm_rust::InputOrOutput<
+        pub developer_app_insights_application_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The Application Insights Key to associate with the Bot Channels Registration.
         #[builder(into, default)]
-        pub developer_app_insights_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub developer_app_insights_key: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Bot Channels Registration endpoint.
         #[builder(into, default)]
-        pub endpoint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub endpoint: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         #[builder(into, default)]
-        pub icon_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub icon_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub microsoft_app_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub microsoft_app_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Is the Bot Channels Registration in an isolated network?
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
         #[builder(into, default)]
-        pub streaming_endpoint_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub streaming_endpoint_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -106,39 +110,39 @@ pub mod channels_registration {
         /// > **Note:** It has to add the Key Vault Access Policy for the `Bot Service CMEK Prod` Service Principal and the `soft_delete_enabled` and the `purge_protection_enabled` is enabled on the `azure.keyvault.KeyVault` resource while using `cmk_key_vault_url`.
         ///
         /// > **Note:** It has to turn off the CMK feature before revoking Key Vault Access Policy. For more information, please refer to [Revoke access to customer-managed keys](https://docs.microsoft.com/azure/bot-service/bot-service-encryption?view=azure-bot-service-4.0&WT.mc_id=Portal-Microsoft_Azure_BotService#revoke-access-to-customer-managed-keys).
-        pub cmk_key_vault_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub cmk_key_vault_url: pulumi_gestalt_rust::Output<Option<String>>,
         /// The description of the Bot Channels Registration.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Application Insights API Key to associate with the Bot Channels Registration.
-        pub developer_app_insights_api_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub developer_app_insights_api_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Application Insights Application ID to associate with the Bot Channels Registration.
-        pub developer_app_insights_application_id: pulumi_wasm_rust::Output<
+        pub developer_app_insights_application_id: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// The Application Insights Key to associate with the Bot Channels Registration.
-        pub developer_app_insights_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub developer_app_insights_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Bot Channels Registration will be displayed as. This defaults to `name` if not specified.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The Bot Channels Registration endpoint.
-        pub endpoint: pulumi_wasm_rust::Output<Option<String>>,
+        pub endpoint: pulumi_gestalt_rust::Output<Option<String>>,
         /// The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
-        pub icon_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub icon_url: pulumi_gestalt_rust::Output<Option<String>>,
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
-        pub microsoft_app_id: pulumi_wasm_rust::Output<String>,
+        pub microsoft_app_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Is the Bot Channels Registration in an isolated network?
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
-        pub sku: pulumi_wasm_rust::Output<String>,
+        pub sku: pulumi_gestalt_rust::Output<String>,
         /// Is the streaming endpoint enabled for the Bot Channels Registration. Defaults to `false`.
-        pub streaming_endpoint_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub streaming_endpoint_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -147,11 +151,11 @@ pub mod channels_registration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ChannelsRegistrationArgs,
     ) -> ChannelsRegistrationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cmk_key_vault_url_binding = args
             .cmk_key_vault_url
@@ -266,48 +270,48 @@ pub mod channels_registration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ChannelsRegistrationResult {
-            cmk_key_vault_url: pulumi_wasm_rust::__private::into_domain(
+            cmk_key_vault_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cmkKeyVaultUrl"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            developer_app_insights_api_key: pulumi_wasm_rust::__private::into_domain(
+            developer_app_insights_api_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("developerAppInsightsApiKey"),
             ),
-            developer_app_insights_application_id: pulumi_wasm_rust::__private::into_domain(
+            developer_app_insights_application_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("developerAppInsightsApplicationId"),
             ),
-            developer_app_insights_key: pulumi_wasm_rust::__private::into_domain(
+            developer_app_insights_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("developerAppInsightsKey"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            icon_url: pulumi_wasm_rust::__private::into_domain(
+            icon_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iconUrl"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            microsoft_app_id: pulumi_wasm_rust::__private::into_domain(
+            microsoft_app_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("microsoftAppId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            streaming_endpoint_enabled: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            streaming_endpoint_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamingEndpointEnabled"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -1,43 +1,45 @@
 pub mod get_namespace_disaster_recovery_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetNamespaceDisasterRecoveryConfigArgs {
         #[builder(into, default)]
-        pub alias_authorization_rule_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub alias_authorization_rule_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub namespace_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub namespace_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub namespace_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub namespace_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetNamespaceDisasterRecoveryConfigResult {
-        pub alias_authorization_rule_id: pulumi_wasm_rust::Output<Option<String>>,
-        pub default_primary_key: pulumi_wasm_rust::Output<String>,
-        pub default_secondary_key: pulumi_wasm_rust::Output<String>,
+        pub alias_authorization_rule_id: pulumi_gestalt_rust::Output<Option<String>>,
+        pub default_primary_key: pulumi_gestalt_rust::Output<String>,
+        pub default_secondary_key: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub namespace_id: pulumi_wasm_rust::Output<Option<String>>,
-        pub namespace_name: pulumi_wasm_rust::Output<Option<String>>,
-        pub partner_namespace_id: pulumi_wasm_rust::Output<String>,
-        pub primary_connection_string_alias: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<Option<String>>,
-        pub secondary_connection_string_alias: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub namespace_id: pulumi_gestalt_rust::Output<Option<String>>,
+        pub namespace_name: pulumi_gestalt_rust::Output<Option<String>>,
+        pub partner_namespace_id: pulumi_gestalt_rust::Output<String>,
+        pub primary_connection_string_alias: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<Option<String>>,
+        pub secondary_connection_string_alias: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetNamespaceDisasterRecoveryConfigArgs,
     ) -> GetNamespaceDisasterRecoveryConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let alias_authorization_rule_id_binding = args
             .alias_authorization_rule_id
@@ -79,33 +81,33 @@ pub mod get_namespace_disaster_recovery_config {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetNamespaceDisasterRecoveryConfigResult {
-            alias_authorization_rule_id: pulumi_wasm_rust::__private::into_domain(
+            alias_authorization_rule_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("aliasAuthorizationRuleId"),
             ),
-            default_primary_key: pulumi_wasm_rust::__private::into_domain(
+            default_primary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultPrimaryKey"),
             ),
-            default_secondary_key: pulumi_wasm_rust::__private::into_domain(
+            default_secondary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSecondaryKey"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            namespace_id: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            namespace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceId"),
             ),
-            namespace_name: pulumi_wasm_rust::__private::into_domain(
+            namespace_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceName"),
             ),
-            partner_namespace_id: pulumi_wasm_rust::__private::into_domain(
+            partner_namespace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partnerNamespaceId"),
             ),
-            primary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
+            primary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryConnectionStringAlias"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            secondary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
+            secondary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryConnectionStringAlias"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = turnstile_widget::create(
@@ -28,61 +28,61 @@
 /// ```
 ///
 pub mod turnstile_widget {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TurnstileWidgetArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// If bot*fight*mode is set to true, Cloudflare issues computationally expensive challenges in response to malicious bots (Enterprise only).
         #[builder(into, default)]
-        pub bot_fight_mode: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub bot_fight_mode: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Domains where the widget is deployed
         #[builder(into)]
-        pub domains: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub domains: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Widget Mode. Available values: `non-interactive`, `invisible`, `managed`
         #[builder(into)]
-        pub mode: pulumi_wasm_rust::InputOrOutput<String>,
+        pub mode: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Human readable widget name.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Do not show any Cloudflare branding on the widget (Enterprise only).
         #[builder(into, default)]
-        pub offlabel: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub offlabel: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Region where this widget can be used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TurnstileWidgetResult {
         /// The account identifier to target for the resource.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// If bot*fight*mode is set to true, Cloudflare issues computationally expensive challenges in response to malicious bots (Enterprise only).
-        pub bot_fight_mode: pulumi_wasm_rust::Output<bool>,
+        pub bot_fight_mode: pulumi_gestalt_rust::Output<bool>,
         /// Domains where the widget is deployed
-        pub domains: pulumi_wasm_rust::Output<Vec<String>>,
+        pub domains: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Widget Mode. Available values: `non-interactive`, `invisible`, `managed`
-        pub mode: pulumi_wasm_rust::Output<String>,
+        pub mode: pulumi_gestalt_rust::Output<String>,
         /// Human readable widget name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Do not show any Cloudflare branding on the widget (Enterprise only).
-        pub offlabel: pulumi_wasm_rust::Output<bool>,
+        pub offlabel: pulumi_gestalt_rust::Output<bool>,
         /// Region where this widget can be used.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// Secret key for this widget.
-        pub secret: pulumi_wasm_rust::Output<String>,
+        pub secret: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TurnstileWidgetArgs,
     ) -> TurnstileWidgetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let bot_fight_mode_binding = args.bot_fight_mode.get_output(context).get_inner();
@@ -128,22 +128,26 @@ pub mod turnstile_widget {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TurnstileWidgetResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            bot_fight_mode: pulumi_wasm_rust::__private::into_domain(
+            bot_fight_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("botFightMode"),
             ),
-            domains: pulumi_wasm_rust::__private::into_domain(
+            domains: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domains"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            offlabel: pulumi_wasm_rust::__private::into_domain(
+            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            offlabel: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("offlabel"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            secret: pulumi_wasm_rust::__private::into_domain(o.extract_field("secret")),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            secret: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("secret"),
+            ),
         }
     }
 }

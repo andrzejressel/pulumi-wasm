@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -51,106 +51,106 @@
 /// ```
 ///
 pub mod trigger_schedule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TriggerScheduleArgs {
         /// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
         #[builder(into, default)]
-        pub activated: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub activated: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// List of tags that can be used for describing the Data Factory Schedule Trigger.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Schedule Trigger's description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The time the Schedule Trigger should end. The time will be represented in UTC.
         #[builder(into, default)]
-        pub end_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub end_time: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
         #[builder(into, default)]
-        pub frequency: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub frequency: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The interval for how often the trigger occurs. This defaults to `1`.
         #[builder(into, default)]
-        pub interval: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub interval: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Data Factory Pipeline name that the trigger will act on.
         #[builder(into, default)]
-        pub pipeline_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub pipeline_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The pipeline parameters that the trigger will act upon.
         #[builder(into, default)]
-        pub pipeline_parameters: pulumi_wasm_rust::InputOrOutput<
+        pub pipeline_parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `pipeline` block as defined below.
         #[builder(into, default)]
-        pub pipelines: pulumi_wasm_rust::InputOrOutput<
+        pub pipelines: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::datafactory::TriggerSchedulePipeline>>,
         >,
         /// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
         #[builder(into, default)]
-        pub schedule: pulumi_wasm_rust::InputOrOutput<
+        pub schedule: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datafactory::TriggerScheduleSchedule>,
         >,
         /// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
         #[builder(into, default)]
-        pub start_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub start_time: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The timezone of the start/end time.
         #[builder(into, default)]
-        pub time_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub time_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TriggerScheduleResult {
         /// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
-        pub activated: pulumi_wasm_rust::Output<Option<bool>>,
+        pub activated: pulumi_gestalt_rust::Output<Option<bool>>,
         /// List of tags that can be used for describing the Data Factory Schedule Trigger.
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// The Schedule Trigger's description.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The time the Schedule Trigger should end. The time will be represented in UTC.
-        pub end_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub end_time: pulumi_gestalt_rust::Output<Option<String>>,
         /// The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`.
-        pub frequency: pulumi_wasm_rust::Output<Option<String>>,
+        pub frequency: pulumi_gestalt_rust::Output<Option<String>>,
         /// The interval for how often the trigger occurs. This defaults to `1`.
-        pub interval: pulumi_wasm_rust::Output<Option<i32>>,
+        pub interval: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the name of the Data Factory Schedule Trigger. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Data Factory Pipeline name that the trigger will act on.
-        pub pipeline_name: pulumi_wasm_rust::Output<String>,
+        pub pipeline_name: pulumi_gestalt_rust::Output<String>,
         /// The pipeline parameters that the trigger will act upon.
-        pub pipeline_parameters: pulumi_wasm_rust::Output<
+        pub pipeline_parameters: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A `pipeline` block as defined below.
-        pub pipelines: pulumi_wasm_rust::Output<
+        pub pipelines: pulumi_gestalt_rust::Output<
             Vec<super::super::types::datafactory::TriggerSchedulePipeline>,
         >,
         /// A `schedule` block as defined below, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties.
-        pub schedule: pulumi_wasm_rust::Output<
+        pub schedule: pulumi_gestalt_rust::Output<
             Option<super::super::types::datafactory::TriggerScheduleSchedule>,
         >,
         /// The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
-        pub start_time: pulumi_wasm_rust::Output<String>,
+        pub start_time: pulumi_gestalt_rust::Output<String>,
         /// The timezone of the start/end time.
-        pub time_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub time_zone: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TriggerScheduleArgs,
     ) -> TriggerScheduleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let activated_binding = args.activated.get_output(context).get_inner();
         let annotations_binding = args.annotations.get_output(context).get_inner();
@@ -237,44 +237,44 @@ pub mod trigger_schedule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TriggerScheduleResult {
-            activated: pulumi_wasm_rust::__private::into_domain(
+            activated: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activated"),
             ),
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            end_time: pulumi_wasm_rust::__private::into_domain(
+            end_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endTime"),
             ),
-            frequency: pulumi_wasm_rust::__private::into_domain(
+            frequency: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frequency"),
             ),
-            interval: pulumi_wasm_rust::__private::into_domain(
+            interval: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("interval"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            pipeline_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            pipeline_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineName"),
             ),
-            pipeline_parameters: pulumi_wasm_rust::__private::into_domain(
+            pipeline_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineParameters"),
             ),
-            pipelines: pulumi_wasm_rust::__private::into_domain(
+            pipelines: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelines"),
             ),
-            schedule: pulumi_wasm_rust::__private::into_domain(
+            schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedule"),
             ),
-            start_time: pulumi_wasm_rust::__private::into_domain(
+            start_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startTime"),
             ),
-            time_zone: pulumi_wasm_rust::__private::into_domain(
+            time_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeZone"),
             ),
         }

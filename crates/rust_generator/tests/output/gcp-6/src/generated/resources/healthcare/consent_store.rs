@@ -87,7 +87,7 @@
 /// ```
 ///
 pub mod consent_store {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConsentStoreArgs {
@@ -97,14 +97,14 @@ pub mod consent_store {
         ///
         /// - - -
         #[builder(into)]
-        pub dataset: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dataset: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Default time to live for consents in this store. Must be at least 24 hours. Updating this field will not affect the expiration time of existing consents.
         /// A duration in seconds with up to nine fractional digits, terminated by 's'. Example: "3.5s".
         #[builder(into, default)]
-        pub default_consent_ttl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_consent_ttl: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If true, [consents.patch] [google.cloud.healthcare.v1.consent.UpdateConsent] creates the consent if it does not already exist.
         #[builder(into, default)]
-        pub enable_consent_create_on_update: pulumi_wasm_rust::InputOrOutput<
+        pub enable_consent_create_on_update: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// User-supplied key-value pairs used to organize Consent stores.
@@ -119,13 +119,13 @@ pub mod consent_store {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of this ConsentStore, for example:
         /// "consent1"
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ConsentStoreResult {
@@ -134,16 +134,16 @@ pub mod consent_store {
         ///
         ///
         /// - - -
-        pub dataset: pulumi_wasm_rust::Output<String>,
+        pub dataset: pulumi_gestalt_rust::Output<String>,
         /// Default time to live for consents in this store. Must be at least 24 hours. Updating this field will not affect the expiration time of existing consents.
         /// A duration in seconds with up to nine fractional digits, terminated by 's'. Example: "3.5s".
-        pub default_consent_ttl: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_consent_ttl: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// If true, [consents.patch] [google.cloud.healthcare.v1.consent.UpdateConsent] creates the consent if it does not already exist.
-        pub enable_consent_create_on_update: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_consent_create_on_update: pulumi_gestalt_rust::Output<Option<bool>>,
         /// User-supplied key-value pairs used to organize Consent stores.
         /// Label keys must be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128 bytes, and must
         /// conform to the following PCRE regular expression: `[\p{Ll}\p{Lo}][\p{Ll}\p{Lo}\p{N}_-]{0,62}`
@@ -155,15 +155,15 @@ pub mod consent_store {
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of this ConsentStore, for example:
         /// "consent1"
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -172,11 +172,11 @@ pub mod consent_store {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConsentStoreArgs,
     ) -> ConsentStoreResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let dataset_binding = args.dataset.get_output(context).get_inner();
         let default_consent_ttl_binding = args
@@ -218,21 +218,23 @@ pub mod consent_store {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConsentStoreResult {
-            dataset: pulumi_wasm_rust::__private::into_domain(
+            dataset: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataset"),
             ),
-            default_consent_ttl: pulumi_wasm_rust::__private::into_domain(
+            default_consent_ttl: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultConsentTtl"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            enable_consent_create_on_update: pulumi_wasm_rust::__private::into_domain(
+            enable_consent_create_on_update: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableConsentCreateOnUpdate"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
         }

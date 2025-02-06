@@ -34,52 +34,52 @@
 /// $ pulumi import aws:route53/profilesAssociation:ProfilesAssociation example rpa-id-12345678
 /// ```
 pub mod profiles_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProfilesAssociationArgs {
         /// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the profile associated with the VPC.
         #[builder(into)]
-        pub profile_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub profile_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Resource ID of the VPC the profile to be associated with.
         #[builder(into)]
-        pub resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::route53::ProfilesAssociationTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct ProfilesAssociationResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Name of the Profile Association. Must match a regex of `(?!^[0-9]+$)([a-zA-Z0-9\\-_' ']+)`.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub owner_id: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
         /// ID of the profile associated with the VPC.
-        pub profile_id: pulumi_wasm_rust::Output<String>,
+        pub profile_id: pulumi_gestalt_rust::Output<String>,
         /// Resource ID of the VPC the profile to be associated with.
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_gestalt_rust::Output<String>,
         /// Status of the Profile Association.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Status message of the Profile Association.
-        pub status_message: pulumi_wasm_rust::Output<String>,
+        pub status_message: pulumi_gestalt_rust::Output<String>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::route53::ProfilesAssociationTimeouts>,
         >,
     }
@@ -88,11 +88,11 @@ pub mod profiles_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProfilesAssociationArgs,
     ) -> ProfilesAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let profile_id_binding = args.profile_id.get_output(context).get_inner();
@@ -128,26 +128,28 @@ pub mod profiles_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProfilesAssociationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            profile_id: pulumi_wasm_rust::__private::into_domain(
+            profile_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("profileId"),
             ),
-            resource_id: pulumi_wasm_rust::__private::into_domain(
+            resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            status_message: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            status_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statusMessage"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

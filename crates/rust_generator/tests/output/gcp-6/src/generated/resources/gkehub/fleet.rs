@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = fleet::create(
@@ -55,64 +55,64 @@
 /// ```
 ///
 pub mod fleet {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FleetArgs {
         /// The default cluster configurations to apply across the fleet.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub default_cluster_config: pulumi_wasm_rust::InputOrOutput<
+        pub default_cluster_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gkehub::FleetDefaultClusterConfig>,
         >,
         /// A user-assigned display name of the Fleet. When present, it must be between 4 to 30 characters.
         /// Allowed characters are: lowercase and uppercase letters, numbers, hyphen, single-quote, double-quote, space, and exclamation point.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FleetResult {
         /// The time the fleet was created, in RFC3339 text format.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The default cluster configurations to apply across the fleet.
         /// Structure is documented below.
-        pub default_cluster_config: pulumi_wasm_rust::Output<
+        pub default_cluster_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::gkehub::FleetDefaultClusterConfig>,
         >,
         /// The time the fleet was deleted, in RFC3339 text format.
-        pub delete_time: pulumi_wasm_rust::Output<String>,
+        pub delete_time: pulumi_gestalt_rust::Output<String>,
         /// A user-assigned display name of the Fleet. When present, it must be between 4 to 30 characters.
         /// Allowed characters are: lowercase and uppercase letters, numbers, hyphen, single-quote, double-quote, space, and exclamation point.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The state of the fleet resource.
         /// Structure is documented below.
-        pub states: pulumi_wasm_rust::Output<
+        pub states: pulumi_gestalt_rust::Output<
             Vec<super::super::types::gkehub::FleetState>,
         >,
         /// Google-generated UUID for this resource. This is unique across all
         /// Fleet resources. If a Fleet resource is deleted and another
         /// resource with the same name is created, it gets a different uid.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// The time the fleet was last updated, in RFC3339 text format.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FleetArgs,
     ) -> FleetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let default_cluster_config_binding = args
             .default_cluster_config
@@ -141,24 +141,26 @@ pub mod fleet {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FleetResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            default_cluster_config: pulumi_wasm_rust::__private::into_domain(
+            default_cluster_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultClusterConfig"),
             ),
-            delete_time: pulumi_wasm_rust::__private::into_domain(
+            delete_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteTime"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            states: pulumi_wasm_rust::__private::into_domain(o.extract_field("states")),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            states: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("states"),
+            ),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

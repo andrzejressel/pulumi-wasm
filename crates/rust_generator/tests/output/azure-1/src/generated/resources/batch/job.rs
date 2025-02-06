@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -62,58 +62,58 @@
 /// ```
 ///
 pub mod job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct JobArgs {
         /// The ID of the Batch Pool. Changing this forces a new Batch Job to be created.
         #[builder(into)]
-        pub batch_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub batch_pool_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies a map of common environment settings applied to this Batch Job. Changing this forces a new Batch Job to be created.
         #[builder(into, default)]
-        pub common_environment_properties: pulumi_wasm_rust::InputOrOutput<
+        pub common_environment_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The display name of this Batch Job. Changing this forces a new Batch Job to be created.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Batch Job. Changing this forces a new Batch Job to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The priority of this Batch Job, possible values can range from -1000 (lowest) to 1000 (highest). Defaults to `0`.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
         #[builder(into, default)]
-        pub task_retry_maximum: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub task_retry_maximum: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct JobResult {
         /// The ID of the Batch Pool. Changing this forces a new Batch Job to be created.
-        pub batch_pool_id: pulumi_wasm_rust::Output<String>,
+        pub batch_pool_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies a map of common environment settings applied to this Batch Job. Changing this forces a new Batch Job to be created.
-        pub common_environment_properties: pulumi_wasm_rust::Output<
+        pub common_environment_properties: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The display name of this Batch Job. Changing this forces a new Batch Job to be created.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Batch Job. Changing this forces a new Batch Job to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The priority of this Batch Job, possible values can range from -1000 (lowest) to 1000 (highest). Defaults to `0`.
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit.
-        pub task_retry_maximum: pulumi_wasm_rust::Output<Option<i32>>,
+        pub task_retry_maximum: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: JobArgs,
     ) -> JobResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let batch_pool_id_binding = args.batch_pool_id.get_output(context).get_inner();
         let common_environment_properties_binding = args
@@ -160,20 +160,20 @@ pub mod job {
         };
         let o = register_interface::register(context.get_inner(), &request);
         JobResult {
-            batch_pool_id: pulumi_wasm_rust::__private::into_domain(
+            batch_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("batchPoolId"),
             ),
-            common_environment_properties: pulumi_wasm_rust::__private::into_domain(
+            common_environment_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("commonEnvironmentProperties"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            task_retry_maximum: pulumi_wasm_rust::__private::into_domain(
+            task_retry_maximum: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("taskRetryMaximum"),
             ),
         }

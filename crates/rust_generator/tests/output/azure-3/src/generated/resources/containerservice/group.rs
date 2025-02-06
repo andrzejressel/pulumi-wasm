@@ -46,201 +46,203 @@
 /// ```
 ///
 pub mod group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GroupArgs {
         /// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub containers: pulumi_wasm_rust::InputOrOutput<
+        pub containers: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::containerservice::GroupContainer>,
         >,
         /// A `diagnostics` block as documented below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub diagnostics: pulumi_wasm_rust::InputOrOutput<
+        pub diagnostics: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerservice::GroupDiagnostics>,
         >,
         /// A `dns_config` block as documented below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub dns_config: pulumi_wasm_rust::InputOrOutput<
+        pub dns_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerservice::GroupDnsConfig>,
         >,
         /// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
         ///
         /// > **Note:** DNS label/name is not supported when deploying to virtual networks.
         #[builder(into, default)]
-        pub dns_name_label: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub dns_name_label: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
         #[builder(into, default)]
-        pub dns_name_label_reuse_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub dns_name_label_reuse_policy: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         ///
         /// > **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
         #[builder(into, default)]
-        pub exposed_ports: pulumi_wasm_rust::InputOrOutput<
+        pub exposed_ports: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::containerservice::GroupExposedPort>>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerservice::GroupIdentity>,
         >,
         /// An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub image_registry_credentials: pulumi_wasm_rust::InputOrOutput<
+        pub image_registry_credentials: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::containerservice::GroupImageRegistryCredential>,
             >,
         >,
         /// The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub init_containers: pulumi_wasm_rust::InputOrOutput<
+        pub init_containers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::containerservice::GroupInitContainer>>,
         >,
         /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
         ///
         /// > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
         #[builder(into, default)]
-        pub ip_address_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_address_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub key_vault_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_vault_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
         #[builder(into, default)]
-        pub key_vault_user_assigned_identity_id: pulumi_wasm_rust::InputOrOutput<
+        pub key_vault_user_assigned_identity_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Container Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub network_profile_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network_profile_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         ///
         /// > **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
         #[builder(into)]
-        pub os_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub os_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub restart_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub restart_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subnet_ids: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub zones: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct GroupResult {
         /// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
-        pub containers: pulumi_wasm_rust::Output<
+        pub containers: pulumi_gestalt_rust::Output<
             Vec<super::super::types::containerservice::GroupContainer>,
         >,
         /// A `diagnostics` block as documented below. Changing this forces a new resource to be created.
-        pub diagnostics: pulumi_wasm_rust::Output<
+        pub diagnostics: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerservice::GroupDiagnostics>,
         >,
         /// A `dns_config` block as documented below. Changing this forces a new resource to be created.
-        pub dns_config: pulumi_wasm_rust::Output<
+        pub dns_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerservice::GroupDnsConfig>,
         >,
         /// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
         ///
         /// > **Note:** DNS label/name is not supported when deploying to virtual networks.
-        pub dns_name_label: pulumi_wasm_rust::Output<Option<String>>,
+        pub dns_name_label: pulumi_gestalt_rust::Output<Option<String>>,
         /// The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`.
-        pub dns_name_label_reuse_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub dns_name_label_reuse_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Zero or more `exposed_port` blocks as defined below. Changing this forces a new resource to be created.
         ///
         /// > **Note:** The `exposed_port` can only contain ports that are also exposed on one or more containers in the group.
-        pub exposed_ports: pulumi_wasm_rust::Output<
+        pub exposed_ports: pulumi_gestalt_rust::Output<
             Vec<super::super::types::containerservice::GroupExposedPort>,
         >,
         /// The FQDN of the container group derived from `dns_name_label`.
-        pub fqdn: pulumi_wasm_rust::Output<String>,
+        pub fqdn: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerservice::GroupIdentity>,
         >,
         /// An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
-        pub image_registry_credentials: pulumi_wasm_rust::Output<
+        pub image_registry_credentials: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::containerservice::GroupImageRegistryCredential>,
             >,
         >,
         /// The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created.
-        pub init_containers: pulumi_wasm_rust::Output<
+        pub init_containers: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::containerservice::GroupInitContainer>>,
         >,
         /// The IP address allocated to the container group.
-        pub ip_address: pulumi_wasm_rust::Output<String>,
+        pub ip_address: pulumi_gestalt_rust::Output<String>,
         /// Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`.
         ///
         /// > **Note:** `dns_name_label` and `os_type` set to `windows` are not compatible with `Private` `ip_address_type`
-        pub ip_address_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created.
-        pub key_vault_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_vault_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`.
-        pub key_vault_user_assigned_identity_id: pulumi_wasm_rust::Output<
+        pub key_vault_user_assigned_identity_id: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Container Group. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub network_profile_id: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub network_profile_id: pulumi_gestalt_rust::Output<String>,
         /// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         ///
         /// > **Note:** if `os_type` is set to `Windows` currently only a single `container` block is supported. Windows containers are not supported in virtual networks.
-        pub os_type: pulumi_wasm_rust::Output<String>,
+        pub os_type: pulumi_gestalt_rust::Output<String>,
         /// The priority of the Container Group. Possible values are `Regular` and `Spot`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** When `priority` is set to `Spot`, the `ip_address_type` has to be `None`.
-        pub priority: pulumi_wasm_rust::Output<Option<String>>,
+        pub priority: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
-        pub restart_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub restart_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
-        pub sku: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku: pulumi_gestalt_rust::Output<Option<String>>,
         /// The subnet resource IDs for a container group. Changing this forces a new resource to be created.
-        pub subnet_ids: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnet_ids: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created.
-        pub zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub zones: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GroupArgs,
     ) -> GroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let containers_binding = args.containers.get_output(context).get_inner();
         let diagnostics_binding = args.diagnostics.get_output(context).get_inner();
@@ -390,69 +392,71 @@ pub mod group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GroupResult {
-            containers: pulumi_wasm_rust::__private::into_domain(
+            containers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containers"),
             ),
-            diagnostics: pulumi_wasm_rust::__private::into_domain(
+            diagnostics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diagnostics"),
             ),
-            dns_config: pulumi_wasm_rust::__private::into_domain(
+            dns_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsConfig"),
             ),
-            dns_name_label: pulumi_wasm_rust::__private::into_domain(
+            dns_name_label: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsNameLabel"),
             ),
-            dns_name_label_reuse_policy: pulumi_wasm_rust::__private::into_domain(
+            dns_name_label_reuse_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsNameLabelReusePolicy"),
             ),
-            exposed_ports: pulumi_wasm_rust::__private::into_domain(
+            exposed_ports: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exposedPorts"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            image_registry_credentials: pulumi_wasm_rust::__private::into_domain(
+            image_registry_credentials: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageRegistryCredentials"),
             ),
-            init_containers: pulumi_wasm_rust::__private::into_domain(
+            init_containers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("initContainers"),
             ),
-            ip_address: pulumi_wasm_rust::__private::into_domain(
+            ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddress"),
             ),
-            ip_address_type: pulumi_wasm_rust::__private::into_domain(
+            ip_address_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddressType"),
             ),
-            key_vault_key_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultKeyId"),
             ),
-            key_vault_user_assigned_identity_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_user_assigned_identity_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultUserAssignedIdentityId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_profile_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_profile_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkProfileId"),
             ),
-            os_type: pulumi_wasm_rust::__private::into_domain(o.extract_field("osType")),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            os_type: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("osType"),
+            ),
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            restart_policy: pulumi_wasm_rust::__private::into_domain(
+            restart_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restartPolicy"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            subnet_ids: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

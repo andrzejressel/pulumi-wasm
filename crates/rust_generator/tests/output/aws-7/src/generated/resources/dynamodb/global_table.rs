@@ -53,27 +53,27 @@
 /// $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
 /// ```
 pub mod global_table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GlobalTableArgs {
         /// The name of the global table. Must match underlying DynamoDB Table names in all regions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         #[builder(into)]
-        pub replicas: pulumi_wasm_rust::InputOrOutput<
+        pub replicas: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::dynamodb::GlobalTableReplica>,
         >,
     }
     #[allow(dead_code)]
     pub struct GlobalTableResult {
         /// The ARN of the DynamoDB Global Table
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the global table. Must match underlying DynamoDB Table names in all regions.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
-        pub replicas: pulumi_wasm_rust::Output<
+        pub replicas: pulumi_gestalt_rust::Output<
             Vec<super::super::types::dynamodb::GlobalTableReplica>,
         >,
     }
@@ -82,11 +82,11 @@ pub mod global_table {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GlobalTableArgs,
     ) -> GlobalTableResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let replicas_binding = args.replicas.get_output(context).get_inner();
@@ -107,9 +107,9 @@ pub mod global_table {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GlobalTableResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            replicas: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            replicas: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicas"),
             ),
         }

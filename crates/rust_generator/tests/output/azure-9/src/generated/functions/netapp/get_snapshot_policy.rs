@@ -1,47 +1,47 @@
 pub mod get_snapshot_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSnapshotPolicyArgs {
         /// The name of the NetApp account where the NetApp Snapshot Policy exists.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the NetApp Snapshot Policy.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Name of the Resource Group where the NetApp Snapshot Policy exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetSnapshotPolicyResult {
         /// The name of the NetApp Account in which the NetApp Snapshot Policy was created.
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_gestalt_rust::Output<String>,
         /// Daily snapshot schedule.
-        pub daily_schedules: pulumi_wasm_rust::Output<
+        pub daily_schedules: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::netapp::GetSnapshotPolicyDailySchedule>,
         >,
         /// Defines that the NetApp Snapshot Policy is enabled or not.
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_gestalt_rust::Output<bool>,
         /// Hourly snapshot schedule.
-        pub hourly_schedules: pulumi_wasm_rust::Output<
+        pub hourly_schedules: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::netapp::GetSnapshotPolicyHourlySchedule>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the resource exists.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// List of the days of the month when the snapshots will be created.
-        pub monthly_schedules: pulumi_wasm_rust::Output<
+        pub monthly_schedules: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::netapp::GetSnapshotPolicyMonthlySchedule>,
         >,
         /// The name of the NetApp Snapshot Policy.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group where the NetApp Snapshot Policy should be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// Weekly snapshot schedule.
-        pub weekly_schedules: pulumi_wasm_rust::Output<
+        pub weekly_schedules: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::netapp::GetSnapshotPolicyWeeklySchedule>,
         >,
     }
@@ -50,10 +50,10 @@ pub mod get_snapshot_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetSnapshotPolicyArgs,
     ) -> GetSnapshotPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_name_binding = args.account_name.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -81,31 +81,31 @@ pub mod get_snapshot_policy {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetSnapshotPolicyResult {
-            account_name: pulumi_wasm_rust::__private::into_domain(
+            account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountName"),
             ),
-            daily_schedules: pulumi_wasm_rust::__private::into_domain(
+            daily_schedules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dailySchedules"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            hourly_schedules: pulumi_wasm_rust::__private::into_domain(
+            hourly_schedules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hourlySchedules"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            monthly_schedules: pulumi_wasm_rust::__private::into_domain(
+            monthly_schedules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monthlySchedules"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            weekly_schedules: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            weekly_schedules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("weeklySchedules"),
             ),
         }

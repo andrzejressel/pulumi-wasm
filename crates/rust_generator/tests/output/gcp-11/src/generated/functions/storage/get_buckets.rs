@@ -1,35 +1,35 @@
 pub mod get_buckets {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetBucketsArgs {
         /// Filter results to buckets whose names begin with this prefix.
         #[builder(into, default)]
-        pub prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project. If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetBucketsResult {
         /// A list of all retrieved GCS buckets. Structure is defined below.
-        pub buckets: pulumi_wasm_rust::Output<
+        pub buckets: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::storage::GetBucketsBucket>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub prefix: pulumi_wasm_rust::Output<Option<String>>,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub prefix: pulumi_gestalt_rust::Output<Option<String>>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetBucketsArgs,
     ) -> GetBucketsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let prefix_binding = args.prefix.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -49,12 +49,16 @@ pub mod get_buckets {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetBucketsResult {
-            buckets: pulumi_wasm_rust::__private::into_domain(
+            buckets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("buckets"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            prefix: pulumi_wasm_rust::__private::into_domain(o.extract_field("prefix")),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            prefix: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("prefix"),
+            ),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

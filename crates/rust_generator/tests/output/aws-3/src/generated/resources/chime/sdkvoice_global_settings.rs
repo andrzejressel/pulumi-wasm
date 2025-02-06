@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = sdkvoice_global_settings::create(
@@ -30,20 +30,20 @@
 /// $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
 /// ```
 pub mod sdkvoice_global_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SdkvoiceGlobalSettingsArgs {
         /// The Voice Connector settings. See voice_connector.
         #[builder(into)]
-        pub voice_connector: pulumi_wasm_rust::InputOrOutput<
+        pub voice_connector: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::chime::SdkvoiceGlobalSettingsVoiceConnector,
         >,
     }
     #[allow(dead_code)]
     pub struct SdkvoiceGlobalSettingsResult {
         /// The Voice Connector settings. See voice_connector.
-        pub voice_connector: pulumi_wasm_rust::Output<
+        pub voice_connector: pulumi_gestalt_rust::Output<
             super::super::types::chime::SdkvoiceGlobalSettingsVoiceConnector,
         >,
     }
@@ -52,11 +52,11 @@ pub mod sdkvoice_global_settings {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SdkvoiceGlobalSettingsArgs,
     ) -> SdkvoiceGlobalSettingsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let voice_connector_binding = args
             .voice_connector
@@ -75,7 +75,7 @@ pub mod sdkvoice_global_settings {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SdkvoiceGlobalSettingsResult {
-            voice_connector: pulumi_wasm_rust::__private::into_domain(
+            voice_connector: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("voiceConnector"),
             ),
         }

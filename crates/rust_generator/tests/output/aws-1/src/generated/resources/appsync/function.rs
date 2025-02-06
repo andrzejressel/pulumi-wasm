@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = graph_ql_api::create(
@@ -77,78 +77,80 @@
 /// $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
 /// ```
 pub mod function {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FunctionArgs {
         /// ID of the associated AppSync API.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
         #[builder(into, default)]
-        pub code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub code: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Function data source name.
         #[builder(into)]
-        pub data_source: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_source: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Function description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
         #[builder(into, default)]
-        pub function_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub function_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         #[builder(into, default)]
-        pub max_batch_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_batch_size: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Function name. The function name does not have to be unique.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
         #[builder(into, default)]
-        pub request_mapping_template: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub request_mapping_template: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Function response mapping template.
         #[builder(into, default)]
-        pub response_mapping_template: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub response_mapping_template: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
         #[builder(into, default)]
-        pub runtime: pulumi_wasm_rust::InputOrOutput<
+        pub runtime: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appsync::FunctionRuntime>,
         >,
         /// Describes a Sync configuration for a resolver. See `sync_config` Block for details.
         #[builder(into, default)]
-        pub sync_config: pulumi_wasm_rust::InputOrOutput<
+        pub sync_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appsync::FunctionSyncConfig>,
         >,
     }
     #[allow(dead_code)]
     pub struct FunctionResult {
         /// ID of the associated AppSync API.
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_gestalt_rust::Output<String>,
         /// ARN of the Function object.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The function code that contains the request and response functions. When code is used, the runtime is required. The runtime value must be APPSYNC_JS.
-        pub code: pulumi_wasm_rust::Output<Option<String>>,
+        pub code: pulumi_gestalt_rust::Output<Option<String>>,
         /// Function data source name.
-        pub data_source: pulumi_wasm_rust::Output<String>,
+        pub data_source: pulumi_gestalt_rust::Output<String>,
         /// Function description.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Unique ID representing the Function object.
-        pub function_id: pulumi_wasm_rust::Output<String>,
+        pub function_id: pulumi_gestalt_rust::Output<String>,
         /// Version of the request mapping template. Currently the supported value is `2018-05-29`. Does not apply when specifying `code`.
-        pub function_version: pulumi_wasm_rust::Output<String>,
+        pub function_version: pulumi_gestalt_rust::Output<String>,
         /// Maximum batching size for a resolver. Valid values are between `0` and `2000`.
-        pub max_batch_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_batch_size: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Function name. The function name does not have to be unique.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
-        pub request_mapping_template: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_mapping_template: pulumi_gestalt_rust::Output<Option<String>>,
         /// Function response mapping template.
-        pub response_mapping_template: pulumi_wasm_rust::Output<Option<String>>,
+        pub response_mapping_template: pulumi_gestalt_rust::Output<Option<String>>,
         /// Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See `runtime` Block for details.
-        pub runtime: pulumi_wasm_rust::Output<
+        pub runtime: pulumi_gestalt_rust::Output<
             Option<super::super::types::appsync::FunctionRuntime>,
         >,
         /// Describes a Sync configuration for a resolver. See `sync_config` Block for details.
-        pub sync_config: pulumi_wasm_rust::Output<
+        pub sync_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::appsync::FunctionSyncConfig>,
         >,
     }
@@ -157,11 +159,11 @@ pub mod function {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FunctionArgs,
     ) -> FunctionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_id_binding = args.api_id.get_output(context).get_inner();
         let code_binding = args.code.get_output(context).get_inner();
@@ -236,35 +238,37 @@ pub mod function {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FunctionResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            code: pulumi_wasm_rust::__private::into_domain(o.extract_field("code")),
-            data_source: pulumi_wasm_rust::__private::into_domain(
+            api_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiId"),
+            ),
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            code: pulumi_gestalt_rust::__private::into_domain(o.extract_field("code")),
+            data_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSource"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            function_id: pulumi_wasm_rust::__private::into_domain(
+            function_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("functionId"),
             ),
-            function_version: pulumi_wasm_rust::__private::into_domain(
+            function_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("functionVersion"),
             ),
-            max_batch_size: pulumi_wasm_rust::__private::into_domain(
+            max_batch_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxBatchSize"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            request_mapping_template: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            request_mapping_template: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestMappingTemplate"),
             ),
-            response_mapping_template: pulumi_wasm_rust::__private::into_domain(
+            response_mapping_template: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("responseMappingTemplate"),
             ),
-            runtime: pulumi_wasm_rust::__private::into_domain(
+            runtime: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runtime"),
             ),
-            sync_config: pulumi_wasm_rust::__private::into_domain(
+            sync_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("syncConfig"),
             ),
         }

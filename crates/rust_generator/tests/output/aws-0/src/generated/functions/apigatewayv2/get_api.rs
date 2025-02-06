@@ -1,62 +1,62 @@
 pub mod get_api {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetApiArgs {
         /// API identifier.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Map of resource tags.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetApiResult {
         /// URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
-        pub api_endpoint: pulumi_wasm_rust::Output<String>,
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_endpoint: pulumi_gestalt_rust::Output<String>,
+        pub api_id: pulumi_gestalt_rust::Output<String>,
         /// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
         /// Applicable for WebSocket APIs.
-        pub api_key_selection_expression: pulumi_wasm_rust::Output<String>,
+        pub api_key_selection_expression: pulumi_gestalt_rust::Output<String>,
         /// ARN of the API.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
         /// Applicable for HTTP APIs.
-        pub cors_configurations: pulumi_wasm_rust::Output<
+        pub cors_configurations: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::apigatewayv2::GetApiCorsConfiguration>,
         >,
         /// Description of the API.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Whether clients can invoke the API by using the default `execute-api` endpoint.
-        pub disable_execute_api_endpoint: pulumi_wasm_rust::Output<bool>,
+        pub disable_execute_api_endpoint: pulumi_gestalt_rust::Output<bool>,
         /// ARN prefix to be used in an `aws.lambda.Permission`'s `source_arn` attribute
         /// or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
-        pub execution_arn: pulumi_wasm_rust::Output<String>,
+        pub execution_arn: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Name of the API.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// API protocol.
-        pub protocol_type: pulumi_wasm_rust::Output<String>,
+        pub protocol_type: pulumi_gestalt_rust::Output<String>,
         /// The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
-        pub route_selection_expression: pulumi_wasm_rust::Output<String>,
+        pub route_selection_expression: pulumi_gestalt_rust::Output<String>,
         /// Map of resource tags.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// Version identifier for the API.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetApiArgs,
     ) -> GetApiResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_id_binding = args.api_id.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();
@@ -76,36 +76,40 @@ pub mod get_api {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetApiResult {
-            api_endpoint: pulumi_wasm_rust::__private::into_domain(
+            api_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiEndpoint"),
             ),
-            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
-            api_key_selection_expression: pulumi_wasm_rust::__private::into_domain(
+            api_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiId"),
+            ),
+            api_key_selection_expression: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiKeySelectionExpression"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            cors_configurations: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            cors_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("corsConfigurations"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            disable_execute_api_endpoint: pulumi_wasm_rust::__private::into_domain(
+            disable_execute_api_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disableExecuteApiEndpoint"),
             ),
-            execution_arn: pulumi_wasm_rust::__private::into_domain(
+            execution_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executionArn"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            protocol_type: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            protocol_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocolType"),
             ),
-            route_selection_expression: pulumi_wasm_rust::__private::into_domain(
+            route_selection_expression: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routeSelectionExpression"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

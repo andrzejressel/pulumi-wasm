@@ -53,36 +53,36 @@
 /// * Where `{capabilityName}` is the name of the Capability. For example `capabilityName`.
 ///
 pub mod capability {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CapabilityArgs {
         /// The capability that should be applied to the Chaos Studio Target. For supported values please see this Chaos Studio [Fault Library](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library). Changing this forces a new Chaos Studio Capability to be created.
         #[builder(into)]
-        pub capability_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub capability_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
         #[builder(into)]
-        pub chaos_studio_target_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub chaos_studio_target_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CapabilityResult {
         /// The capability that should be applied to the Chaos Studio Target. For supported values please see this Chaos Studio [Fault Library](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library). Changing this forces a new Chaos Studio Capability to be created.
-        pub capability_type: pulumi_wasm_rust::Output<String>,
+        pub capability_type: pulumi_gestalt_rust::Output<String>,
         /// The Unique Resource Name of the Capability.
-        pub capability_urn: pulumi_wasm_rust::Output<String>,
+        pub capability_urn: pulumi_gestalt_rust::Output<String>,
         /// The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
-        pub chaos_studio_target_id: pulumi_wasm_rust::Output<String>,
+        pub chaos_studio_target_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CapabilityArgs,
     ) -> CapabilityResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let capability_type_binding = args
             .capability_type
@@ -109,13 +109,13 @@ pub mod capability {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CapabilityResult {
-            capability_type: pulumi_wasm_rust::__private::into_domain(
+            capability_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capabilityType"),
             ),
-            capability_urn: pulumi_wasm_rust::__private::into_domain(
+            capability_urn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capabilityUrn"),
             ),
-            chaos_studio_target_id: pulumi_wasm_rust::__private::into_domain(
+            chaos_studio_target_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("chaosStudioTargetId"),
             ),
         }

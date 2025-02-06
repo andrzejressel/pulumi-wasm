@@ -138,13 +138,13 @@
 /// ```
 ///
 pub mod enterprise_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnterpriseKeyArgs {
         /// Settings for keys that can be used by Android apps.
         #[builder(into, default)]
-        pub android_settings: pulumi_wasm_rust::InputOrOutput<
+        pub android_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::recaptcha::EnterpriseKeyAndroidSettings>,
         >,
         /// Human-readable display name of this key. Modifiable by user.
@@ -153,10 +153,10 @@ pub mod enterprise_key {
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Settings for keys that can be used by iOS apps.
         #[builder(into, default)]
-        pub ios_settings: pulumi_wasm_rust::InputOrOutput<
+        pub ios_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::recaptcha::EnterpriseKeyIosSettings>,
         >,
         /// See [Creating and managing labels](https://cloud.google.com/recaptcha-enterprise/docs/labels).
@@ -164,75 +164,75 @@ pub mod enterprise_key {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Options for user acceptance testing.
         #[builder(into, default)]
-        pub testing_options: pulumi_wasm_rust::InputOrOutput<
+        pub testing_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::recaptcha::EnterpriseKeyTestingOptions>,
         >,
         /// Settings specific to keys that can be used for WAF (Web Application Firewall).
         #[builder(into, default)]
-        pub waf_settings: pulumi_wasm_rust::InputOrOutput<
+        pub waf_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::recaptcha::EnterpriseKeyWafSettings>,
         >,
         /// Settings for keys that can be used by websites.
         #[builder(into, default)]
-        pub web_settings: pulumi_wasm_rust::InputOrOutput<
+        pub web_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::recaptcha::EnterpriseKeyWebSettings>,
         >,
     }
     #[allow(dead_code)]
     pub struct EnterpriseKeyResult {
         /// Settings for keys that can be used by Android apps.
-        pub android_settings: pulumi_wasm_rust::Output<
+        pub android_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::recaptcha::EnterpriseKeyAndroidSettings>,
         >,
         /// The timestamp corresponding to the creation of this Key.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Human-readable display name of this key. Modifiable by user.
         ///
         ///
         ///
         /// - - -
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Settings for keys that can be used by iOS apps.
-        pub ios_settings: pulumi_wasm_rust::Output<
+        pub ios_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::recaptcha::EnterpriseKeyIosSettings>,
         >,
         /// See [Creating and managing labels](https://cloud.google.com/recaptcha-enterprise/docs/labels).
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The resource id for the Key, which is the same as the Site Key itself.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The project for the resource
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Options for user acceptance testing.
-        pub testing_options: pulumi_wasm_rust::Output<
+        pub testing_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::recaptcha::EnterpriseKeyTestingOptions>,
         >,
         /// Settings specific to keys that can be used for WAF (Web Application Firewall).
-        pub waf_settings: pulumi_wasm_rust::Output<
+        pub waf_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::recaptcha::EnterpriseKeyWafSettings>,
         >,
         /// Settings for keys that can be used by websites.
-        pub web_settings: pulumi_wasm_rust::Output<
+        pub web_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::recaptcha::EnterpriseKeyWebSettings>,
         >,
     }
@@ -241,11 +241,11 @@ pub mod enterprise_key {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnterpriseKeyArgs,
     ) -> EnterpriseKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let android_settings_binding = args
             .android_settings
@@ -302,36 +302,38 @@ pub mod enterprise_key {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnterpriseKeyResult {
-            android_settings: pulumi_wasm_rust::__private::into_domain(
+            android_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("androidSettings"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            ios_settings: pulumi_wasm_rust::__private::into_domain(
+            ios_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iosSettings"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            testing_options: pulumi_wasm_rust::__private::into_domain(
+            testing_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("testingOptions"),
             ),
-            waf_settings: pulumi_wasm_rust::__private::into_domain(
+            waf_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("wafSettings"),
             ),
-            web_settings: pulumi_wasm_rust::__private::into_domain(
+            web_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("webSettings"),
             ),
         }

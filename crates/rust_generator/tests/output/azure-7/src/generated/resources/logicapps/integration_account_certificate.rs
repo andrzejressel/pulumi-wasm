@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -46,62 +46,62 @@
 /// ```
 ///
 pub mod integration_account_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationAccountCertificateArgs {
         /// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
         #[builder(into)]
-        pub integration_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub integration_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `key_vault_key` block as documented below.
         #[builder(into, default)]
-        pub key_vault_key: pulumi_wasm_rust::InputOrOutput<
+        pub key_vault_key: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::logicapps::IntegrationAccountCertificateKeyVaultKey,
             >,
         >,
         /// A JSON mapping of any Metadata for this Logic App Integration Account Certificate.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Logic App Integration Account Certificate. Changing this forces a new Logic App Integration Account Certificate to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The public certificate for the Logic App Integration Account Certificate.
         #[builder(into, default)]
-        pub public_certificate: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub public_certificate: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Logic App Integration Account Certificate should exist. Changing this forces a new Logic App Integration Account Certificate to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IntegrationAccountCertificateResult {
         /// The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Certificate to be created.
-        pub integration_account_name: pulumi_wasm_rust::Output<String>,
+        pub integration_account_name: pulumi_gestalt_rust::Output<String>,
         /// A `key_vault_key` block as documented below.
-        pub key_vault_key: pulumi_wasm_rust::Output<
+        pub key_vault_key: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::logicapps::IntegrationAccountCertificateKeyVaultKey,
             >,
         >,
         /// A JSON mapping of any Metadata for this Logic App Integration Account Certificate.
-        pub metadata: pulumi_wasm_rust::Output<Option<String>>,
+        pub metadata: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Logic App Integration Account Certificate. Changing this forces a new Logic App Integration Account Certificate to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The public certificate for the Logic App Integration Account Certificate.
-        pub public_certificate: pulumi_wasm_rust::Output<Option<String>>,
+        pub public_certificate: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Resource Group where the Logic App Integration Account Certificate should exist. Changing this forces a new Logic App Integration Account Certificate to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IntegrationAccountCertificateArgs,
     ) -> IntegrationAccountCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let integration_account_name_binding = args
             .integration_account_name
@@ -152,20 +152,20 @@ pub mod integration_account_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IntegrationAccountCertificateResult {
-            integration_account_name: pulumi_wasm_rust::__private::into_domain(
+            integration_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationAccountName"),
             ),
-            key_vault_key: pulumi_wasm_rust::__private::into_domain(
+            key_vault_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultKey"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            public_certificate: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            public_certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicCertificate"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
         }

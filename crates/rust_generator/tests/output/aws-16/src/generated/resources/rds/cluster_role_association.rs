@@ -6,8 +6,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = cluster_role_association::create(
@@ -29,39 +29,39 @@
 /// $ pulumi import aws:rds/clusterRoleAssociation:ClusterRoleAssociation example my-db-cluster,arn:aws:iam::123456789012:role/my-role
 /// ```
 pub mod cluster_role_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterRoleAssociationArgs {
         /// DB Cluster Identifier to associate with the IAM Role.
         #[builder(into)]
-        pub db_cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub db_cluster_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
         #[builder(into)]
-        pub feature_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub feature_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ClusterRoleAssociationResult {
         /// DB Cluster Identifier to associate with the IAM Role.
-        pub db_cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub db_cluster_identifier: pulumi_gestalt_rust::Output<String>,
         /// Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
-        pub feature_name: pulumi_wasm_rust::Output<String>,
+        pub feature_name: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterRoleAssociationArgs,
     ) -> ClusterRoleAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let db_cluster_identifier_binding = args
             .db_cluster_identifier
@@ -90,13 +90,13 @@ pub mod cluster_role_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterRoleAssociationResult {
-            db_cluster_identifier: pulumi_wasm_rust::__private::into_domain(
+            db_cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dbClusterIdentifier"),
             ),
-            feature_name: pulumi_wasm_rust::__private::into_domain(
+            feature_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("featureName"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
         }

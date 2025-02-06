@@ -76,52 +76,52 @@
 /// ```
 ///
 pub mod service_network_acl {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceNetworkAclArgs {
         /// The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
         #[builder(into)]
-        pub default_action: pulumi_wasm_rust::InputOrOutput<String>,
+        pub default_action: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `private_endpoint` block as defined below.
         #[builder(into, default)]
-        pub private_endpoints: pulumi_wasm_rust::InputOrOutput<
+        pub private_endpoints: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::signalr::ServiceNetworkAclPrivateEndpoint>>,
         >,
         /// A `public_network` block as defined below.
         #[builder(into)]
-        pub public_network: pulumi_wasm_rust::InputOrOutput<
+        pub public_network: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::signalr::ServiceNetworkAclPublicNetwork,
         >,
         /// The ID of the SignalR service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub signalr_service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub signalr_service_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServiceNetworkAclResult {
         /// The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
-        pub default_action: pulumi_wasm_rust::Output<String>,
+        pub default_action: pulumi_gestalt_rust::Output<String>,
         /// A `private_endpoint` block as defined below.
-        pub private_endpoints: pulumi_wasm_rust::Output<
+        pub private_endpoints: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::signalr::ServiceNetworkAclPrivateEndpoint>>,
         >,
         /// A `public_network` block as defined below.
-        pub public_network: pulumi_wasm_rust::Output<
+        pub public_network: pulumi_gestalt_rust::Output<
             super::super::types::signalr::ServiceNetworkAclPublicNetwork,
         >,
         /// The ID of the SignalR service. Changing this forces a new resource to be created.
-        pub signalr_service_id: pulumi_wasm_rust::Output<String>,
+        pub signalr_service_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServiceNetworkAclArgs,
     ) -> ServiceNetworkAclResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let default_action_binding = args.default_action.get_output(context).get_inner();
         let private_endpoints_binding = args
@@ -158,16 +158,16 @@ pub mod service_network_acl {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServiceNetworkAclResult {
-            default_action: pulumi_wasm_rust::__private::into_domain(
+            default_action: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultAction"),
             ),
-            private_endpoints: pulumi_wasm_rust::__private::into_domain(
+            private_endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateEndpoints"),
             ),
-            public_network: pulumi_wasm_rust::__private::into_domain(
+            public_network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetwork"),
             ),
-            signalr_service_id: pulumi_wasm_rust::__private::into_domain(
+            signalr_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signalrServiceId"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let _sipTls = record::create(
@@ -46,94 +46,94 @@
 /// ```
 ///
 pub mod record {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RecordArgs {
         #[builder(into, default)]
-        pub allow_overwrite: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_overwrite: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Comments or notes about the DNS record. This field has no effect on DNS responses.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub comment: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The content of the record. Must provide only one of `data`, `content`, `value`.
         #[builder(into, default)]
-        pub content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of attributes that constitute the record value. Must provide only one of `data`, `content`, `value`.
         #[builder(into, default)]
-        pub data: pulumi_wasm_rust::InputOrOutput<Option<super::types::RecordData>>,
+        pub data: pulumi_gestalt_rust::InputOrOutput<Option<super::types::RecordData>>,
         /// The name of the record. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The priority of the record.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Whether the record gets Cloudflare's origin protection.
         #[builder(into, default)]
-        pub proxied: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub proxied: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Custom tags for the DNS record.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub tags: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The TTL of the record.
         #[builder(into, default)]
-        pub ttl: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub ttl: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The type of the record. Available values: `A`, `AAAA`, `CAA`, `CNAME`, `TXT`, `SRV`, `LOC`, `MX`, `NS`, `SPF`, `CERT`, `DNSKEY`, `DS`, `NAPTR`, `SMIMEA`, `SSHFP`, `TLSA`, `URI`, `PTR`, `HTTPS`, `SVCB`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The value of the record. Must provide only one of `data`, `content`, `value`.
         #[builder(into, default)]
-        pub value: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub value: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RecordResult {
-        pub allow_overwrite: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_overwrite: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Comments or notes about the DNS record. This field has no effect on DNS responses.
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_gestalt_rust::Output<Option<String>>,
         /// The content of the record. Must provide only one of `data`, `content`, `value`.
-        pub content: pulumi_wasm_rust::Output<String>,
+        pub content: pulumi_gestalt_rust::Output<String>,
         /// The RFC3339 timestamp of when the record was created.
-        pub created_on: pulumi_wasm_rust::Output<String>,
+        pub created_on: pulumi_gestalt_rust::Output<String>,
         /// Map of attributes that constitute the record value. Must provide only one of `data`, `content`, `value`.
-        pub data: pulumi_wasm_rust::Output<Option<super::types::RecordData>>,
+        pub data: pulumi_gestalt_rust::Output<Option<super::types::RecordData>>,
         /// The FQDN of the record.
-        pub hostname: pulumi_wasm_rust::Output<String>,
+        pub hostname: pulumi_gestalt_rust::Output<String>,
         /// A key-value map of string metadata Cloudflare associates with the record.
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The RFC3339 timestamp of when the record was last modified.
-        pub modified_on: pulumi_wasm_rust::Output<String>,
+        pub modified_on: pulumi_gestalt_rust::Output<String>,
         /// The name of the record. **Modifying this attribute will force creation of a new resource.**
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The priority of the record.
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Shows whether this record can be proxied.
-        pub proxiable: pulumi_wasm_rust::Output<bool>,
+        pub proxiable: pulumi_gestalt_rust::Output<bool>,
         /// Whether the record gets Cloudflare's origin protection.
-        pub proxied: pulumi_wasm_rust::Output<Option<bool>>,
+        pub proxied: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Custom tags for the DNS record.
-        pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tags: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The TTL of the record.
-        pub ttl: pulumi_wasm_rust::Output<i32>,
+        pub ttl: pulumi_gestalt_rust::Output<i32>,
         /// The type of the record. Available values: `A`, `AAAA`, `CAA`, `CNAME`, `TXT`, `SRV`, `LOC`, `MX`, `NS`, `SPF`, `CERT`, `DNSKEY`, `DS`, `NAPTR`, `SMIMEA`, `SSHFP`, `TLSA`, `URI`, `PTR`, `HTTPS`, `SVCB`. **Modifying this attribute will force creation of a new resource.**
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// The value of the record. Must provide only one of `data`, `content`, `value`.
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_gestalt_rust::Output<String>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RecordArgs,
     ) -> RecordResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allow_overwrite_binding = args
             .allow_overwrite
@@ -207,43 +207,45 @@ pub mod record {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RecordResult {
-            allow_overwrite: pulumi_wasm_rust::__private::into_domain(
+            allow_overwrite: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowOverwrite"),
             ),
-            comment: pulumi_wasm_rust::__private::into_domain(
+            comment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("comment"),
             ),
-            content: pulumi_wasm_rust::__private::into_domain(
+            content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("content"),
             ),
-            created_on: pulumi_wasm_rust::__private::into_domain(
+            created_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdOn"),
             ),
-            data: pulumi_wasm_rust::__private::into_domain(o.extract_field("data")),
-            hostname: pulumi_wasm_rust::__private::into_domain(
+            data: pulumi_gestalt_rust::__private::into_domain(o.extract_field("data")),
+            hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostname"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            modified_on: pulumi_wasm_rust::__private::into_domain(
+            modified_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modifiedOn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            proxiable: pulumi_wasm_rust::__private::into_domain(
+            proxiable: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("proxiable"),
             ),
-            proxied: pulumi_wasm_rust::__private::into_domain(
+            proxied: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("proxied"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

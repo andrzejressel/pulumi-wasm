@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_set::create(
@@ -32,26 +32,26 @@
 /// $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set example
 /// ```
 pub mod resource_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceSetArgs {
         /// Unique name describing the resource set.
         #[builder(into)]
-        pub resource_set_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_set_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Type of the resources in the resource set.
         #[builder(into)]
-        pub resource_set_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_set_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of resources to add to this resource set. See below.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub resources: pulumi_wasm_rust::InputOrOutput<
+        pub resources: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::route53recoveryreadiness::ResourceSetResource>,
         >,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -59,23 +59,23 @@ pub mod resource_set {
     pub struct ResourceSetResult {
         /// ARN of the resource set
         /// * `resources.#.component_id` - Unique identified for DNS Target Resources, use for readiness checks.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Unique name describing the resource set.
-        pub resource_set_name: pulumi_wasm_rust::Output<String>,
+        pub resource_set_name: pulumi_gestalt_rust::Output<String>,
         /// Type of the resources in the resource set.
-        pub resource_set_type: pulumi_wasm_rust::Output<String>,
+        pub resource_set_type: pulumi_gestalt_rust::Output<String>,
         /// List of resources to add to this resource set. See below.
         ///
         /// The following arguments are optional:
-        pub resources: pulumi_wasm_rust::Output<
+        pub resources: pulumi_gestalt_rust::Output<
             Vec<super::super::types::route53recoveryreadiness::ResourceSetResource>,
         >,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -84,11 +84,11 @@ pub mod resource_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResourceSetArgs,
     ) -> ResourceSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let resource_set_name_binding = args
             .resource_set_name
@@ -125,18 +125,18 @@ pub mod resource_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResourceSetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            resource_set_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            resource_set_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceSetName"),
             ),
-            resource_set_type: pulumi_wasm_rust::__private::into_domain(
+            resource_set_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceSetType"),
             ),
-            resources: pulumi_wasm_rust::__private::into_domain(
+            resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resources"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

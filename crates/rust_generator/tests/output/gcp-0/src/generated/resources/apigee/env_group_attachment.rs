@@ -28,7 +28,7 @@
 /// ```
 ///
 pub mod env_group_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvGroupAttachmentArgs {
@@ -38,10 +38,10 @@ pub mod env_group_attachment {
         ///
         /// - - -
         #[builder(into)]
-        pub envgroup_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub envgroup_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource ID of the environment.
         #[builder(into)]
-        pub environment: pulumi_wasm_rust::InputOrOutput<String>,
+        pub environment: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EnvGroupAttachmentResult {
@@ -50,22 +50,22 @@ pub mod env_group_attachment {
         ///
         ///
         /// - - -
-        pub envgroup_id: pulumi_wasm_rust::Output<String>,
+        pub envgroup_id: pulumi_gestalt_rust::Output<String>,
         /// The resource ID of the environment.
-        pub environment: pulumi_wasm_rust::Output<String>,
+        pub environment: pulumi_gestalt_rust::Output<String>,
         /// The name of the newly created  attachment (output parameter).
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvGroupAttachmentArgs,
     ) -> EnvGroupAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let envgroup_id_binding = args.envgroup_id.get_output(context).get_inner();
         let environment_binding = args.environment.get_output(context).get_inner();
@@ -86,13 +86,13 @@ pub mod env_group_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvGroupAttachmentResult {
-            envgroup_id: pulumi_wasm_rust::__private::into_domain(
+            envgroup_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("envgroupId"),
             ),
-            environment: pulumi_wasm_rust::__private::into_domain(
+            environment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environment"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -102,39 +102,39 @@
 /// ```
 ///
 pub mod network_interface_nat_rule_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkInterfaceNatRuleAssociationArgs {
         /// The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub ip_configuration_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub ip_configuration_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Load Balancer NAT Rule which this Network Interface which should be connected to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub nat_rule_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub nat_rule_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Network Interface. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub network_interface_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network_interface_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NetworkInterfaceNatRuleAssociationResult {
         /// The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
-        pub ip_configuration_name: pulumi_wasm_rust::Output<String>,
+        pub ip_configuration_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Load Balancer NAT Rule which this Network Interface which should be connected to. Changing this forces a new resource to be created.
-        pub nat_rule_id: pulumi_wasm_rust::Output<String>,
+        pub nat_rule_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Network Interface. Changing this forces a new resource to be created.
-        pub network_interface_id: pulumi_wasm_rust::Output<String>,
+        pub network_interface_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkInterfaceNatRuleAssociationArgs,
     ) -> NetworkInterfaceNatRuleAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let ip_configuration_name_binding = args
             .ip_configuration_name
@@ -167,13 +167,13 @@ pub mod network_interface_nat_rule_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkInterfaceNatRuleAssociationResult {
-            ip_configuration_name: pulumi_wasm_rust::__private::into_domain(
+            ip_configuration_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipConfigurationName"),
             ),
-            nat_rule_id: pulumi_wasm_rust::__private::into_domain(
+            nat_rule_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("natRuleId"),
             ),
-            network_interface_id: pulumi_wasm_rust::__private::into_domain(
+            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkInterfaceId"),
             ),
         }

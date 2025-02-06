@@ -33,102 +33,104 @@
 /// $ pulumi import aws:medialive/input:Input example 12345678
 /// ```
 pub mod input {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InputArgs {
         /// Destination settings for PUSH type inputs. See Destinations for more details.
         #[builder(into, default)]
-        pub destinations: pulumi_wasm_rust::InputOrOutput<
+        pub destinations: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::medialive::InputDestination>>,
         >,
         /// Settings for the devices. See Input Devices for more details.
         #[builder(into, default)]
-        pub input_devices: pulumi_wasm_rust::InputOrOutput<
+        pub input_devices: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::medialive::InputInputDevice>>,
         >,
         /// List of input security groups.
         #[builder(into, default)]
-        pub input_security_groups: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub input_security_groups: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// A list of the MediaConnect Flows. See Media Connect Flows for more details.
         #[builder(into, default)]
-        pub media_connect_flows: pulumi_wasm_rust::InputOrOutput<
+        pub media_connect_flows: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::medialive::InputMediaConnectFlow>>,
         >,
         /// Name of the input.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARN of the role this input assumes during and after creation.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The source URLs for a PULL-type input. See Sources for more details.
         #[builder(into, default)]
-        pub sources: pulumi_wasm_rust::InputOrOutput<
+        pub sources: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::medialive::InputSource>>,
         >,
         /// A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The different types of inputs that AWS Elemental MediaLive supports.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Settings for a private VPC Input. See VPC for more details.
         #[builder(into, default)]
-        pub vpc: pulumi_wasm_rust::InputOrOutput<
+        pub vpc: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::medialive::InputVpc>,
         >,
     }
     #[allow(dead_code)]
     pub struct InputResult {
         /// ARN of the Input.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Channels attached to Input.
-        pub attached_channels: pulumi_wasm_rust::Output<Vec<String>>,
+        pub attached_channels: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Destination settings for PUSH type inputs. See Destinations for more details.
-        pub destinations: pulumi_wasm_rust::Output<
+        pub destinations: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::medialive::InputDestination>>,
         >,
         /// The input class.
-        pub input_class: pulumi_wasm_rust::Output<String>,
+        pub input_class: pulumi_gestalt_rust::Output<String>,
         /// Settings for the devices. See Input Devices for more details.
-        pub input_devices: pulumi_wasm_rust::Output<
+        pub input_devices: pulumi_gestalt_rust::Output<
             Vec<super::super::types::medialive::InputInputDevice>,
         >,
         /// A list of IDs for all Inputs which are partners of this one.
-        pub input_partner_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub input_partner_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// List of input security groups.
-        pub input_security_groups: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub input_security_groups: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Source type of the input.
-        pub input_source_type: pulumi_wasm_rust::Output<String>,
+        pub input_source_type: pulumi_gestalt_rust::Output<String>,
         /// A list of the MediaConnect Flows. See Media Connect Flows for more details.
-        pub media_connect_flows: pulumi_wasm_rust::Output<
+        pub media_connect_flows: pulumi_gestalt_rust::Output<
             Vec<super::super::types::medialive::InputMediaConnectFlow>,
         >,
         /// Name of the input.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the role this input assumes during and after creation.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// The source URLs for a PULL-type input. See Sources for more details.
-        pub sources: pulumi_wasm_rust::Output<
+        pub sources: pulumi_gestalt_rust::Output<
             Vec<super::super::types::medialive::InputSource>,
         >,
         /// A map of tags to assign to the Input. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The different types of inputs that AWS Elemental MediaLive supports.
         ///
         /// The following arguments are optional:
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// Settings for a private VPC Input. See VPC for more details.
-        pub vpc: pulumi_wasm_rust::Output<
+        pub vpc: pulumi_gestalt_rust::Output<
             Option<super::super::types::medialive::InputVpc>,
         >,
     }
@@ -137,11 +139,11 @@ pub mod input {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InputArgs,
     ) -> InputResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let destinations_binding = args.destinations.get_output(context).get_inner();
         let input_devices_binding = args.input_devices.get_output(context).get_inner();
@@ -208,44 +210,44 @@ pub mod input {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InputResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            attached_channels: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            attached_channels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attachedChannels"),
             ),
-            destinations: pulumi_wasm_rust::__private::into_domain(
+            destinations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinations"),
             ),
-            input_class: pulumi_wasm_rust::__private::into_domain(
+            input_class: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inputClass"),
             ),
-            input_devices: pulumi_wasm_rust::__private::into_domain(
+            input_devices: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inputDevices"),
             ),
-            input_partner_ids: pulumi_wasm_rust::__private::into_domain(
+            input_partner_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inputPartnerIds"),
             ),
-            input_security_groups: pulumi_wasm_rust::__private::into_domain(
+            input_security_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inputSecurityGroups"),
             ),
-            input_source_type: pulumi_wasm_rust::__private::into_domain(
+            input_source_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inputSourceType"),
             ),
-            media_connect_flows: pulumi_wasm_rust::__private::into_domain(
+            media_connect_flows: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mediaConnectFlows"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            sources: pulumi_wasm_rust::__private::into_domain(
+            sources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sources"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            vpc: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpc")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            vpc: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpc")),
         }
     }
 }

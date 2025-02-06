@@ -51,41 +51,41 @@
 /// $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example
 /// ```
 pub mod object_lambda_access_point_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ObjectLambdaAccessPointPolicyArgs {
         /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Object Lambda Access Point.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Object Lambda Access Point resource policy document.
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ObjectLambdaAccessPointPolicyResult {
         /// The AWS account ID for the account that owns the Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether this access point currently has a policy that allows public access.
-        pub has_public_access_policy: pulumi_wasm_rust::Output<bool>,
+        pub has_public_access_policy: pulumi_gestalt_rust::Output<bool>,
         /// The name of the Object Lambda Access Point.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Object Lambda Access Point resource policy document.
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ObjectLambdaAccessPointPolicyArgs,
     ) -> ObjectLambdaAccessPointPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -112,14 +112,16 @@ pub mod object_lambda_access_point_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ObjectLambdaAccessPointPolicyResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            has_public_access_policy: pulumi_wasm_rust::__private::into_domain(
+            has_public_access_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hasPublicAccessPolicy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            policy: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("policy"),
+            ),
         }
     }
 }

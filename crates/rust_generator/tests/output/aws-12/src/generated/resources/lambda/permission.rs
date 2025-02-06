@@ -101,8 +101,8 @@
 /// ### With API Gateway REST API
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let lambdaPermission = permission::create(
@@ -185,8 +185,8 @@
 /// ### With Cross-Account Invocation Policy
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let url = function_url::create(
@@ -220,95 +220,95 @@
 /// $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
 /// ```
 pub mod permission {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PermissionArgs {
         /// The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
         #[builder(into)]
-        pub action: pulumi_wasm_rust::InputOrOutput<String>,
+        pub action: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
         #[builder(into, default)]
-        pub event_source_token: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub event_source_token: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the Lambda function whose resource policy you are updating
         #[builder(into)]
-        pub function: pulumi_wasm_rust::InputOrOutput<String>,
+        pub function: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
         #[builder(into, default)]
-        pub function_url_auth_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub function_url_auth_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         #[builder(into)]
-        pub principal: pulumi_wasm_rust::InputOrOutput<String>,
+        pub principal: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
         ///
         /// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
         /// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
         /// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
         #[builder(into, default)]
-        pub principal_org_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub principal_org_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
         #[builder(into, default)]
-        pub qualifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub qualifier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
         #[builder(into, default)]
-        pub source_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_account: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
         /// Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
         /// For S3, this should be the ARN of the S3 Bucket.
         /// For EventBridge events, this should be the ARN of the EventBridge Rule.
         /// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
         #[builder(into, default)]
-        pub source_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A unique statement identifier. By default generated by the provider.
         #[builder(into, default)]
-        pub statement_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub statement_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
         #[builder(into, default)]
-        pub statement_id_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub statement_id_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PermissionResult {
         /// The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_gestalt_rust::Output<String>,
         /// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
-        pub event_source_token: pulumi_wasm_rust::Output<Option<String>>,
+        pub event_source_token: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the Lambda function whose resource policy you are updating
-        pub function: pulumi_wasm_rust::Output<String>,
+        pub function: pulumi_gestalt_rust::Output<String>,
         /// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`. Only supported for `lambda:InvokeFunctionUrl` action.
-        pub function_url_auth_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub function_url_auth_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or AWS IAM principal, or AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
-        pub principal: pulumi_wasm_rust::Output<String>,
+        pub principal: pulumi_gestalt_rust::Output<String>,
         /// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
         ///
         /// [1]: https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli
         /// [2]: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html
         /// [3]: https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html
-        pub principal_org_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub principal_org_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
-        pub qualifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub qualifier: pulumi_gestalt_rust::Output<Option<String>>,
         /// This parameter is used when allowing cross-account access, or for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
-        pub source_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_account: pulumi_gestalt_rust::Output<Option<String>>,
         /// When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
         /// Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
         /// For S3, this should be the ARN of the S3 Bucket.
         /// For EventBridge events, this should be the ARN of the EventBridge Rule.
         /// For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
-        pub source_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// A unique statement identifier. By default generated by the provider.
-        pub statement_id: pulumi_wasm_rust::Output<String>,
+        pub statement_id: pulumi_gestalt_rust::Output<String>,
         /// A statement identifier prefix. The provider will generate a unique suffix. Conflicts with `statement_id`.
-        pub statement_id_prefix: pulumi_wasm_rust::Output<String>,
+        pub statement_id_prefix: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PermissionArgs,
     ) -> PermissionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let action_binding = args.action.get_output(context).get_inner();
         let event_source_token_binding = args
@@ -386,35 +386,37 @@ pub mod permission {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PermissionResult {
-            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
-            event_source_token: pulumi_wasm_rust::__private::into_domain(
+            action: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("action"),
+            ),
+            event_source_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventSourceToken"),
             ),
-            function: pulumi_wasm_rust::__private::into_domain(
+            function: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("function"),
             ),
-            function_url_auth_type: pulumi_wasm_rust::__private::into_domain(
+            function_url_auth_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("functionUrlAuthType"),
             ),
-            principal: pulumi_wasm_rust::__private::into_domain(
+            principal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principal"),
             ),
-            principal_org_id: pulumi_wasm_rust::__private::into_domain(
+            principal_org_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principalOrgId"),
             ),
-            qualifier: pulumi_wasm_rust::__private::into_domain(
+            qualifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("qualifier"),
             ),
-            source_account: pulumi_wasm_rust::__private::into_domain(
+            source_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceAccount"),
             ),
-            source_arn: pulumi_wasm_rust::__private::into_domain(
+            source_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceArn"),
             ),
-            statement_id: pulumi_wasm_rust::__private::into_domain(
+            statement_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statementId"),
             ),
-            statement_id_prefix: pulumi_wasm_rust::__private::into_domain(
+            statement_id_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statementIdPrefix"),
             ),
         }

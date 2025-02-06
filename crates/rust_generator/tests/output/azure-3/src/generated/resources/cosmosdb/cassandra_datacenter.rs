@@ -82,96 +82,96 @@
 /// ```
 ///
 pub mod cassandra_datacenter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CassandraDatacenterArgs {
         /// Determines whether availability zones are enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub availability_zones_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub availability_zones_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The key URI of the customer key to use for the encryption of the backup Storage Account.
         #[builder(into, default)]
-        pub backup_storage_customer_key_uri: pulumi_wasm_rust::InputOrOutput<
+        pub backup_storage_customer_key_uri: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
         #[builder(into, default)]
-        pub base64_encoded_yaml_fragment: pulumi_wasm_rust::InputOrOutput<
+        pub base64_encoded_yaml_fragment: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
         #[builder(into)]
-        pub cassandra_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cassandra_cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         #[builder(into)]
-        pub delegated_management_subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub delegated_management_subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Determines the number of p30 disks that are attached to each node.
         #[builder(into, default)]
-        pub disk_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub disk_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
         #[builder(into, default)]
-        pub disk_sku: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub disk_sku: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The key URI of the customer key to use for the encryption of the Managed Disk.
         #[builder(into, default)]
-        pub managed_disk_customer_key_uri: pulumi_wasm_rust::InputOrOutput<
+        pub managed_disk_customer_key_uri: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         #[builder(into, default)]
-        pub node_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub node_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Determines the selected sku.
         ///
         /// > **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         #[builder(into, default)]
-        pub sku_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CassandraDatacenterResult {
         /// Determines whether availability zones are enabled. Defaults to `true`.
-        pub availability_zones_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub availability_zones_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The key URI of the customer key to use for the encryption of the backup Storage Account.
-        pub backup_storage_customer_key_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub backup_storage_customer_key_uri: pulumi_gestalt_rust::Output<Option<String>>,
         /// The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed.
-        pub base64_encoded_yaml_fragment: pulumi_wasm_rust::Output<Option<String>>,
+        pub base64_encoded_yaml_fragment: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created.
-        pub cassandra_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cassandra_cluster_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
-        pub delegated_management_subnet_id: pulumi_wasm_rust::Output<String>,
+        pub delegated_management_subnet_id: pulumi_gestalt_rust::Output<String>,
         /// Determines the number of p30 disks that are attached to each node.
-        pub disk_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub disk_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`.
-        pub disk_sku: pulumi_wasm_rust::Output<Option<String>>,
+        pub disk_sku: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The key URI of the customer key to use for the encryption of the Managed Disk.
-        pub managed_disk_customer_key_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub managed_disk_customer_key_uri: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
-        pub node_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub node_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// A list of IP Address for the seed nodes in this Cassandra Datacenter.
-        pub seed_node_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub seed_node_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Determines the selected sku.
         ///
         /// > **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
-        pub sku_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku_name: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CassandraDatacenterArgs,
     ) -> CassandraDatacenterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let availability_zones_enabled_binding = args
             .availability_zones_enabled
@@ -260,41 +260,41 @@ pub mod cassandra_datacenter {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CassandraDatacenterResult {
-            availability_zones_enabled: pulumi_wasm_rust::__private::into_domain(
+            availability_zones_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZonesEnabled"),
             ),
-            backup_storage_customer_key_uri: pulumi_wasm_rust::__private::into_domain(
+            backup_storage_customer_key_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupStorageCustomerKeyUri"),
             ),
-            base64_encoded_yaml_fragment: pulumi_wasm_rust::__private::into_domain(
+            base64_encoded_yaml_fragment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("base64EncodedYamlFragment"),
             ),
-            cassandra_cluster_id: pulumi_wasm_rust::__private::into_domain(
+            cassandra_cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cassandraClusterId"),
             ),
-            delegated_management_subnet_id: pulumi_wasm_rust::__private::into_domain(
+            delegated_management_subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("delegatedManagementSubnetId"),
             ),
-            disk_count: pulumi_wasm_rust::__private::into_domain(
+            disk_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diskCount"),
             ),
-            disk_sku: pulumi_wasm_rust::__private::into_domain(
+            disk_sku: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diskSku"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            managed_disk_customer_key_uri: pulumi_wasm_rust::__private::into_domain(
+            managed_disk_customer_key_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedDiskCustomerKeyUri"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            node_count: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            node_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeCount"),
             ),
-            seed_node_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            seed_node_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("seedNodeIpAddresses"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
         }

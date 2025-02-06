@@ -33,61 +33,61 @@
 /// Since the contents of the certificate cannot be accessed after its creation, this resource cannot be imported.
 ///
 pub mod ssl_cert {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SslCertArgs {
         /// The common name to be used in the certificate to identify the
         /// client. Constrained to [a-zA-Z.-_ ]+. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub common_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub common_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Cloud SQL instance. Changing this
         /// forces a new resource to be created.
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SslCertResult {
         /// The actual certificate data for this client certificate.
-        pub cert: pulumi_wasm_rust::Output<String>,
+        pub cert: pulumi_gestalt_rust::Output<String>,
         /// The serial number extracted from the certificate data.
-        pub cert_serial_number: pulumi_wasm_rust::Output<String>,
+        pub cert_serial_number: pulumi_gestalt_rust::Output<String>,
         /// The common name to be used in the certificate to identify the
         /// client. Constrained to [a-zA-Z.-_ ]+. Changing this forces a new resource to be created.
-        pub common_name: pulumi_wasm_rust::Output<String>,
+        pub common_name: pulumi_gestalt_rust::Output<String>,
         /// The time when the certificate was created in RFC 3339 format,
         /// for example 2012-11-15T16:19:00.094Z.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The time when the certificate expires in RFC 3339 format,
         /// for example 2012-11-15T16:19:00.094Z.
-        pub expiration_time: pulumi_wasm_rust::Output<String>,
+        pub expiration_time: pulumi_gestalt_rust::Output<String>,
         /// The name of the Cloud SQL instance. Changing this
         /// forces a new resource to be created.
-        pub instance: pulumi_wasm_rust::Output<String>,
+        pub instance: pulumi_gestalt_rust::Output<String>,
         /// The private key associated with the client certificate.
-        pub private_key: pulumi_wasm_rust::Output<String>,
+        pub private_key: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The CA cert of the server this client cert was generated from.
-        pub server_ca_cert: pulumi_wasm_rust::Output<String>,
+        pub server_ca_cert: pulumi_gestalt_rust::Output<String>,
         /// The SHA1 Fingerprint of the certificate.
-        pub sha1_fingerprint: pulumi_wasm_rust::Output<String>,
+        pub sha1_fingerprint: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SslCertArgs,
     ) -> SslCertResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let common_name_binding = args.common_name.get_output(context).get_inner();
         let instance_binding = args.instance.get_output(context).get_inner();
@@ -113,32 +113,32 @@ pub mod ssl_cert {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SslCertResult {
-            cert: pulumi_wasm_rust::__private::into_domain(o.extract_field("cert")),
-            cert_serial_number: pulumi_wasm_rust::__private::into_domain(
+            cert: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cert")),
+            cert_serial_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certSerialNumber"),
             ),
-            common_name: pulumi_wasm_rust::__private::into_domain(
+            common_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("commonName"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            expiration_time: pulumi_wasm_rust::__private::into_domain(
+            expiration_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expirationTime"),
             ),
-            instance: pulumi_wasm_rust::__private::into_domain(
+            instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instance"),
             ),
-            private_key: pulumi_wasm_rust::__private::into_domain(
+            private_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateKey"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            server_ca_cert: pulumi_wasm_rust::__private::into_domain(
+            server_ca_cert: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverCaCert"),
             ),
-            sha1_fingerprint: pulumi_wasm_rust::__private::into_domain(
+            sha1_fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sha1Fingerprint"),
             ),
         }

@@ -17,124 +17,124 @@
 /// ```
 ///
 pub mod zero_trust_access_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustAccessPolicyArgs {
         /// The account identifier to target for the resource. Conflicts with `zone_id`.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the application the policy is associated with. Required when using `precedence`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub application_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub application_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub approval_groups: pulumi_wasm_rust::InputOrOutput<
+        pub approval_groups: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::ZeroTrustAccessPolicyApprovalGroup>>,
         >,
         #[builder(into, default)]
-        pub approval_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub approval_required: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The rules that define how users may connect to the targets secured by your application. Only applicable to Infrastructure Applications, in which case this field is required.
         #[builder(into, default)]
-        pub connection_rules: pulumi_wasm_rust::InputOrOutput<
+        pub connection_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ZeroTrustAccessPolicyConnectionRules>,
         >,
         /// Defines the action Access will take if the policy matches the user. Available values: `allow`, `deny`, `non_identity`, `bypass`.
         #[builder(into)]
-        pub decision: pulumi_wasm_rust::InputOrOutput<String>,
+        pub decision: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A series of access conditions, see Access Groups.
         #[builder(into, default)]
-        pub excludes: pulumi_wasm_rust::InputOrOutput<
+        pub excludes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::ZeroTrustAccessPolicyExclude>>,
         >,
         /// A series of access conditions, see Access Groups.
         #[builder(into)]
-        pub includes: pulumi_wasm_rust::InputOrOutput<
+        pub includes: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::types::ZeroTrustAccessPolicyInclude>,
         >,
         /// Require this application to be served in an isolated browser for users matching this policy.
         #[builder(into, default)]
-        pub isolation_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub isolation_required: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Friendly name of the Access Policy.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The unique precedence for policies on a single application. Required when using `application_id`.
         #[builder(into, default)]
-        pub precedence: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub precedence: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The prompt to display to the user for a justification for accessing the resource. Required when using `purpose_justification_required`.
         #[builder(into, default)]
-        pub purpose_justification_prompt: pulumi_wasm_rust::InputOrOutput<
+        pub purpose_justification_prompt: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Whether to prompt the user for a justification for accessing the resource.
         #[builder(into, default)]
-        pub purpose_justification_required: pulumi_wasm_rust::InputOrOutput<
+        pub purpose_justification_required: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// A series of access conditions, see Access Groups.
         #[builder(into, default)]
-        pub requires: pulumi_wasm_rust::InputOrOutput<
+        pub requires: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::ZeroTrustAccessPolicyRequire>>,
         >,
         /// How often a user will be forced to re-authorise. Must be in the format `48h` or `2h45m`.
         #[builder(into, default)]
-        pub session_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub session_duration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The zone identifier to target for the resource. Conflicts with `account_id`.
         #[builder(into, default)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustAccessPolicyResult {
         /// The account identifier to target for the resource. Conflicts with `zone_id`.
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the application the policy is associated with. Required when using `precedence`. **Modifying this attribute will force creation of a new resource.**
-        pub application_id: pulumi_wasm_rust::Output<Option<String>>,
-        pub approval_groups: pulumi_wasm_rust::Output<
+        pub application_id: pulumi_gestalt_rust::Output<Option<String>>,
+        pub approval_groups: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::ZeroTrustAccessPolicyApprovalGroup>>,
         >,
-        pub approval_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub approval_required: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The rules that define how users may connect to the targets secured by your application. Only applicable to Infrastructure Applications, in which case this field is required.
-        pub connection_rules: pulumi_wasm_rust::Output<
+        pub connection_rules: pulumi_gestalt_rust::Output<
             Option<super::types::ZeroTrustAccessPolicyConnectionRules>,
         >,
         /// Defines the action Access will take if the policy matches the user. Available values: `allow`, `deny`, `non_identity`, `bypass`.
-        pub decision: pulumi_wasm_rust::Output<String>,
+        pub decision: pulumi_gestalt_rust::Output<String>,
         /// A series of access conditions, see Access Groups.
-        pub excludes: pulumi_wasm_rust::Output<
+        pub excludes: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::ZeroTrustAccessPolicyExclude>>,
         >,
         /// A series of access conditions, see Access Groups.
-        pub includes: pulumi_wasm_rust::Output<
+        pub includes: pulumi_gestalt_rust::Output<
             Vec<super::types::ZeroTrustAccessPolicyInclude>,
         >,
         /// Require this application to be served in an isolated browser for users matching this policy.
-        pub isolation_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub isolation_required: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Friendly name of the Access Policy.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The unique precedence for policies on a single application. Required when using `application_id`.
-        pub precedence: pulumi_wasm_rust::Output<Option<i32>>,
+        pub precedence: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The prompt to display to the user for a justification for accessing the resource. Required when using `purpose_justification_required`.
-        pub purpose_justification_prompt: pulumi_wasm_rust::Output<Option<String>>,
+        pub purpose_justification_prompt: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether to prompt the user for a justification for accessing the resource.
-        pub purpose_justification_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub purpose_justification_required: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A series of access conditions, see Access Groups.
-        pub requires: pulumi_wasm_rust::Output<
+        pub requires: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::ZeroTrustAccessPolicyRequire>>,
         >,
         /// How often a user will be forced to re-authorise. Must be in the format `48h` or `2h45m`.
-        pub session_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub session_duration: pulumi_gestalt_rust::Output<Option<String>>,
         /// The zone identifier to target for the resource. Conflicts with `account_id`.
-        pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ZeroTrustAccessPolicyArgs,
     ) -> ZeroTrustAccessPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let application_id_binding = args.application_id.get_output(context).get_inner();
@@ -246,50 +246,52 @@ pub mod zero_trust_access_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ZeroTrustAccessPolicyResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            application_id: pulumi_wasm_rust::__private::into_domain(
+            application_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationId"),
             ),
-            approval_groups: pulumi_wasm_rust::__private::into_domain(
+            approval_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("approvalGroups"),
             ),
-            approval_required: pulumi_wasm_rust::__private::into_domain(
+            approval_required: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("approvalRequired"),
             ),
-            connection_rules: pulumi_wasm_rust::__private::into_domain(
+            connection_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionRules"),
             ),
-            decision: pulumi_wasm_rust::__private::into_domain(
+            decision: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("decision"),
             ),
-            excludes: pulumi_wasm_rust::__private::into_domain(
+            excludes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("excludes"),
             ),
-            includes: pulumi_wasm_rust::__private::into_domain(
+            includes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("includes"),
             ),
-            isolation_required: pulumi_wasm_rust::__private::into_domain(
+            isolation_required: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isolationRequired"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            precedence: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            precedence: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("precedence"),
             ),
-            purpose_justification_prompt: pulumi_wasm_rust::__private::into_domain(
+            purpose_justification_prompt: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("purposeJustificationPrompt"),
             ),
-            purpose_justification_required: pulumi_wasm_rust::__private::into_domain(
+            purpose_justification_required: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("purposeJustificationRequired"),
             ),
-            requires: pulumi_wasm_rust::__private::into_domain(
+            requires: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requires"),
             ),
-            session_duration: pulumi_wasm_rust::__private::into_domain(
+            session_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sessionDuration"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = contact_list::create(
@@ -19,8 +19,8 @@
 /// ### Extended Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = contact_list::create(
@@ -48,7 +48,7 @@
 /// $ pulumi import aws:sesv2/contactList:ContactList example example
 /// ```
 pub mod contact_list {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContactListArgs {
@@ -56,43 +56,43 @@ pub mod contact_list {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub contact_list_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub contact_list_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description of what the contact list is about.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block(s) with topic for the contact list. Detailed below.
         #[builder(into, default)]
-        pub topics: pulumi_wasm_rust::InputOrOutput<
+        pub topics: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::sesv2::ContactListTopic>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ContactListResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Name of the contact list.
         ///
         /// The following arguments are optional:
-        pub contact_list_name: pulumi_wasm_rust::Output<String>,
+        pub contact_list_name: pulumi_gestalt_rust::Output<String>,
         /// Timestamp noting when the contact list was created in ISO 8601 format.
-        pub created_timestamp: pulumi_wasm_rust::Output<String>,
+        pub created_timestamp: pulumi_gestalt_rust::Output<String>,
         /// Description of what the contact list is about.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Timestamp noting the last time the contact list was updated in ISO 8601 format.
-        pub last_updated_timestamp: pulumi_wasm_rust::Output<String>,
+        pub last_updated_timestamp: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configuration block(s) with topic for the contact list. Detailed below.
-        pub topics: pulumi_wasm_rust::Output<
+        pub topics: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::sesv2::ContactListTopic>>,
         >,
     }
@@ -101,11 +101,11 @@ pub mod contact_list {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ContactListArgs,
     ) -> ContactListResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let contact_list_name_binding = args
             .contact_list_name
@@ -139,24 +139,26 @@ pub mod contact_list {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ContactListResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            contact_list_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            contact_list_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contactListName"),
             ),
-            created_timestamp: pulumi_wasm_rust::__private::into_domain(
+            created_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            last_updated_timestamp: pulumi_wasm_rust::__private::into_domain(
+            last_updated_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdatedTimestamp"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            topics: pulumi_wasm_rust::__private::into_domain(o.extract_field("topics")),
+            topics: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("topics"),
+            ),
         }
     }
 }

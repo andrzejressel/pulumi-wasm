@@ -129,71 +129,71 @@
 /// ```
 ///
 pub mod firewall_policy_with_rules {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FirewallPolicyWithRulesArgs {
         /// (Output)
         /// A description of the rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The parent of this FirewallPolicy in the Cloud Resource Hierarchy.
         /// Format: organizations/{organization_id} or folders/{folder_id}
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of firewall policy rules.
         /// Structure is documented below.
         #[builder(into)]
-        pub rules: pulumi_wasm_rust::InputOrOutput<
+        pub rules: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::compute::FirewallPolicyWithRulesRule>,
         >,
         /// A textual name of the security policy.
         #[builder(into)]
-        pub short_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub short_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FirewallPolicyWithRulesResult {
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// (Output)
         /// A description of the rule.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Fingerprint of the resource. This field is used internally during updates of this resource.
-        pub fingerprint: pulumi_wasm_rust::Output<String>,
+        pub fingerprint: pulumi_gestalt_rust::Output<String>,
         /// The parent of this FirewallPolicy in the Cloud Resource Hierarchy.
         /// Format: organizations/{organization_id} or folders/{folder_id}
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// The unique identifier for the resource. This identifier is defined by the server.
-        pub policy_id: pulumi_wasm_rust::Output<String>,
+        pub policy_id: pulumi_gestalt_rust::Output<String>,
         /// A list of pre-define firewall policy rules.
         /// Structure is documented below.
-        pub predefined_rules: pulumi_wasm_rust::Output<
+        pub predefined_rules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::compute::FirewallPolicyWithRulesPredefinedRule>,
         >,
         /// Total count of all firewall policy rule tuples. A firewall policy can not exceed a set number of tuples.
-        pub rule_tuple_count: pulumi_wasm_rust::Output<i32>,
+        pub rule_tuple_count: pulumi_gestalt_rust::Output<i32>,
         /// A list of firewall policy rules.
         /// Structure is documented below.
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::compute::FirewallPolicyWithRulesRule>,
         >,
         /// Server-defined URL for the resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// Server-defined URL for this resource with the resource id.
-        pub self_link_with_id: pulumi_wasm_rust::Output<String>,
+        pub self_link_with_id: pulumi_gestalt_rust::Output<String>,
         /// A textual name of the security policy.
-        pub short_name: pulumi_wasm_rust::Output<String>,
+        pub short_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FirewallPolicyWithRulesArgs,
     ) -> FirewallPolicyWithRulesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let parent_binding = args.parent.get_output(context).get_inner();
@@ -224,33 +224,35 @@ pub mod firewall_policy_with_rules {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FirewallPolicyWithRulesResult {
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            fingerprint: pulumi_wasm_rust::__private::into_domain(
+            fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fingerprint"),
             ),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            policy_id: pulumi_wasm_rust::__private::into_domain(
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            policy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyId"),
             ),
-            predefined_rules: pulumi_wasm_rust::__private::into_domain(
+            predefined_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("predefinedRules"),
             ),
-            rule_tuple_count: pulumi_wasm_rust::__private::into_domain(
+            rule_tuple_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleTupleCount"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            self_link_with_id: pulumi_wasm_rust::__private::into_domain(
+            self_link_with_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLinkWithId"),
             ),
-            short_name: pulumi_wasm_rust::__private::into_domain(
+            short_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shortName"),
             ),
         }

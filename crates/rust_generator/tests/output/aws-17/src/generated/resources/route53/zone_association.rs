@@ -7,8 +7,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = zone::create(
@@ -61,41 +61,41 @@
 /// $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
 /// ```
 pub mod zone_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZoneAssociationArgs {
         /// The VPC to associate with the private hosted zone.
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpc_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The VPC's region. Defaults to the region of the AWS provider.
         #[builder(into, default)]
-        pub vpc_region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub vpc_region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The private hosted zone to associate.
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ZoneAssociationResult {
         /// The account ID of the account that created the hosted zone.
-        pub owning_account: pulumi_wasm_rust::Output<String>,
+        pub owning_account: pulumi_gestalt_rust::Output<String>,
         /// The VPC to associate with the private hosted zone.
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
         /// The VPC's region. Defaults to the region of the AWS provider.
-        pub vpc_region: pulumi_wasm_rust::Output<String>,
+        pub vpc_region: pulumi_gestalt_rust::Output<String>,
         /// The private hosted zone to associate.
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ZoneAssociationArgs,
     ) -> ZoneAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let vpc_id_binding = args.vpc_id.get_output(context).get_inner();
         let vpc_region_binding = args.vpc_region.get_output(context).get_inner();
@@ -121,14 +121,18 @@ pub mod zone_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ZoneAssociationResult {
-            owning_account: pulumi_wasm_rust::__private::into_domain(
+            owning_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("owningAccount"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
-            vpc_region: pulumi_wasm_rust::__private::into_domain(
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("vpcId"),
+            ),
+            vpc_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcRegion"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

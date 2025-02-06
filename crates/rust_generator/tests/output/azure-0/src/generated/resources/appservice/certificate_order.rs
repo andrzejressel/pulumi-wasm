@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -36,104 +36,104 @@
 /// ```
 ///
 pub mod certificate_order {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificateOrderArgs {
         /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
         #[builder(into, default)]
-        pub auto_renew: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_renew: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Last CSR that was created for this order.
         #[builder(into, default)]
-        pub csr: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub csr: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Distinguished Name for the App Service Certificate Order.
         ///
         /// > **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
         #[builder(into, default)]
-        pub distinguished_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub distinguished_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Certificate key size. Defaults to `2048`.
         #[builder(into, default)]
-        pub key_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub key_size: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the certificate. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
         #[builder(into, default)]
-        pub product_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub product_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// (Optional) A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Duration in years (must be between `1` and `3`). Defaults to `1`.
         #[builder(into, default)]
-        pub validity_in_years: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub validity_in_years: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct CertificateOrderResult {
         /// Reasons why App Service Certificate is not renewable at the current moment.
-        pub app_service_certificate_not_renewable_reasons: pulumi_wasm_rust::Output<
+        pub app_service_certificate_not_renewable_reasons: pulumi_gestalt_rust::Output<
             Vec<String>,
         >,
         /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
-        pub auto_renew: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_renew: pulumi_gestalt_rust::Output<Option<bool>>,
         /// State of the Key Vault secret. A `certificates` block as defined below.
-        pub certificates: pulumi_wasm_rust::Output<
+        pub certificates: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appservice::CertificateOrderCertificate>,
         >,
         /// Last CSR that was created for this order.
-        pub csr: pulumi_wasm_rust::Output<String>,
+        pub csr: pulumi_gestalt_rust::Output<String>,
         /// The Distinguished Name for the App Service Certificate Order.
         ///
         /// > **NOTE:** Either `csr` or `distinguished_name` must be set - but not both.
-        pub distinguished_name: pulumi_wasm_rust::Output<String>,
+        pub distinguished_name: pulumi_gestalt_rust::Output<String>,
         /// Domain verification token.
-        pub domain_verification_token: pulumi_wasm_rust::Output<String>,
+        pub domain_verification_token: pulumi_gestalt_rust::Output<String>,
         /// Certificate expiration time.
-        pub expiration_time: pulumi_wasm_rust::Output<String>,
+        pub expiration_time: pulumi_gestalt_rust::Output<String>,
         /// Certificate thumbprint intermediate certificate.
-        pub intermediate_thumbprint: pulumi_wasm_rust::Output<String>,
+        pub intermediate_thumbprint: pulumi_gestalt_rust::Output<String>,
         /// Whether the private key is external or not.
-        pub is_private_key_external: pulumi_wasm_rust::Output<bool>,
+        pub is_private_key_external: pulumi_gestalt_rust::Output<bool>,
         /// Certificate key size. Defaults to `2048`.
-        pub key_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub key_size: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the certificate. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`.
-        pub product_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub product_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the resource group in which to create the certificate. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Certificate thumbprint for root certificate.
-        pub root_thumbprint: pulumi_wasm_rust::Output<String>,
+        pub root_thumbprint: pulumi_gestalt_rust::Output<String>,
         /// Certificate thumbprint for signed certificate.
-        pub signed_certificate_thumbprint: pulumi_wasm_rust::Output<String>,
+        pub signed_certificate_thumbprint: pulumi_gestalt_rust::Output<String>,
         /// Current order status.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// (Optional) A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Duration in years (must be between `1` and `3`). Defaults to `1`.
-        pub validity_in_years: pulumi_wasm_rust::Output<Option<i32>>,
+        pub validity_in_years: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CertificateOrderArgs,
     ) -> CertificateOrderResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_renew_binding = args.auto_renew.get_output(context).get_inner();
         let csr_binding = args.csr.get_output(context).get_inner();
@@ -203,53 +203,55 @@ pub mod certificate_order {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CertificateOrderResult {
-            app_service_certificate_not_renewable_reasons: pulumi_wasm_rust::__private::into_domain(
+            app_service_certificate_not_renewable_reasons: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appServiceCertificateNotRenewableReasons"),
             ),
-            auto_renew: pulumi_wasm_rust::__private::into_domain(
+            auto_renew: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoRenew"),
             ),
-            certificates: pulumi_wasm_rust::__private::into_domain(
+            certificates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificates"),
             ),
-            csr: pulumi_wasm_rust::__private::into_domain(o.extract_field("csr")),
-            distinguished_name: pulumi_wasm_rust::__private::into_domain(
+            csr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("csr")),
+            distinguished_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("distinguishedName"),
             ),
-            domain_verification_token: pulumi_wasm_rust::__private::into_domain(
+            domain_verification_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainVerificationToken"),
             ),
-            expiration_time: pulumi_wasm_rust::__private::into_domain(
+            expiration_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expirationTime"),
             ),
-            intermediate_thumbprint: pulumi_wasm_rust::__private::into_domain(
+            intermediate_thumbprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("intermediateThumbprint"),
             ),
-            is_private_key_external: pulumi_wasm_rust::__private::into_domain(
+            is_private_key_external: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isPrivateKeyExternal"),
             ),
-            key_size: pulumi_wasm_rust::__private::into_domain(
+            key_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keySize"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            product_type: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            product_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("productType"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            root_thumbprint: pulumi_wasm_rust::__private::into_domain(
+            root_thumbprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rootThumbprint"),
             ),
-            signed_certificate_thumbprint: pulumi_wasm_rust::__private::into_domain(
+            signed_certificate_thumbprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signedCertificateThumbprint"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            validity_in_years: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            validity_in_years: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validityInYears"),
             ),
         }

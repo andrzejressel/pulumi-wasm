@@ -23,8 +23,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let myProject = project::create(
@@ -84,39 +84,39 @@
 /// ```
 ///
 pub mod usage_export_bucket {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UsageExportBucketArgs {
         /// The bucket to store reports in.
         #[builder(into)]
-        pub bucket_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A prefix for the reports, for instance, the project name.
         #[builder(into, default)]
-        pub prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The project to set the export bucket on. If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct UsageExportBucketResult {
         /// The bucket to store reports in.
-        pub bucket_name: pulumi_wasm_rust::Output<String>,
+        pub bucket_name: pulumi_gestalt_rust::Output<String>,
         /// A prefix for the reports, for instance, the project name.
-        pub prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub prefix: pulumi_gestalt_rust::Output<Option<String>>,
         /// The project to set the export bucket on. If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UsageExportBucketArgs,
     ) -> UsageExportBucketResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_name_binding = args.bucket_name.get_output(context).get_inner();
         let prefix_binding = args.prefix.get_output(context).get_inner();
@@ -142,11 +142,15 @@ pub mod usage_export_bucket {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UsageExportBucketResult {
-            bucket_name: pulumi_wasm_rust::__private::into_domain(
+            bucket_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bucketName"),
             ),
-            prefix: pulumi_wasm_rust::__private::into_domain(o.extract_field("prefix")),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            prefix: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("prefix"),
+            ),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

@@ -43,57 +43,57 @@
 /// ```
 ///
 pub mod policy_fragment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyFragmentArgs {
         /// The id of the API Management Service. Changing this forces a new Api Management Policy Fragment to be created.
         #[builder(into)]
-        pub api_management_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description for the Policy Fragment.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
         ///
         /// > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         #[builder(into, default)]
-        pub format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub format: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The value of the Policy Fragment.
         ///
         /// > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
         #[builder(into)]
-        pub value: pulumi_wasm_rust::InputOrOutput<String>,
+        pub value: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PolicyFragmentResult {
         /// The id of the API Management Service. Changing this forces a new Api Management Policy Fragment to be created.
-        pub api_management_id: pulumi_wasm_rust::Output<String>,
+        pub api_management_id: pulumi_gestalt_rust::Output<String>,
         /// The description for the Policy Fragment.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
         ///
         /// > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
-        pub format: pulumi_wasm_rust::Output<Option<String>>,
+        pub format: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The value of the Policy Fragment.
         ///
         /// > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicyFragmentArgs,
     ) -> PolicyFragmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_management_id_binding = args
             .api_management_id
@@ -132,15 +132,17 @@ pub mod policy_fragment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicyFragmentResult {
-            api_management_id: pulumi_wasm_rust::__private::into_domain(
+            api_management_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            format: pulumi_wasm_rust::__private::into_domain(o.extract_field("format")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
+            format: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("format"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

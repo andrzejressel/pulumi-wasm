@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = service_quota::create(
@@ -30,55 +30,55 @@
 /// $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
 /// ```
 pub mod service_quota {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceQuotaArgs {
         /// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
         #[builder(into)]
-        pub quota_code: pulumi_wasm_rust::InputOrOutput<String>,
+        pub quota_code: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         #[builder(into)]
-        pub service_code: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_code: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
         #[builder(into)]
-        pub value: pulumi_wasm_rust::InputOrOutput<f64>,
+        pub value: pulumi_gestalt_rust::InputOrOutput<f64>,
     }
     #[allow(dead_code)]
     pub struct ServiceQuotaResult {
         /// Whether the service quota can be increased.
-        pub adjustable: pulumi_wasm_rust::Output<bool>,
+        pub adjustable: pulumi_gestalt_rust::Output<bool>,
         /// Amazon Resource Name (ARN) of the service quota.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Default value of the service quota.
-        pub default_value: pulumi_wasm_rust::Output<f64>,
+        pub default_value: pulumi_gestalt_rust::Output<f64>,
         /// Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
-        pub quota_code: pulumi_wasm_rust::Output<String>,
+        pub quota_code: pulumi_gestalt_rust::Output<String>,
         /// Name of the quota.
-        pub quota_name: pulumi_wasm_rust::Output<String>,
-        pub request_id: pulumi_wasm_rust::Output<String>,
-        pub request_status: pulumi_wasm_rust::Output<String>,
+        pub quota_name: pulumi_gestalt_rust::Output<String>,
+        pub request_id: pulumi_gestalt_rust::Output<String>,
+        pub request_status: pulumi_gestalt_rust::Output<String>,
         /// Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
-        pub service_code: pulumi_wasm_rust::Output<String>,
+        pub service_code: pulumi_gestalt_rust::Output<String>,
         /// Name of the service.
-        pub service_name: pulumi_wasm_rust::Output<String>,
+        pub service_name: pulumi_gestalt_rust::Output<String>,
         /// Information about the measurement.
-        pub usage_metrics: pulumi_wasm_rust::Output<
+        pub usage_metrics: pulumi_gestalt_rust::Output<
             Vec<super::super::types::servicequotas::ServiceQuotaUsageMetric>,
         >,
         /// Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
-        pub value: pulumi_wasm_rust::Output<f64>,
+        pub value: pulumi_gestalt_rust::Output<f64>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServiceQuotaArgs,
     ) -> ServiceQuotaResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let quota_code_binding = args.quota_code.get_output(context).get_inner();
         let service_code_binding = args.service_code.get_output(context).get_inner();
@@ -104,35 +104,35 @@ pub mod service_quota {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServiceQuotaResult {
-            adjustable: pulumi_wasm_rust::__private::into_domain(
+            adjustable: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adjustable"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            default_value: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            default_value: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultValue"),
             ),
-            quota_code: pulumi_wasm_rust::__private::into_domain(
+            quota_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("quotaCode"),
             ),
-            quota_name: pulumi_wasm_rust::__private::into_domain(
+            quota_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("quotaName"),
             ),
-            request_id: pulumi_wasm_rust::__private::into_domain(
+            request_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestId"),
             ),
-            request_status: pulumi_wasm_rust::__private::into_domain(
+            request_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestStatus"),
             ),
-            service_code: pulumi_wasm_rust::__private::into_domain(
+            service_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceCode"),
             ),
-            service_name: pulumi_wasm_rust::__private::into_domain(
+            service_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceName"),
             ),
-            usage_metrics: pulumi_wasm_rust::__private::into_domain(
+            usage_metrics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("usageMetrics"),
             ),
-            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
+            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

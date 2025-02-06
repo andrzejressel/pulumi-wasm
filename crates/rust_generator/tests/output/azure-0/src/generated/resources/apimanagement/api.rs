@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -57,175 +57,175 @@
 /// ```
 ///
 pub mod api {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiArgs {
         /// The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
         #[builder(into, default)]
-        pub api_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub api_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `contact` block as documented below.
         #[builder(into, default)]
-        pub contact: pulumi_wasm_rust::InputOrOutput<
+        pub contact: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ApiContact>,
         >,
         /// A description of the API Management API, which may include HTML formatting tags.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The display name of the API.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `import` block as documented below.
         #[builder(into, default)]
-        pub import: pulumi_wasm_rust::InputOrOutput<
+        pub import: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ApiImport>,
         >,
         /// A `license` block as documented below.
         #[builder(into, default)]
-        pub license: pulumi_wasm_rust::InputOrOutput<
+        pub license: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ApiLicense>,
         >,
         /// The name of the API Management API. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `oauth2_authorization` block as documented below.
         #[builder(into, default)]
-        pub oauth2_authorization: pulumi_wasm_rust::InputOrOutput<
+        pub oauth2_authorization: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ApiOauth2Authorization>,
         >,
         /// An `openid_authentication` block as documented below.
         #[builder(into, default)]
-        pub openid_authentication: pulumi_wasm_rust::InputOrOutput<
+        pub openid_authentication: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ApiOpenidAuthentication>,
         >,
         /// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
         #[builder(into, default)]
-        pub path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         ///
         /// > **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
         #[builder(into, default)]
-        pub protocols: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub protocols: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Revision which used for this API. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub revision: pulumi_wasm_rust::InputOrOutput<String>,
+        pub revision: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description of the API Revision of the API Management API.
         #[builder(into, default)]
-        pub revision_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub revision_description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Absolute URL of the backend service implementing this API.
         #[builder(into, default)]
-        pub service_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
         #[builder(into, default)]
-        pub source_api_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_api_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `subscription_key_parameter_names` block as documented below.
         #[builder(into, default)]
-        pub subscription_key_parameter_names: pulumi_wasm_rust::InputOrOutput<
+        pub subscription_key_parameter_names: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apimanagement::ApiSubscriptionKeyParameterNames>,
         >,
         /// Should this API require a subscription key? Defaults to `true`.
         #[builder(into, default)]
-        pub subscription_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub subscription_required: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Absolute URL of the Terms of Service for the API.
         #[builder(into, default)]
-        pub terms_of_service_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub terms_of_service_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Version number of this API, if this API is versioned.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description of the API Version of the API Management API.
         #[builder(into, default)]
-        pub version_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version_description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Version Set which this API is associated with.
         ///
         /// > **NOTE:** When `version` is set, `version_set_id` must also be specified
         #[builder(into, default)]
-        pub version_set_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version_set_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ApiResult {
         /// The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_gestalt_rust::Output<String>,
         /// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
-        pub api_type: pulumi_wasm_rust::Output<String>,
+        pub api_type: pulumi_gestalt_rust::Output<String>,
         /// A `contact` block as documented below.
-        pub contact: pulumi_wasm_rust::Output<
+        pub contact: pulumi_gestalt_rust::Output<
             Option<super::super::types::apimanagement::ApiContact>,
         >,
         /// A description of the API Management API, which may include HTML formatting tags.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The display name of the API.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// A `import` block as documented below.
-        pub import: pulumi_wasm_rust::Output<
+        pub import: pulumi_gestalt_rust::Output<
             Option<super::super::types::apimanagement::ApiImport>,
         >,
         /// Is this the current API Revision?
-        pub is_current: pulumi_wasm_rust::Output<bool>,
+        pub is_current: pulumi_gestalt_rust::Output<bool>,
         /// Is this API Revision online/accessible via the Gateway?
-        pub is_online: pulumi_wasm_rust::Output<bool>,
+        pub is_online: pulumi_gestalt_rust::Output<bool>,
         /// A `license` block as documented below.
-        pub license: pulumi_wasm_rust::Output<
+        pub license: pulumi_gestalt_rust::Output<
             Option<super::super::types::apimanagement::ApiLicense>,
         >,
         /// The name of the API Management API. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// An `oauth2_authorization` block as documented below.
-        pub oauth2_authorization: pulumi_wasm_rust::Output<
+        pub oauth2_authorization: pulumi_gestalt_rust::Output<
             Option<super::super::types::apimanagement::ApiOauth2Authorization>,
         >,
         /// An `openid_authentication` block as documented below.
-        pub openid_authentication: pulumi_wasm_rust::Output<
+        pub openid_authentication: pulumi_gestalt_rust::Output<
             Option<super::super::types::apimanagement::ApiOpenidAuthentication>,
         >,
         /// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
-        pub path: pulumi_wasm_rust::Output<String>,
+        pub path: pulumi_gestalt_rust::Output<String>,
         /// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         ///
         /// > **NOTE:** `display_name`, `path` and `protocols` are required when `source_api_id` is not set.
-        pub protocols: pulumi_wasm_rust::Output<Vec<String>>,
+        pub protocols: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The Revision which used for this API. Changing this forces a new resource to be created.
-        pub revision: pulumi_wasm_rust::Output<String>,
+        pub revision: pulumi_gestalt_rust::Output<String>,
         /// The description of the API Revision of the API Management API.
-        pub revision_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub revision_description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Absolute URL of the backend service implementing this API.
-        pub service_url: pulumi_wasm_rust::Output<String>,
+        pub service_url: pulumi_gestalt_rust::Output<String>,
         /// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
-        pub source_api_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_api_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `subscription_key_parameter_names` block as documented below.
-        pub subscription_key_parameter_names: pulumi_wasm_rust::Output<
+        pub subscription_key_parameter_names: pulumi_gestalt_rust::Output<
             super::super::types::apimanagement::ApiSubscriptionKeyParameterNames,
         >,
         /// Should this API require a subscription key? Defaults to `true`.
-        pub subscription_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub subscription_required: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Absolute URL of the Terms of Service for the API.
-        pub terms_of_service_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub terms_of_service_url: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Version number of this API, if this API is versioned.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
         /// The description of the API Version of the API Management API.
-        pub version_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Version Set which this API is associated with.
         ///
         /// > **NOTE:** When `version` is set, `version_set_id` must also be specified
-        pub version_set_id: pulumi_wasm_rust::Output<String>,
+        pub version_set_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApiArgs,
     ) -> ApiResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_management_name_binding = args
             .api_management_name
@@ -378,73 +378,75 @@ pub mod api {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApiResult {
-            api_management_name: pulumi_wasm_rust::__private::into_domain(
+            api_management_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementName"),
             ),
-            api_type: pulumi_wasm_rust::__private::into_domain(
+            api_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiType"),
             ),
-            contact: pulumi_wasm_rust::__private::into_domain(
+            contact: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contact"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            import: pulumi_wasm_rust::__private::into_domain(o.extract_field("import")),
-            is_current: pulumi_wasm_rust::__private::into_domain(
+            import: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("import"),
+            ),
+            is_current: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isCurrent"),
             ),
-            is_online: pulumi_wasm_rust::__private::into_domain(
+            is_online: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isOnline"),
             ),
-            license: pulumi_wasm_rust::__private::into_domain(
+            license: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("license"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            oauth2_authorization: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            oauth2_authorization: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("oauth2Authorization"),
             ),
-            openid_authentication: pulumi_wasm_rust::__private::into_domain(
+            openid_authentication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("openidAuthentication"),
             ),
-            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
-            protocols: pulumi_wasm_rust::__private::into_domain(
+            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
+            protocols: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocols"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            revision: pulumi_wasm_rust::__private::into_domain(
+            revision: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("revision"),
             ),
-            revision_description: pulumi_wasm_rust::__private::into_domain(
+            revision_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("revisionDescription"),
             ),
-            service_url: pulumi_wasm_rust::__private::into_domain(
+            service_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceUrl"),
             ),
-            source_api_id: pulumi_wasm_rust::__private::into_domain(
+            source_api_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceApiId"),
             ),
-            subscription_key_parameter_names: pulumi_wasm_rust::__private::into_domain(
+            subscription_key_parameter_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscriptionKeyParameterNames"),
             ),
-            subscription_required: pulumi_wasm_rust::__private::into_domain(
+            subscription_required: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscriptionRequired"),
             ),
-            terms_of_service_url: pulumi_wasm_rust::__private::into_domain(
+            terms_of_service_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("termsOfServiceUrl"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
+            version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("version"),
             ),
-            version_description: pulumi_wasm_rust::__private::into_domain(
+            version_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionDescription"),
             ),
-            version_set_id: pulumi_wasm_rust::__private::into_domain(
+            version_set_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionSetId"),
             ),
         }

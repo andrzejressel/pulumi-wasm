@@ -78,56 +78,56 @@
 /// ```
 ///
 pub mod dataset_data_lake_gen_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatasetDataLakeGen2Args {
         /// The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folder_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         #[builder(into, default)]
-        pub file_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub file_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         #[builder(into)]
-        pub file_system_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub file_system_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The folder path in the data lake file system to be shared with the receiver. Conflicts with `file_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         #[builder(into, default)]
-        pub folder_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub folder_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Data Share Data Lake Gen2 Dataset. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the Data Share where this Data Share Data Lake Gen2 Dataset should be created. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         #[builder(into)]
-        pub share_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub share_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource id of the storage account of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DatasetDataLakeGen2Result {
         /// The name of the Data Share Dataset.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The path of the file in the data lake file system to be shared with the receiver. Conflicts with `folder_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
-        pub file_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub file_path: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
-        pub file_system_name: pulumi_wasm_rust::Output<String>,
+        pub file_system_name: pulumi_gestalt_rust::Output<String>,
         /// The folder path in the data lake file system to be shared with the receiver. Conflicts with `file_path` Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
-        pub folder_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub folder_path: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Data Share Data Lake Gen2 Dataset. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The resource ID of the Data Share where this Data Share Data Lake Gen2 Dataset should be created. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
-        pub share_id: pulumi_wasm_rust::Output<String>,
+        pub share_id: pulumi_gestalt_rust::Output<String>,
         /// The resource id of the storage account of the data lake file system to be shared with the receiver. Changing this forces a new Data Share Data Lake Gen2 Dataset to be created.
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatasetDataLakeGen2Args,
     ) -> DatasetDataLakeGen2Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let file_path_binding = args.file_path.get_output(context).get_inner();
         let file_system_name_binding = args
@@ -174,23 +174,23 @@ pub mod dataset_data_lake_gen_2 {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatasetDataLakeGen2Result {
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            file_path: pulumi_wasm_rust::__private::into_domain(
+            file_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filePath"),
             ),
-            file_system_name: pulumi_wasm_rust::__private::into_domain(
+            file_system_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fileSystemName"),
             ),
-            folder_path: pulumi_wasm_rust::__private::into_domain(
+            folder_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("folderPath"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            share_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            share_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shareId"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
         }

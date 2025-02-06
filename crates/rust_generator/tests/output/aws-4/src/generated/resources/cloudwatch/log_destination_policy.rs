@@ -42,39 +42,39 @@
 /// $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
 /// ```
 pub mod log_destination_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LogDestinationPolicyArgs {
         /// The policy document. This is a JSON formatted string.
         #[builder(into)]
-        pub access_policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub access_policy: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A name for the subscription filter
         #[builder(into)]
-        pub destination_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
         #[builder(into, default)]
-        pub force_update: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_update: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct LogDestinationPolicyResult {
         /// The policy document. This is a JSON formatted string.
-        pub access_policy: pulumi_wasm_rust::Output<String>,
+        pub access_policy: pulumi_gestalt_rust::Output<String>,
         /// A name for the subscription filter
-        pub destination_name: pulumi_wasm_rust::Output<String>,
+        pub destination_name: pulumi_gestalt_rust::Output<String>,
         /// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
-        pub force_update: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_update: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LogDestinationPolicyArgs,
     ) -> LogDestinationPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_policy_binding = args.access_policy.get_output(context).get_inner();
         let destination_name_binding = args
@@ -103,13 +103,13 @@ pub mod log_destination_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LogDestinationPolicyResult {
-            access_policy: pulumi_wasm_rust::__private::into_domain(
+            access_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessPolicy"),
             ),
-            destination_name: pulumi_wasm_rust::__private::into_domain(
+            destination_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationName"),
             ),
-            force_update: pulumi_wasm_rust::__private::into_domain(
+            force_update: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceUpdate"),
             ),
         }

@@ -111,64 +111,64 @@
 /// ```
 ///
 pub mod implicit_data_disk_from_source {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ImplicitDataDiskFromSourceArgs {
         /// Specifies the caching requirements for this Data Disk. Possible values are `ReadOnly` and `ReadWrite`.
         #[builder(into, default)]
-        pub caching: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub caching: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub create_option: pulumi_wasm_rust::InputOrOutput<String>,
+        pub create_option: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub disk_size_gb: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub disk_size_gb: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub lun: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub lun: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Specifies the name of this Data Disk. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the source resource which this Data Disk was created from. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub source_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_machine_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_machine_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
         #[builder(into, default)]
-        pub write_accelerator_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub write_accelerator_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct ImplicitDataDiskFromSourceResult {
         /// Specifies the caching requirements for this Data Disk. Possible values are `ReadOnly` and `ReadWrite`.
-        pub caching: pulumi_wasm_rust::Output<Option<String>>,
+        pub caching: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the Create Option of the Data Disk. The only possible value is `Copy`. Changing this forces a new resource to be created.
-        pub create_option: pulumi_wasm_rust::Output<String>,
+        pub create_option: pulumi_gestalt_rust::Output<String>,
         /// Specifies the size of the Data Disk in gigabytes. Changing this forces a new resource to be created.
-        pub disk_size_gb: pulumi_wasm_rust::Output<i32>,
+        pub disk_size_gb: pulumi_gestalt_rust::Output<i32>,
         /// The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
-        pub lun: pulumi_wasm_rust::Output<i32>,
+        pub lun: pulumi_gestalt_rust::Output<i32>,
         /// Specifies the name of this Data Disk. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the source resource which this Data Disk was created from. Changing this forces a new resource to be created.
-        pub source_resource_id: pulumi_wasm_rust::Output<String>,
+        pub source_resource_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
-        pub virtual_machine_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_machine_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
-        pub write_accelerator_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub write_accelerator_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ImplicitDataDiskFromSourceArgs,
     ) -> ImplicitDataDiskFromSourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let caching_binding = args.caching.get_output(context).get_inner();
         let create_option_binding = args.create_option.get_output(context).get_inner();
@@ -229,24 +229,24 @@ pub mod implicit_data_disk_from_source {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ImplicitDataDiskFromSourceResult {
-            caching: pulumi_wasm_rust::__private::into_domain(
+            caching: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("caching"),
             ),
-            create_option: pulumi_wasm_rust::__private::into_domain(
+            create_option: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createOption"),
             ),
-            disk_size_gb: pulumi_wasm_rust::__private::into_domain(
+            disk_size_gb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diskSizeGb"),
             ),
-            lun: pulumi_wasm_rust::__private::into_domain(o.extract_field("lun")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            source_resource_id: pulumi_wasm_rust::__private::into_domain(
+            lun: pulumi_gestalt_rust::__private::into_domain(o.extract_field("lun")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            source_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceResourceId"),
             ),
-            virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualMachineId"),
             ),
-            write_accelerator_enabled: pulumi_wasm_rust::__private::into_domain(
+            write_accelerator_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("writeAcceleratorEnabled"),
             ),
         }

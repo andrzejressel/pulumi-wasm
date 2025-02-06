@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = custom_routing_accelerator::create(
@@ -45,25 +45,25 @@
 /// $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
 /// ```
 pub mod custom_routing_listener {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomRoutingListenerArgs {
         /// The Amazon Resource Name (ARN) of a custom routing accelerator.
         #[builder(into)]
-        pub accelerator_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub accelerator_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
         #[builder(into)]
-        pub port_ranges: pulumi_wasm_rust::InputOrOutput<
+        pub port_ranges: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::globalaccelerator::CustomRoutingListenerPortRange>,
         >,
     }
     #[allow(dead_code)]
     pub struct CustomRoutingListenerResult {
         /// The Amazon Resource Name (ARN) of a custom routing accelerator.
-        pub accelerator_arn: pulumi_wasm_rust::Output<String>,
+        pub accelerator_arn: pulumi_gestalt_rust::Output<String>,
         /// The list of port ranges for the connections from clients to the accelerator. Fields documented below.
-        pub port_ranges: pulumi_wasm_rust::Output<
+        pub port_ranges: pulumi_gestalt_rust::Output<
             Vec<super::super::types::globalaccelerator::CustomRoutingListenerPortRange>,
         >,
     }
@@ -72,11 +72,11 @@ pub mod custom_routing_listener {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CustomRoutingListenerArgs,
     ) -> CustomRoutingListenerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let accelerator_arn_binding = args
             .accelerator_arn
@@ -101,10 +101,10 @@ pub mod custom_routing_listener {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CustomRoutingListenerResult {
-            accelerator_arn: pulumi_wasm_rust::__private::into_domain(
+            accelerator_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("acceleratorArn"),
             ),
-            port_ranges: pulumi_wasm_rust::__private::into_domain(
+            port_ranges: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("portRanges"),
             ),
         }

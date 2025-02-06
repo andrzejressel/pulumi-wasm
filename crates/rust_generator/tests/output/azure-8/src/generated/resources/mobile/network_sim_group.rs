@@ -63,53 +63,53 @@
 /// ```
 ///
 pub mod network_sim_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkSimGroupArgs {
         /// A key to encrypt the SIM data that belongs to this SIM group.
         #[builder(into, default)]
-        pub encryption_key_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub encryption_key_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below.
         ///
         /// > **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mobile::NetworkSimGroupIdentity>,
         >,
         /// Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of Mobile Network which the Mobile Network Sim Group belongs to. Changing this forces a new Mobile Network Slice to be created.
         #[builder(into)]
-        pub mobile_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub mobile_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name which should be used for this Mobile Network Sim Groups. Changing this forces a new Mobile Network Sim Group to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Mobile Network Sim Groups.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct NetworkSimGroupResult {
         /// A key to encrypt the SIM data that belongs to this SIM group.
-        pub encryption_key_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub encryption_key_url: pulumi_gestalt_rust::Output<Option<String>>,
         /// An `identity` block as defined below.
         ///
         /// > **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::mobile::NetworkSimGroupIdentity>,
         >,
         /// Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The ID of Mobile Network which the Mobile Network Sim Group belongs to. Changing this forces a new Mobile Network Slice to be created.
-        pub mobile_network_id: pulumi_wasm_rust::Output<String>,
+        pub mobile_network_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name which should be used for this Mobile Network Sim Groups. Changing this forces a new Mobile Network Sim Group to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Mobile Network Sim Groups.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -118,11 +118,11 @@ pub mod network_sim_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkSimGroupArgs,
     ) -> NetworkSimGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let encryption_key_url_binding = args
             .encryption_key_url
@@ -169,20 +169,20 @@ pub mod network_sim_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkSimGroupResult {
-            encryption_key_url: pulumi_wasm_rust::__private::into_domain(
+            encryption_key_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionKeyUrl"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            mobile_network_id: pulumi_wasm_rust::__private::into_domain(
+            mobile_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mobileNetworkId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

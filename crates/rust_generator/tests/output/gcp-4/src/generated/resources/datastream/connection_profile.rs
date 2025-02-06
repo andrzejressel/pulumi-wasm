@@ -15,8 +15,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = connection_profile::create(
@@ -178,8 +178,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let db = database::create(
@@ -272,28 +272,28 @@
 /// ```
 ///
 pub mod connection_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionProfileArgs {
         /// BigQuery warehouse profile.
         #[builder(into, default)]
-        pub bigquery_profile: pulumi_wasm_rust::InputOrOutput<
+        pub bigquery_profile: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datastream::ConnectionProfileBigqueryProfile>,
         >,
         /// The connection profile identifier.
         #[builder(into)]
-        pub connection_profile_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connection_profile_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Create the connection profile without validating it.
         #[builder(into, default)]
-        pub create_without_validation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub create_without_validation: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Display name.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Forward SSH tunnel connectivity.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub forward_ssh_connectivity: pulumi_wasm_rust::InputOrOutput<
+        pub forward_ssh_connectivity: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::datastream::ConnectionProfileForwardSshConnectivity,
             >,
@@ -301,14 +301,14 @@ pub mod connection_profile {
         /// Cloud Storage bucket profile.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub gcs_profile: pulumi_wasm_rust::InputOrOutput<
+        pub gcs_profile: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datastream::ConnectionProfileGcsProfile>,
         >,
         /// Labels.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the location this connection profile is located in.
@@ -316,114 +316,114 @@ pub mod connection_profile {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// MySQL database profile.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub mysql_profile: pulumi_wasm_rust::InputOrOutput<
+        pub mysql_profile: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datastream::ConnectionProfileMysqlProfile>,
         >,
         /// Oracle database profile.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub oracle_profile: pulumi_wasm_rust::InputOrOutput<
+        pub oracle_profile: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datastream::ConnectionProfileOracleProfile>,
         >,
         /// PostgreSQL database profile.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub postgresql_profile: pulumi_wasm_rust::InputOrOutput<
+        pub postgresql_profile: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datastream::ConnectionProfilePostgresqlProfile>,
         >,
         /// Private connectivity.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub private_connectivity: pulumi_wasm_rust::InputOrOutput<
+        pub private_connectivity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datastream::ConnectionProfilePrivateConnectivity>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// SQL Server database profile.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub sql_server_profile: pulumi_wasm_rust::InputOrOutput<
+        pub sql_server_profile: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datastream::ConnectionProfileSqlServerProfile>,
         >,
     }
     #[allow(dead_code)]
     pub struct ConnectionProfileResult {
         /// BigQuery warehouse profile.
-        pub bigquery_profile: pulumi_wasm_rust::Output<
+        pub bigquery_profile: pulumi_gestalt_rust::Output<
             Option<super::super::types::datastream::ConnectionProfileBigqueryProfile>,
         >,
         /// The connection profile identifier.
-        pub connection_profile_id: pulumi_wasm_rust::Output<String>,
+        pub connection_profile_id: pulumi_gestalt_rust::Output<String>,
         /// Create the connection profile without validating it.
-        pub create_without_validation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub create_without_validation: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Display name.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Forward SSH tunnel connectivity.
         /// Structure is documented below.
-        pub forward_ssh_connectivity: pulumi_wasm_rust::Output<
+        pub forward_ssh_connectivity: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::datastream::ConnectionProfileForwardSshConnectivity,
             >,
         >,
         /// Cloud Storage bucket profile.
         /// Structure is documented below.
-        pub gcs_profile: pulumi_wasm_rust::Output<
+        pub gcs_profile: pulumi_gestalt_rust::Output<
             Option<super::super::types::datastream::ConnectionProfileGcsProfile>,
         >,
         /// Labels.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the location this connection profile is located in.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// MySQL database profile.
         /// Structure is documented below.
-        pub mysql_profile: pulumi_wasm_rust::Output<
+        pub mysql_profile: pulumi_gestalt_rust::Output<
             Option<super::super::types::datastream::ConnectionProfileMysqlProfile>,
         >,
         /// The resource's name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Oracle database profile.
         /// Structure is documented below.
-        pub oracle_profile: pulumi_wasm_rust::Output<
+        pub oracle_profile: pulumi_gestalt_rust::Output<
             Option<super::super::types::datastream::ConnectionProfileOracleProfile>,
         >,
         /// PostgreSQL database profile.
         /// Structure is documented below.
-        pub postgresql_profile: pulumi_wasm_rust::Output<
+        pub postgresql_profile: pulumi_gestalt_rust::Output<
             Option<super::super::types::datastream::ConnectionProfilePostgresqlProfile>,
         >,
         /// Private connectivity.
         /// Structure is documented below.
-        pub private_connectivity: pulumi_wasm_rust::Output<
+        pub private_connectivity: pulumi_gestalt_rust::Output<
             Option<super::super::types::datastream::ConnectionProfilePrivateConnectivity>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// SQL Server database profile.
         /// Structure is documented below.
-        pub sql_server_profile: pulumi_wasm_rust::Output<
+        pub sql_server_profile: pulumi_gestalt_rust::Output<
             Option<super::super::types::datastream::ConnectionProfileSqlServerProfile>,
         >,
     }
@@ -432,11 +432,11 @@ pub mod connection_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectionProfileArgs,
     ) -> ConnectionProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bigquery_profile_binding = args
             .bigquery_profile
@@ -538,51 +538,53 @@ pub mod connection_profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectionProfileResult {
-            bigquery_profile: pulumi_wasm_rust::__private::into_domain(
+            bigquery_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bigqueryProfile"),
             ),
-            connection_profile_id: pulumi_wasm_rust::__private::into_domain(
+            connection_profile_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionProfileId"),
             ),
-            create_without_validation: pulumi_wasm_rust::__private::into_domain(
+            create_without_validation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createWithoutValidation"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            forward_ssh_connectivity: pulumi_wasm_rust::__private::into_domain(
+            forward_ssh_connectivity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forwardSshConnectivity"),
             ),
-            gcs_profile: pulumi_wasm_rust::__private::into_domain(
+            gcs_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gcsProfile"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            mysql_profile: pulumi_wasm_rust::__private::into_domain(
+            mysql_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mysqlProfile"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            oracle_profile: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            oracle_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("oracleProfile"),
             ),
-            postgresql_profile: pulumi_wasm_rust::__private::into_domain(
+            postgresql_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("postgresqlProfile"),
             ),
-            private_connectivity: pulumi_wasm_rust::__private::into_domain(
+            private_connectivity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateConnectivity"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            sql_server_profile: pulumi_wasm_rust::__private::into_domain(
+            sql_server_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sqlServerProfile"),
             ),
         }

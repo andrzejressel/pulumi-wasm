@@ -57,48 +57,48 @@
 /// ```
 ///
 pub mod spring_cloud_build_pack_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudBuildPackBindingArgs {
         /// Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
         #[builder(into, default)]
-        pub binding_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub binding_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `launch` block as defined below.
         #[builder(into, default)]
-        pub launch: pulumi_wasm_rust::InputOrOutput<
+        pub launch: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appplatform::SpringCloudBuildPackBindingLaunch>,
         >,
         /// The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         #[builder(into)]
-        pub spring_cloud_builder_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub spring_cloud_builder_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudBuildPackBindingResult {
         /// Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
-        pub binding_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub binding_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `launch` block as defined below.
-        pub launch: pulumi_wasm_rust::Output<
+        pub launch: pulumi_gestalt_rust::Output<
             Option<super::super::types::appplatform::SpringCloudBuildPackBindingLaunch>,
         >,
         /// The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
-        pub spring_cloud_builder_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_builder_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SpringCloudBuildPackBindingArgs,
     ) -> SpringCloudBuildPackBindingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let binding_type_binding = args.binding_type.get_output(context).get_inner();
         let launch_binding = args.launch.get_output(context).get_inner();
@@ -133,12 +133,14 @@ pub mod spring_cloud_build_pack_binding {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SpringCloudBuildPackBindingResult {
-            binding_type: pulumi_wasm_rust::__private::into_domain(
+            binding_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bindingType"),
             ),
-            launch: pulumi_wasm_rust::__private::into_domain(o.extract_field("launch")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            spring_cloud_builder_id: pulumi_wasm_rust::__private::into_domain(
+            launch: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("launch"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            spring_cloud_builder_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("springCloudBuilderId"),
             ),
         }

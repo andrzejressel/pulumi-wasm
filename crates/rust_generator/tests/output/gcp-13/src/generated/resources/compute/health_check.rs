@@ -327,50 +327,50 @@
 /// ```
 ///
 pub mod health_check {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HealthCheckArgs {
         /// How often (in seconds) to send a health check. The default value is 5
         /// seconds.
         #[builder(into, default)]
-        pub check_interval_sec: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub check_interval_sec: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A nested object resource.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub grpc_health_check: pulumi_wasm_rust::InputOrOutput<
+        pub grpc_health_check: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::HealthCheckGrpcHealthCheck>,
         >,
         /// A so-far unhealthy instance will be marked healthy after this many
         /// consecutive successes. The default value is 2.
         #[builder(into, default)]
-        pub healthy_threshold: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub healthy_threshold: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A nested object resource.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub http2_health_check: pulumi_wasm_rust::InputOrOutput<
+        pub http2_health_check: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::HealthCheckHttp2HealthCheck>,
         >,
         /// A nested object resource.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub http_health_check: pulumi_wasm_rust::InputOrOutput<
+        pub http_health_check: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::HealthCheckHttpHealthCheck>,
         >,
         /// A nested object resource.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub https_health_check: pulumi_wasm_rust::InputOrOutput<
+        pub https_health_check: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::HealthCheckHttpsHealthCheck>,
         >,
         /// Configure logging on this health check.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub log_config: pulumi_wasm_rust::InputOrOutput<
+        pub log_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::HealthCheckLogConfig>,
         >,
         /// Name of the resource. Provided by the client when the resource is
@@ -384,11 +384,11 @@ pub mod health_check {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The list of cloud regions from which health checks are performed. If
         /// any regions are specified, then exactly 3 regions should be specified.
         /// The region names must be valid names of Google Cloud regions. This can
@@ -402,65 +402,65 @@ pub mod health_check {
         /// * The health check cannot be used with BackendService nor with managed
         /// instance group auto-healing.
         #[builder(into, default)]
-        pub source_regions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub source_regions: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A nested object resource.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub ssl_health_check: pulumi_wasm_rust::InputOrOutput<
+        pub ssl_health_check: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::HealthCheckSslHealthCheck>,
         >,
         /// A nested object resource.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub tcp_health_check: pulumi_wasm_rust::InputOrOutput<
+        pub tcp_health_check: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::HealthCheckTcpHealthCheck>,
         >,
         /// How long (in seconds) to wait before claiming failure.
         /// The default value is 5 seconds.  It is invalid for timeoutSec to have
         /// greater value than checkIntervalSec.
         #[builder(into, default)]
-        pub timeout_sec: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub timeout_sec: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A so-far healthy instance will be marked unhealthy after this many
         /// consecutive failures. The default value is 2.
         #[builder(into, default)]
-        pub unhealthy_threshold: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub unhealthy_threshold: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct HealthCheckResult {
         /// How often (in seconds) to send a health check. The default value is 5
         /// seconds.
-        pub check_interval_sec: pulumi_wasm_rust::Output<Option<i32>>,
+        pub check_interval_sec: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A nested object resource.
         /// Structure is documented below.
-        pub grpc_health_check: pulumi_wasm_rust::Output<
+        pub grpc_health_check: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::HealthCheckGrpcHealthCheck>,
         >,
         /// A so-far unhealthy instance will be marked healthy after this many
         /// consecutive successes. The default value is 2.
-        pub healthy_threshold: pulumi_wasm_rust::Output<Option<i32>>,
+        pub healthy_threshold: pulumi_gestalt_rust::Output<Option<i32>>,
         /// A nested object resource.
         /// Structure is documented below.
-        pub http2_health_check: pulumi_wasm_rust::Output<
+        pub http2_health_check: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::HealthCheckHttp2HealthCheck>,
         >,
         /// A nested object resource.
         /// Structure is documented below.
-        pub http_health_check: pulumi_wasm_rust::Output<
+        pub http_health_check: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::HealthCheckHttpHealthCheck>,
         >,
         /// A nested object resource.
         /// Structure is documented below.
-        pub https_health_check: pulumi_wasm_rust::Output<
+        pub https_health_check: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::HealthCheckHttpsHealthCheck>,
         >,
         /// Configure logging on this health check.
         /// Structure is documented below.
-        pub log_config: pulumi_wasm_rust::Output<
+        pub log_config: pulumi_gestalt_rust::Output<
             super::super::types::compute::HealthCheckLogConfig,
         >,
         /// Name of the resource. Provided by the client when the resource is
@@ -473,12 +473,12 @@ pub mod health_check {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// The list of cloud regions from which health checks are performed. If
         /// any regions are specified, then exactly 3 regions should be specified.
         /// The region names must be valid names of Google Cloud regions. This can
@@ -491,37 +491,37 @@ pub mod health_check {
         /// * The checkIntervalSec field must be at least 30.
         /// * The health check cannot be used with BackendService nor with managed
         /// instance group auto-healing.
-        pub source_regions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub source_regions: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A nested object resource.
         /// Structure is documented below.
-        pub ssl_health_check: pulumi_wasm_rust::Output<
+        pub ssl_health_check: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::HealthCheckSslHealthCheck>,
         >,
         /// A nested object resource.
         /// Structure is documented below.
-        pub tcp_health_check: pulumi_wasm_rust::Output<
+        pub tcp_health_check: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::HealthCheckTcpHealthCheck>,
         >,
         /// How long (in seconds) to wait before claiming failure.
         /// The default value is 5 seconds.  It is invalid for timeoutSec to have
         /// greater value than checkIntervalSec.
-        pub timeout_sec: pulumi_wasm_rust::Output<Option<i32>>,
+        pub timeout_sec: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The type of the health check. One of HTTP, HTTPS, TCP, or SSL.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// A so-far healthy instance will be marked unhealthy after this many
         /// consecutive failures. The default value is 2.
-        pub unhealthy_threshold: pulumi_wasm_rust::Output<Option<i32>>,
+        pub unhealthy_threshold: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HealthCheckArgs,
     ) -> HealthCheckResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let check_interval_sec_binding = args
             .check_interval_sec
@@ -634,54 +634,54 @@ pub mod health_check {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HealthCheckResult {
-            check_interval_sec: pulumi_wasm_rust::__private::into_domain(
+            check_interval_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("checkIntervalSec"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            grpc_health_check: pulumi_wasm_rust::__private::into_domain(
+            grpc_health_check: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("grpcHealthCheck"),
             ),
-            healthy_threshold: pulumi_wasm_rust::__private::into_domain(
+            healthy_threshold: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("healthyThreshold"),
             ),
-            http2_health_check: pulumi_wasm_rust::__private::into_domain(
+            http2_health_check: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("http2HealthCheck"),
             ),
-            http_health_check: pulumi_wasm_rust::__private::into_domain(
+            http_health_check: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpHealthCheck"),
             ),
-            https_health_check: pulumi_wasm_rust::__private::into_domain(
+            https_health_check: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpsHealthCheck"),
             ),
-            log_config: pulumi_wasm_rust::__private::into_domain(
+            log_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            source_regions: pulumi_wasm_rust::__private::into_domain(
+            source_regions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceRegions"),
             ),
-            ssl_health_check: pulumi_wasm_rust::__private::into_domain(
+            ssl_health_check: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sslHealthCheck"),
             ),
-            tcp_health_check: pulumi_wasm_rust::__private::into_domain(
+            tcp_health_check: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tcpHealthCheck"),
             ),
-            timeout_sec: pulumi_wasm_rust::__private::into_domain(
+            timeout_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeoutSec"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            unhealthy_threshold: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            unhealthy_threshold: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("unhealthyThreshold"),
             ),
         }

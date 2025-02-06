@@ -62,100 +62,104 @@
 /// ```
 ///
 pub mod monitor {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MonitorArgs {
         /// Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         #[builder(into, default)]
-        pub account_creation_source: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_creation_source: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
         ///
         /// > **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::newrelic::MonitorIdentity>,
         >,
         /// Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
         #[builder(into, default)]
-        pub ingestion_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ingestion_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         #[builder(into, default)]
-        pub org_creation_source: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub org_creation_source: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
         ///
         /// > **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
         #[builder(into, default)]
-        pub organization_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub organization_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         #[builder(into)]
-        pub plan: pulumi_wasm_rust::InputOrOutput<
+        pub plan: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::newrelic::MonitorPlan,
         >,
         /// Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         #[builder(into)]
-        pub user: pulumi_wasm_rust::InputOrOutput<
+        pub user: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::newrelic::MonitorUser,
         >,
         /// Specifies the user id. Changing this forces a new Azure Native New Relic Monitor to be created.
         #[builder(into, default)]
-        pub user_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MonitorResult {
         /// Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
-        pub account_creation_source: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_creation_source: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
         ///
         /// > **NOTE:** The value of `account_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::newrelic::MonitorIdentity>,
         >,
         /// Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
-        pub ingestion_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub ingestion_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
-        pub org_creation_source: pulumi_wasm_rust::Output<Option<String>>,
+        pub org_creation_source: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
         ///
         /// > **NOTE:** The value of `organization_id` must come from an Azure Native New Relic Monitor instance of another different subscription.
-        pub organization_id: pulumi_wasm_rust::Output<String>,
+        pub organization_id: pulumi_gestalt_rust::Output<String>,
         /// A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
-        pub plan: pulumi_wasm_rust::Output<super::super::types::newrelic::MonitorPlan>,
+        pub plan: pulumi_gestalt_rust::Output<
+            super::super::types::newrelic::MonitorPlan,
+        >,
         /// Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
-        pub user: pulumi_wasm_rust::Output<super::super::types::newrelic::MonitorUser>,
+        pub user: pulumi_gestalt_rust::Output<
+            super::super::types::newrelic::MonitorUser,
+        >,
         /// Specifies the user id. Changing this forces a new Azure Native New Relic Monitor to be created.
-        pub user_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MonitorArgs,
     ) -> MonitorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_creation_source_binding = args
             .account_creation_source
@@ -238,34 +242,36 @@ pub mod monitor {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MonitorResult {
-            account_creation_source: pulumi_wasm_rust::__private::into_domain(
+            account_creation_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountCreationSource"),
             ),
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            ingestion_key: pulumi_wasm_rust::__private::into_domain(
+            ingestion_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ingestionKey"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            org_creation_source: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            org_creation_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("orgCreationSource"),
             ),
-            organization_id: pulumi_wasm_rust::__private::into_domain(
+            organization_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organizationId"),
             ),
-            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            user: pulumi_wasm_rust::__private::into_domain(o.extract_field("user")),
-            user_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("userId")),
+            user: pulumi_gestalt_rust::__private::into_domain(o.extract_field("user")),
+            user_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("userId"),
+            ),
         }
     }
 }

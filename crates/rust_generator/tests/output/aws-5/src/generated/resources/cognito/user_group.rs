@@ -55,49 +55,49 @@
 /// $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
 /// ```
 pub mod user_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserGroupArgs {
         /// The description of the user group.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the user group.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The precedence of the user group.
         #[builder(into, default)]
-        pub precedence: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub precedence: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ARN of the IAM role to be associated with the user group.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The user pool ID.
         #[builder(into)]
-        pub user_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_pool_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserGroupResult {
         /// The description of the user group.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the user group.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The precedence of the user group.
-        pub precedence: pulumi_wasm_rust::Output<Option<i32>>,
+        pub precedence: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The ARN of the IAM role to be associated with the user group.
-        pub role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// The user pool ID.
-        pub user_pool_id: pulumi_wasm_rust::Output<String>,
+        pub user_pool_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserGroupArgs,
     ) -> UserGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -133,17 +133,17 @@ pub mod user_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserGroupResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            precedence: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            precedence: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("precedence"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            user_pool_id: pulumi_wasm_rust::__private::into_domain(
+            user_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userPoolId"),
             ),
         }

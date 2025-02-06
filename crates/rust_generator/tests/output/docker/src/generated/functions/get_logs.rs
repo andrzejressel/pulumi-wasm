@@ -1,64 +1,64 @@
 pub mod get_logs {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetLogsArgs {
         #[builder(into, default)]
-        pub details: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub details: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Discard headers that docker appends to each log entry
         #[builder(into, default)]
-        pub discard_headers: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub discard_headers: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub follow: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub follow: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// If true populate computed value `logs_list_string`
         #[builder(into, default)]
-        pub logs_list_string_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub logs_list_string_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the Docker Container
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub show_stderr: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub show_stderr: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub show_stdout: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub show_stdout: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub since: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub since: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub tail: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tail: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub timestamps: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub timestamps: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub until: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub until: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetLogsResult {
-        pub details: pulumi_wasm_rust::Output<Option<bool>>,
+        pub details: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Discard headers that docker appends to each log entry
-        pub discard_headers: pulumi_wasm_rust::Output<Option<bool>>,
-        pub follow: pulumi_wasm_rust::Output<Option<bool>>,
+        pub discard_headers: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub follow: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// If true populate computed value `logs_list_string`
-        pub logs_list_string_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub logs_list_string_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// List of container logs, each element is a line.
-        pub logs_list_strings: pulumi_wasm_rust::Output<Vec<String>>,
+        pub logs_list_strings: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The name of the Docker Container
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub show_stderr: pulumi_wasm_rust::Output<Option<bool>>,
-        pub show_stdout: pulumi_wasm_rust::Output<Option<bool>>,
-        pub since: pulumi_wasm_rust::Output<Option<String>>,
-        pub tail: pulumi_wasm_rust::Output<Option<String>>,
-        pub timestamps: pulumi_wasm_rust::Output<Option<bool>>,
-        pub until: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub show_stderr: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub show_stdout: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub since: pulumi_gestalt_rust::Output<Option<String>>,
+        pub tail: pulumi_gestalt_rust::Output<Option<String>>,
+        pub timestamps: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub until: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetLogsArgs,
     ) -> GetLogsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let details_binding = args.details.get_output(context).get_inner();
         let discard_headers_binding = args
@@ -129,33 +129,35 @@ pub mod get_logs {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetLogsResult {
-            details: pulumi_wasm_rust::__private::into_domain(
+            details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("details"),
             ),
-            discard_headers: pulumi_wasm_rust::__private::into_domain(
+            discard_headers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("discardHeaders"),
             ),
-            follow: pulumi_wasm_rust::__private::into_domain(o.extract_field("follow")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            logs_list_string_enabled: pulumi_wasm_rust::__private::into_domain(
+            follow: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("follow"),
+            ),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            logs_list_string_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logsListStringEnabled"),
             ),
-            logs_list_strings: pulumi_wasm_rust::__private::into_domain(
+            logs_list_strings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logsListStrings"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            show_stderr: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            show_stderr: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("showStderr"),
             ),
-            show_stdout: pulumi_wasm_rust::__private::into_domain(
+            show_stdout: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("showStdout"),
             ),
-            since: pulumi_wasm_rust::__private::into_domain(o.extract_field("since")),
-            tail: pulumi_wasm_rust::__private::into_domain(o.extract_field("tail")),
-            timestamps: pulumi_wasm_rust::__private::into_domain(
+            since: pulumi_gestalt_rust::__private::into_domain(o.extract_field("since")),
+            tail: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tail")),
+            timestamps: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timestamps"),
             ),
-            until: pulumi_wasm_rust::__private::into_domain(o.extract_field("until")),
+            until: pulumi_gestalt_rust::__private::into_domain(o.extract_field("until")),
         }
     }
 }

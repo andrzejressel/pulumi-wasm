@@ -37,60 +37,62 @@
 /// ```
 ///
 pub mod services_communications_gateway_test_line {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServicesCommunicationsGatewayTestLineArgs {
         /// Specifies the Azure Region where the Voice Services Communications Gateway Test Line should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name which should be used for this Voice Services Communications Gateway Test Line. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the phone number.
         #[builder(into)]
-        pub phone_number: pulumi_wasm_rust::InputOrOutput<String>,
+        pub phone_number: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The purpose of the Voice Services Communications Gateway Test Line. Possible values are `Automated` or `Manual`.
         #[builder(into)]
-        pub purpose: pulumi_wasm_rust::InputOrOutput<String>,
+        pub purpose: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Voice Services Communications Gateway Test Line.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the ID of the Voice Services Communications Gateway. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub voice_services_communications_gateway_id: pulumi_wasm_rust::InputOrOutput<
+        pub voice_services_communications_gateway_id: pulumi_gestalt_rust::InputOrOutput<
             String,
         >,
     }
     #[allow(dead_code)]
     pub struct ServicesCommunicationsGatewayTestLineResult {
         /// Specifies the Azure Region where the Voice Services Communications Gateway Test Line should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name which should be used for this Voice Services Communications Gateway Test Line. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the phone number.
-        pub phone_number: pulumi_wasm_rust::Output<String>,
+        pub phone_number: pulumi_gestalt_rust::Output<String>,
         /// The purpose of the Voice Services Communications Gateway Test Line. Possible values are `Automated` or `Manual`.
-        pub purpose: pulumi_wasm_rust::Output<String>,
+        pub purpose: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Voice Services Communications Gateway Test Line.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the ID of the Voice Services Communications Gateway. Changing this forces a new resource to be created.
-        pub voice_services_communications_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub voice_services_communications_gateway_id: pulumi_gestalt_rust::Output<
+            String,
+        >,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServicesCommunicationsGatewayTestLineArgs,
     ) -> ServicesCommunicationsGatewayTestLineResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -135,18 +137,18 @@ pub mod services_communications_gateway_test_line {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServicesCommunicationsGatewayTestLineResult {
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            phone_number: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            phone_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("phoneNumber"),
             ),
-            purpose: pulumi_wasm_rust::__private::into_domain(
+            purpose: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("purpose"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            voice_services_communications_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            voice_services_communications_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("voiceServicesCommunicationsGatewayId"),
             ),
         }

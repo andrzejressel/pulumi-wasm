@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = workers_kv::create(
@@ -33,44 +33,44 @@
 /// ```
 ///
 pub mod workers_kv {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkersKvArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the KV pair. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Workers KV namespace in which you want to create the KV pair. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub namespace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub namespace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Value of the KV pair.
         #[builder(into)]
-        pub value: pulumi_wasm_rust::InputOrOutput<String>,
+        pub value: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkersKvResult {
         /// The account identifier to target for the resource.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the KV pair. **Modifying this attribute will force creation of a new resource.**
-        pub key: pulumi_wasm_rust::Output<String>,
+        pub key: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Workers KV namespace in which you want to create the KV pair. **Modifying this attribute will force creation of a new resource.**
-        pub namespace_id: pulumi_wasm_rust::Output<String>,
+        pub namespace_id: pulumi_gestalt_rust::Output<String>,
         /// Value of the KV pair.
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkersKvArgs,
     ) -> WorkersKvResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let key_binding = args.key.get_output(context).get_inner();
@@ -101,14 +101,14 @@ pub mod workers_kv {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkersKvResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
-            namespace_id: pulumi_wasm_rust::__private::into_domain(
+            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
+            namespace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceId"),
             ),
-            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
+            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

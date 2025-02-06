@@ -3,14 +3,14 @@
 package executors
 
 import (
-	"github.com/andrzejressel/pulumi-wasm/pulumi-language-wasm/fsys"
+	"github.com/andrzejressel/pulumi-gestalt/pulumi-language-gestalt/fsys"
 )
 
 type justfile struct{}
 
-var _ wasmExecutorFactory = &justfile{}
+var _ gestaltExecutorFactory = &justfile{}
 
-func (s justfile) NewWasmExecutor(opts WasmExecutorOptions) (*WasmExecutor, error) {
+func (s justfile) NewGestaltExecutor(opts GestaltExecutorOptions) (*GestaltExecutor, error) {
 	exists, err := fsys.FileExists(opts.WD, "justfile")
 	if err != nil {
 		return nil, err
@@ -18,11 +18,11 @@ func (s justfile) NewWasmExecutor(opts WasmExecutorOptions) (*WasmExecutor, erro
 	if !exists {
 		return nil, nil
 	}
-	return s.newWasmCliExecutor()
+	return s.newGestaltCliExecutor()
 }
 
-func (justfile) newWasmCliExecutor() (*WasmExecutor, error) {
-	return &WasmExecutor{
+func (justfile) newGestaltCliExecutor() (*GestaltExecutor, error) {
+	return &GestaltExecutor{
 		Name:        "just",
 		Cmd:         "just",
 		BuildArgs:   []string{"build"},

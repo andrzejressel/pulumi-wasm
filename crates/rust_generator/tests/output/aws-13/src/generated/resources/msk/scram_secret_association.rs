@@ -86,34 +86,34 @@
 /// $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
 /// ```
 pub mod scram_secret_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ScramSecretAssociationArgs {
         /// Amazon Resource Name (ARN) of the MSK cluster.
         #[builder(into)]
-        pub cluster_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of AWS Secrets Manager secret ARNs.
         #[builder(into)]
-        pub secret_arn_lists: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub secret_arn_lists: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct ScramSecretAssociationResult {
         /// Amazon Resource Name (ARN) of the MSK cluster.
-        pub cluster_arn: pulumi_wasm_rust::Output<String>,
+        pub cluster_arn: pulumi_gestalt_rust::Output<String>,
         /// List of AWS Secrets Manager secret ARNs.
-        pub secret_arn_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub secret_arn_lists: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ScramSecretAssociationArgs,
     ) -> ScramSecretAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_arn_binding = args.cluster_arn.get_output(context).get_inner();
         let secret_arn_lists_binding = args
@@ -137,10 +137,10 @@ pub mod scram_secret_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ScramSecretAssociationResult {
-            cluster_arn: pulumi_wasm_rust::__private::into_domain(
+            cluster_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterArn"),
             ),
-            secret_arn_lists: pulumi_wasm_rust::__private::into_domain(
+            secret_arn_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secretArnLists"),
             ),
         }

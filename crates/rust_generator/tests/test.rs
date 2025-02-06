@@ -1,6 +1,6 @@
 use anyhow::{Context, Result};
 use assert_cmd::assert::OutputAssertExt;
-use pulumi_wasm_generator::generate_combined;
+use pulumi_gestalt_generator::generate_combined;
 use rinja::Template;
 use std::fs;
 use std::fs::{File, FileTimes};

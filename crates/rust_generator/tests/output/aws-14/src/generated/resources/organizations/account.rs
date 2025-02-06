@@ -7,8 +7,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let account = account::create(
@@ -36,71 +36,73 @@
 /// Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 ///
 pub mod account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountArgs {
         /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
         #[builder(into, default)]
-        pub close_on_deletion: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub close_on_deletion: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
         #[builder(into, default)]
-        pub create_govcloud: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub create_govcloud: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         #[builder(into)]
-        pub email: pulumi_wasm_rust::InputOrOutput<String>,
+        pub email: pulumi_gestalt_rust::InputOrOutput<String>,
         /// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
         #[builder(into, default)]
-        pub iam_user_access_to_billing: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub iam_user_access_to_billing: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Friendly name for the member account.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
         #[builder(into, default)]
-        pub parent_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parent_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
         #[builder(into, default)]
-        pub role_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AccountResult {
         /// The ARN for this account.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
-        pub close_on_deletion: pulumi_wasm_rust::Output<Option<bool>>,
+        pub close_on_deletion: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether to also create a GovCloud account. The GovCloud account is tied to the main (commercial) account this resource creates. If `true`, the GovCloud account ID is available in the `govcloud_id` attribute. The only way to manage the GovCloud account with the provider is to subsequently import the account using this resource.
-        pub create_govcloud: pulumi_wasm_rust::Output<Option<bool>>,
+        pub create_govcloud: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_gestalt_rust::Output<String>,
         /// ID for a GovCloud account created with the account.
-        pub govcloud_id: pulumi_wasm_rust::Output<String>,
+        pub govcloud_id: pulumi_gestalt_rust::Output<String>,
         /// If set to `ALLOW`, the new account enables IAM users and roles to access account billing information if they have the required permissions. If set to `DENY`, then only the root user (and no roles) of the new account can access account billing information. If this is unset, the AWS API will default this to `ALLOW`. If the resource is created and this option is changed, it will try to recreate the account.
-        pub iam_user_access_to_billing: pulumi_wasm_rust::Output<Option<String>>,
-        pub joined_method: pulumi_wasm_rust::Output<String>,
-        pub joined_timestamp: pulumi_wasm_rust::Output<String>,
+        pub iam_user_access_to_billing: pulumi_gestalt_rust::Output<Option<String>>,
+        pub joined_method: pulumi_gestalt_rust::Output<String>,
+        pub joined_timestamp: pulumi_gestalt_rust::Output<String>,
         /// Friendly name for the member account.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
-        pub parent_id: pulumi_wasm_rust::Output<String>,
+        pub parent_id: pulumi_gestalt_rust::Output<String>,
         /// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the root account, allowing users in the root account to assume the role, as permitted by the root account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so the provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless `ignoreChanges` is used.
-        pub role_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The status of the account in the organization.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -109,11 +111,11 @@ pub mod account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccountArgs,
     ) -> AccountResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let close_on_deletion_binding = args
             .close_on_deletion
@@ -173,36 +175,38 @@ pub mod account {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccountResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            close_on_deletion: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            close_on_deletion: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("closeOnDeletion"),
             ),
-            create_govcloud: pulumi_wasm_rust::__private::into_domain(
+            create_govcloud: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createGovcloud"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
-            govcloud_id: pulumi_wasm_rust::__private::into_domain(
+            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
+            govcloud_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("govcloudId"),
             ),
-            iam_user_access_to_billing: pulumi_wasm_rust::__private::into_domain(
+            iam_user_access_to_billing: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iamUserAccessToBilling"),
             ),
-            joined_method: pulumi_wasm_rust::__private::into_domain(
+            joined_method: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("joinedMethod"),
             ),
-            joined_timestamp: pulumi_wasm_rust::__private::into_domain(
+            joined_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("joinedTimestamp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parentId"),
             ),
-            role_name: pulumi_wasm_rust::__private::into_domain(
+            role_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

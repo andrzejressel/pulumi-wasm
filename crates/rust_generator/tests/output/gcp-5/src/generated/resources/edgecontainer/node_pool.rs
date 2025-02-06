@@ -173,7 +173,7 @@
 /// ```
 ///
 pub mod node_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NodePoolArgs {
@@ -182,47 +182,47 @@ pub mod node_pool {
         ///
         /// - - -
         #[builder(into)]
-        pub cluster: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Labels associated with this resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Local disk encryption options. This field is only used when enabling CMEK support.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub local_disk_encryption: pulumi_wasm_rust::InputOrOutput<
+        pub local_disk_encryption: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::edgecontainer::NodePoolLocalDiskEncryption>,
         >,
         /// The location of the resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Only machines matching this filter will be allowed to join the node pool.
         /// The filtering language accepts strings like "name=<name>", and is
         /// documented in more detail in [AIP-160](https://google.aip.dev/160).
         #[builder(into, default)]
-        pub machine_filter: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub machine_filter: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource name of the node pool.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration for each node in the NodePool
         /// Structure is documented below.
         #[builder(into, default)]
-        pub node_config: pulumi_wasm_rust::InputOrOutput<
+        pub node_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::edgecontainer::NodePoolNodeConfig>,
         >,
         /// The number of nodes in the pool.
         #[builder(into)]
-        pub node_count: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub node_count: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Name of the Google Distributed Cloud Edge zone where this node pool will be created. For example: `us-central1-edge-customer-a`.
         #[builder(into)]
-        pub node_location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub node_location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NodePoolResult {
@@ -230,64 +230,64 @@ pub mod node_pool {
         ///
         ///
         /// - - -
-        pub cluster: pulumi_wasm_rust::Output<String>,
+        pub cluster: pulumi_gestalt_rust::Output<String>,
         /// The time when the node pool was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Labels associated with this resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Local disk encryption options. This field is only used when enabling CMEK support.
         /// Structure is documented below.
-        pub local_disk_encryption: pulumi_wasm_rust::Output<
+        pub local_disk_encryption: pulumi_gestalt_rust::Output<
             Option<super::super::types::edgecontainer::NodePoolLocalDiskEncryption>,
         >,
         /// The location of the resource.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Only machines matching this filter will be allowed to join the node pool.
         /// The filtering language accepts strings like "name=<name>", and is
         /// documented in more detail in [AIP-160](https://google.aip.dev/160).
-        pub machine_filter: pulumi_wasm_rust::Output<String>,
+        pub machine_filter: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the node pool.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Configuration for each node in the NodePool
         /// Structure is documented below.
-        pub node_config: pulumi_wasm_rust::Output<
+        pub node_config: pulumi_gestalt_rust::Output<
             super::super::types::edgecontainer::NodePoolNodeConfig,
         >,
         /// The number of nodes in the pool.
-        pub node_count: pulumi_wasm_rust::Output<i32>,
+        pub node_count: pulumi_gestalt_rust::Output<i32>,
         /// Name of the Google Distributed Cloud Edge zone where this node pool will be created. For example: `us-central1-edge-customer-a`.
-        pub node_location: pulumi_wasm_rust::Output<String>,
+        pub node_location: pulumi_gestalt_rust::Output<String>,
         /// The lowest release version among all worker nodes.
-        pub node_version: pulumi_wasm_rust::Output<String>,
+        pub node_version: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The time when the node pool was last updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NodePoolArgs,
     ) -> NodePoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_binding = args.cluster.get_output(context).get_inner();
         let labels_binding = args.labels.get_output(context).get_inner();
@@ -351,45 +351,47 @@ pub mod node_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NodePoolResult {
-            cluster: pulumi_wasm_rust::__private::into_domain(
+            cluster: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cluster"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            local_disk_encryption: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            local_disk_encryption: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localDiskEncryption"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            machine_filter: pulumi_wasm_rust::__private::into_domain(
+            machine_filter: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("machineFilter"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            node_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            node_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeConfig"),
             ),
-            node_count: pulumi_wasm_rust::__private::into_domain(
+            node_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeCount"),
             ),
-            node_location: pulumi_wasm_rust::__private::into_domain(
+            node_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeLocation"),
             ),
-            node_version: pulumi_wasm_rust::__private::into_domain(
+            node_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeVersion"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

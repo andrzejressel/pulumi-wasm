@@ -7,8 +7,8 @@
 /// ### New DocumentDB Global Cluster
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = global_cluster::create(
@@ -65,8 +65,8 @@
 /// ### New Global Cluster From Existing DB Cluster
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = cluster::create("example", ClusterArgs::builder().build_struct());
@@ -90,72 +90,72 @@
 /// Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 ///
 pub mod global_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GlobalClusterArgs {
         /// Name for an automatically created database on cluster creation.
         #[builder(into, default)]
-        pub database_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub database_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
         #[builder(into, default)]
-        pub engine: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub engine: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
         /// * **NOTE:** Upgrading major versions is not supported.
         #[builder(into, default)]
-        pub engine_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub engine_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The global cluster identifier.
         #[builder(into)]
-        pub global_cluster_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub global_cluster_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
         #[builder(into, default)]
-        pub source_db_cluster_identifier: pulumi_wasm_rust::InputOrOutput<
+        pub source_db_cluster_identifier: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         #[builder(into, default)]
-        pub storage_encrypted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub storage_encrypted: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct GlobalClusterResult {
         /// Global Cluster Amazon Resource Name (ARN)
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Name for an automatically created database on cluster creation.
-        pub database_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub database_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// If the Global Cluster should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Name of the database engine to be used for this DB cluster. The provider will only perform drift detection if a configuration value is provided. Current Valid values: `docdb`. Defaults to `docdb`. Conflicts with `source_db_cluster_identifier`.
-        pub engine: pulumi_wasm_rust::Output<String>,
+        pub engine: pulumi_gestalt_rust::Output<String>,
         /// Engine version of the global database. Upgrading the engine version will result in all cluster members being immediately updated and will.
         /// * **NOTE:** Upgrading major versions is not supported.
-        pub engine_version: pulumi_wasm_rust::Output<String>,
+        pub engine_version: pulumi_gestalt_rust::Output<String>,
         /// The global cluster identifier.
-        pub global_cluster_identifier: pulumi_wasm_rust::Output<String>,
+        pub global_cluster_identifier: pulumi_gestalt_rust::Output<String>,
         /// Set of objects containing Global Cluster members.
-        pub global_cluster_members: pulumi_wasm_rust::Output<
+        pub global_cluster_members: pulumi_gestalt_rust::Output<
             Vec<super::super::types::docdb::GlobalClusterGlobalClusterMember>,
         >,
         /// AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.
-        pub global_cluster_resource_id: pulumi_wasm_rust::Output<String>,
+        pub global_cluster_resource_id: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
-        pub source_db_cluster_identifier: pulumi_wasm_rust::Output<String>,
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub source_db_cluster_identifier: pulumi_gestalt_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
-        pub storage_encrypted: pulumi_wasm_rust::Output<bool>,
+        pub storage_encrypted: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GlobalClusterArgs,
     ) -> GlobalClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let database_name_binding = args.database_name.get_output(context).get_inner();
         let deletion_protection_binding = args
@@ -213,31 +213,35 @@ pub mod global_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GlobalClusterResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            database_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            database_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseName"),
             ),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
-            engine_version: pulumi_wasm_rust::__private::into_domain(
+            engine: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("engine"),
+            ),
+            engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineVersion"),
             ),
-            global_cluster_identifier: pulumi_wasm_rust::__private::into_domain(
+            global_cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalClusterIdentifier"),
             ),
-            global_cluster_members: pulumi_wasm_rust::__private::into_domain(
+            global_cluster_members: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalClusterMembers"),
             ),
-            global_cluster_resource_id: pulumi_wasm_rust::__private::into_domain(
+            global_cluster_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalClusterResourceId"),
             ),
-            source_db_cluster_identifier: pulumi_wasm_rust::__private::into_domain(
+            source_db_cluster_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceDbClusterIdentifier"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            storage_encrypted: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            storage_encrypted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageEncrypted"),
             ),
         }

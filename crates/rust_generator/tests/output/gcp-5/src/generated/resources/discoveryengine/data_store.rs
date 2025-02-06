@@ -15,8 +15,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = data_store::create(
@@ -38,8 +38,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let documentProcessingConfig = data_store::create(
@@ -102,33 +102,35 @@
 /// ```
 ///
 pub mod data_store {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataStoreArgs {
         /// The content config of the data store.
         /// Possible values are: `NO_CONTENT`, `CONTENT_REQUIRED`, `PUBLIC_WEBSITE`.
         #[builder(into)]
-        pub content_config: pulumi_wasm_rust::InputOrOutput<String>,
+        pub content_config: pulumi_gestalt_rust::InputOrOutput<String>,
         /// If true, an advanced data store for site search will be created. If the
         /// data store is not configured as site search (GENERIC vertical and
         /// PUBLIC_WEBSITE contentConfig), this flag will be ignored.
         #[builder(into, default)]
-        pub create_advanced_site_search: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub create_advanced_site_search: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The unique id of the data store.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub data_store_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_store_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The display name of the data store. This field must be a UTF-8 encoded
         /// string with a length limit of 128 characters.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration for Document understanding and enrichment.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub document_processing_config: pulumi_wasm_rust::InputOrOutput<
+        pub document_processing_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::discoveryengine::DataStoreDocumentProcessingConfig,
             >,
@@ -136,15 +138,15 @@ pub mod data_store {
         /// The industry vertical that the data store registers.
         /// Possible values are: `GENERIC`, `MEDIA`, `HEALTHCARE_FHIR`.
         #[builder(into)]
-        pub industry_vertical: pulumi_wasm_rust::InputOrOutput<String>,
+        pub industry_vertical: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The geographic location where the data store should reside. The value can
         /// only be one of "global", "us" and "eu".
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A boolean flag indicating whether to skip the default schema creation for
         /// the data store. Only enable this flag if you are certain that the default
         /// schema is incompatible with your use case.
@@ -153,54 +155,56 @@ pub mod data_store {
         /// This flag cannot be specified if `data_store.starting_schema` is
         /// specified.
         #[builder(into, default)]
-        pub skip_default_schema_creation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub skip_default_schema_creation: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The solutions that the data store enrolls.
         /// Each value may be one of: `SOLUTION_TYPE_RECOMMENDATION`, `SOLUTION_TYPE_SEARCH`, `SOLUTION_TYPE_CHAT`, `SOLUTION_TYPE_GENERATIVE_CHAT`.
         #[builder(into, default)]
-        pub solution_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub solution_types: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct DataStoreResult {
         /// The content config of the data store.
         /// Possible values are: `NO_CONTENT`, `CONTENT_REQUIRED`, `PUBLIC_WEBSITE`.
-        pub content_config: pulumi_wasm_rust::Output<String>,
+        pub content_config: pulumi_gestalt_rust::Output<String>,
         /// If true, an advanced data store for site search will be created. If the
         /// data store is not configured as site search (GENERIC vertical and
         /// PUBLIC_WEBSITE contentConfig), this flag will be ignored.
-        pub create_advanced_site_search: pulumi_wasm_rust::Output<Option<bool>>,
+        pub create_advanced_site_search: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Timestamp when the DataStore was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The unique id of the data store.
         ///
         ///
         /// - - -
-        pub data_store_id: pulumi_wasm_rust::Output<String>,
+        pub data_store_id: pulumi_gestalt_rust::Output<String>,
         /// The id of the default Schema associated with this data store.
-        pub default_schema_id: pulumi_wasm_rust::Output<String>,
+        pub default_schema_id: pulumi_gestalt_rust::Output<String>,
         /// The display name of the data store. This field must be a UTF-8 encoded
         /// string with a length limit of 128 characters.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// Configuration for Document understanding and enrichment.
         /// Structure is documented below.
-        pub document_processing_config: pulumi_wasm_rust::Output<
+        pub document_processing_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::discoveryengine::DataStoreDocumentProcessingConfig,
             >,
         >,
         /// The industry vertical that the data store registers.
         /// Possible values are: `GENERIC`, `MEDIA`, `HEALTHCARE_FHIR`.
-        pub industry_vertical: pulumi_wasm_rust::Output<String>,
+        pub industry_vertical: pulumi_gestalt_rust::Output<String>,
         /// The geographic location where the data store should reside. The value can
         /// only be one of "global", "us" and "eu".
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The unique full resource name of the data store. Values are of the format
         /// `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}`.
         /// This field must be a UTF-8 encoded string with a length limit of 1024
         /// characters.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// A boolean flag indicating whether to skip the default schema creation for
         /// the data store. Only enable this flag if you are certain that the default
         /// schema is incompatible with your use case.
@@ -208,21 +212,21 @@ pub mod data_store {
         /// before any documents can be ingested.
         /// This flag cannot be specified if `data_store.starting_schema` is
         /// specified.
-        pub skip_default_schema_creation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_default_schema_creation: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The solutions that the data store enrolls.
         /// Each value may be one of: `SOLUTION_TYPE_RECOMMENDATION`, `SOLUTION_TYPE_SEARCH`, `SOLUTION_TYPE_CHAT`, `SOLUTION_TYPE_GENERATIVE_CHAT`.
-        pub solution_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub solution_types: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DataStoreArgs,
     ) -> DataStoreResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let content_config_binding = args.content_config.get_output(context).get_inner();
         let create_advanced_site_search_binding = args
@@ -295,41 +299,41 @@ pub mod data_store {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DataStoreResult {
-            content_config: pulumi_wasm_rust::__private::into_domain(
+            content_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentConfig"),
             ),
-            create_advanced_site_search: pulumi_wasm_rust::__private::into_domain(
+            create_advanced_site_search: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createAdvancedSiteSearch"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            data_store_id: pulumi_wasm_rust::__private::into_domain(
+            data_store_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataStoreId"),
             ),
-            default_schema_id: pulumi_wasm_rust::__private::into_domain(
+            default_schema_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSchemaId"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            document_processing_config: pulumi_wasm_rust::__private::into_domain(
+            document_processing_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("documentProcessingConfig"),
             ),
-            industry_vertical: pulumi_wasm_rust::__private::into_domain(
+            industry_vertical: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("industryVertical"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            skip_default_schema_creation: pulumi_wasm_rust::__private::into_domain(
+            skip_default_schema_creation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skipDefaultSchemaCreation"),
             ),
-            solution_types: pulumi_wasm_rust::__private::into_domain(
+            solution_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("solutionTypes"),
             ),
         }

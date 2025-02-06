@@ -93,8 +93,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let job = job::create(
@@ -210,7 +210,7 @@
 /// ```
 ///
 pub mod job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct JobArgs {
@@ -219,7 +219,7 @@ pub mod job {
         /// send a request to the service instance
         /// Structure is documented below.
         #[builder(into, default)]
-        pub app_engine_http_target: pulumi_wasm_rust::InputOrOutput<
+        pub app_engine_http_target: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudscheduler::JobAppEngineHttpTarget>,
         >,
         /// The deadline for job attempts. If the request handler does not respond by this deadline then the request is
@@ -231,17 +231,17 @@ pub mod job {
         /// * **Note**: For PubSub targets, this field is ignored - setting it will introduce an unresolvable diff.
         /// A duration in seconds with up to nine fractional digits, terminated by 's'. Example: "3.5s"
         #[builder(into, default)]
-        pub attempt_deadline: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub attempt_deadline: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A human-readable description for the job.
         /// This string must not contain more than 500 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// HTTP target.
         /// If the job providers a http_target the cron will
         /// send a request to the targeted url
         /// Structure is documented below.
         #[builder(into, default)]
-        pub http_target: pulumi_wasm_rust::InputOrOutput<
+        pub http_target: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudscheduler::JobHttpTarget>,
         >,
         /// The name of the job.
@@ -249,40 +249,40 @@ pub mod job {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Sets the job to a paused state. Jobs default to being enabled when this property is not set.
         #[builder(into, default)]
-        pub paused: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub paused: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Pub/Sub target
         /// If the job providers a Pub/Sub target the cron will publish
         /// a message to the provided topic
         /// Structure is documented below.
         #[builder(into, default)]
-        pub pubsub_target: pulumi_wasm_rust::InputOrOutput<
+        pub pubsub_target: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudscheduler::JobPubsubTarget>,
         >,
         /// Region where the scheduler job resides. If it is not provided, this provider will use the provider default.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// By default, if a job does not complete successfully,
         /// meaning that an acknowledgement is not received from the handler,
         /// then it will be retried with exponential backoff according to the settings
         /// Structure is documented below.
         #[builder(into, default)]
-        pub retry_config: pulumi_wasm_rust::InputOrOutput<
+        pub retry_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudscheduler::JobRetryConfig>,
         >,
         /// Describes the schedule on which the job will be executed.
         #[builder(into, default)]
-        pub schedule: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub schedule: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the time zone to be used in interpreting schedule.
         /// The value of this field must be a time zone name from the tz database.
         #[builder(into, default)]
-        pub time_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub time_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct JobResult {
@@ -290,7 +290,7 @@ pub mod job {
         /// If the job providers a App Engine HTTP target the cron will
         /// send a request to the service instance
         /// Structure is documented below.
-        pub app_engine_http_target: pulumi_wasm_rust::Output<
+        pub app_engine_http_target: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudscheduler::JobAppEngineHttpTarget>,
         >,
         /// The deadline for job attempts. If the request handler does not respond by this deadline then the request is
@@ -301,61 +301,61 @@ pub mod job {
         /// * For App Engine HTTP targets, between 15 seconds and 24 hours.
         /// * **Note**: For PubSub targets, this field is ignored - setting it will introduce an unresolvable diff.
         /// A duration in seconds with up to nine fractional digits, terminated by 's'. Example: "3.5s"
-        pub attempt_deadline: pulumi_wasm_rust::Output<Option<String>>,
+        pub attempt_deadline: pulumi_gestalt_rust::Output<Option<String>>,
         /// A human-readable description for the job.
         /// This string must not contain more than 500 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// HTTP target.
         /// If the job providers a http_target the cron will
         /// send a request to the targeted url
         /// Structure is documented below.
-        pub http_target: pulumi_wasm_rust::Output<
+        pub http_target: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudscheduler::JobHttpTarget>,
         >,
         /// The name of the job.
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Sets the job to a paused state. Jobs default to being enabled when this property is not set.
-        pub paused: pulumi_wasm_rust::Output<bool>,
+        pub paused: pulumi_gestalt_rust::Output<bool>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Pub/Sub target
         /// If the job providers a Pub/Sub target the cron will publish
         /// a message to the provided topic
         /// Structure is documented below.
-        pub pubsub_target: pulumi_wasm_rust::Output<
+        pub pubsub_target: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudscheduler::JobPubsubTarget>,
         >,
         /// Region where the scheduler job resides. If it is not provided, this provider will use the provider default.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// By default, if a job does not complete successfully,
         /// meaning that an acknowledgement is not received from the handler,
         /// then it will be retried with exponential backoff according to the settings
         /// Structure is documented below.
-        pub retry_config: pulumi_wasm_rust::Output<
+        pub retry_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudscheduler::JobRetryConfig>,
         >,
         /// Describes the schedule on which the job will be executed.
-        pub schedule: pulumi_wasm_rust::Output<Option<String>>,
+        pub schedule: pulumi_gestalt_rust::Output<Option<String>>,
         /// State of the job.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Specifies the time zone to be used in interpreting schedule.
         /// The value of this field must be a time zone name from the tz database.
-        pub time_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub time_zone: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: JobArgs,
     ) -> JobResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_engine_http_target_binding = args
             .app_engine_http_target
@@ -432,35 +432,39 @@ pub mod job {
         };
         let o = register_interface::register(context.get_inner(), &request);
         JobResult {
-            app_engine_http_target: pulumi_wasm_rust::__private::into_domain(
+            app_engine_http_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appEngineHttpTarget"),
             ),
-            attempt_deadline: pulumi_wasm_rust::__private::into_domain(
+            attempt_deadline: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attemptDeadline"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            http_target: pulumi_wasm_rust::__private::into_domain(
+            http_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpTarget"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            paused: pulumi_wasm_rust::__private::into_domain(o.extract_field("paused")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            paused: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("paused"),
+            ),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pubsub_target: pulumi_wasm_rust::__private::into_domain(
+            pubsub_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pubsubTarget"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            retry_config: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            retry_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retryConfig"),
             ),
-            schedule: pulumi_wasm_rust::__private::into_domain(
+            schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedule"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            time_zone: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            time_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeZone"),
             ),
         }

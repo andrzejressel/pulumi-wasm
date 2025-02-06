@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let attachment = connect::create(
@@ -33,70 +33,70 @@
 /// $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
 /// ```
 pub mod connect {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectArgs {
         /// The tunnel protocol. Valid values: `gre`. Default is `gre`.
         #[builder(into, default)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         #[builder(into, default)]
-        pub transit_gateway_default_route_table_association: pulumi_wasm_rust::InputOrOutput<
+        pub transit_gateway_default_route_table_association: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
         #[builder(into, default)]
-        pub transit_gateway_default_route_table_propagation: pulumi_wasm_rust::InputOrOutput<
+        pub transit_gateway_default_route_table_propagation: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Identifier of EC2 Transit Gateway.
         #[builder(into)]
-        pub transit_gateway_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub transit_gateway_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The underlaying VPC attachment
         #[builder(into)]
-        pub transport_attachment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub transport_attachment_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ConnectResult {
         /// The tunnel protocol. Valid values: `gre`. Default is `gre`.
-        pub protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub protocol: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value tags for the EC2 Transit Gateway Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-        pub transit_gateway_default_route_table_association: pulumi_wasm_rust::Output<
+        pub transit_gateway_default_route_table_association: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-        pub transit_gateway_default_route_table_propagation: pulumi_wasm_rust::Output<
+        pub transit_gateway_default_route_table_propagation: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// Identifier of EC2 Transit Gateway.
-        pub transit_gateway_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_id: pulumi_gestalt_rust::Output<String>,
         /// The underlaying VPC attachment
-        pub transport_attachment_id: pulumi_wasm_rust::Output<String>,
+        pub transport_attachment_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectArgs,
     ) -> ConnectResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let protocol_binding = args.protocol.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();
@@ -149,23 +149,23 @@ pub mod connect {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectResult {
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            transit_gateway_default_route_table_association: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_default_route_table_association: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayDefaultRouteTableAssociation"),
             ),
-            transit_gateway_default_route_table_propagation: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_default_route_table_propagation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayDefaultRouteTablePropagation"),
             ),
-            transit_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayId"),
             ),
-            transport_attachment_id: pulumi_wasm_rust::__private::into_domain(
+            transport_attachment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transportAttachmentId"),
             ),
         }

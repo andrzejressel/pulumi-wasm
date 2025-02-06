@@ -11,8 +11,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let authzExtension = region_backend_service::create(
@@ -197,7 +197,7 @@
 /// ```
 ///
 pub mod authz_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthzPolicyArgs {
@@ -211,42 +211,42 @@ pub mod authz_policy {
         /// 4. Else the request is denied by default if none of the configured AuthzPolicies with ALLOW action match the request.
         /// Possible values are: `ALLOW`, `DENY`, `CUSTOM`.
         #[builder(into)]
-        pub action: pulumi_wasm_rust::InputOrOutput<String>,
+        pub action: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Required if the action is CUSTOM. Allows delegating authorization decisions to Cloud IAP or to Service Extensions. One
         /// of cloudIap or authzExtension must be specified.
         #[builder(into, default)]
-        pub custom_provider: pulumi_wasm_rust::InputOrOutput<
+        pub custom_provider: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::networksecurity::AuthzPolicyCustomProvider>,
         >,
         /// A human-readable description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of authorization HTTP rules to match against the incoming request.A policy match occurs when at least one HTTP
         /// rule matches the request or when no HTTP rules are specified in the policy. At least one HTTP Rule is required for Allow
         /// or Deny Action. Limited to 5 rules.
         #[builder(into, default)]
-        pub http_rules: pulumi_wasm_rust::InputOrOutput<
+        pub http_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::networksecurity::AuthzPolicyHttpRule>>,
         >,
         /// Set of labels associated with the AuthzExtension resource. **Note**: This field is non-authoritative, and will only
         /// manage the labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels
         /// present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Identifier. Name of the AuthzPolicy resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the set of resources to which this policy should be applied to.
         /// Structure is documented below.
         #[builder(into)]
-        pub target: pulumi_wasm_rust::InputOrOutput<
+        pub target: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::networksecurity::AuthzPolicyTarget,
         >,
     }
@@ -261,60 +261,60 @@ pub mod authz_policy {
         /// 3. If there are no ALLOW policies for the resource or if any of the ALLOW policies match the request, the request is allowed.
         /// 4. Else the request is denied by default if none of the configured AuthzPolicies with ALLOW action match the request.
         /// Possible values are: `ALLOW`, `DENY`, `CUSTOM`.
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_gestalt_rust::Output<String>,
         /// The timestamp when the resource was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Required if the action is CUSTOM. Allows delegating authorization decisions to Cloud IAP or to Service Extensions. One
         /// of cloudIap or authzExtension must be specified.
-        pub custom_provider: pulumi_wasm_rust::Output<
+        pub custom_provider: pulumi_gestalt_rust::Output<
             Option<super::super::types::networksecurity::AuthzPolicyCustomProvider>,
         >,
         /// A human-readable description of the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A list of authorization HTTP rules to match against the incoming request.A policy match occurs when at least one HTTP
         /// rule matches the request or when no HTTP rules are specified in the policy. At least one HTTP Rule is required for Allow
         /// or Deny Action. Limited to 5 rules.
-        pub http_rules: pulumi_wasm_rust::Output<
+        pub http_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::networksecurity::AuthzPolicyHttpRule>>,
         >,
         /// Set of labels associated with the AuthzExtension resource. **Note**: This field is non-authoritative, and will only
         /// manage the labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels
         /// present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of the resource.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Identifier. Name of the AuthzPolicy resource.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Specifies the set of resources to which this policy should be applied to.
         /// Structure is documented below.
-        pub target: pulumi_wasm_rust::Output<
+        pub target: pulumi_gestalt_rust::Output<
             super::super::types::networksecurity::AuthzPolicyTarget,
         >,
         /// The timestamp when the resource was updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AuthzPolicyArgs,
     ) -> AuthzPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let action_binding = args.action.get_output(context).get_inner();
         let custom_provider_binding = args
@@ -373,35 +373,41 @@ pub mod authz_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AuthzPolicyResult {
-            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            action: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("action"),
+            ),
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            custom_provider: pulumi_wasm_rust::__private::into_domain(
+            custom_provider: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customProvider"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            http_rules: pulumi_wasm_rust::__private::into_domain(
+            http_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpRules"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            target: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("target"),
+            ),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

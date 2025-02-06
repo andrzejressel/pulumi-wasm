@@ -73,14 +73,14 @@
 /// ```
 ///
 pub mod lite_subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LiteSubscriptionArgs {
         /// The settings for this subscription's message delivery.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub delivery_config: pulumi_wasm_rust::InputOrOutput<
+        pub delivery_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::pubsub::LiteSubscriptionDeliveryConfig>,
         >,
         /// Name of the subscription.
@@ -88,53 +88,53 @@ pub mod lite_subscription {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region of the pubsub lite topic.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A reference to a Topic resource.
         #[builder(into)]
-        pub topic: pulumi_wasm_rust::InputOrOutput<String>,
+        pub topic: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The zone of the pubsub lite topic.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LiteSubscriptionResult {
         /// The settings for this subscription's message delivery.
         /// Structure is documented below.
-        pub delivery_config: pulumi_wasm_rust::Output<
+        pub delivery_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::pubsub::LiteSubscriptionDeliveryConfig>,
         >,
         /// Name of the subscription.
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The region of the pubsub lite topic.
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_gestalt_rust::Output<Option<String>>,
         /// A reference to a Topic resource.
-        pub topic: pulumi_wasm_rust::Output<String>,
+        pub topic: pulumi_gestalt_rust::Output<String>,
         /// The zone of the pubsub lite topic.
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LiteSubscriptionArgs,
     ) -> LiteSubscriptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let delivery_config_binding = args
             .delivery_config
@@ -178,16 +178,18 @@ pub mod lite_subscription {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LiteSubscriptionResult {
-            delivery_config: pulumi_wasm_rust::__private::into_domain(
+            delivery_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deliveryConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            topic: pulumi_wasm_rust::__private::into_domain(o.extract_field("topic")),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            topic: pulumi_gestalt_rust::__private::into_domain(o.extract_field("topic")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

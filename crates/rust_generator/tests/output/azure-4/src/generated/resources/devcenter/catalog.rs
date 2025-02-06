@@ -1,45 +1,45 @@
 pub mod catalog {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CatalogArgs {
         #[builder(into, default)]
-        pub catalog_adogit: pulumi_wasm_rust::InputOrOutput<
+        pub catalog_adogit: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::devcenter::CatalogCatalogAdogit>,
         >,
         #[builder(into, default)]
-        pub catalog_github: pulumi_wasm_rust::InputOrOutput<
+        pub catalog_github: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::devcenter::CatalogCatalogGithub>,
         >,
         #[builder(into)]
-        pub dev_center_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dev_center_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CatalogResult {
-        pub catalog_adogit: pulumi_wasm_rust::Output<
+        pub catalog_adogit: pulumi_gestalt_rust::Output<
             Option<super::super::types::devcenter::CatalogCatalogAdogit>,
         >,
-        pub catalog_github: pulumi_wasm_rust::Output<
+        pub catalog_github: pulumi_gestalt_rust::Output<
             Option<super::super::types::devcenter::CatalogCatalogGithub>,
         >,
-        pub dev_center_id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub dev_center_id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CatalogArgs,
     ) -> CatalogResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let catalog_adogit_binding = args.catalog_adogit.get_output(context).get_inner();
         let catalog_github_binding = args.catalog_github.get_output(context).get_inner();
@@ -78,17 +78,17 @@ pub mod catalog {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CatalogResult {
-            catalog_adogit: pulumi_wasm_rust::__private::into_domain(
+            catalog_adogit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("catalogAdogit"),
             ),
-            catalog_github: pulumi_wasm_rust::__private::into_domain(
+            catalog_github: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("catalogGithub"),
             ),
-            dev_center_id: pulumi_wasm_rust::__private::into_domain(
+            dev_center_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("devCenterId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
         }

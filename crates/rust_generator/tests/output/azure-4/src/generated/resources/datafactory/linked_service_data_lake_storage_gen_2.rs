@@ -42,7 +42,7 @@
 /// ```
 ///
 pub mod linked_service_data_lake_storage_gen_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinkedServiceDataLakeStorageGen2Args {
@@ -50,101 +50,101 @@ pub mod linked_service_data_lake_storage_gen_2 {
         ///
         /// The following supported arguments are specific to Data Lake Storage Gen2 Linked Service:
         #[builder(into, default)]
-        pub additional_properties: pulumi_wasm_rust::InputOrOutput<
+        pub additional_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description for the Data Factory Linked Service.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The integration runtime reference to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub integration_runtime_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub integration_runtime_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of parameters to associate with the Data Factory Linked Service.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storage_account_key` and `use_managed_identity`.
         #[builder(into, default)]
-        pub service_principal_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_principal_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The service principal key with which to authenticate against the Azure Data Lake Storage Gen2 account.
         #[builder(into, default)]
-        pub service_principal_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_principal_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
         #[builder(into, default)]
-        pub storage_account_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_account_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
         ///
         /// > **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
         #[builder(into, default)]
-        pub tenant: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tenant: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The endpoint for the Azure Data Lake Storage Gen2 service.
         ///
         /// > **NOTE** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
         #[builder(into)]
-        pub url: pulumi_wasm_rust::InputOrOutput<String>,
+        pub url: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `storage_account_key`.
         #[builder(into, default)]
-        pub use_managed_identity: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub use_managed_identity: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct LinkedServiceDataLakeStorageGen2Result {
         /// A map of additional properties to associate with the Data Factory Linked Service.
         ///
         /// The following supported arguments are specific to Data Lake Storage Gen2 Linked Service:
-        pub additional_properties: pulumi_wasm_rust::Output<
+        pub additional_properties: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Linked Service.
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// The description for the Data Factory Linked Service.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The integration runtime reference to associate with the Data Factory Linked Service.
-        pub integration_runtime_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub integration_runtime_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A map of parameters to associate with the Data Factory Linked Service.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The service principal id with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `storage_account_key` and `use_managed_identity`.
-        pub service_principal_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_principal_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The service principal key with which to authenticate against the Azure Data Lake Storage Gen2 account.
-        pub service_principal_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_principal_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Storage Account Key with which to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `use_managed_identity`.
-        pub storage_account_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub storage_account_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// The tenant id or name in which the service principal exists to authenticate against the Azure Data Lake Storage Gen2 account.
         ///
         /// > **NOTE** If `service_principal_id` is used, `service_principal_key` and `tenant` are also required.
-        pub tenant: pulumi_wasm_rust::Output<Option<String>>,
+        pub tenant: pulumi_gestalt_rust::Output<Option<String>>,
         /// The endpoint for the Azure Data Lake Storage Gen2 service.
         ///
         /// > **NOTE** Users should specify only one of the following three authentication strategies: storage account key, managed identity, service principal.
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub url: pulumi_gestalt_rust::Output<String>,
         /// Whether to use the Data Factory's managed identity to authenticate against the Azure Data Lake Storage Gen2 account. Incompatible with `service_principal_id`, `service_principal_key`, `tenant` and `storage_account_key`.
-        pub use_managed_identity: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_managed_identity: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LinkedServiceDataLakeStorageGen2Args,
     ) -> LinkedServiceDataLakeStorageGen2Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let additional_properties_binding = args
             .additional_properties
@@ -242,37 +242,39 @@ pub mod linked_service_data_lake_storage_gen_2 {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LinkedServiceDataLakeStorageGen2Result {
-            additional_properties: pulumi_wasm_rust::__private::into_domain(
+            additional_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalProperties"),
             ),
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            integration_runtime_name: pulumi_wasm_rust::__private::into_domain(
+            integration_runtime_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationRuntimeName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            service_principal_id: pulumi_wasm_rust::__private::into_domain(
+            service_principal_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("servicePrincipalId"),
             ),
-            service_principal_key: pulumi_wasm_rust::__private::into_domain(
+            service_principal_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("servicePrincipalKey"),
             ),
-            storage_account_key: pulumi_wasm_rust::__private::into_domain(
+            storage_account_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountKey"),
             ),
-            tenant: pulumi_wasm_rust::__private::into_domain(o.extract_field("tenant")),
-            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
-            use_managed_identity: pulumi_wasm_rust::__private::into_domain(
+            tenant: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("tenant"),
+            ),
+            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            use_managed_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("useManagedIdentity"),
             ),
         }

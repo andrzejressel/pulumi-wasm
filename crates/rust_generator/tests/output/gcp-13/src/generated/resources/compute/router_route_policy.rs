@@ -106,63 +106,63 @@
 /// ```
 ///
 pub mod router_route_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouterRoutePolicyArgs {
         /// Name of the route policy. This policy's name, which must be a resource ID segment and unique within all policies owned by the Router
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Region where the router and NAT reside.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Cloud Router in which this route policy will be configured.
         #[builder(into)]
-        pub router: pulumi_wasm_rust::InputOrOutput<String>,
+        pub router: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of terms (the order in the list is not important, they are evaluated in order of priority).
         /// Structure is documented below.
         #[builder(into)]
-        pub terms: pulumi_wasm_rust::InputOrOutput<
+        pub terms: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::compute::RouterRoutePolicyTerm>,
         >,
         /// This is policy's type, which is one of IMPORT or EXPORT Possible values: ["ROUTE_POLICY_TYPE_IMPORT",
         /// "ROUTE_POLICY_TYPE_EXPORT"]
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RouterRoutePolicyResult {
         /// The fingerprint used for optimistic locking of this resource.  Used
         /// internally during updates.
-        pub fingerprint: pulumi_wasm_rust::Output<String>,
+        pub fingerprint: pulumi_gestalt_rust::Output<String>,
         /// Name of the route policy. This policy's name, which must be a resource ID segment and unique within all policies owned by the Router
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Region where the router and NAT reside.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The name of the Cloud Router in which this route policy will be configured.
-        pub router: pulumi_wasm_rust::Output<String>,
+        pub router: pulumi_gestalt_rust::Output<String>,
         /// List of terms (the order in the list is not important, they are evaluated in order of priority).
         /// Structure is documented below.
-        pub terms: pulumi_wasm_rust::Output<
+        pub terms: pulumi_gestalt_rust::Output<
             Vec<super::super::types::compute::RouterRoutePolicyTerm>,
         >,
         /// This is policy's type, which is one of IMPORT or EXPORT Possible values: ["ROUTE_POLICY_TYPE_IMPORT",
         /// "ROUTE_POLICY_TYPE_EXPORT"]
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouterRoutePolicyArgs,
     ) -> RouterRoutePolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -203,17 +203,21 @@ pub mod router_route_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouterRoutePolicyResult {
-            fingerprint: pulumi_wasm_rust::__private::into_domain(
+            fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fingerprint"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            router: pulumi_wasm_rust::__private::into_domain(o.extract_field("router")),
-            terms: pulumi_wasm_rust::__private::into_domain(o.extract_field("terms")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            router: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("router"),
+            ),
+            terms: pulumi_gestalt_rust::__private::into_domain(o.extract_field("terms")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

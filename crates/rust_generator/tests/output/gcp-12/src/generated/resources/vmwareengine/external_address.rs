@@ -65,68 +65,68 @@
 /// ```
 ///
 pub mod external_address {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExternalAddressArgs {
         /// User-provided description for this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The internal IP address of a workload VM.
         #[builder(into)]
-        pub internal_ip: pulumi_wasm_rust::InputOrOutput<String>,
+        pub internal_ip: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the external IP Address.
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource name of the private cloud to create a new external address in.
         /// Resource names are schemeless URIs that follow the conventions in https://cloud.google.com/apis/design/resource_names.
         /// For example: projects/my-project/locations/us-west1-a/privateClouds/my-cloud
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ExternalAddressResult {
         /// Creation time of this resource.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and
         /// up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// User-provided description for this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The external IP address of a workload VM.
-        pub external_ip: pulumi_wasm_rust::Output<String>,
+        pub external_ip: pulumi_gestalt_rust::Output<String>,
         /// The internal IP address of a workload VM.
-        pub internal_ip: pulumi_wasm_rust::Output<String>,
+        pub internal_ip: pulumi_gestalt_rust::Output<String>,
         /// The ID of the external IP Address.
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the private cloud to create a new external address in.
         /// Resource names are schemeless URIs that follow the conventions in https://cloud.google.com/apis/design/resource_names.
         /// For example: projects/my-project/locations/us-west1-a/privateClouds/my-cloud
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// State of the resource.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// System-generated unique identifier for the resource.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Last updated time of this resource.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine
         /// fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ExternalAddressArgs,
     ) -> ExternalAddressResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let internal_ip_binding = args.internal_ip.get_output(context).get_inner();
@@ -157,23 +157,25 @@ pub mod external_address {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ExternalAddressResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            external_ip: pulumi_wasm_rust::__private::into_domain(
+            external_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalIp"),
             ),
-            internal_ip: pulumi_wasm_rust::__private::into_domain(
+            internal_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("internalIp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

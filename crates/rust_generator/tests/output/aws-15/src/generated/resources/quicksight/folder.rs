@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = folder::create(
@@ -19,8 +19,8 @@
 /// ### With Permissions
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = folder::create(
@@ -47,8 +47,8 @@
 /// ### With Parent Folder
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = folder::create(
@@ -74,70 +74,70 @@
 /// $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
 /// ```
 pub mod folder {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FolderArgs {
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub aws_account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier for the folder.
         #[builder(into)]
-        pub folder_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub folder_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
         #[builder(into, default)]
-        pub folder_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub folder_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Display name for the folder.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
         #[builder(into, default)]
-        pub parent_folder_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parent_folder_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         #[builder(into, default)]
-        pub permissions: pulumi_wasm_rust::InputOrOutput<
+        pub permissions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::quicksight::FolderPermission>>,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct FolderResult {
         /// ARN of the folder.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// AWS account ID.
-        pub aws_account_id: pulumi_wasm_rust::Output<String>,
+        pub aws_account_id: pulumi_gestalt_rust::Output<String>,
         /// The time that the folder was created.
-        pub created_time: pulumi_wasm_rust::Output<String>,
+        pub created_time: pulumi_gestalt_rust::Output<String>,
         /// Identifier for the folder.
-        pub folder_id: pulumi_wasm_rust::Output<String>,
+        pub folder_id: pulumi_gestalt_rust::Output<String>,
         /// An array of ancestor ARN strings for the folder. Empty for root-level folders.
-        pub folder_paths: pulumi_wasm_rust::Output<Vec<String>>,
+        pub folder_paths: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The type of folder. By default, it is `SHARED`. Valid values are: `SHARED`.
-        pub folder_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub folder_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The time that the folder was last updated.
-        pub last_updated_time: pulumi_wasm_rust::Output<String>,
+        pub last_updated_time: pulumi_gestalt_rust::Output<String>,
         /// Display name for the folder.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
-        pub parent_folder_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent_folder_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// A set of resource permissions on the folder. Maximum of 64 items. See permissions.
-        pub permissions: pulumi_wasm_rust::Output<
+        pub permissions: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::quicksight::FolderPermission>>,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -146,11 +146,11 @@ pub mod folder {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FolderArgs,
     ) -> FolderResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
         let folder_id_binding = args.folder_id.get_output(context).get_inner();
@@ -199,34 +199,34 @@ pub mod folder {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FolderResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            aws_account_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsAccountId"),
             ),
-            created_time: pulumi_wasm_rust::__private::into_domain(
+            created_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdTime"),
             ),
-            folder_id: pulumi_wasm_rust::__private::into_domain(
+            folder_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("folderId"),
             ),
-            folder_paths: pulumi_wasm_rust::__private::into_domain(
+            folder_paths: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("folderPaths"),
             ),
-            folder_type: pulumi_wasm_rust::__private::into_domain(
+            folder_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("folderType"),
             ),
-            last_updated_time: pulumi_wasm_rust::__private::into_domain(
+            last_updated_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdatedTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent_folder_arn: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent_folder_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parentFolderArn"),
             ),
-            permissions: pulumi_wasm_rust::__private::into_domain(
+            permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

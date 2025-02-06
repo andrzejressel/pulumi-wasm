@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let testSetting = service_setting::create(
@@ -27,38 +27,38 @@
 /// $ pulumi import aws:ssm/serviceSetting:ServiceSetting example arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
 /// ```
 pub mod service_setting {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceSettingArgs {
         /// ID of the service setting.
         #[builder(into)]
-        pub setting_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub setting_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Value of the service setting.
         #[builder(into)]
-        pub setting_value: pulumi_wasm_rust::InputOrOutput<String>,
+        pub setting_value: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServiceSettingResult {
         /// ARN of the service setting.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// ID of the service setting.
-        pub setting_id: pulumi_wasm_rust::Output<String>,
+        pub setting_id: pulumi_gestalt_rust::Output<String>,
         /// Value of the service setting.
-        pub setting_value: pulumi_wasm_rust::Output<String>,
+        pub setting_value: pulumi_gestalt_rust::Output<String>,
         /// Status of the service setting. Value can be `Default`, `Customized` or `PendingUpdate`.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServiceSettingArgs,
     ) -> ServiceSettingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let setting_id_binding = args.setting_id.get_output(context).get_inner();
         let setting_value_binding = args.setting_value.get_output(context).get_inner();
@@ -79,14 +79,16 @@ pub mod service_setting {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServiceSettingResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            setting_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            setting_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("settingId"),
             ),
-            setting_value: pulumi_wasm_rust::__private::into_domain(
+            setting_value: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("settingValue"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -57,56 +57,56 @@
 /// ```
 ///
 pub mod data_export_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataExportRuleArgs {
         /// The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
         #[builder(into)]
-        pub destination_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the Log Analytics Data Export Rule. Changing this forces a new Log Analytics Data Export Rule to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Log Analytics Data Export should exist. Changing this forces a new Log Analytics Data Export Rule to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of table names to export to the destination resource, for example: `["Heartbeat", "SecurityEvent"]`.
         #[builder(into)]
-        pub table_names: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub table_names: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The resource ID of the workspace. Changing this forces a new Log Analytics Data Export Rule to be created.
         #[builder(into)]
-        pub workspace_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workspace_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DataExportRuleResult {
         /// The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
-        pub destination_resource_id: pulumi_wasm_rust::Output<String>,
+        pub destination_resource_id: pulumi_gestalt_rust::Output<String>,
         /// Is this Log Analytics Data Export Rule enabled? Possible values include `true` or `false`. Defaults to `false`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the created Data Export Rule.
-        pub export_rule_id: pulumi_wasm_rust::Output<String>,
+        pub export_rule_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Log Analytics Data Export Rule. Changing this forces a new Log Analytics Data Export Rule to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Log Analytics Data Export should exist. Changing this forces a new Log Analytics Data Export Rule to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A list of table names to export to the destination resource, for example: `["Heartbeat", "SecurityEvent"]`.
-        pub table_names: pulumi_wasm_rust::Output<Vec<String>>,
+        pub table_names: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The resource ID of the workspace. Changing this forces a new Log Analytics Data Export Rule to be created.
-        pub workspace_resource_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_resource_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DataExportRuleArgs,
     ) -> DataExportRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let destination_resource_id_binding = args
             .destination_resource_id
@@ -156,23 +156,23 @@ pub mod data_export_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DataExportRuleResult {
-            destination_resource_id: pulumi_wasm_rust::__private::into_domain(
+            destination_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationResourceId"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            export_rule_id: pulumi_wasm_rust::__private::into_domain(
+            export_rule_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exportRuleId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            table_names: pulumi_wasm_rust::__private::into_domain(
+            table_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tableNames"),
             ),
-            workspace_resource_id: pulumi_wasm_rust::__private::into_domain(
+            workspace_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceResourceId"),
             ),
         }

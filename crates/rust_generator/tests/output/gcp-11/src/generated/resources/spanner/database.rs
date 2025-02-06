@@ -19,8 +19,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let database = database::create(
@@ -80,7 +80,7 @@
 /// ```
 ///
 pub mod database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatabaseArgs {
@@ -88,23 +88,23 @@ pub mod database {
         /// If it is not provided, "GOOGLE_STANDARD_SQL" will be used.
         /// Possible values are: `GOOGLE_STANDARD_SQL`, `POSTGRESQL`.
         #[builder(into, default)]
-        pub database_dialect: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub database_dialect: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An optional list of DDL statements to run inside the newly created
         /// database. Statements can create tables, indexes, etc. These statements
         /// execute atomically with the creation of the database: if there is an
         /// error in any statement, the database is not created.
         #[builder(into, default)]
-        pub ddls: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub ddls: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Whether or not to allow the provider to destroy the instance. Unless this field is set to false
         /// in state, a `destroy` or `update` that would delete the instance will fail.
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub enable_drop_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_drop_protection: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Encryption configuration for the database
         /// Structure is documented below.
         #[builder(into, default)]
-        pub encryption_config: pulumi_wasm_rust::InputOrOutput<
+        pub encryption_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::spanner::DatabaseEncryptionConfig>,
         >,
         /// The instance to create the database on.
@@ -112,73 +112,73 @@ pub mod database {
         ///
         /// - - -
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A unique identifier for the database, which cannot be changed after the
         /// instance is created. Values are of the form `[a-z][-_a-z0-9]*[a-z0-9]`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The retention period for the database. The retention period must be between 1 hour
         /// and 7 days, and can be specified in days, hours, minutes, or seconds. For example,
         /// the values 1d, 24h, 1440m, and 86400s are equivalent. Default value is 1h.
         /// If this property is used, you must avoid adding new DDL statements to `ddl` that
         /// update the database's version_retention_period.
         #[builder(into, default)]
-        pub version_retention_period: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version_retention_period: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DatabaseResult {
         /// The dialect of the Cloud Spanner Database.
         /// If it is not provided, "GOOGLE_STANDARD_SQL" will be used.
         /// Possible values are: `GOOGLE_STANDARD_SQL`, `POSTGRESQL`.
-        pub database_dialect: pulumi_wasm_rust::Output<String>,
+        pub database_dialect: pulumi_gestalt_rust::Output<String>,
         /// An optional list of DDL statements to run inside the newly created
         /// database. Statements can create tables, indexes, etc. These statements
         /// execute atomically with the creation of the database: if there is an
         /// error in any statement, the database is not created.
-        pub ddls: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ddls: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Whether or not to allow the provider to destroy the instance. Unless this field is set to false
         /// in state, a `destroy` or `update` that would delete the instance will fail.
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<bool>>,
-        pub enable_drop_protection: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub enable_drop_protection: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Encryption configuration for the database
         /// Structure is documented below.
-        pub encryption_config: pulumi_wasm_rust::Output<
+        pub encryption_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::spanner::DatabaseEncryptionConfig>,
         >,
         /// The instance to create the database on.
         ///
         ///
         /// - - -
-        pub instance: pulumi_wasm_rust::Output<String>,
+        pub instance: pulumi_gestalt_rust::Output<String>,
         /// A unique identifier for the database, which cannot be changed after the
         /// instance is created. Values are of the form `[a-z][-_a-z0-9]*[a-z0-9]`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// An explanation of the status of the database.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The retention period for the database. The retention period must be between 1 hour
         /// and 7 days, and can be specified in days, hours, minutes, or seconds. For example,
         /// the values 1d, 24h, 1440m, and 86400s are equivalent. Default value is 1h.
         /// If this property is used, you must avoid adding new DDL statements to `ddl` that
         /// update the database's version_retention_period.
-        pub version_retention_period: pulumi_wasm_rust::Output<String>,
+        pub version_retention_period: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatabaseArgs,
     ) -> DatabaseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let database_dialect_binding = args
             .database_dialect
@@ -249,28 +249,28 @@ pub mod database {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatabaseResult {
-            database_dialect: pulumi_wasm_rust::__private::into_domain(
+            database_dialect: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseDialect"),
             ),
-            ddls: pulumi_wasm_rust::__private::into_domain(o.extract_field("ddls")),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            ddls: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ddls")),
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            enable_drop_protection: pulumi_wasm_rust::__private::into_domain(
+            enable_drop_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableDropProtection"),
             ),
-            encryption_config: pulumi_wasm_rust::__private::into_domain(
+            encryption_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionConfig"),
             ),
-            instance: pulumi_wasm_rust::__private::into_domain(
+            instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instance"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            version_retention_period: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            version_retention_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionRetentionPeriod"),
             ),
         }

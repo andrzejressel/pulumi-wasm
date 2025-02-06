@@ -51,59 +51,59 @@
 /// ```
 ///
 pub mod custom_hostname_binding {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomHostnameBindingArgs {
         /// The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub app_service_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_service_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
         #[builder(into)]
-        pub hostname: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hostname: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub ssl_state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ssl_state: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The SSL certificate thumbprint. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
         #[builder(into, default)]
-        pub thumbprint: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub thumbprint: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct CustomHostnameBindingResult {
         /// The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
-        pub app_service_name: pulumi_wasm_rust::Output<String>,
+        pub app_service_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** A CNAME needs to be configured from this Hostname to the Azure Website - otherwise Azure will reject the Hostname Binding.
-        pub hostname: pulumi_wasm_rust::Output<String>,
+        pub hostname: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created.
-        pub ssl_state: pulumi_wasm_rust::Output<String>,
+        pub ssl_state: pulumi_gestalt_rust::Output<String>,
         /// The SSL certificate thumbprint. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** `thumbprint` must be specified when `ssl_state` is set.
-        pub thumbprint: pulumi_wasm_rust::Output<String>,
+        pub thumbprint: pulumi_gestalt_rust::Output<String>,
         /// The virtual IP address assigned to the hostname if IP based SSL is enabled.
-        pub virtual_ip: pulumi_wasm_rust::Output<String>,
+        pub virtual_ip: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CustomHostnameBindingArgs,
     ) -> CustomHostnameBindingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_service_name_binding = args
             .app_service_name
@@ -145,22 +145,22 @@ pub mod custom_hostname_binding {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CustomHostnameBindingResult {
-            app_service_name: pulumi_wasm_rust::__private::into_domain(
+            app_service_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appServiceName"),
             ),
-            hostname: pulumi_wasm_rust::__private::into_domain(
+            hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostname"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            ssl_state: pulumi_wasm_rust::__private::into_domain(
+            ssl_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sslState"),
             ),
-            thumbprint: pulumi_wasm_rust::__private::into_domain(
+            thumbprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("thumbprint"),
             ),
-            virtual_ip: pulumi_wasm_rust::__private::into_domain(
+            virtual_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualIp"),
             ),
         }

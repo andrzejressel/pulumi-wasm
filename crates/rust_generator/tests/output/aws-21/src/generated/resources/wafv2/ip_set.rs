@@ -27,52 +27,52 @@
 /// $ pulumi import aws:wafv2/ipSet:IpSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
 /// ```
 pub mod ip_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IpSetArgs {
         /// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
         #[builder(into, default)]
-        pub addresses: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub addresses: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A friendly description of the IP set.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
         #[builder(into)]
-        pub ip_address_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub ip_address_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A friendly name of the IP set.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
         #[builder(into)]
-        pub scope: pulumi_wasm_rust::InputOrOutput<String>,
+        pub scope: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct IpSetResult {
         /// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
-        pub addresses: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub addresses: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The Amazon Resource Name (ARN) of the IP set.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A friendly description of the IP set.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specify IPV4 or IPV6. Valid values are `IPV4` or `IPV6`.
-        pub ip_address_version: pulumi_wasm_rust::Output<String>,
-        pub lock_token: pulumi_wasm_rust::Output<String>,
+        pub ip_address_version: pulumi_gestalt_rust::Output<String>,
+        pub lock_token: pulumi_gestalt_rust::Output<String>,
         /// A friendly name of the IP set.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the Region US East (N. Virginia).
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_gestalt_rust::Output<String>,
         /// An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -81,11 +81,11 @@ pub mod ip_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IpSetArgs,
     ) -> IpSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let addresses_binding = args.addresses.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -129,23 +129,23 @@ pub mod ip_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IpSetResult {
-            addresses: pulumi_wasm_rust::__private::into_domain(
+            addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addresses"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            ip_address_version: pulumi_wasm_rust::__private::into_domain(
+            ip_address_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddressVersion"),
             ),
-            lock_token: pulumi_wasm_rust::__private::into_domain(
+            lock_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lockToken"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

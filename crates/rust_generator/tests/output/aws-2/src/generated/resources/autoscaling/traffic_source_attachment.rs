@@ -17,16 +17,16 @@
 ///         type: elbv2
 /// ```
 pub mod traffic_source_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrafficSourceAttachmentArgs {
         /// The name of the Auto Scaling group.
         #[builder(into)]
-        pub autoscaling_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub autoscaling_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The unique identifiers of a traffic sources.
         #[builder(into, default)]
-        pub traffic_source: pulumi_wasm_rust::InputOrOutput<
+        pub traffic_source: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::autoscaling::TrafficSourceAttachmentTrafficSource,
             >,
@@ -35,9 +35,9 @@ pub mod traffic_source_attachment {
     #[allow(dead_code)]
     pub struct TrafficSourceAttachmentResult {
         /// The name of the Auto Scaling group.
-        pub autoscaling_group_name: pulumi_wasm_rust::Output<String>,
+        pub autoscaling_group_name: pulumi_gestalt_rust::Output<String>,
         /// The unique identifiers of a traffic sources.
-        pub traffic_source: pulumi_wasm_rust::Output<
+        pub traffic_source: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::autoscaling::TrafficSourceAttachmentTrafficSource,
             >,
@@ -48,11 +48,11 @@ pub mod traffic_source_attachment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TrafficSourceAttachmentArgs,
     ) -> TrafficSourceAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let autoscaling_group_name_binding = args
             .autoscaling_group_name
@@ -77,10 +77,10 @@ pub mod traffic_source_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TrafficSourceAttachmentResult {
-            autoscaling_group_name: pulumi_wasm_rust::__private::into_domain(
+            autoscaling_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoscalingGroupName"),
             ),
-            traffic_source: pulumi_wasm_rust::__private::into_domain(
+            traffic_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trafficSource"),
             ),
         }

@@ -9,8 +9,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let database = database::create(
@@ -38,8 +38,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let databaseDeletionPolicy = database::create(
@@ -102,7 +102,7 @@
 /// ```
 ///
 pub mod database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatabaseArgs {
@@ -112,35 +112,35 @@ pub mod database {
         /// for more details and supported values. Postgres databases only support
         /// a value of `UTF8` at creation time.
         #[builder(into, default)]
-        pub charset: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub charset: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The collation value. See MySQL's
         /// [Supported Character Sets and Collations](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html)
         /// and Postgres' [Collation Support](https://www.postgresql.org/docs/9.6/static/collation.html)
         /// for more details and supported values. Postgres databases only support
         /// a value of `en_US.UTF8` at creation time.
         #[builder(into, default)]
-        pub collation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub collation: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The deletion policy for the database. Setting ABANDON allows the resource
         /// to be abandoned rather than deleted. This is useful for Postgres, where databases cannot be
         /// deleted from the API if there are users other than cloudsqlsuperuser with access. Possible
         /// values are: "ABANDON", "DELETE". Defaults to "DELETE".
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Cloud SQL instance. This does not include the project
         /// ID.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the database in the Cloud SQL instance.
         /// This does not include the project ID or instance name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DatabaseResult {
@@ -149,43 +149,43 @@ pub mod database {
         /// and Postgres' [Character Set Support](https://www.postgresql.org/docs/9.6/static/multibyte.html)
         /// for more details and supported values. Postgres databases only support
         /// a value of `UTF8` at creation time.
-        pub charset: pulumi_wasm_rust::Output<String>,
+        pub charset: pulumi_gestalt_rust::Output<String>,
         /// The collation value. See MySQL's
         /// [Supported Character Sets and Collations](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html)
         /// and Postgres' [Collation Support](https://www.postgresql.org/docs/9.6/static/collation.html)
         /// for more details and supported values. Postgres databases only support
         /// a value of `en_US.UTF8` at creation time.
-        pub collation: pulumi_wasm_rust::Output<String>,
+        pub collation: pulumi_gestalt_rust::Output<String>,
         /// The deletion policy for the database. Setting ABANDON allows the resource
         /// to be abandoned rather than deleted. This is useful for Postgres, where databases cannot be
         /// deleted from the API if there are users other than cloudsqlsuperuser with access. Possible
         /// values are: "ABANDON", "DELETE". Defaults to "DELETE".
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Cloud SQL instance. This does not include the project
         /// ID.
         ///
         ///
         /// - - -
-        pub instance: pulumi_wasm_rust::Output<String>,
+        pub instance: pulumi_gestalt_rust::Output<String>,
         /// The name of the database in the Cloud SQL instance.
         /// This does not include the project ID or instance name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatabaseArgs,
     ) -> DatabaseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let charset_binding = args.charset.get_output(context).get_inner();
         let collation_binding = args.collation.get_output(context).get_inner();
@@ -229,23 +229,23 @@ pub mod database {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatabaseResult {
-            charset: pulumi_wasm_rust::__private::into_domain(
+            charset: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("charset"),
             ),
-            collation: pulumi_wasm_rust::__private::into_domain(
+            collation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("collation"),
             ),
-            deletion_policy: pulumi_wasm_rust::__private::into_domain(
+            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionPolicy"),
             ),
-            instance: pulumi_wasm_rust::__private::into_domain(
+            instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instance"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
         }

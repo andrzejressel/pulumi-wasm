@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -36,7 +36,7 @@
 /// ```
 ///
 pub mod backup_vault {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupVaultArgs {
@@ -44,42 +44,44 @@ pub mod backup_vault {
         ///
         /// > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
         #[builder(into, default)]
-        pub cross_region_restore_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub cross_region_restore_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
         ///
         /// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
         #[builder(into)]
-        pub datastore_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub datastore_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataprotection::BackupVaultIdentity>,
         >,
         /// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
         #[builder(into)]
-        pub redundancy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub redundancy: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
         ///
         /// > **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
         #[builder(into, default)]
-        pub retention_duration_in_days: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub retention_duration_in_days: pulumi_gestalt_rust::InputOrOutput<Option<f64>>,
         /// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
         ///
         /// > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
         #[builder(into, default)]
-        pub soft_delete: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub soft_delete: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Backup Vault.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -88,33 +90,33 @@ pub mod backup_vault {
         /// Whether to enable cross-region restore for the Backup Vault.
         ///
         /// > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
-        pub cross_region_restore_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub cross_region_restore_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
         ///
         /// > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
-        pub datastore_type: pulumi_wasm_rust::Output<String>,
+        pub datastore_type: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataprotection::BackupVaultIdentity>,
         >,
         /// The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
-        pub redundancy: pulumi_wasm_rust::Output<String>,
+        pub redundancy: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The soft delete retention duration for this Backup Vault. Possible values are between `14` and `180`. Defaults to `14`.
         ///
         /// > **Note:** The `retention_duration_in_days` is the number of days for which deleted data is retained before being permanently deleted. Retention period till 14 days are free of cost, however, retention beyond 14 days may incur additional charges. The `retention_duration_in_days` is required when the `soft_delete` is set to `On`.
-        pub retention_duration_in_days: pulumi_wasm_rust::Output<Option<f64>>,
+        pub retention_duration_in_days: pulumi_gestalt_rust::Output<Option<f64>>,
         /// The state of soft delete for this Backup Vault. Possible values are `AlwaysOn`, `Off` and `On`. Defaults to `On`.
         ///
         /// > **Note:** Once the `soft_delete` is set to `AlwaysOn`, the setting cannot be changed.
-        pub soft_delete: pulumi_wasm_rust::Output<Option<String>>,
+        pub soft_delete: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags which should be assigned to the Backup Vault.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -123,11 +125,11 @@ pub mod backup_vault {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackupVaultArgs,
     ) -> BackupVaultResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cross_region_restore_enabled_binding = args
             .cross_region_restore_enabled
@@ -197,32 +199,32 @@ pub mod backup_vault {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackupVaultResult {
-            cross_region_restore_enabled: pulumi_wasm_rust::__private::into_domain(
+            cross_region_restore_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("crossRegionRestoreEnabled"),
             ),
-            datastore_type: pulumi_wasm_rust::__private::into_domain(
+            datastore_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("datastoreType"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            redundancy: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            redundancy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redundancy"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            retention_duration_in_days: pulumi_wasm_rust::__private::into_domain(
+            retention_duration_in_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionDurationInDays"),
             ),
-            soft_delete: pulumi_wasm_rust::__private::into_domain(
+            soft_delete: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("softDelete"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

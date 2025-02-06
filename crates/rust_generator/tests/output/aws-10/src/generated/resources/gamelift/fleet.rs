@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = fleet::create(
@@ -38,116 +38,118 @@
 /// $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
 /// ```
 pub mod fleet {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FleetArgs {
         /// ID of the GameLift Build to be deployed on the fleet.
         #[builder(into, default)]
-        pub build_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub build_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
         #[builder(into, default)]
-        pub certificate_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub certificate_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gamelift::FleetCertificateConfiguration>,
         >,
         /// Human-readable description of the fleet.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
         #[builder(into, default)]
-        pub ec2_inbound_permissions: pulumi_wasm_rust::InputOrOutput<
+        pub ec2_inbound_permissions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::gamelift::FleetEc2InboundPermission>>,
         >,
         /// Name of an EC2 instance typeE.g., `t2.micro`
         #[builder(into)]
-        pub ec2_instance_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub ec2_instance_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
         #[builder(into, default)]
-        pub fleet_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub fleet_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN of an IAM role that instances in the fleet can assume.
         #[builder(into, default)]
-        pub instance_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub instance_role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
         #[builder(into, default)]
-        pub metric_groups: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub metric_groups: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the fleet.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
         #[builder(into, default)]
-        pub new_game_session_protection_policy: pulumi_wasm_rust::InputOrOutput<
+        pub new_game_session_protection_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         #[builder(into, default)]
-        pub resource_creation_limit_policy: pulumi_wasm_rust::InputOrOutput<
+        pub resource_creation_limit_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gamelift::FleetResourceCreationLimitPolicy>,
         >,
         /// Instructions for launching server processes on each instance in the fleet. See below.
         #[builder(into, default)]
-        pub runtime_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub runtime_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::gamelift::FleetRuntimeConfiguration>,
         >,
         /// ID of the GameLift Script to be deployed on the fleet.
         #[builder(into, default)]
-        pub script_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub script_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct FleetResult {
         /// Fleet ARN.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Build ARN.
-        pub build_arn: pulumi_wasm_rust::Output<String>,
+        pub build_arn: pulumi_gestalt_rust::Output<String>,
         /// ID of the GameLift Build to be deployed on the fleet.
-        pub build_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub build_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
-        pub certificate_configuration: pulumi_wasm_rust::Output<
+        pub certificate_configuration: pulumi_gestalt_rust::Output<
             super::super::types::gamelift::FleetCertificateConfiguration,
         >,
         /// Human-readable description of the fleet.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
-        pub ec2_inbound_permissions: pulumi_wasm_rust::Output<
+        pub ec2_inbound_permissions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::gamelift::FleetEc2InboundPermission>,
         >,
         /// Name of an EC2 instance typeE.g., `t2.micro`
-        pub ec2_instance_type: pulumi_wasm_rust::Output<String>,
+        pub ec2_instance_type: pulumi_gestalt_rust::Output<String>,
         /// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
-        pub fleet_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub fleet_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of an IAM role that instances in the fleet can assume.
-        pub instance_role_arn: pulumi_wasm_rust::Output<Option<String>>,
-        pub log_paths: pulumi_wasm_rust::Output<Vec<String>>,
+        pub instance_role_arn: pulumi_gestalt_rust::Output<Option<String>>,
+        pub log_paths: pulumi_gestalt_rust::Output<Vec<String>>,
         /// List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
-        pub metric_groups: pulumi_wasm_rust::Output<Vec<String>>,
+        pub metric_groups: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The name of the fleet.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
-        pub new_game_session_protection_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub new_game_session_protection_policy: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// Operating system of the fleet's computing resources.
-        pub operating_system: pulumi_wasm_rust::Output<String>,
+        pub operating_system: pulumi_gestalt_rust::Output<String>,
         /// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
-        pub resource_creation_limit_policy: pulumi_wasm_rust::Output<
+        pub resource_creation_limit_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::gamelift::FleetResourceCreationLimitPolicy>,
         >,
         /// Instructions for launching server processes on each instance in the fleet. See below.
-        pub runtime_configuration: pulumi_wasm_rust::Output<
+        pub runtime_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::gamelift::FleetRuntimeConfiguration>,
         >,
         /// Script ARN.
-        pub script_arn: pulumi_wasm_rust::Output<String>,
+        pub script_arn: pulumi_gestalt_rust::Output<String>,
         /// ID of the GameLift Script to be deployed on the fleet.
-        pub script_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub script_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -156,11 +158,11 @@ pub mod fleet {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FleetArgs,
     ) -> FleetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let build_id_binding = args.build_id.get_output(context).get_inner();
         let certificate_configuration_binding = args
@@ -262,58 +264,58 @@ pub mod fleet {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FleetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            build_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            build_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("buildArn"),
             ),
-            build_id: pulumi_wasm_rust::__private::into_domain(
+            build_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("buildId"),
             ),
-            certificate_configuration: pulumi_wasm_rust::__private::into_domain(
+            certificate_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateConfiguration"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            ec2_inbound_permissions: pulumi_wasm_rust::__private::into_domain(
+            ec2_inbound_permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ec2InboundPermissions"),
             ),
-            ec2_instance_type: pulumi_wasm_rust::__private::into_domain(
+            ec2_instance_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ec2InstanceType"),
             ),
-            fleet_type: pulumi_wasm_rust::__private::into_domain(
+            fleet_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fleetType"),
             ),
-            instance_role_arn: pulumi_wasm_rust::__private::into_domain(
+            instance_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceRoleArn"),
             ),
-            log_paths: pulumi_wasm_rust::__private::into_domain(
+            log_paths: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logPaths"),
             ),
-            metric_groups: pulumi_wasm_rust::__private::into_domain(
+            metric_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metricGroups"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            new_game_session_protection_policy: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            new_game_session_protection_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("newGameSessionProtectionPolicy"),
             ),
-            operating_system: pulumi_wasm_rust::__private::into_domain(
+            operating_system: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("operatingSystem"),
             ),
-            resource_creation_limit_policy: pulumi_wasm_rust::__private::into_domain(
+            resource_creation_limit_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceCreationLimitPolicy"),
             ),
-            runtime_configuration: pulumi_wasm_rust::__private::into_domain(
+            runtime_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runtimeConfiguration"),
             ),
-            script_arn: pulumi_wasm_rust::__private::into_domain(
+            script_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scriptArn"),
             ),
-            script_id: pulumi_wasm_rust::__private::into_domain(
+            script_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scriptId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

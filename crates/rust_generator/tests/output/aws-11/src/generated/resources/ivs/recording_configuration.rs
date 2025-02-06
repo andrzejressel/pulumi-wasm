@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = recording_configuration::create(
@@ -35,31 +35,31 @@
 /// $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
 /// ```
 pub mod recording_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RecordingConfigurationArgs {
         /// Object containing destination configuration for where recorded video will be stored.
         #[builder(into)]
-        pub destination_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub destination_configuration: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::ivs::RecordingConfigurationDestinationConfiguration,
         >,
         /// Recording Configuration name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
         #[builder(into, default)]
-        pub recording_reconnect_window_seconds: pulumi_wasm_rust::InputOrOutput<
+        pub recording_reconnect_window_seconds: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
         #[builder(into, default)]
-        pub thumbnail_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub thumbnail_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::ivs::RecordingConfigurationThumbnailConfiguration,
             >,
@@ -68,27 +68,27 @@ pub mod recording_configuration {
     #[allow(dead_code)]
     pub struct RecordingConfigurationResult {
         /// ARN of the Recording Configuration.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Object containing destination configuration for where recorded video will be stored.
-        pub destination_configuration: pulumi_wasm_rust::Output<
+        pub destination_configuration: pulumi_gestalt_rust::Output<
             super::super::types::ivs::RecordingConfigurationDestinationConfiguration,
         >,
         /// Recording Configuration name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
-        pub recording_reconnect_window_seconds: pulumi_wasm_rust::Output<i32>,
+        pub recording_reconnect_window_seconds: pulumi_gestalt_rust::Output<i32>,
         /// The current state of the Recording Configuration.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Object containing information to enable/disable the recording of thumbnails for a live session and modify the interval at which thumbnails are generated for the live session.
-        pub thumbnail_configuration: pulumi_wasm_rust::Output<
+        pub thumbnail_configuration: pulumi_gestalt_rust::Output<
             super::super::types::ivs::RecordingConfigurationThumbnailConfiguration,
         >,
     }
@@ -97,11 +97,11 @@ pub mod recording_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RecordingConfigurationArgs,
     ) -> RecordingConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let destination_configuration_binding = args
             .destination_configuration
@@ -146,20 +146,20 @@ pub mod recording_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RecordingConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            destination_configuration: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            destination_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationConfiguration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            recording_reconnect_window_seconds: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            recording_reconnect_window_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recordingReconnectWindowSeconds"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            thumbnail_configuration: pulumi_wasm_rust::__private::into_domain(
+            thumbnail_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("thumbnailConfiguration"),
             ),
         }

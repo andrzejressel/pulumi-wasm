@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = studio::create(
@@ -32,106 +32,106 @@
 /// $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
 /// ```
 pub mod studio {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StudioArgs {
         /// Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
         #[builder(into)]
-        pub auth_mode: pulumi_wasm_rust::InputOrOutput<String>,
+        pub auth_mode: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
         #[builder(into)]
-        pub default_s3_location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub default_s3_location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A detailed description of the Amazon EMR Studio.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
         #[builder(into)]
-        pub engine_security_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub engine_security_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
         #[builder(into, default)]
-        pub idp_auth_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub idp_auth_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
         #[builder(into, default)]
-        pub idp_relay_state_parameter_name: pulumi_wasm_rust::InputOrOutput<
+        pub idp_relay_state_parameter_name: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// A descriptive name for the Amazon EMR Studio.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
         #[builder(into)]
-        pub service_role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_role: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
         #[builder(into)]
-        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub subnet_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
         #[builder(into, default)]
-        pub user_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_role: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpc_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub workspace_security_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workspace_security_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct StudioResult {
         /// ARN of the studio.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether the Studio authenticates users using IAM or Amazon Web Services SSO. Valid values are `SSO` or `IAM`.
-        pub auth_mode: pulumi_wasm_rust::Output<String>,
+        pub auth_mode: pulumi_gestalt_rust::Output<String>,
         /// The Amazon S3 location to back up Amazon EMR Studio Workspaces and notebook files.
-        pub default_s3_location: pulumi_wasm_rust::Output<String>,
+        pub default_s3_location: pulumi_gestalt_rust::Output<String>,
         /// A detailed description of the Amazon EMR Studio.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by `vpc_id`.
-        pub engine_security_group_id: pulumi_wasm_rust::Output<String>,
+        pub engine_security_group_id: pulumi_gestalt_rust::Output<String>,
         /// The authentication endpoint of your identity provider (IdP). Specify this value when you use IAM authentication and want to let federated users log in to a Studio with the Studio URL and credentials from your IdP. Amazon EMR Studio redirects users to this endpoint to enter credentials.
-        pub idp_auth_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub idp_auth_url: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name that your identity provider (IdP) uses for its RelayState parameter. For example, RelayState or TargetSource. Specify this value when you use IAM authentication and want to let federated users log in to a Studio using the Studio URL. The RelayState parameter differs by IdP.
-        pub idp_relay_state_parameter_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub idp_relay_state_parameter_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// A descriptive name for the Amazon EMR Studio.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
-        pub service_role: pulumi_wasm_rust::Output<String>,
+        pub service_role: pulumi_gestalt_rust::Output<String>,
         /// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpc_id`. Studio users can create a Workspace in any of the specified subnets.
-        pub subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnet_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The unique access URL of the Amazon EMR Studio.
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub url: pulumi_gestalt_rust::Output<String>,
         /// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
-        pub user_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_role: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpc_id`.
         ///
         /// The following arguments are optional:
-        pub workspace_security_group_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_security_group_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StudioArgs,
     ) -> StudioResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auth_mode_binding = args.auth_mode.get_output(context).get_inner();
         let default_s3_location_binding = args
@@ -219,42 +219,44 @@ pub mod studio {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StudioResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auth_mode: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auth_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authMode"),
             ),
-            default_s3_location: pulumi_wasm_rust::__private::into_domain(
+            default_s3_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultS3Location"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            engine_security_group_id: pulumi_wasm_rust::__private::into_domain(
+            engine_security_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineSecurityGroupId"),
             ),
-            idp_auth_url: pulumi_wasm_rust::__private::into_domain(
+            idp_auth_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("idpAuthUrl"),
             ),
-            idp_relay_state_parameter_name: pulumi_wasm_rust::__private::into_domain(
+            idp_relay_state_parameter_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("idpRelayStateParameterName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            service_role: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            service_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceRole"),
             ),
-            subnet_ids: pulumi_wasm_rust::__private::into_domain(
+            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
-            user_role: pulumi_wasm_rust::__private::into_domain(
+            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
+            user_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userRole"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
-            workspace_security_group_id: pulumi_wasm_rust::__private::into_domain(
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("vpcId"),
+            ),
+            workspace_security_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceSecurityGroupId"),
             ),
         }

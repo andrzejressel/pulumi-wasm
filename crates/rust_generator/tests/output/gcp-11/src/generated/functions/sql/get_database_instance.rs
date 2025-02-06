@@ -1,55 +1,55 @@
 pub mod get_database_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDatabaseInstanceArgs {
         /// The name of the instance.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetDatabaseInstanceResult {
-        pub available_maintenance_versions: pulumi_wasm_rust::Output<Vec<String>>,
-        pub clones: pulumi_wasm_rust::Output<
+        pub available_maintenance_versions: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub clones: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::sql::GetDatabaseInstanceClone>,
         >,
-        pub connection_name: pulumi_wasm_rust::Output<String>,
-        pub database_version: pulumi_wasm_rust::Output<String>,
-        pub deletion_protection: pulumi_wasm_rust::Output<bool>,
-        pub dns_name: pulumi_wasm_rust::Output<String>,
-        pub encryption_key_name: pulumi_wasm_rust::Output<String>,
-        pub first_ip_address: pulumi_wasm_rust::Output<String>,
+        pub connection_name: pulumi_gestalt_rust::Output<String>,
+        pub database_version: pulumi_gestalt_rust::Output<String>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<bool>,
+        pub dns_name: pulumi_gestalt_rust::Output<String>,
+        pub encryption_key_name: pulumi_gestalt_rust::Output<String>,
+        pub first_ip_address: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub instance_type: pulumi_wasm_rust::Output<String>,
-        pub ip_addresses: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub instance_type: pulumi_gestalt_rust::Output<String>,
+        pub ip_addresses: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::sql::GetDatabaseInstanceIpAddress>,
         >,
-        pub maintenance_version: pulumi_wasm_rust::Output<String>,
-        pub master_instance_name: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub private_ip_address: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
-        pub psc_service_attachment_link: pulumi_wasm_rust::Output<String>,
-        pub public_ip_address: pulumi_wasm_rust::Output<String>,
-        pub region: pulumi_wasm_rust::Output<String>,
-        pub replica_configurations: pulumi_wasm_rust::Output<
+        pub maintenance_version: pulumi_gestalt_rust::Output<String>,
+        pub master_instance_name: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub private_ip_address: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
+        pub psc_service_attachment_link: pulumi_gestalt_rust::Output<String>,
+        pub public_ip_address: pulumi_gestalt_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
+        pub replica_configurations: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::sql::GetDatabaseInstanceReplicaConfiguration>,
         >,
-        pub replica_names: pulumi_wasm_rust::Output<Vec<String>>,
-        pub restore_backup_contexts: pulumi_wasm_rust::Output<
+        pub replica_names: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub restore_backup_contexts: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::sql::GetDatabaseInstanceRestoreBackupContext>,
         >,
-        pub root_password: pulumi_wasm_rust::Output<String>,
-        pub self_link: pulumi_wasm_rust::Output<String>,
-        pub server_ca_certs: pulumi_wasm_rust::Output<
+        pub root_password: pulumi_gestalt_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
+        pub server_ca_certs: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::sql::GetDatabaseInstanceServerCaCert>,
         >,
-        pub service_account_email_address: pulumi_wasm_rust::Output<String>,
-        pub settings: pulumi_wasm_rust::Output<
+        pub service_account_email_address: pulumi_gestalt_rust::Output<String>,
+        pub settings: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::sql::GetDatabaseInstanceSetting>,
         >,
     }
@@ -58,10 +58,10 @@ pub mod get_database_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetDatabaseInstanceArgs,
     ) -> GetDatabaseInstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -81,77 +81,81 @@ pub mod get_database_instance {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetDatabaseInstanceResult {
-            available_maintenance_versions: pulumi_wasm_rust::__private::into_domain(
+            available_maintenance_versions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availableMaintenanceVersions"),
             ),
-            clones: pulumi_wasm_rust::__private::into_domain(o.extract_field("clones")),
-            connection_name: pulumi_wasm_rust::__private::into_domain(
+            clones: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("clones"),
+            ),
+            connection_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionName"),
             ),
-            database_version: pulumi_wasm_rust::__private::into_domain(
+            database_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseVersion"),
             ),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            dns_name: pulumi_wasm_rust::__private::into_domain(
+            dns_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsName"),
             ),
-            encryption_key_name: pulumi_wasm_rust::__private::into_domain(
+            encryption_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionKeyName"),
             ),
-            first_ip_address: pulumi_wasm_rust::__private::into_domain(
+            first_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("firstIpAddress"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            instance_type: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            instance_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceType"),
             ),
-            ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddresses"),
             ),
-            maintenance_version: pulumi_wasm_rust::__private::into_domain(
+            maintenance_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceVersion"),
             ),
-            master_instance_name: pulumi_wasm_rust::__private::into_domain(
+            master_instance_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("masterInstanceName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            private_ip_address: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            private_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpAddress"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            psc_service_attachment_link: pulumi_wasm_rust::__private::into_domain(
+            psc_service_attachment_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pscServiceAttachmentLink"),
             ),
-            public_ip_address: pulumi_wasm_rust::__private::into_domain(
+            public_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicIpAddress"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            replica_configurations: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            replica_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicaConfigurations"),
             ),
-            replica_names: pulumi_wasm_rust::__private::into_domain(
+            replica_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicaNames"),
             ),
-            restore_backup_contexts: pulumi_wasm_rust::__private::into_domain(
+            restore_backup_contexts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restoreBackupContexts"),
             ),
-            root_password: pulumi_wasm_rust::__private::into_domain(
+            root_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rootPassword"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            server_ca_certs: pulumi_wasm_rust::__private::into_domain(
+            server_ca_certs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverCaCerts"),
             ),
-            service_account_email_address: pulumi_wasm_rust::__private::into_domain(
+            service_account_email_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccountEmailAddress"),
             ),
-            settings: pulumi_wasm_rust::__private::into_domain(
+            settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("settings"),
             ),
         }

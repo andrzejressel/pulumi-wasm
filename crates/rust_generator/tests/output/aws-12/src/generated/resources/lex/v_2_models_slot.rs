@@ -8,95 +8,95 @@
 /// $ pulumi import aws:lex/v2modelsSlot:V2modelsSlot example bot-1234,1,intent-5678,en-US,slot-9012
 /// ```
 pub mod v_2_models_slot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct V2modelsSlotArgs {
         /// Identifier of the bot associated with the slot.
         #[builder(into)]
-        pub bot_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bot_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Version of the bot associated with the slot.
         #[builder(into)]
-        pub bot_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bot_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description of the slot.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier of the intent that contains the slot.
         #[builder(into)]
-        pub intent_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub intent_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Identifier of the language and locale that the slot will be used in.
         #[builder(into)]
-        pub locale_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub locale_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether the slot returns multiple values in one response.
         /// See the `multiple_values_setting` argument reference below.
         #[builder(into, default)]
-        pub multiple_values_settings: pulumi_wasm_rust::InputOrOutput<
+        pub multiple_values_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::lex::V2ModelsSlotMultipleValuesSetting>>,
         >,
         /// Name of the slot.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Determines how slot values are used in Amazon CloudWatch logs.
         /// See the `obfuscation_setting` argument reference below.
         #[builder(into, default)]
-        pub obfuscation_settings: pulumi_wasm_rust::InputOrOutput<
+        pub obfuscation_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::lex::V2ModelsSlotObfuscationSetting>>,
         >,
         /// Unique identifier for the slot type associated with this slot.
         #[builder(into, default)]
-        pub slot_type_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub slot_type_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifications for the constituent sub slots and the expression for the composite slot.
         /// See the `sub_slot_setting` argument reference below.
         #[builder(into, default)]
-        pub sub_slot_settings: pulumi_wasm_rust::InputOrOutput<
+        pub sub_slot_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::lex::V2ModelsSlotSubSlotSetting>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lex::V2ModelsSlotTimeouts>,
         >,
         #[builder(into, default)]
-        pub value_elicitation_setting: pulumi_wasm_rust::InputOrOutput<
+        pub value_elicitation_setting: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lex::V2ModelsSlotValueElicitationSetting>,
         >,
     }
     #[allow(dead_code)]
     pub struct V2modelsSlotResult {
         /// Identifier of the bot associated with the slot.
-        pub bot_id: pulumi_wasm_rust::Output<String>,
+        pub bot_id: pulumi_gestalt_rust::Output<String>,
         /// Version of the bot associated with the slot.
-        pub bot_version: pulumi_wasm_rust::Output<String>,
+        pub bot_version: pulumi_gestalt_rust::Output<String>,
         /// Description of the slot.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Identifier of the intent that contains the slot.
-        pub intent_id: pulumi_wasm_rust::Output<String>,
+        pub intent_id: pulumi_gestalt_rust::Output<String>,
         /// Identifier of the language and locale that the slot will be used in.
-        pub locale_id: pulumi_wasm_rust::Output<String>,
+        pub locale_id: pulumi_gestalt_rust::Output<String>,
         /// Whether the slot returns multiple values in one response.
         /// See the `multiple_values_setting` argument reference below.
-        pub multiple_values_settings: pulumi_wasm_rust::Output<
+        pub multiple_values_settings: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::lex::V2ModelsSlotMultipleValuesSetting>>,
         >,
         /// Name of the slot.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Determines how slot values are used in Amazon CloudWatch logs.
         /// See the `obfuscation_setting` argument reference below.
-        pub obfuscation_settings: pulumi_wasm_rust::Output<
+        pub obfuscation_settings: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::lex::V2ModelsSlotObfuscationSetting>>,
         >,
         /// Unique identifier associated with the slot.
-        pub slot_id: pulumi_wasm_rust::Output<String>,
+        pub slot_id: pulumi_gestalt_rust::Output<String>,
         /// Unique identifier for the slot type associated with this slot.
-        pub slot_type_id: pulumi_wasm_rust::Output<String>,
+        pub slot_type_id: pulumi_gestalt_rust::Output<String>,
         /// Specifications for the constituent sub slots and the expression for the composite slot.
         /// See the `sub_slot_setting` argument reference below.
-        pub sub_slot_settings: pulumi_wasm_rust::Output<
+        pub sub_slot_settings: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::lex::V2ModelsSlotSubSlotSetting>>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::lex::V2ModelsSlotTimeouts>,
         >,
-        pub value_elicitation_setting: pulumi_wasm_rust::Output<
+        pub value_elicitation_setting: pulumi_gestalt_rust::Output<
             Option<super::super::types::lex::V2ModelsSlotValueElicitationSetting>,
         >,
     }
@@ -105,11 +105,11 @@ pub mod v_2_models_slot {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: V2modelsSlotArgs,
     ) -> V2modelsSlotResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bot_id_binding = args.bot_id.get_output(context).get_inner();
         let bot_version_binding = args.bot_version.get_output(context).get_inner();
@@ -192,37 +192,41 @@ pub mod v_2_models_slot {
         };
         let o = register_interface::register(context.get_inner(), &request);
         V2modelsSlotResult {
-            bot_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("botId")),
-            bot_version: pulumi_wasm_rust::__private::into_domain(
+            bot_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("botId"),
+            ),
+            bot_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("botVersion"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            intent_id: pulumi_wasm_rust::__private::into_domain(
+            intent_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("intentId"),
             ),
-            locale_id: pulumi_wasm_rust::__private::into_domain(
+            locale_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localeId"),
             ),
-            multiple_values_settings: pulumi_wasm_rust::__private::into_domain(
+            multiple_values_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("multipleValuesSettings"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            obfuscation_settings: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            obfuscation_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("obfuscationSettings"),
             ),
-            slot_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("slotId")),
-            slot_type_id: pulumi_wasm_rust::__private::into_domain(
+            slot_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("slotId"),
+            ),
+            slot_type_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("slotTypeId"),
             ),
-            sub_slot_settings: pulumi_wasm_rust::__private::into_domain(
+            sub_slot_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subSlotSettings"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            value_elicitation_setting: pulumi_wasm_rust::__private::into_domain(
+            value_elicitation_setting: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("valueElicitationSetting"),
             ),
         }

@@ -8,8 +8,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let asp = autoscaling_policy::create(
@@ -77,20 +77,20 @@
 /// ```
 ///
 pub mod autoscaling_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AutoscalingPolicyArgs {
         /// Basic algorithm for autoscaling.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub basic_algorithm: pulumi_wasm_rust::InputOrOutput<
+        pub basic_algorithm: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::AutoscalingPolicyBasicAlgorithm>,
         >,
         /// The  location where the autoscaling policy should reside.
         /// The default value is `global`.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The policy id. The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_),
         /// and hyphens (-). Cannot begin or end with underscore or hyphen. Must consist of between
         /// 3 and 50 characters.
@@ -98,21 +98,21 @@ pub mod autoscaling_policy {
         ///
         /// - - -
         #[builder(into)]
-        pub policy_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Describes how the autoscaler will operate for secondary workers.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub secondary_worker_config: pulumi_wasm_rust::InputOrOutput<
+        pub secondary_worker_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::AutoscalingPolicySecondaryWorkerConfig>,
         >,
         /// Describes how the autoscaler will operate for primary workers.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub worker_config: pulumi_wasm_rust::InputOrOutput<
+        pub worker_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::AutoscalingPolicyWorkerConfig>,
         >,
     }
@@ -120,32 +120,32 @@ pub mod autoscaling_policy {
     pub struct AutoscalingPolicyResult {
         /// Basic algorithm for autoscaling.
         /// Structure is documented below.
-        pub basic_algorithm: pulumi_wasm_rust::Output<
+        pub basic_algorithm: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataproc::AutoscalingPolicyBasicAlgorithm>,
         >,
         /// The  location where the autoscaling policy should reside.
         /// The default value is `global`.
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_gestalt_rust::Output<Option<String>>,
         /// The "resource name" of the autoscaling policy.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The policy id. The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_),
         /// and hyphens (-). Cannot begin or end with underscore or hyphen. Must consist of between
         /// 3 and 50 characters.
         ///
         ///
         /// - - -
-        pub policy_id: pulumi_wasm_rust::Output<String>,
+        pub policy_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Describes how the autoscaler will operate for secondary workers.
         /// Structure is documented below.
-        pub secondary_worker_config: pulumi_wasm_rust::Output<
+        pub secondary_worker_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataproc::AutoscalingPolicySecondaryWorkerConfig>,
         >,
         /// Describes how the autoscaler will operate for primary workers.
         /// Structure is documented below.
-        pub worker_config: pulumi_wasm_rust::Output<
+        pub worker_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataproc::AutoscalingPolicyWorkerConfig>,
         >,
     }
@@ -154,11 +154,11 @@ pub mod autoscaling_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AutoscalingPolicyArgs,
     ) -> AutoscalingPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let basic_algorithm_binding = args
             .basic_algorithm
@@ -205,23 +205,23 @@ pub mod autoscaling_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AutoscalingPolicyResult {
-            basic_algorithm: pulumi_wasm_rust::__private::into_domain(
+            basic_algorithm: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("basicAlgorithm"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            policy_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            policy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyId"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            secondary_worker_config: pulumi_wasm_rust::__private::into_domain(
+            secondary_worker_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryWorkerConfig"),
             ),
-            worker_config: pulumi_wasm_rust::__private::into_domain(
+            worker_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workerConfig"),
             ),
         }

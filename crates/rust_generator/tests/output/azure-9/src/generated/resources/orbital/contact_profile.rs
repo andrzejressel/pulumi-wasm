@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -81,69 +81,71 @@
 /// ```
 ///
 pub mod contact_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContactProfileArgs {
         /// Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
         #[builder(into)]
-        pub auto_tracking: pulumi_wasm_rust::InputOrOutput<String>,
+        pub auto_tracking: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         #[builder(into, default)]
-        pub event_hub_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub event_hub_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub links: pulumi_wasm_rust::InputOrOutput<
+        pub links: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::orbital::ContactProfileLink>,
         >,
         /// The location where the contact profile exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Maximum elevation of the antenna during the contact in decimal degrees.
         #[builder(into, default)]
-        pub minimum_elevation_degrees: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub minimum_elevation_degrees: pulumi_gestalt_rust::InputOrOutput<Option<f64>>,
         /// Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         #[builder(into)]
-        pub minimum_variable_contact_duration: pulumi_wasm_rust::InputOrOutput<String>,
+        pub minimum_variable_contact_duration: pulumi_gestalt_rust::InputOrOutput<
+            String,
+        >,
         /// The name of the contact profile. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub network_configuration_subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network_configuration_subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ContactProfileResult {
         /// Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
-        pub auto_tracking: pulumi_wasm_rust::Output<String>,
+        pub auto_tracking: pulumi_gestalt_rust::Output<String>,
         /// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
-        pub event_hub_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub event_hub_uri: pulumi_gestalt_rust::Output<Option<String>>,
         /// A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
-        pub links: pulumi_wasm_rust::Output<
+        pub links: pulumi_gestalt_rust::Output<
             Vec<super::super::types::orbital::ContactProfileLink>,
         >,
         /// The location where the contact profile exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Maximum elevation of the antenna during the contact in decimal degrees.
-        pub minimum_elevation_degrees: pulumi_wasm_rust::Output<Option<f64>>,
+        pub minimum_elevation_degrees: pulumi_gestalt_rust::Output<Option<f64>>,
         /// Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
-        pub minimum_variable_contact_duration: pulumi_wasm_rust::Output<String>,
+        pub minimum_variable_contact_duration: pulumi_gestalt_rust::Output<String>,
         /// The name of the contact profile. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created.
-        pub network_configuration_subnet_id: pulumi_wasm_rust::Output<String>,
+        pub network_configuration_subnet_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -152,11 +154,11 @@ pub mod contact_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ContactProfileArgs,
     ) -> ContactProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_tracking_binding = args.auto_tracking.get_output(context).get_inner();
         let event_hub_uri_binding = args.event_hub_uri.get_output(context).get_inner();
@@ -229,30 +231,30 @@ pub mod contact_profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ContactProfileResult {
-            auto_tracking: pulumi_wasm_rust::__private::into_domain(
+            auto_tracking: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoTracking"),
             ),
-            event_hub_uri: pulumi_wasm_rust::__private::into_domain(
+            event_hub_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventHubUri"),
             ),
-            links: pulumi_wasm_rust::__private::into_domain(o.extract_field("links")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            links: pulumi_gestalt_rust::__private::into_domain(o.extract_field("links")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            minimum_elevation_degrees: pulumi_wasm_rust::__private::into_domain(
+            minimum_elevation_degrees: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minimumElevationDegrees"),
             ),
-            minimum_variable_contact_duration: pulumi_wasm_rust::__private::into_domain(
+            minimum_variable_contact_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minimumVariableContactDuration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_configuration_subnet_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_configuration_subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkConfigurationSubnetId"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

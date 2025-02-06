@@ -1,7 +1,7 @@
 mod native_pulumi_connector;
 
 use anyhow::Context;
-use pulumi_wasm_core::{
+use pulumi_gestalt_core::{
     Engine, FieldName, ForeignFunctionToInvoke, FunctionName, OutputId, PulumiServiceImpl,
 };
 use serde_json::Value;

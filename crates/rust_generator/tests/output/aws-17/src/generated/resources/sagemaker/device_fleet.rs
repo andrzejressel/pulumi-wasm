@@ -5,8 +5,8 @@
 /// ### Basic usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = device_fleet::create(
@@ -32,56 +32,56 @@
 /// $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
 /// ```
 pub mod device_fleet {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeviceFleetArgs {
         /// A description of the fleet.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Device Fleet (must be unique).
         #[builder(into)]
-        pub device_fleet_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub device_fleet_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
         #[builder(into, default)]
-        pub enable_iot_role_alias: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_iot_role_alias: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies details about the repository. see Output Config details below.
         #[builder(into)]
-        pub output_config: pulumi_wasm_rust::InputOrOutput<
+        pub output_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::sagemaker::DeviceFleetOutputConfig,
         >,
         /// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DeviceFleetResult {
         /// The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A description of the fleet.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Device Fleet (must be unique).
-        pub device_fleet_name: pulumi_wasm_rust::Output<String>,
+        pub device_fleet_name: pulumi_gestalt_rust::Output<String>,
         /// Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
-        pub enable_iot_role_alias: pulumi_wasm_rust::Output<Option<bool>>,
-        pub iot_role_alias: pulumi_wasm_rust::Output<String>,
+        pub enable_iot_role_alias: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub iot_role_alias: pulumi_gestalt_rust::Output<String>,
         /// Specifies details about the repository. see Output Config details below.
-        pub output_config: pulumi_wasm_rust::Output<
+        pub output_config: pulumi_gestalt_rust::Output<
             super::super::types::sagemaker::DeviceFleetOutputConfig,
         >,
         /// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -90,11 +90,11 @@ pub mod device_fleet {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DeviceFleetArgs,
     ) -> DeviceFleetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let device_fleet_name_binding = args
@@ -141,27 +141,27 @@ pub mod device_fleet {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DeviceFleetResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            device_fleet_name: pulumi_wasm_rust::__private::into_domain(
+            device_fleet_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deviceFleetName"),
             ),
-            enable_iot_role_alias: pulumi_wasm_rust::__private::into_domain(
+            enable_iot_role_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableIotRoleAlias"),
             ),
-            iot_role_alias: pulumi_wasm_rust::__private::into_domain(
+            iot_role_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iotRoleAlias"),
             ),
-            output_config: pulumi_wasm_rust::__private::into_domain(
+            output_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outputConfig"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

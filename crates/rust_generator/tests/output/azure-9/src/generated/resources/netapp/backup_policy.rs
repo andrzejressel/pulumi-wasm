@@ -3,8 +3,8 @@
 /// ## NetApp Backup Policy Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -44,77 +44,77 @@
 /// ```
 ///
 pub mod backup_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupPolicyArgs {
         /// The name of the NetApp account in which the NetApp Policy should be created under. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Provides the number of daily backups to keep, defaults to `2` which is the minimum, maximum is 1019.
         #[builder(into, default)]
-        pub daily_backups_to_keep: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub daily_backups_to_keep: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Whether the Backup Policy is enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
         ///
         /// > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
         #[builder(into, default)]
-        pub monthly_backups_to_keep: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub monthly_backups_to_keep: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name of the NetApp Backup Policy. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group where the NetApp Backup Policy should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
         #[builder(into, default)]
-        pub weekly_backups_to_keep: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub weekly_backups_to_keep: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct BackupPolicyResult {
         /// The name of the NetApp account in which the NetApp Policy should be created under. Changing this forces a new resource to be created.
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_gestalt_rust::Output<String>,
         /// Provides the number of daily backups to keep, defaults to `2` which is the minimum, maximum is 1019.
-        pub daily_backups_to_keep: pulumi_wasm_rust::Output<Option<i32>>,
+        pub daily_backups_to_keep: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Whether the Backup Policy is enabled. Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Provides the number of monthly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
         ///
         /// > **Note:** Currently, the combined (daily + weekly + monthy) retention counts cannot exceed 1019.
-        pub monthly_backups_to_keep: pulumi_wasm_rust::Output<Option<i32>>,
+        pub monthly_backups_to_keep: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The name of the NetApp Backup Policy. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group where the NetApp Backup Policy should be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Provides the number of weekly backups to keep, defaults to `1` which is the minimum, maximum is 1019.
-        pub weekly_backups_to_keep: pulumi_wasm_rust::Output<Option<i32>>,
+        pub weekly_backups_to_keep: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackupPolicyArgs,
     ) -> BackupPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_name_binding = args.account_name.get_output(context).get_inner();
         let daily_backups_to_keep_binding = args
@@ -182,27 +182,27 @@ pub mod backup_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackupPolicyResult {
-            account_name: pulumi_wasm_rust::__private::into_domain(
+            account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountName"),
             ),
-            daily_backups_to_keep: pulumi_wasm_rust::__private::into_domain(
+            daily_backups_to_keep: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dailyBackupsToKeep"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            monthly_backups_to_keep: pulumi_wasm_rust::__private::into_domain(
+            monthly_backups_to_keep: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monthlyBackupsToKeep"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            weekly_backups_to_keep: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            weekly_backups_to_keep: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("weeklyBackupsToKeep"),
             ),
         }

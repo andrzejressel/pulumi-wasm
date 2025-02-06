@@ -42,7 +42,7 @@
 /// $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
 /// ```
 pub mod domain_saml_options {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainSamlOptionsArgs {
@@ -50,10 +50,10 @@ pub mod domain_saml_options {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// SAML authentication options for an AWS OpenSearch Domain.
         #[builder(into, default)]
-        pub saml_options: pulumi_wasm_rust::InputOrOutput<
+        pub saml_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::opensearch::DomainSamlOptionsSamlOptions>,
         >,
     }
@@ -62,9 +62,9 @@ pub mod domain_saml_options {
         /// Name of the domain.
         ///
         /// The following arguments are optional:
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// SAML authentication options for an AWS OpenSearch Domain.
-        pub saml_options: pulumi_wasm_rust::Output<
+        pub saml_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::opensearch::DomainSamlOptionsSamlOptions>,
         >,
     }
@@ -73,11 +73,11 @@ pub mod domain_saml_options {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DomainSamlOptionsArgs,
     ) -> DomainSamlOptionsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_name_binding = args.domain_name.get_output(context).get_inner();
         let saml_options_binding = args.saml_options.get_output(context).get_inner();
@@ -98,10 +98,10 @@ pub mod domain_saml_options {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DomainSamlOptionsResult {
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            saml_options: pulumi_wasm_rust::__private::into_domain(
+            saml_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("samlOptions"),
             ),
         }

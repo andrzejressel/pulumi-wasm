@@ -6,8 +6,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = rest_api::create("example", RestApiArgs::builder().build_struct());
@@ -33,120 +33,120 @@
 /// $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
 /// ```
 pub mod stage {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StageArgs {
         /// Enables access logs for the API stage. See Access Log Settings below.
         #[builder(into, default)]
-        pub access_log_settings: pulumi_wasm_rust::InputOrOutput<
+        pub access_log_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apigateway::StageAccessLogSettings>,
         >,
         /// Whether a cache cluster is enabled for the stage
         #[builder(into, default)]
-        pub cache_cluster_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub cache_cluster_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
         #[builder(into, default)]
-        pub cache_cluster_size: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cache_cluster_size: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration settings of a canary deployment. See Canary Settings below.
         #[builder(into, default)]
-        pub canary_settings: pulumi_wasm_rust::InputOrOutput<
+        pub canary_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apigateway::StageCanarySettings>,
         >,
         /// Identifier of a client certificate for the stage.
         #[builder(into, default)]
-        pub client_certificate_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_certificate_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the deployment that the stage points to
         #[builder(into)]
-        pub deployment: pulumi_wasm_rust::InputOrOutput<String>,
+        pub deployment: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description of the stage.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Version of the associated API documentation
         #[builder(into, default)]
-        pub documentation_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub documentation_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the associated REST API
         #[builder(into)]
-        pub rest_api: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rest_api: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the stage
         #[builder(into)]
-        pub stage_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub stage_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map that defines the stage variables
         #[builder(into, default)]
-        pub variables: pulumi_wasm_rust::InputOrOutput<
+        pub variables: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Whether active tracing with X-ray is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub xray_tracing_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub xray_tracing_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct StageResult {
         /// Enables access logs for the API stage. See Access Log Settings below.
-        pub access_log_settings: pulumi_wasm_rust::Output<
+        pub access_log_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::apigateway::StageAccessLogSettings>,
         >,
         /// ARN
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Whether a cache cluster is enabled for the stage
-        pub cache_cluster_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub cache_cluster_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
-        pub cache_cluster_size: pulumi_wasm_rust::Output<Option<String>>,
+        pub cache_cluster_size: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration settings of a canary deployment. See Canary Settings below.
-        pub canary_settings: pulumi_wasm_rust::Output<
+        pub canary_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::apigateway::StageCanarySettings>,
         >,
         /// Identifier of a client certificate for the stage.
-        pub client_certificate_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_certificate_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// ID of the deployment that the stage points to
-        pub deployment: pulumi_wasm_rust::Output<String>,
+        pub deployment: pulumi_gestalt_rust::Output<String>,
         /// Description of the stage.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Version of the associated API documentation
-        pub documentation_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub documentation_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// Execution ARN to be used in `lambda_permission`'s `source_arn`
         /// when allowing API Gateway to invoke a Lambda function,
         /// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-        pub execution_arn: pulumi_wasm_rust::Output<String>,
+        pub execution_arn: pulumi_gestalt_rust::Output<String>,
         /// URL to invoke the API pointing to the stage,
         /// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-        pub invoke_url: pulumi_wasm_rust::Output<String>,
+        pub invoke_url: pulumi_gestalt_rust::Output<String>,
         /// ID of the associated REST API
-        pub rest_api: pulumi_wasm_rust::Output<String>,
+        pub rest_api: pulumi_gestalt_rust::Output<String>,
         /// Name of the stage
-        pub stage_name: pulumi_wasm_rust::Output<String>,
+        pub stage_name: pulumi_gestalt_rust::Output<String>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Map that defines the stage variables
-        pub variables: pulumi_wasm_rust::Output<
+        pub variables: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// ARN of the WebAcl associated with the Stage.
-        pub web_acl_arn: pulumi_wasm_rust::Output<String>,
+        pub web_acl_arn: pulumi_gestalt_rust::Output<String>,
         /// Whether active tracing with X-ray is enabled. Defaults to `false`.
-        pub xray_tracing_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub xray_tracing_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StageArgs,
     ) -> StageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_log_settings_binding = args
             .access_log_settings
@@ -243,54 +243,54 @@ pub mod stage {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StageResult {
-            access_log_settings: pulumi_wasm_rust::__private::into_domain(
+            access_log_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessLogSettings"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            cache_cluster_enabled: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            cache_cluster_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cacheClusterEnabled"),
             ),
-            cache_cluster_size: pulumi_wasm_rust::__private::into_domain(
+            cache_cluster_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cacheClusterSize"),
             ),
-            canary_settings: pulumi_wasm_rust::__private::into_domain(
+            canary_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("canarySettings"),
             ),
-            client_certificate_id: pulumi_wasm_rust::__private::into_domain(
+            client_certificate_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertificateId"),
             ),
-            deployment: pulumi_wasm_rust::__private::into_domain(
+            deployment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deployment"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            documentation_version: pulumi_wasm_rust::__private::into_domain(
+            documentation_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("documentationVersion"),
             ),
-            execution_arn: pulumi_wasm_rust::__private::into_domain(
+            execution_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executionArn"),
             ),
-            invoke_url: pulumi_wasm_rust::__private::into_domain(
+            invoke_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("invokeUrl"),
             ),
-            rest_api: pulumi_wasm_rust::__private::into_domain(
+            rest_api: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restApi"),
             ),
-            stage_name: pulumi_wasm_rust::__private::into_domain(
+            stage_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stageName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            variables: pulumi_wasm_rust::__private::into_domain(
+            variables: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("variables"),
             ),
-            web_acl_arn: pulumi_wasm_rust::__private::into_domain(
+            web_acl_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("webAclArn"),
             ),
-            xray_tracing_enabled: pulumi_wasm_rust::__private::into_domain(
+            xray_tracing_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("xrayTracingEnabled"),
             ),
         }

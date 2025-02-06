@@ -88,56 +88,56 @@
 /// $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe
 /// ```
 pub mod vpc_ipam_pool_cidr_allocation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcIpamPoolCidrAllocationArgs {
         /// The CIDR you want to assign to the pool.
         #[builder(into, default)]
-        pub cidr: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cidr: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description for the allocation.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Exclude a particular CIDR range from being returned by the pool.
         #[builder(into, default)]
-        pub disallowed_cidrs: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub disallowed_cidrs: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the pool to which you want to assign a CIDR.
         #[builder(into)]
-        pub ipam_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub ipam_pool_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         #[builder(into, default)]
-        pub netmask_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub netmask_length: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct VpcIpamPoolCidrAllocationResult {
         /// The CIDR you want to assign to the pool.
-        pub cidr: pulumi_wasm_rust::Output<String>,
+        pub cidr: pulumi_gestalt_rust::Output<String>,
         /// The description for the allocation.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Exclude a particular CIDR range from being returned by the pool.
-        pub disallowed_cidrs: pulumi_wasm_rust::Output<Option<Vec<String>>>,
-        pub ipam_pool_allocation_id: pulumi_wasm_rust::Output<String>,
+        pub disallowed_cidrs: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
+        pub ipam_pool_allocation_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the pool to which you want to assign a CIDR.
-        pub ipam_pool_id: pulumi_wasm_rust::Output<String>,
+        pub ipam_pool_id: pulumi_gestalt_rust::Output<String>,
         /// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
-        pub netmask_length: pulumi_wasm_rust::Output<i32>,
+        pub netmask_length: pulumi_gestalt_rust::Output<i32>,
         /// The ID of the resource.
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_gestalt_rust::Output<String>,
         /// The owner of the resource.
-        pub resource_owner: pulumi_wasm_rust::Output<String>,
+        pub resource_owner: pulumi_gestalt_rust::Output<String>,
         /// The type of the resource.
-        pub resource_type: pulumi_wasm_rust::Output<String>,
+        pub resource_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpcIpamPoolCidrAllocationArgs,
     ) -> VpcIpamPoolCidrAllocationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cidr_binding = args.cidr.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -176,29 +176,29 @@ pub mod vpc_ipam_pool_cidr_allocation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpcIpamPoolCidrAllocationResult {
-            cidr: pulumi_wasm_rust::__private::into_domain(o.extract_field("cidr")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            cidr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cidr")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            disallowed_cidrs: pulumi_wasm_rust::__private::into_domain(
+            disallowed_cidrs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disallowedCidrs"),
             ),
-            ipam_pool_allocation_id: pulumi_wasm_rust::__private::into_domain(
+            ipam_pool_allocation_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipamPoolAllocationId"),
             ),
-            ipam_pool_id: pulumi_wasm_rust::__private::into_domain(
+            ipam_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipamPoolId"),
             ),
-            netmask_length: pulumi_wasm_rust::__private::into_domain(
+            netmask_length: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("netmaskLength"),
             ),
-            resource_id: pulumi_wasm_rust::__private::into_domain(
+            resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceId"),
             ),
-            resource_owner: pulumi_wasm_rust::__private::into_domain(
+            resource_owner: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceOwner"),
             ),
-            resource_type: pulumi_wasm_rust::__private::into_domain(
+            resource_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceType"),
             ),
         }

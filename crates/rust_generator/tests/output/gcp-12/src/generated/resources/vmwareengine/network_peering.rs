@@ -87,27 +87,27 @@
 /// ```
 ///
 pub mod network_peering {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkPeeringArgs {
         /// User-provided description for this network peering.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// True if custom routes are exported to the peered network; false otherwise.
         #[builder(into, default)]
-        pub export_custom_routes: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub export_custom_routes: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// True if all subnet routes with a public IP address range are exported; false otherwise.
         #[builder(into, default)]
-        pub export_custom_routes_with_public_ip: pulumi_wasm_rust::InputOrOutput<
+        pub export_custom_routes_with_public_ip: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// True if custom routes are imported from the peered network; false otherwise.
         #[builder(into, default)]
-        pub import_custom_routes: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub import_custom_routes: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// True if custom routes are imported from the peered network; false otherwise.
         #[builder(into, default)]
-        pub import_custom_routes_with_public_ip: pulumi_wasm_rust::InputOrOutput<
+        pub import_custom_routes_with_public_ip: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The ID of the Network Peering.
@@ -115,85 +115,89 @@ pub mod network_peering {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The relative resource name of the network to peer with a standard VMware Engine network.
         /// The provided network can be a consumer VPC network or another standard VMware Engine network.
         #[builder(into)]
-        pub peer_network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub peer_network: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of the network to peer with the VMware Engine network.
         /// Possible values are: `STANDARD`, `VMWARE_ENGINE_NETWORK`, `PRIVATE_SERVICES_ACCESS`, `NETAPP_CLOUD_VOLUMES`, `THIRD_PARTY_SERVICE`, `DELL_POWERSCALE`.
         #[builder(into)]
-        pub peer_network_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub peer_network_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The relative resource name of the VMware Engine network. Specify the name in the following form:
         /// projects/{project}/locations/{location}/vmwareEngineNetworks/{vmwareEngineNetworkId} where {project}
         /// can either be a project number or a project ID.
         #[builder(into)]
-        pub vmware_engine_network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vmware_engine_network: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NetworkPeeringResult {
         /// Creation time of this resource.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and
         /// up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// User-provided description for this network peering.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// True if custom routes are exported to the peered network; false otherwise.
-        pub export_custom_routes: pulumi_wasm_rust::Output<Option<bool>>,
+        pub export_custom_routes: pulumi_gestalt_rust::Output<Option<bool>>,
         /// True if all subnet routes with a public IP address range are exported; false otherwise.
-        pub export_custom_routes_with_public_ip: pulumi_wasm_rust::Output<Option<bool>>,
+        pub export_custom_routes_with_public_ip: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// True if custom routes are imported from the peered network; false otherwise.
-        pub import_custom_routes: pulumi_wasm_rust::Output<Option<bool>>,
+        pub import_custom_routes: pulumi_gestalt_rust::Output<Option<bool>>,
         /// True if custom routes are imported from the peered network; false otherwise.
-        pub import_custom_routes_with_public_ip: pulumi_wasm_rust::Output<Option<bool>>,
+        pub import_custom_routes_with_public_ip: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// The ID of the Network Peering.
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The relative resource name of the network to peer with a standard VMware Engine network.
         /// The provided network can be a consumer VPC network or another standard VMware Engine network.
-        pub peer_network: pulumi_wasm_rust::Output<String>,
+        pub peer_network: pulumi_gestalt_rust::Output<String>,
         /// The type of the network to peer with the VMware Engine network.
         /// Possible values are: `STANDARD`, `VMWARE_ENGINE_NETWORK`, `PRIVATE_SERVICES_ACCESS`, `NETAPP_CLOUD_VOLUMES`, `THIRD_PARTY_SERVICE`, `DELL_POWERSCALE`.
-        pub peer_network_type: pulumi_wasm_rust::Output<String>,
+        pub peer_network_type: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// State of the network peering.
         /// This field has a value of 'ACTIVE' when there's a matching configuration in the peer network.
         /// New values may be added to this enum when appropriate.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Details about the current state of the network peering.
-        pub state_details: pulumi_wasm_rust::Output<String>,
+        pub state_details: pulumi_gestalt_rust::Output<String>,
         /// System-generated unique identifier for the resource.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Last updated time of this resource.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine
         /// fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// The relative resource name of the VMware Engine network. Specify the name in the following form:
         /// projects/{project}/locations/{location}/vmwareEngineNetworks/{vmwareEngineNetworkId} where {project}
         /// can either be a project number or a project ID.
-        pub vmware_engine_network: pulumi_wasm_rust::Output<String>,
+        pub vmware_engine_network: pulumi_gestalt_rust::Output<String>,
         /// The canonical name of the VMware Engine network in the form:
         /// projects/{project_number}/locations/{location}/vmwareEngineNetworks/{vmwareEngineNetworkId}
-        pub vmware_engine_network_canonical: pulumi_wasm_rust::Output<String>,
+        pub vmware_engine_network_canonical: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkPeeringArgs,
     ) -> NetworkPeeringResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let export_custom_routes_binding = args
@@ -272,46 +276,46 @@ pub mod network_peering {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkPeeringResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            export_custom_routes: pulumi_wasm_rust::__private::into_domain(
+            export_custom_routes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exportCustomRoutes"),
             ),
-            export_custom_routes_with_public_ip: pulumi_wasm_rust::__private::into_domain(
+            export_custom_routes_with_public_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exportCustomRoutesWithPublicIp"),
             ),
-            import_custom_routes: pulumi_wasm_rust::__private::into_domain(
+            import_custom_routes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("importCustomRoutes"),
             ),
-            import_custom_routes_with_public_ip: pulumi_wasm_rust::__private::into_domain(
+            import_custom_routes_with_public_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("importCustomRoutesWithPublicIp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            peer_network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            peer_network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peerNetwork"),
             ),
-            peer_network_type: pulumi_wasm_rust::__private::into_domain(
+            peer_network_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peerNetworkType"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            state_details: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            state_details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateDetails"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            vmware_engine_network: pulumi_wasm_rust::__private::into_domain(
+            vmware_engine_network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vmwareEngineNetwork"),
             ),
-            vmware_engine_network_canonical: pulumi_wasm_rust::__private::into_domain(
+            vmware_engine_network_canonical: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vmwareEngineNetworkCanonical"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ### DynamoDB Table Autoscaling
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let dynamodbTableReadPolicy = policy::create(
@@ -78,8 +78,8 @@
 /// ### Preserve desired count when updating an autoscaled ECS Service
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let ecsService = service::create(
@@ -97,8 +97,8 @@
 /// ### Aurora Read Replica Autoscaling
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let replicas = target::create(
@@ -139,8 +139,8 @@
 /// ### Create target tracking scaling policy using metric math
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let ecsTarget = target::create(
@@ -209,8 +209,8 @@
 /// ### MSK / Kafka Autoscaling
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let mskTarget = target::create(
@@ -254,35 +254,35 @@
 /// $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
 /// ```
 pub mod policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyArgs {
         /// Name of the policy. Must be between 1 and 255 characters in length.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
         #[builder(into, default)]
-        pub policy_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub policy_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         #[builder(into)]
-        pub resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         #[builder(into)]
-        pub scalable_dimension: pulumi_wasm_rust::InputOrOutput<String>,
+        pub scalable_dimension: pulumi_gestalt_rust::InputOrOutput<String>,
         /// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         #[builder(into)]
-        pub service_namespace: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_namespace: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
         #[builder(into, default)]
-        pub step_scaling_policy_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub step_scaling_policy_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::appautoscaling::PolicyStepScalingPolicyConfiguration,
             >,
         >,
         /// Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         #[builder(into, default)]
-        pub target_tracking_scaling_policy_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub target_tracking_scaling_policy_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::appautoscaling::PolicyTargetTrackingScalingPolicyConfiguration,
             >,
@@ -291,27 +291,27 @@ pub mod policy {
     #[allow(dead_code)]
     pub struct PolicyResult {
         /// List of CloudWatch alarm ARNs associated with the scaling policy.
-        pub alarm_arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub alarm_arns: pulumi_gestalt_rust::Output<Vec<String>>,
         /// ARN assigned by AWS to the scaling policy.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Name of the policy. Must be between 1 and 255 characters in length.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
-        pub policy_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_gestalt_rust::Output<String>,
         /// Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
-        pub scalable_dimension: pulumi_wasm_rust::Output<String>,
+        pub scalable_dimension: pulumi_gestalt_rust::Output<String>,
         /// AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
-        pub service_namespace: pulumi_wasm_rust::Output<String>,
+        pub service_namespace: pulumi_gestalt_rust::Output<String>,
         /// Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
-        pub step_scaling_policy_configuration: pulumi_wasm_rust::Output<
+        pub step_scaling_policy_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::appautoscaling::PolicyStepScalingPolicyConfiguration,
             >,
         >,
         /// Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
-        pub target_tracking_scaling_policy_configuration: pulumi_wasm_rust::Output<
+        pub target_tracking_scaling_policy_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::appautoscaling::PolicyTargetTrackingScalingPolicyConfiguration,
             >,
@@ -322,11 +322,11 @@ pub mod policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicyArgs,
     ) -> PolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let policy_type_binding = args.policy_type.get_output(context).get_inner();
@@ -384,27 +384,27 @@ pub mod policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicyResult {
-            alarm_arns: pulumi_wasm_rust::__private::into_domain(
+            alarm_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("alarmArns"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            policy_type: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            policy_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyType"),
             ),
-            resource_id: pulumi_wasm_rust::__private::into_domain(
+            resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceId"),
             ),
-            scalable_dimension: pulumi_wasm_rust::__private::into_domain(
+            scalable_dimension: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scalableDimension"),
             ),
-            service_namespace: pulumi_wasm_rust::__private::into_domain(
+            service_namespace: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceNamespace"),
             ),
-            step_scaling_policy_configuration: pulumi_wasm_rust::__private::into_domain(
+            step_scaling_policy_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stepScalingPolicyConfiguration"),
             ),
-            target_tracking_scaling_policy_configuration: pulumi_wasm_rust::__private::into_domain(
+            target_tracking_scaling_policy_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetTrackingScalingPolicyConfiguration"),
             ),
         }

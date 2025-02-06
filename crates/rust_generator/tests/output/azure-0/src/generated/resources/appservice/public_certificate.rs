@@ -52,51 +52,51 @@
 /// ```
 ///
 pub mod public_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PublicCertificateArgs {
         /// The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
         #[builder(into)]
-        pub app_service_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_service_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
         #[builder(into)]
-        pub blob: pulumi_wasm_rust::InputOrOutput<String>,
+        pub blob: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
         #[builder(into)]
-        pub certificate_location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate_location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the public certificate. Changing this forces a new App Service Public Certificate to be created.
         #[builder(into)]
-        pub certificate_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the App Service Public Certificate should exist. Changing this forces a new App Service Public Certificate to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PublicCertificateResult {
         /// The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
-        pub app_service_name: pulumi_wasm_rust::Output<String>,
+        pub app_service_name: pulumi_gestalt_rust::Output<String>,
         /// The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created.
-        pub blob: pulumi_wasm_rust::Output<String>,
+        pub blob: pulumi_gestalt_rust::Output<String>,
         /// The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created.
-        pub certificate_location: pulumi_wasm_rust::Output<String>,
+        pub certificate_location: pulumi_gestalt_rust::Output<String>,
         /// The name of the public certificate. Changing this forces a new App Service Public Certificate to be created.
-        pub certificate_name: pulumi_wasm_rust::Output<String>,
+        pub certificate_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the App Service Public Certificate should exist. Changing this forces a new App Service Public Certificate to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The thumbprint of the public certificate.
-        pub thumbprint: pulumi_wasm_rust::Output<String>,
+        pub thumbprint: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PublicCertificateArgs,
     ) -> PublicCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_service_name_binding = args
             .app_service_name
@@ -144,20 +144,20 @@ pub mod public_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PublicCertificateResult {
-            app_service_name: pulumi_wasm_rust::__private::into_domain(
+            app_service_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appServiceName"),
             ),
-            blob: pulumi_wasm_rust::__private::into_domain(o.extract_field("blob")),
-            certificate_location: pulumi_wasm_rust::__private::into_domain(
+            blob: pulumi_gestalt_rust::__private::into_domain(o.extract_field("blob")),
+            certificate_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateLocation"),
             ),
-            certificate_name: pulumi_wasm_rust::__private::into_domain(
+            certificate_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateName"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            thumbprint: pulumi_wasm_rust::__private::into_domain(
+            thumbprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("thumbprint"),
             ),
         }

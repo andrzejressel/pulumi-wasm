@@ -48,47 +48,47 @@
 /// ```
 ///
 pub mod api_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiConnectionArgs {
         /// A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
         #[builder(into)]
-        pub managed_api_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub managed_api_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub parameter_values: pulumi_wasm_rust::InputOrOutput<
+        pub parameter_values: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the API Connection.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ApiConnectionResult {
         /// A display name for this API Connection. Defaults to `Service Bus`. Changing this forces a new API Connection to be created.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created.
-        pub managed_api_id: pulumi_wasm_rust::Output<String>,
+        pub managed_api_id: pulumi_gestalt_rust::Output<String>,
         /// The Name which should be used for this API Connection. Changing this forces a new API Connection to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub parameter_values: pulumi_wasm_rust::Output<
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub parameter_values: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the API Connection.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -97,11 +97,11 @@ pub mod api_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApiConnectionArgs,
     ) -> ApiConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let display_name_binding = args.display_name.get_output(context).get_inner();
         let managed_api_id_binding = args.managed_api_id.get_output(context).get_inner();
@@ -148,20 +148,20 @@ pub mod api_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApiConnectionResult {
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            managed_api_id: pulumi_wasm_rust::__private::into_domain(
+            managed_api_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedApiId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameter_values: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameter_values: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameterValues"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

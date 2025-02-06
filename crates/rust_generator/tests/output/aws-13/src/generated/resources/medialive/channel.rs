@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = channel::create(
@@ -95,119 +95,119 @@
 /// $ pulumi import aws:medialive/channel:Channel example 1234567
 /// ```
 pub mod channel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ChannelArgs {
         /// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
         #[builder(into, default)]
-        pub cdi_input_specification: pulumi_wasm_rust::InputOrOutput<
+        pub cdi_input_specification: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::medialive::ChannelCdiInputSpecification>,
         >,
         /// Concise argument description.
         #[builder(into)]
-        pub channel_class: pulumi_wasm_rust::InputOrOutput<String>,
+        pub channel_class: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Destinations for channel. See Destinations for more details.
         #[builder(into)]
-        pub destinations: pulumi_wasm_rust::InputOrOutput<
+        pub destinations: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::medialive::ChannelDestination>,
         >,
         /// Encoder settings. See Encoder Settings for more details.
         #[builder(into)]
-        pub encoder_settings: pulumi_wasm_rust::InputOrOutput<
+        pub encoder_settings: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::medialive::ChannelEncoderSettings,
         >,
         /// Input attachments for the channel. See Input Attachments for more details.
         #[builder(into)]
-        pub input_attachments: pulumi_wasm_rust::InputOrOutput<
+        pub input_attachments: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::medialive::ChannelInputAttachment>,
         >,
         /// Specification of network and file inputs for the channel.
         #[builder(into)]
-        pub input_specification: pulumi_wasm_rust::InputOrOutput<
+        pub input_specification: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::medialive::ChannelInputSpecification,
         >,
         /// The log level to write to Cloudwatch logs.
         #[builder(into, default)]
-        pub log_level: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub log_level: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Maintenance settings for this channel. See Maintenance for more details.
         #[builder(into, default)]
-        pub maintenance: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::medialive::ChannelMaintenance>,
         >,
         /// Name of the Channel.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Concise argument description.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether to start/stop channel. Default: `false`
         #[builder(into, default)]
-        pub start_channel: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub start_channel: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Settings for the VPC outputs. See VPC for more details.
         #[builder(into, default)]
-        pub vpc: pulumi_wasm_rust::InputOrOutput<
+        pub vpc: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::medialive::ChannelVpc>,
         >,
     }
     #[allow(dead_code)]
     pub struct ChannelResult {
         /// ARN of the Channel.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Specification of CDI inputs for this channel. See CDI Input Specification for more details.
-        pub cdi_input_specification: pulumi_wasm_rust::Output<
+        pub cdi_input_specification: pulumi_gestalt_rust::Output<
             Option<super::super::types::medialive::ChannelCdiInputSpecification>,
         >,
         /// Concise argument description.
-        pub channel_class: pulumi_wasm_rust::Output<String>,
+        pub channel_class: pulumi_gestalt_rust::Output<String>,
         /// ID of the Channel.
-        pub channel_id: pulumi_wasm_rust::Output<String>,
+        pub channel_id: pulumi_gestalt_rust::Output<String>,
         /// Destinations for channel. See Destinations for more details.
-        pub destinations: pulumi_wasm_rust::Output<
+        pub destinations: pulumi_gestalt_rust::Output<
             Vec<super::super::types::medialive::ChannelDestination>,
         >,
         /// Encoder settings. See Encoder Settings for more details.
-        pub encoder_settings: pulumi_wasm_rust::Output<
+        pub encoder_settings: pulumi_gestalt_rust::Output<
             super::super::types::medialive::ChannelEncoderSettings,
         >,
         /// Input attachments for the channel. See Input Attachments for more details.
-        pub input_attachments: pulumi_wasm_rust::Output<
+        pub input_attachments: pulumi_gestalt_rust::Output<
             Vec<super::super::types::medialive::ChannelInputAttachment>,
         >,
         /// Specification of network and file inputs for the channel.
-        pub input_specification: pulumi_wasm_rust::Output<
+        pub input_specification: pulumi_gestalt_rust::Output<
             super::super::types::medialive::ChannelInputSpecification,
         >,
         /// The log level to write to Cloudwatch logs.
-        pub log_level: pulumi_wasm_rust::Output<String>,
+        pub log_level: pulumi_gestalt_rust::Output<String>,
         /// Maintenance settings for this channel. See Maintenance for more details.
-        pub maintenance: pulumi_wasm_rust::Output<
+        pub maintenance: pulumi_gestalt_rust::Output<
             super::super::types::medialive::ChannelMaintenance,
         >,
         /// Name of the Channel.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Concise argument description.
-        pub role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether to start/stop channel. Default: `false`
-        pub start_channel: pulumi_wasm_rust::Output<Option<bool>>,
+        pub start_channel: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Settings for the VPC outputs. See VPC for more details.
-        pub vpc: pulumi_wasm_rust::Output<
+        pub vpc: pulumi_gestalt_rust::Output<
             Option<super::super::types::medialive::ChannelVpc>,
         >,
     }
@@ -216,11 +216,11 @@ pub mod channel {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ChannelArgs,
     ) -> ChannelResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cdi_input_specification_binding = args
             .cdi_input_specification
@@ -308,46 +308,46 @@ pub mod channel {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ChannelResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            cdi_input_specification: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            cdi_input_specification: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdiInputSpecification"),
             ),
-            channel_class: pulumi_wasm_rust::__private::into_domain(
+            channel_class: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("channelClass"),
             ),
-            channel_id: pulumi_wasm_rust::__private::into_domain(
+            channel_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("channelId"),
             ),
-            destinations: pulumi_wasm_rust::__private::into_domain(
+            destinations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinations"),
             ),
-            encoder_settings: pulumi_wasm_rust::__private::into_domain(
+            encoder_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encoderSettings"),
             ),
-            input_attachments: pulumi_wasm_rust::__private::into_domain(
+            input_attachments: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inputAttachments"),
             ),
-            input_specification: pulumi_wasm_rust::__private::into_domain(
+            input_specification: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inputSpecification"),
             ),
-            log_level: pulumi_wasm_rust::__private::into_domain(
+            log_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logLevel"),
             ),
-            maintenance: pulumi_wasm_rust::__private::into_domain(
+            maintenance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenance"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            start_channel: pulumi_wasm_rust::__private::into_domain(
+            start_channel: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startChannel"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vpc: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpc")),
+            vpc: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpc")),
         }
     }
 }

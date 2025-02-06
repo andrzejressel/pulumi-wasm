@@ -53,64 +53,64 @@
 /// ```
 ///
 pub mod iam_custom_role {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IAMCustomRoleArgs {
         /// A human-readable description for the role.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The names of the permissions this role grants when bound in an IAM policy. At least one permission must be specified.
         #[builder(into)]
-        pub permissions: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub permissions: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The project that the custom role will be created in.
         /// Defaults to the provider project configuration.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The camel case role id to use for this role. Cannot contain `-` characters.
         #[builder(into, default)]
-        pub role_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The current launch stage of the role.
         /// Defaults to `GA`.
         /// List of possible stages is [here](https://cloud.google.com/iam/reference/rest/v1/organizations.roles#Role.RoleLaunchStage).
         #[builder(into, default)]
-        pub stage: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub stage: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A human-readable title for the role.
         #[builder(into)]
-        pub title: pulumi_wasm_rust::InputOrOutput<String>,
+        pub title: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IAMCustomRoleResult {
         /// (Optional) The current deleted state of the role.
-        pub deleted: pulumi_wasm_rust::Output<bool>,
+        pub deleted: pulumi_gestalt_rust::Output<bool>,
         /// A human-readable description for the role.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the role in the format `projects/{{project}}/roles/{{role_id}}`. Like `id`, this field can be used as a reference in other resources such as IAM role bindings.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The names of the permissions this role grants when bound in an IAM policy. At least one permission must be specified.
-        pub permissions: pulumi_wasm_rust::Output<Vec<String>>,
+        pub permissions: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The project that the custom role will be created in.
         /// Defaults to the provider project configuration.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The camel case role id to use for this role. Cannot contain `-` characters.
-        pub role_id: pulumi_wasm_rust::Output<String>,
+        pub role_id: pulumi_gestalt_rust::Output<String>,
         /// The current launch stage of the role.
         /// Defaults to `GA`.
         /// List of possible stages is [here](https://cloud.google.com/iam/reference/rest/v1/organizations.roles#Role.RoleLaunchStage).
-        pub stage: pulumi_wasm_rust::Output<Option<String>>,
+        pub stage: pulumi_gestalt_rust::Output<Option<String>>,
         /// A human-readable title for the role.
-        pub title: pulumi_wasm_rust::Output<String>,
+        pub title: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IAMCustomRoleArgs,
     ) -> IAMCustomRoleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let permissions_binding = args.permissions.get_output(context).get_inner();
@@ -151,22 +151,24 @@ pub mod iam_custom_role {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IAMCustomRoleResult {
-            deleted: pulumi_wasm_rust::__private::into_domain(
+            deleted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleted"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            permissions: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissions"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            role_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("roleId")),
-            stage: pulumi_wasm_rust::__private::into_domain(o.extract_field("stage")),
-            title: pulumi_wasm_rust::__private::into_domain(o.extract_field("title")),
+            role_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("roleId"),
+            ),
+            stage: pulumi_gestalt_rust::__private::into_domain(o.extract_field("stage")),
+            title: pulumi_gestalt_rust::__private::into_domain(o.extract_field("title")),
         }
     }
 }

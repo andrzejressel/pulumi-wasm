@@ -56,34 +56,34 @@
 /// ```
 ///
 pub mod ekm_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EkmConnectionArgs {
         /// Optional. Identifies the EKM Crypto Space that this EkmConnection maps to. Note: This field is required if
         /// KeyManagementMode is CLOUD_KMS.
         #[builder(into, default)]
-        pub crypto_space_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub crypto_space_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. Etag of the currently stored EkmConnection.
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub etag: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. Describes who can perform control plane operations on the EKM. If unset, this defaults to MANUAL Default
         /// value: "MANUAL" Possible values: ["MANUAL", "CLOUD_KMS"]
         #[builder(into, default)]
-        pub key_management_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key_management_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location for the EkmConnection.
         /// A full list of valid locations can be found by running `gcloud kms locations list`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource name for the EkmConnection.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of ServiceResolvers where the EKM can be reached. There should be one ServiceResolver per EKM replica. Currently, only a single ServiceResolver is supported
         /// Structure is documented below.
         #[builder(into)]
-        pub service_resolvers: pulumi_wasm_rust::InputOrOutput<
+        pub service_resolvers: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::kms::EkmConnectionServiceResolver>,
         >,
     }
@@ -91,24 +91,24 @@ pub mod ekm_connection {
     pub struct EkmConnectionResult {
         /// Output only. The time at which the EkmConnection was created.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Optional. Identifies the EKM Crypto Space that this EkmConnection maps to. Note: This field is required if
         /// KeyManagementMode is CLOUD_KMS.
-        pub crypto_space_path: pulumi_wasm_rust::Output<String>,
+        pub crypto_space_path: pulumi_gestalt_rust::Output<String>,
         /// Optional. Etag of the currently stored EkmConnection.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Optional. Describes who can perform control plane operations on the EKM. If unset, this defaults to MANUAL Default
         /// value: "MANUAL" Possible values: ["MANUAL", "CLOUD_KMS"]
-        pub key_management_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub key_management_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The location for the EkmConnection.
         /// A full list of valid locations can be found by running `gcloud kms locations list`.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource name for the EkmConnection.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// A list of ServiceResolvers where the EKM can be reached. There should be one ServiceResolver per EKM replica. Currently, only a single ServiceResolver is supported
         /// Structure is documented below.
-        pub service_resolvers: pulumi_wasm_rust::Output<
+        pub service_resolvers: pulumi_gestalt_rust::Output<
             Vec<super::super::types::kms::EkmConnectionServiceResolver>,
         >,
     }
@@ -117,11 +117,11 @@ pub mod ekm_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EkmConnectionArgs,
     ) -> EkmConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let crypto_space_path_binding = args
             .crypto_space_path
@@ -176,24 +176,24 @@ pub mod ekm_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EkmConnectionResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            crypto_space_path: pulumi_wasm_rust::__private::into_domain(
+            crypto_space_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cryptoSpacePath"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            key_management_mode: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            key_management_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyManagementMode"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            service_resolvers: pulumi_wasm_rust::__private::into_domain(
+            service_resolvers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceResolvers"),
             ),
         }

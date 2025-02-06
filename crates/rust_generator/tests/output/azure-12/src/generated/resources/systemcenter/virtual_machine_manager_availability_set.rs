@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -52,49 +52,49 @@
 /// ```
 ///
 pub mod virtual_machine_manager_availability_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualMachineManagerAvailabilitySetArgs {
         /// The ID of the Custom Location for the System Center Virtual Machine Manager Availability Set. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub custom_location_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub custom_location_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Azure Region where the System Center Virtual Machine Manager Availability Set should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the System Center Virtual Machine Manager Availability Set. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the System Center Virtual Machine Availability Set should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub system_center_virtual_machine_manager_server_id: pulumi_wasm_rust::InputOrOutput<
+        pub system_center_virtual_machine_manager_server_id: pulumi_gestalt_rust::InputOrOutput<
             String,
         >,
         /// A mapping of tags which should be assigned to the System Center Virtual Machine Manager Availability Set.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct VirtualMachineManagerAvailabilitySetResult {
         /// The ID of the Custom Location for the System Center Virtual Machine Manager Availability Set. Changing this forces a new resource to be created.
-        pub custom_location_id: pulumi_wasm_rust::Output<String>,
+        pub custom_location_id: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region where the System Center Virtual Machine Manager Availability Set should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the System Center Virtual Machine Manager Availability Set. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the System Center Virtual Machine Availability Set should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the System Center Virtual Machine Manager Server. Changing this forces a new resource to be created.
-        pub system_center_virtual_machine_manager_server_id: pulumi_wasm_rust::Output<
+        pub system_center_virtual_machine_manager_server_id: pulumi_gestalt_rust::Output<
             String,
         >,
         /// A mapping of tags which should be assigned to the System Center Virtual Machine Manager Availability Set.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -103,11 +103,11 @@ pub mod virtual_machine_manager_availability_set {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VirtualMachineManagerAvailabilitySetArgs,
     ) -> VirtualMachineManagerAvailabilitySetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let custom_location_id_binding = args
             .custom_location_id
@@ -158,20 +158,20 @@ pub mod virtual_machine_manager_availability_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VirtualMachineManagerAvailabilitySetResult {
-            custom_location_id: pulumi_wasm_rust::__private::into_domain(
+            custom_location_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customLocationId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            system_center_virtual_machine_manager_server_id: pulumi_wasm_rust::__private::into_domain(
+            system_center_virtual_machine_manager_server_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("systemCenterVirtualMachineManagerServerId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let attestor = attestor::create(
@@ -75,8 +75,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let attestor = attestor::create(
@@ -140,14 +140,14 @@
 /// ```
 ///
 pub mod policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyArgs {
         /// A whitelist of image patterns to exclude from admission rules. If an image's name matches a whitelist pattern, the
         /// image's admission requests will always be permitted regardless of your admission rules.
         #[builder(into, default)]
-        pub admission_whitelist_patterns: pulumi_wasm_rust::InputOrOutput<
+        pub admission_whitelist_patterns: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::binaryauthorization::PolicyAdmissionWhitelistPattern,
@@ -159,7 +159,7 @@ pub mod policy {
         /// denied. There can be at most one admission rule per cluster spec. Identifier format: '{{location}}.{{clusterId}}'. A
         /// location is either a compute zone (e.g. 'us-central1-a') or a region (e.g. 'us-central1').
         #[builder(into, default)]
-        pub cluster_admission_rules: pulumi_wasm_rust::InputOrOutput<
+        pub cluster_admission_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::binaryauthorization::PolicyClusterAdmissionRule>,
             >,
@@ -168,26 +168,26 @@ pub mod policy {
         /// rule.
         /// Structure is documented below.
         #[builder(into)]
-        pub default_admission_rule: pulumi_wasm_rust::InputOrOutput<
+        pub default_admission_rule: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::binaryauthorization::PolicyDefaultAdmissionRule,
         >,
         /// A descriptive comment.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Controls the evaluation of a Google-maintained global admission policy for common system-level images. Images not
         /// covered by the global policy will be subject to the project admission policy. Possible values: ["ENABLE", "DISABLE"]
         #[builder(into, default)]
-        pub global_policy_evaluation_mode: pulumi_wasm_rust::InputOrOutput<
+        pub global_policy_evaluation_mode: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PolicyResult {
         /// A whitelist of image patterns to exclude from admission rules. If an image's name matches a whitelist pattern, the
         /// image's admission requests will always be permitted regardless of your admission rules.
-        pub admission_whitelist_patterns: pulumi_wasm_rust::Output<
+        pub admission_whitelist_patterns: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::binaryauthorization::PolicyAdmissionWhitelistPattern,
@@ -198,7 +198,7 @@ pub mod policy {
         /// must be attested to by one or more attestors, that all pod creations will be allowed, or that all pod creations will be
         /// denied. There can be at most one admission rule per cluster spec. Identifier format: '{{location}}.{{clusterId}}'. A
         /// location is either a compute zone (e.g. 'us-central1-a') or a region (e.g. 'us-central1').
-        pub cluster_admission_rules: pulumi_wasm_rust::Output<
+        pub cluster_admission_rules: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::binaryauthorization::PolicyClusterAdmissionRule>,
             >,
@@ -206,26 +206,26 @@ pub mod policy {
         /// Default admission rule for a cluster without a per-cluster admission
         /// rule.
         /// Structure is documented below.
-        pub default_admission_rule: pulumi_wasm_rust::Output<
+        pub default_admission_rule: pulumi_gestalt_rust::Output<
             super::super::types::binaryauthorization::PolicyDefaultAdmissionRule,
         >,
         /// A descriptive comment.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Controls the evaluation of a Google-maintained global admission policy for common system-level images. Images not
         /// covered by the global policy will be subject to the project admission policy. Possible values: ["ENABLE", "DISABLE"]
-        pub global_policy_evaluation_mode: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub global_policy_evaluation_mode: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicyArgs,
     ) -> PolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let admission_whitelist_patterns_binding = args
             .admission_whitelist_patterns
@@ -278,22 +278,24 @@ pub mod policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicyResult {
-            admission_whitelist_patterns: pulumi_wasm_rust::__private::into_domain(
+            admission_whitelist_patterns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("admissionWhitelistPatterns"),
             ),
-            cluster_admission_rules: pulumi_wasm_rust::__private::into_domain(
+            cluster_admission_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterAdmissionRules"),
             ),
-            default_admission_rule: pulumi_wasm_rust::__private::into_domain(
+            default_admission_rule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultAdmissionRule"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            global_policy_evaluation_mode: pulumi_wasm_rust::__private::into_domain(
+            global_policy_evaluation_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalPolicyEvaluationMode"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

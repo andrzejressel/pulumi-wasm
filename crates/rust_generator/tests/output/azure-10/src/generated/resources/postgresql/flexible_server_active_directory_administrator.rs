@@ -57,54 +57,54 @@
 /// ```
 ///
 pub mod flexible_server_active_directory_administrator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FlexibleServerActiveDirectoryAdministratorArgs {
         /// The object ID of a user, service principal or security group in the Azure Active Directory tenant set as the Flexible Server Admin. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub object_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub object_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of Azure Active Directory principal. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub principal_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub principal_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of Azure Active Directory principal. Possible values are `Group`, `ServicePrincipal` and `User`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub principal_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub principal_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group for the PostgreSQL Server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the PostgreSQL Flexible Server on which to set the administrator. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub server_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub server_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Azure Tenant ID. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub tenant_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub tenant_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FlexibleServerActiveDirectoryAdministratorResult {
         /// The object ID of a user, service principal or security group in the Azure Active Directory tenant set as the Flexible Server Admin. Changing this forces a new resource to be created.
-        pub object_id: pulumi_wasm_rust::Output<String>,
+        pub object_id: pulumi_gestalt_rust::Output<String>,
         /// The name of Azure Active Directory principal. Changing this forces a new resource to be created.
-        pub principal_name: pulumi_wasm_rust::Output<String>,
+        pub principal_name: pulumi_gestalt_rust::Output<String>,
         /// The type of Azure Active Directory principal. Possible values are `Group`, `ServicePrincipal` and `User`. Changing this forces a new resource to be created.
-        pub principal_type: pulumi_wasm_rust::Output<String>,
+        pub principal_type: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group for the PostgreSQL Server. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the PostgreSQL Flexible Server on which to set the administrator. Changing this forces a new resource to be created.
-        pub server_name: pulumi_wasm_rust::Output<String>,
+        pub server_name: pulumi_gestalt_rust::Output<String>,
         /// The Azure Tenant ID. Changing this forces a new resource to be created.
-        pub tenant_id: pulumi_wasm_rust::Output<String>,
+        pub tenant_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FlexibleServerActiveDirectoryAdministratorArgs,
     ) -> FlexibleServerActiveDirectoryAdministratorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let object_id_binding = args.object_id.get_output(context).get_inner();
         let principal_name_binding = args.principal_name.get_output(context).get_inner();
@@ -149,22 +149,22 @@ pub mod flexible_server_active_directory_administrator {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FlexibleServerActiveDirectoryAdministratorResult {
-            object_id: pulumi_wasm_rust::__private::into_domain(
+            object_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("objectId"),
             ),
-            principal_name: pulumi_wasm_rust::__private::into_domain(
+            principal_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principalName"),
             ),
-            principal_type: pulumi_wasm_rust::__private::into_domain(
+            principal_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principalType"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            server_name: pulumi_wasm_rust::__private::into_domain(
+            server_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverName"),
             ),
-            tenant_id: pulumi_wasm_rust::__private::into_domain(
+            tenant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tenantId"),
             ),
         }

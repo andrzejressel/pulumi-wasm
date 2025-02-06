@@ -10,8 +10,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = ami::create(
@@ -40,146 +40,146 @@
 /// $ pulumi import aws:ec2/ami:Ami example ami-12345678
 /// ```
 pub mod ami {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AmiArgs {
         /// Machine architecture for created instances. Defaults to "x86_64".
         #[builder(into, default)]
-        pub architecture: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub architecture: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         #[builder(into, default)]
-        pub boot_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub boot_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         #[builder(into, default)]
-        pub deprecation_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deprecation_time: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Longer, human-readable description for the AMI.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Nested block describing an EBS block device that should be
         /// attached to created instances. The structure of this block is described below.
         #[builder(into, default)]
-        pub ebs_block_devices: pulumi_wasm_rust::InputOrOutput<
+        pub ebs_block_devices: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::AmiEbsBlockDevice>>,
         >,
         /// Whether enhanced networking with ENA is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub ena_support: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ena_support: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Nested block describing an ephemeral block device that
         /// should be attached to created instances. The structure of this block is described below.
         #[builder(into, default)]
-        pub ephemeral_block_devices: pulumi_wasm_rust::InputOrOutput<
+        pub ephemeral_block_devices: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::AmiEphemeralBlockDevice>>,
         >,
         #[builder(into, default)]
-        pub image_location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub image_location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         #[builder(into, default)]
-        pub imds_support: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub imds_support: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub kernel_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kernel_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Region-unique name for the AMI.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub ramdisk_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ramdisk_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         #[builder(into, default)]
-        pub root_device_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub root_device_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub sriov_net_support: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sriov_net_support: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         #[builder(into, default)]
-        pub tpm_support: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tpm_support: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Keyword to choose what virtualization mode created instances
         /// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
         /// changes the set of further arguments that are required, as described below.
         #[builder(into, default)]
-        pub virtualization_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub virtualization_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AmiResult {
         /// Machine architecture for created instances. Defaults to "x86_64".
-        pub architecture: pulumi_wasm_rust::Output<Option<String>>,
+        pub architecture: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of the AMI.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
-        pub boot_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub boot_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// Date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
-        pub deprecation_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub deprecation_time: pulumi_gestalt_rust::Output<Option<String>>,
         /// Longer, human-readable description for the AMI.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Nested block describing an EBS block device that should be
         /// attached to created instances. The structure of this block is described below.
-        pub ebs_block_devices: pulumi_wasm_rust::Output<
+        pub ebs_block_devices: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ec2::AmiEbsBlockDevice>,
         >,
         /// Whether enhanced networking with ENA is enabled. Defaults to `false`.
-        pub ena_support: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ena_support: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Nested block describing an ephemeral block device that
         /// should be attached to created instances. The structure of this block is described below.
-        pub ephemeral_block_devices: pulumi_wasm_rust::Output<
+        pub ephemeral_block_devices: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ec2::AmiEphemeralBlockDevice>,
         >,
         /// Hypervisor type of the image.
-        pub hypervisor: pulumi_wasm_rust::Output<String>,
-        pub image_location: pulumi_wasm_rust::Output<String>,
+        pub hypervisor: pulumi_gestalt_rust::Output<String>,
+        pub image_location: pulumi_gestalt_rust::Output<String>,
         /// AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
-        pub image_owner_alias: pulumi_wasm_rust::Output<String>,
+        pub image_owner_alias: pulumi_gestalt_rust::Output<String>,
         /// Type of image.
-        pub image_type: pulumi_wasm_rust::Output<String>,
+        pub image_type: pulumi_gestalt_rust::Output<String>,
         /// If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
-        pub imds_support: pulumi_wasm_rust::Output<Option<String>>,
-        pub kernel_id: pulumi_wasm_rust::Output<Option<String>>,
-        pub manage_ebs_snapshots: pulumi_wasm_rust::Output<bool>,
+        pub imds_support: pulumi_gestalt_rust::Output<Option<String>>,
+        pub kernel_id: pulumi_gestalt_rust::Output<Option<String>>,
+        pub manage_ebs_snapshots: pulumi_gestalt_rust::Output<bool>,
         /// Region-unique name for the AMI.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// AWS account ID of the image owner.
-        pub owner_id: pulumi_wasm_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
         /// This value is set to windows for Windows AMIs; otherwise, it is blank.
-        pub platform: pulumi_wasm_rust::Output<String>,
+        pub platform: pulumi_gestalt_rust::Output<String>,
         /// Platform details associated with the billing code of the AMI.
-        pub platform_details: pulumi_wasm_rust::Output<String>,
+        pub platform_details: pulumi_gestalt_rust::Output<String>,
         /// Whether the image has public launch permissions.
-        pub public: pulumi_wasm_rust::Output<bool>,
-        pub ramdisk_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub public: pulumi_gestalt_rust::Output<bool>,
+        pub ramdisk_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
-        pub root_device_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub root_device_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Snapshot ID for the root volume (for EBS-backed AMIs)
-        pub root_snapshot_id: pulumi_wasm_rust::Output<String>,
-        pub sriov_net_support: pulumi_wasm_rust::Output<Option<String>>,
+        pub root_snapshot_id: pulumi_gestalt_rust::Output<String>,
+        pub sriov_net_support: pulumi_gestalt_rust::Output<Option<String>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
-        pub tpm_support: pulumi_wasm_rust::Output<Option<String>>,
+        pub tpm_support: pulumi_gestalt_rust::Output<Option<String>>,
         /// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
-        pub usage_operation: pulumi_wasm_rust::Output<String>,
+        pub usage_operation: pulumi_gestalt_rust::Output<String>,
         /// Keyword to choose what virtualization mode created instances
         /// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
         /// changes the set of further arguments that are required, as described below.
-        pub virtualization_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtualization_type: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AmiArgs,
     ) -> AmiResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let architecture_binding = args.architecture.get_output(context).get_inner();
         let boot_mode_binding = args.boot_mode.get_output(context).get_inner();
@@ -293,83 +293,85 @@ pub mod ami {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AmiResult {
-            architecture: pulumi_wasm_rust::__private::into_domain(
+            architecture: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("architecture"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            boot_mode: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            boot_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bootMode"),
             ),
-            deprecation_time: pulumi_wasm_rust::__private::into_domain(
+            deprecation_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deprecationTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            ebs_block_devices: pulumi_wasm_rust::__private::into_domain(
+            ebs_block_devices: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ebsBlockDevices"),
             ),
-            ena_support: pulumi_wasm_rust::__private::into_domain(
+            ena_support: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enaSupport"),
             ),
-            ephemeral_block_devices: pulumi_wasm_rust::__private::into_domain(
+            ephemeral_block_devices: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ephemeralBlockDevices"),
             ),
-            hypervisor: pulumi_wasm_rust::__private::into_domain(
+            hypervisor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hypervisor"),
             ),
-            image_location: pulumi_wasm_rust::__private::into_domain(
+            image_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageLocation"),
             ),
-            image_owner_alias: pulumi_wasm_rust::__private::into_domain(
+            image_owner_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageOwnerAlias"),
             ),
-            image_type: pulumi_wasm_rust::__private::into_domain(
+            image_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageType"),
             ),
-            imds_support: pulumi_wasm_rust::__private::into_domain(
+            imds_support: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imdsSupport"),
             ),
-            kernel_id: pulumi_wasm_rust::__private::into_domain(
+            kernel_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kernelId"),
             ),
-            manage_ebs_snapshots: pulumi_wasm_rust::__private::into_domain(
+            manage_ebs_snapshots: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("manageEbsSnapshots"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            platform: pulumi_wasm_rust::__private::into_domain(
+            platform: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platform"),
             ),
-            platform_details: pulumi_wasm_rust::__private::into_domain(
+            platform_details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platformDetails"),
             ),
-            public: pulumi_wasm_rust::__private::into_domain(o.extract_field("public")),
-            ramdisk_id: pulumi_wasm_rust::__private::into_domain(
+            public: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("public"),
+            ),
+            ramdisk_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ramdiskId"),
             ),
-            root_device_name: pulumi_wasm_rust::__private::into_domain(
+            root_device_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rootDeviceName"),
             ),
-            root_snapshot_id: pulumi_wasm_rust::__private::into_domain(
+            root_snapshot_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rootSnapshotId"),
             ),
-            sriov_net_support: pulumi_wasm_rust::__private::into_domain(
+            sriov_net_support: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sriovNetSupport"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            tpm_support: pulumi_wasm_rust::__private::into_domain(
+            tpm_support: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tpmSupport"),
             ),
-            usage_operation: pulumi_wasm_rust::__private::into_domain(
+            usage_operation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("usageOperation"),
             ),
-            virtualization_type: pulumi_wasm_rust::__private::into_domain(
+            virtualization_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualizationType"),
             ),
         }

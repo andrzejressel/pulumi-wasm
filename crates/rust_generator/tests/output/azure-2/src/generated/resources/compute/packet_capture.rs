@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -141,74 +141,76 @@
 /// ```
 ///
 pub mod packet_capture {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PacketCaptureArgs {
         /// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::InputOrOutput<
+        pub filters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::PacketCaptureFilter>>,
         >,
         /// The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub maximum_bytes_per_packet: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub maximum_bytes_per_packet: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub maximum_bytes_per_session: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub maximum_bytes_per_session: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub maximum_capture_duration_in_seconds: pulumi_wasm_rust::InputOrOutput<
+        pub maximum_capture_duration_in_seconds: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the Network Watcher. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub network_watcher_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network_watcher_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `storage_location` block as defined below. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_location: pulumi_wasm_rust::InputOrOutput<
+        pub storage_location: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::compute::PacketCaptureStorageLocation,
         >,
         /// The resource ID of the target Virtual Machine to capture packets from. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_machine_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_machine_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PacketCaptureResult {
         /// One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::PacketCaptureFilter>>,
         >,
         /// The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
-        pub maximum_bytes_per_packet: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_bytes_per_packet: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
-        pub maximum_bytes_per_session: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_bytes_per_session: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
-        pub maximum_capture_duration_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_capture_duration_in_seconds: pulumi_gestalt_rust::Output<
+            Option<i32>,
+        >,
         /// The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The resource ID of the Network Watcher. Changing this forces a new resource to be created.
-        pub network_watcher_id: pulumi_wasm_rust::Output<String>,
+        pub network_watcher_id: pulumi_gestalt_rust::Output<String>,
         /// A `storage_location` block as defined below. Changing this forces a new resource to be created.
-        pub storage_location: pulumi_wasm_rust::Output<
+        pub storage_location: pulumi_gestalt_rust::Output<
             super::super::types::compute::PacketCaptureStorageLocation,
         >,
         /// The resource ID of the target Virtual Machine to capture packets from. Changing this forces a new resource to be created.
-        pub virtual_machine_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_machine_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PacketCaptureArgs,
     ) -> PacketCaptureResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let filters_binding = args.filters.get_output(context).get_inner();
         let maximum_bytes_per_packet_binding = args
@@ -277,26 +279,26 @@ pub mod packet_capture {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PacketCaptureResult {
-            filters: pulumi_wasm_rust::__private::into_domain(
+            filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filters"),
             ),
-            maximum_bytes_per_packet: pulumi_wasm_rust::__private::into_domain(
+            maximum_bytes_per_packet: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumBytesPerPacket"),
             ),
-            maximum_bytes_per_session: pulumi_wasm_rust::__private::into_domain(
+            maximum_bytes_per_session: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumBytesPerSession"),
             ),
-            maximum_capture_duration_in_seconds: pulumi_wasm_rust::__private::into_domain(
+            maximum_capture_duration_in_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumCaptureDurationInSeconds"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_watcher_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_watcher_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkWatcherId"),
             ),
-            storage_location: pulumi_wasm_rust::__private::into_domain(
+            storage_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageLocation"),
             ),
-            virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualMachineId"),
             ),
         }

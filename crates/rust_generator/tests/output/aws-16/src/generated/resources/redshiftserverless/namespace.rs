@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = namespace::create(
@@ -22,85 +22,85 @@
 /// $ pulumi import aws:redshiftserverless/namespace:Namespace example example
 /// ```
 pub mod namespace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NamespaceArgs {
         /// ID of the KMS key used to encrypt the namespace's admin credentials secret.
         #[builder(into, default)]
-        pub admin_password_secret_kms_key_id: pulumi_wasm_rust::InputOrOutput<
+        pub admin_password_secret_kms_key_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The password of the administrator for the first database created in the namespace.
         /// Conflicts with `manage_admin_password`.
         #[builder(into, default)]
-        pub admin_user_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub admin_user_password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The username of the administrator for the first database created in the namespace.
         #[builder(into, default)]
-        pub admin_username: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub admin_username: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the first database created in the namespace.
         #[builder(into, default)]
-        pub db_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub db_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
         #[builder(into, default)]
-        pub default_iam_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_iam_role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of IAM roles to associate with the namespace.
         #[builder(into, default)]
-        pub iam_roles: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub iam_roles: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
         #[builder(into, default)]
-        pub log_exports: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub log_exports: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Whether to use AWS SecretManager to manage namespace's admin credentials.
         /// Conflicts with `admin_user_password`.
         #[builder(into, default)]
-        pub manage_admin_password: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub manage_admin_password: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the namespace.
         #[builder(into)]
-        pub namespace_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub namespace_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct NamespaceResult {
-        pub admin_password_secret_arn: pulumi_wasm_rust::Output<String>,
+        pub admin_password_secret_arn: pulumi_gestalt_rust::Output<String>,
         /// ID of the KMS key used to encrypt the namespace's admin credentials secret.
-        pub admin_password_secret_kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub admin_password_secret_kms_key_id: pulumi_gestalt_rust::Output<String>,
         /// The password of the administrator for the first database created in the namespace.
         /// Conflicts with `manage_admin_password`.
-        pub admin_user_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub admin_user_password: pulumi_gestalt_rust::Output<Option<String>>,
         /// The username of the administrator for the first database created in the namespace.
-        pub admin_username: pulumi_wasm_rust::Output<String>,
+        pub admin_username: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the first database created in the namespace.
-        pub db_name: pulumi_wasm_rust::Output<String>,
+        pub db_name: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `default_iam_role_arn`, it also must be part of `iam_roles`.
-        pub default_iam_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_iam_role_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// A list of IAM roles to associate with the namespace.
-        pub iam_roles: pulumi_wasm_rust::Output<Vec<String>>,
+        pub iam_roles: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
-        pub kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<String>,
         /// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
-        pub log_exports: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub log_exports: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Whether to use AWS SecretManager to manage namespace's admin credentials.
         /// Conflicts with `admin_user_password`.
-        pub manage_admin_password: pulumi_wasm_rust::Output<Option<bool>>,
+        pub manage_admin_password: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The Redshift Namespace ID.
-        pub namespace_id: pulumi_wasm_rust::Output<String>,
+        pub namespace_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the namespace.
-        pub namespace_name: pulumi_wasm_rust::Output<String>,
+        pub namespace_name: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -109,11 +109,11 @@ pub mod namespace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NamespaceArgs,
     ) -> NamespaceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let admin_password_secret_kms_key_id_binding = args
             .admin_password_secret_kms_key_id
@@ -191,43 +191,45 @@ pub mod namespace {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NamespaceResult {
-            admin_password_secret_arn: pulumi_wasm_rust::__private::into_domain(
+            admin_password_secret_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminPasswordSecretArn"),
             ),
-            admin_password_secret_kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            admin_password_secret_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminPasswordSecretKmsKeyId"),
             ),
-            admin_user_password: pulumi_wasm_rust::__private::into_domain(
+            admin_user_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminUserPassword"),
             ),
-            admin_username: pulumi_wasm_rust::__private::into_domain(
+            admin_username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminUsername"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            db_name: pulumi_wasm_rust::__private::into_domain(o.extract_field("dbName")),
-            default_iam_role_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            db_name: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("dbName"),
+            ),
+            default_iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultIamRoleArn"),
             ),
-            iam_roles: pulumi_wasm_rust::__private::into_domain(
+            iam_roles: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iamRoles"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            log_exports: pulumi_wasm_rust::__private::into_domain(
+            log_exports: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logExports"),
             ),
-            manage_admin_password: pulumi_wasm_rust::__private::into_domain(
+            manage_admin_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("manageAdminPassword"),
             ),
-            namespace_id: pulumi_wasm_rust::__private::into_domain(
+            namespace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceId"),
             ),
-            namespace_name: pulumi_wasm_rust::__private::into_domain(
+            namespace_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

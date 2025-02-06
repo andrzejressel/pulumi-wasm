@@ -7,8 +7,8 @@
 /// Will create a replica using regional storage in us-west-2 that will be encrypted by the default EFS KMS key `/aws/elasticfilesystem`.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = file_system::create(
@@ -32,8 +32,8 @@
 /// Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = file_system::create(
@@ -58,8 +58,8 @@
 /// Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = file_system::create(
@@ -89,48 +89,48 @@
 /// $ pulumi import aws:efs/replicationConfiguration:ReplicationConfiguration example fs-id
 /// ```
 pub mod replication_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReplicationConfigurationArgs {
         /// A destination configuration block (documented below).
         #[builder(into)]
-        pub destination: pulumi_wasm_rust::InputOrOutput<
+        pub destination: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::efs::ReplicationConfigurationDestination,
         >,
         /// The ID of the file system that is to be replicated.
         #[builder(into)]
-        pub source_file_system_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_file_system_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ReplicationConfigurationResult {
         /// When the replication configuration was created.
         /// * `destination[0].file_system_id` - The fs ID of the replica.
         /// * `destination[0].status` - The status of the replication.
-        pub creation_time: pulumi_wasm_rust::Output<String>,
+        pub creation_time: pulumi_gestalt_rust::Output<String>,
         /// A destination configuration block (documented below).
-        pub destination: pulumi_wasm_rust::Output<
+        pub destination: pulumi_gestalt_rust::Output<
             super::super::types::efs::ReplicationConfigurationDestination,
         >,
         /// The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
-        pub original_source_file_system_arn: pulumi_wasm_rust::Output<String>,
+        pub original_source_file_system_arn: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
-        pub source_file_system_arn: pulumi_wasm_rust::Output<String>,
+        pub source_file_system_arn: pulumi_gestalt_rust::Output<String>,
         /// The ID of the file system that is to be replicated.
-        pub source_file_system_id: pulumi_wasm_rust::Output<String>,
+        pub source_file_system_id: pulumi_gestalt_rust::Output<String>,
         /// The AWS Region in which the source Amazon EFS file system is located.
-        pub source_file_system_region: pulumi_wasm_rust::Output<String>,
+        pub source_file_system_region: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ReplicationConfigurationArgs,
     ) -> ReplicationConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let destination_binding = args.destination.get_output(context).get_inner();
         let source_file_system_id_binding = args
@@ -154,22 +154,22 @@ pub mod replication_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ReplicationConfigurationResult {
-            creation_time: pulumi_wasm_rust::__private::into_domain(
+            creation_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTime"),
             ),
-            destination: pulumi_wasm_rust::__private::into_domain(
+            destination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destination"),
             ),
-            original_source_file_system_arn: pulumi_wasm_rust::__private::into_domain(
+            original_source_file_system_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("originalSourceFileSystemArn"),
             ),
-            source_file_system_arn: pulumi_wasm_rust::__private::into_domain(
+            source_file_system_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceFileSystemArn"),
             ),
-            source_file_system_id: pulumi_wasm_rust::__private::into_domain(
+            source_file_system_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceFileSystemId"),
             ),
-            source_file_system_region: pulumi_wasm_rust::__private::into_domain(
+            source_file_system_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceFileSystemRegion"),
             ),
         }

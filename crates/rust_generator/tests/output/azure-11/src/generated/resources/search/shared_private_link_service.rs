@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = resource_group::create(
@@ -55,55 +55,55 @@
 /// ```
 ///
 pub mod shared_private_link_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SharedPrivateLinkServiceArgs {
         /// Specify the name of the Azure Search Shared Private Link Resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         #[builder(into, default)]
-        pub request_message: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub request_message: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub search_service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub search_service_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub subresource_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subresource_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
         #[builder(into)]
-        pub target_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SharedPrivateLinkServiceResult {
         /// Specify the name of the Azure Search Shared Private Link Resource. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
-        pub request_message: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_message: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specify the id of the Azure Search Service. Changing this forces a new resource to be created.
-        pub search_service_id: pulumi_wasm_rust::Output<String>,
+        pub search_service_id: pulumi_gestalt_rust::Output<String>,
         /// The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Specify the sub resource name which the Azure Search Private Endpoint is able to connect to. Changing this forces a new resource to be created.
-        pub subresource_name: pulumi_wasm_rust::Output<String>,
+        pub subresource_name: pulumi_gestalt_rust::Output<String>,
         /// Specify the ID of the Shared Private Link Enabled Remote Resource which this Azure Search Private Endpoint should be connected to. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
-        pub target_resource_id: pulumi_wasm_rust::Output<String>,
+        pub target_resource_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SharedPrivateLinkServiceArgs,
     ) -> SharedPrivateLinkServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let request_message_binding = args
@@ -152,18 +152,20 @@ pub mod shared_private_link_service {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SharedPrivateLinkServiceResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            request_message: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            request_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestMessage"),
             ),
-            search_service_id: pulumi_wasm_rust::__private::into_domain(
+            search_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("searchServiceId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            subresource_name: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            subresource_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subresourceName"),
             ),
-            target_resource_id: pulumi_wasm_rust::__private::into_domain(
+            target_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetResourceId"),
             ),
         }

@@ -63,43 +63,43 @@
 /// ```
 ///
 pub mod zero_trust_tunnel_cloudflared_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustTunnelCloudflaredConfigArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block for Tunnel Configuration.
         #[builder(into)]
-        pub config: pulumi_wasm_rust::InputOrOutput<
+        pub config: pulumi_gestalt_rust::InputOrOutput<
             super::types::ZeroTrustTunnelCloudflaredConfigConfig,
         >,
         /// Identifier of the Tunnel to target for this configuration.
         #[builder(into)]
-        pub tunnel_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub tunnel_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustTunnelCloudflaredConfigResult {
         /// The account identifier to target for the resource.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for Tunnel Configuration.
-        pub config: pulumi_wasm_rust::Output<
+        pub config: pulumi_gestalt_rust::Output<
             super::types::ZeroTrustTunnelCloudflaredConfigConfig,
         >,
         /// Identifier of the Tunnel to target for this configuration.
-        pub tunnel_id: pulumi_wasm_rust::Output<String>,
+        pub tunnel_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ZeroTrustTunnelCloudflaredConfigArgs,
     ) -> ZeroTrustTunnelCloudflaredConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let config_binding = args.config.get_output(context).get_inner();
@@ -126,11 +126,13 @@ pub mod zero_trust_tunnel_cloudflared_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ZeroTrustTunnelCloudflaredConfigResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            config: pulumi_wasm_rust::__private::into_domain(o.extract_field("config")),
-            tunnel_id: pulumi_wasm_rust::__private::into_domain(
+            config: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("config"),
+            ),
+            tunnel_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tunnelId"),
             ),
         }

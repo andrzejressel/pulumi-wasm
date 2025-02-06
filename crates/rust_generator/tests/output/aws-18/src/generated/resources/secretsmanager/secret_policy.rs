@@ -43,43 +43,43 @@
 /// $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
 /// ```
 pub mod secret_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecretPolicyArgs {
         /// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
         #[builder(into, default)]
-        pub block_public_policy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub block_public_policy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Secret ARN.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub secret_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub secret_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SecretPolicyResult {
         /// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
-        pub block_public_policy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub block_public_policy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_gestalt_rust::Output<String>,
         /// Secret ARN.
         ///
         /// The following arguments are optional:
-        pub secret_arn: pulumi_wasm_rust::Output<String>,
+        pub secret_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SecretPolicyArgs,
     ) -> SecretPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let block_public_policy_binding = args
             .block_public_policy
@@ -108,11 +108,13 @@ pub mod secret_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SecretPolicyResult {
-            block_public_policy: pulumi_wasm_rust::__private::into_domain(
+            block_public_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blockPublicPolicy"),
             ),
-            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
-            secret_arn: pulumi_wasm_rust::__private::into_domain(
+            policy: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("policy"),
+            ),
+            secret_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secretArn"),
             ),
         }

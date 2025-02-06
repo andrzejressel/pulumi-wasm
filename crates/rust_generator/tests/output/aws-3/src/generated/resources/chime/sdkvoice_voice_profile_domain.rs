@@ -31,42 +31,42 @@
 /// $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
 /// ```
 pub mod sdkvoice_voice_profile_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SdkvoiceVoiceProfileDomainArgs {
         /// Description of Voice Profile Domain.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of Voice Profile Domain.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration for server side encryption.
         #[builder(into)]
-        pub server_side_encryption_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub server_side_encryption_configuration: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::chime::SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct SdkvoiceVoiceProfileDomainResult {
         /// ARN of the Voice Profile Domain.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Description of Voice Profile Domain.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of Voice Profile Domain.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Configuration for server side encryption.
-        pub server_side_encryption_configuration: pulumi_wasm_rust::Output<
+        pub server_side_encryption_configuration: pulumi_gestalt_rust::Output<
             super::super::types::chime::SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration,
         >,
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -75,11 +75,11 @@ pub mod sdkvoice_voice_profile_domain {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SdkvoiceVoiceProfileDomainArgs,
     ) -> SdkvoiceVoiceProfileDomainResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -114,16 +114,16 @@ pub mod sdkvoice_voice_profile_domain {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SdkvoiceVoiceProfileDomainResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            server_side_encryption_configuration: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            server_side_encryption_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverSideEncryptionConfiguration"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

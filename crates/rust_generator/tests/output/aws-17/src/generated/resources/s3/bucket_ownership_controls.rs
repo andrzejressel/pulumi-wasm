@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket_v_2::create(
@@ -35,25 +35,25 @@
 /// $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
 /// ```
 pub mod bucket_ownership_controls {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketOwnershipControlsArgs {
         /// Name of the bucket that you want to associate this access point with.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block(s) with Ownership Controls rules. Detailed below.
         #[builder(into)]
-        pub rule: pulumi_wasm_rust::InputOrOutput<
+        pub rule: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::s3::BucketOwnershipControlsRule,
         >,
     }
     #[allow(dead_code)]
     pub struct BucketOwnershipControlsResult {
         /// Name of the bucket that you want to associate this access point with.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// Configuration block(s) with Ownership Controls rules. Detailed below.
-        pub rule: pulumi_wasm_rust::Output<
+        pub rule: pulumi_gestalt_rust::Output<
             super::super::types::s3::BucketOwnershipControlsRule,
         >,
     }
@@ -62,11 +62,11 @@ pub mod bucket_ownership_controls {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BucketOwnershipControlsArgs,
     ) -> BucketOwnershipControlsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let rule_binding = args.rule.get_output(context).get_inner();
@@ -87,8 +87,10 @@ pub mod bucket_ownership_controls {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BucketOwnershipControlsResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            rule: pulumi_wasm_rust::__private::into_domain(o.extract_field("rule")),
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            rule: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rule")),
         }
     }
 }

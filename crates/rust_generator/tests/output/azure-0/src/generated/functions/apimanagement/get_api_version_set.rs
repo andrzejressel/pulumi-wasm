@@ -1,44 +1,44 @@
 pub mod get_api_version_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetApiVersionSetArgs {
         /// The name of the API Management Service where the API Version Set exists.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the API Version Set.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group in which the parent API Management Service exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetApiVersionSetResult {
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_gestalt_rust::Output<String>,
         /// The description of API Version Set.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// The display name of this API Version Set.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Header which should be read from Inbound Requests which defines the API Version.
-        pub version_header_name: pulumi_wasm_rust::Output<String>,
+        pub version_header_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Query String which should be read from Inbound Requests which defines the API Version.
-        pub version_query_name: pulumi_wasm_rust::Output<String>,
-        pub versioning_scheme: pulumi_wasm_rust::Output<String>,
+        pub version_query_name: pulumi_gestalt_rust::Output<String>,
+        pub versioning_scheme: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetApiVersionSetArgs,
     ) -> GetApiVersionSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_management_name_binding = args
             .api_management_name
@@ -69,27 +69,27 @@ pub mod get_api_version_set {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetApiVersionSetResult {
-            api_management_name: pulumi_wasm_rust::__private::into_domain(
+            api_management_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementName"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            version_header_name: pulumi_wasm_rust::__private::into_domain(
+            version_header_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionHeaderName"),
             ),
-            version_query_name: pulumi_wasm_rust::__private::into_domain(
+            version_query_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionQueryName"),
             ),
-            versioning_scheme: pulumi_wasm_rust::__private::into_domain(
+            versioning_scheme: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versioningScheme"),
             ),
         }

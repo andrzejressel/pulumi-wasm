@@ -37,88 +37,88 @@
 /// $ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
 /// ```
 pub mod security_group_ingress_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecurityGroupIngressRuleArgs {
         /// The source IPv4 CIDR range.
         #[builder(into, default)]
-        pub cidr_ipv4: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cidr_ipv4: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The source IPv6 CIDR range.
         #[builder(into, default)]
-        pub cidr_ipv6: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cidr_ipv6: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The security group rule description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
         #[builder(into, default)]
-        pub from_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub from_port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
         #[builder(into)]
-        pub ip_protocol: pulumi_wasm_rust::InputOrOutput<String>,
+        pub ip_protocol: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the source prefix list.
         #[builder(into, default)]
-        pub prefix_list_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub prefix_list_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The source security group that is referenced in the rule.
         #[builder(into, default)]
-        pub referenced_security_group_id: pulumi_wasm_rust::InputOrOutput<
+        pub referenced_security_group_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ID of the security group.
         #[builder(into)]
-        pub security_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub security_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
         #[builder(into, default)]
-        pub to_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub to_port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct SecurityGroupIngressRuleResult {
         /// The Amazon Resource Name (ARN) of the security group rule.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The source IPv4 CIDR range.
-        pub cidr_ipv4: pulumi_wasm_rust::Output<Option<String>>,
+        pub cidr_ipv4: pulumi_gestalt_rust::Output<Option<String>>,
         /// The source IPv6 CIDR range.
-        pub cidr_ipv6: pulumi_wasm_rust::Output<Option<String>>,
+        pub cidr_ipv6: pulumi_gestalt_rust::Output<Option<String>>,
         /// The security group rule description.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type.
-        pub from_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub from_port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The IP protocol name or number. Use `-1` to specify all protocols. Note that if `ip_protocol` is set to `-1`, it translates to all protocols, all port ranges, and `from_port` and `to_port` values should not be defined.
-        pub ip_protocol: pulumi_wasm_rust::Output<String>,
+        pub ip_protocol: pulumi_gestalt_rust::Output<String>,
         /// The ID of the source prefix list.
-        pub prefix_list_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub prefix_list_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The source security group that is referenced in the rule.
-        pub referenced_security_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub referenced_security_group_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the security group.
-        pub security_group_id: pulumi_wasm_rust::Output<String>,
+        pub security_group_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the security group rule.
-        pub security_group_rule_id: pulumi_wasm_rust::Output<String>,
+        pub security_group_rule_id: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code.
-        pub to_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub to_port: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SecurityGroupIngressRuleArgs,
     ) -> SecurityGroupIngressRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cidr_ipv4_binding = args.cidr_ipv4.get_output(context).get_inner();
         let cidr_ipv6_binding = args.cidr_ipv6.get_output(context).get_inner();
@@ -185,39 +185,41 @@ pub mod security_group_ingress_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SecurityGroupIngressRuleResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            cidr_ipv4: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            cidr_ipv4: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cidrIpv4"),
             ),
-            cidr_ipv6: pulumi_wasm_rust::__private::into_domain(
+            cidr_ipv6: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cidrIpv6"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            from_port: pulumi_wasm_rust::__private::into_domain(
+            from_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fromPort"),
             ),
-            ip_protocol: pulumi_wasm_rust::__private::into_domain(
+            ip_protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipProtocol"),
             ),
-            prefix_list_id: pulumi_wasm_rust::__private::into_domain(
+            prefix_list_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("prefixListId"),
             ),
-            referenced_security_group_id: pulumi_wasm_rust::__private::into_domain(
+            referenced_security_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("referencedSecurityGroupId"),
             ),
-            security_group_id: pulumi_wasm_rust::__private::into_domain(
+            security_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroupId"),
             ),
-            security_group_rule_id: pulumi_wasm_rust::__private::into_domain(
+            security_group_rule_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroupRuleId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            to_port: pulumi_wasm_rust::__private::into_domain(o.extract_field("toPort")),
+            to_port: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("toPort"),
+            ),
         }
     }
 }

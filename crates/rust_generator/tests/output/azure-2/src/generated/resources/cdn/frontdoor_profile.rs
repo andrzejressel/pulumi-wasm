@@ -29,42 +29,42 @@
 /// ```
 ///
 pub mod frontdoor_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FrontdoorProfileArgs {
         /// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds.
         #[builder(into, default)]
-        pub response_timeout_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub response_timeout_seconds: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies a mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct FrontdoorProfileResult {
         /// Specifies the name of the Front Door Profile. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute.
-        pub resource_guid: pulumi_wasm_rust::Output<String>,
+        pub resource_guid: pulumi_gestalt_rust::Output<String>,
         /// Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds.
-        pub response_timeout_seconds: pulumi_wasm_rust::Output<Option<i32>>,
+        pub response_timeout_seconds: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created.
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies a mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -73,11 +73,11 @@ pub mod frontdoor_profile {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FrontdoorProfileArgs,
     ) -> FrontdoorProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -119,20 +119,20 @@ pub mod frontdoor_profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FrontdoorProfileResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            resource_guid: pulumi_wasm_rust::__private::into_domain(
+            resource_guid: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGuid"),
             ),
-            response_timeout_seconds: pulumi_wasm_rust::__private::into_domain(
+            response_timeout_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("responseTimeoutSeconds"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

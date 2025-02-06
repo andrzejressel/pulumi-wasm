@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = firewall_policy::create(
@@ -47,49 +47,49 @@
 /// ```
 ///
 pub mod firewall_policy_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FirewallPolicyAssociationArgs {
         /// The target that the firewall policy is attached to.
         #[builder(into)]
-        pub attachment_target: pulumi_wasm_rust::InputOrOutput<String>,
+        pub attachment_target: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The firewall policy ID of the association.
         #[builder(into)]
-        pub firewall_policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub firewall_policy: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name for an association.
         ///
         ///
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FirewallPolicyAssociationResult {
         /// The target that the firewall policy is attached to.
-        pub attachment_target: pulumi_wasm_rust::Output<String>,
+        pub attachment_target: pulumi_gestalt_rust::Output<String>,
         /// The firewall policy ID of the association.
-        pub firewall_policy: pulumi_wasm_rust::Output<String>,
+        pub firewall_policy: pulumi_gestalt_rust::Output<String>,
         /// The name for an association.
         ///
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The short name of the firewall policy of the association.
-        pub short_name: pulumi_wasm_rust::Output<String>,
+        pub short_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FirewallPolicyAssociationArgs,
     ) -> FirewallPolicyAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let attachment_target_binding = args
             .attachment_target
@@ -122,14 +122,14 @@ pub mod firewall_policy_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FirewallPolicyAssociationResult {
-            attachment_target: pulumi_wasm_rust::__private::into_domain(
+            attachment_target: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attachmentTarget"),
             ),
-            firewall_policy: pulumi_wasm_rust::__private::into_domain(
+            firewall_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("firewallPolicy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            short_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            short_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shortName"),
             ),
         }

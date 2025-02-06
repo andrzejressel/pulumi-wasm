@@ -67,8 +67,8 @@
 /// ## gcp.projects.IAMBinding
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let project = iam_binding::create(
@@ -85,8 +85,8 @@
 /// With IAM Conditions:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let project = iam_binding::create(
@@ -110,8 +110,8 @@
 /// ## gcp.projects.IAMMember
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let project = iam_member::create(
@@ -128,8 +128,8 @@
 /// With IAM Conditions:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let project = iam_member::create(
@@ -153,8 +153,8 @@
 /// ## gcp.projects.IAMAuditConfig
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let project = iam_audit_config::create(
@@ -230,8 +230,8 @@
 /// ## gcp.projects.IAMBinding
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let project = iam_binding::create(
@@ -248,8 +248,8 @@
 /// With IAM Conditions:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let project = iam_binding::create(
@@ -273,8 +273,8 @@
 /// ## gcp.projects.IAMMember
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let project = iam_member::create(
@@ -291,8 +291,8 @@
 /// With IAM Conditions:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let project = iam_member::create(
@@ -316,8 +316,8 @@
 /// ## gcp.projects.IAMAuditConfig
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let project = iam_audit_config::create(
@@ -365,7 +365,7 @@
 /// ```
 ///
 pub mod iam_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IAMPolicyArgs {
@@ -378,16 +378,16 @@ pub mod iam_policy {
         /// Deleting this removes all policies from the project, locking out users without
         /// organization-level access.
         #[builder(into)]
-        pub policy_data: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_data: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The project id of the target project. This is not
         /// inferred from the provider.
         #[builder(into)]
-        pub project: pulumi_wasm_rust::InputOrOutput<String>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IAMPolicyResult {
         /// (Computed) The etag of the project's IAM policy.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The `gcp.organizations.getIAMPolicy` data source that represents
         /// the IAM policy that will be applied to the project. The policy will be
         /// merged with any existing policy applied to the project.
@@ -396,21 +396,21 @@ pub mod iam_policy {
         ///
         /// Deleting this removes all policies from the project, locking out users without
         /// organization-level access.
-        pub policy_data: pulumi_wasm_rust::Output<String>,
+        pub policy_data: pulumi_gestalt_rust::Output<String>,
         /// The project id of the target project. This is not
         /// inferred from the provider.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IAMPolicyArgs,
     ) -> IAMPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let policy_data_binding = args.policy_data.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -431,11 +431,13 @@ pub mod iam_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IAMPolicyResult {
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            policy_data: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            policy_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyData"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

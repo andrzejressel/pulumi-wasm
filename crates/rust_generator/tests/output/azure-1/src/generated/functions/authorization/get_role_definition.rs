@@ -1,5 +1,5 @@
 pub mod get_role_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRoleDefinitionArgs {
@@ -7,43 +7,43 @@ pub mod get_role_definition {
         ///
         /// > You can also use this for built-in roles such as `Contributor`, `Owner`, `Reader` and `Virtual Machine Contributor`
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Role Definition as a UUID/GUID.
         #[builder(into, default)]
-        pub role_definition_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role_definition_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Scope at which the Custom Role Definition exists.
         ///
         /// > **Note:** One of `name` or `role_definition_id` must be specified.
         #[builder(into, default)]
-        pub scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub scope: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetRoleDefinitionResult {
         /// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
-        pub assignable_scopes: pulumi_wasm_rust::Output<Vec<String>>,
+        pub assignable_scopes: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The Description of the built-in Role.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `permissions` block as documented below.
-        pub permissions: pulumi_wasm_rust::Output<
+        pub permissions: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::authorization::GetRoleDefinitionPermission>,
         >,
-        pub role_definition_id: pulumi_wasm_rust::Output<String>,
-        pub scope: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_definition_id: pulumi_gestalt_rust::Output<String>,
+        pub scope: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Type of the Role.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetRoleDefinitionArgs,
     ) -> GetRoleDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let role_definition_id_binding = args
@@ -71,22 +71,22 @@ pub mod get_role_definition {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetRoleDefinitionResult {
-            assignable_scopes: pulumi_wasm_rust::__private::into_domain(
+            assignable_scopes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assignableScopes"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            permissions: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissions"),
             ),
-            role_definition_id: pulumi_wasm_rust::__private::into_domain(
+            role_definition_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleDefinitionId"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

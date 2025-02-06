@@ -85,52 +85,52 @@
 /// ```
 ///
 pub mod assessment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssessmentArgs {
         /// A map of additional data to associate with the assessment.
         #[builder(into, default)]
-        pub additional_data: pulumi_wasm_rust::InputOrOutput<
+        pub additional_data: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
         #[builder(into)]
-        pub assessment_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub assessment_policy_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `status` block as defined below.
         #[builder(into)]
-        pub status: pulumi_wasm_rust::InputOrOutput<
+        pub status: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::securitycenter::AssessmentStatus,
         >,
         /// The ID of the target resource. Changing this forces a new security Assessment to be created.
         #[builder(into)]
-        pub target_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AssessmentResult {
         /// A map of additional data to associate with the assessment.
-        pub additional_data: pulumi_wasm_rust::Output<
+        pub additional_data: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created.
-        pub assessment_policy_id: pulumi_wasm_rust::Output<String>,
+        pub assessment_policy_id: pulumi_gestalt_rust::Output<String>,
         /// A `status` block as defined below.
-        pub status: pulumi_wasm_rust::Output<
+        pub status: pulumi_gestalt_rust::Output<
             super::super::types::securitycenter::AssessmentStatus,
         >,
         /// The ID of the target resource. Changing this forces a new security Assessment to be created.
-        pub target_resource_id: pulumi_wasm_rust::Output<String>,
+        pub target_resource_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AssessmentArgs,
     ) -> AssessmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let additional_data_binding = args
             .additional_data
@@ -170,14 +170,16 @@ pub mod assessment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AssessmentResult {
-            additional_data: pulumi_wasm_rust::__private::into_domain(
+            additional_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalData"),
             ),
-            assessment_policy_id: pulumi_wasm_rust::__private::into_domain(
+            assessment_policy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assessmentPolicyId"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            target_resource_id: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            target_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetResourceId"),
             ),
         }

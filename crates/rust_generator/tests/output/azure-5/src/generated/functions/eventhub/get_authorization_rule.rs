@@ -1,60 +1,60 @@
 pub mod get_authorization_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAuthorizationRuleArgs {
         /// Specifies the name of the EventHub.
         #[builder(into)]
-        pub eventhub_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub eventhub_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub listen: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub listen: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub manage: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub manage: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the EventHub Authorization Rule resource. be created.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the grandparent EventHub Namespace.
         #[builder(into)]
-        pub namespace_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub namespace_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group in which the EventHub Authorization Rule's grandparent Namespace exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub send: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub send: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct GetAuthorizationRuleResult {
-        pub eventhub_name: pulumi_wasm_rust::Output<String>,
+        pub eventhub_name: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub listen: pulumi_wasm_rust::Output<Option<bool>>,
-        pub manage: pulumi_wasm_rust::Output<Option<bool>>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub namespace_name: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub listen: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub manage: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub namespace_name: pulumi_gestalt_rust::Output<String>,
         /// The Primary Connection String for the Event Hubs Authorization Rule.
-        pub primary_connection_string: pulumi_wasm_rust::Output<String>,
+        pub primary_connection_string: pulumi_gestalt_rust::Output<String>,
         /// The alias of the Primary Connection String for the Event Hubs Authorization Rule.
-        pub primary_connection_string_alias: pulumi_wasm_rust::Output<String>,
+        pub primary_connection_string_alias: pulumi_gestalt_rust::Output<String>,
         /// The Primary Key for the Event Hubs Authorization Rule.
-        pub primary_key: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub primary_key: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The Secondary Connection String for the Event Hubs Authorization Rule.
-        pub secondary_connection_string: pulumi_wasm_rust::Output<String>,
+        pub secondary_connection_string: pulumi_gestalt_rust::Output<String>,
         /// The alias of the Secondary Connection String for the Event Hubs Authorization Rule.
-        pub secondary_connection_string_alias: pulumi_wasm_rust::Output<String>,
+        pub secondary_connection_string_alias: pulumi_gestalt_rust::Output<String>,
         /// The Secondary Key for the Event Hubs Authorization Rule.
-        pub secondary_key: pulumi_wasm_rust::Output<String>,
-        pub send: pulumi_wasm_rust::Output<Option<bool>>,
+        pub secondary_key: pulumi_gestalt_rust::Output<String>,
+        pub send: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetAuthorizationRuleArgs,
     ) -> GetAuthorizationRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let eventhub_name_binding = args.eventhub_name.get_output(context).get_inner();
         let listen_binding = args.listen.get_output(context).get_inner();
@@ -102,38 +102,42 @@ pub mod get_authorization_rule {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetAuthorizationRuleResult {
-            eventhub_name: pulumi_wasm_rust::__private::into_domain(
+            eventhub_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventhubName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            listen: pulumi_wasm_rust::__private::into_domain(o.extract_field("listen")),
-            manage: pulumi_wasm_rust::__private::into_domain(o.extract_field("manage")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            namespace_name: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            listen: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("listen"),
+            ),
+            manage: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("manage"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            namespace_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceName"),
             ),
-            primary_connection_string: pulumi_wasm_rust::__private::into_domain(
+            primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryConnectionString"),
             ),
-            primary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
+            primary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryConnectionStringAlias"),
             ),
-            primary_key: pulumi_wasm_rust::__private::into_domain(
+            primary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryKey"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
+            secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryConnectionString"),
             ),
-            secondary_connection_string_alias: pulumi_wasm_rust::__private::into_domain(
+            secondary_connection_string_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryConnectionStringAlias"),
             ),
-            secondary_key: pulumi_wasm_rust::__private::into_domain(
+            secondary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryKey"),
             ),
-            send: pulumi_wasm_rust::__private::into_domain(o.extract_field("send")),
+            send: pulumi_gestalt_rust::__private::into_domain(o.extract_field("send")),
         }
     }
 }

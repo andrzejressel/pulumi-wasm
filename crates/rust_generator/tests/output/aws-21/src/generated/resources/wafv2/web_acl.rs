@@ -1,117 +1,117 @@
 pub mod web_acl {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebAclArgs {
         /// Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
         #[builder(into, default)]
-        pub association_config: pulumi_wasm_rust::InputOrOutput<
+        pub association_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::wafv2::WebAclAssociationConfig>,
         >,
         /// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
         #[builder(into, default)]
-        pub captcha_config: pulumi_wasm_rust::InputOrOutput<
+        pub captcha_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::wafv2::WebAclCaptchaConfig>,
         >,
         /// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
         #[builder(into, default)]
-        pub challenge_config: pulumi_wasm_rust::InputOrOutput<
+        pub challenge_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::wafv2::WebAclChallengeConfig>,
         >,
         /// Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
         #[builder(into, default)]
-        pub custom_response_bodies: pulumi_wasm_rust::InputOrOutput<
+        pub custom_response_bodies: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::wafv2::WebAclCustomResponseBody>>,
         >,
         /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
         #[builder(into)]
-        pub default_action: pulumi_wasm_rust::InputOrOutput<
+        pub default_action: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::wafv2::WebAclDefaultAction,
         >,
         /// Friendly description of the WebACL.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Friendly name of the WebACL.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
         #[builder(into, default)]
-        pub rule_json: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub rule_json: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
         #[builder(into, default)]
-        pub rules: pulumi_wasm_rust::InputOrOutput<
+        pub rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::wafv2::WebAclRule>>,
         >,
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         #[builder(into)]
-        pub scope: pulumi_wasm_rust::InputOrOutput<String>,
+        pub scope: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
         #[builder(into, default)]
-        pub token_domains: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub token_domains: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
         #[builder(into)]
-        pub visibility_config: pulumi_wasm_rust::InputOrOutput<
+        pub visibility_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::wafv2::WebAclVisibilityConfig,
         >,
     }
     #[allow(dead_code)]
     pub struct WebAclResult {
         /// The URL to use in SDK integrations with managed rule groups.
-        pub application_integration_url: pulumi_wasm_rust::Output<String>,
+        pub application_integration_url: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the WAF WebACL.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Specifies custom configurations for the associations between the web ACL and protected resources. See `association_config` below for details.
-        pub association_config: pulumi_wasm_rust::Output<
+        pub association_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::wafv2::WebAclAssociationConfig>,
         >,
         /// Web ACL capacity units (WCUs) currently being used by this web ACL.
-        pub capacity: pulumi_wasm_rust::Output<i32>,
+        pub capacity: pulumi_gestalt_rust::Output<i32>,
         /// Specifies how AWS WAF should handle CAPTCHA evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `captcha_config` below for details.
-        pub captcha_config: pulumi_wasm_rust::Output<
+        pub captcha_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::wafv2::WebAclCaptchaConfig>,
         >,
         /// Specifies how AWS WAF should handle Challenge evaluations on the ACL level (used by [AWS Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html)). See `challenge_config` below for details.
-        pub challenge_config: pulumi_wasm_rust::Output<
+        pub challenge_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::wafv2::WebAclChallengeConfig>,
         >,
         /// Defines custom response bodies that can be referenced by `custom_response` actions. See `custom_response_body` below for details.
-        pub custom_response_bodies: pulumi_wasm_rust::Output<
+        pub custom_response_bodies: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::wafv2::WebAclCustomResponseBody>>,
         >,
         /// Action to perform if none of the `rules` contained in the WebACL match. See `default_action` below for details.
-        pub default_action: pulumi_wasm_rust::Output<
+        pub default_action: pulumi_gestalt_rust::Output<
             super::super::types::wafv2::WebAclDefaultAction,
         >,
         /// Friendly description of the WebACL.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
-        pub lock_token: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
+        pub lock_token: pulumi_gestalt_rust::Output<String>,
         /// Friendly name of the WebACL.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Raw JSON string to allow more than three nested statements. Conflicts with `rule` attribute. This is for advanced use cases where more than 3 levels of nested statements are required. **There is no drift detection at this time**. If you use this attribute instead of `rule`, you will be foregoing drift detection. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateWebACL.html) for the JSON structure.
-        pub rule_json: pulumi_wasm_rust::Output<Option<String>>,
+        pub rule_json: pulumi_gestalt_rust::Output<Option<String>>,
         /// Rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See `rule` below for details.
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::wafv2::WebAclRule>>,
         >,
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_gestalt_rust::Output<String>,
         /// Map of key-value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
-        pub token_domains: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub token_domains: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
-        pub visibility_config: pulumi_wasm_rust::Output<
+        pub visibility_config: pulumi_gestalt_rust::Output<
             super::super::types::wafv2::WebAclVisibilityConfig,
         >,
     }
@@ -120,11 +120,11 @@ pub mod web_acl {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WebAclArgs,
     ) -> WebAclResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let association_config_binding = args
             .association_config
@@ -212,48 +212,48 @@ pub mod web_acl {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WebAclResult {
-            application_integration_url: pulumi_wasm_rust::__private::into_domain(
+            application_integration_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationIntegrationUrl"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            association_config: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            association_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("associationConfig"),
             ),
-            capacity: pulumi_wasm_rust::__private::into_domain(
+            capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capacity"),
             ),
-            captcha_config: pulumi_wasm_rust::__private::into_domain(
+            captcha_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("captchaConfig"),
             ),
-            challenge_config: pulumi_wasm_rust::__private::into_domain(
+            challenge_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("challengeConfig"),
             ),
-            custom_response_bodies: pulumi_wasm_rust::__private::into_domain(
+            custom_response_bodies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customResponseBodies"),
             ),
-            default_action: pulumi_wasm_rust::__private::into_domain(
+            default_action: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultAction"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            lock_token: pulumi_wasm_rust::__private::into_domain(
+            lock_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lockToken"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            rule_json: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            rule_json: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleJson"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
-            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
+            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            token_domains: pulumi_wasm_rust::__private::into_domain(
+            token_domains: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tokenDomains"),
             ),
-            visibility_config: pulumi_wasm_rust::__private::into_domain(
+            visibility_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("visibilityConfig"),
             ),
         }

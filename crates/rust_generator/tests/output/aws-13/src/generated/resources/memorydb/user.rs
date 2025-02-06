@@ -33,64 +33,64 @@
 /// The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
 ///
 pub mod user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserArgs {
         /// Access permissions string used for this user.
         #[builder(into)]
-        pub access_string: pulumi_wasm_rust::InputOrOutput<String>,
+        pub access_string: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Denotes the user's authentication properties. Detailed below.
         #[builder(into)]
-        pub authentication_mode: pulumi_wasm_rust::InputOrOutput<
+        pub authentication_mode: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::memorydb::UserAuthenticationMode,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the MemoryDB user. Up to 40 characters.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub user_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserResult {
         /// Access permissions string used for this user.
-        pub access_string: pulumi_wasm_rust::Output<String>,
+        pub access_string: pulumi_gestalt_rust::Output<String>,
         /// ARN of the user.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Denotes the user's authentication properties. Detailed below.
-        pub authentication_mode: pulumi_wasm_rust::Output<
+        pub authentication_mode: pulumi_gestalt_rust::Output<
             super::super::types::memorydb::UserAuthenticationMode,
         >,
         /// Minimum engine version supported for the user.
-        pub minimum_engine_version: pulumi_wasm_rust::Output<String>,
+        pub minimum_engine_version: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Name of the MemoryDB user. Up to 40 characters.
         ///
         /// The following arguments are optional:
-        pub user_name: pulumi_wasm_rust::Output<String>,
+        pub user_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserArgs,
     ) -> UserResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_string_binding = args.access_string.get_output(context).get_inner();
         let authentication_mode_binding = args
@@ -124,21 +124,21 @@ pub mod user {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserResult {
-            access_string: pulumi_wasm_rust::__private::into_domain(
+            access_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessString"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_mode: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            authentication_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationMode"),
             ),
-            minimum_engine_version: pulumi_wasm_rust::__private::into_domain(
+            minimum_engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minimumEngineVersion"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            user_name: pulumi_wasm_rust::__private::into_domain(
+            user_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userName"),
             ),
         }

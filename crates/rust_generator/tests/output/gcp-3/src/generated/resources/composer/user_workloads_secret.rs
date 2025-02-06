@@ -62,55 +62,55 @@
 /// ```
 ///
 pub mod user_workloads_secret {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserWorkloadsSecretArgs {
         /// A map of the secret data.
         #[builder(into, default)]
-        pub data: pulumi_wasm_rust::InputOrOutput<
+        pub data: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Environment where the Kubernetes Secret will be stored and used.
         #[builder(into)]
-        pub environment: pulumi_wasm_rust::InputOrOutput<String>,
+        pub environment: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the Kubernetes Secret.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location or Compute Engine region for the environment.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct UserWorkloadsSecretResult {
         /// A map of the secret data.
-        pub data: pulumi_wasm_rust::Output<
+        pub data: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Environment where the Kubernetes Secret will be stored and used.
-        pub environment: pulumi_wasm_rust::Output<String>,
+        pub environment: pulumi_gestalt_rust::Output<String>,
         /// Name of the Kubernetes Secret.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The location or Compute Engine region for the environment.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserWorkloadsSecretArgs,
     ) -> UserWorkloadsSecretResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_binding = args.data.get_output(context).get_inner();
         let environment_binding = args.environment.get_output(context).get_inner();
@@ -146,15 +146,17 @@ pub mod user_workloads_secret {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserWorkloadsSecretResult {
-            data: pulumi_wasm_rust::__private::into_domain(o.extract_field("data")),
-            environment: pulumi_wasm_rust::__private::into_domain(
+            data: pulumi_gestalt_rust::__private::into_domain(o.extract_field("data")),
+            environment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environment"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
         }
     }
 }

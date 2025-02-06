@@ -1,69 +1,69 @@
 pub mod get_grafana {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetGrafanaArgs {
         /// The managed identity of the grafana resource.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::super::types::dashboard::GetGrafanaIdentity>,
         >,
         /// Name of the grafana dashboard.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the resource group where resource belongs to.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetGrafanaResult {
         /// Whether the api key setting of the Grafana instance is enabled.
-        pub api_key_enabled: pulumi_wasm_rust::Output<bool>,
+        pub api_key_enabled: pulumi_gestalt_rust::Output<bool>,
         /// Scope for dns deterministic name hash calculation.
-        pub auto_generated_domain_name_label_scope: pulumi_wasm_rust::Output<String>,
+        pub auto_generated_domain_name_label_scope: pulumi_gestalt_rust::Output<String>,
         /// Integrations for Azure Monitor Workspace.
-        pub azure_monitor_workspace_integrations: pulumi_wasm_rust::Output<
+        pub azure_monitor_workspace_integrations: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::dashboard::GetGrafanaAzureMonitorWorkspaceIntegration,
             >,
         >,
         /// Whether the Grafana instance uses deterministic outbound IPs.
-        pub deterministic_outbound_ip_enabled: pulumi_wasm_rust::Output<bool>,
+        pub deterministic_outbound_ip_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The endpoint of the Grafana instance.
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_gestalt_rust::Output<String>,
         /// Major version of Grafana instance.
-        pub grafana_major_version: pulumi_wasm_rust::Output<String>,
+        pub grafana_major_version: pulumi_gestalt_rust::Output<String>,
         /// The full Grafana software semantic version deployed.
-        pub grafana_version: pulumi_wasm_rust::Output<String>,
+        pub grafana_version: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The managed identity of the grafana resource.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::super::types::dashboard::GetGrafanaIdentity>,
         >,
         /// Azure location where the resource exists.
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub outbound_ips: pulumi_wasm_rust::Output<Vec<String>>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub outbound_ips: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Whether or not public endpoint access is allowed for this server.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<bool>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<bool>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the SKU used for the Grafana instance.
-        pub sku: pulumi_wasm_rust::Output<String>,
+        pub sku: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assigned to the resource.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// The zone redundancy setting of the Grafana instance.
-        pub zone_redundancy_enabled: pulumi_wasm_rust::Output<bool>,
+        pub zone_redundancy_enabled: pulumi_gestalt_rust::Output<bool>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetGrafanaArgs,
     ) -> GetGrafanaResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let identity_binding = args.identity.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -91,47 +91,47 @@ pub mod get_grafana {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetGrafanaResult {
-            api_key_enabled: pulumi_wasm_rust::__private::into_domain(
+            api_key_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiKeyEnabled"),
             ),
-            auto_generated_domain_name_label_scope: pulumi_wasm_rust::__private::into_domain(
+            auto_generated_domain_name_label_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoGeneratedDomainNameLabelScope"),
             ),
-            azure_monitor_workspace_integrations: pulumi_wasm_rust::__private::into_domain(
+            azure_monitor_workspace_integrations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("azureMonitorWorkspaceIntegrations"),
             ),
-            deterministic_outbound_ip_enabled: pulumi_wasm_rust::__private::into_domain(
+            deterministic_outbound_ip_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deterministicOutboundIpEnabled"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            grafana_major_version: pulumi_wasm_rust::__private::into_domain(
+            grafana_major_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("grafanaMajorVersion"),
             ),
-            grafana_version: pulumi_wasm_rust::__private::into_domain(
+            grafana_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("grafanaVersion"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            outbound_ips: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            outbound_ips: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outboundIps"),
             ),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            zone_redundancy_enabled: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            zone_redundancy_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("zoneRedundancyEnabled"),
             ),
         }

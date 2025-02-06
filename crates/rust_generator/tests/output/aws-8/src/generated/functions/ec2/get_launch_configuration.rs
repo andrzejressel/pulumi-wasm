@@ -1,70 +1,70 @@
 pub mod get_launch_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetLaunchConfigurationArgs {
         /// Name of the launch configuration.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetLaunchConfigurationResult {
         /// Amazon Resource Name of the launch configuration.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Whether a Public IP address is associated with the instance.
-        pub associate_public_ip_address: pulumi_wasm_rust::Output<bool>,
+        pub associate_public_ip_address: pulumi_gestalt_rust::Output<bool>,
         /// EBS Block Devices attached to the instance.
-        pub ebs_block_devices: pulumi_wasm_rust::Output<
+        pub ebs_block_devices: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::ec2::GetLaunchConfigurationEbsBlockDevice>,
         >,
         /// Whether the launched EC2 instance will be EBS-optimized.
-        pub ebs_optimized: pulumi_wasm_rust::Output<bool>,
+        pub ebs_optimized: pulumi_gestalt_rust::Output<bool>,
         /// Whether Detailed Monitoring is Enabled.
-        pub enable_monitoring: pulumi_wasm_rust::Output<bool>,
+        pub enable_monitoring: pulumi_gestalt_rust::Output<bool>,
         /// The Ephemeral volumes on the instance.
-        pub ephemeral_block_devices: pulumi_wasm_rust::Output<
+        pub ephemeral_block_devices: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::ec2::GetLaunchConfigurationEphemeralBlockDevice,
             >,
         >,
         /// The IAM Instance Profile to associate with launched instances.
-        pub iam_instance_profile: pulumi_wasm_rust::Output<String>,
+        pub iam_instance_profile: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// EC2 Image ID of the instance.
-        pub image_id: pulumi_wasm_rust::Output<String>,
+        pub image_id: pulumi_gestalt_rust::Output<String>,
         /// Instance Type of the instance to launch.
-        pub instance_type: pulumi_wasm_rust::Output<String>,
+        pub instance_type: pulumi_gestalt_rust::Output<String>,
         /// Key Name that should be used for the instance.
-        pub key_name: pulumi_wasm_rust::Output<String>,
+        pub key_name: pulumi_gestalt_rust::Output<String>,
         /// Metadata options for the instance.
-        pub metadata_options: pulumi_wasm_rust::Output<
+        pub metadata_options: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::ec2::GetLaunchConfigurationMetadataOption>,
         >,
         /// Name of the launch configuration.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Tenancy of the instance.
-        pub placement_tenancy: pulumi_wasm_rust::Output<String>,
+        pub placement_tenancy: pulumi_gestalt_rust::Output<String>,
         /// Root Block Device of the instance.
-        pub root_block_devices: pulumi_wasm_rust::Output<
+        pub root_block_devices: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::ec2::GetLaunchConfigurationRootBlockDevice>,
         >,
         /// List of associated Security Group IDS.
-        pub security_groups: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_groups: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Price to use for reserving Spot instances.
-        pub spot_price: pulumi_wasm_rust::Output<String>,
+        pub spot_price: pulumi_gestalt_rust::Output<String>,
         /// User Data of the instance.
-        pub user_data: pulumi_wasm_rust::Output<String>,
+        pub user_data: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetLaunchConfigurationArgs,
     ) -> GetLaunchConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
@@ -79,52 +79,52 @@ pub mod get_launch_configuration {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetLaunchConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            associate_public_ip_address: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            associate_public_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("associatePublicIpAddress"),
             ),
-            ebs_block_devices: pulumi_wasm_rust::__private::into_domain(
+            ebs_block_devices: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ebsBlockDevices"),
             ),
-            ebs_optimized: pulumi_wasm_rust::__private::into_domain(
+            ebs_optimized: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ebsOptimized"),
             ),
-            enable_monitoring: pulumi_wasm_rust::__private::into_domain(
+            enable_monitoring: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableMonitoring"),
             ),
-            ephemeral_block_devices: pulumi_wasm_rust::__private::into_domain(
+            ephemeral_block_devices: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ephemeralBlockDevices"),
             ),
-            iam_instance_profile: pulumi_wasm_rust::__private::into_domain(
+            iam_instance_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iamInstanceProfile"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            image_id: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            image_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageId"),
             ),
-            instance_type: pulumi_wasm_rust::__private::into_domain(
+            instance_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceType"),
             ),
-            key_name: pulumi_wasm_rust::__private::into_domain(
+            key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyName"),
             ),
-            metadata_options: pulumi_wasm_rust::__private::into_domain(
+            metadata_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadataOptions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            placement_tenancy: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            placement_tenancy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("placementTenancy"),
             ),
-            root_block_devices: pulumi_wasm_rust::__private::into_domain(
+            root_block_devices: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rootBlockDevices"),
             ),
-            security_groups: pulumi_wasm_rust::__private::into_domain(
+            security_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroups"),
             ),
-            spot_price: pulumi_wasm_rust::__private::into_domain(
+            spot_price: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("spotPrice"),
             ),
-            user_data: pulumi_wasm_rust::__private::into_domain(
+            user_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userData"),
             ),
         }

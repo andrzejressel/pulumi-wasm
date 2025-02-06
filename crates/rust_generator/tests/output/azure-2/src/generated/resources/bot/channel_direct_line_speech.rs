@@ -52,64 +52,66 @@
 /// ```
 ///
 pub mod channel_direct_line_speech {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ChannelDirectLineSpeechArgs {
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub bot_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bot_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Cognitive Account this Bot Channel should be associated with.
         #[builder(into, default)]
-        pub cognitive_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cognitive_account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The access key to access the Cognitive Service.
         #[builder(into)]
-        pub cognitive_service_access_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cognitive_service_access_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the supported Azure location where the Cognitive Service resource exists.
         #[builder(into)]
-        pub cognitive_service_location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cognitive_service_location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The custom speech model id for the Direct Line Speech Channel.
         #[builder(into, default)]
-        pub custom_speech_model_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub custom_speech_model_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The custom voice deployment id for the Direct Line Speech Channel.
         #[builder(into, default)]
-        pub custom_voice_deployment_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub custom_voice_deployment_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group where the Direct Line Speech Channel should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ChannelDirectLineSpeechResult {
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
-        pub bot_name: pulumi_wasm_rust::Output<String>,
+        pub bot_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Cognitive Account this Bot Channel should be associated with.
-        pub cognitive_account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub cognitive_account_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The access key to access the Cognitive Service.
-        pub cognitive_service_access_key: pulumi_wasm_rust::Output<String>,
+        pub cognitive_service_access_key: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the Cognitive Service resource exists.
-        pub cognitive_service_location: pulumi_wasm_rust::Output<String>,
+        pub cognitive_service_location: pulumi_gestalt_rust::Output<String>,
         /// The custom speech model id for the Direct Line Speech Channel.
-        pub custom_speech_model_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_speech_model_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The custom voice deployment id for the Direct Line Speech Channel.
-        pub custom_voice_deployment_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_voice_deployment_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group where the Direct Line Speech Channel should be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ChannelDirectLineSpeechArgs,
     ) -> ChannelDirectLineSpeechResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bot_name_binding = args.bot_name.get_output(context).get_inner();
         let cognitive_account_id_binding = args
@@ -178,28 +180,28 @@ pub mod channel_direct_line_speech {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ChannelDirectLineSpeechResult {
-            bot_name: pulumi_wasm_rust::__private::into_domain(
+            bot_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("botName"),
             ),
-            cognitive_account_id: pulumi_wasm_rust::__private::into_domain(
+            cognitive_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cognitiveAccountId"),
             ),
-            cognitive_service_access_key: pulumi_wasm_rust::__private::into_domain(
+            cognitive_service_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cognitiveServiceAccessKey"),
             ),
-            cognitive_service_location: pulumi_wasm_rust::__private::into_domain(
+            cognitive_service_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cognitiveServiceLocation"),
             ),
-            custom_speech_model_id: pulumi_wasm_rust::__private::into_domain(
+            custom_speech_model_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customSpeechModelId"),
             ),
-            custom_voice_deployment_id: pulumi_wasm_rust::__private::into_domain(
+            custom_voice_deployment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customVoiceDeploymentId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
         }

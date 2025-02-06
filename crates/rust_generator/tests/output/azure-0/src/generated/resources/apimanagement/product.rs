@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -49,82 +49,82 @@
 /// ```
 ///
 pub mod product {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProductArgs {
         /// The name of the API Management Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Do subscribers need to be approved prior to being able to use the Product?
         ///
         /// > **NOTE:** `approval_required` can only be set when `subscription_required` is set to `true`.
         #[builder(into, default)]
-        pub approval_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub approval_required: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A description of this Product, which may include HTML formatting tags.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Display Name for this API Management Product.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub product_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub product_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Is this Product Published?
         #[builder(into)]
-        pub published: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub published: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Is a Subscription required to access API's included in this Product? Defaults to `true`.
         #[builder(into, default)]
-        pub subscription_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub subscription_required: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The number of subscriptions a user can have to this Product at the same time.
         ///
         /// > **NOTE:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
         #[builder(into, default)]
-        pub subscriptions_limit: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub subscriptions_limit: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
         #[builder(into, default)]
-        pub terms: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub terms: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ProductResult {
         /// The name of the API Management Service. Changing this forces a new resource to be created.
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_gestalt_rust::Output<String>,
         /// Do subscribers need to be approved prior to being able to use the Product?
         ///
         /// > **NOTE:** `approval_required` can only be set when `subscription_required` is set to `true`.
-        pub approval_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub approval_required: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A description of this Product, which may include HTML formatting tags.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Display Name for this API Management Product.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
-        pub product_id: pulumi_wasm_rust::Output<String>,
+        pub product_id: pulumi_gestalt_rust::Output<String>,
         /// Is this Product Published?
-        pub published: pulumi_wasm_rust::Output<bool>,
+        pub published: pulumi_gestalt_rust::Output<bool>,
         /// The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Is a Subscription required to access API's included in this Product? Defaults to `true`.
-        pub subscription_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub subscription_required: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The number of subscriptions a user can have to this Product at the same time.
         ///
         /// > **NOTE:** `subscriptions_limit` can only be set when `subscription_required` is set to `true`.
-        pub subscriptions_limit: pulumi_wasm_rust::Output<Option<i32>>,
+        pub subscriptions_limit: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
-        pub terms: pulumi_wasm_rust::Output<Option<String>>,
+        pub terms: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProductArgs,
     ) -> ProductResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_management_name_binding = args
             .api_management_name
@@ -200,34 +200,34 @@ pub mod product {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProductResult {
-            api_management_name: pulumi_wasm_rust::__private::into_domain(
+            api_management_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementName"),
             ),
-            approval_required: pulumi_wasm_rust::__private::into_domain(
+            approval_required: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("approvalRequired"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            product_id: pulumi_wasm_rust::__private::into_domain(
+            product_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("productId"),
             ),
-            published: pulumi_wasm_rust::__private::into_domain(
+            published: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("published"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            subscription_required: pulumi_wasm_rust::__private::into_domain(
+            subscription_required: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscriptionRequired"),
             ),
-            subscriptions_limit: pulumi_wasm_rust::__private::into_domain(
+            subscriptions_limit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscriptionsLimit"),
             ),
-            terms: pulumi_wasm_rust::__private::into_domain(o.extract_field("terms")),
+            terms: pulumi_gestalt_rust::__private::into_domain(o.extract_field("terms")),
         }
     }
 }

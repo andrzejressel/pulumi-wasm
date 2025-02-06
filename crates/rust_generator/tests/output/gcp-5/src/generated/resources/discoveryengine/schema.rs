@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = schema::create(
@@ -69,64 +69,64 @@
 /// ```
 ///
 pub mod schema {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SchemaArgs {
         /// The unique id of the data store.
         #[builder(into)]
-        pub data_store_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_store_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The JSON representation of the schema.
         #[builder(into, default)]
-        pub json_schema: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub json_schema: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The geographic location where the data store should reside. The value can
         /// only be one of "global", "us" and "eu".
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The unique id of the schema.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub schema_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub schema_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SchemaResult {
         /// The unique id of the data store.
-        pub data_store_id: pulumi_wasm_rust::Output<String>,
+        pub data_store_id: pulumi_gestalt_rust::Output<String>,
         /// The JSON representation of the schema.
-        pub json_schema: pulumi_wasm_rust::Output<Option<String>>,
+        pub json_schema: pulumi_gestalt_rust::Output<Option<String>>,
         /// The geographic location where the data store should reside. The value can
         /// only be one of "global", "us" and "eu".
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The unique full resource name of the schema. Values are of the format
         /// `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/schemas/{schema_id}`.
         /// This field must be a UTF-8 encoded string with a length limit of 1024
         /// characters.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The unique id of the schema.
         ///
         ///
         /// - - -
-        pub schema_id: pulumi_wasm_rust::Output<String>,
+        pub schema_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SchemaArgs,
     ) -> SchemaResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_store_id_binding = args.data_store_id.get_output(context).get_inner();
         let json_schema_binding = args.json_schema.get_output(context).get_inner();
@@ -162,20 +162,20 @@ pub mod schema {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SchemaResult {
-            data_store_id: pulumi_wasm_rust::__private::into_domain(
+            data_store_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataStoreId"),
             ),
-            json_schema: pulumi_wasm_rust::__private::into_domain(
+            json_schema: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jsonSchema"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            schema_id: pulumi_wasm_rust::__private::into_domain(
+            schema_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schemaId"),
             ),
         }

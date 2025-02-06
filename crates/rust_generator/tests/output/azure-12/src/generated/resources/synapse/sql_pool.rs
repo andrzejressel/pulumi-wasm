@@ -57,74 +57,74 @@
 /// ```
 ///
 pub mod sql_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SqlPoolArgs {
         /// The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
         #[builder(into, default)]
-        pub collation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub collation: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new Synapse SQL Pool to be created.
         #[builder(into, default)]
-        pub create_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub create_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Is transparent data encryption enabled?
         #[builder(into, default)]
-        pub data_encrypted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub data_encrypted: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
         #[builder(into, default)]
-        pub geo_backup_policy_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub geo_backup_policy_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
         #[builder(into, default)]
-        pub recovery_database_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub recovery_database_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
         #[builder(into, default)]
-        pub restore: pulumi_wasm_rust::InputOrOutput<
+        pub restore: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::synapse::SqlPoolRestore>,
         >,
         /// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
         #[builder(into)]
-        pub storage_account_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
         #[builder(into)]
-        pub synapse_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub synapse_workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Synapse SQL Pool.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct SqlPoolResult {
         /// The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
-        pub collation: pulumi_wasm_rust::Output<String>,
+        pub collation: pulumi_gestalt_rust::Output<String>,
         /// Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new Synapse SQL Pool to be created.
-        pub create_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub create_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// Is transparent data encryption enabled?
-        pub data_encrypted: pulumi_wasm_rust::Output<Option<bool>>,
+        pub data_encrypted: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
-        pub geo_backup_policy_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub geo_backup_policy_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
-        pub recovery_database_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub recovery_database_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
-        pub restore: pulumi_wasm_rust::Output<
+        pub restore: pulumi_gestalt_rust::Output<
             Option<super::super::types::synapse::SqlPoolRestore>,
         >,
         /// Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
         /// The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
-        pub storage_account_type: pulumi_wasm_rust::Output<String>,
+        pub storage_account_type: pulumi_gestalt_rust::Output<String>,
         /// The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
-        pub synapse_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub synapse_workspace_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Synapse SQL Pool.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -133,11 +133,11 @@ pub mod sql_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SqlPoolArgs,
     ) -> SqlPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let collation_binding = args.collation.get_output(context).get_inner();
         let create_mode_binding = args.create_mode.get_output(context).get_inner();
@@ -215,35 +215,35 @@ pub mod sql_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SqlPoolResult {
-            collation: pulumi_wasm_rust::__private::into_domain(
+            collation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("collation"),
             ),
-            create_mode: pulumi_wasm_rust::__private::into_domain(
+            create_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createMode"),
             ),
-            data_encrypted: pulumi_wasm_rust::__private::into_domain(
+            data_encrypted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataEncrypted"),
             ),
-            geo_backup_policy_enabled: pulumi_wasm_rust::__private::into_domain(
+            geo_backup_policy_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("geoBackupPolicyEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            recovery_database_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            recovery_database_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryDatabaseId"),
             ),
-            restore: pulumi_wasm_rust::__private::into_domain(
+            restore: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restore"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            storage_account_type: pulumi_wasm_rust::__private::into_domain(
+            storage_account_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountType"),
             ),
-            synapse_workspace_id: pulumi_wasm_rust::__private::into_domain(
+            synapse_workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("synapseWorkspaceId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -1,4 +1,4 @@
-module github.com/andrzejressel/pulumi-wasm/pulumi-language-wasm
+module github.com/andrzejressel/pulumi-gestalt/pulumi-language-gestalt
 
 go 1.22.7
 

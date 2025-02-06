@@ -31,65 +31,65 @@
 /// $ pulumi import aws:iot/authorizer:Authorizer example example
 /// ```
 pub mod authorizer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthorizerArgs {
         /// The ARN of the authorizer's Lambda function.
         #[builder(into)]
-        pub authorizer_function_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub authorizer_function_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies whether the HTTP caching is enabled or not. Default: `false`.
         #[builder(into, default)]
-        pub enable_caching_for_http: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_caching_for_http: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the authorizer.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         #[builder(into, default)]
-        pub signing_disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub signing_disabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
         #[builder(into, default)]
-        pub token_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub token_key_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
         #[builder(into, default)]
-        pub token_signing_public_keys: pulumi_wasm_rust::InputOrOutput<
+        pub token_signing_public_keys: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AuthorizerResult {
         /// The ARN of the authorizer.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the authorizer's Lambda function.
-        pub authorizer_function_arn: pulumi_wasm_rust::Output<String>,
+        pub authorizer_function_arn: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether the HTTP caching is enabled or not. Default: `false`.
-        pub enable_caching_for_http: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_caching_for_http: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the authorizer.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
-        pub signing_disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub signing_disabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_gestalt_rust::Output<Option<String>>,
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The name of the token key used to extract the token from the HTTP headers. This value is required if signing is enabled in your authorizer.
-        pub token_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub token_key_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
-        pub token_signing_public_keys: pulumi_wasm_rust::Output<
+        pub token_signing_public_keys: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -98,11 +98,11 @@ pub mod authorizer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AuthorizerArgs,
     ) -> AuthorizerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authorizer_function_arn_binding = args
             .authorizer_function_arn
@@ -165,26 +165,28 @@ pub mod authorizer {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AuthorizerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            authorizer_function_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            authorizer_function_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizerFunctionArn"),
             ),
-            enable_caching_for_http: pulumi_wasm_rust::__private::into_domain(
+            enable_caching_for_http: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableCachingForHttp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            signing_disabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            signing_disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signingDisabled"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            token_key_name: pulumi_wasm_rust::__private::into_domain(
+            token_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tokenKeyName"),
             ),
-            token_signing_public_keys: pulumi_wasm_rust::__private::into_domain(
+            token_signing_public_keys: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tokenSigningPublicKeys"),
             ),
         }

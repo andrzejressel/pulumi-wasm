@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = internet_monitor::create(
@@ -22,90 +22,94 @@
 /// $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
 /// ```
 pub mod internet_monitor {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InternetMonitorArgs {
         /// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
         #[builder(into, default)]
-        pub health_events_config: pulumi_wasm_rust::InputOrOutput<
+        pub health_events_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::InternetMonitorHealthEventsConfig>,
         >,
         /// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
         #[builder(into, default)]
-        pub internet_measurements_log_delivery: pulumi_wasm_rust::InputOrOutput<
+        pub internet_measurements_log_delivery: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::cloudwatch::InternetMonitorInternetMeasurementsLogDelivery,
             >,
         >,
         /// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
         #[builder(into, default)]
-        pub max_city_networks_to_monitor: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_city_networks_to_monitor: pulumi_gestalt_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// The name of the monitor.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub monitor_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub monitor_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
         #[builder(into, default)]
-        pub resources: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub resources: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
         #[builder(into, default)]
-        pub traffic_percentage_to_monitor: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub traffic_percentage_to_monitor: pulumi_gestalt_rust::InputOrOutput<
+            Option<i32>,
+        >,
     }
     #[allow(dead_code)]
     pub struct InternetMonitorResult {
         /// ARN of the Monitor.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
-        pub health_events_config: pulumi_wasm_rust::Output<
+        pub health_events_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudwatch::InternetMonitorHealthEventsConfig>,
         >,
         /// Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
-        pub internet_measurements_log_delivery: pulumi_wasm_rust::Output<
+        pub internet_measurements_log_delivery: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::cloudwatch::InternetMonitorInternetMeasurementsLogDelivery,
             >,
         >,
         /// The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
-        pub max_city_networks_to_monitor: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_city_networks_to_monitor: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The name of the monitor.
         ///
         /// The following arguments are optional:
-        pub monitor_name: pulumi_wasm_rust::Output<String>,
+        pub monitor_name: pulumi_gestalt_rust::Output<String>,
         /// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
-        pub resources: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub resources: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_gestalt_rust::Output<Option<String>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
-        pub traffic_percentage_to_monitor: pulumi_wasm_rust::Output<Option<i32>>,
+        pub traffic_percentage_to_monitor: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InternetMonitorArgs,
     ) -> InternetMonitorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let health_events_config_binding = args
             .health_events_config
@@ -168,28 +172,30 @@ pub mod internet_monitor {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InternetMonitorResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            health_events_config: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            health_events_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("healthEventsConfig"),
             ),
-            internet_measurements_log_delivery: pulumi_wasm_rust::__private::into_domain(
+            internet_measurements_log_delivery: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("internetMeasurementsLogDelivery"),
             ),
-            max_city_networks_to_monitor: pulumi_wasm_rust::__private::into_domain(
+            max_city_networks_to_monitor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxCityNetworksToMonitor"),
             ),
-            monitor_name: pulumi_wasm_rust::__private::into_domain(
+            monitor_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitorName"),
             ),
-            resources: pulumi_wasm_rust::__private::into_domain(
+            resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resources"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            traffic_percentage_to_monitor: pulumi_wasm_rust::__private::into_domain(
+            traffic_percentage_to_monitor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trafficPercentageToMonitor"),
             ),
         }

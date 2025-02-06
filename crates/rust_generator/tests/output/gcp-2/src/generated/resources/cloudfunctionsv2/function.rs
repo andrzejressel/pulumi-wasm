@@ -887,7 +887,7 @@
 /// ```
 ///
 pub mod function {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FunctionArgs {
@@ -895,29 +895,29 @@ pub mod function {
         /// from the given source.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub build_config: pulumi_wasm_rust::InputOrOutput<
+        pub build_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudfunctionsv2::FunctionBuildConfig>,
         >,
         /// User-provided description of a function.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An Eventarc trigger managed by Google Cloud Functions that fires events in
         /// response to a condition in another service.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub event_trigger: pulumi_wasm_rust::InputOrOutput<
+        pub event_trigger: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudfunctionsv2::FunctionEventTrigger>,
         >,
         /// Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt function resources.
         /// It must match the pattern projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}.
         #[builder(into, default)]
-        pub kms_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A set of key/value label pairs associated with this Cloud Function.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of this cloud function.
@@ -925,19 +925,19 @@ pub mod function {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A user-defined name of the function. Function names must
         /// be unique globally and match pattern `projects/*/locations/*/functions/*`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Describes the Service being deployed.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub service_config: pulumi_wasm_rust::InputOrOutput<
+        pub service_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudfunctionsv2::FunctionServiceConfig>,
         >,
     }
@@ -946,71 +946,71 @@ pub mod function {
         /// Describes the Build step of the function that builds a container
         /// from the given source.
         /// Structure is documented below.
-        pub build_config: pulumi_wasm_rust::Output<
+        pub build_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudfunctionsv2::FunctionBuildConfig>,
         >,
         /// User-provided description of a function.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The environment the function is hosted on.
-        pub environment: pulumi_wasm_rust::Output<String>,
+        pub environment: pulumi_gestalt_rust::Output<String>,
         /// An Eventarc trigger managed by Google Cloud Functions that fires events in
         /// response to a condition in another service.
         /// Structure is documented below.
-        pub event_trigger: pulumi_wasm_rust::Output<
+        pub event_trigger: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudfunctionsv2::FunctionEventTrigger>,
         >,
         /// Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt function resources.
         /// It must match the pattern projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}.
-        pub kms_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// A set of key/value label pairs associated with this Cloud Function.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location of this cloud function.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A user-defined name of the function. Function names must
         /// be unique globally and match pattern `projects/*/locations/*/functions/*`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Describes the Service being deployed.
         /// Structure is documented below.
-        pub service_config: pulumi_wasm_rust::Output<
+        pub service_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudfunctionsv2::FunctionServiceConfig>,
         >,
         /// Describes the current state of the function.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The last update timestamp of a Cloud Function.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// Output only. The deployed url for the function.
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub url: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FunctionArgs,
     ) -> FunctionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let build_config_binding = args.build_config.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -1066,43 +1066,45 @@ pub mod function {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FunctionResult {
-            build_config: pulumi_wasm_rust::__private::into_domain(
+            build_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("buildConfig"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            environment: pulumi_wasm_rust::__private::into_domain(
+            environment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environment"),
             ),
-            event_trigger: pulumi_wasm_rust::__private::into_domain(
+            event_trigger: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventTrigger"),
             ),
-            kms_key_name: pulumi_wasm_rust::__private::into_domain(
+            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyName"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            service_config: pulumi_wasm_rust::__private::into_domain(
+            service_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceConfig"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
+            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

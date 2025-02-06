@@ -27,75 +27,75 @@
 /// $ pulumi import aws:datasync/locationFsxOntapFileSystem:LocationFsxOntapFileSystem example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:123456789012:storage-virtual-machine/svm-12345678abcdef123
 /// ```
 pub mod location_fsx_ontap_file_system {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LocationFsxOntapFileSystemArgs {
         /// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::datasync::LocationFsxOntapFileSystemProtocol,
         >,
         /// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
         /// * Network File System (NFS): TCP ports 111, 635, and 2049
         /// * Server Message Block (SMB): TCP port 445
         #[builder(into)]
-        pub security_group_arns: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub security_group_arns: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The ARN of the SVM in your file system where you want to copy data to of from.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub storage_virtual_machine_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_virtual_machine_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
         #[builder(into, default)]
-        pub subdirectory: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subdirectory: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LocationFsxOntapFileSystemResult {
         /// ARN of the DataSync Location for the FSx Ontap File System.
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub creation_time: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub creation_time: pulumi_gestalt_rust::Output<String>,
         /// ARN of the FSx Ontap File System.
-        pub fsx_filesystem_arn: pulumi_wasm_rust::Output<String>,
+        pub fsx_filesystem_arn: pulumi_gestalt_rust::Output<String>,
         /// The data transfer protocol that DataSync uses to access your Amazon FSx file system. See Protocol below.
-        pub protocol: pulumi_wasm_rust::Output<
+        pub protocol: pulumi_gestalt_rust::Output<
             super::super::types::datasync::LocationFsxOntapFileSystemProtocol,
         >,
         /// The security groups that provide access to your file system's preferred subnet. The security groups must allow outbbound traffic on the following ports (depending on the protocol you use):
         /// * Network File System (NFS): TCP ports 111, 635, and 2049
         /// * Server Message Block (SMB): TCP port 445
-        pub security_group_arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_group_arns: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The ARN of the SVM in your file system where you want to copy data to of from.
         ///
         /// The following arguments are optional:
-        pub storage_virtual_machine_arn: pulumi_wasm_rust::Output<String>,
+        pub storage_virtual_machine_arn: pulumi_gestalt_rust::Output<String>,
         /// Path to the file share in the SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares) (e.g. `/vol1`, `/vol1/tree1`, `share1`).
-        pub subdirectory: pulumi_wasm_rust::Output<String>,
+        pub subdirectory: pulumi_gestalt_rust::Output<String>,
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// URI of the FSx ONTAP file system location
-        pub uri: pulumi_wasm_rust::Output<String>,
+        pub uri: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LocationFsxOntapFileSystemArgs,
     ) -> LocationFsxOntapFileSystemResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let protocol_binding = args.protocol.get_output(context).get_inner();
         let security_group_arns_binding = args
@@ -138,30 +138,30 @@ pub mod location_fsx_ontap_file_system {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LocationFsxOntapFileSystemResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            creation_time: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            creation_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTime"),
             ),
-            fsx_filesystem_arn: pulumi_wasm_rust::__private::into_domain(
+            fsx_filesystem_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fsxFilesystemArn"),
             ),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            security_group_arns: pulumi_wasm_rust::__private::into_domain(
+            security_group_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroupArns"),
             ),
-            storage_virtual_machine_arn: pulumi_wasm_rust::__private::into_domain(
+            storage_virtual_machine_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageVirtualMachineArn"),
             ),
-            subdirectory: pulumi_wasm_rust::__private::into_domain(
+            subdirectory: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subdirectory"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
+            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
         }
     }
 }

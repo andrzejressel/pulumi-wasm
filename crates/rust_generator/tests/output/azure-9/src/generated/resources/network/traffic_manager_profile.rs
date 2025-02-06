@@ -45,37 +45,37 @@
 /// ```
 ///
 pub mod traffic_manager_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrafficManagerProfileArgs {
         /// This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
         #[builder(into)]
-        pub dns_config: pulumi_wasm_rust::InputOrOutput<
+        pub dns_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::network::TrafficManagerProfileDnsConfig,
         >,
         /// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
         ///
         /// > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
         #[builder(into, default)]
-        pub max_return: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_return: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
         #[builder(into)]
-        pub monitor_config: pulumi_wasm_rust::InputOrOutput<
+        pub monitor_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::network::TrafficManagerProfileMonitorConfig,
         >,
         /// The name of the Traffic Manager profile. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
         #[builder(into, default)]
-        pub profile_status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub profile_status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
@@ -86,35 +86,35 @@ pub mod traffic_manager_profile {
         /// * `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
         /// * `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
         #[builder(into)]
-        pub traffic_routing_method: pulumi_wasm_rust::InputOrOutput<String>,
+        pub traffic_routing_method: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Indicates whether Traffic View is enabled for the Traffic Manager profile.
         #[builder(into, default)]
-        pub traffic_view_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub traffic_view_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct TrafficManagerProfileResult {
         /// This block specifies the DNS configuration of the Profile. One `dns_config` block as defined below.
-        pub dns_config: pulumi_wasm_rust::Output<
+        pub dns_config: pulumi_gestalt_rust::Output<
             super::super::types::network::TrafficManagerProfileDnsConfig,
         >,
         /// The FQDN of the created Profile.
-        pub fqdn: pulumi_wasm_rust::Output<String>,
+        pub fqdn: pulumi_gestalt_rust::Output<String>,
         /// The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`.
         ///
         /// > **NOTE:** `max_return` must be set when the `traffic_routing_method` is `MultiValue`.
-        pub max_return: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_return: pulumi_gestalt_rust::Output<Option<i32>>,
         /// This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block as defined below.
-        pub monitor_config: pulumi_wasm_rust::Output<
+        pub monitor_config: pulumi_gestalt_rust::Output<
             super::super::types::network::TrafficManagerProfileMonitorConfig,
         >,
         /// The name of the Traffic Manager profile. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`.
-        pub profile_status: pulumi_wasm_rust::Output<Option<String>>,
+        pub profile_status: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
@@ -124,20 +124,20 @@ pub mod traffic_manager_profile {
         /// * `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
         /// * `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
         /// * `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
-        pub traffic_routing_method: pulumi_wasm_rust::Output<String>,
+        pub traffic_routing_method: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether Traffic View is enabled for the Traffic Manager profile.
-        pub traffic_view_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub traffic_view_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TrafficManagerProfileArgs,
     ) -> TrafficManagerProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let dns_config_binding = args.dns_config.get_output(context).get_inner();
         let max_return_binding = args.max_return.get_output(context).get_inner();
@@ -202,28 +202,28 @@ pub mod traffic_manager_profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TrafficManagerProfileResult {
-            dns_config: pulumi_wasm_rust::__private::into_domain(
+            dns_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsConfig"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
-            max_return: pulumi_wasm_rust::__private::into_domain(
+            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
+            max_return: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxReturn"),
             ),
-            monitor_config: pulumi_wasm_rust::__private::into_domain(
+            monitor_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitorConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            profile_status: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            profile_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("profileStatus"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            traffic_routing_method: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            traffic_routing_method: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trafficRoutingMethod"),
             ),
-            traffic_view_enabled: pulumi_wasm_rust::__private::into_domain(
+            traffic_view_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trafficViewEnabled"),
             ),
         }

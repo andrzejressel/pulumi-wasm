@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -45,49 +45,49 @@
 /// ```
 ///
 pub mod mover_agent {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MoverAgentArgs {
         /// Specifies the fully qualified ID of the Hybrid Compute resource for the Storage Mover Agent. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub arc_virtual_machine_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub arc_virtual_machine_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the Hybrid Compute resource's unique SMBIOS ID. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub arc_virtual_machine_uuid: pulumi_wasm_rust::InputOrOutput<String>,
+        pub arc_virtual_machine_uuid: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies a description for this Storage Mover Agent.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name which should be used for this Storage Mover Agent. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Storage Mover that this Agent should be connected to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_mover_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_mover_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MoverAgentResult {
         /// Specifies the fully qualified ID of the Hybrid Compute resource for the Storage Mover Agent. Changing this forces a new resource to be created.
-        pub arc_virtual_machine_id: pulumi_wasm_rust::Output<String>,
+        pub arc_virtual_machine_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Hybrid Compute resource's unique SMBIOS ID. Changing this forces a new resource to be created.
-        pub arc_virtual_machine_uuid: pulumi_wasm_rust::Output<String>,
+        pub arc_virtual_machine_uuid: pulumi_gestalt_rust::Output<String>,
         /// Specifies a description for this Storage Mover Agent.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name which should be used for this Storage Mover Agent. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the ID of the Storage Mover that this Agent should be connected to. Changing this forces a new resource to be created.
-        pub storage_mover_id: pulumi_wasm_rust::Output<String>,
+        pub storage_mover_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MoverAgentArgs,
     ) -> MoverAgentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let arc_virtual_machine_id_binding = args
             .arc_virtual_machine_id
@@ -132,17 +132,17 @@ pub mod mover_agent {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MoverAgentResult {
-            arc_virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
+            arc_virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("arcVirtualMachineId"),
             ),
-            arc_virtual_machine_uuid: pulumi_wasm_rust::__private::into_domain(
+            arc_virtual_machine_uuid: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("arcVirtualMachineUuid"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            storage_mover_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            storage_mover_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageMoverId"),
             ),
         }

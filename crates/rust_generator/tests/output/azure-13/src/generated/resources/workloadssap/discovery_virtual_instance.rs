@@ -37,71 +37,75 @@
 /// ```
 ///
 pub mod discovery_virtual_instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DiscoveryVirtualInstanceArgs {
         /// The ID of the Virtual Machine of the Central Server. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub central_server_virtual_machine_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub central_server_virtual_machine_id: pulumi_gestalt_rust::InputOrOutput<
+            String,
+        >,
         /// The environment type for the SAP Discovery Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub environment: pulumi_wasm_rust::InputOrOutput<String>,
+        pub environment: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::workloadssap::DiscoveryVirtualInstanceIdentity>,
         >,
         /// The Azure Region where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub managed_resource_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub managed_resource_group_name: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub managed_storage_account_name: pulumi_wasm_rust::InputOrOutput<
+        pub managed_storage_account_name: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the name of the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The SAP Product type for the SAP Discovery Virtual Instance. Possible values are `ECC`, `Other` and `S4HANA`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub sap_product: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sap_product: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the SAP Discovery Virtual Instance.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DiscoveryVirtualInstanceResult {
         /// The ID of the Virtual Machine of the Central Server. Changing this forces a new resource to be created.
-        pub central_server_virtual_machine_id: pulumi_wasm_rust::Output<String>,
+        pub central_server_virtual_machine_id: pulumi_gestalt_rust::Output<String>,
         /// The environment type for the SAP Discovery Virtual Instance. Possible values are `NonProd` and `Prod`. Changing this forces a new resource to be created.
-        pub environment: pulumi_wasm_rust::Output<String>,
+        pub environment: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::workloadssap::DiscoveryVirtualInstanceIdentity>,
         >,
         /// The Azure Region where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the managed Resource Group for the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
-        pub managed_resource_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub managed_resource_group_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the custom Storage Account created by the service in the managed Resource Group. Changing this forces a new resource to be created.
-        pub managed_storage_account_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub managed_storage_account_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the SAP Discovery Virtual Instance. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the SAP Discovery Virtual Instance should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The SAP Product type for the SAP Discovery Virtual Instance. Possible values are `ECC`, `Other` and `S4HANA`. Changing this forces a new resource to be created.
-        pub sap_product: pulumi_wasm_rust::Output<String>,
+        pub sap_product: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the SAP Discovery Virtual Instance.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -110,11 +114,11 @@ pub mod discovery_virtual_instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DiscoveryVirtualInstanceArgs,
     ) -> DiscoveryVirtualInstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let central_server_virtual_machine_id_binding = args
             .central_server_virtual_machine_id
@@ -188,32 +192,32 @@ pub mod discovery_virtual_instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DiscoveryVirtualInstanceResult {
-            central_server_virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
+            central_server_virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("centralServerVirtualMachineId"),
             ),
-            environment: pulumi_wasm_rust::__private::into_domain(
+            environment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environment"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            managed_resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            managed_resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedResourceGroupName"),
             ),
-            managed_storage_account_name: pulumi_wasm_rust::__private::into_domain(
+            managed_storage_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedStorageAccountName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sap_product: pulumi_wasm_rust::__private::into_domain(
+            sap_product: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sapProduct"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

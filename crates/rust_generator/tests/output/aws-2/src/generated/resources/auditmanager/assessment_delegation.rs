@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = assessment_delegation::create(
@@ -29,57 +29,57 @@
 /// $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::123456789012:role/example,example
 /// ```
 pub mod assessment_delegation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssessmentDelegationArgs {
         /// Identifier for the assessment.
         #[builder(into)]
-        pub assessment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub assessment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Comment describing the delegation request.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub comment: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
         #[builder(into)]
-        pub control_set_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub control_set_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Amazon Resource Name (ARN) of the IAM role.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub role_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_type: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AssessmentDelegationResult {
         /// Identifier for the assessment.
-        pub assessment_id: pulumi_wasm_rust::Output<String>,
+        pub assessment_id: pulumi_gestalt_rust::Output<String>,
         /// Comment describing the delegation request.
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_gestalt_rust::Output<Option<String>>,
         /// Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
-        pub control_set_id: pulumi_wasm_rust::Output<String>,
+        pub control_set_id: pulumi_gestalt_rust::Output<String>,
         /// Unique identifier for the delegation.
-        pub delegation_id: pulumi_wasm_rust::Output<String>,
+        pub delegation_id: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the IAM role.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
         ///
         /// The following arguments are optional:
-        pub role_type: pulumi_wasm_rust::Output<String>,
+        pub role_type: pulumi_gestalt_rust::Output<String>,
         /// Status of the delegation.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AssessmentDelegationArgs,
     ) -> AssessmentDelegationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let assessment_id_binding = args.assessment_id.get_output(context).get_inner();
         let comment_binding = args.comment.get_output(context).get_inner();
@@ -115,25 +115,27 @@ pub mod assessment_delegation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AssessmentDelegationResult {
-            assessment_id: pulumi_wasm_rust::__private::into_domain(
+            assessment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assessmentId"),
             ),
-            comment: pulumi_wasm_rust::__private::into_domain(
+            comment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("comment"),
             ),
-            control_set_id: pulumi_wasm_rust::__private::into_domain(
+            control_set_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("controlSetId"),
             ),
-            delegation_id: pulumi_wasm_rust::__private::into_domain(
+            delegation_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("delegationId"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            role_type: pulumi_wasm_rust::__private::into_domain(
+            role_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

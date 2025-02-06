@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = monitor::create(
@@ -38,76 +38,76 @@
 /// $ pulumi import aws:networkmonitor/probe:Probe example monitor-7786087912324693644,probe-3qm8p693i4fi1h8lqylzkbp42e
 /// ```
 pub mod probe {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProbeArgs {
         /// The destination IP address. This must be either IPV4 or IPV6.
         #[builder(into)]
-        pub destination: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
         #[builder(into, default)]
-        pub destination_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub destination_port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name of the monitor.
         #[builder(into)]
-        pub monitor_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub monitor_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub packet_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub packet_size: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ARN of the subnet.
         #[builder(into)]
-        pub source_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ProbeResult {
-        pub address_family: pulumi_wasm_rust::Output<String>,
+        pub address_family: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the attachment.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The destination IP address. This must be either IPV4 or IPV6.
-        pub destination: pulumi_wasm_rust::Output<String>,
+        pub destination: pulumi_gestalt_rust::Output<String>,
         /// The port associated with the destination. This is required only if the protocol is TCP and must be a number between 1 and 65536.
-        pub destination_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub destination_port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The name of the monitor.
-        pub monitor_name: pulumi_wasm_rust::Output<String>,
+        pub monitor_name: pulumi_gestalt_rust::Output<String>,
         /// The size of the packets sent between the source and destination. This must be a number between 56 and 8500.
         ///
         /// The following arguments are optional:
-        pub packet_size: pulumi_wasm_rust::Output<i32>,
-        pub probe_id: pulumi_wasm_rust::Output<String>,
+        pub packet_size: pulumi_gestalt_rust::Output<i32>,
+        pub probe_id: pulumi_gestalt_rust::Output<String>,
         /// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the subnet.
-        pub source_arn: pulumi_wasm_rust::Output<String>,
+        pub source_arn: pulumi_gestalt_rust::Output<String>,
         /// Key-value tags for the monitor. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProbeArgs,
     ) -> ProbeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let destination_binding = args.destination.get_output(context).get_inner();
         let destination_port_binding = args
@@ -156,36 +156,36 @@ pub mod probe {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProbeResult {
-            address_family: pulumi_wasm_rust::__private::into_domain(
+            address_family: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addressFamily"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            destination: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            destination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destination"),
             ),
-            destination_port: pulumi_wasm_rust::__private::into_domain(
+            destination_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationPort"),
             ),
-            monitor_name: pulumi_wasm_rust::__private::into_domain(
+            monitor_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitorName"),
             ),
-            packet_size: pulumi_wasm_rust::__private::into_domain(
+            packet_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("packetSize"),
             ),
-            probe_id: pulumi_wasm_rust::__private::into_domain(
+            probe_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("probeId"),
             ),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            source_arn: pulumi_wasm_rust::__private::into_domain(
+            source_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

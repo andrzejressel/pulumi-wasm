@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -42,68 +42,72 @@
 /// ```
 ///
 pub mod storage_defender {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StorageDefenderArgs {
         /// The max GB to be scanned per Month. Must be `-1` or above `0`. Omit this property or set to `-1` if no capping is needed. Defaults to `-1`.
         #[builder(into, default)]
-        pub malware_scanning_on_upload_cap_gb_per_month: pulumi_wasm_rust::InputOrOutput<
+        pub malware_scanning_on_upload_cap_gb_per_month: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// Whether On Upload malware scanning should be enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub malware_scanning_on_upload_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub malware_scanning_on_upload_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
         #[builder(into, default)]
-        pub override_subscription_settings_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub override_subscription_settings_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
         #[builder(into, default)]
-        pub scan_results_event_grid_topic_id: pulumi_wasm_rust::InputOrOutput<
+        pub scan_results_event_grid_topic_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub sensitive_data_discovery_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub sensitive_data_discovery_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The ID of the storage account the defender applied to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct StorageDefenderResult {
         /// The max GB to be scanned per Month. Must be `-1` or above `0`. Omit this property or set to `-1` if no capping is needed. Defaults to `-1`.
-        pub malware_scanning_on_upload_cap_gb_per_month: pulumi_wasm_rust::Output<
+        pub malware_scanning_on_upload_cap_gb_per_month: pulumi_gestalt_rust::Output<
             Option<i32>,
         >,
         /// Whether On Upload malware scanning should be enabled. Defaults to `false`.
-        pub malware_scanning_on_upload_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub malware_scanning_on_upload_enabled: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
-        pub override_subscription_settings_enabled: pulumi_wasm_rust::Output<
+        pub override_subscription_settings_enabled: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
-        pub scan_results_event_grid_topic_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub scan_results_event_grid_topic_id: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
-        pub sensitive_data_discovery_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub sensitive_data_discovery_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the storage account the defender applied to. Changing this forces a new resource to be created.
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StorageDefenderArgs,
     ) -> StorageDefenderResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let malware_scanning_on_upload_cap_gb_per_month_binding = args
             .malware_scanning_on_upload_cap_gb_per_month
@@ -162,22 +166,22 @@ pub mod storage_defender {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StorageDefenderResult {
-            malware_scanning_on_upload_cap_gb_per_month: pulumi_wasm_rust::__private::into_domain(
+            malware_scanning_on_upload_cap_gb_per_month: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("malwareScanningOnUploadCapGbPerMonth"),
             ),
-            malware_scanning_on_upload_enabled: pulumi_wasm_rust::__private::into_domain(
+            malware_scanning_on_upload_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("malwareScanningOnUploadEnabled"),
             ),
-            override_subscription_settings_enabled: pulumi_wasm_rust::__private::into_domain(
+            override_subscription_settings_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("overrideSubscriptionSettingsEnabled"),
             ),
-            scan_results_event_grid_topic_id: pulumi_wasm_rust::__private::into_domain(
+            scan_results_event_grid_topic_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scanResultsEventGridTopicId"),
             ),
-            sensitive_data_discovery_enabled: pulumi_wasm_rust::__private::into_domain(
+            sensitive_data_discovery_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sensitiveDataDiscoveryEnabled"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
         }

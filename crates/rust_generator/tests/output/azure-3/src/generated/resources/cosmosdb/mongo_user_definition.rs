@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -70,48 +70,50 @@
 /// ```
 ///
 pub mod mongo_user_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MongoUserDefinitionArgs {
         /// The resource ID of the Mongo DB. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cosmos_mongo_database_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cosmos_mongo_database_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of Mongo Roles that are inherited to the Mongo User Definition.
         ///
         /// > **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
         #[builder(into, default)]
-        pub inherited_role_names: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub inherited_role_names: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The password for the Mongo User Definition.
         #[builder(into)]
-        pub password: pulumi_wasm_rust::InputOrOutput<String>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The username for the Mongo User Definition. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub username: pulumi_wasm_rust::InputOrOutput<String>,
+        pub username: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MongoUserDefinitionResult {
         /// The resource ID of the Mongo DB. Changing this forces a new resource to be created.
-        pub cosmos_mongo_database_id: pulumi_wasm_rust::Output<String>,
+        pub cosmos_mongo_database_id: pulumi_gestalt_rust::Output<String>,
         /// A list of Mongo Roles that are inherited to the Mongo User Definition.
         ///
         /// > **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
-        pub inherited_role_names: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub inherited_role_names: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The password for the Mongo User Definition.
-        pub password: pulumi_wasm_rust::Output<String>,
+        pub password: pulumi_gestalt_rust::Output<String>,
         /// The username for the Mongo User Definition. Changing this forces a new resource to be created.
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub username: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MongoUserDefinitionArgs,
     ) -> MongoUserDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cosmos_mongo_database_id_binding = args
             .cosmos_mongo_database_id
@@ -148,16 +150,16 @@ pub mod mongo_user_definition {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MongoUserDefinitionResult {
-            cosmos_mongo_database_id: pulumi_wasm_rust::__private::into_domain(
+            cosmos_mongo_database_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cosmosMongoDatabaseId"),
             ),
-            inherited_role_names: pulumi_wasm_rust::__private::into_domain(
+            inherited_role_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inheritedRoleNames"),
             ),
-            password: pulumi_wasm_rust::__private::into_domain(
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            username: pulumi_wasm_rust::__private::into_domain(
+            username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("username"),
             ),
         }

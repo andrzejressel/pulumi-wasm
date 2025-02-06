@@ -8,8 +8,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example1 = user_group_membership::create(
@@ -50,34 +50,34 @@
 /// $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
 /// ```
 pub mod user_group_membership {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserGroupMembershipArgs {
         /// A list of IAM Groups to add the user to
         #[builder(into)]
-        pub groups: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub groups: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The name of the IAM User to add to groups
         #[builder(into)]
-        pub user: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserGroupMembershipResult {
         /// A list of IAM Groups to add the user to
-        pub groups: pulumi_wasm_rust::Output<Vec<String>>,
+        pub groups: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The name of the IAM User to add to groups
-        pub user: pulumi_wasm_rust::Output<String>,
+        pub user: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserGroupMembershipArgs,
     ) -> UserGroupMembershipResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let groups_binding = args.groups.get_output(context).get_inner();
         let user_binding = args.user.get_output(context).get_inner();
@@ -98,8 +98,10 @@ pub mod user_group_membership {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserGroupMembershipResult {
-            groups: pulumi_wasm_rust::__private::into_domain(o.extract_field("groups")),
-            user: pulumi_wasm_rust::__private::into_domain(o.extract_field("user")),
+            groups: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("groups"),
+            ),
+            user: pulumi_gestalt_rust::__private::into_domain(o.extract_field("user")),
         }
     }
 }

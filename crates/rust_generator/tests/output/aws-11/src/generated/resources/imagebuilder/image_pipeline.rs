@@ -10,129 +10,129 @@
 /// $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
 /// ```
 pub mod image_pipeline {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ImagePipelineArgs {
         /// Amazon Resource Name (ARN) of the container recipe.
         #[builder(into, default)]
-        pub container_recipe_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub container_recipe_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Description of the image pipeline.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         #[builder(into, default)]
-        pub distribution_configuration_arn: pulumi_wasm_rust::InputOrOutput<
+        pub distribution_configuration_arn: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Whether additional information about the image being created is collected. Defaults to `true`.
         #[builder(into, default)]
-        pub enhanced_image_metadata_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub enhanced_image_metadata_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
         #[builder(into, default)]
-        pub execution_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub execution_role: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Amazon Resource Name (ARN) of the image recipe.
         #[builder(into, default)]
-        pub image_recipe_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub image_recipe_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block with image scanning configuration. Detailed below.
         #[builder(into, default)]
-        pub image_scanning_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub image_scanning_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::imagebuilder::ImagePipelineImageScanningConfiguration,
             >,
         >,
         /// Configuration block with image tests configuration. Detailed below.
         #[builder(into, default)]
-        pub image_tests_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub image_tests_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::imagebuilder::ImagePipelineImageTestsConfiguration,
             >,
         >,
         /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
         #[builder(into)]
-        pub infrastructure_configuration_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub infrastructure_configuration_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the image pipeline.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block with schedule settings. Detailed below.
         #[builder(into, default)]
-        pub schedule: pulumi_wasm_rust::InputOrOutput<
+        pub schedule: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::imagebuilder::ImagePipelineSchedule>,
         >,
         /// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block with the workflow configuration. Detailed below.
         #[builder(into, default)]
-        pub workflows: pulumi_wasm_rust::InputOrOutput<
+        pub workflows: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::imagebuilder::ImagePipelineWorkflow>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ImagePipelineResult {
         /// Amazon Resource Name (ARN) of the image pipeline.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the container recipe.
-        pub container_recipe_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub container_recipe_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Date the image pipeline was created.
-        pub date_created: pulumi_wasm_rust::Output<String>,
+        pub date_created: pulumi_gestalt_rust::Output<String>,
         /// Date the image pipeline was last run.
-        pub date_last_run: pulumi_wasm_rust::Output<String>,
+        pub date_last_run: pulumi_gestalt_rust::Output<String>,
         /// Date the image pipeline will run next.
-        pub date_next_run: pulumi_wasm_rust::Output<String>,
+        pub date_next_run: pulumi_gestalt_rust::Output<String>,
         /// Date the image pipeline was updated.
-        pub date_updated: pulumi_wasm_rust::Output<String>,
+        pub date_updated: pulumi_gestalt_rust::Output<String>,
         /// Description of the image pipeline.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
-        pub distribution_configuration_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub distribution_configuration_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether additional information about the image being created is collected. Defaults to `true`.
-        pub enhanced_image_metadata_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enhanced_image_metadata_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
-        pub execution_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub execution_role: pulumi_gestalt_rust::Output<Option<String>>,
         /// Amazon Resource Name (ARN) of the image recipe.
-        pub image_recipe_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub image_recipe_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block with image scanning configuration. Detailed below.
-        pub image_scanning_configuration: pulumi_wasm_rust::Output<
+        pub image_scanning_configuration: pulumi_gestalt_rust::Output<
             super::super::types::imagebuilder::ImagePipelineImageScanningConfiguration,
         >,
         /// Configuration block with image tests configuration. Detailed below.
-        pub image_tests_configuration: pulumi_wasm_rust::Output<
+        pub image_tests_configuration: pulumi_gestalt_rust::Output<
             super::super::types::imagebuilder::ImagePipelineImageTestsConfiguration,
         >,
         /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
-        pub infrastructure_configuration_arn: pulumi_wasm_rust::Output<String>,
+        pub infrastructure_configuration_arn: pulumi_gestalt_rust::Output<String>,
         /// Name of the image pipeline.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Platform of the image pipeline.
-        pub platform: pulumi_wasm_rust::Output<String>,
+        pub platform: pulumi_gestalt_rust::Output<String>,
         /// Configuration block with schedule settings. Detailed below.
-        pub schedule: pulumi_wasm_rust::Output<
+        pub schedule: pulumi_gestalt_rust::Output<
             Option<super::super::types::imagebuilder::ImagePipelineSchedule>,
         >,
         /// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value map of resource tags for the image pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configuration block with the workflow configuration. Detailed below.
-        pub workflows: pulumi_wasm_rust::Output<
+        pub workflows: pulumi_gestalt_rust::Output<
             Vec<super::super::types::imagebuilder::ImagePipelineWorkflow>,
         >,
     }
@@ -141,11 +141,11 @@ pub mod image_pipeline {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ImagePipelineArgs,
     ) -> ImagePipelineResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let container_recipe_arn_binding = args
             .container_recipe_arn
@@ -247,59 +247,61 @@ pub mod image_pipeline {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ImagePipelineResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            container_recipe_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            container_recipe_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerRecipeArn"),
             ),
-            date_created: pulumi_wasm_rust::__private::into_domain(
+            date_created: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dateCreated"),
             ),
-            date_last_run: pulumi_wasm_rust::__private::into_domain(
+            date_last_run: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dateLastRun"),
             ),
-            date_next_run: pulumi_wasm_rust::__private::into_domain(
+            date_next_run: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dateNextRun"),
             ),
-            date_updated: pulumi_wasm_rust::__private::into_domain(
+            date_updated: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dateUpdated"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            distribution_configuration_arn: pulumi_wasm_rust::__private::into_domain(
+            distribution_configuration_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("distributionConfigurationArn"),
             ),
-            enhanced_image_metadata_enabled: pulumi_wasm_rust::__private::into_domain(
+            enhanced_image_metadata_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enhancedImageMetadataEnabled"),
             ),
-            execution_role: pulumi_wasm_rust::__private::into_domain(
+            execution_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executionRole"),
             ),
-            image_recipe_arn: pulumi_wasm_rust::__private::into_domain(
+            image_recipe_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageRecipeArn"),
             ),
-            image_scanning_configuration: pulumi_wasm_rust::__private::into_domain(
+            image_scanning_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageScanningConfiguration"),
             ),
-            image_tests_configuration: pulumi_wasm_rust::__private::into_domain(
+            image_tests_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageTestsConfiguration"),
             ),
-            infrastructure_configuration_arn: pulumi_wasm_rust::__private::into_domain(
+            infrastructure_configuration_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("infrastructureConfigurationArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            platform: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            platform: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platform"),
             ),
-            schedule: pulumi_wasm_rust::__private::into_domain(
+            schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedule"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            workflows: pulumi_wasm_rust::__private::into_domain(
+            workflows: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workflows"),
             ),
         }

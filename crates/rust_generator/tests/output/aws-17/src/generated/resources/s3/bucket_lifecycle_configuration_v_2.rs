@@ -24,8 +24,8 @@
 /// parameter in the AWS Provider `aws.s3.BucketV2` resource prior to `v4.0`.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket_lifecycle_configuration_v_2::create(
@@ -48,8 +48,8 @@
 /// The Lifecycle rule applies to all objects in the bucket.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket_lifecycle_configuration_v_2::create(
@@ -73,8 +73,8 @@
 /// The Lifecycle rule applies to a subset of objects based on the key name prefix (`logs/`).
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket_lifecycle_configuration_v_2::create(
@@ -97,8 +97,8 @@
 /// If you want to apply a Lifecycle action to a subset of objects based on different key name prefixes, specify separate rules.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket_lifecycle_configuration_v_2::create(
@@ -126,8 +126,8 @@
 /// The Lifecycle rule specifies a filter based on a tag key and value. The rule then applies only to a subset of objects with the specific tag.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket_lifecycle_configuration_v_2::create(
@@ -214,8 +214,8 @@
 /// The `object_size_greater_than` must be less than the `object_size_less_than`. Notice both the object size range and prefix are wrapped in the `and` configuration block.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket_lifecycle_configuration_v_2::create(
@@ -332,50 +332,50 @@
 /// $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name,123456789012
 /// ```
 pub mod bucket_lifecycle_configuration_v_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketLifecycleConfigurationV2Args {
         /// Name of the source S3 bucket you want Amazon S3 to monitor.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         #[builder(into, default)]
-        pub expected_bucket_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub expected_bucket_owner: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of configuration blocks describing the rules managing the replication. See below.
         #[builder(into)]
-        pub rules: pulumi_wasm_rust::InputOrOutput<
+        pub rules: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::s3::BucketLifecycleConfigurationV2Rule>,
         >,
         /// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         #[builder(into, default)]
-        pub transition_default_minimum_object_size: pulumi_wasm_rust::InputOrOutput<
+        pub transition_default_minimum_object_size: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
     }
     #[allow(dead_code)]
     pub struct BucketLifecycleConfigurationV2Result {
         /// Name of the source S3 bucket you want Amazon S3 to monitor.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
-        pub expected_bucket_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub expected_bucket_owner: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of configuration blocks describing the rules managing the replication. See below.
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::s3::BucketLifecycleConfigurationV2Rule>,
         >,
         /// The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
-        pub transition_default_minimum_object_size: pulumi_wasm_rust::Output<String>,
+        pub transition_default_minimum_object_size: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BucketLifecycleConfigurationV2Args,
     ) -> BucketLifecycleConfigurationV2Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let expected_bucket_owner_binding = args
@@ -413,12 +413,14 @@ pub mod bucket_lifecycle_configuration_v_2 {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BucketLifecycleConfigurationV2Result {
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            expected_bucket_owner: pulumi_wasm_rust::__private::into_domain(
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            expected_bucket_owner: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expectedBucketOwner"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
-            transition_default_minimum_object_size: pulumi_wasm_rust::__private::into_domain(
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
+            transition_default_minimum_object_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitionDefaultMinimumObjectSize"),
             ),
         }

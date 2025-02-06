@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = iam_policy_assignment::create(
@@ -33,64 +33,64 @@
 /// $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
 /// ```
 pub mod iam_policy_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IamPolicyAssignmentArgs {
         /// Name of the assignment.
         #[builder(into)]
-        pub assignment_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub assignment_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub assignment_status: pulumi_wasm_rust::InputOrOutput<String>,
+        pub assignment_status: pulumi_gestalt_rust::InputOrOutput<String>,
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub aws_account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
         #[builder(into, default)]
-        pub identities: pulumi_wasm_rust::InputOrOutput<
+        pub identities: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::quicksight::IamPolicyAssignmentIdentities>,
         >,
         /// Namespace that contains the assignment. Defaults to `default`.
         #[builder(into, default)]
-        pub namespace: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub namespace: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
         #[builder(into, default)]
-        pub policy_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub policy_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct IamPolicyAssignmentResult {
         /// Assignment ID.
-        pub assignment_id: pulumi_wasm_rust::Output<String>,
+        pub assignment_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the assignment.
-        pub assignment_name: pulumi_wasm_rust::Output<String>,
+        pub assignment_name: pulumi_gestalt_rust::Output<String>,
         /// Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
         ///
         /// The following arguments are optional:
-        pub assignment_status: pulumi_wasm_rust::Output<String>,
+        pub assignment_status: pulumi_gestalt_rust::Output<String>,
         /// AWS account ID.
-        pub aws_account_id: pulumi_wasm_rust::Output<String>,
+        pub aws_account_id: pulumi_gestalt_rust::Output<String>,
         /// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
-        pub identities: pulumi_wasm_rust::Output<
+        pub identities: pulumi_gestalt_rust::Output<
             Option<super::super::types::quicksight::IamPolicyAssignmentIdentities>,
         >,
         /// Namespace that contains the assignment. Defaults to `default`.
-        pub namespace: pulumi_wasm_rust::Output<String>,
+        pub namespace: pulumi_gestalt_rust::Output<String>,
         /// ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
-        pub policy_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_arn: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IamPolicyAssignmentArgs,
     ) -> IamPolicyAssignmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let assignment_name_binding = args
             .assignment_name
@@ -137,25 +137,25 @@ pub mod iam_policy_assignment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IamPolicyAssignmentResult {
-            assignment_id: pulumi_wasm_rust::__private::into_domain(
+            assignment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assignmentId"),
             ),
-            assignment_name: pulumi_wasm_rust::__private::into_domain(
+            assignment_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assignmentName"),
             ),
-            assignment_status: pulumi_wasm_rust::__private::into_domain(
+            assignment_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assignmentStatus"),
             ),
-            aws_account_id: pulumi_wasm_rust::__private::into_domain(
+            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsAccountId"),
             ),
-            identities: pulumi_wasm_rust::__private::into_domain(
+            identities: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identities"),
             ),
-            namespace: pulumi_wasm_rust::__private::into_domain(
+            namespace: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespace"),
             ),
-            policy_arn: pulumi_wasm_rust::__private::into_domain(
+            policy_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyArn"),
             ),
         }

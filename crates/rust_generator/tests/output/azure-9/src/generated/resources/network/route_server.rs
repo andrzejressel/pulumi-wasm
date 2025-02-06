@@ -60,77 +60,77 @@
 /// ```
 ///
 pub mod route_server {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteServerArgs {
         /// Whether to enable route exchange between Azure Route Server and the gateway(s)
         #[builder(into, default)]
-        pub branch_to_branch_traffic_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub branch_to_branch_traffic_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Route Server. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub public_ip_address_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub public_ip_address_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RouteServerResult {
         /// Whether to enable route exchange between Azure Route Server and the gateway(s)
-        pub branch_to_branch_traffic_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub branch_to_branch_traffic_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the Route Server. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created.
-        pub public_ip_address_id: pulumi_wasm_rust::Output<String>,
+        pub public_ip_address_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
-        pub routing_state: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
+        pub routing_state: pulumi_gestalt_rust::Output<String>,
         /// The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created.
-        pub sku: pulumi_wasm_rust::Output<String>,
+        pub sku: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub virtual_router_asn: pulumi_wasm_rust::Output<i32>,
-        pub virtual_router_ips: pulumi_wasm_rust::Output<Vec<String>>,
+        pub virtual_router_asn: pulumi_gestalt_rust::Output<i32>,
+        pub virtual_router_ips: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouteServerArgs,
     ) -> RouteServerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let branch_to_branch_traffic_enabled_binding = args
             .branch_to_branch_traffic_enabled
@@ -190,31 +190,31 @@ pub mod route_server {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouteServerResult {
-            branch_to_branch_traffic_enabled: pulumi_wasm_rust::__private::into_domain(
+            branch_to_branch_traffic_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("branchToBranchTrafficEnabled"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            public_ip_address_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            public_ip_address_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicIpAddressId"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            routing_state: pulumi_wasm_rust::__private::into_domain(
+            routing_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routingState"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_router_asn: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            virtual_router_asn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualRouterAsn"),
             ),
-            virtual_router_ips: pulumi_wasm_rust::__private::into_domain(
+            virtual_router_ips: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualRouterIps"),
             ),
         }

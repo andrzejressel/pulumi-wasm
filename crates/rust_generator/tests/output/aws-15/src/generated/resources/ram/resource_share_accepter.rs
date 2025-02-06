@@ -42,43 +42,43 @@
 /// $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
 /// ```
 pub mod resource_share_accepter {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceShareAccepterArgs {
         /// The ARN of the resource share.
         #[builder(into)]
-        pub share_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub share_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResourceShareAccepterResult {
         /// The ARN of the resource share invitation.
-        pub invitation_arn: pulumi_wasm_rust::Output<String>,
+        pub invitation_arn: pulumi_gestalt_rust::Output<String>,
         /// The account ID of the receiver account which accepts the invitation.
-        pub receiver_account_id: pulumi_wasm_rust::Output<String>,
+        pub receiver_account_id: pulumi_gestalt_rust::Output<String>,
         /// A list of the resource ARNs shared via the resource share.
-        pub resources: pulumi_wasm_rust::Output<Vec<String>>,
+        pub resources: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The account ID of the sender account which submits the invitation.
-        pub sender_account_id: pulumi_wasm_rust::Output<String>,
+        pub sender_account_id: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the resource share.
-        pub share_arn: pulumi_wasm_rust::Output<String>,
+        pub share_arn: pulumi_gestalt_rust::Output<String>,
         /// The ID of the resource share as displayed in the console.
-        pub share_id: pulumi_wasm_rust::Output<String>,
+        pub share_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource share.
-        pub share_name: pulumi_wasm_rust::Output<String>,
+        pub share_name: pulumi_gestalt_rust::Output<String>,
         /// The status of the resource share (ACTIVE, PENDING, FAILED, DELETING, DELETED).
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResourceShareAccepterArgs,
     ) -> ResourceShareAccepterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let share_arn_binding = args.share_arn.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
@@ -94,28 +94,30 @@ pub mod resource_share_accepter {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResourceShareAccepterResult {
-            invitation_arn: pulumi_wasm_rust::__private::into_domain(
+            invitation_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("invitationArn"),
             ),
-            receiver_account_id: pulumi_wasm_rust::__private::into_domain(
+            receiver_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("receiverAccountId"),
             ),
-            resources: pulumi_wasm_rust::__private::into_domain(
+            resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resources"),
             ),
-            sender_account_id: pulumi_wasm_rust::__private::into_domain(
+            sender_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("senderAccountId"),
             ),
-            share_arn: pulumi_wasm_rust::__private::into_domain(
+            share_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shareArn"),
             ),
-            share_id: pulumi_wasm_rust::__private::into_domain(
+            share_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shareId"),
             ),
-            share_name: pulumi_wasm_rust::__private::into_domain(
+            share_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shareName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

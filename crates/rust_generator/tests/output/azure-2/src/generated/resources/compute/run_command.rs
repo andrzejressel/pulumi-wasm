@@ -219,116 +219,116 @@
 /// ```
 ///
 pub mod run_command {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RunCommandArgs {
         /// An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
         #[builder(into, default)]
-        pub error_blob_managed_identity: pulumi_wasm_rust::InputOrOutput<
+        pub error_blob_managed_identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RunCommandErrorBlobManagedIdentity>,
         >,
         /// Specifies the Azure storage blob where script error stream will be uploaded.
         #[builder(into, default)]
-        pub error_blob_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub error_blob_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Azure Region where the Virtual Machine Run Command should exist. Changing this forces a new Virtual Machine Run Command to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of this Virtual Machine Run Command. Changing this forces a new Virtual Machine Run Command to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
         #[builder(into, default)]
-        pub output_blob_managed_identity: pulumi_wasm_rust::InputOrOutput<
+        pub output_blob_managed_identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RunCommandOutputBlobManagedIdentity>,
         >,
         /// Specifies the Azure storage blob where script output stream will be uploaded. It can be basic blob URI with SAS token.
         #[builder(into, default)]
-        pub output_blob_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub output_blob_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of `parameter` blocks as defined below. The parameters used by the script.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RunCommandParameter>>,
         >,
         /// A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
         #[builder(into, default)]
-        pub protected_parameters: pulumi_wasm_rust::InputOrOutput<
+        pub protected_parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RunCommandProtectedParameter>>,
         >,
         /// Specifies the user account password on the VM when executing the Virtual Machine Run Command.
         #[builder(into, default)]
-        pub run_as_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub run_as_password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the user account on the VM when executing the Virtual Machine Run Command.
         #[builder(into, default)]
-        pub run_as_user: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub run_as_user: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `source` block as defined below. The source of the run command script.
         #[builder(into)]
-        pub source: pulumi_wasm_rust::InputOrOutput<
+        pub source: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::compute::RunCommandSource,
         >,
         /// A mapping of tags which should be assigned to the Virtual Machine Run Command.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Virtual Machine ID within which this Virtual Machine Run Command should exist. Changing this forces a new Virtual Machine Run Command to be created.
         #[builder(into)]
-        pub virtual_machine_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_machine_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RunCommandResult {
         /// An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
-        pub error_blob_managed_identity: pulumi_wasm_rust::Output<
+        pub error_blob_managed_identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RunCommandErrorBlobManagedIdentity>,
         >,
         /// Specifies the Azure storage blob where script error stream will be uploaded.
-        pub error_blob_uri: pulumi_wasm_rust::Output<Option<String>>,
-        pub instance_views: pulumi_wasm_rust::Output<
+        pub error_blob_uri: pulumi_gestalt_rust::Output<Option<String>>,
+        pub instance_views: pulumi_gestalt_rust::Output<
             Vec<super::super::types::compute::RunCommandInstanceView>,
         >,
         /// The Azure Region where the Virtual Machine Run Command should exist. Changing this forces a new Virtual Machine Run Command to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of this Virtual Machine Run Command. Changing this forces a new Virtual Machine Run Command to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
-        pub output_blob_managed_identity: pulumi_wasm_rust::Output<
+        pub output_blob_managed_identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RunCommandOutputBlobManagedIdentity>,
         >,
         /// Specifies the Azure storage blob where script output stream will be uploaded. It can be basic blob URI with SAS token.
-        pub output_blob_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub output_blob_uri: pulumi_gestalt_rust::Output<Option<String>>,
         /// A list of `parameter` blocks as defined below. The parameters used by the script.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::RunCommandParameter>>,
         >,
         /// A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
-        pub protected_parameters: pulumi_wasm_rust::Output<
+        pub protected_parameters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::RunCommandProtectedParameter>>,
         >,
         /// Specifies the user account password on the VM when executing the Virtual Machine Run Command.
-        pub run_as_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub run_as_password: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the user account on the VM when executing the Virtual Machine Run Command.
-        pub run_as_user: pulumi_wasm_rust::Output<Option<String>>,
+        pub run_as_user: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `source` block as defined below. The source of the run command script.
-        pub source: pulumi_wasm_rust::Output<
+        pub source: pulumi_gestalt_rust::Output<
             super::super::types::compute::RunCommandSource,
         >,
         /// A mapping of tags which should be assigned to the Virtual Machine Run Command.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the Virtual Machine ID within which this Virtual Machine Run Command should exist. Changing this forces a new Virtual Machine Run Command to be created.
-        pub virtual_machine_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_machine_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RunCommandArgs,
     ) -> RunCommandResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let error_blob_managed_identity_binding = args
             .error_blob_managed_identity
@@ -422,40 +422,42 @@ pub mod run_command {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RunCommandResult {
-            error_blob_managed_identity: pulumi_wasm_rust::__private::into_domain(
+            error_blob_managed_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("errorBlobManagedIdentity"),
             ),
-            error_blob_uri: pulumi_wasm_rust::__private::into_domain(
+            error_blob_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("errorBlobUri"),
             ),
-            instance_views: pulumi_wasm_rust::__private::into_domain(
+            instance_views: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceViews"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            output_blob_managed_identity: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            output_blob_managed_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outputBlobManagedIdentity"),
             ),
-            output_blob_uri: pulumi_wasm_rust::__private::into_domain(
+            output_blob_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outputBlobUri"),
             ),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            protected_parameters: pulumi_wasm_rust::__private::into_domain(
+            protected_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protectedParameters"),
             ),
-            run_as_password: pulumi_wasm_rust::__private::into_domain(
+            run_as_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runAsPassword"),
             ),
-            run_as_user: pulumi_wasm_rust::__private::into_domain(
+            run_as_user: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runAsUser"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
+            source: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("source"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualMachineId"),
             ),
         }

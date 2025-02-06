@@ -1,39 +1,39 @@
 pub mod get_stream_consumer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetStreamConsumerArgs {
         /// ARN of the stream consumer.
         #[builder(into, default)]
-        pub arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the stream consumer.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN of the data stream the consumer is registered with.
         #[builder(into)]
-        pub stream_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub stream_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetStreamConsumerResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Current status of the stream consumer.
-        pub status: pulumi_wasm_rust::Output<String>,
-        pub stream_arn: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
+        pub stream_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetStreamConsumerArgs,
     ) -> GetStreamConsumerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let arn_binding = args.arn.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -58,14 +58,16 @@ pub mod get_stream_consumer {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetStreamConsumerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            stream_arn: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            stream_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamArn"),
             ),
         }

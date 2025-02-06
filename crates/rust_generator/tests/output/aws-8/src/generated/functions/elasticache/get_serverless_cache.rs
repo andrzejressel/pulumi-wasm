@@ -1,65 +1,65 @@
 pub mod get_serverless_cache {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetServerlessCacheArgs {
         /// Identifier for the serverless cache.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetServerlessCacheResult {
         /// The Amazon Resource Name (ARN) of the serverless cache.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
-        pub cache_usage_limits: pulumi_wasm_rust::Output<
+        pub cache_usage_limits: pulumi_gestalt_rust::Output<
             super::super::super::types::elasticache::GetServerlessCacheCacheUsageLimits,
         >,
         /// Timestamp of when the serverless cache was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The daily time that snapshots will be created from the new serverless cache. Only available for engine types `"redis"` and `"valkey"`.
-        pub daily_snapshot_time: pulumi_wasm_rust::Output<String>,
+        pub daily_snapshot_time: pulumi_gestalt_rust::Output<String>,
         /// Description of the serverless cache.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Represents the information required for client programs to connect to the cache. See `endpoint` Block for details.
-        pub endpoint: pulumi_wasm_rust::Output<
+        pub endpoint: pulumi_gestalt_rust::Output<
             super::super::super::types::elasticache::GetServerlessCacheEndpoint,
         >,
         /// Name of the cache engine.
-        pub engine: pulumi_wasm_rust::Output<String>,
+        pub engine: pulumi_gestalt_rust::Output<String>,
         /// The name and version number of the engine the serverless cache is compatible with.
-        pub full_engine_version: pulumi_wasm_rust::Output<String>,
+        pub full_engine_version: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// ARN of the customer managed key for encrypting the data at rest.
-        pub kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<String>,
         /// The version number of the engine the serverless cache is compatible with.
-        pub major_engine_version: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub major_engine_version: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
-        pub reader_endpoint: pulumi_wasm_rust::Output<
+        pub reader_endpoint: pulumi_gestalt_rust::Output<
             super::super::super::types::elasticache::GetServerlessCacheReaderEndpoint,
         >,
         /// A list of the one or more VPC security groups associated with the serverless cache.
-        pub security_group_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub security_group_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The number of snapshots that will be retained for the serverless cache. Available for Redis only.
-        pub snapshot_retention_limit: pulumi_wasm_rust::Output<i32>,
+        pub snapshot_retention_limit: pulumi_gestalt_rust::Output<i32>,
         /// The current status of the serverless cache.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// A list of the identifiers of the subnets where the VPC endpoint for the serverless cache are deployed.
-        pub subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnet_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The identifier of the UserGroup associated with the serverless cache. Available for Redis only.
-        pub user_group_id: pulumi_wasm_rust::Output<String>,
+        pub user_group_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetServerlessCacheArgs,
     ) -> GetServerlessCacheResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
@@ -74,48 +74,52 @@ pub mod get_serverless_cache {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetServerlessCacheResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            cache_usage_limits: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            cache_usage_limits: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cacheUsageLimits"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            daily_snapshot_time: pulumi_wasm_rust::__private::into_domain(
+            daily_snapshot_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dailySnapshotTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
-            full_engine_version: pulumi_wasm_rust::__private::into_domain(
+            engine: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("engine"),
+            ),
+            full_engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fullEngineVersion"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            major_engine_version: pulumi_wasm_rust::__private::into_domain(
+            major_engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("majorEngineVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            reader_endpoint: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            reader_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("readerEndpoint"),
             ),
-            security_group_ids: pulumi_wasm_rust::__private::into_domain(
+            security_group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroupIds"),
             ),
-            snapshot_retention_limit: pulumi_wasm_rust::__private::into_domain(
+            snapshot_retention_limit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotRetentionLimit"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            subnet_ids: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetIds"),
             ),
-            user_group_id: pulumi_wasm_rust::__private::into_domain(
+            user_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userGroupId"),
             ),
         }

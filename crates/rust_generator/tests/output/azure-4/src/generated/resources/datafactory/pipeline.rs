@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -68,71 +68,71 @@
 /// ```
 ///
 pub mod pipeline {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PipelineArgs {
         /// A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
         #[builder(into, default)]
-        pub activities_json: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub activities_json: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of tags that can be used for describing the Data Factory Pipeline.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
         #[builder(into, default)]
-        pub concurrency: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub concurrency: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description for the Data Factory Pipeline.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
         #[builder(into, default)]
-        pub folder: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub folder: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The TimeSpan value after which an Azure Monitoring Metric is fired.
         #[builder(into, default)]
-        pub moniter_metrics_after_duration: pulumi_wasm_rust::InputOrOutput<
+        pub moniter_metrics_after_duration: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of parameters to associate with the Data Factory Pipeline.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of variables to associate with the Data Factory Pipeline.
         #[builder(into, default)]
-        pub variables: pulumi_wasm_rust::InputOrOutput<
+        pub variables: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct PipelineResult {
         /// A JSON object that contains the activities that will be associated with the Data Factory Pipeline.
-        pub activities_json: pulumi_wasm_rust::Output<Option<String>>,
+        pub activities_json: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of tags that can be used for describing the Data Factory Pipeline.
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
-        pub concurrency: pulumi_wasm_rust::Output<Option<i32>>,
+        pub concurrency: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// The description for the Data Factory Pipeline.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
-        pub folder: pulumi_wasm_rust::Output<Option<String>>,
+        pub folder: pulumi_gestalt_rust::Output<Option<String>>,
         /// The TimeSpan value after which an Azure Monitoring Metric is fired.
-        pub moniter_metrics_after_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub moniter_metrics_after_duration: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A map of parameters to associate with the Data Factory Pipeline.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of variables to associate with the Data Factory Pipeline.
-        pub variables: pulumi_wasm_rust::Output<
+        pub variables: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -141,11 +141,11 @@ pub mod pipeline {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PipelineArgs,
     ) -> PipelineResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let activities_json_binding = args
             .activities_json
@@ -215,30 +215,32 @@ pub mod pipeline {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PipelineResult {
-            activities_json: pulumi_wasm_rust::__private::into_domain(
+            activities_json: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activitiesJson"),
             ),
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            concurrency: pulumi_wasm_rust::__private::into_domain(
+            concurrency: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("concurrency"),
             ),
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            folder: pulumi_wasm_rust::__private::into_domain(o.extract_field("folder")),
-            moniter_metrics_after_duration: pulumi_wasm_rust::__private::into_domain(
+            folder: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("folder"),
+            ),
+            moniter_metrics_after_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("moniterMetricsAfterDuration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            variables: pulumi_wasm_rust::__private::into_domain(
+            variables: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("variables"),
             ),
         }

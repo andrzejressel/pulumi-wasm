@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = sdkvoice_sip_rule::create(
@@ -35,57 +35,57 @@
 /// $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
 /// ```
 pub mod sdkvoice_sip_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SdkvoiceSipRuleArgs {
         /// Enables or disables a rule. You must disable rules before you can delete them.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the SIP rule.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
         #[builder(into)]
-        pub target_applications: pulumi_wasm_rust::InputOrOutput<
+        pub target_applications: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::chime::SdkvoiceSipRuleTargetApplication>,
         >,
         /// The type of trigger assigned to the SIP rule in `trigger_value`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
         #[builder(into)]
-        pub trigger_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub trigger_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// If `trigger_type` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `trigger_type` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub trigger_value: pulumi_wasm_rust::InputOrOutput<String>,
+        pub trigger_value: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SdkvoiceSipRuleResult {
         /// Enables or disables a rule. You must disable rules before you can delete them.
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the SIP rule.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
-        pub target_applications: pulumi_wasm_rust::Output<
+        pub target_applications: pulumi_gestalt_rust::Output<
             Vec<super::super::types::chime::SdkvoiceSipRuleTargetApplication>,
         >,
         /// The type of trigger assigned to the SIP rule in `trigger_value`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
-        pub trigger_type: pulumi_wasm_rust::Output<String>,
+        pub trigger_type: pulumi_gestalt_rust::Output<String>,
         /// If `trigger_type` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `trigger_type` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
         ///
         /// The following arguments are optional:
-        pub trigger_value: pulumi_wasm_rust::Output<String>,
+        pub trigger_value: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SdkvoiceSipRuleArgs,
     ) -> SdkvoiceSipRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let disabled_binding = args.disabled.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -124,17 +124,17 @@ pub mod sdkvoice_sip_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SdkvoiceSipRuleResult {
-            disabled: pulumi_wasm_rust::__private::into_domain(
+            disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            target_applications: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            target_applications: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetApplications"),
             ),
-            trigger_type: pulumi_wasm_rust::__private::into_domain(
+            trigger_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggerType"),
             ),
-            trigger_value: pulumi_wasm_rust::__private::into_domain(
+            trigger_value: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggerValue"),
             ),
         }

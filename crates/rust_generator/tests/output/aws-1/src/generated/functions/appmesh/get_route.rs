@@ -1,58 +1,58 @@
 pub mod get_route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRouteArgs {
         /// Name of the service mesh in which the virtual router exists.
         #[builder(into)]
-        pub mesh_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub mesh_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// AWS account ID of the service mesh's owner.
         #[builder(into, default)]
-        pub mesh_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mesh_owner: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the route.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Map of tags.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the virtual router in which the route exists.
         #[builder(into)]
-        pub virtual_router_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_router_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetRouteResult {
         /// ARN of the route.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Creation date of the route.
-        pub created_date: pulumi_wasm_rust::Output<String>,
+        pub created_date: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Last update date of the route.
-        pub last_updated_date: pulumi_wasm_rust::Output<String>,
-        pub mesh_name: pulumi_wasm_rust::Output<String>,
-        pub mesh_owner: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub last_updated_date: pulumi_gestalt_rust::Output<String>,
+        pub mesh_name: pulumi_gestalt_rust::Output<String>,
+        pub mesh_owner: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Resource owner's AWS account ID.
-        pub resource_owner: pulumi_wasm_rust::Output<String>,
+        pub resource_owner: pulumi_gestalt_rust::Output<String>,
         /// Route specification. See the `aws.appmesh.Route` resource for details.
-        pub specs: pulumi_wasm_rust::Output<
+        pub specs: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::appmesh::GetRouteSpec>,
         >,
         /// Map of tags.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
-        pub virtual_router_name: pulumi_wasm_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
+        pub virtual_router_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetRouteArgs,
     ) -> GetRouteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let mesh_name_binding = args.mesh_name.get_output(context).get_inner();
         let mesh_owner_binding = args.mesh_owner.get_output(context).get_inner();
@@ -90,27 +90,27 @@ pub mod get_route {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetRouteResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            created_date: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            created_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdDate"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            last_updated_date: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            last_updated_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdatedDate"),
             ),
-            mesh_name: pulumi_wasm_rust::__private::into_domain(
+            mesh_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("meshName"),
             ),
-            mesh_owner: pulumi_wasm_rust::__private::into_domain(
+            mesh_owner: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("meshOwner"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_owner: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_owner: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceOwner"),
             ),
-            specs: pulumi_wasm_rust::__private::into_domain(o.extract_field("specs")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            virtual_router_name: pulumi_wasm_rust::__private::into_domain(
+            specs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("specs")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            virtual_router_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualRouterName"),
             ),
         }

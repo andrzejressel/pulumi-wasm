@@ -216,54 +216,56 @@
 /// ```
 ///
 pub mod namespace_customer_managed_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NamespaceCustomerManagedKeyArgs {
         /// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub eventhub_namespace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub eventhub_namespace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub infrastructure_encryption_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub infrastructure_encryption_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The list of keys of Key Vault.
         #[builder(into)]
-        pub key_vault_key_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub key_vault_key_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
         ///
         /// > **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
         ///
         /// > **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
         #[builder(into, default)]
-        pub user_assigned_identity_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_assigned_identity_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct NamespaceCustomerManagedKeyResult {
         /// The ID of the EventHub Namespace. Changing this forces a new resource to be created.
-        pub eventhub_namespace_id: pulumi_wasm_rust::Output<String>,
+        pub eventhub_namespace_id: pulumi_gestalt_rust::Output<String>,
         /// Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
-        pub infrastructure_encryption_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub infrastructure_encryption_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The list of keys of Key Vault.
-        pub key_vault_key_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub key_vault_key_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys.
         ///
         /// > **Note:** If using `user_assigned_identity_id`, ensure the User Assigned Identity is also assigned to the parent Event Hub.
         ///
         /// > **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
-        pub user_assigned_identity_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_assigned_identity_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NamespaceCustomerManagedKeyArgs,
     ) -> NamespaceCustomerManagedKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let eventhub_namespace_id_binding = args
             .eventhub_namespace_id
@@ -307,16 +309,16 @@ pub mod namespace_customer_managed_key {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NamespaceCustomerManagedKeyResult {
-            eventhub_namespace_id: pulumi_wasm_rust::__private::into_domain(
+            eventhub_namespace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventhubNamespaceId"),
             ),
-            infrastructure_encryption_enabled: pulumi_wasm_rust::__private::into_domain(
+            infrastructure_encryption_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("infrastructureEncryptionEnabled"),
             ),
-            key_vault_key_ids: pulumi_wasm_rust::__private::into_domain(
+            key_vault_key_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultKeyIds"),
             ),
-            user_assigned_identity_id: pulumi_wasm_rust::__private::into_domain(
+            user_assigned_identity_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userAssignedIdentityId"),
             ),
         }

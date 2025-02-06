@@ -114,53 +114,53 @@
 /// ```
 ///
 pub mod experiment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExperimentArgs {
         /// A `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::chaosstudio::ExperimentIdentity>,
         >,
         /// The Azure Region where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Chaos Studio Experiment. Changing this forces a new Chaos Studio Experiment to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more `selectors` blocks as defined below.
         #[builder(into)]
-        pub selectors: pulumi_wasm_rust::InputOrOutput<
+        pub selectors: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::chaosstudio::ExperimentSelector>,
         >,
         /// One or more `steps` blocks as defined below.
         #[builder(into)]
-        pub steps: pulumi_wasm_rust::InputOrOutput<
+        pub steps: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::chaosstudio::ExperimentStep>,
         >,
     }
     #[allow(dead_code)]
     pub struct ExperimentResult {
         /// A `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::chaosstudio::ExperimentIdentity>,
         >,
         /// The Azure Region where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Chaos Studio Experiment. Changing this forces a new Chaos Studio Experiment to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Chaos Studio Experiment should exist. Changing this forces a new Chaos Studio Experiment to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// One or more `selectors` blocks as defined below.
-        pub selectors: pulumi_wasm_rust::Output<
+        pub selectors: pulumi_gestalt_rust::Output<
             Vec<super::super::types::chaosstudio::ExperimentSelector>,
         >,
         /// One or more `steps` blocks as defined below.
-        pub steps: pulumi_wasm_rust::Output<
+        pub steps: pulumi_gestalt_rust::Output<
             Vec<super::super::types::chaosstudio::ExperimentStep>,
         >,
     }
@@ -169,11 +169,11 @@ pub mod experiment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ExperimentArgs,
     ) -> ExperimentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let identity_binding = args.identity.get_output(context).get_inner();
         let location_binding = args.location.get_output(context).get_inner();
@@ -217,20 +217,20 @@ pub mod experiment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ExperimentResult {
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            selectors: pulumi_wasm_rust::__private::into_domain(
+            selectors: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selectors"),
             ),
-            steps: pulumi_wasm_rust::__private::into_domain(o.extract_field("steps")),
+            steps: pulumi_gestalt_rust::__private::into_domain(o.extract_field("steps")),
         }
     }
 }

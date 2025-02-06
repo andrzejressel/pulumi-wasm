@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = delegated_administrator::create(
@@ -25,48 +25,48 @@
 /// $ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com
 /// ```
 pub mod delegated_administrator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DelegatedAdministratorArgs {
         /// The account ID number of the member account in the organization to register as a delegated administrator.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The service principal of the AWS service for which you want to make the member account a delegated administrator.
         #[builder(into)]
-        pub service_principal: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_principal: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DelegatedAdministratorResult {
         /// The account ID number of the member account in the organization to register as a delegated administrator.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the delegated administrator's account.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The date when the account was made a delegated administrator.
-        pub delegation_enabled_date: pulumi_wasm_rust::Output<String>,
+        pub delegation_enabled_date: pulumi_gestalt_rust::Output<String>,
         /// The email address that is associated with the delegated administrator's AWS account.
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_gestalt_rust::Output<String>,
         /// The method by which the delegated administrator's account joined the organization.
-        pub joined_method: pulumi_wasm_rust::Output<String>,
+        pub joined_method: pulumi_gestalt_rust::Output<String>,
         /// The date when the delegated administrator's account became a part of the organization.
-        pub joined_timestamp: pulumi_wasm_rust::Output<String>,
+        pub joined_timestamp: pulumi_gestalt_rust::Output<String>,
         /// The friendly name of the delegated administrator's account.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The service principal of the AWS service for which you want to make the member account a delegated administrator.
-        pub service_principal: pulumi_wasm_rust::Output<String>,
+        pub service_principal: pulumi_gestalt_rust::Output<String>,
         /// The status of the delegated administrator's account in the organization.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DelegatedAdministratorArgs,
     ) -> DelegatedAdministratorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let service_principal_binding = args
@@ -91,25 +91,27 @@ pub mod delegated_administrator {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DelegatedAdministratorResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            delegation_enabled_date: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            delegation_enabled_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("delegationEnabledDate"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
-            joined_method: pulumi_wasm_rust::__private::into_domain(
+            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
+            joined_method: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("joinedMethod"),
             ),
-            joined_timestamp: pulumi_wasm_rust::__private::into_domain(
+            joined_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("joinedTimestamp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            service_principal: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            service_principal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("servicePrincipal"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

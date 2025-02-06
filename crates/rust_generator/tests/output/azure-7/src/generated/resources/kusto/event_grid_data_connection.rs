@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -120,106 +120,106 @@
 /// ```
 ///
 pub mod event_grid_data_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventGridDataConnectionArgs {
         /// Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
         #[builder(into, default)]
-        pub blob_storage_event_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub blob_storage_event_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
         #[builder(into, default)]
-        pub data_format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub data_format: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
         #[builder(into, default)]
-        pub database_routing_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub database_routing_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource ID of the event grid that is subscribed to the storage account events.
         #[builder(into, default)]
-        pub eventgrid_resource_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub eventgrid_resource_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub eventhub_consumer_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub eventhub_consumer_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub eventhub_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub eventhub_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
         #[builder(into, default)]
-        pub managed_identity_resource_id: pulumi_wasm_rust::InputOrOutput<
+        pub managed_identity_resource_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
         #[builder(into, default)]
-        pub mapping_rule_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mapping_rule_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// is the first record of every file ignored? Defaults to `false`.
         #[builder(into, default)]
-        pub skip_first_record: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub skip_first_record: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
         #[builder(into, default)]
-        pub table_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub table_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EventGridDataConnectionResult {
         /// Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`.
-        pub blob_storage_event_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub blob_storage_event_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
-        pub cluster_name: pulumi_wasm_rust::Output<String>,
+        pub cluster_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`.
-        pub data_format: pulumi_wasm_rust::Output<Option<String>>,
+        pub data_format: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created.
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_gestalt_rust::Output<String>,
         /// Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`.
-        pub database_routing_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub database_routing_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource ID of the event grid that is subscribed to the storage account events.
-        pub eventgrid_resource_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub eventgrid_resource_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created.
-        pub eventhub_consumer_group_name: pulumi_wasm_rust::Output<String>,
+        pub eventhub_consumer_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created.
-        pub eventhub_id: pulumi_wasm_rust::Output<String>,
+        pub eventhub_id: pulumi_gestalt_rust::Output<String>,
         /// The location where the Kusto Database should be created. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id.
-        pub managed_identity_resource_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub managed_identity_resource_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created.
-        pub mapping_rule_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub mapping_rule_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// is the first record of every file ignored? Defaults to `false`.
-        pub skip_first_record: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_first_record: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the target table name used for the message ingestion. Table must exist before resource is created.
-        pub table_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub table_name: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EventGridDataConnectionArgs,
     ) -> EventGridDataConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let blob_storage_event_type_binding = args
             .blob_storage_event_type
@@ -337,50 +337,50 @@ pub mod event_grid_data_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EventGridDataConnectionResult {
-            blob_storage_event_type: pulumi_wasm_rust::__private::into_domain(
+            blob_storage_event_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blobStorageEventType"),
             ),
-            cluster_name: pulumi_wasm_rust::__private::into_domain(
+            cluster_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterName"),
             ),
-            data_format: pulumi_wasm_rust::__private::into_domain(
+            data_format: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFormat"),
             ),
-            database_name: pulumi_wasm_rust::__private::into_domain(
+            database_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseName"),
             ),
-            database_routing_type: pulumi_wasm_rust::__private::into_domain(
+            database_routing_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseRoutingType"),
             ),
-            eventgrid_resource_id: pulumi_wasm_rust::__private::into_domain(
+            eventgrid_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventgridResourceId"),
             ),
-            eventhub_consumer_group_name: pulumi_wasm_rust::__private::into_domain(
+            eventhub_consumer_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventhubConsumerGroupName"),
             ),
-            eventhub_id: pulumi_wasm_rust::__private::into_domain(
+            eventhub_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventhubId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            managed_identity_resource_id: pulumi_wasm_rust::__private::into_domain(
+            managed_identity_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedIdentityResourceId"),
             ),
-            mapping_rule_name: pulumi_wasm_rust::__private::into_domain(
+            mapping_rule_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mappingRuleName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            skip_first_record: pulumi_wasm_rust::__private::into_domain(
+            skip_first_record: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skipFirstRecord"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
-            table_name: pulumi_wasm_rust::__private::into_domain(
+            table_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tableName"),
             ),
         }

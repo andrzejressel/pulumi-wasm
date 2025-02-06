@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -37,7 +37,7 @@
 /// ```
 ///
 pub mod elastic_san {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ElasticSanArgs {
@@ -45,86 +45,86 @@ pub mod elastic_san {
         ///
         /// > **NOTE** When updating `base_size_in_tib`, the new value should be greater than the existing one.
         #[builder(into)]
-        pub base_size_in_tib: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub base_size_in_tib: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
         ///
         /// > **NOTE** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
         #[builder(into, default)]
-        pub extended_size_in_tib: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub extended_size_in_tib: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of this Elastic SAN resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group within which this Elastic SAN resource should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `sku` block as defined below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<
+        pub sku: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::elasticsan::ElasticSanSku,
         >,
         /// A mapping of tags which should be assigned to the Elastic SAN resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
         ///
         /// > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
         #[builder(into, default)]
-        pub zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub zones: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ElasticSanResult {
         /// Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
         ///
         /// > **NOTE** When updating `base_size_in_tib`, the new value should be greater than the existing one.
-        pub base_size_in_tib: pulumi_wasm_rust::Output<i32>,
+        pub base_size_in_tib: pulumi_gestalt_rust::Output<i32>,
         /// Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`.
         ///
         /// > **NOTE** `extended_size_in_tib` cannot be removed and when updating, the new value should be greater than the existing one.
-        pub extended_size_in_tib: pulumi_wasm_rust::Output<Option<i32>>,
+        pub extended_size_in_tib: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of this Elastic SAN resource. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Resource Group within which this Elastic SAN resource should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `sku` block as defined below.
-        pub sku: pulumi_wasm_rust::Output<
+        pub sku: pulumi_gestalt_rust::Output<
             super::super::types::elasticsan::ElasticSanSku,
         >,
         /// A mapping of tags which should be assigned to the Elastic SAN resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Total Provisioned IOps of the Elastic SAN resource.
-        pub total_iops: pulumi_wasm_rust::Output<i32>,
+        pub total_iops: pulumi_gestalt_rust::Output<i32>,
         /// Total Provisioned MBps Elastic SAN resource.
-        pub total_mbps: pulumi_wasm_rust::Output<i32>,
+        pub total_mbps: pulumi_gestalt_rust::Output<i32>,
         /// Total size of the Elastic SAN resource in TB.
-        pub total_size_in_tib: pulumi_wasm_rust::Output<i32>,
+        pub total_size_in_tib: pulumi_gestalt_rust::Output<i32>,
         /// Total size of the provisioned Volumes in GiB.
-        pub total_volume_size_in_gib: pulumi_wasm_rust::Output<i32>,
+        pub total_volume_size_in_gib: pulumi_gestalt_rust::Output<i32>,
         /// Total number of volume groups in this Elastic SAN resource.
-        pub volume_group_count: pulumi_wasm_rust::Output<i32>,
+        pub volume_group_count: pulumi_gestalt_rust::Output<i32>,
         /// Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created.
         ///
         /// > **NOTE** `zones` cannot be specified if `sku.name` is set to `Premium_ZRS`.
-        pub zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub zones: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ElasticSanArgs,
     ) -> ElasticSanResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let base_size_in_tib_binding = args
             .base_size_in_tib
@@ -184,37 +184,37 @@ pub mod elastic_san {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ElasticSanResult {
-            base_size_in_tib: pulumi_wasm_rust::__private::into_domain(
+            base_size_in_tib: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("baseSizeInTib"),
             ),
-            extended_size_in_tib: pulumi_wasm_rust::__private::into_domain(
+            extended_size_in_tib: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("extendedSizeInTib"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            total_iops: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            total_iops: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("totalIops"),
             ),
-            total_mbps: pulumi_wasm_rust::__private::into_domain(
+            total_mbps: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("totalMbps"),
             ),
-            total_size_in_tib: pulumi_wasm_rust::__private::into_domain(
+            total_size_in_tib: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("totalSizeInTib"),
             ),
-            total_volume_size_in_gib: pulumi_wasm_rust::__private::into_domain(
+            total_volume_size_in_gib: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("totalVolumeSizeInGib"),
             ),
-            volume_group_count: pulumi_wasm_rust::__private::into_domain(
+            volume_group_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeGroupCount"),
             ),
-            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
+            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

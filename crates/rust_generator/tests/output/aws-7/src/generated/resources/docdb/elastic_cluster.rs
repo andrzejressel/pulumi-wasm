@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = elastic_cluster::create(
@@ -31,113 +31,115 @@
 /// $ pulumi import aws:docdb/elasticCluster:ElasticCluster example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
 /// ```
 pub mod elastic_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ElasticClusterArgs {
         /// Name of the Elastic DocumentDB cluster administrator
         #[builder(into)]
-        pub admin_user_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub admin_user_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
         #[builder(into)]
-        pub admin_user_password: pulumi_wasm_rust::InputOrOutput<String>,
+        pub admin_user_password: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
         #[builder(into)]
-        pub auth_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub auth_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
         #[builder(into, default)]
-        pub backup_retention_period: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub backup_retention_period: pulumi_gestalt_rust::InputOrOutput<Option<f64>>,
         /// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the Elastic DocumentDB cluster
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         #[builder(into, default)]
-        pub preferred_backup_window: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub preferred_backup_window: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
         #[builder(into, default)]
-        pub preferred_maintenance_window: pulumi_wasm_rust::InputOrOutput<
+        pub preferred_maintenance_window: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
         #[builder(into)]
-        pub shard_capacity: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub shard_capacity: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Number of shards assigned to the elastic cluster. Maximum is 32
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub shard_count: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub shard_count: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// IDs of subnets in which the Elastic DocumentDB Cluster operates.
         #[builder(into, default)]
-        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub subnet_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::docdb::ElasticClusterTimeouts>,
         >,
         /// List of VPC security groups to associate with the Elastic DocumentDB Cluster
         #[builder(into, default)]
-        pub vpc_security_group_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub vpc_security_group_ids: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
     }
     #[allow(dead_code)]
     pub struct ElasticClusterResult {
         /// Name of the Elastic DocumentDB cluster administrator
-        pub admin_user_name: pulumi_wasm_rust::Output<String>,
+        pub admin_user_name: pulumi_gestalt_rust::Output<String>,
         /// Password for the Elastic DocumentDB cluster administrator. Can contain any printable ASCII characters. Must be at least 8 characters
-        pub admin_user_password: pulumi_wasm_rust::Output<String>,
+        pub admin_user_password: pulumi_gestalt_rust::Output<String>,
         /// ARN of the DocumentDB Elastic Cluster
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Authentication type for the Elastic DocumentDB cluster. Valid values are `PLAIN_TEXT` and `SECRET_ARN`
-        pub auth_type: pulumi_wasm_rust::Output<String>,
+        pub auth_type: pulumi_gestalt_rust::Output<String>,
         /// The number of days for which automatic snapshots are retained. It should be in between 1 and 35. If not specified, the default value of 1 is set.
-        pub backup_retention_period: pulumi_wasm_rust::Output<f64>,
+        pub backup_retention_period: pulumi_gestalt_rust::Output<f64>,
         /// The DNS address of the DocDB instance
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_gestalt_rust::Output<String>,
         /// ARN of a KMS key that is used to encrypt the Elastic DocumentDB cluster. If not specified, the default encryption key that KMS creates for your account is used.
-        pub kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the Elastic DocumentDB cluster
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
-        pub preferred_backup_window: pulumi_wasm_rust::Output<String>,
+        pub preferred_backup_window: pulumi_gestalt_rust::Output<String>,
         /// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
-        pub preferred_maintenance_window: pulumi_wasm_rust::Output<String>,
+        pub preferred_maintenance_window: pulumi_gestalt_rust::Output<String>,
         /// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
-        pub shard_capacity: pulumi_wasm_rust::Output<i32>,
+        pub shard_capacity: pulumi_gestalt_rust::Output<i32>,
         /// Number of shards assigned to the elastic cluster. Maximum is 32
         ///
         /// The following arguments are optional:
-        pub shard_count: pulumi_wasm_rust::Output<i32>,
+        pub shard_count: pulumi_gestalt_rust::Output<i32>,
         /// IDs of subnets in which the Elastic DocumentDB Cluster operates.
-        pub subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnet_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::docdb::ElasticClusterTimeouts>,
         >,
         /// List of VPC security groups to associate with the Elastic DocumentDB Cluster
-        pub vpc_security_group_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub vpc_security_group_ids: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ElasticClusterArgs,
     ) -> ElasticClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let admin_user_name_binding = args
             .admin_user_name
@@ -236,49 +238,49 @@ pub mod elastic_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ElasticClusterResult {
-            admin_user_name: pulumi_wasm_rust::__private::into_domain(
+            admin_user_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminUserName"),
             ),
-            admin_user_password: pulumi_wasm_rust::__private::into_domain(
+            admin_user_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminUserPassword"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auth_type: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auth_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authType"),
             ),
-            backup_retention_period: pulumi_wasm_rust::__private::into_domain(
+            backup_retention_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupRetentionPeriod"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            preferred_backup_window: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            preferred_backup_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredBackupWindow"),
             ),
-            preferred_maintenance_window: pulumi_wasm_rust::__private::into_domain(
+            preferred_maintenance_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredMaintenanceWindow"),
             ),
-            shard_capacity: pulumi_wasm_rust::__private::into_domain(
+            shard_capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shardCapacity"),
             ),
-            shard_count: pulumi_wasm_rust::__private::into_domain(
+            shard_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shardCount"),
             ),
-            subnet_ids: pulumi_wasm_rust::__private::into_domain(
+            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            vpc_security_group_ids: pulumi_wasm_rust::__private::into_domain(
+            vpc_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcSecurityGroupIds"),
             ),
         }

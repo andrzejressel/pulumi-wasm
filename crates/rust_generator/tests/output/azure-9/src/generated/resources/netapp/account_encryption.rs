@@ -97,48 +97,50 @@
 /// ```
 ///
 pub mod account_encryption {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountEncryptionArgs {
         /// Specify the versionless ID of the encryption key.
         #[builder(into)]
-        pub encryption_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub encryption_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
         #[builder(into)]
-        pub netapp_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub netapp_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
         #[builder(into, default)]
-        pub system_assigned_identity_principal_id: pulumi_wasm_rust::InputOrOutput<
+        pub system_assigned_identity_principal_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
         #[builder(into, default)]
-        pub user_assigned_identity_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_assigned_identity_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct AccountEncryptionResult {
         /// Specify the versionless ID of the encryption key.
-        pub encryption_key: pulumi_wasm_rust::Output<String>,
+        pub encryption_key: pulumi_gestalt_rust::Output<String>,
         /// The ID of the NetApp account where volume under it will have customer managed keys-based encryption enabled.
-        pub netapp_account_id: pulumi_wasm_rust::Output<String>,
+        pub netapp_account_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the System Assigned Manged Identity. Conflicts with `user_assigned_identity_id`.
-        pub system_assigned_identity_principal_id: pulumi_wasm_rust::Output<
+        pub system_assigned_identity_principal_id: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// The ID of the User Assigned Managed Identity. Conflicts with `system_assigned_identity_principal_id`.
-        pub user_assigned_identity_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_assigned_identity_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccountEncryptionArgs,
     ) -> AccountEncryptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let encryption_key_binding = args.encryption_key.get_output(context).get_inner();
         let netapp_account_id_binding = args
@@ -178,16 +180,16 @@ pub mod account_encryption {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccountEncryptionResult {
-            encryption_key: pulumi_wasm_rust::__private::into_domain(
+            encryption_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionKey"),
             ),
-            netapp_account_id: pulumi_wasm_rust::__private::into_domain(
+            netapp_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("netappAccountId"),
             ),
-            system_assigned_identity_principal_id: pulumi_wasm_rust::__private::into_domain(
+            system_assigned_identity_principal_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("systemAssignedIdentityPrincipalId"),
             ),
-            user_assigned_identity_id: pulumi_wasm_rust::__private::into_domain(
+            user_assigned_identity_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userAssignedIdentityId"),
             ),
         }

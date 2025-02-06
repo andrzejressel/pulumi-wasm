@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = file_system_association::create(
@@ -89,77 +89,77 @@
 /// $ pulumi import aws:storagegateway/fileSystemAssociation:FileSystemAssociation example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125
 /// ```
 pub mod file_system_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FileSystemAssociationArgs {
         /// The Amazon Resource Name (ARN) of the storage used for the audit logs.
         #[builder(into, default)]
-        pub audit_destination_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub audit_destination_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Refresh cache information. see Cache Attributes for more details.
         #[builder(into, default)]
-        pub cache_attributes: pulumi_wasm_rust::InputOrOutput<
+        pub cache_attributes: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::storagegateway::FileSystemAssociationCacheAttributes,
             >,
         >,
         /// The Amazon Resource Name (ARN) of the gateway.
         #[builder(into)]
-        pub gateway_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub gateway_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
         #[builder(into)]
-        pub location_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The password of the user credential.
         #[builder(into)]
-        pub password: pulumi_wasm_rust::InputOrOutput<String>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
         #[builder(into)]
-        pub username: pulumi_wasm_rust::InputOrOutput<String>,
+        pub username: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct FileSystemAssociationResult {
         /// Amazon Resource Name (ARN) of the newly created file system association.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the storage used for the audit logs.
-        pub audit_destination_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub audit_destination_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Refresh cache information. see Cache Attributes for more details.
-        pub cache_attributes: pulumi_wasm_rust::Output<
+        pub cache_attributes: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::storagegateway::FileSystemAssociationCacheAttributes,
             >,
         >,
         /// The Amazon Resource Name (ARN) of the gateway.
-        pub gateway_arn: pulumi_wasm_rust::Output<String>,
+        pub gateway_arn: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
-        pub location_arn: pulumi_wasm_rust::Output<String>,
+        pub location_arn: pulumi_gestalt_rust::Output<String>,
         /// The password of the user credential.
-        pub password: pulumi_wasm_rust::Output<String>,
+        pub password: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub username: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FileSystemAssociationArgs,
     ) -> FileSystemAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let audit_destination_arn_binding = args
             .audit_destination_arn
@@ -212,27 +212,27 @@ pub mod file_system_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FileSystemAssociationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            audit_destination_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            audit_destination_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("auditDestinationArn"),
             ),
-            cache_attributes: pulumi_wasm_rust::__private::into_domain(
+            cache_attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cacheAttributes"),
             ),
-            gateway_arn: pulumi_wasm_rust::__private::into_domain(
+            gateway_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayArn"),
             ),
-            location_arn: pulumi_wasm_rust::__private::into_domain(
+            location_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("locationArn"),
             ),
-            password: pulumi_wasm_rust::__private::into_domain(
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            username: pulumi_wasm_rust::__private::into_domain(
+            username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("username"),
             ),
         }

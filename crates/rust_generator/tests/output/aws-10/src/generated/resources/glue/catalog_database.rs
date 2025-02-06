@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = catalog_database::create(
@@ -17,8 +17,8 @@
 /// ### Create Table Default Permissions
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = catalog_database::create(
@@ -47,16 +47,16 @@
 /// $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
 /// ```
 pub mod catalog_database {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CatalogDatabaseArgs {
         /// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
         #[builder(into, default)]
-        pub catalog_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub catalog_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
         #[builder(into, default)]
-        pub create_table_default_permissions: pulumi_wasm_rust::InputOrOutput<
+        pub create_table_default_permissions: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::glue::CatalogDatabaseCreateTableDefaultPermission,
@@ -65,68 +65,68 @@ pub mod catalog_database {
         >,
         /// Description of the database.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
         #[builder(into, default)]
-        pub federated_database: pulumi_wasm_rust::InputOrOutput<
+        pub federated_database: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::glue::CatalogDatabaseFederatedDatabase>,
         >,
         /// Location of the database (for example, an HDFS path).
         #[builder(into, default)]
-        pub location_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of key-value pairs that define parameters and properties of the database.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block for a target database for resource linking. See `target_database` below.
         #[builder(into, default)]
-        pub target_database: pulumi_wasm_rust::InputOrOutput<
+        pub target_database: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::glue::CatalogDatabaseTargetDatabase>,
         >,
     }
     #[allow(dead_code)]
     pub struct CatalogDatabaseResult {
         /// ARN of the Glue Catalog Database.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// ID of the Glue Catalog to create the database in. If omitted, this defaults to the AWS Account ID.
-        pub catalog_id: pulumi_wasm_rust::Output<String>,
+        pub catalog_id: pulumi_gestalt_rust::Output<String>,
         /// Creates a set of default permissions on the table for principals. See `create_table_default_permission` below.
-        pub create_table_default_permissions: pulumi_wasm_rust::Output<
+        pub create_table_default_permissions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::glue::CatalogDatabaseCreateTableDefaultPermission>,
         >,
         /// Description of the database.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block that references an entity outside the AWS Glue Data Catalog. See `federated_database` below.
-        pub federated_database: pulumi_wasm_rust::Output<
+        pub federated_database: pulumi_gestalt_rust::Output<
             Option<super::super::types::glue::CatalogDatabaseFederatedDatabase>,
         >,
         /// Location of the database (for example, an HDFS path).
-        pub location_uri: pulumi_wasm_rust::Output<String>,
+        pub location_uri: pulumi_gestalt_rust::Output<String>,
         /// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// List of key-value pairs that define parameters and properties of the database.
-        pub parameters: pulumi_wasm_rust::Output<
+        pub parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configuration block for a target database for resource linking. See `target_database` below.
-        pub target_database: pulumi_wasm_rust::Output<
+        pub target_database: pulumi_gestalt_rust::Output<
             Option<super::super::types::glue::CatalogDatabaseTargetDatabase>,
         >,
     }
@@ -135,11 +135,11 @@ pub mod catalog_database {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CatalogDatabaseArgs,
     ) -> CatalogDatabaseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let catalog_id_binding = args.catalog_id.get_output(context).get_inner();
         let create_table_default_permissions_binding = args
@@ -204,31 +204,31 @@ pub mod catalog_database {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CatalogDatabaseResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            catalog_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            catalog_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("catalogId"),
             ),
-            create_table_default_permissions: pulumi_wasm_rust::__private::into_domain(
+            create_table_default_permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTableDefaultPermissions"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            federated_database: pulumi_wasm_rust::__private::into_domain(
+            federated_database: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("federatedDatabase"),
             ),
-            location_uri: pulumi_wasm_rust::__private::into_domain(
+            location_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("locationUri"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            target_database: pulumi_wasm_rust::__private::into_domain(
+            target_database: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetDatabase"),
             ),
         }

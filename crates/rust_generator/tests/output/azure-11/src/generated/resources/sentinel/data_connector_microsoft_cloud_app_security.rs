@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -52,57 +52,57 @@
 /// ```
 ///
 pub mod data_connector_microsoft_cloud_app_security {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataConnectorMicrosoftCloudAppSecurityArgs {
         /// Should the alerts be enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub alerts_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub alerts_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Should the Discovery Logs be enabled? Defaults to `true`.
         ///
         /// > **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
         #[builder(into, default)]
-        pub discovery_logs_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub discovery_logs_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
         #[builder(into)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub log_analytics_workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
         ///
         /// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
         #[builder(into, default)]
-        pub tenant_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tenant_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DataConnectorMicrosoftCloudAppSecurityResult {
         /// Should the alerts be enabled? Defaults to `true`.
-        pub alerts_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub alerts_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Should the Discovery Logs be enabled? Defaults to `true`.
         ///
         /// > **NOTE:** One of either `alerts_enabled` or `discovery_logs_enabled` has to be specified.
-        pub discovery_logs_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub discovery_logs_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_workspace_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to.
         ///
         /// > **NOTE** Currently, only the same tenant as the running account is allowed. Cross-tenant scenario is not supported yet.
-        pub tenant_id: pulumi_wasm_rust::Output<String>,
+        pub tenant_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DataConnectorMicrosoftCloudAppSecurityArgs,
     ) -> DataConnectorMicrosoftCloudAppSecurityResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let alerts_enabled_binding = args.alerts_enabled.get_output(context).get_inner();
         let discovery_logs_enabled_binding = args
@@ -145,17 +145,17 @@ pub mod data_connector_microsoft_cloud_app_security {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DataConnectorMicrosoftCloudAppSecurityResult {
-            alerts_enabled: pulumi_wasm_rust::__private::into_domain(
+            alerts_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("alertsEnabled"),
             ),
-            discovery_logs_enabled: pulumi_wasm_rust::__private::into_domain(
+            discovery_logs_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("discoveryLogsEnabled"),
             ),
-            log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
+            log_analytics_workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logAnalyticsWorkspaceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tenant_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tenant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tenantId"),
             ),
         }

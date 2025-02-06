@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = voice_connector::create(
@@ -33,39 +33,39 @@
 /// $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
 /// ```
 pub mod voice_connector_logging {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VoiceConnectorLoggingArgs {
         /// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
         #[builder(into, default)]
-        pub enable_media_metric_logs: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_media_metric_logs: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
         #[builder(into, default)]
-        pub enable_sip_logs: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_sip_logs: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The Amazon Chime Voice Connector ID.
         #[builder(into)]
-        pub voice_connector_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub voice_connector_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VoiceConnectorLoggingResult {
         /// When true, enables logging of detailed media metrics for Voice Connectors to Amazon CloudWatch logs.
-        pub enable_media_metric_logs: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_media_metric_logs: pulumi_gestalt_rust::Output<Option<bool>>,
         /// When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
-        pub enable_sip_logs: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_sip_logs: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The Amazon Chime Voice Connector ID.
-        pub voice_connector_id: pulumi_wasm_rust::Output<String>,
+        pub voice_connector_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VoiceConnectorLoggingArgs,
     ) -> VoiceConnectorLoggingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let enable_media_metric_logs_binding = args
             .enable_media_metric_logs
@@ -100,13 +100,13 @@ pub mod voice_connector_logging {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VoiceConnectorLoggingResult {
-            enable_media_metric_logs: pulumi_wasm_rust::__private::into_domain(
+            enable_media_metric_logs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableMediaMetricLogs"),
             ),
-            enable_sip_logs: pulumi_wasm_rust::__private::into_domain(
+            enable_sip_logs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableSipLogs"),
             ),
-            voice_connector_id: pulumi_wasm_rust::__private::into_domain(
+            voice_connector_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("voiceConnectorId"),
             ),
         }

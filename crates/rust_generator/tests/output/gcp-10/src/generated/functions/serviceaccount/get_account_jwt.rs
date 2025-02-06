@@ -1,41 +1,41 @@
 pub mod get_account_jwt {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAccountJwtArgs {
         /// Delegate chain of approvals needed to perform full impersonation. Specify the fully qualified service account name.
         #[builder(into, default)]
-        pub delegates: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub delegates: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Number of seconds until the JWT expires. If set and non-zero an `exp` claim will be added to the payload derived from the current timestamp plus expires_in seconds.
         #[builder(into, default)]
-        pub expires_in: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub expires_in: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The JSON-encoded JWT claims set to include in the self-signed JWT.
         #[builder(into)]
-        pub payload: pulumi_wasm_rust::InputOrOutput<String>,
+        pub payload: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The email of the service account that will sign the JWT.
         #[builder(into)]
-        pub target_service_account: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_service_account: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetAccountJwtResult {
-        pub delegates: pulumi_wasm_rust::Output<Option<Vec<String>>>,
-        pub expires_in: pulumi_wasm_rust::Output<Option<i32>>,
+        pub delegates: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
+        pub expires_in: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The signed JWT containing the JWT Claims Set from the `payload`.
-        pub jwt: pulumi_wasm_rust::Output<String>,
-        pub payload: pulumi_wasm_rust::Output<String>,
-        pub target_service_account: pulumi_wasm_rust::Output<String>,
+        pub jwt: pulumi_gestalt_rust::Output<String>,
+        pub payload: pulumi_gestalt_rust::Output<String>,
+        pub target_service_account: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetAccountJwtArgs,
     ) -> GetAccountJwtResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let delegates_binding = args.delegates.get_output(context).get_inner();
         let expires_in_binding = args.expires_in.get_output(context).get_inner();
@@ -68,18 +68,18 @@ pub mod get_account_jwt {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetAccountJwtResult {
-            delegates: pulumi_wasm_rust::__private::into_domain(
+            delegates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("delegates"),
             ),
-            expires_in: pulumi_wasm_rust::__private::into_domain(
+            expires_in: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expiresIn"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            jwt: pulumi_wasm_rust::__private::into_domain(o.extract_field("jwt")),
-            payload: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            jwt: pulumi_gestalt_rust::__private::into_domain(o.extract_field("jwt")),
+            payload: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("payload"),
             ),
-            target_service_account: pulumi_wasm_rust::__private::into_domain(
+            target_service_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetServiceAccount"),
             ),
         }

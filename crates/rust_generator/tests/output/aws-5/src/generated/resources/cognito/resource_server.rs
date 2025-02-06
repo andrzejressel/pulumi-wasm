@@ -5,8 +5,8 @@
 /// ### Create a basic resource server
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let pool = user_pool::create(
@@ -27,8 +27,8 @@
 /// ### Create a resource server with sample-scope
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let pool = user_pool::create(
@@ -61,50 +61,50 @@
 /// $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
 /// ```
 pub mod resource_server {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceServerArgs {
         /// An identifier for the resource server.
         #[builder(into)]
-        pub identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A name for the resource server.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of Authorization Scope.
         #[builder(into, default)]
-        pub scopes: pulumi_wasm_rust::InputOrOutput<
+        pub scopes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::cognito::ResourceServerScope>>,
         >,
         /// User pool the client belongs to.
         #[builder(into)]
-        pub user_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_pool_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResourceServerResult {
         /// An identifier for the resource server.
-        pub identifier: pulumi_wasm_rust::Output<String>,
+        pub identifier: pulumi_gestalt_rust::Output<String>,
         /// A name for the resource server.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A list of all scopes configured for this resource server in the format identifier/scope_name.
-        pub scope_identifiers: pulumi_wasm_rust::Output<Vec<String>>,
+        pub scope_identifiers: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A list of Authorization Scope.
-        pub scopes: pulumi_wasm_rust::Output<
+        pub scopes: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::cognito::ResourceServerScope>>,
         >,
         /// User pool the client belongs to.
-        pub user_pool_id: pulumi_wasm_rust::Output<String>,
+        pub user_pool_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResourceServerArgs,
     ) -> ResourceServerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let identifier_binding = args.identifier.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -135,15 +135,17 @@ pub mod resource_server {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResourceServerResult {
-            identifier: pulumi_wasm_rust::__private::into_domain(
+            identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identifier"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            scope_identifiers: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            scope_identifiers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scopeIdentifiers"),
             ),
-            scopes: pulumi_wasm_rust::__private::into_domain(o.extract_field("scopes")),
-            user_pool_id: pulumi_wasm_rust::__private::into_domain(
+            scopes: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("scopes"),
+            ),
+            user_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userPoolId"),
             ),
         }

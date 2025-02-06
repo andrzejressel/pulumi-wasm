@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = transit_gateway::create(
@@ -22,7 +22,7 @@
 /// $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
 /// ```
 pub mod transit_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TransitGatewayArgs {
@@ -30,101 +30,105 @@ pub mod transit_gateway {
         ///
         /// > **NOTE:** Modifying `amazon_side_asn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazon_side_asn`.
         #[builder(into, default)]
-        pub amazon_side_asn: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub amazon_side_asn: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
         #[builder(into, default)]
-        pub auto_accept_shared_attachments: pulumi_wasm_rust::InputOrOutput<
+        pub auto_accept_shared_attachments: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
         #[builder(into, default)]
-        pub default_route_table_association: pulumi_wasm_rust::InputOrOutput<
+        pub default_route_table_association: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
         #[builder(into, default)]
-        pub default_route_table_propagation: pulumi_wasm_rust::InputOrOutput<
+        pub default_route_table_propagation: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Description of the EC2 Transit Gateway.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         #[builder(into, default)]
-        pub dns_support: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub dns_support: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
         #[builder(into, default)]
-        pub multicast_support: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub multicast_support: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
         #[builder(into, default)]
-        pub security_group_referencing_support: pulumi_wasm_rust::InputOrOutput<
+        pub security_group_referencing_support: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
         #[builder(into, default)]
-        pub transit_gateway_cidr_blocks: pulumi_wasm_rust::InputOrOutput<
+        pub transit_gateway_cidr_blocks: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         #[builder(into, default)]
-        pub vpn_ecmp_support: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub vpn_ecmp_support: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TransitGatewayResult {
         /// Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
         ///
         /// > **NOTE:** Modifying `amazon_side_asn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazon_side_asn`.
-        pub amazon_side_asn: pulumi_wasm_rust::Output<Option<i32>>,
+        pub amazon_side_asn: pulumi_gestalt_rust::Output<Option<i32>>,
         /// EC2 Transit Gateway Amazon Resource Name (ARN)
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Identifier of the default association route table
-        pub association_default_route_table_id: pulumi_wasm_rust::Output<String>,
+        pub association_default_route_table_id: pulumi_gestalt_rust::Output<String>,
         /// Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
-        pub auto_accept_shared_attachments: pulumi_wasm_rust::Output<Option<String>>,
+        pub auto_accept_shared_attachments: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
-        pub default_route_table_association: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_route_table_association: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
-        pub default_route_table_propagation: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_route_table_propagation: pulumi_gestalt_rust::Output<Option<String>>,
         /// Description of the EC2 Transit Gateway.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-        pub dns_support: pulumi_wasm_rust::Output<Option<String>>,
+        pub dns_support: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
-        pub multicast_support: pulumi_wasm_rust::Output<Option<String>>,
+        pub multicast_support: pulumi_gestalt_rust::Output<Option<String>>,
         /// Identifier of the AWS account that owns the EC2 Transit Gateway
-        pub owner_id: pulumi_wasm_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
         /// Identifier of the default propagation route table
-        pub propagation_default_route_table_id: pulumi_wasm_rust::Output<String>,
+        pub propagation_default_route_table_id: pulumi_gestalt_rust::Output<String>,
         /// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
-        pub security_group_referencing_support: pulumi_wasm_rust::Output<Option<String>>,
+        pub security_group_referencing_support: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// Key-value tags for the EC2 Transit Gateway. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
-        pub transit_gateway_cidr_blocks: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub transit_gateway_cidr_blocks: pulumi_gestalt_rust::Output<
+            Option<Vec<String>>,
+        >,
         /// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-        pub vpn_ecmp_support: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpn_ecmp_support: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TransitGatewayArgs,
     ) -> TransitGatewayResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let amazon_side_asn_binding = args
             .amazon_side_asn
@@ -214,48 +218,48 @@ pub mod transit_gateway {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TransitGatewayResult {
-            amazon_side_asn: pulumi_wasm_rust::__private::into_domain(
+            amazon_side_asn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("amazonSideAsn"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            association_default_route_table_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            association_default_route_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("associationDefaultRouteTableId"),
             ),
-            auto_accept_shared_attachments: pulumi_wasm_rust::__private::into_domain(
+            auto_accept_shared_attachments: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoAcceptSharedAttachments"),
             ),
-            default_route_table_association: pulumi_wasm_rust::__private::into_domain(
+            default_route_table_association: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultRouteTableAssociation"),
             ),
-            default_route_table_propagation: pulumi_wasm_rust::__private::into_domain(
+            default_route_table_propagation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultRouteTablePropagation"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            dns_support: pulumi_wasm_rust::__private::into_domain(
+            dns_support: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsSupport"),
             ),
-            multicast_support: pulumi_wasm_rust::__private::into_domain(
+            multicast_support: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("multicastSupport"),
             ),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            propagation_default_route_table_id: pulumi_wasm_rust::__private::into_domain(
+            propagation_default_route_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("propagationDefaultRouteTableId"),
             ),
-            security_group_referencing_support: pulumi_wasm_rust::__private::into_domain(
+            security_group_referencing_support: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityGroupReferencingSupport"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            transit_gateway_cidr_blocks: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_cidr_blocks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayCidrBlocks"),
             ),
-            vpn_ecmp_support: pulumi_wasm_rust::__private::into_domain(
+            vpn_ecmp_support: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpnEcmpSupport"),
             ),
         }

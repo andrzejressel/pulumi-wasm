@@ -43,35 +43,35 @@
 /// ```
 ///
 pub mod channel_web_chat {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ChannelWebChatArgs {
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub bot_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bot_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group where the Web Chat Channel should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         #[builder(into, default)]
-        pub sites: pulumi_wasm_rust::InputOrOutput<
+        pub sites: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::bot::ChannelWebChatSite>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ChannelWebChatResult {
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
-        pub bot_name: pulumi_wasm_rust::Output<String>,
+        pub bot_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group where the Web Chat Channel should be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
-        pub sites: pulumi_wasm_rust::Output<
+        pub sites: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::bot::ChannelWebChatSite>>,
         >,
     }
@@ -80,11 +80,11 @@ pub mod channel_web_chat {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ChannelWebChatArgs,
     ) -> ChannelWebChatResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bot_name_binding = args.bot_name.get_output(context).get_inner();
         let location_binding = args.location.get_output(context).get_inner();
@@ -118,16 +118,16 @@ pub mod channel_web_chat {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ChannelWebChatResult {
-            bot_name: pulumi_wasm_rust::__private::into_domain(
+            bot_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("botName"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sites: pulumi_wasm_rust::__private::into_domain(o.extract_field("sites")),
+            sites: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sites")),
         }
     }
 }

@@ -334,112 +334,112 @@
 /// ```
 ///
 pub mod job {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct JobArgs {
         /// Copies a table.
         #[builder(into, default)]
-        pub copy: pulumi_wasm_rust::InputOrOutput<
+        pub copy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::JobCopy>,
         >,
         /// Configures an extract job.
         #[builder(into, default)]
-        pub extract: pulumi_wasm_rust::InputOrOutput<
+        pub extract: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::JobExtract>,
         >,
         /// The ID of the job. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-). The maximum length is 1,024 characters.
         #[builder(into)]
-        pub job_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub job_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Job timeout in milliseconds. If this time limit is exceeded, BigQuery may attempt to terminate the job.
         #[builder(into, default)]
-        pub job_timeout_ms: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub job_timeout_ms: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The labels associated with this job. You can use these to organize and group your jobs. **Note**: This field is
         /// non-authoritative, and will only manage the labels present in your configuration. Please refer to the field
         /// 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configures a load job.
         #[builder(into, default)]
-        pub load: pulumi_wasm_rust::InputOrOutput<
+        pub load: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::JobLoad>,
         >,
         /// Specifies where the error occurred, if present.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configures a query job.
         #[builder(into, default)]
-        pub query: pulumi_wasm_rust::InputOrOutput<
+        pub query: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::JobQuery>,
         >,
     }
     #[allow(dead_code)]
     pub struct JobResult {
         /// Copies a table.
-        pub copy: pulumi_wasm_rust::Output<
+        pub copy: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::JobCopy>,
         >,
         /// (Output)
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configures an extract job.
-        pub extract: pulumi_wasm_rust::Output<
+        pub extract: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::JobExtract>,
         >,
         /// The ID of the job. The ID must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-). The maximum length is 1,024 characters.
-        pub job_id: pulumi_wasm_rust::Output<String>,
+        pub job_id: pulumi_gestalt_rust::Output<String>,
         /// Job timeout in milliseconds. If this time limit is exceeded, BigQuery may attempt to terminate the job.
-        pub job_timeout_ms: pulumi_wasm_rust::Output<Option<String>>,
+        pub job_timeout_ms: pulumi_gestalt_rust::Output<Option<String>>,
         /// (Output)
         /// The type of the job.
-        pub job_type: pulumi_wasm_rust::Output<String>,
+        pub job_type: pulumi_gestalt_rust::Output<String>,
         /// The labels associated with this job. You can use these to organize and group your jobs. **Note**: This field is
         /// non-authoritative, and will only manage the labels present in your configuration. Please refer to the field
         /// 'effective_labels' for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configures a load job.
-        pub load: pulumi_wasm_rust::Output<
+        pub load: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::JobLoad>,
         >,
         /// Specifies where the error occurred, if present.
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<Option<String>>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// (Output)
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configures a query job.
-        pub query: pulumi_wasm_rust::Output<
+        pub query: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::JobQuery>,
         >,
         /// The status of this job. Examine this value when polling an asynchronous job to see if the job is complete.
         /// Structure is documented below.
-        pub statuses: pulumi_wasm_rust::Output<
+        pub statuses: pulumi_gestalt_rust::Output<
             Vec<super::super::types::bigquery::JobStatus>,
         >,
         /// Email address of the user who ran the job.
-        pub user_email: pulumi_wasm_rust::Output<String>,
+        pub user_email: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: JobArgs,
     ) -> JobResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let copy_binding = args.copy.get_output(context).get_inner();
         let extract_binding = args.extract.get_output(context).get_inner();
@@ -495,36 +495,40 @@ pub mod job {
         };
         let o = register_interface::register(context.get_inner(), &request);
         JobResult {
-            copy: pulumi_wasm_rust::__private::into_domain(o.extract_field("copy")),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            copy: pulumi_gestalt_rust::__private::into_domain(o.extract_field("copy")),
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            extract: pulumi_wasm_rust::__private::into_domain(
+            extract: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("extract"),
             ),
-            job_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("jobId")),
-            job_timeout_ms: pulumi_wasm_rust::__private::into_domain(
+            job_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("jobId"),
+            ),
+            job_timeout_ms: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jobTimeoutMs"),
             ),
-            job_type: pulumi_wasm_rust::__private::into_domain(
+            job_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jobType"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            load: pulumi_wasm_rust::__private::into_domain(o.extract_field("load")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            load: pulumi_gestalt_rust::__private::into_domain(o.extract_field("load")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            query: pulumi_wasm_rust::__private::into_domain(o.extract_field("query")),
-            statuses: pulumi_wasm_rust::__private::into_domain(
+            query: pulumi_gestalt_rust::__private::into_domain(o.extract_field("query")),
+            statuses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statuses"),
             ),
-            user_email: pulumi_wasm_rust::__private::into_domain(
+            user_email: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userEmail"),
             ),
         }

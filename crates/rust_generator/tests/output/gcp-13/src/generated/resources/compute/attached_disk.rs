@@ -16,8 +16,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = attached_disk::create(
@@ -72,7 +72,7 @@
 /// ```
 ///
 pub mod attached_disk {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AttachedDiskArgs {
@@ -86,19 +86,19 @@ pub mod attached_disk {
         /// to this disk, in the form persistent-disks-x, where x is a number
         /// assigned by Google Compute Engine.
         #[builder(into, default)]
-        pub device_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub device_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// `name` or `self_link` of the disk that will be attached.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub disk: pulumi_wasm_rust::InputOrOutput<String>,
+        pub disk: pulumi_gestalt_rust::InputOrOutput<String>,
         /// `name` or `self_link` of the compute instance that the disk will be attached to.
         /// If the `self_link` is provided then `zone` and `project` are extracted from the
         /// self link. If only the name is used then `zone` and `project` must be defined
         /// as properties on the resource or provider.
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The disk interface used for attaching this disk.
         ///
         /// This field is only used for specific cases, please don't specify
@@ -109,7 +109,7 @@ pub mod attached_disk {
         /// "SCSI"
         /// "NVME"
         #[builder(into, default)]
-        pub interface: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub interface: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The mode in which to attach this disk, either READ_WRITE or
         /// READ_ONLY. If not specified, the default is to attach the disk in
         /// READ_WRITE mode.
@@ -118,15 +118,15 @@ pub mod attached_disk {
         /// "READ_ONLY"
         /// "READ_WRITE"
         #[builder(into, default)]
-        pub mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The project that the referenced compute instance is a part of. If `instance` is referenced by its
         /// `self_link` the project defined in the link will take precedence.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The zone that the referenced compute instance is located within. If `instance` is referenced by its
         /// `self_link` the zone defined in the link will take precedence.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AttachedDiskResult {
@@ -139,17 +139,17 @@ pub mod attached_disk {
         /// If not specified, the server chooses a default device name to apply
         /// to this disk, in the form persistent-disks-x, where x is a number
         /// assigned by Google Compute Engine.
-        pub device_name: pulumi_wasm_rust::Output<String>,
+        pub device_name: pulumi_gestalt_rust::Output<String>,
         /// `name` or `self_link` of the disk that will be attached.
         ///
         ///
         /// - - -
-        pub disk: pulumi_wasm_rust::Output<String>,
+        pub disk: pulumi_gestalt_rust::Output<String>,
         /// `name` or `self_link` of the compute instance that the disk will be attached to.
         /// If the `self_link` is provided then `zone` and `project` are extracted from the
         /// self link. If only the name is used then `zone` and `project` must be defined
         /// as properties on the resource or provider.
-        pub instance: pulumi_wasm_rust::Output<String>,
+        pub instance: pulumi_gestalt_rust::Output<String>,
         /// The disk interface used for attaching this disk.
         ///
         /// This field is only used for specific cases, please don't specify
@@ -159,7 +159,7 @@ pub mod attached_disk {
         /// Possible values:
         /// "SCSI"
         /// "NVME"
-        pub interface: pulumi_wasm_rust::Output<Option<String>>,
+        pub interface: pulumi_gestalt_rust::Output<Option<String>>,
         /// The mode in which to attach this disk, either READ_WRITE or
         /// READ_ONLY. If not specified, the default is to attach the disk in
         /// READ_WRITE mode.
@@ -167,24 +167,24 @@ pub mod attached_disk {
         /// Possible values:
         /// "READ_ONLY"
         /// "READ_WRITE"
-        pub mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The project that the referenced compute instance is a part of. If `instance` is referenced by its
         /// `self_link` the project defined in the link will take precedence.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The zone that the referenced compute instance is located within. If `instance` is referenced by its
         /// `self_link` the zone defined in the link will take precedence.
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AttachedDiskArgs,
     ) -> AttachedDiskResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let device_name_binding = args.device_name.get_output(context).get_inner();
         let disk_binding = args.disk.get_output(context).get_inner();
@@ -230,21 +230,21 @@ pub mod attached_disk {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AttachedDiskResult {
-            device_name: pulumi_wasm_rust::__private::into_domain(
+            device_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deviceName"),
             ),
-            disk: pulumi_wasm_rust::__private::into_domain(o.extract_field("disk")),
-            instance: pulumi_wasm_rust::__private::into_domain(
+            disk: pulumi_gestalt_rust::__private::into_domain(o.extract_field("disk")),
+            instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instance"),
             ),
-            interface: pulumi_wasm_rust::__private::into_domain(
+            interface: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("interface"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

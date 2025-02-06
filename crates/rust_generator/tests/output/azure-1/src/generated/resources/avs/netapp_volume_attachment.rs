@@ -5,8 +5,8 @@
 /// > **NOTE :** For Azure Azure VMware Solution Private Cloud, normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -184,43 +184,43 @@
 /// ```
 ///
 pub mod netapp_volume_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetappVolumeAttachmentArgs {
         /// The name which should be used for this Azure VMware Solution Private Cloud Netapp File Volume Attachment. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The netapp file volume for this Azure VMware Solution Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
         #[builder(into)]
-        pub netapp_volume_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub netapp_volume_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The vmware cluster for this Azure VMware Solution Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
         ///
         /// > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the Azure VMware Solution hosts.
         #[builder(into)]
-        pub vmware_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vmware_cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NetappVolumeAttachmentResult {
         /// The name which should be used for this Azure VMware Solution Private Cloud Netapp File Volume Attachment. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The netapp file volume for this Azure VMware Solution Private Cloud Netapp File Volume Attachment to connect to. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
-        pub netapp_volume_id: pulumi_wasm_rust::Output<String>,
+        pub netapp_volume_id: pulumi_gestalt_rust::Output<String>,
         /// The vmware cluster for this Azure VMware Solution Private Cloud Netapp File Volume Attachment to associated to. Changing this forces a new Azure VMware Solution Private Cloud Netapp File Volume Attachment to be created.
         ///
         /// > **NOTE :** please follow the prerequisites mentioned in this [article](https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#prerequisites) before associating the netapp file volume to the Azure VMware Solution hosts.
-        pub vmware_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub vmware_cluster_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetappVolumeAttachmentArgs,
     ) -> NetappVolumeAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let netapp_volume_id_binding = args
@@ -252,11 +252,11 @@ pub mod netapp_volume_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetappVolumeAttachmentResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            netapp_volume_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            netapp_volume_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("netappVolumeId"),
             ),
-            vmware_cluster_id: pulumi_wasm_rust::__private::into_domain(
+            vmware_cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vmwareClusterId"),
             ),
         }

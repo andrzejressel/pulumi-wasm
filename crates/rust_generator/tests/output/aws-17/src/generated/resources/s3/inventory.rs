@@ -7,8 +7,8 @@
 /// ### Add inventory configuration
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let inventory = bucket_v_2::create(
@@ -78,63 +78,63 @@
 /// $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
 /// ```
 pub mod inventory {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InventoryArgs {
         /// Name of the source bucket that inventory lists the objects for.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Contains information about where to publish the inventory results (documented below).
         #[builder(into)]
-        pub destination: pulumi_wasm_rust::InputOrOutput<
+        pub destination: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::s3::InventoryDestination,
         >,
         /// Specifies whether the inventory is enabled or disabled.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::InputOrOutput<
+        pub filter: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::s3::InventoryFilter>,
         >,
         /// Object versions to include in the inventory list. Valid values: `All`, `Current`.
         #[builder(into)]
-        pub included_object_versions: pulumi_wasm_rust::InputOrOutput<String>,
+        pub included_object_versions: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Unique identifier of the inventory configuration for the bucket.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         #[builder(into, default)]
-        pub optional_fields: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub optional_fields: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the schedule for generating inventory results (documented below).
         #[builder(into)]
-        pub schedule: pulumi_wasm_rust::InputOrOutput<
+        pub schedule: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::s3::InventorySchedule,
         >,
     }
     #[allow(dead_code)]
     pub struct InventoryResult {
         /// Name of the source bucket that inventory lists the objects for.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// Contains information about where to publish the inventory results (documented below).
-        pub destination: pulumi_wasm_rust::Output<
+        pub destination: pulumi_gestalt_rust::Output<
             super::super::types::s3::InventoryDestination,
         >,
         /// Specifies whether the inventory is enabled or disabled.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
-        pub filter: pulumi_wasm_rust::Output<
+        pub filter: pulumi_gestalt_rust::Output<
             Option<super::super::types::s3::InventoryFilter>,
         >,
         /// Object versions to include in the inventory list. Valid values: `All`, `Current`.
-        pub included_object_versions: pulumi_wasm_rust::Output<String>,
+        pub included_object_versions: pulumi_gestalt_rust::Output<String>,
         /// Unique identifier of the inventory configuration for the bucket.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
-        pub optional_fields: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub optional_fields: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specifies the schedule for generating inventory results (documented below).
-        pub schedule: pulumi_wasm_rust::Output<
+        pub schedule: pulumi_gestalt_rust::Output<
             super::super::types::s3::InventorySchedule,
         >,
     }
@@ -143,11 +143,11 @@ pub mod inventory {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InventoryArgs,
     ) -> InventoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let destination_binding = args.destination.get_output(context).get_inner();
@@ -204,22 +204,26 @@ pub mod inventory {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InventoryResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            destination: pulumi_wasm_rust::__private::into_domain(
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            destination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destination"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
-            included_object_versions: pulumi_wasm_rust::__private::into_domain(
+            filter: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("filter"),
+            ),
+            included_object_versions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("includedObjectVersions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            optional_fields: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            optional_fields: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("optionalFields"),
             ),
-            schedule: pulumi_wasm_rust::__private::into_domain(
+            schedule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedule"),
             ),
         }

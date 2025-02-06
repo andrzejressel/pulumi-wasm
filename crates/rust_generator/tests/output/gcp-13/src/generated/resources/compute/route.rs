@@ -34,8 +34,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = route::create(
@@ -215,18 +215,18 @@
 /// ```
 ///
 pub mod route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteArgs {
         /// An optional description of this resource. Provide this property
         /// when you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The destination range of outgoing packets that this route applies to.
         /// Only IPv4 is supported.
         #[builder(into)]
-        pub dest_range: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dest_range: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035.  Specifically, the name must be 1-63 characters long and
@@ -235,13 +235,13 @@ pub mod route {
         /// characters must be a dash, lowercase letter, or digit, except the
         /// last character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The network that this route applies to.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<String>,
         /// URL to a gateway that should handle matching packets.
         /// Currently, you can only specify the internet gateway, using a full or
         /// partial valid URL:
@@ -250,7 +250,7 @@ pub mod route {
         /// * `global/gateways/default-internet-gateway`
         /// * The string `default-internet-gateway`.
         #[builder(into, default)]
-        pub next_hop_gateway: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub next_hop_gateway: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IP address or URL to a forwarding rule of type
         /// loadBalancingScheme=INTERNAL that should handle matching
         /// packets.
@@ -265,7 +265,7 @@ pub mod route {
         /// Note that this can only be used when the destinationRange is
         /// a public (non-RFC 1918) IP CIDR range.
         #[builder(into, default)]
-        pub next_hop_ilb: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub next_hop_ilb: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// URL to an instance that should handle matching packets.
         /// You can specify this as a full or partial URL. For example:
         /// * `https://www.googleapis.com/compute/v1/projects/project/zones/zone/instances/instance`
@@ -273,42 +273,42 @@ pub mod route {
         /// * `zones/zone/instances/instance`
         /// * Just the instance name, with the zone in `next_hop_instance_zone`.
         #[builder(into, default)]
-        pub next_hop_instance: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub next_hop_instance: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// (Optional when `next_hop_instance` is
         /// specified)  The zone of the instance specified in
         /// `next_hop_instance`.  Omit if `next_hop_instance` is specified as
         /// a URL.
         #[builder(into, default)]
-        pub next_hop_instance_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub next_hop_instance_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Network IP address of an instance that should handle matching packets.
         #[builder(into, default)]
-        pub next_hop_ip: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub next_hop_ip: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// URL to a VpnTunnel that should handle matching packets.
         #[builder(into, default)]
-        pub next_hop_vpn_tunnel: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub next_hop_vpn_tunnel: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The priority of this route. Priority is used to break ties in cases
         /// where there is more than one matching route of equal prefix length.
         /// In the case of two routes with equal prefix length, the one with the
         /// lowest-numbered priority value wins.
         /// Default value is 1000. Valid range is 0 through 65535.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of instance tags to which this route applies.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub tags: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct RouteResult {
         /// An optional description of this resource. Provide this property
         /// when you create the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The destination range of outgoing packets that this route applies to.
         /// Only IPv4 is supported.
-        pub dest_range: pulumi_wasm_rust::Output<String>,
+        pub dest_range: pulumi_gestalt_rust::Output<String>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035.  Specifically, the name must be 1-63 characters long and
@@ -316,12 +316,12 @@ pub mod route {
         /// the first character must be a lowercase letter, and all following
         /// characters must be a dash, lowercase letter, or digit, except the
         /// last character, which cannot be a dash.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The network that this route applies to.
         ///
         ///
         /// - - -
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// URL to a gateway that should handle matching packets.
         /// Currently, you can only specify the internet gateway, using a full or
         /// partial valid URL:
@@ -329,7 +329,7 @@ pub mod route {
         /// * `projects/project/global/gateways/default-internet-gateway`
         /// * `global/gateways/default-internet-gateway`
         /// * The string `default-internet-gateway`.
-        pub next_hop_gateway: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_hop_gateway: pulumi_gestalt_rust::Output<Option<String>>,
         /// The IP address or URL to a forwarding rule of type
         /// loadBalancingScheme=INTERNAL that should handle matching
         /// packets.
@@ -343,57 +343,57 @@ pub mod route {
         /// of a forwarding rule from the same VPC or any peered VPC.
         /// Note that this can only be used when the destinationRange is
         /// a public (non-RFC 1918) IP CIDR range.
-        pub next_hop_ilb: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_hop_ilb: pulumi_gestalt_rust::Output<Option<String>>,
         /// URL to an instance that should handle matching packets.
         /// You can specify this as a full or partial URL. For example:
         /// * `https://www.googleapis.com/compute/v1/projects/project/zones/zone/instances/instance`
         /// * `projects/project/zones/zone/instances/instance`
         /// * `zones/zone/instances/instance`
         /// * Just the instance name, with the zone in `next_hop_instance_zone`.
-        pub next_hop_instance: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_hop_instance: pulumi_gestalt_rust::Output<Option<String>>,
         /// (Optional when `next_hop_instance` is
         /// specified)  The zone of the instance specified in
         /// `next_hop_instance`.  Omit if `next_hop_instance` is specified as
         /// a URL.
-        pub next_hop_instance_zone: pulumi_wasm_rust::Output<String>,
+        pub next_hop_instance_zone: pulumi_gestalt_rust::Output<String>,
         /// Internal fixed region-to-region cost that Google Cloud calculates based on factors such as network performance,
         /// distance, and available bandwidth between regions.
-        pub next_hop_inter_region_cost: pulumi_wasm_rust::Output<String>,
+        pub next_hop_inter_region_cost: pulumi_gestalt_rust::Output<String>,
         /// Network IP address of an instance that should handle matching packets.
-        pub next_hop_ip: pulumi_wasm_rust::Output<String>,
+        pub next_hop_ip: pulumi_gestalt_rust::Output<String>,
         /// Multi-Exit Discriminator, a BGP route metric that indicates the desirability of a particular route in a network.
-        pub next_hop_med: pulumi_wasm_rust::Output<String>,
+        pub next_hop_med: pulumi_gestalt_rust::Output<String>,
         /// URL to a Network that should handle matching packets.
-        pub next_hop_network: pulumi_wasm_rust::Output<String>,
+        pub next_hop_network: pulumi_gestalt_rust::Output<String>,
         /// Indicates the origin of the route. Can be IGP (Interior Gateway Protocol), EGP (Exterior Gateway Protocol), or
         /// INCOMPLETE.
-        pub next_hop_origin: pulumi_wasm_rust::Output<String>,
+        pub next_hop_origin: pulumi_gestalt_rust::Output<String>,
         /// URL to a VpnTunnel that should handle matching packets.
-        pub next_hop_vpn_tunnel: pulumi_wasm_rust::Output<Option<String>>,
+        pub next_hop_vpn_tunnel: pulumi_gestalt_rust::Output<Option<String>>,
         /// The priority of this route. Priority is used to break ties in cases
         /// where there is more than one matching route of equal prefix length.
         /// In the case of two routes with equal prefix length, the one with the
         /// lowest-numbered priority value wins.
         /// Default value is 1000. Valid range is 0 through 65535.
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// A list of instance tags to which this route applies.
-        pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tags: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouteArgs,
     ) -> RouteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let dest_range_binding = args.dest_range.get_output(context).get_inner();
@@ -481,56 +481,56 @@ pub mod route {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouteResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            dest_range: pulumi_wasm_rust::__private::into_domain(
+            dest_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destRange"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            next_hop_gateway: pulumi_wasm_rust::__private::into_domain(
+            next_hop_gateway: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextHopGateway"),
             ),
-            next_hop_ilb: pulumi_wasm_rust::__private::into_domain(
+            next_hop_ilb: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextHopIlb"),
             ),
-            next_hop_instance: pulumi_wasm_rust::__private::into_domain(
+            next_hop_instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextHopInstance"),
             ),
-            next_hop_instance_zone: pulumi_wasm_rust::__private::into_domain(
+            next_hop_instance_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextHopInstanceZone"),
             ),
-            next_hop_inter_region_cost: pulumi_wasm_rust::__private::into_domain(
+            next_hop_inter_region_cost: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextHopInterRegionCost"),
             ),
-            next_hop_ip: pulumi_wasm_rust::__private::into_domain(
+            next_hop_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextHopIp"),
             ),
-            next_hop_med: pulumi_wasm_rust::__private::into_domain(
+            next_hop_med: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextHopMed"),
             ),
-            next_hop_network: pulumi_wasm_rust::__private::into_domain(
+            next_hop_network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextHopNetwork"),
             ),
-            next_hop_origin: pulumi_wasm_rust::__private::into_domain(
+            next_hop_origin: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextHopOrigin"),
             ),
-            next_hop_vpn_tunnel: pulumi_wasm_rust::__private::into_domain(
+            next_hop_vpn_tunnel: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nextHopVpnTunnel"),
             ),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

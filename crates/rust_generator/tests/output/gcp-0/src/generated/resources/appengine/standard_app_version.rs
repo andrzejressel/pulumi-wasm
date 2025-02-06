@@ -122,48 +122,48 @@
 /// ```
 ///
 pub mod standard_app_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StandardAppVersionArgs {
         /// Allows App Engine second generation runtimes to access the legacy bundled services.
         #[builder(into, default)]
-        pub app_engine_apis: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub app_engine_apis: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Automatic scaling is based on request rate, response latencies, and other application metrics.
         #[builder(into, default)]
-        pub automatic_scaling: pulumi_wasm_rust::InputOrOutput<
+        pub automatic_scaling: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appengine::StandardAppVersionAutomaticScaling>,
         >,
         /// Basic scaling creates instances when your application receives requests. Each instance will be shut down when the
         /// application becomes idle. Basic scaling is ideal for work that is intermittent or driven by user activity.
         #[builder(into, default)]
-        pub basic_scaling: pulumi_wasm_rust::InputOrOutput<
+        pub basic_scaling: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appengine::StandardAppVersionBasicScaling>,
         >,
         /// If set to 'true', the service will be deleted if it is the last version.
         #[builder(into, default)]
-        pub delete_service_on_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub delete_service_on_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Code and application artifacts that make up this version.
         /// Structure is documented below.
         #[builder(into)]
-        pub deployment: pulumi_wasm_rust::InputOrOutput<
+        pub deployment: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::appengine::StandardAppVersionDeployment,
         >,
         /// The entrypoint for the application.
         /// Structure is documented below.
         #[builder(into)]
-        pub entrypoint: pulumi_wasm_rust::InputOrOutput<
+        pub entrypoint: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::appengine::StandardAppVersionEntrypoint,
         >,
         /// Environment variables available to the application.
         #[builder(into, default)]
-        pub env_variables: pulumi_wasm_rust::InputOrOutput<
+        pub env_variables: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An ordered list of URL-matching patterns that should be applied to incoming requests. The first matching URL handles the
         /// request and other request handlers are not attempted.
         #[builder(into, default)]
-        pub handlers: pulumi_wasm_rust::InputOrOutput<
+        pub handlers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::appengine::StandardAppVersionHandler>>,
         >,
         /// A list of the types of messages that this application is able to receive. Possible values: ["INBOUND_SERVICE_MAIL",
@@ -171,131 +171,131 @@ pub mod standard_app_version {
         /// "INBOUND_SERVICE_XMPP_SUBSCRIBE", "INBOUND_SERVICE_XMPP_PRESENCE", "INBOUND_SERVICE_CHANNEL_PRESENCE",
         /// "INBOUND_SERVICE_WARMUP"]
         #[builder(into, default)]
-        pub inbound_services: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub inbound_services: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Instance class that is used to run this version. Valid values are AutomaticScaling: F1, F2, F4, F4_1G BasicScaling or
         /// ManualScaling: B1, B2, B4, B4_1G, B8 Defaults to F1 for AutomaticScaling and B2 for ManualScaling and BasicScaling. If
         /// no scaling is specified, AutomaticScaling is chosen.
         #[builder(into, default)]
-        pub instance_class: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub instance_class: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration for third-party Python runtime libraries that are required by the application.
         #[builder(into, default)]
-        pub libraries: pulumi_wasm_rust::InputOrOutput<
+        pub libraries: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::appengine::StandardAppVersionLibrary>>,
         >,
         /// A service with manual scaling runs continuously, allowing you to perform complex initialization and rely on the state of
         /// its memory over time.
         #[builder(into, default)]
-        pub manual_scaling: pulumi_wasm_rust::InputOrOutput<
+        pub manual_scaling: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appengine::StandardAppVersionManualScaling>,
         >,
         /// If set to 'true', the application version will not be deleted.
         #[builder(into, default)]
-        pub noop_on_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub noop_on_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Desired runtime. Example python27.
         #[builder(into)]
-        pub runtime: pulumi_wasm_rust::InputOrOutput<String>,
+        pub runtime: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The version of the API in the given runtime environment. Please see the app.yaml reference for valid values at
         /// 'https://cloud.google.com/appengine/docs/standard/<language>/config/appref'\ Substitute '<language>' with 'python',
         /// 'java', 'php', 'ruby', 'go' or 'nodejs'.
         #[builder(into, default)]
-        pub runtime_api_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub runtime_api_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// AppEngine service resource
         #[builder(into)]
-        pub service: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The identity that the deployed version will run as. Admin API will use the App Engine Appspot service account as default
         /// if this field is neither provided in app.yaml file nor through CLI flag.
         #[builder(into, default)]
-        pub service_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_account: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether multiple requests can be dispatched to this version at once.
         #[builder(into, default)]
-        pub threadsafe: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub threadsafe: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Relative name of the version within the service. For example, 'v1'. Version names can contain only lowercase letters,
         /// numbers, or hyphens. Reserved names,"default", "latest", and any name with the prefix "ah-".
         #[builder(into, default)]
-        pub version_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Enables VPC connectivity for standard apps.
         #[builder(into, default)]
-        pub vpc_access_connector: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_access_connector: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appengine::StandardAppVersionVpcAccessConnector>,
         >,
     }
     #[allow(dead_code)]
     pub struct StandardAppVersionResult {
         /// Allows App Engine second generation runtimes to access the legacy bundled services.
-        pub app_engine_apis: pulumi_wasm_rust::Output<Option<bool>>,
+        pub app_engine_apis: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Automatic scaling is based on request rate, response latencies, and other application metrics.
-        pub automatic_scaling: pulumi_wasm_rust::Output<
+        pub automatic_scaling: pulumi_gestalt_rust::Output<
             Option<super::super::types::appengine::StandardAppVersionAutomaticScaling>,
         >,
         /// Basic scaling creates instances when your application receives requests. Each instance will be shut down when the
         /// application becomes idle. Basic scaling is ideal for work that is intermittent or driven by user activity.
-        pub basic_scaling: pulumi_wasm_rust::Output<
+        pub basic_scaling: pulumi_gestalt_rust::Output<
             Option<super::super::types::appengine::StandardAppVersionBasicScaling>,
         >,
         /// If set to 'true', the service will be deleted if it is the last version.
-        pub delete_service_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_service_on_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Code and application artifacts that make up this version.
         /// Structure is documented below.
-        pub deployment: pulumi_wasm_rust::Output<
+        pub deployment: pulumi_gestalt_rust::Output<
             super::super::types::appengine::StandardAppVersionDeployment,
         >,
         /// The entrypoint for the application.
         /// Structure is documented below.
-        pub entrypoint: pulumi_wasm_rust::Output<
+        pub entrypoint: pulumi_gestalt_rust::Output<
             super::super::types::appengine::StandardAppVersionEntrypoint,
         >,
         /// Environment variables available to the application.
-        pub env_variables: pulumi_wasm_rust::Output<
+        pub env_variables: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An ordered list of URL-matching patterns that should be applied to incoming requests. The first matching URL handles the
         /// request and other request handlers are not attempted.
-        pub handlers: pulumi_wasm_rust::Output<
+        pub handlers: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appengine::StandardAppVersionHandler>,
         >,
         /// A list of the types of messages that this application is able to receive. Possible values: ["INBOUND_SERVICE_MAIL",
         /// "INBOUND_SERVICE_MAIL_BOUNCE", "INBOUND_SERVICE_XMPP_ERROR", "INBOUND_SERVICE_XMPP_MESSAGE",
         /// "INBOUND_SERVICE_XMPP_SUBSCRIBE", "INBOUND_SERVICE_XMPP_PRESENCE", "INBOUND_SERVICE_CHANNEL_PRESENCE",
         /// "INBOUND_SERVICE_WARMUP"]
-        pub inbound_services: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub inbound_services: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Instance class that is used to run this version. Valid values are AutomaticScaling: F1, F2, F4, F4_1G BasicScaling or
         /// ManualScaling: B1, B2, B4, B4_1G, B8 Defaults to F1 for AutomaticScaling and B2 for ManualScaling and BasicScaling. If
         /// no scaling is specified, AutomaticScaling is chosen.
-        pub instance_class: pulumi_wasm_rust::Output<String>,
+        pub instance_class: pulumi_gestalt_rust::Output<String>,
         /// Configuration for third-party Python runtime libraries that are required by the application.
-        pub libraries: pulumi_wasm_rust::Output<
+        pub libraries: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::appengine::StandardAppVersionLibrary>>,
         >,
         /// A service with manual scaling runs continuously, allowing you to perform complex initialization and rely on the state of
         /// its memory over time.
-        pub manual_scaling: pulumi_wasm_rust::Output<
+        pub manual_scaling: pulumi_gestalt_rust::Output<
             Option<super::super::types::appengine::StandardAppVersionManualScaling>,
         >,
         /// Full path to the Version resource in the API. Example, "v1".
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// If set to 'true', the application version will not be deleted.
-        pub noop_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub noop_on_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Desired runtime. Example python27.
-        pub runtime: pulumi_wasm_rust::Output<String>,
+        pub runtime: pulumi_gestalt_rust::Output<String>,
         /// The version of the API in the given runtime environment. Please see the app.yaml reference for valid values at
         /// 'https://cloud.google.com/appengine/docs/standard/<language>/config/appref'\ Substitute '<language>' with 'python',
         /// 'java', 'php', 'ruby', 'go' or 'nodejs'.
-        pub runtime_api_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub runtime_api_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// AppEngine service resource
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_gestalt_rust::Output<String>,
         /// The identity that the deployed version will run as. Admin API will use the App Engine Appspot service account as default
         /// if this field is neither provided in app.yaml file nor through CLI flag.
-        pub service_account: pulumi_wasm_rust::Output<String>,
+        pub service_account: pulumi_gestalt_rust::Output<String>,
         /// Whether multiple requests can be dispatched to this version at once.
-        pub threadsafe: pulumi_wasm_rust::Output<Option<bool>>,
+        pub threadsafe: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Relative name of the version within the service. For example, 'v1'. Version names can contain only lowercase letters,
         /// numbers, or hyphens. Reserved names,"default", "latest", and any name with the prefix "ah-".
-        pub version_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub version_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Enables VPC connectivity for standard apps.
-        pub vpc_access_connector: pulumi_wasm_rust::Output<
+        pub vpc_access_connector: pulumi_gestalt_rust::Output<
             Option<super::super::types::appengine::StandardAppVersionVpcAccessConnector>,
         >,
     }
@@ -304,11 +304,11 @@ pub mod standard_app_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StandardAppVersionArgs,
     ) -> StandardAppVersionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_engine_apis_binding = args
             .app_engine_apis
@@ -448,68 +448,68 @@ pub mod standard_app_version {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StandardAppVersionResult {
-            app_engine_apis: pulumi_wasm_rust::__private::into_domain(
+            app_engine_apis: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appEngineApis"),
             ),
-            automatic_scaling: pulumi_wasm_rust::__private::into_domain(
+            automatic_scaling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automaticScaling"),
             ),
-            basic_scaling: pulumi_wasm_rust::__private::into_domain(
+            basic_scaling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("basicScaling"),
             ),
-            delete_service_on_destroy: pulumi_wasm_rust::__private::into_domain(
+            delete_service_on_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteServiceOnDestroy"),
             ),
-            deployment: pulumi_wasm_rust::__private::into_domain(
+            deployment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deployment"),
             ),
-            entrypoint: pulumi_wasm_rust::__private::into_domain(
+            entrypoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("entrypoint"),
             ),
-            env_variables: pulumi_wasm_rust::__private::into_domain(
+            env_variables: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("envVariables"),
             ),
-            handlers: pulumi_wasm_rust::__private::into_domain(
+            handlers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("handlers"),
             ),
-            inbound_services: pulumi_wasm_rust::__private::into_domain(
+            inbound_services: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inboundServices"),
             ),
-            instance_class: pulumi_wasm_rust::__private::into_domain(
+            instance_class: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceClass"),
             ),
-            libraries: pulumi_wasm_rust::__private::into_domain(
+            libraries: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("libraries"),
             ),
-            manual_scaling: pulumi_wasm_rust::__private::into_domain(
+            manual_scaling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("manualScaling"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            noop_on_destroy: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            noop_on_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("noopOnDestroy"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            runtime: pulumi_wasm_rust::__private::into_domain(
+            runtime: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runtime"),
             ),
-            runtime_api_version: pulumi_wasm_rust::__private::into_domain(
+            runtime_api_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runtimeApiVersion"),
             ),
-            service: pulumi_wasm_rust::__private::into_domain(
+            service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("service"),
             ),
-            service_account: pulumi_wasm_rust::__private::into_domain(
+            service_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccount"),
             ),
-            threadsafe: pulumi_wasm_rust::__private::into_domain(
+            threadsafe: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("threadsafe"),
             ),
-            version_id: pulumi_wasm_rust::__private::into_domain(
+            version_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionId"),
             ),
-            vpc_access_connector: pulumi_wasm_rust::__private::into_domain(
+            vpc_access_connector: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcAccessConnector"),
             ),
         }

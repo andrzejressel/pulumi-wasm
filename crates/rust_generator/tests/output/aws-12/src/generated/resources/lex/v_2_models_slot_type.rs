@@ -43,8 +43,8 @@
 /// ### value_selection_setting Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = v_2_models_slot_type::create(
@@ -89,106 +89,108 @@
 /// $ pulumi import aws:lex/v2modelsSlotType:V2modelsSlotType example bot-1234,DRAFT,en_US,slot_type-id-12345678
 /// ```
 pub mod v_2_models_slot_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct V2modelsSlotTypeArgs {
         /// Identifier of the bot associated with this slot type.
         #[builder(into)]
-        pub bot_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bot_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Version of the bot associated with this slot type.
         #[builder(into)]
-        pub bot_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bot_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifications for a composite slot type.
         /// See `composite_slot_type_setting` argument reference below.
         #[builder(into, default)]
-        pub composite_slot_type_setting: pulumi_wasm_rust::InputOrOutput<
+        pub composite_slot_type_setting: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lex::V2ModelsSlotTypeCompositeSlotTypeSetting>,
         >,
         /// Description of the slot type.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Type of external information used to create the slot type.
         /// See `external_source_setting` argument reference below.
         #[builder(into, default)]
-        pub external_source_setting: pulumi_wasm_rust::InputOrOutput<
+        pub external_source_setting: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lex::V2ModelsSlotTypeExternalSourceSetting>,
         >,
         /// Identifier of the language and locale where this slot type is used.
         /// All of the bots, slot types, and slots used by the intent must have the same locale.
         #[builder(into)]
-        pub locale_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub locale_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the slot type.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Built-in slot type used as a parent of this slot type.
         /// When you define a parent slot type, the new slot type has the configuration of the parent slot type.
         /// Only `AMAZON.AlphaNumeric` is supported.
         #[builder(into, default)]
-        pub parent_slot_type_signature: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parent_slot_type_signature: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// List of SlotTypeValue objects that defines the values that the slot type can take.
         /// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
         /// See `slot_type_values` argument reference below.
         #[builder(into, default)]
-        pub slot_type_values: pulumi_wasm_rust::InputOrOutput<
+        pub slot_type_values: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lex::V2ModelsSlotTypeSlotTypeValues>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lex::V2ModelsSlotTypeTimeouts>,
         >,
         /// Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
         /// See `value_selection_setting` argument reference below.
         #[builder(into, default)]
-        pub value_selection_setting: pulumi_wasm_rust::InputOrOutput<
+        pub value_selection_setting: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lex::V2ModelsSlotTypeValueSelectionSetting>,
         >,
     }
     #[allow(dead_code)]
     pub struct V2modelsSlotTypeResult {
         /// Identifier of the bot associated with this slot type.
-        pub bot_id: pulumi_wasm_rust::Output<String>,
+        pub bot_id: pulumi_gestalt_rust::Output<String>,
         /// Version of the bot associated with this slot type.
-        pub bot_version: pulumi_wasm_rust::Output<String>,
+        pub bot_version: pulumi_gestalt_rust::Output<String>,
         /// Specifications for a composite slot type.
         /// See `composite_slot_type_setting` argument reference below.
-        pub composite_slot_type_setting: pulumi_wasm_rust::Output<
+        pub composite_slot_type_setting: pulumi_gestalt_rust::Output<
             Option<super::super::types::lex::V2ModelsSlotTypeCompositeSlotTypeSetting>,
         >,
         /// Description of the slot type.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Type of external information used to create the slot type.
         /// See `external_source_setting` argument reference below.
-        pub external_source_setting: pulumi_wasm_rust::Output<
+        pub external_source_setting: pulumi_gestalt_rust::Output<
             Option<super::super::types::lex::V2ModelsSlotTypeExternalSourceSetting>,
         >,
         /// Identifier of the language and locale where this slot type is used.
         /// All of the bots, slot types, and slots used by the intent must have the same locale.
-        pub locale_id: pulumi_wasm_rust::Output<String>,
+        pub locale_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the slot type.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Built-in slot type used as a parent of this slot type.
         /// When you define a parent slot type, the new slot type has the configuration of the parent slot type.
         /// Only `AMAZON.AlphaNumeric` is supported.
-        pub parent_slot_type_signature: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent_slot_type_signature: pulumi_gestalt_rust::Output<Option<String>>,
         /// Unique identifier for the slot type.
-        pub slot_type_id: pulumi_wasm_rust::Output<String>,
+        pub slot_type_id: pulumi_gestalt_rust::Output<String>,
         /// List of SlotTypeValue objects that defines the values that the slot type can take.
         /// Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for a slot.
         /// See `slot_type_values` argument reference below.
-        pub slot_type_values: pulumi_wasm_rust::Output<
+        pub slot_type_values: pulumi_gestalt_rust::Output<
             Option<super::super::types::lex::V2ModelsSlotTypeSlotTypeValues>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::lex::V2ModelsSlotTypeTimeouts>,
         >,
         /// Determines the strategy that Amazon Lex uses to select a value from the list of possible values.
         /// See `value_selection_setting` argument reference below.
-        pub value_selection_setting: pulumi_wasm_rust::Output<
+        pub value_selection_setting: pulumi_gestalt_rust::Output<
             Option<super::super::types::lex::V2ModelsSlotTypeValueSelectionSetting>,
         >,
     }
@@ -197,11 +199,11 @@ pub mod v_2_models_slot_type {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: V2modelsSlotTypeArgs,
     ) -> V2modelsSlotTypeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bot_id_binding = args.bot_id.get_output(context).get_inner();
         let bot_version_binding = args.bot_version.get_output(context).get_inner();
@@ -282,36 +284,38 @@ pub mod v_2_models_slot_type {
         };
         let o = register_interface::register(context.get_inner(), &request);
         V2modelsSlotTypeResult {
-            bot_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("botId")),
-            bot_version: pulumi_wasm_rust::__private::into_domain(
+            bot_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("botId"),
+            ),
+            bot_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("botVersion"),
             ),
-            composite_slot_type_setting: pulumi_wasm_rust::__private::into_domain(
+            composite_slot_type_setting: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("compositeSlotTypeSetting"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            external_source_setting: pulumi_wasm_rust::__private::into_domain(
+            external_source_setting: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalSourceSetting"),
             ),
-            locale_id: pulumi_wasm_rust::__private::into_domain(
+            locale_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localeId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent_slot_type_signature: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent_slot_type_signature: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parentSlotTypeSignature"),
             ),
-            slot_type_id: pulumi_wasm_rust::__private::into_domain(
+            slot_type_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("slotTypeId"),
             ),
-            slot_type_values: pulumi_wasm_rust::__private::into_domain(
+            slot_type_values: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("slotTypeValues"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            value_selection_setting: pulumi_wasm_rust::__private::into_domain(
+            value_selection_setting: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("valueSelectionSetting"),
             ),
         }

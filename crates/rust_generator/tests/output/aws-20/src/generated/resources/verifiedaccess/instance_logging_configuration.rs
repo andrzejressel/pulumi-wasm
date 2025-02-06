@@ -5,8 +5,8 @@
 /// ### With CloudWatch Logging
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = instance_logging_configuration::create(
@@ -31,8 +31,8 @@
 /// ### With Kinesis Data Firehose Logging
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = instance_logging_configuration::create(
@@ -59,8 +59,8 @@
 /// ### With S3 logging
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = instance_logging_configuration::create(
@@ -86,8 +86,8 @@
 /// ### With all three logging options
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = instance_logging_configuration::create(
@@ -126,8 +126,8 @@
 /// ### With `include_trust_context`
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = instance_logging_configuration::create(
@@ -147,8 +147,8 @@
 /// ### With `log_version`
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = instance_logging_configuration::create(
@@ -173,38 +173,38 @@
 /// $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
 /// ```
 pub mod instance_logging_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceLoggingConfigurationArgs {
         /// A block that specifies the configuration options for Verified Access instances. Detailed below.
         #[builder(into)]
-        pub access_logs: pulumi_wasm_rust::InputOrOutput<
+        pub access_logs: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::verifiedaccess::InstanceLoggingConfigurationAccessLogs,
         >,
         /// The ID of the Verified Access instance.
         #[builder(into)]
-        pub verifiedaccess_instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub verifiedaccess_instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct InstanceLoggingConfigurationResult {
         /// A block that specifies the configuration options for Verified Access instances. Detailed below.
-        pub access_logs: pulumi_wasm_rust::Output<
+        pub access_logs: pulumi_gestalt_rust::Output<
             super::super::types::verifiedaccess::InstanceLoggingConfigurationAccessLogs,
         >,
         /// The ID of the Verified Access instance.
-        pub verifiedaccess_instance_id: pulumi_wasm_rust::Output<String>,
+        pub verifiedaccess_instance_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceLoggingConfigurationArgs,
     ) -> InstanceLoggingConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_logs_binding = args.access_logs.get_output(context).get_inner();
         let verifiedaccess_instance_id_binding = args
@@ -229,10 +229,10 @@ pub mod instance_logging_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceLoggingConfigurationResult {
-            access_logs: pulumi_wasm_rust::__private::into_domain(
+            access_logs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessLogs"),
             ),
-            verifiedaccess_instance_id: pulumi_wasm_rust::__private::into_domain(
+            verifiedaccess_instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("verifiedaccessInstanceId"),
             ),
         }

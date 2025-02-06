@@ -80,64 +80,64 @@
 /// ```
 ///
 pub mod sql_pool_workload_classifier {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SqlPoolWorkloadClassifierArgs {
         /// Specifies the session context value that a request can be classified against.
         #[builder(into, default)]
-        pub context: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub context: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The workload classifier end time for classification. It's of the `HH:MM` format in UTC time zone.
         #[builder(into, default)]
-        pub end_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub end_time: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The workload classifier importance. The allowed values are `low`, `below_normal`, `normal`, `above_normal` and `high`.
         #[builder(into, default)]
-        pub importance: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub importance: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the label value that a request can be classified against.
         #[builder(into, default)]
-        pub label: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub label: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The workload classifier member name used to classified against.
         #[builder(into)]
-        pub member_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub member_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Synapse SQL Pool Workload Classifier. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The workload classifier start time for classification. It's of the `HH:MM` format in UTC time zone.
         #[builder(into, default)]
-        pub start_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub start_time: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
         #[builder(into)]
-        pub workload_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workload_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SqlPoolWorkloadClassifierResult {
         /// Specifies the session context value that a request can be classified against.
-        pub context: pulumi_wasm_rust::Output<Option<String>>,
+        pub context: pulumi_gestalt_rust::Output<Option<String>>,
         /// The workload classifier end time for classification. It's of the `HH:MM` format in UTC time zone.
-        pub end_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub end_time: pulumi_gestalt_rust::Output<Option<String>>,
         /// The workload classifier importance. The allowed values are `low`, `below_normal`, `normal`, `above_normal` and `high`.
-        pub importance: pulumi_wasm_rust::Output<Option<String>>,
+        pub importance: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the label value that a request can be classified against.
-        pub label: pulumi_wasm_rust::Output<Option<String>>,
+        pub label: pulumi_gestalt_rust::Output<Option<String>>,
         /// The workload classifier member name used to classified against.
-        pub member_name: pulumi_wasm_rust::Output<String>,
+        pub member_name: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Synapse SQL Pool Workload Classifier. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The workload classifier start time for classification. It's of the `HH:MM` format in UTC time zone.
-        pub start_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub start_time: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Synapse SQL Pool Workload Group. Changing this forces a new Synapse SQL Pool Workload Classifier to be created.
-        pub workload_group_id: pulumi_wasm_rust::Output<String>,
+        pub workload_group_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SqlPoolWorkloadClassifierArgs,
     ) -> SqlPoolWorkloadClassifierResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let context_binding = args.context.get_output(context).get_inner();
         let end_time_binding = args.end_time.get_output(context).get_inner();
@@ -192,24 +192,24 @@ pub mod sql_pool_workload_classifier {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SqlPoolWorkloadClassifierResult {
-            context: pulumi_wasm_rust::__private::into_domain(
+            context: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("context"),
             ),
-            end_time: pulumi_wasm_rust::__private::into_domain(
+            end_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endTime"),
             ),
-            importance: pulumi_wasm_rust::__private::into_domain(
+            importance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("importance"),
             ),
-            label: pulumi_wasm_rust::__private::into_domain(o.extract_field("label")),
-            member_name: pulumi_wasm_rust::__private::into_domain(
+            label: pulumi_gestalt_rust::__private::into_domain(o.extract_field("label")),
+            member_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("memberName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            start_time: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            start_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startTime"),
             ),
-            workload_group_id: pulumi_wasm_rust::__private::into_domain(
+            workload_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workloadGroupId"),
             ),
         }

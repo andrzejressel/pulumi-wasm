@@ -6,8 +6,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let acr = registry::create(
@@ -48,49 +48,49 @@
 /// ```
 ///
 pub mod registry_cache_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegistryCacheRuleArgs {
         /// The ID of the Container Registry where the Cache Rule should apply. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub container_registry_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub container_registry_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ARM resource ID of the Credential Store which is associated with the Cache Rule.
         #[builder(into, default)]
-        pub credential_set_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub credential_set_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Container Registry Cache Rule. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the source repository path. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub source_repo: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_repo: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the new repository path to store artifacts. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub target_repo: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_repo: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RegistryCacheRuleResult {
         /// The ID of the Container Registry where the Cache Rule should apply. Changing this forces a new resource to be created.
-        pub container_registry_id: pulumi_wasm_rust::Output<String>,
+        pub container_registry_id: pulumi_gestalt_rust::Output<String>,
         /// The ARM resource ID of the Credential Store which is associated with the Cache Rule.
-        pub credential_set_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub credential_set_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Container Registry Cache Rule. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the source repository path. Changing this forces a new resource to be created.
-        pub source_repo: pulumi_wasm_rust::Output<String>,
+        pub source_repo: pulumi_gestalt_rust::Output<String>,
         /// The name of the new repository path to store artifacts. Changing this forces a new resource to be created.
-        pub target_repo: pulumi_wasm_rust::Output<String>,
+        pub target_repo: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RegistryCacheRuleArgs,
     ) -> RegistryCacheRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let container_registry_id_binding = args
             .container_registry_id
@@ -132,17 +132,17 @@ pub mod registry_cache_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RegistryCacheRuleResult {
-            container_registry_id: pulumi_wasm_rust::__private::into_domain(
+            container_registry_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerRegistryId"),
             ),
-            credential_set_id: pulumi_wasm_rust::__private::into_domain(
+            credential_set_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("credentialSetId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            source_repo: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            source_repo: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceRepo"),
             ),
-            target_repo: pulumi_wasm_rust::__private::into_domain(
+            target_repo: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetRepo"),
             ),
         }

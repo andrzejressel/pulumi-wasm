@@ -1,31 +1,31 @@
 pub mod get_eips {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetEipsArgs {
         /// Custom filter block as described below.
         #[builder(into, default)]
-        pub filters: pulumi_wasm_rust::InputOrOutput<
+        pub filters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::super::types::ec2::GetEipsFilter>>,
         >,
         /// Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetEipsResult {
         /// List of all the allocation IDs for address for use with EC2-VPC.
-        pub allocation_ids: pulumi_wasm_rust::Output<Vec<String>>,
-        pub filters: pulumi_wasm_rust::Output<
+        pub allocation_ids: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub filters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::super::types::ec2::GetEipsFilter>>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// List of all the Elastic IP addresses.
-        pub public_ips: pulumi_wasm_rust::Output<Vec<String>>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub public_ips: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -34,10 +34,10 @@ pub mod get_eips {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetEipsArgs,
     ) -> GetEipsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let filters_binding = args.filters.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();
@@ -57,17 +57,17 @@ pub mod get_eips {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetEipsResult {
-            allocation_ids: pulumi_wasm_rust::__private::into_domain(
+            allocation_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allocationIds"),
             ),
-            filters: pulumi_wasm_rust::__private::into_domain(
+            filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filters"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            public_ips: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            public_ips: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicIps"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -74,54 +74,54 @@
 /// ```
 ///
 pub mod environment_storage {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentStorageArgs {
         /// The Storage Account Access Key.
         #[builder(into)]
-        pub access_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub access_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub access_mode: pulumi_wasm_rust::InputOrOutput<String>,
+        pub access_mode: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub container_app_environment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub container_app_environment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name for this Container App Environment Storage. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub share_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub share_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentStorageResult {
         /// The Storage Account Access Key.
-        pub access_key: pulumi_wasm_rust::Output<String>,
+        pub access_key: pulumi_gestalt_rust::Output<String>,
         /// The access mode to connect this storage to the Container App. Possible values include `ReadOnly` and `ReadWrite`. Changing this forces a new resource to be created.
-        pub access_mode: pulumi_wasm_rust::Output<String>,
+        pub access_mode: pulumi_gestalt_rust::Output<String>,
         /// The Azure Storage Account in which the Share to be used is located. Changing this forces a new resource to be created.
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Container App Environment to which this storage belongs. Changing this forces a new resource to be created.
-        pub container_app_environment_id: pulumi_wasm_rust::Output<String>,
+        pub container_app_environment_id: pulumi_gestalt_rust::Output<String>,
         /// The name for this Container App Environment Storage. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
-        pub share_name: pulumi_wasm_rust::Output<String>,
+        pub share_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvironmentStorageArgs,
     ) -> EnvironmentStorageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_key_binding = args.access_key.get_output(context).get_inner();
         let access_mode_binding = args.access_mode.get_output(context).get_inner();
@@ -165,20 +165,20 @@ pub mod environment_storage {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvironmentStorageResult {
-            access_key: pulumi_wasm_rust::__private::into_domain(
+            access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessKey"),
             ),
-            access_mode: pulumi_wasm_rust::__private::into_domain(
+            access_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessMode"),
             ),
-            account_name: pulumi_wasm_rust::__private::into_domain(
+            account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountName"),
             ),
-            container_app_environment_id: pulumi_wasm_rust::__private::into_domain(
+            container_app_environment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerAppEnvironmentId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            share_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            share_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shareName"),
             ),
         }

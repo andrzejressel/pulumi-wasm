@@ -615,7 +615,7 @@
 /// ```
 ///
 pub mod trigger {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TriggerArgs {
@@ -624,46 +624,46 @@ pub mod trigger {
         /// Any user with a Cloud Build Approver role for the project can approve a build.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub approval_config: pulumi_wasm_rust::InputOrOutput<
+        pub approval_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudbuild::TriggerApprovalConfig>,
         >,
         /// BitbucketServerTriggerConfig describes the configuration of a trigger that creates a build whenever a Bitbucket Server event is received.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub bitbucket_server_trigger_config: pulumi_wasm_rust::InputOrOutput<
+        pub bitbucket_server_trigger_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudbuild::TriggerBitbucketServerTriggerConfig>,
         >,
         /// Contents of the build template. Either a filename or build template must be provided.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub build: pulumi_wasm_rust::InputOrOutput<
+        pub build: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudbuild::TriggerBuild>,
         >,
         /// Human-readable description of the trigger.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether the trigger is disabled or not. If true, the trigger will never result in a build.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Path, from the source root, to a file whose contents is used for the template.
         /// Either a filename or build template must be provided. Set this only when using trigger_template or github.
         /// When using Pub/Sub, Webhook or Manual set the file name using git_file_source instead.
         #[builder(into, default)]
-        pub filename: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub filename: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A Common Expression Language string. Used only with Pub/Sub and Webhook.
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub filter: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The file source describing the local or remote Build template.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub git_file_source: pulumi_wasm_rust::InputOrOutput<
+        pub git_file_source: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudbuild::TriggerGitFileSource>,
         >,
         /// Describes the configuration of a trigger that creates a build whenever a GitHub event is received.
         /// One of `trigger_template`, `github`, `pubsub_config` or `webhook_config` must be provided.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub github: pulumi_wasm_rust::InputOrOutput<
+        pub github: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudbuild::TriggerGithub>,
         >,
         /// ignoredFiles and includedFiles are file glob matches using https://golang.org/pkg/path/filepath/#Match
@@ -674,13 +674,13 @@ pub mod trigger {
         /// of the ignored_file globs. If the change has no files that are outside
         /// of the ignoredFiles globs, then we do not trigger a build.
         #[builder(into, default)]
-        pub ignored_files: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub ignored_files: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Build logs will be sent back to GitHub as part of the checkrun
         /// result.  Values can be INCLUDE_BUILD_LOGS_UNSPECIFIED or
         /// INCLUDE_BUILD_LOGS_WITH_STATUS
         /// Possible values are: `INCLUDE_BUILD_LOGS_UNSPECIFIED`, `INCLUDE_BUILD_LOGS_WITH_STATUS`.
         #[builder(into, default)]
-        pub include_build_logs: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub include_build_logs: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ignoredFiles and includedFiles are file glob matches using https://golang.org/pkg/path/filepath/#Match
         /// extended with support for `**`.
         /// If any of the files altered in the commit pass the ignoredFiles filter
@@ -691,30 +691,30 @@ pub mod trigger {
         /// those files matches a includedFiles glob. If not, then we do not trigger
         /// a build.
         #[builder(into, default)]
-        pub included_files: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub included_files: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The [Cloud Build location](https://cloud.google.com/build/docs/locations) for the trigger.
         /// If not specified, "global" is used.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the trigger. Must be unique within the project.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// PubsubConfig describes the configuration of a trigger that creates
         /// a build whenever a Pub/Sub message is published.
         /// One of `trigger_template`, `github`, `pubsub_config` `webhook_config` or `source_to_build` must be provided.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub pubsub_config: pulumi_wasm_rust::InputOrOutput<
+        pub pubsub_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudbuild::TriggerPubsubConfig>,
         >,
         /// The configuration of a trigger that creates a build whenever an event from Repo API is received.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub repository_event_config: pulumi_wasm_rust::InputOrOutput<
+        pub repository_event_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudbuild::TriggerRepositoryEventConfig>,
         >,
         /// The service account used for all user-controlled operations including
@@ -723,7 +723,7 @@ pub mod trigger {
         /// ([PROJECT_NUM]@system.gserviceaccount.com) will be used instead.
         /// Format: projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_ID_OR_EMAIL}
         #[builder(into, default)]
-        pub service_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_account: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The repo and ref of the repository from which to build.
         /// This field is used only for those triggers that do not respond to SCM events.
         /// Triggers that respond to such events build source at whatever commit caused the event.
@@ -731,17 +731,17 @@ pub mod trigger {
         /// One of `trigger_template`, `github`, `pubsub_config` `webhook_config` or `source_to_build` must be provided.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub source_to_build: pulumi_wasm_rust::InputOrOutput<
+        pub source_to_build: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudbuild::TriggerSourceToBuild>,
         >,
         /// Substitutions data for Build resource.
         #[builder(into, default)]
-        pub substitutions: pulumi_wasm_rust::InputOrOutput<
+        pub substitutions: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Tags for annotation of a BuildTrigger
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub tags: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Template describing the types of source changes to trigger a build.
         /// Branch and tag names in trigger templates are interpreted as regular
         /// expressions. Any branch or tag change that matches that regular
@@ -749,7 +749,7 @@ pub mod trigger {
         /// One of `trigger_template`, `github`, `pubsub_config`, `webhook_config` or `source_to_build` must be provided.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub trigger_template: pulumi_wasm_rust::InputOrOutput<
+        pub trigger_template: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudbuild::TriggerTriggerTemplate>,
         >,
         /// WebhookConfig describes the configuration of a trigger that creates
@@ -757,7 +757,7 @@ pub mod trigger {
         /// One of `trigger_template`, `github`, `pubsub_config` `webhook_config` or `source_to_build` must be provided.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub webhook_config: pulumi_wasm_rust::InputOrOutput<
+        pub webhook_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudbuild::TriggerWebhookConfig>,
         >,
     }
@@ -767,40 +767,40 @@ pub mod trigger {
         /// Builds created by this trigger will require approval before they execute.
         /// Any user with a Cloud Build Approver role for the project can approve a build.
         /// Structure is documented below.
-        pub approval_config: pulumi_wasm_rust::Output<
+        pub approval_config: pulumi_gestalt_rust::Output<
             super::super::types::cloudbuild::TriggerApprovalConfig,
         >,
         /// BitbucketServerTriggerConfig describes the configuration of a trigger that creates a build whenever a Bitbucket Server event is received.
         /// Structure is documented below.
-        pub bitbucket_server_trigger_config: pulumi_wasm_rust::Output<
+        pub bitbucket_server_trigger_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudbuild::TriggerBitbucketServerTriggerConfig>,
         >,
         /// Contents of the build template. Either a filename or build template must be provided.
         /// Structure is documented below.
-        pub build: pulumi_wasm_rust::Output<
+        pub build: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudbuild::TriggerBuild>,
         >,
         /// Time when the trigger was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Human-readable description of the trigger.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether the trigger is disabled or not. If true, the trigger will never result in a build.
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Path, from the source root, to a file whose contents is used for the template.
         /// Either a filename or build template must be provided. Set this only when using trigger_template or github.
         /// When using Pub/Sub, Webhook or Manual set the file name using git_file_source instead.
-        pub filename: pulumi_wasm_rust::Output<Option<String>>,
+        pub filename: pulumi_gestalt_rust::Output<Option<String>>,
         /// A Common Expression Language string. Used only with Pub/Sub and Webhook.
-        pub filter: pulumi_wasm_rust::Output<Option<String>>,
+        pub filter: pulumi_gestalt_rust::Output<Option<String>>,
         /// The file source describing the local or remote Build template.
         /// Structure is documented below.
-        pub git_file_source: pulumi_wasm_rust::Output<
+        pub git_file_source: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudbuild::TriggerGitFileSource>,
         >,
         /// Describes the configuration of a trigger that creates a build whenever a GitHub event is received.
         /// One of `trigger_template`, `github`, `pubsub_config` or `webhook_config` must be provided.
         /// Structure is documented below.
-        pub github: pulumi_wasm_rust::Output<
+        pub github: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudbuild::TriggerGithub>,
         >,
         /// ignoredFiles and includedFiles are file glob matches using https://golang.org/pkg/path/filepath/#Match
@@ -810,12 +810,12 @@ pub mod trigger {
         /// If ignoredFiles is not empty, then we ignore any files that match any
         /// of the ignored_file globs. If the change has no files that are outside
         /// of the ignoredFiles globs, then we do not trigger a build.
-        pub ignored_files: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ignored_files: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Build logs will be sent back to GitHub as part of the checkrun
         /// result.  Values can be INCLUDE_BUILD_LOGS_UNSPECIFIED or
         /// INCLUDE_BUILD_LOGS_WITH_STATUS
         /// Possible values are: `INCLUDE_BUILD_LOGS_UNSPECIFIED`, `INCLUDE_BUILD_LOGS_WITH_STATUS`.
-        pub include_build_logs: pulumi_wasm_rust::Output<Option<String>>,
+        pub include_build_logs: pulumi_gestalt_rust::Output<Option<String>>,
         /// ignoredFiles and includedFiles are file glob matches using https://golang.org/pkg/path/filepath/#Match
         /// extended with support for `**`.
         /// If any of the files altered in the commit pass the ignoredFiles filter
@@ -825,25 +825,25 @@ pub mod trigger {
         /// and includedFiles is not empty, then we make sure that at least one of
         /// those files matches a includedFiles glob. If not, then we do not trigger
         /// a build.
-        pub included_files: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub included_files: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The [Cloud Build location](https://cloud.google.com/build/docs/locations) for the trigger.
         /// If not specified, "global" is used.
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the trigger. Must be unique within the project.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// PubsubConfig describes the configuration of a trigger that creates
         /// a build whenever a Pub/Sub message is published.
         /// One of `trigger_template`, `github`, `pubsub_config` `webhook_config` or `source_to_build` must be provided.
         /// Structure is documented below.
-        pub pubsub_config: pulumi_wasm_rust::Output<
+        pub pubsub_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudbuild::TriggerPubsubConfig>,
         >,
         /// The configuration of a trigger that creates a build whenever an event from Repo API is received.
         /// Structure is documented below.
-        pub repository_event_config: pulumi_wasm_rust::Output<
+        pub repository_event_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudbuild::TriggerRepositoryEventConfig>,
         >,
         /// The service account used for all user-controlled operations including
@@ -851,38 +851,38 @@ pub mod trigger {
         /// If no service account is set, then the standard Cloud Build service account
         /// ([PROJECT_NUM]@system.gserviceaccount.com) will be used instead.
         /// Format: projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_ID_OR_EMAIL}
-        pub service_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_account: pulumi_gestalt_rust::Output<Option<String>>,
         /// The repo and ref of the repository from which to build.
         /// This field is used only for those triggers that do not respond to SCM events.
         /// Triggers that respond to such events build source at whatever commit caused the event.
         /// This field is currently only used by Webhook, Pub/Sub, Manual, and Cron triggers.
         /// One of `trigger_template`, `github`, `pubsub_config` `webhook_config` or `source_to_build` must be provided.
         /// Structure is documented below.
-        pub source_to_build: pulumi_wasm_rust::Output<
+        pub source_to_build: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudbuild::TriggerSourceToBuild>,
         >,
         /// Substitutions data for Build resource.
-        pub substitutions: pulumi_wasm_rust::Output<
+        pub substitutions: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Tags for annotation of a BuildTrigger
-        pub tags: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub tags: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The unique identifier for the trigger.
-        pub trigger_id: pulumi_wasm_rust::Output<String>,
+        pub trigger_id: pulumi_gestalt_rust::Output<String>,
         /// Template describing the types of source changes to trigger a build.
         /// Branch and tag names in trigger templates are interpreted as regular
         /// expressions. Any branch or tag change that matches that regular
         /// expression will trigger a build.
         /// One of `trigger_template`, `github`, `pubsub_config`, `webhook_config` or `source_to_build` must be provided.
         /// Structure is documented below.
-        pub trigger_template: pulumi_wasm_rust::Output<
+        pub trigger_template: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudbuild::TriggerTriggerTemplate>,
         >,
         /// WebhookConfig describes the configuration of a trigger that creates
         /// a build whenever a webhook is sent to a trigger's webhook URL.
         /// One of `trigger_template`, `github`, `pubsub_config` `webhook_config` or `source_to_build` must be provided.
         /// Structure is documented below.
-        pub webhook_config: pulumi_wasm_rust::Output<
+        pub webhook_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudbuild::TriggerWebhookConfig>,
         >,
     }
@@ -891,11 +891,11 @@ pub mod trigger {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TriggerArgs,
     ) -> TriggerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let approval_config_binding = args
             .approval_config
@@ -1045,69 +1045,73 @@ pub mod trigger {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TriggerResult {
-            approval_config: pulumi_wasm_rust::__private::into_domain(
+            approval_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("approvalConfig"),
             ),
-            bitbucket_server_trigger_config: pulumi_wasm_rust::__private::into_domain(
+            bitbucket_server_trigger_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bitbucketServerTriggerConfig"),
             ),
-            build: pulumi_wasm_rust::__private::into_domain(o.extract_field("build")),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            build: pulumi_gestalt_rust::__private::into_domain(o.extract_field("build")),
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            disabled: pulumi_wasm_rust::__private::into_domain(
+            disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disabled"),
             ),
-            filename: pulumi_wasm_rust::__private::into_domain(
+            filename: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filename"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
-            git_file_source: pulumi_wasm_rust::__private::into_domain(
+            filter: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("filter"),
+            ),
+            git_file_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gitFileSource"),
             ),
-            github: pulumi_wasm_rust::__private::into_domain(o.extract_field("github")),
-            ignored_files: pulumi_wasm_rust::__private::into_domain(
+            github: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("github"),
+            ),
+            ignored_files: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ignoredFiles"),
             ),
-            include_build_logs: pulumi_wasm_rust::__private::into_domain(
+            include_build_logs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("includeBuildLogs"),
             ),
-            included_files: pulumi_wasm_rust::__private::into_domain(
+            included_files: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("includedFiles"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pubsub_config: pulumi_wasm_rust::__private::into_domain(
+            pubsub_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pubsubConfig"),
             ),
-            repository_event_config: pulumi_wasm_rust::__private::into_domain(
+            repository_event_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repositoryEventConfig"),
             ),
-            service_account: pulumi_wasm_rust::__private::into_domain(
+            service_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccount"),
             ),
-            source_to_build: pulumi_wasm_rust::__private::into_domain(
+            source_to_build: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceToBuild"),
             ),
-            substitutions: pulumi_wasm_rust::__private::into_domain(
+            substitutions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("substitutions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            trigger_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            trigger_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggerId"),
             ),
-            trigger_template: pulumi_wasm_rust::__private::into_domain(
+            trigger_template: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggerTemplate"),
             ),
-            webhook_config: pulumi_wasm_rust::__private::into_domain(
+            webhook_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("webhookConfig"),
             ),
         }

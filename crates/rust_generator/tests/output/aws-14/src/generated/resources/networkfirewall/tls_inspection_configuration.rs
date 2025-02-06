@@ -7,8 +7,8 @@
 /// ### Basic inbound/ingress inspection
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = tls_inspection_configuration::create(
@@ -60,8 +60,8 @@
 /// ### Basic outbound/engress inspection
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = tls_inspection_configuration::create(
@@ -114,8 +114,8 @@
 /// ### Inbound with encryption configuration
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = key::create(
@@ -212,8 +212,8 @@
 /// ### Combined inbound and outbound
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = tls_inspection_configuration::create(
@@ -277,16 +277,16 @@
 /// $ pulumi import aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration example arn:aws:network-firewall::<region>:<account_id>:tls-configuration/example
 /// ```
 pub mod tls_inspection_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TlsInspectionConfigurationArgs {
         /// Description of the TLS inspection configuration.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Encryption configuration block. Detailed below.
         #[builder(into, default)]
-        pub encryption_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub encryption_configurations: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::networkfirewall::TlsInspectionConfigurationEncryptionConfiguration,
@@ -295,13 +295,13 @@ pub mod tls_inspection_configuration {
         >,
         /// Descriptive name of the TLS inspection configuration.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::networkfirewall::TlsInspectionConfigurationTimeouts,
             >,
@@ -310,7 +310,7 @@ pub mod tls_inspection_configuration {
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub tls_inspection_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub tls_inspection_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::networkfirewall::TlsInspectionConfigurationTlsInspectionConfiguration,
             >,
@@ -319,38 +319,38 @@ pub mod tls_inspection_configuration {
     #[allow(dead_code)]
     pub struct TlsInspectionConfigurationResult {
         /// ARN of the TLS Inspection Configuration.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Certificate Manager certificate block. See Certificate Authority below for details.
-        pub certificate_authorities: pulumi_wasm_rust::Output<
+        pub certificate_authorities: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::networkfirewall::TlsInspectionConfigurationCertificateAuthority,
             >,
         >,
         /// List of certificate blocks describing certificates associated with the TLS inspection configuration. See Certificates below for details.
-        pub certificates: pulumi_wasm_rust::Output<
+        pub certificates: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::networkfirewall::TlsInspectionConfigurationCertificate,
             >,
         >,
         /// Description of the TLS inspection configuration.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Encryption configuration block. Detailed below.
-        pub encryption_configurations: pulumi_wasm_rust::Output<
+        pub encryption_configurations: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::networkfirewall::TlsInspectionConfigurationEncryptionConfiguration,
             >,
         >,
         /// Descriptive name of the TLS inspection configuration.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Number of firewall policies that use this TLS inspection configuration.
-        pub number_of_associations: pulumi_wasm_rust::Output<i32>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub number_of_associations: pulumi_gestalt_rust::Output<i32>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::networkfirewall::TlsInspectionConfigurationTimeouts,
             >,
@@ -358,26 +358,26 @@ pub mod tls_inspection_configuration {
         /// TLS inspection configuration block. Detailed below.
         ///
         /// The following arguments are optional:
-        pub tls_inspection_configuration: pulumi_wasm_rust::Output<
+        pub tls_inspection_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::networkfirewall::TlsInspectionConfigurationTlsInspectionConfiguration,
             >,
         >,
         /// A unique identifier for the TLS inspection configuration.
-        pub tls_inspection_configuration_id: pulumi_wasm_rust::Output<String>,
+        pub tls_inspection_configuration_id: pulumi_gestalt_rust::Output<String>,
         /// String token used when updating the rule group.
-        pub update_token: pulumi_wasm_rust::Output<String>,
+        pub update_token: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TlsInspectionConfigurationArgs,
     ) -> TlsInspectionConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let encryption_configurations_binding = args
@@ -425,37 +425,37 @@ pub mod tls_inspection_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TlsInspectionConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            certificate_authorities: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            certificate_authorities: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateAuthorities"),
             ),
-            certificates: pulumi_wasm_rust::__private::into_domain(
+            certificates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificates"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            encryption_configurations: pulumi_wasm_rust::__private::into_domain(
+            encryption_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionConfigurations"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            number_of_associations: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            number_of_associations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("numberOfAssociations"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            tls_inspection_configuration: pulumi_wasm_rust::__private::into_domain(
+            tls_inspection_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tlsInspectionConfiguration"),
             ),
-            tls_inspection_configuration_id: pulumi_wasm_rust::__private::into_domain(
+            tls_inspection_configuration_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tlsInspectionConfigurationId"),
             ),
-            update_token: pulumi_wasm_rust::__private::into_domain(
+            update_token: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateToken"),
             ),
         }

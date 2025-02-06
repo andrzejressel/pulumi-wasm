@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let main = email_routing_rule::create(
@@ -37,64 +37,64 @@
 /// ```
 ///
 pub mod email_routing_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EmailRoutingRuleArgs {
         /// Actions to take when a match is found.
         #[builder(into, default)]
-        pub actions: pulumi_wasm_rust::InputOrOutput<
+        pub actions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::EmailRoutingRuleAction>>,
         >,
         /// Whether the email routing rule is enabled.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Matching patterns to forward to your actions.
         #[builder(into, default)]
-        pub matchers: pulumi_wasm_rust::InputOrOutput<
+        pub matchers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::EmailRoutingRuleMatcher>>,
         >,
         /// Routing rule name.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The priority of the email routing rule.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The zone identifier to target for the resource.
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EmailRoutingRuleResult {
         /// Actions to take when a match is found.
-        pub actions: pulumi_wasm_rust::Output<
+        pub actions: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::EmailRoutingRuleAction>>,
         >,
         /// Whether the email routing rule is enabled.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Matching patterns to forward to your actions.
-        pub matchers: pulumi_wasm_rust::Output<
+        pub matchers: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::EmailRoutingRuleMatcher>>,
         >,
         /// Routing rule name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The priority of the email routing rule.
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_gestalt_rust::Output<i32>,
         /// The tag of the email routing rule.
-        pub tag: pulumi_wasm_rust::Output<String>,
+        pub tag: pulumi_gestalt_rust::Output<String>,
         /// The zone identifier to target for the resource.
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EmailRoutingRuleArgs,
     ) -> EmailRoutingRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let actions_binding = args.actions.get_output(context).get_inner();
         let enabled_binding = args.enabled.get_output(context).get_inner();
@@ -135,21 +135,23 @@ pub mod email_routing_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EmailRoutingRuleResult {
-            actions: pulumi_wasm_rust::__private::into_domain(
+            actions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actions"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            matchers: pulumi_wasm_rust::__private::into_domain(
+            matchers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("matchers"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            tag: pulumi_wasm_rust::__private::into_domain(o.extract_field("tag")),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            tag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tag")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

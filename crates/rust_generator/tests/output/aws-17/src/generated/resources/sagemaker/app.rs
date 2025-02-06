@@ -5,8 +5,8 @@
 /// ### Basic usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = app::create(
@@ -29,73 +29,73 @@
 /// $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
 /// ```
 pub mod app {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppArgs {
         /// The name of the app.
         #[builder(into)]
-        pub app_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
         #[builder(into)]
-        pub app_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The domain ID.
         #[builder(into)]
-        pub domain_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
         #[builder(into, default)]
-        pub resource_spec: pulumi_wasm_rust::InputOrOutput<
+        pub resource_spec: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sagemaker::AppResourceSpec>,
         >,
         /// The name of the space. At least one of `user_profile_name` or `space_name` required.
         #[builder(into, default)]
-        pub space_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub space_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The user profile name. At least one of `user_profile_name` or `space_name` required.
         #[builder(into, default)]
-        pub user_profile_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_profile_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AppResult {
         /// The name of the app.
-        pub app_name: pulumi_wasm_rust::Output<String>,
+        pub app_name: pulumi_gestalt_rust::Output<String>,
         /// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
-        pub app_type: pulumi_wasm_rust::Output<String>,
+        pub app_type: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the app.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The domain ID.
-        pub domain_id: pulumi_wasm_rust::Output<String>,
+        pub domain_id: pulumi_gestalt_rust::Output<String>,
         /// The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
-        pub resource_spec: pulumi_wasm_rust::Output<
+        pub resource_spec: pulumi_gestalt_rust::Output<
             super::super::types::sagemaker::AppResourceSpec,
         >,
         /// The name of the space. At least one of `user_profile_name` or `space_name` required.
-        pub space_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub space_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The user profile name. At least one of `user_profile_name` or `space_name` required.
-        pub user_profile_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_profile_name: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AppArgs,
     ) -> AppResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_name_binding = args.app_name.get_output(context).get_inner();
         let app_type_binding = args.app_type.get_output(context).get_inner();
@@ -144,27 +144,27 @@ pub mod app {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AppResult {
-            app_name: pulumi_wasm_rust::__private::into_domain(
+            app_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appName"),
             ),
-            app_type: pulumi_wasm_rust::__private::into_domain(
+            app_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appType"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            domain_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            domain_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainId"),
             ),
-            resource_spec: pulumi_wasm_rust::__private::into_domain(
+            resource_spec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceSpec"),
             ),
-            space_name: pulumi_wasm_rust::__private::into_domain(
+            space_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("spaceName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            user_profile_name: pulumi_wasm_rust::__private::into_domain(
+            user_profile_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userProfileName"),
             ),
         }

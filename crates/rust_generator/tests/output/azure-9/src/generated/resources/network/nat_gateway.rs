@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -39,69 +39,69 @@
 /// ```
 ///
 pub mod nat_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NatGatewayArgs {
         /// The idle timeout which should be used in minutes. Defaults to `4`.
         #[builder(into, default)]
-        pub idle_timeout_in_minutes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub idle_timeout_in_minutes: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
         #[builder(into, default)]
-        pub sku_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
         ///
         /// > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
         #[builder(into, default)]
-        pub zones: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub zones: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct NatGatewayResult {
         /// The idle timeout which should be used in minutes. Defaults to `4`.
-        pub idle_timeout_in_minutes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub idle_timeout_in_minutes: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the NAT Gateway. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The resource GUID property of the NAT Gateway.
-        pub resource_guid: pulumi_wasm_rust::Output<String>,
+        pub resource_guid: pulumi_gestalt_rust::Output<String>,
         /// The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`.
-        pub sku_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created.
         ///
         /// > **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)
-        pub zones: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub zones: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NatGatewayArgs,
     ) -> NatGatewayResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let idle_timeout_in_minutes_binding = args
             .idle_timeout_in_minutes
@@ -153,24 +153,24 @@ pub mod nat_gateway {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NatGatewayResult {
-            idle_timeout_in_minutes: pulumi_wasm_rust::__private::into_domain(
+            idle_timeout_in_minutes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("idleTimeoutInMinutes"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            resource_guid: pulumi_wasm_rust::__private::into_domain(
+            resource_guid: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGuid"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            zones: pulumi_wasm_rust::__private::into_domain(o.extract_field("zones")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            zones: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zones")),
         }
     }
 }

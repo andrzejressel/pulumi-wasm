@@ -1,45 +1,45 @@
 pub mod get_application_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetApplicationGroupArgs {
         /// The name of this Application Group.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Application Group exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetApplicationGroupResult {
         /// The description of the Application Group.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// The friendly name of the Application Group.
-        pub friendly_name: pulumi_wasm_rust::Output<String>,
+        pub friendly_name: pulumi_gestalt_rust::Output<String>,
         /// The Virtual Desktop Host Pool ID the Application Group is associated to.
-        pub host_pool_id: pulumi_wasm_rust::Output<String>,
+        pub host_pool_id: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region where the Application Group exists.
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags assigned to the Application Group.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// The type of Application Group (`RemoteApp` or `Desktop`).
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// The Virtual Desktop Workspace ID the Application Group is associated to.
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetApplicationGroupArgs,
     ) -> GetApplicationGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -63,26 +63,26 @@ pub mod get_application_group {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetApplicationGroupResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            friendly_name: pulumi_wasm_rust::__private::into_domain(
+            friendly_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("friendlyName"),
             ),
-            host_pool_id: pulumi_wasm_rust::__private::into_domain(
+            host_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostPoolId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            workspace_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceId"),
             ),
         }

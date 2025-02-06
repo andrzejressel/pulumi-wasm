@@ -7,8 +7,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = enrollment_status::create(
@@ -21,8 +21,8 @@
 /// ### Usage with all the arguments
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = enrollment_status::create(
@@ -40,30 +40,30 @@
 /// $ pulumi import aws:costoptimizationhub/enrollmentStatus:EnrollmentStatus example 111222333444
 /// ```
 pub mod enrollment_status {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnrollmentStatusArgs {
         /// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
         #[builder(into, default)]
-        pub include_member_accounts: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub include_member_accounts: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct EnrollmentStatusResult {
         /// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-        pub include_member_accounts: pulumi_wasm_rust::Output<bool>,
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub include_member_accounts: pulumi_gestalt_rust::Output<bool>,
+        pub status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnrollmentStatusArgs,
     ) -> EnrollmentStatusResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let include_member_accounts_binding = args
             .include_member_accounts
@@ -82,10 +82,12 @@ pub mod enrollment_status {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnrollmentStatusResult {
-            include_member_accounts: pulumi_wasm_rust::__private::into_domain(
+            include_member_accounts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("includeMemberAccounts"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

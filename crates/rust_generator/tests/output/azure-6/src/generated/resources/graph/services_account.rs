@@ -34,37 +34,37 @@
 /// ```
 ///
 pub mod services_account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServicesAccountArgs {
         /// Customer owned application ID. Changing this forces a new Account to be created.
         #[builder(into)]
-        pub application_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of this Account. Changing this forces a new Account to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group within which this Account should exist. Changing this forces a new Account to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Account.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ServicesAccountResult {
         /// Customer owned application ID. Changing this forces a new Account to be created.
-        pub application_id: pulumi_wasm_rust::Output<String>,
+        pub application_id: pulumi_gestalt_rust::Output<String>,
         /// Billing Plan Id.
-        pub billing_plan_id: pulumi_wasm_rust::Output<String>,
+        pub billing_plan_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of this Account. Changing this forces a new Account to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Resource Group within which this Account should exist. Changing this forces a new Account to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Account.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -73,11 +73,11 @@ pub mod services_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServicesAccountArgs,
     ) -> ServicesAccountResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_id_binding = args.application_id.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -111,17 +111,17 @@ pub mod services_account {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServicesAccountResult {
-            application_id: pulumi_wasm_rust::__private::into_domain(
+            application_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationId"),
             ),
-            billing_plan_id: pulumi_wasm_rust::__private::into_domain(
+            billing_plan_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("billingPlanId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

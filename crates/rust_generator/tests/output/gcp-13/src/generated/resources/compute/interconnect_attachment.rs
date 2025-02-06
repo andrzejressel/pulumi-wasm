@@ -103,14 +103,14 @@
 /// ```
 ///
 pub mod interconnect_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InterconnectAttachmentArgs {
         /// Whether the VLAN attachment is enabled or disabled.  When using
         /// PARTNER type this will Pre-Activate the interconnect attachment
         #[builder(into, default)]
-        pub admin_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub admin_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Provisioned bandwidth capacity for the interconnect attachment.
         /// For attachments of type DEDICATED, the user can set the bandwidth.
         /// For attachments of type PARTNER, the Google Partner that is operating the interconnect must set the bandwidth.
@@ -118,7 +118,7 @@ pub mod interconnect_attachment {
         /// Defaults to BPS_10G
         /// Possible values are: `BPS_50M`, `BPS_100M`, `BPS_200M`, `BPS_300M`, `BPS_400M`, `BPS_500M`, `BPS_1G`, `BPS_2G`, `BPS_5G`, `BPS_10G`, `BPS_20G`, `BPS_50G`.
         #[builder(into, default)]
-        pub bandwidth: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub bandwidth: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Up to 16 candidate prefixes that can be used to restrict the allocation
         /// of cloudRouterIpAddress and customerRouterIpAddress for this attachment.
         /// All prefixes must be within link-local address space (169.254.0.0/16)
@@ -127,10 +127,10 @@ pub mod interconnect_attachment {
         /// fail if all possible /29s are in use on Google's edge. If not supplied,
         /// Google will randomly select an unused /29 from all of link-local space.
         #[builder(into, default)]
-        pub candidate_subnets: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub candidate_subnets: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Desired availability domain for the attachment. Only available for type
         /// PARTNER, at creation time. For improved reliability, customers should
         /// configure a pair of attachments with one per availability domain. The
@@ -138,7 +138,7 @@ pub mod interconnect_attachment {
         /// pairing key so that the provisioned circuit will lie in the specified
         /// domain. If not specified, the value will default to AVAILABILITY_DOMAIN_ANY.
         #[builder(into, default)]
-        pub edge_availability_domain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub edge_availability_domain: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Indicates the user-supplied encryption option of this interconnect
         /// attachment. Can only be specified at attachment creation for PARTNER or
         /// DEDICATED attachments.
@@ -153,12 +153,12 @@ pub mod interconnect_attachment {
         /// Default value is `NONE`.
         /// Possible values are: `NONE`, `IPSEC`.
         #[builder(into, default)]
-        pub encryption: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub encryption: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// URL of the underlying Interconnect object that this attachment's
         /// traffic will traverse through. Required if type is DEDICATED, must not
         /// be set if type is PARTNER.
         #[builder(into, default)]
-        pub interconnect: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub interconnect: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// URL of addresses that have been reserved for the interconnect attachment,
         /// Used only for interconnect attachment that has the encryption option as
         /// IPSEC.
@@ -175,13 +175,13 @@ pub mod interconnect_attachment {
         /// interconnect attachment, the HA VPN gateway's IP address will be
         /// allocated from regional external IP address pool.
         #[builder(into, default)]
-        pub ipsec_internal_addresses: pulumi_wasm_rust::InputOrOutput<
+        pub ipsec_internal_addresses: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Maximum Transmission Unit (MTU), in bytes, of packets passing through
         /// this interconnect attachment. Currently, only 1440 and 1500 are allowed. If not specified, the value will default to 1440.
         #[builder(into, default)]
-        pub mtu: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mtu: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the resource. Provided by the client when the resource is created. The
         /// name must be 1-63 characters long, and comply with RFC1035. Specifically, the
         /// name must be 1-63 characters long and match the regular expression
@@ -192,27 +192,27 @@ pub mod interconnect_attachment {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Region where the regional interconnect attachment resides.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// URL of the cloud router to be used for dynamic routing. This router must be in
         /// the same region as this InterconnectAttachment. The InterconnectAttachment will
         /// automatically connect the Interconnect to the network & region within which the
         /// Cloud Router is configured.
         #[builder(into)]
-        pub router: pulumi_wasm_rust::InputOrOutput<String>,
+        pub router: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The stack type for this interconnect attachment to identify whether the IPv6
         /// feature is enabled or not. If not specified, IPV4_ONLY will be used.
         /// This field can be both set at interconnect attachments creation and update
         /// interconnect attachment operations.
         /// Possible values are: `IPV4_IPV6`, `IPV4_ONLY`.
         #[builder(into, default)]
-        pub stack_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub stack_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Length of the IPv4 subnet mask. Allowed values: 29 (default), 30. The default value is 29,
         /// except for Cross-Cloud Interconnect connections that use an InterconnectRemoteLocation with a
         /// constraints.subnetLengthRange.min equal to 30. For example, connections that use an Azure
@@ -220,29 +220,29 @@ pub mod interconnect_attachment {
         /// requesting 29 returns an error. Where both 29 and 30 are allowed, 29 is preferred, because it
         /// gives Google Cloud Support more debugging visibility.
         #[builder(into, default)]
-        pub subnet_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub subnet_length: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The type of InterconnectAttachment you wish to create. Defaults to
         /// DEDICATED.
         /// Possible values are: `DEDICATED`, `PARTNER`, `PARTNER_PROVIDER`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IEEE 802.1Q VLAN tag for this attachment, in the range 2-4094. When
         /// using PARTNER type this will be managed upstream.
         #[builder(into, default)]
-        pub vlan_tag8021q: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub vlan_tag8021q: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct InterconnectAttachmentResult {
         /// Whether the VLAN attachment is enabled or disabled.  When using
         /// PARTNER type this will Pre-Activate the interconnect attachment
-        pub admin_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub admin_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Provisioned bandwidth capacity for the interconnect attachment.
         /// For attachments of type DEDICATED, the user can set the bandwidth.
         /// For attachments of type PARTNER, the Google Partner that is operating the interconnect must set the bandwidth.
         /// Output only for PARTNER type, mutable for PARTNER_PROVIDER and DEDICATED,
         /// Defaults to BPS_10G
         /// Possible values are: `BPS_50M`, `BPS_100M`, `BPS_200M`, `BPS_300M`, `BPS_400M`, `BPS_500M`, `BPS_1G`, `BPS_2G`, `BPS_5G`, `BPS_10G`, `BPS_20G`, `BPS_50G`.
-        pub bandwidth: pulumi_wasm_rust::Output<String>,
+        pub bandwidth: pulumi_gestalt_rust::Output<String>,
         /// Up to 16 candidate prefixes that can be used to restrict the allocation
         /// of cloudRouterIpAddress and customerRouterIpAddress for this attachment.
         /// All prefixes must be within link-local address space (169.254.0.0/16)
@@ -250,30 +250,30 @@ pub mod interconnect_attachment {
         /// an unused /29 from the supplied candidate prefix(es). The request will
         /// fail if all possible /29s are in use on Google's edge. If not supplied,
         /// Google will randomly select an unused /29 from all of link-local space.
-        pub candidate_subnets: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub candidate_subnets: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// IPv4 address + prefix length to be configured on Cloud Router
         /// Interface for this interconnect attachment.
-        pub cloud_router_ip_address: pulumi_wasm_rust::Output<String>,
+        pub cloud_router_ip_address: pulumi_gestalt_rust::Output<String>,
         /// IPv6 address + prefix length to be configured on Cloud Router
         /// Interface for this interconnect attachment.
-        pub cloud_router_ipv6_address: pulumi_wasm_rust::Output<String>,
+        pub cloud_router_ipv6_address: pulumi_gestalt_rust::Output<String>,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// IPv4 address + prefix length to be configured on the customer
         /// router subinterface for this interconnect attachment.
-        pub customer_router_ip_address: pulumi_wasm_rust::Output<String>,
+        pub customer_router_ip_address: pulumi_gestalt_rust::Output<String>,
         /// IPv6 address + prefix length to be configured on the customer
         /// router subinterface for this interconnect attachment.
-        pub customer_router_ipv6_address: pulumi_wasm_rust::Output<String>,
+        pub customer_router_ipv6_address: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Desired availability domain for the attachment. Only available for type
         /// PARTNER, at creation time. For improved reliability, customers should
         /// configure a pair of attachments with one per availability domain. The
         /// selected availability domain will be provided to the Partner via the
         /// pairing key so that the provisioned circuit will lie in the specified
         /// domain. If not specified, the value will default to AVAILABILITY_DOMAIN_ANY.
-        pub edge_availability_domain: pulumi_wasm_rust::Output<String>,
+        pub edge_availability_domain: pulumi_gestalt_rust::Output<String>,
         /// Indicates the user-supplied encryption option of this interconnect
         /// attachment. Can only be specified at attachment creation for PARTNER or
         /// DEDICATED attachments.
@@ -287,14 +287,14 @@ pub mod interconnect_attachment {
         /// attachment must be created with this option.
         /// Default value is `NONE`.
         /// Possible values are: `NONE`, `IPSEC`.
-        pub encryption: pulumi_wasm_rust::Output<Option<String>>,
+        pub encryption: pulumi_gestalt_rust::Output<Option<String>>,
         /// Google reference ID, to be used when raising support tickets with
         /// Google or otherwise to debug backend connectivity issues.
-        pub google_reference_id: pulumi_wasm_rust::Output<String>,
+        pub google_reference_id: pulumi_gestalt_rust::Output<String>,
         /// URL of the underlying Interconnect object that this attachment's
         /// traffic will traverse through. Required if type is DEDICATED, must not
         /// be set if type is PARTNER.
-        pub interconnect: pulumi_wasm_rust::Output<Option<String>>,
+        pub interconnect: pulumi_gestalt_rust::Output<Option<String>>,
         /// URL of addresses that have been reserved for the interconnect attachment,
         /// Used only for interconnect attachment that has the encryption option as
         /// IPSEC.
@@ -310,10 +310,10 @@ pub mod interconnect_attachment {
         /// encryption option as IPSEC, later on when creating HA VPN gateway on this
         /// interconnect attachment, the HA VPN gateway's IP address will be
         /// allocated from regional external IP address pool.
-        pub ipsec_internal_addresses: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ipsec_internal_addresses: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Maximum Transmission Unit (MTU), in bytes, of packets passing through
         /// this interconnect attachment. Currently, only 1440 and 1500 are allowed. If not specified, the value will default to 1440.
-        pub mtu: pulumi_wasm_rust::Output<String>,
+        pub mtu: pulumi_gestalt_rust::Output<String>,
         /// Name of the resource. Provided by the client when the resource is created. The
         /// name must be 1-63 characters long, and comply with RFC1035. Specifically, the
         /// name must be 1-63 characters long and match the regular expression
@@ -323,68 +323,68 @@ pub mod interconnect_attachment {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// [Output only for type PARTNER. Not present for DEDICATED]. The opaque
         /// identifier of an PARTNER attachment used to initiate provisioning with
         /// a selected partner. Of the form "XXXXX/region/domain"
-        pub pairing_key: pulumi_wasm_rust::Output<String>,
+        pub pairing_key: pulumi_gestalt_rust::Output<String>,
         /// [Output only for type PARTNER. Not present for DEDICATED]. Optional
         /// BGP ASN for the router that should be supplied by a layer 3 Partner if
         /// they configured BGP on behalf of the customer.
-        pub partner_asn: pulumi_wasm_rust::Output<String>,
+        pub partner_asn: pulumi_gestalt_rust::Output<String>,
         /// Information specific to an InterconnectAttachment. This property
         /// is populated if the interconnect that this is attached to is of type DEDICATED.
         /// Structure is documented below.
-        pub private_interconnect_infos: pulumi_wasm_rust::Output<
+        pub private_interconnect_infos: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::compute::InterconnectAttachmentPrivateInterconnectInfo,
             >,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Region where the regional interconnect attachment resides.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// URL of the cloud router to be used for dynamic routing. This router must be in
         /// the same region as this InterconnectAttachment. The InterconnectAttachment will
         /// automatically connect the Interconnect to the network & region within which the
         /// Cloud Router is configured.
-        pub router: pulumi_wasm_rust::Output<String>,
+        pub router: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// The stack type for this interconnect attachment to identify whether the IPv6
         /// feature is enabled or not. If not specified, IPV4_ONLY will be used.
         /// This field can be both set at interconnect attachments creation and update
         /// interconnect attachment operations.
         /// Possible values are: `IPV4_IPV6`, `IPV4_ONLY`.
-        pub stack_type: pulumi_wasm_rust::Output<String>,
+        pub stack_type: pulumi_gestalt_rust::Output<String>,
         /// [Output Only] The current state of this attachment's functionality.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Length of the IPv4 subnet mask. Allowed values: 29 (default), 30. The default value is 29,
         /// except for Cross-Cloud Interconnect connections that use an InterconnectRemoteLocation with a
         /// constraints.subnetLengthRange.min equal to 30. For example, connections that use an Azure
         /// remote location fall into this category. In these cases, the default value is 30, and
         /// requesting 29 returns an error. Where both 29 and 30 are allowed, 29 is preferred, because it
         /// gives Google Cloud Support more debugging visibility.
-        pub subnet_length: pulumi_wasm_rust::Output<Option<i32>>,
+        pub subnet_length: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The type of InterconnectAttachment you wish to create. Defaults to
         /// DEDICATED.
         /// Possible values are: `DEDICATED`, `PARTNER`, `PARTNER_PROVIDER`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// The IEEE 802.1Q VLAN tag for this attachment, in the range 2-4094. When
         /// using PARTNER type this will be managed upstream.
-        pub vlan_tag8021q: pulumi_wasm_rust::Output<i32>,
+        pub vlan_tag8021q: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InterconnectAttachmentArgs,
     ) -> InterconnectAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let admin_enabled_binding = args.admin_enabled.get_output(context).get_inner();
         let bandwidth_binding = args.bandwidth.get_output(context).get_inner();
@@ -489,76 +489,80 @@ pub mod interconnect_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InterconnectAttachmentResult {
-            admin_enabled: pulumi_wasm_rust::__private::into_domain(
+            admin_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminEnabled"),
             ),
-            bandwidth: pulumi_wasm_rust::__private::into_domain(
+            bandwidth: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bandwidth"),
             ),
-            candidate_subnets: pulumi_wasm_rust::__private::into_domain(
+            candidate_subnets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("candidateSubnets"),
             ),
-            cloud_router_ip_address: pulumi_wasm_rust::__private::into_domain(
+            cloud_router_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudRouterIpAddress"),
             ),
-            cloud_router_ipv6_address: pulumi_wasm_rust::__private::into_domain(
+            cloud_router_ipv6_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudRouterIpv6Address"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            customer_router_ip_address: pulumi_wasm_rust::__private::into_domain(
+            customer_router_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerRouterIpAddress"),
             ),
-            customer_router_ipv6_address: pulumi_wasm_rust::__private::into_domain(
+            customer_router_ipv6_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerRouterIpv6Address"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            edge_availability_domain: pulumi_wasm_rust::__private::into_domain(
+            edge_availability_domain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edgeAvailabilityDomain"),
             ),
-            encryption: pulumi_wasm_rust::__private::into_domain(
+            encryption: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryption"),
             ),
-            google_reference_id: pulumi_wasm_rust::__private::into_domain(
+            google_reference_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("googleReferenceId"),
             ),
-            interconnect: pulumi_wasm_rust::__private::into_domain(
+            interconnect: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("interconnect"),
             ),
-            ipsec_internal_addresses: pulumi_wasm_rust::__private::into_domain(
+            ipsec_internal_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipsecInternalAddresses"),
             ),
-            mtu: pulumi_wasm_rust::__private::into_domain(o.extract_field("mtu")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            pairing_key: pulumi_wasm_rust::__private::into_domain(
+            mtu: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mtu")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            pairing_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pairingKey"),
             ),
-            partner_asn: pulumi_wasm_rust::__private::into_domain(
+            partner_asn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partnerAsn"),
             ),
-            private_interconnect_infos: pulumi_wasm_rust::__private::into_domain(
+            private_interconnect_infos: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateInterconnectInfos"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            router: pulumi_wasm_rust::__private::into_domain(o.extract_field("router")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            router: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("router"),
+            ),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            stack_type: pulumi_wasm_rust::__private::into_domain(
+            stack_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stackType"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            subnet_length: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            subnet_length: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetLength"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            vlan_tag8021q: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            vlan_tag8021q: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vlanTag8021q"),
             ),
         }

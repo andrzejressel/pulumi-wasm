@@ -42,7 +42,7 @@
 /// ```
 ///
 pub mod principal_access_boundary_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrincipalAccessBoundaryPolicyArgs {
@@ -52,31 +52,33 @@ pub mod principal_access_boundary_policy {
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Principal access boundary policy details
         /// Structure is documented below.
         #[builder(into, default)]
-        pub details: pulumi_wasm_rust::InputOrOutput<
+        pub details: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::iam::PrincipalAccessBoundaryPolicyDetails>,
         >,
         /// The description of the principal access boundary policy. Must be less than or equal to 63 characters.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location the principal access boundary policy is in.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The parent organization of the principal access boundary policy.
         #[builder(into)]
-        pub organization: pulumi_wasm_rust::InputOrOutput<String>,
+        pub organization: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID to use to create the principal access boundary policy.
         /// This value must start with a lowercase letter followed by up to 62 lowercase letters, numbers, hyphens, or dots. Pattern, /a-z{2,62}/.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub principal_access_boundary_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub principal_access_boundary_policy_id: pulumi_gestalt_rust::InputOrOutput<
+            String,
+        >,
     }
     #[allow(dead_code)]
     pub struct PrincipalAccessBoundaryPolicyResult {
@@ -85,51 +87,51 @@ pub mod principal_access_boundary_policy {
         ///
         /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
         /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Output only. The time when the principal access boundary policy was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Principal access boundary policy details
         /// Structure is documented below.
-        pub details: pulumi_wasm_rust::Output<
+        pub details: pulumi_gestalt_rust::Output<
             super::super::types::iam::PrincipalAccessBoundaryPolicyDetails,
         >,
         /// The description of the principal access boundary policy. Must be less than or equal to 63 characters.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The etag for the principal access boundary. If this is provided on update, it must match the server's etag.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The location the principal access boundary policy is in.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Identifier. The resource name of the principal access boundary policy.  The following format is supported:
         /// `organizations/{organization_id}/locations/{location}/principalAccessBoundaryPolicies/{policy_id}`
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The parent organization of the principal access boundary policy.
-        pub organization: pulumi_wasm_rust::Output<String>,
+        pub organization: pulumi_gestalt_rust::Output<String>,
         /// The ID to use to create the principal access boundary policy.
         /// This value must start with a lowercase letter followed by up to 62 lowercase letters, numbers, hyphens, or dots. Pattern, /a-z{2,62}/.
         ///
         ///
         /// - - -
-        pub principal_access_boundary_policy_id: pulumi_wasm_rust::Output<String>,
+        pub principal_access_boundary_policy_id: pulumi_gestalt_rust::Output<String>,
         /// Output only. The globally unique ID of the principal access boundary policy.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Output only. The time when the principal access boundary policy was most recently updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PrincipalAccessBoundaryPolicyArgs,
     ) -> PrincipalAccessBoundaryPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let details_binding = args.details.get_output(context).get_inner();
@@ -174,34 +176,34 @@ pub mod principal_access_boundary_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PrincipalAccessBoundaryPolicyResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            details: pulumi_wasm_rust::__private::into_domain(
+            details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("details"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            organization: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            organization: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organization"),
             ),
-            principal_access_boundary_policy_id: pulumi_wasm_rust::__private::into_domain(
+            principal_access_boundary_policy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principalAccessBoundaryPolicyId"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

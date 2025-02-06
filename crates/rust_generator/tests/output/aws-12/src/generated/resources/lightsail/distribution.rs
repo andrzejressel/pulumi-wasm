@@ -7,8 +7,8 @@
 /// Below is a basic example with a bucket as an origin.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = bucket::create(
@@ -172,109 +172,109 @@
 /// $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
 /// ```
 pub mod distribution {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DistributionArgs {
         /// Bundle ID to use for the distribution.
         #[builder(into)]
-        pub bundle_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bundle_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An object that describes the cache behavior settings of the distribution. Detailed below
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub cache_behavior_settings: pulumi_wasm_rust::InputOrOutput<
+        pub cache_behavior_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::lightsail::DistributionCacheBehaviorSettings>,
         >,
         /// A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
         #[builder(into, default)]
-        pub cache_behaviors: pulumi_wasm_rust::InputOrOutput<
+        pub cache_behaviors: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::lightsail::DistributionCacheBehavior>>,
         >,
         /// The name of the SSL/TLS certificate attached to the distribution, if any.
         #[builder(into, default)]
-        pub certificate_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Object that describes the default cache behavior of the distribution. Detailed below
         #[builder(into)]
-        pub default_cache_behavior: pulumi_wasm_rust::InputOrOutput<
+        pub default_cache_behavior: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::lightsail::DistributionDefaultCacheBehavior,
         >,
         /// The IP address type of the distribution. Default: `dualstack`.
         #[builder(into, default)]
-        pub ip_address_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_address_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Indicates whether the distribution is enabled. Default: `true`.
         #[builder(into, default)]
-        pub is_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Name of the distribution.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
         #[builder(into)]
-        pub origin: pulumi_wasm_rust::InputOrOutput<
+        pub origin: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::lightsail::DistributionOrigin,
         >,
         /// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DistributionResult {
         /// The alternate domain names of the distribution.
-        pub alternative_domain_names: pulumi_wasm_rust::Output<Vec<String>>,
+        pub alternative_domain_names: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The Amazon Resource Name (ARN) of the distribution.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Bundle ID to use for the distribution.
-        pub bundle_id: pulumi_wasm_rust::Output<String>,
+        pub bundle_id: pulumi_gestalt_rust::Output<String>,
         /// An object that describes the cache behavior settings of the distribution. Detailed below
         ///
         /// The following arguments are optional:
-        pub cache_behavior_settings: pulumi_wasm_rust::Output<
+        pub cache_behavior_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::lightsail::DistributionCacheBehaviorSettings>,
         >,
         /// A set of configuration blocks that describe the per-path cache behavior of the distribution. Detailed below
-        pub cache_behaviors: pulumi_wasm_rust::Output<
+        pub cache_behaviors: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::lightsail::DistributionCacheBehavior>>,
         >,
         /// The name of the SSL/TLS certificate attached to the distribution, if any.
-        pub certificate_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The timestamp when the distribution was created.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// Object that describes the default cache behavior of the distribution. Detailed below
-        pub default_cache_behavior: pulumi_wasm_rust::Output<
+        pub default_cache_behavior: pulumi_gestalt_rust::Output<
             super::super::types::lightsail::DistributionDefaultCacheBehavior,
         >,
         /// The domain name of the distribution.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// The IP address type of the distribution. Default: `dualstack`.
-        pub ip_address_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Indicates whether the distribution is enabled. Default: `true`.
-        pub is_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An object that describes the location of the distribution, such as the AWS Region and Availability Zone. Detailed below
-        pub locations: pulumi_wasm_rust::Output<
+        pub locations: pulumi_gestalt_rust::Output<
             Vec<super::super::types::lightsail::DistributionLocation>,
         >,
         /// Name of the distribution.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Object that describes the origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. Detailed below
-        pub origin: pulumi_wasm_rust::Output<
+        pub origin: pulumi_gestalt_rust::Output<
             super::super::types::lightsail::DistributionOrigin,
         >,
         /// The public DNS of the origin.
-        pub origin_public_dns: pulumi_wasm_rust::Output<String>,
+        pub origin_public_dns: pulumi_gestalt_rust::Output<String>,
         /// The Lightsail resource type (e.g., Distribution).
-        pub resource_type: pulumi_wasm_rust::Output<String>,
+        pub resource_type: pulumi_gestalt_rust::Output<String>,
         /// The status of the distribution.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// The support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
-        pub support_code: pulumi_wasm_rust::Output<String>,
+        pub support_code: pulumi_gestalt_rust::Output<String>,
         /// Map of tags for the Lightsail Distribution. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -283,11 +283,11 @@ pub mod distribution {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DistributionArgs,
     ) -> DistributionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bundle_id_binding = args.bundle_id.get_output(context).get_inner();
         let cache_behavior_settings_binding = args
@@ -363,54 +363,58 @@ pub mod distribution {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DistributionResult {
-            alternative_domain_names: pulumi_wasm_rust::__private::into_domain(
+            alternative_domain_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("alternativeDomainNames"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            bundle_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            bundle_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bundleId"),
             ),
-            cache_behavior_settings: pulumi_wasm_rust::__private::into_domain(
+            cache_behavior_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cacheBehaviorSettings"),
             ),
-            cache_behaviors: pulumi_wasm_rust::__private::into_domain(
+            cache_behaviors: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cacheBehaviors"),
             ),
-            certificate_name: pulumi_wasm_rust::__private::into_domain(
+            certificate_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateName"),
             ),
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            default_cache_behavior: pulumi_wasm_rust::__private::into_domain(
+            default_cache_behavior: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultCacheBehavior"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            ip_address_type: pulumi_wasm_rust::__private::into_domain(
+            ip_address_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddressType"),
             ),
-            is_enabled: pulumi_wasm_rust::__private::into_domain(
+            is_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isEnabled"),
             ),
-            locations: pulumi_wasm_rust::__private::into_domain(
+            locations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("locations"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            origin: pulumi_wasm_rust::__private::into_domain(o.extract_field("origin")),
-            origin_public_dns: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            origin: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("origin"),
+            ),
+            origin_public_dns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("originPublicDns"),
             ),
-            resource_type: pulumi_wasm_rust::__private::into_domain(
+            resource_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            support_code: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            support_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportCode"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

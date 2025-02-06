@@ -8,8 +8,8 @@
 /// ### Empty Instance Group
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = instance_group::create(
@@ -69,28 +69,28 @@
 /// ```
 ///
 pub mod instance_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceGroupArgs {
         /// An optional textual description of the instance
         /// group.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The list of instances in the group, in `self_link` format.
         /// When adding instances they must all be in the same network and zone as the instance group.
         #[builder(into, default)]
-        pub instances: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub instances: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the instance group. Must be 1-63
         /// characters long and comply with
         /// [RFC1035](https://www.ietf.org/rfc/rfc1035.txt). Supported characters
         /// include lowercase letters, numbers, and hyphens.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The named port configuration. See the section below
         /// for details on configuration. Structure is documented below.
         #[builder(into, default)]
-        pub named_ports: pulumi_wasm_rust::InputOrOutput<
+        pub named_ports: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::InstanceGroupNamedPort>>,
         >,
         /// The URL of the network the instance group is in. If
@@ -98,62 +98,62 @@ pub mod instance_group {
         /// fails. Defaults to the network where the instances are in (if neither
         /// `network` nor `instances` is specified, this field will be blank).
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The zone that this instance group should be created in.
         ///
         /// - - -
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceGroupResult {
         /// An optional textual description of the instance
         /// group.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The list of instances in the group, in `self_link` format.
         /// When adding instances they must all be in the same network and zone as the instance group.
-        pub instances: pulumi_wasm_rust::Output<Vec<String>>,
+        pub instances: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The name of the instance group. Must be 1-63
         /// characters long and comply with
         /// [RFC1035](https://www.ietf.org/rfc/rfc1035.txt). Supported characters
         /// include lowercase letters, numbers, and hyphens.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The named port configuration. See the section below
         /// for details on configuration. Structure is documented below.
-        pub named_ports: pulumi_wasm_rust::Output<
+        pub named_ports: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::InstanceGroupNamedPort>>,
         >,
         /// The URL of the network the instance group is in. If
         /// this is different from the network where the instances are in, the creation
         /// fails. Defaults to the network where the instances are in (if neither
         /// `network` nor `instances` is specified, this field will be blank).
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// The number of instances in the group.
-        pub size: pulumi_wasm_rust::Output<i32>,
+        pub size: pulumi_gestalt_rust::Output<i32>,
         /// The zone that this instance group should be created in.
         ///
         /// - - -
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceGroupArgs,
     ) -> InstanceGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let instances_binding = args.instances.get_output(context).get_inner();
@@ -199,27 +199,27 @@ pub mod instance_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceGroupResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            instances: pulumi_wasm_rust::__private::into_domain(
+            instances: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instances"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            named_ports: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            named_ports: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namedPorts"),
             ),
-            network: pulumi_wasm_rust::__private::into_domain(
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

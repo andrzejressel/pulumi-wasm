@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = source_repository::create(
@@ -28,48 +28,48 @@
 /// $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
 /// ```
 pub mod source_repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SourceRepositoryArgs {
         /// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the project in the CodeCatalyst space.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub project_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub project_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the CodeCatalyst space.
         #[builder(into)]
-        pub space_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub space_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SourceRepositoryResult {
         /// The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the project in the CodeCatalyst space.
         ///
         /// The following arguments are optional:
-        pub project_name: pulumi_wasm_rust::Output<String>,
+        pub project_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the CodeCatalyst space.
-        pub space_name: pulumi_wasm_rust::Output<String>,
+        pub space_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SourceRepositoryArgs,
     ) -> SourceRepositoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -100,14 +100,14 @@ pub mod source_repository {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SourceRepositoryResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("projectName"),
             ),
-            space_name: pulumi_wasm_rust::__private::into_domain(
+            space_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("spaceName"),
             ),
         }

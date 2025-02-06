@@ -30,75 +30,79 @@
 /// ```
 ///
 pub mod account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountArgs {
         #[builder(into, default)]
-        pub encryptions: pulumi_wasm_rust::InputOrOutput<
+        pub encryptions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::automation::AccountEncryption>>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::automation::AccountIdentity>,
         >,
         /// Whether requests using non-AAD authentication are blocked. Defaults to `true`.
         #[builder(into, default)]
-        pub local_authentication_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub local_authentication_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether public network access is allowed for the automation account. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The SKU of the account. Possible values are `Basic` and `Free`.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AccountResult {
         /// The Primary Access Key for the DSC Endpoint associated with this Automation Account.
-        pub dsc_primary_access_key: pulumi_wasm_rust::Output<String>,
+        pub dsc_primary_access_key: pulumi_gestalt_rust::Output<String>,
         /// The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
-        pub dsc_secondary_access_key: pulumi_wasm_rust::Output<String>,
+        pub dsc_secondary_access_key: pulumi_gestalt_rust::Output<String>,
         /// The DSC Server Endpoint associated with this Automation Account.
-        pub dsc_server_endpoint: pulumi_wasm_rust::Output<String>,
-        pub encryptions: pulumi_wasm_rust::Output<
+        pub dsc_server_endpoint: pulumi_gestalt_rust::Output<String>,
+        pub encryptions: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::automation::AccountEncryption>>,
         >,
         /// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
-        pub hybrid_service_url: pulumi_wasm_rust::Output<String>,
+        pub hybrid_service_url: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::automation::AccountIdentity>,
         >,
         /// Whether requests using non-AAD authentication are blocked. Defaults to `true`.
-        pub local_authentication_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_authentication_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub private_endpoint_connections: pulumi_wasm_rust::Output<
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub private_endpoint_connections: pulumi_gestalt_rust::Output<
             Vec<super::super::types::automation::AccountPrivateEndpointConnection>,
         >,
         /// Whether public network access is allowed for the automation account. Defaults to `true`.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The SKU of the account. Possible values are `Basic` and `Free`.
-        pub sku_name: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -107,11 +111,11 @@ pub mod account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccountArgs,
     ) -> AccountResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let encryptions_binding = args.encryptions.get_output(context).get_inner();
         let identity_binding = args.identity.get_output(context).get_inner();
@@ -176,44 +180,44 @@ pub mod account {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccountResult {
-            dsc_primary_access_key: pulumi_wasm_rust::__private::into_domain(
+            dsc_primary_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dscPrimaryAccessKey"),
             ),
-            dsc_secondary_access_key: pulumi_wasm_rust::__private::into_domain(
+            dsc_secondary_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dscSecondaryAccessKey"),
             ),
-            dsc_server_endpoint: pulumi_wasm_rust::__private::into_domain(
+            dsc_server_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dscServerEndpoint"),
             ),
-            encryptions: pulumi_wasm_rust::__private::into_domain(
+            encryptions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptions"),
             ),
-            hybrid_service_url: pulumi_wasm_rust::__private::into_domain(
+            hybrid_service_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hybridServiceUrl"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            local_authentication_enabled: pulumi_wasm_rust::__private::into_domain(
+            local_authentication_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localAuthenticationEnabled"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            private_endpoint_connections: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            private_endpoint_connections: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateEndpointConnections"),
             ),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -60,44 +60,44 @@
 /// * Where `{memberName}` is the name of the Member. For example `memberValue`.
 ///
 pub mod fleet_member {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FleetMemberArgs {
         /// The group this member belongs to for multi-cluster update management.
         #[builder(into, default)]
-        pub group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub group: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARM resource ID of the cluster that joins the Fleet. Changing this forces a new Kubernetes Fleet Member to be created.
         #[builder(into)]
-        pub kubernetes_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kubernetes_cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the Kubernetes Fleet Id within which this Kubernetes Fleet Member should exist. Changing this forces a new Kubernetes Fleet Member to be created.
         #[builder(into)]
-        pub kubernetes_fleet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kubernetes_fleet_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of this Kubernetes Fleet Member. Changing this forces a new Kubernetes Fleet Member to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FleetMemberResult {
         /// The group this member belongs to for multi-cluster update management.
-        pub group: pulumi_wasm_rust::Output<Option<String>>,
+        pub group: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ARM resource ID of the cluster that joins the Fleet. Changing this forces a new Kubernetes Fleet Member to be created.
-        pub kubernetes_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub kubernetes_cluster_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Kubernetes Fleet Id within which this Kubernetes Fleet Member should exist. Changing this forces a new Kubernetes Fleet Member to be created.
-        pub kubernetes_fleet_id: pulumi_wasm_rust::Output<String>,
+        pub kubernetes_fleet_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of this Kubernetes Fleet Member. Changing this forces a new Kubernetes Fleet Member to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FleetMemberArgs,
     ) -> FleetMemberResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let group_binding = args.group.get_output(context).get_inner();
         let kubernetes_cluster_id_binding = args
@@ -134,14 +134,14 @@ pub mod fleet_member {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FleetMemberResult {
-            group: pulumi_wasm_rust::__private::into_domain(o.extract_field("group")),
-            kubernetes_cluster_id: pulumi_wasm_rust::__private::into_domain(
+            group: pulumi_gestalt_rust::__private::into_domain(o.extract_field("group")),
+            kubernetes_cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kubernetesClusterId"),
             ),
-            kubernetes_fleet_id: pulumi_wasm_rust::__private::into_domain(
+            kubernetes_fleet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kubernetesFleetId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

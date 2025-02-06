@@ -89,7 +89,7 @@
 /// ```
 ///
 pub mod blockchain_nodes {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BlockchainNodesArgs {
@@ -98,15 +98,15 @@ pub mod blockchain_nodes {
         ///
         /// - - -
         #[builder(into)]
-        pub blockchain_node_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub blockchain_node_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// User-provided key-value pairs
         /// Possible values are: `ETHEREUM`.
         #[builder(into, default)]
-        pub blockchain_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub blockchain_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User-provided key-value pairs
         /// Structure is documented below.
         #[builder(into, default)]
-        pub ethereum_details: pulumi_wasm_rust::InputOrOutput<
+        pub ethereum_details: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::blockchainnodeengine::BlockchainNodesEthereumDetails,
             >,
@@ -116,16 +116,16 @@ pub mod blockchain_nodes {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Location of Blockchain Node being created.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BlockchainNodesResult {
@@ -133,24 +133,24 @@ pub mod blockchain_nodes {
         ///
         ///
         /// - - -
-        pub blockchain_node_id: pulumi_wasm_rust::Output<String>,
+        pub blockchain_node_id: pulumi_gestalt_rust::Output<String>,
         /// User-provided key-value pairs
         /// Possible values are: `ETHEREUM`.
-        pub blockchain_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub blockchain_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The connection information through which to interact with a blockchain node.
         /// Structure is documented below.
-        pub connection_infos: pulumi_wasm_rust::Output<
+        pub connection_infos: pulumi_gestalt_rust::Output<
             Vec<super::super::types::blockchainnodeengine::BlockchainNodesConnectionInfo>,
         >,
         /// The timestamp at which the blockchain node was first created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// User-provided key-value pairs
         /// Structure is documented below.
-        pub ethereum_details: pulumi_wasm_rust::Output<
+        pub ethereum_details: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::blockchainnodeengine::BlockchainNodesEthereumDetails,
             >,
@@ -159,34 +159,34 @@ pub mod blockchain_nodes {
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Location of Blockchain Node being created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The fully qualified name of the blockchain node. e.g. projects/my-project/locations/us-central1/blockchainNodes/my-node.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The timestamp at which the blockchain node was last updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BlockchainNodesArgs,
     ) -> BlockchainNodesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let blockchain_node_id_binding = args
             .blockchain_node_id
@@ -236,36 +236,38 @@ pub mod blockchain_nodes {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BlockchainNodesResult {
-            blockchain_node_id: pulumi_wasm_rust::__private::into_domain(
+            blockchain_node_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blockchainNodeId"),
             ),
-            blockchain_type: pulumi_wasm_rust::__private::into_domain(
+            blockchain_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blockchainType"),
             ),
-            connection_infos: pulumi_wasm_rust::__private::into_domain(
+            connection_infos: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionInfos"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            ethereum_details: pulumi_wasm_rust::__private::into_domain(
+            ethereum_details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ethereumDetails"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

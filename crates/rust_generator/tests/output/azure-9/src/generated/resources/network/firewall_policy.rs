@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -34,140 +34,140 @@
 /// ```
 ///
 pub mod firewall_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FirewallPolicyArgs {
         /// Whether enable auto learn private ip range.
         #[builder(into, default)]
-        pub auto_learn_private_ranges_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub auto_learn_private_ranges_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The ID of the base Firewall Policy.
         #[builder(into, default)]
-        pub base_policy_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub base_policy_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `dns` block as defined below.
         #[builder(into, default)]
-        pub dns: pulumi_wasm_rust::InputOrOutput<
+        pub dns: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::network::FirewallPolicyDns>,
         >,
         /// A `explicit_proxy` block as defined below.
         #[builder(into, default)]
-        pub explicit_proxy: pulumi_wasm_rust::InputOrOutput<
+        pub explicit_proxy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::network::FirewallPolicyExplicitProxy>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::network::FirewallPolicyIdentity>,
         >,
         /// An `insights` block as defined below.
         #[builder(into, default)]
-        pub insights: pulumi_wasm_rust::InputOrOutput<
+        pub insights: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::network::FirewallPolicyInsights>,
         >,
         /// A `intrusion_detection` block as defined below.
         #[builder(into, default)]
-        pub intrusion_detection: pulumi_wasm_rust::InputOrOutput<
+        pub intrusion_detection: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::network::FirewallPolicyIntrusionDetection>,
         >,
         /// The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of private IP ranges to which traffic will not be SNAT.
         #[builder(into, default)]
-        pub private_ip_ranges: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub private_ip_ranges: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Defaults to `Standard`. Changing this forces a new Firewall Policy to be created.
         #[builder(into, default)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
         #[builder(into, default)]
-        pub sql_redirect_allowed: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub sql_redirect_allowed: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A mapping of tags which should be assigned to the Firewall Policy.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `threat_intelligence_allowlist` block as defined below.
         #[builder(into, default)]
-        pub threat_intelligence_allowlist: pulumi_wasm_rust::InputOrOutput<
+        pub threat_intelligence_allowlist: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::network::FirewallPolicyThreatIntelligenceAllowlist,
             >,
         >,
         /// The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
         #[builder(into, default)]
-        pub threat_intelligence_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub threat_intelligence_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `tls_certificate` block as defined below.
         #[builder(into, default)]
-        pub tls_certificate: pulumi_wasm_rust::InputOrOutput<
+        pub tls_certificate: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::network::FirewallPolicyTlsCertificate>,
         >,
     }
     #[allow(dead_code)]
     pub struct FirewallPolicyResult {
         /// Whether enable auto learn private ip range.
-        pub auto_learn_private_ranges_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_learn_private_ranges_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the base Firewall Policy.
-        pub base_policy_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub base_policy_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A list of reference to child Firewall Policies of this Firewall Policy.
-        pub child_policies: pulumi_wasm_rust::Output<Vec<String>>,
+        pub child_policies: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A `dns` block as defined below.
-        pub dns: pulumi_wasm_rust::Output<
+        pub dns: pulumi_gestalt_rust::Output<
             Option<super::super::types::network::FirewallPolicyDns>,
         >,
         /// A `explicit_proxy` block as defined below.
-        pub explicit_proxy: pulumi_wasm_rust::Output<
+        pub explicit_proxy: pulumi_gestalt_rust::Output<
             Option<super::super::types::network::FirewallPolicyExplicitProxy>,
         >,
         /// A list of references to Azure Firewalls that this Firewall Policy is associated with.
-        pub firewalls: pulumi_wasm_rust::Output<Vec<String>>,
+        pub firewalls: pulumi_gestalt_rust::Output<Vec<String>>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::network::FirewallPolicyIdentity>,
         >,
         /// An `insights` block as defined below.
-        pub insights: pulumi_wasm_rust::Output<
+        pub insights: pulumi_gestalt_rust::Output<
             Option<super::super::types::network::FirewallPolicyInsights>,
         >,
         /// A `intrusion_detection` block as defined below.
-        pub intrusion_detection: pulumi_wasm_rust::Output<
+        pub intrusion_detection: pulumi_gestalt_rust::Output<
             Option<super::super::types::network::FirewallPolicyIntrusionDetection>,
         >,
         /// The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A list of private IP ranges to which traffic will not be SNAT.
-        pub private_ip_ranges: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub private_ip_ranges: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
-        pub rule_collection_groups: pulumi_wasm_rust::Output<Vec<String>>,
+        pub rule_collection_groups: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Defaults to `Standard`. Changing this forces a new Firewall Policy to be created.
-        pub sku: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
-        pub sql_redirect_allowed: pulumi_wasm_rust::Output<Option<bool>>,
+        pub sql_redirect_allowed: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A mapping of tags which should be assigned to the Firewall Policy.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `threat_intelligence_allowlist` block as defined below.
-        pub threat_intelligence_allowlist: pulumi_wasm_rust::Output<
+        pub threat_intelligence_allowlist: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::network::FirewallPolicyThreatIntelligenceAllowlist,
             >,
         >,
         /// The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`.
-        pub threat_intelligence_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub threat_intelligence_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `tls_certificate` block as defined below.
-        pub tls_certificate: pulumi_wasm_rust::Output<
+        pub tls_certificate: pulumi_gestalt_rust::Output<
             Option<super::super::types::network::FirewallPolicyTlsCertificate>,
         >,
     }
@@ -176,11 +176,11 @@ pub mod firewall_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FirewallPolicyArgs,
     ) -> FirewallPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_learn_private_ranges_enabled_binding = args
             .auto_learn_private_ranges_enabled
@@ -300,56 +300,56 @@ pub mod firewall_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FirewallPolicyResult {
-            auto_learn_private_ranges_enabled: pulumi_wasm_rust::__private::into_domain(
+            auto_learn_private_ranges_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoLearnPrivateRangesEnabled"),
             ),
-            base_policy_id: pulumi_wasm_rust::__private::into_domain(
+            base_policy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("basePolicyId"),
             ),
-            child_policies: pulumi_wasm_rust::__private::into_domain(
+            child_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("childPolicies"),
             ),
-            dns: pulumi_wasm_rust::__private::into_domain(o.extract_field("dns")),
-            explicit_proxy: pulumi_wasm_rust::__private::into_domain(
+            dns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("dns")),
+            explicit_proxy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("explicitProxy"),
             ),
-            firewalls: pulumi_wasm_rust::__private::into_domain(
+            firewalls: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("firewalls"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            insights: pulumi_wasm_rust::__private::into_domain(
+            insights: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("insights"),
             ),
-            intrusion_detection: pulumi_wasm_rust::__private::into_domain(
+            intrusion_detection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("intrusionDetection"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            private_ip_ranges: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            private_ip_ranges: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpRanges"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            rule_collection_groups: pulumi_wasm_rust::__private::into_domain(
+            rule_collection_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleCollectionGroups"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            sql_redirect_allowed: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            sql_redirect_allowed: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sqlRedirectAllowed"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            threat_intelligence_allowlist: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            threat_intelligence_allowlist: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("threatIntelligenceAllowlist"),
             ),
-            threat_intelligence_mode: pulumi_wasm_rust::__private::into_domain(
+            threat_intelligence_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("threatIntelligenceMode"),
             ),
-            tls_certificate: pulumi_wasm_rust::__private::into_domain(
+            tls_certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tlsCertificate"),
             ),
         }

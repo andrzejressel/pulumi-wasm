@@ -172,114 +172,114 @@
 /// $ pulumi import aws:rekognition/streamProcessor:StreamProcessor example my-stream
 /// ```
 pub mod stream_processor {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StreamProcessorArgs {
         /// See `data_sharing_preference`.
         #[builder(into, default)]
-        pub data_sharing_preference: pulumi_wasm_rust::InputOrOutput<
+        pub data_sharing_preference: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::rekognition::StreamProcessorDataSharingPreference,
             >,
         >,
         /// Input video stream. See `input`.
         #[builder(into, default)]
-        pub input: pulumi_wasm_rust::InputOrOutput<
+        pub input: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::rekognition::StreamProcessorInput>,
         >,
         /// Optional parameter for label detection stream processors.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Stream Processor.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
         #[builder(into, default)]
-        pub notification_channel: pulumi_wasm_rust::InputOrOutput<
+        pub notification_channel: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::rekognition::StreamProcessorNotificationChannel>,
         >,
         /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
         #[builder(into, default)]
-        pub output: pulumi_wasm_rust::InputOrOutput<
+        pub output: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::rekognition::StreamProcessorOutput>,
         >,
         /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
         #[builder(into, default)]
-        pub regions_of_interests: pulumi_wasm_rust::InputOrOutput<
+        pub regions_of_interests: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::rekognition::StreamProcessorRegionsOfInterest>,
             >,
         >,
         /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub settings: pulumi_wasm_rust::InputOrOutput<
+        pub settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::rekognition::StreamProcessorSettings>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::rekognition::StreamProcessorTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct StreamProcessorResult {
         /// See `data_sharing_preference`.
-        pub data_sharing_preference: pulumi_wasm_rust::Output<
+        pub data_sharing_preference: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::rekognition::StreamProcessorDataSharingPreference,
             >,
         >,
         /// Input video stream. See `input`.
-        pub input: pulumi_wasm_rust::Output<
+        pub input: pulumi_gestalt_rust::Output<
             Option<super::super::types::rekognition::StreamProcessorInput>,
         >,
         /// Optional parameter for label detection stream processors.
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Stream Processor.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notification_channel`.
-        pub notification_channel: pulumi_wasm_rust::Output<
+        pub notification_channel: pulumi_gestalt_rust::Output<
             Option<super::super::types::rekognition::StreamProcessorNotificationChannel>,
         >,
         /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
-        pub output: pulumi_wasm_rust::Output<
+        pub output: pulumi_gestalt_rust::Output<
             Option<super::super::types::rekognition::StreamProcessorOutput>,
         >,
         /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
-        pub regions_of_interests: pulumi_wasm_rust::Output<
+        pub regions_of_interests: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::rekognition::StreamProcessorRegionsOfInterest>,
             >,
         >,
         /// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
         ///
         /// The following arguments are optional:
-        pub settings: pulumi_wasm_rust::Output<
+        pub settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::rekognition::StreamProcessorSettings>,
         >,
         /// ARN of the Stream Processor.
-        pub stream_processor_arn: pulumi_wasm_rust::Output<String>,
+        pub stream_processor_arn: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::rekognition::StreamProcessorTimeouts>,
         >,
     }
@@ -288,11 +288,11 @@ pub mod stream_processor {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StreamProcessorArgs,
     ) -> StreamProcessorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_sharing_preference_binding = args
             .data_sharing_preference
@@ -367,35 +367,37 @@ pub mod stream_processor {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StreamProcessorResult {
-            data_sharing_preference: pulumi_wasm_rust::__private::into_domain(
+            data_sharing_preference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSharingPreference"),
             ),
-            input: pulumi_wasm_rust::__private::into_domain(o.extract_field("input")),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            input: pulumi_gestalt_rust::__private::into_domain(o.extract_field("input")),
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            notification_channel: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            notification_channel: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationChannel"),
             ),
-            output: pulumi_wasm_rust::__private::into_domain(o.extract_field("output")),
-            regions_of_interests: pulumi_wasm_rust::__private::into_domain(
+            output: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("output"),
+            ),
+            regions_of_interests: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("regionsOfInterests"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            settings: pulumi_wasm_rust::__private::into_domain(
+            settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("settings"),
             ),
-            stream_processor_arn: pulumi_wasm_rust::__private::into_domain(
+            stream_processor_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamProcessorArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

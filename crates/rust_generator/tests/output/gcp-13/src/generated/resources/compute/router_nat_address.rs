@@ -44,66 +44,66 @@
 /// ```
 ///
 pub mod router_nat_address {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouterNatAddressArgs {
         /// A list of URLs of the IP resources to be drained. These IPs must be
         /// valid static external IPs that have been assigned to the NAT.
         #[builder(into, default)]
-        pub drain_nat_ips: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub drain_nat_ips: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Self-links of NAT IPs to be used in a Nat service. Only valid if the referenced RouterNat
         /// natIpAllocateOption is set to MANUAL_ONLY.
         #[builder(into)]
-        pub nat_ips: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub nat_ips: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Region where the NAT service reside.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Cloud Router in which the referenced NAT service is configured.
         #[builder(into)]
-        pub router: pulumi_wasm_rust::InputOrOutput<String>,
+        pub router: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Nat service in which this address will be configured.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub router_nat: pulumi_wasm_rust::InputOrOutput<String>,
+        pub router_nat: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RouterNatAddressResult {
         /// A list of URLs of the IP resources to be drained. These IPs must be
         /// valid static external IPs that have been assigned to the NAT.
-        pub drain_nat_ips: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub drain_nat_ips: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Self-links of NAT IPs to be used in a Nat service. Only valid if the referenced RouterNat
         /// natIpAllocateOption is set to MANUAL_ONLY.
-        pub nat_ips: pulumi_wasm_rust::Output<Vec<String>>,
+        pub nat_ips: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Region where the NAT service reside.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The name of the Cloud Router in which the referenced NAT service is configured.
-        pub router: pulumi_wasm_rust::Output<String>,
+        pub router: pulumi_gestalt_rust::Output<String>,
         /// The name of the Nat service in which this address will be configured.
         ///
         ///
         /// - - -
-        pub router_nat: pulumi_wasm_rust::Output<String>,
+        pub router_nat: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouterNatAddressArgs,
     ) -> RouterNatAddressResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let drain_nat_ips_binding = args.drain_nat_ips.get_output(context).get_inner();
         let nat_ips_binding = args.nat_ips.get_output(context).get_inner();
@@ -144,16 +144,22 @@ pub mod router_nat_address {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouterNatAddressResult {
-            drain_nat_ips: pulumi_wasm_rust::__private::into_domain(
+            drain_nat_ips: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("drainNatIps"),
             ),
-            nat_ips: pulumi_wasm_rust::__private::into_domain(o.extract_field("natIps")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            nat_ips: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("natIps"),
+            ),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            router: pulumi_wasm_rust::__private::into_domain(o.extract_field("router")),
-            router_nat: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            router: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("router"),
+            ),
+            router_nat: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routerNat"),
             ),
         }

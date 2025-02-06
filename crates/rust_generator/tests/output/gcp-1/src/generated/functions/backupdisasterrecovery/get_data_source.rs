@@ -1,59 +1,61 @@
 pub mod get_data_source {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDataSourceArgs {
         #[builder(into)]
-        pub backup_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub backup_vault_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub data_source_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_source_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub project: pulumi_wasm_rust::InputOrOutput<String>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetDataSourceResult {
-        pub backup_config_infos: pulumi_wasm_rust::Output<
+        pub backup_config_infos: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::backupdisasterrecovery::GetDataSourceBackupConfigInfo,
             >,
         >,
-        pub backup_count: pulumi_wasm_rust::Output<String>,
-        pub backup_vault_id: pulumi_wasm_rust::Output<String>,
-        pub config_state: pulumi_wasm_rust::Output<String>,
-        pub create_time: pulumi_wasm_rust::Output<String>,
-        pub data_source_backup_appliance_applications: pulumi_wasm_rust::Output<
+        pub backup_count: pulumi_gestalt_rust::Output<String>,
+        pub backup_vault_id: pulumi_gestalt_rust::Output<String>,
+        pub config_state: pulumi_gestalt_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
+        pub data_source_backup_appliance_applications: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::backupdisasterrecovery::GetDataSourceDataSourceBackupApplianceApplication,
             >,
         >,
-        pub data_source_gcp_resources: pulumi_wasm_rust::Output<
+        pub data_source_gcp_resources: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::backupdisasterrecovery::GetDataSourceDataSourceGcpResource,
             >,
         >,
-        pub data_source_id: pulumi_wasm_rust::Output<String>,
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub data_source_id: pulumi_gestalt_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub labels: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
-        pub state: pulumi_wasm_rust::Output<String>,
-        pub total_stored_bytes: pulumi_wasm_rust::Output<String>,
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub labels: pulumi_gestalt_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
+        pub total_stored_bytes: pulumi_gestalt_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetDataSourceArgs,
     ) -> GetDataSourceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_vault_id_binding = args
             .backup_vault_id
@@ -86,45 +88,47 @@ pub mod get_data_source {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetDataSourceResult {
-            backup_config_infos: pulumi_wasm_rust::__private::into_domain(
+            backup_config_infos: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupConfigInfos"),
             ),
-            backup_count: pulumi_wasm_rust::__private::into_domain(
+            backup_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupCount"),
             ),
-            backup_vault_id: pulumi_wasm_rust::__private::into_domain(
+            backup_vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupVaultId"),
             ),
-            config_state: pulumi_wasm_rust::__private::into_domain(
+            config_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configState"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            data_source_backup_appliance_applications: pulumi_wasm_rust::__private::into_domain(
+            data_source_backup_appliance_applications: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSourceBackupApplianceApplications"),
             ),
-            data_source_gcp_resources: pulumi_wasm_rust::__private::into_domain(
+            data_source_gcp_resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSourceGcpResources"),
             ),
-            data_source_id: pulumi_wasm_rust::__private::into_domain(
+            data_source_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSourceId"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            total_stored_bytes: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            total_stored_bytes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("totalStoredBytes"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

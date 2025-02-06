@@ -106,60 +106,60 @@
 /// ```
 ///
 pub mod managed_storage_account_sas_token_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedStorageAccountSasTokenDefinitionArgs {
         /// The ID of the Managed Storage Account.
         #[builder(into)]
-        pub managed_storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub managed_storage_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this SAS Definition.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
         #[builder(into)]
-        pub sas_template_uri: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sas_template_uri: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
         #[builder(into)]
-        pub sas_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sas_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         #[builder(into)]
-        pub validity_period: pulumi_wasm_rust::InputOrOutput<String>,
+        pub validity_period: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ManagedStorageAccountSasTokenDefinitionResult {
         /// The ID of the Managed Storage Account.
-        pub managed_storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub managed_storage_account_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this SAS Definition.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period.
-        pub sas_template_uri: pulumi_wasm_rust::Output<String>,
+        pub sas_template_uri: pulumi_gestalt_rust::Output<String>,
         /// The type of SAS token the SAS definition will create. Possible values are `account` and `service`.
-        pub sas_type: pulumi_wasm_rust::Output<String>,
+        pub sas_type: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Secret that is created by Managed Storage Account SAS Definition.
-        pub secret_id: pulumi_wasm_rust::Output<String>,
+        pub secret_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
-        pub validity_period: pulumi_wasm_rust::Output<String>,
+        pub validity_period: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ManagedStorageAccountSasTokenDefinitionArgs,
     ) -> ManagedStorageAccountSasTokenDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let managed_storage_account_id_binding = args
             .managed_storage_account_id
@@ -210,21 +210,21 @@ pub mod managed_storage_account_sas_token_definition {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ManagedStorageAccountSasTokenDefinitionResult {
-            managed_storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            managed_storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedStorageAccountId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            sas_template_uri: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            sas_template_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sasTemplateUri"),
             ),
-            sas_type: pulumi_wasm_rust::__private::into_domain(
+            sas_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sasType"),
             ),
-            secret_id: pulumi_wasm_rust::__private::into_domain(
+            secret_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secretId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            validity_period: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            validity_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validityPeriod"),
             ),
         }

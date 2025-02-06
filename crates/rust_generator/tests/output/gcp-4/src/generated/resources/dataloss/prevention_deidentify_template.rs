@@ -15,8 +15,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = prevention_deidentify_template::create(
@@ -94,8 +94,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = prevention_deidentify_template::create(
@@ -153,71 +153,71 @@
 /// ```
 ///
 pub mod prevention_deidentify_template {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PreventionDeidentifyTemplateArgs {
         /// Configuration of the deidentify template
         /// Structure is documented below.
         #[builder(into)]
-        pub deidentify_config: pulumi_wasm_rust::InputOrOutput<
+        pub deidentify_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::dataloss::PreventionDeidentifyTemplateDeidentifyConfig,
         >,
         /// A description of the template.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User set display name of the template.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The parent of the template in any of the following formats:
         /// * `projects/{{project}}`
         /// * `projects/{{project}}/locations/{{location}}`
         /// * `organizations/{{organization_id}}`
         /// * `organizations/{{organization_id}}/locations/{{location}}`
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The template id can contain uppercase and lowercase letters, numbers, and hyphens; that is, it must match the regular
         /// expression: [a-zA-Z\d-_]+. The maximum length is 100 characters. Can be empty to allow the system to generate one.
         #[builder(into, default)]
-        pub template_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub template_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PreventionDeidentifyTemplateResult {
         /// The creation timestamp of an deidentifyTemplate. Set by the server.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Configuration of the deidentify template
         /// Structure is documented below.
-        pub deidentify_config: pulumi_wasm_rust::Output<
+        pub deidentify_config: pulumi_gestalt_rust::Output<
             super::super::types::dataloss::PreventionDeidentifyTemplateDeidentifyConfig,
         >,
         /// A description of the template.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// User set display name of the template.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource name of the template. Set by the server.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The parent of the template in any of the following formats:
         /// * `projects/{{project}}`
         /// * `projects/{{project}}/locations/{{location}}`
         /// * `organizations/{{organization_id}}`
         /// * `organizations/{{organization_id}}/locations/{{location}}`
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// The template id can contain uppercase and lowercase letters, numbers, and hyphens; that is, it must match the regular
         /// expression: [a-zA-Z\d-_]+. The maximum length is 100 characters. Can be empty to allow the system to generate one.
-        pub template_id: pulumi_wasm_rust::Output<String>,
+        pub template_id: pulumi_gestalt_rust::Output<String>,
         /// The last update timestamp of an deidentifyTemplate. Set by the server.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PreventionDeidentifyTemplateArgs,
     ) -> PreventionDeidentifyTemplateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let deidentify_config_binding = args
             .deidentify_config
@@ -257,24 +257,26 @@ pub mod prevention_deidentify_template {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PreventionDeidentifyTemplateResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            deidentify_config: pulumi_wasm_rust::__private::into_domain(
+            deidentify_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deidentifyConfig"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            template_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            template_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("templateId"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

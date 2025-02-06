@@ -1,54 +1,54 @@
 pub mod rubber_tree {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RubberTreeArgs {
         #[builder(into, default)]
-        pub container: pulumi_wasm_rust::InputOrOutput<
+        pub container: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::super::types::Container>,
         >,
         #[builder(into)]
-        pub diameter: pulumi_wasm_rust::InputOrOutput<
+        pub diameter: pulumi_gestalt_rust::InputOrOutput<
             super::super::super::types::tree::v1::Diameter,
         >,
         #[builder(into, default)]
-        pub farm: pulumi_wasm_rust::InputOrOutput<
+        pub farm: pulumi_gestalt_rust::InputOrOutput<
             Option<
-                pulumi_wasm_rust::OneOf2<
+                pulumi_gestalt_rust::OneOf2<
                     super::super::super::types::tree::v1::Farm,
                     String,
                 >,
             >,
         >,
         #[builder(into, default)]
-        pub size: pulumi_wasm_rust::InputOrOutput<
+        pub size: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::super::types::tree::v1::TreeSize>,
         >,
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<
+        pub type_: pulumi_gestalt_rust::InputOrOutput<
             super::super::super::types::tree::v1::RubberTreeVariety,
         >,
     }
     #[allow(dead_code)]
     pub struct RubberTreeResult {
-        pub container: pulumi_wasm_rust::Output<
+        pub container: pulumi_gestalt_rust::Output<
             Option<super::super::super::types::Container>,
         >,
-        pub diameter: pulumi_wasm_rust::Output<
+        pub diameter: pulumi_gestalt_rust::Output<
             super::super::super::types::tree::v1::Diameter,
         >,
-        pub farm: pulumi_wasm_rust::Output<
+        pub farm: pulumi_gestalt_rust::Output<
             Option<
-                pulumi_wasm_rust::OneOf2<
+                pulumi_gestalt_rust::OneOf2<
                     super::super::super::types::tree::v1::Farm,
                     String,
                 >,
             >,
         >,
-        pub size: pulumi_wasm_rust::Output<
+        pub size: pulumi_gestalt_rust::Output<
             Option<super::super::super::types::tree::v1::TreeSize>,
         >,
-        pub type_: pulumi_wasm_rust::Output<
+        pub type_: pulumi_gestalt_rust::Output<
             super::super::super::types::tree::v1::RubberTreeVariety,
         >,
     }
@@ -57,11 +57,11 @@ pub mod rubber_tree {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RubberTreeArgs,
     ) -> RubberTreeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let container_binding = args.container.get_output(context).get_inner();
         let diameter_binding = args.diameter.get_output(context).get_inner();
@@ -97,15 +97,15 @@ pub mod rubber_tree {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RubberTreeResult {
-            container: pulumi_wasm_rust::__private::into_domain(
+            container: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("container"),
             ),
-            diameter: pulumi_wasm_rust::__private::into_domain(
+            diameter: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diameter"),
             ),
-            farm: pulumi_wasm_rust::__private::into_domain(o.extract_field("farm")),
-            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            farm: pulumi_gestalt_rust::__private::into_domain(o.extract_field("farm")),
+            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

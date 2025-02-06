@@ -64,39 +64,39 @@
 /// $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
 /// ```
 pub mod event_stream {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventStreamArgs {
         /// The application ID.
         #[builder(into)]
-        pub application_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
         #[builder(into)]
-        pub destination_stream_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination_stream_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EventStreamResult {
         /// The application ID.
-        pub application_id: pulumi_wasm_rust::Output<String>,
+        pub application_id: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
-        pub destination_stream_arn: pulumi_wasm_rust::Output<String>,
+        pub destination_stream_arn: pulumi_gestalt_rust::Output<String>,
         /// The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EventStreamArgs,
     ) -> EventStreamResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_id_binding = args.application_id.get_output(context).get_inner();
         let destination_stream_arn_binding = args
@@ -125,13 +125,13 @@ pub mod event_stream {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EventStreamResult {
-            application_id: pulumi_wasm_rust::__private::into_domain(
+            application_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationId"),
             ),
-            destination_stream_arn: pulumi_wasm_rust::__private::into_domain(
+            destination_stream_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationStreamArn"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
         }

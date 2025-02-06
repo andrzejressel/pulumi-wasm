@@ -1,65 +1,65 @@
 pub mod get_private_cloud {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPrivateCloudArgs {
         /// The name of this Azure VMware Solution Private Cloud.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Azure VMware Solution Private Cloud exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetPrivateCloudResult {
         /// A `circuit` block as defined below.
-        pub circuits: pulumi_wasm_rust::Output<
+        pub circuits: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::avs::GetPrivateCloudCircuit>,
         >,
         /// The endpoint for the VMware HCX Cloud Manager.
-        pub hcx_cloud_manager_endpoint: pulumi_wasm_rust::Output<String>,
+        pub hcx_cloud_manager_endpoint: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Is the Azure VMware Solution Private Cloud connected to the internet?
-        pub internet_connection_enabled: pulumi_wasm_rust::Output<bool>,
+        pub internet_connection_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The Azure Region where the Azure VMware Solution Private Cloud exists.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A `management_cluster` block as defined below.
-        pub management_clusters: pulumi_wasm_rust::Output<
+        pub management_clusters: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::avs::GetPrivateCloudManagementCluster>,
         >,
         /// The network used to access VMware vCenter Server and NSX Manager.
-        pub management_subnet_cidr: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub management_subnet_cidr: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The subnet CIDR of the Azure VMware Solution Private Cloud.
-        pub network_subnet_cidr: pulumi_wasm_rust::Output<String>,
+        pub network_subnet_cidr: pulumi_gestalt_rust::Output<String>,
         /// The thumbprint of the VMware NSX Manager SSL certificate.
-        pub nsxt_certificate_thumbprint: pulumi_wasm_rust::Output<String>,
+        pub nsxt_certificate_thumbprint: pulumi_gestalt_rust::Output<String>,
         /// The endpoint for the VMware NSX Manager.
-        pub nsxt_manager_endpoint: pulumi_wasm_rust::Output<String>,
+        pub nsxt_manager_endpoint: pulumi_gestalt_rust::Output<String>,
         /// The network which isused for virtual machine cold migration, cloning, and snapshot migration.
-        pub provisioning_subnet_cidr: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub provisioning_subnet_cidr: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The Name of the SKU used for this Azure VMware Solution Private Cloud.
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags assigned to the Azure VMware Solution Private Cloud.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// The thumbprint of the VMware vCenter Server SSL certificate.
-        pub vcenter_certificate_thumbprint: pulumi_wasm_rust::Output<String>,
+        pub vcenter_certificate_thumbprint: pulumi_gestalt_rust::Output<String>,
         /// The endpoint for VMware vCenter Server Appliance.
-        pub vcsa_endpoint: pulumi_wasm_rust::Output<String>,
+        pub vcsa_endpoint: pulumi_gestalt_rust::Output<String>,
         /// The network which is used for live migration of virtual machines.
-        pub vmotion_subnet_cidr: pulumi_wasm_rust::Output<String>,
+        pub vmotion_subnet_cidr: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetPrivateCloudArgs,
     ) -> GetPrivateCloudResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -82,52 +82,52 @@ pub mod get_private_cloud {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetPrivateCloudResult {
-            circuits: pulumi_wasm_rust::__private::into_domain(
+            circuits: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("circuits"),
             ),
-            hcx_cloud_manager_endpoint: pulumi_wasm_rust::__private::into_domain(
+            hcx_cloud_manager_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hcxCloudManagerEndpoint"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            internet_connection_enabled: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            internet_connection_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("internetConnectionEnabled"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            management_clusters: pulumi_wasm_rust::__private::into_domain(
+            management_clusters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managementClusters"),
             ),
-            management_subnet_cidr: pulumi_wasm_rust::__private::into_domain(
+            management_subnet_cidr: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managementSubnetCidr"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_subnet_cidr: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_subnet_cidr: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkSubnetCidr"),
             ),
-            nsxt_certificate_thumbprint: pulumi_wasm_rust::__private::into_domain(
+            nsxt_certificate_thumbprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nsxtCertificateThumbprint"),
             ),
-            nsxt_manager_endpoint: pulumi_wasm_rust::__private::into_domain(
+            nsxt_manager_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nsxtManagerEndpoint"),
             ),
-            provisioning_subnet_cidr: pulumi_wasm_rust::__private::into_domain(
+            provisioning_subnet_cidr: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("provisioningSubnetCidr"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            vcenter_certificate_thumbprint: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            vcenter_certificate_thumbprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vcenterCertificateThumbprint"),
             ),
-            vcsa_endpoint: pulumi_wasm_rust::__private::into_domain(
+            vcsa_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vcsaEndpoint"),
             ),
-            vmotion_subnet_cidr: pulumi_wasm_rust::__private::into_domain(
+            vmotion_subnet_cidr: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vmotionSubnetCidr"),
             ),
         }

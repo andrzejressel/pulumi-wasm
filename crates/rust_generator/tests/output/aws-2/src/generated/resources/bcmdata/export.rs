@@ -41,37 +41,37 @@
 /// $ pulumi import aws:bcmdata/export:Export example arn:aws:bcm-data-exports:us-east-1:123456789012:export/CostUsageReport-9f1c75f3-f982-4d9a-b936-1e7ecab814b7
 /// ```
 pub mod export {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExportArgs {
         /// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
         #[builder(into, default)]
-        pub export: pulumi_wasm_rust::InputOrOutput<
+        pub export: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bcmdata::ExportExport>,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bcmdata::ExportTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct ExportResult {
         /// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-        pub export: pulumi_wasm_rust::Output<
+        pub export: pulumi_gestalt_rust::Output<
             Option<super::super::types::bcmdata::ExportExport>,
         >,
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::bcmdata::ExportTimeouts>,
         >,
     }
@@ -80,11 +80,11 @@ pub mod export {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ExportArgs,
     ) -> ExportResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let export_binding = args.export.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();
@@ -110,12 +110,14 @@ pub mod export {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ExportResult {
-            export: pulumi_wasm_rust::__private::into_domain(o.extract_field("export")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            export: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("export"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

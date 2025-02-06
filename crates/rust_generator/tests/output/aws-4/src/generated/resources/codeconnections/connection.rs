@@ -7,8 +7,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = connection::create(
@@ -29,51 +29,51 @@
 /// $ pulumi import aws:codeconnections/connection:Connection test-connection arn:aws:codeconnections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
 /// ```
 pub mod connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionArgs {
         /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
         #[builder(into, default)]
-        pub host_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub host_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the external provider where your third-party code repository is configured. Changing `provider_type` will create a new resource. Conflicts with `host_arn`.
         #[builder(into, default)]
-        pub provider_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub provider_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::codeconnections::ConnectionTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct ConnectionResult {
         /// The codeconnections connection ARN.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-        pub connection_status: pulumi_wasm_rust::Output<String>,
+        pub connection_status: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
-        pub host_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub host_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub owner_account_id: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub owner_account_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the external provider where your third-party code repository is configured. Changing `provider_type` will create a new resource. Conflicts with `host_arn`.
-        pub provider_type: pulumi_wasm_rust::Output<String>,
+        pub provider_type: pulumi_gestalt_rust::Output<String>,
         /// Map of key-value resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::codeconnections::ConnectionTimeouts>,
         >,
     }
@@ -82,11 +82,11 @@ pub mod connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectionArgs,
     ) -> ConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let host_arn_binding = args.host_arn.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -122,25 +122,25 @@ pub mod connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            connection_status: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            connection_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionStatus"),
             ),
-            host_arn: pulumi_wasm_rust::__private::into_domain(
+            host_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostArn"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner_account_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerAccountId"),
             ),
-            provider_type: pulumi_wasm_rust::__private::into_domain(
+            provider_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("providerType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

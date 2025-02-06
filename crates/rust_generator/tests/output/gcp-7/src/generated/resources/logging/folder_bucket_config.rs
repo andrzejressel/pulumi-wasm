@@ -7,8 +7,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = folder_bucket_config::create(
@@ -50,75 +50,75 @@
 /// ```
 ///
 pub mod folder_bucket_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FolderBucketConfigArgs {
         /// The name of the logging bucket. Logging automatically creates two log buckets: `_Required` and `_Default`.
         #[builder(into)]
-        pub bucket_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The CMEK settings of the log bucket. If present, new log entries written to this log bucket are encrypted using the CMEK
         /// key provided in this configuration. If a log bucket has CMEK settings, the CMEK settings cannot be disabled later by
         /// updating the log bucket. Changing the KMS key is allowed.
         #[builder(into, default)]
-        pub cmek_settings: pulumi_wasm_rust::InputOrOutput<
+        pub cmek_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::logging::FolderBucketConfigCmekSettings>,
         >,
         /// Describes this bucket.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The parent resource that contains the logging bucket.
         #[builder(into)]
-        pub folder: pulumi_wasm_rust::InputOrOutput<String>,
+        pub folder: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of indexed fields and related configuration data. Structure is documented below.
         #[builder(into, default)]
-        pub index_configs: pulumi_wasm_rust::InputOrOutput<
+        pub index_configs: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::logging::FolderBucketConfigIndexConfig>>,
         >,
         /// The location of the bucket.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Logs will be retained by default for this amount of time, after which they will automatically be deleted. The minimum retention period is 1 day. If this value is set to zero at bucket creation time, the default time of 30 days will be used. Bucket retention can not be increased on buckets outside of projects.
         #[builder(into, default)]
-        pub retention_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub retention_days: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct FolderBucketConfigResult {
         /// The name of the logging bucket. Logging automatically creates two log buckets: `_Required` and `_Default`.
-        pub bucket_id: pulumi_wasm_rust::Output<String>,
+        pub bucket_id: pulumi_gestalt_rust::Output<String>,
         /// The CMEK settings of the log bucket. If present, new log entries written to this log bucket are encrypted using the CMEK
         /// key provided in this configuration. If a log bucket has CMEK settings, the CMEK settings cannot be disabled later by
         /// updating the log bucket. Changing the KMS key is allowed.
-        pub cmek_settings: pulumi_wasm_rust::Output<
+        pub cmek_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::logging::FolderBucketConfigCmekSettings>,
         >,
         /// Describes this bucket.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// The parent resource that contains the logging bucket.
-        pub folder: pulumi_wasm_rust::Output<String>,
+        pub folder: pulumi_gestalt_rust::Output<String>,
         /// A list of indexed fields and related configuration data. Structure is documented below.
-        pub index_configs: pulumi_wasm_rust::Output<
+        pub index_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::logging::FolderBucketConfigIndexConfig>,
         >,
         /// The bucket's lifecycle such as active or deleted. See [LifecycleState](https://cloud.google.com/logging/docs/reference/v2/rest/v2/billingAccounts.buckets#LogBucket.LifecycleState).
-        pub lifecycle_state: pulumi_wasm_rust::Output<String>,
+        pub lifecycle_state: pulumi_gestalt_rust::Output<String>,
         /// The location of the bucket.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the bucket. For example: "folders/my-folder-id/locations/my-location/buckets/my-bucket-id"
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Logs will be retained by default for this amount of time, after which they will automatically be deleted. The minimum retention period is 1 day. If this value is set to zero at bucket creation time, the default time of 30 days will be used. Bucket retention can not be increased on buckets outside of projects.
-        pub retention_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_days: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FolderBucketConfigArgs,
     ) -> FolderBucketConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_id_binding = args.bucket_id.get_output(context).get_inner();
         let cmek_settings_binding = args.cmek_settings.get_output(context).get_inner();
@@ -164,27 +164,29 @@ pub mod folder_bucket_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FolderBucketConfigResult {
-            bucket_id: pulumi_wasm_rust::__private::into_domain(
+            bucket_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bucketId"),
             ),
-            cmek_settings: pulumi_wasm_rust::__private::into_domain(
+            cmek_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cmekSettings"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            folder: pulumi_wasm_rust::__private::into_domain(o.extract_field("folder")),
-            index_configs: pulumi_wasm_rust::__private::into_domain(
+            folder: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("folder"),
+            ),
+            index_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("indexConfigs"),
             ),
-            lifecycle_state: pulumi_wasm_rust::__private::into_domain(
+            lifecycle_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lifecycleState"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            retention_days: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            retention_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionDays"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -60,65 +60,65 @@
 /// ```
 ///
 pub mod probe {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProbeArgs {
         /// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
         #[builder(into, default)]
-        pub interval_in_seconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub interval_in_seconds: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub loadbalancer_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub loadbalancer_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Probe. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         #[builder(into, default)]
-        pub number_of_probes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub number_of_probes: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
         #[builder(into)]
-        pub port: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub port: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
         #[builder(into, default)]
-        pub probe_threshold: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub probe_threshold: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful. Defaults to `Tcp`.
         #[builder(into, default)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
         #[builder(into, default)]
-        pub request_path: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub request_path: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ProbeResult {
         /// The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
-        pub interval_in_seconds: pulumi_wasm_rust::Output<Option<i32>>,
-        pub load_balancer_rules: pulumi_wasm_rust::Output<Vec<String>>,
+        pub interval_in_seconds: pulumi_gestalt_rust::Output<Option<i32>>,
+        pub load_balancer_rules: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created.
-        pub loadbalancer_id: pulumi_wasm_rust::Output<String>,
+        pub loadbalancer_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Probe. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
-        pub number_of_probes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub number_of_probes: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
-        pub port: pulumi_wasm_rust::Output<i32>,
+        pub port: pulumi_gestalt_rust::Output<i32>,
         /// The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from `1` to `100`. The default value is `1`.
-        pub probe_threshold: pulumi_wasm_rust::Output<Option<i32>>,
+        pub probe_threshold: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful. Defaults to `Tcp`.
-        pub protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub protocol: pulumi_gestalt_rust::Output<Option<String>>,
         /// The URI used for requesting health status from the backend endpoint. Required if protocol is set to `Http` or `Https`. Otherwise, it is not allowed.
-        pub request_path: pulumi_wasm_rust::Output<Option<String>>,
+        pub request_path: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProbeArgs,
     ) -> ProbeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let interval_in_seconds_binding = args
             .interval_in_seconds
@@ -181,27 +181,27 @@ pub mod probe {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProbeResult {
-            interval_in_seconds: pulumi_wasm_rust::__private::into_domain(
+            interval_in_seconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("intervalInSeconds"),
             ),
-            load_balancer_rules: pulumi_wasm_rust::__private::into_domain(
+            load_balancer_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancerRules"),
             ),
-            loadbalancer_id: pulumi_wasm_rust::__private::into_domain(
+            loadbalancer_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadbalancerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            number_of_probes: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            number_of_probes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("numberOfProbes"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            probe_threshold: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            probe_threshold: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("probeThreshold"),
             ),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            request_path: pulumi_wasm_rust::__private::into_domain(
+            request_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestPath"),
             ),
         }

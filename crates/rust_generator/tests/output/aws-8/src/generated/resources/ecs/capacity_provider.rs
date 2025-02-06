@@ -36,40 +36,40 @@
 /// $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
 /// ```
 pub mod capacity_provider {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CapacityProviderArgs {
         /// Configuration block for the provider for the ECS auto scaling group. Detailed below.
         #[builder(into)]
-        pub auto_scaling_group_provider: pulumi_wasm_rust::InputOrOutput<
+        pub auto_scaling_group_provider: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::ecs::CapacityProviderAutoScalingGroupProvider,
         >,
         /// Name of the capacity provider.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CapacityProviderResult {
         /// ARN that identifies the capacity provider.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for the provider for the ECS auto scaling group. Detailed below.
-        pub auto_scaling_group_provider: pulumi_wasm_rust::Output<
+        pub auto_scaling_group_provider: pulumi_gestalt_rust::Output<
             super::super::types::ecs::CapacityProviderAutoScalingGroupProvider,
         >,
         /// Name of the capacity provider.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -78,11 +78,11 @@ pub mod capacity_provider {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CapacityProviderArgs,
     ) -> CapacityProviderResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_scaling_group_provider_binding = args
             .auto_scaling_group_provider
@@ -111,13 +111,13 @@ pub mod capacity_provider {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CapacityProviderResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auto_scaling_group_provider: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auto_scaling_group_provider: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoScalingGroupProvider"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

@@ -1,35 +1,35 @@
 pub mod instance_iam_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceIamPolicyArgs {
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub policy_data: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_data: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceIamPolicyResult {
-        pub etag: pulumi_wasm_rust::Output<String>,
-        pub instance_id: pulumi_wasm_rust::Output<String>,
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub policy_data: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub policy_data: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceIamPolicyArgs,
     ) -> InstanceIamPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let instance_id_binding = args.instance_id.get_output(context).get_inner();
         let location_binding = args.location.get_output(context).get_inner();
@@ -60,17 +60,19 @@ pub mod instance_iam_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceIamPolicyResult {
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            policy_data: pulumi_wasm_rust::__private::into_domain(
+            policy_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyData"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

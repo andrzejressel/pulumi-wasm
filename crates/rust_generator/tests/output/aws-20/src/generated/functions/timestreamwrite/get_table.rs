@@ -1,55 +1,55 @@
 pub mod get_table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetTableArgs {
         /// Name of the Timestream database.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the Timestream table.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetTableResult {
         /// ARN that uniquely identifies the table.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Time that table was created.
-        pub creation_time: pulumi_wasm_rust::Output<String>,
+        pub creation_time: pulumi_gestalt_rust::Output<String>,
         /// Name of database.
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Last time table was updated.
-        pub last_updated_time: pulumi_wasm_rust::Output<String>,
+        pub last_updated_time: pulumi_gestalt_rust::Output<String>,
         /// Object containing the following attributes to desribe magnetic store writes.
-        pub magnetic_store_write_properties: pulumi_wasm_rust::Output<
+        pub magnetic_store_write_properties: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::timestreamwrite::GetTableMagneticStoreWriteProperty,
             >,
         >,
         /// Name of the table.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Object containing the following attributes to describe the retention duration for the memory and magnetic stores.
-        pub retention_properties: pulumi_wasm_rust::Output<
+        pub retention_properties: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::timestreamwrite::GetTableRetentionProperty>,
         >,
         /// Object containing the following attributes to describe the schema of the table.
-        pub schemas: pulumi_wasm_rust::Output<
+        pub schemas: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::timestreamwrite::GetTableSchema>,
         >,
         /// Current state of table.
-        pub table_status: pulumi_wasm_rust::Output<String>,
+        pub table_status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetTableArgs,
     ) -> GetTableResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let database_name_binding = args.database_name.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -69,28 +69,28 @@ pub mod get_table {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetTableResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            creation_time: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            creation_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTime"),
             ),
-            database_name: pulumi_wasm_rust::__private::into_domain(
+            database_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseName"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            last_updated_time: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            last_updated_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdatedTime"),
             ),
-            magnetic_store_write_properties: pulumi_wasm_rust::__private::into_domain(
+            magnetic_store_write_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("magneticStoreWriteProperties"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            retention_properties: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            retention_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionProperties"),
             ),
-            schemas: pulumi_wasm_rust::__private::into_domain(
+            schemas: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schemas"),
             ),
-            table_status: pulumi_wasm_rust::__private::into_domain(
+            table_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tableStatus"),
             ),
         }

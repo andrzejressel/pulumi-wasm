@@ -72,8 +72,8 @@
 /// > **Note:** If `role` is set to `roles/owner` and you don't specify a user or service account you have access to in `members`, you can lock yourself out of your organization.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_binding::create(
@@ -90,8 +90,8 @@
 /// With IAM Conditions:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_binding::create(
@@ -115,8 +115,8 @@
 /// ## gcp.organizations.IAMMember
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_member::create(
@@ -133,8 +133,8 @@
 /// With IAM Conditions:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_member::create(
@@ -158,8 +158,8 @@
 /// ## gcp.organizations.IamAuditConfig
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_audit_config::create(
@@ -185,8 +185,8 @@
 /// > **Note:** If `role` is set to `roles/owner` and you don't specify a user or service account you have access to in `members`, you can lock yourself out of your organization.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_binding::create(
@@ -203,8 +203,8 @@
 /// With IAM Conditions:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_binding::create(
@@ -228,8 +228,8 @@
 /// ## gcp.organizations.IAMMember
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_member::create(
@@ -246,8 +246,8 @@
 /// With IAM Conditions:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_member::create(
@@ -271,8 +271,8 @@
 /// ## gcp.organizations.IamAuditConfig
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_audit_config::create(
@@ -320,14 +320,14 @@
 /// ```
 ///
 pub mod iam_member {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IAMMemberArgs {
         /// An [IAM Condition](https://cloud.google.com/iam/docs/conditions-overview) for a given binding.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::InputOrOutput<
+        pub condition: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::organizations::IamMemberCondition>,
         >,
         /// Identities that will be granted the privilege in `role`.
@@ -337,49 +337,49 @@ pub mod iam_member {
         /// * **group:{emailid}**: An email address that represents a Google group. For example, admins@example.com.
         /// * **domain:{domain}**: A G Suite domain (primary, instead of alias) name that represents all the users of that domain. For example, google.com or example.com.
         #[builder(into)]
-        pub member: pulumi_wasm_rust::InputOrOutput<String>,
+        pub member: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The organization id of the target organization.
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub org_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The role that should be applied. Only one
         /// `gcp.organizations.IAMBinding` can be used per role. Note that custom roles must be of the format
         /// `organizations/{{org_id}}/roles/{{role_id}}`.
         #[builder(into)]
-        pub role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IAMMemberResult {
         /// An [IAM Condition](https://cloud.google.com/iam/docs/conditions-overview) for a given binding.
         /// Structure is documented below.
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_gestalt_rust::Output<
             Option<super::super::types::organizations::IamMemberCondition>,
         >,
         /// (Computed) The etag of the organization's IAM policy.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Identities that will be granted the privilege in `role`.
         /// Each entry can have one of the following values:
         /// * **user:{emailid}**: An email address that represents a specific Google account. For example, alice@gmail.com or joe@example.com.
         /// * **serviceAccount:{emailid}**: An email address that represents a service account. For example, my-other-app@appspot.gserviceaccount.com.
         /// * **group:{emailid}**: An email address that represents a Google group. For example, admins@example.com.
         /// * **domain:{domain}**: A G Suite domain (primary, instead of alias) name that represents all the users of that domain. For example, google.com or example.com.
-        pub member: pulumi_wasm_rust::Output<String>,
+        pub member: pulumi_gestalt_rust::Output<String>,
         /// The organization id of the target organization.
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_gestalt_rust::Output<String>,
         /// The role that should be applied. Only one
         /// `gcp.organizations.IAMBinding` can be used per role. Note that custom roles must be of the format
         /// `organizations/{{org_id}}/roles/{{role_id}}`.
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IAMMemberArgs,
     ) -> IAMMemberResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let condition_binding = args.condition.get_output(context).get_inner();
         let member_binding = args.member.get_output(context).get_inner();
@@ -410,13 +410,17 @@ pub mod iam_member {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IAMMemberResult {
-            condition: pulumi_wasm_rust::__private::into_domain(
+            condition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("condition"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            member: pulumi_wasm_rust::__private::into_domain(o.extract_field("member")),
-            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            member: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("member"),
+            ),
+            org_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("orgId"),
+            ),
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
         }
     }
 }

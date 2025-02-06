@@ -6,8 +6,8 @@
 /// ### Basic
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = integration::create(
@@ -103,137 +103,141 @@
 /// -> __Note:__ The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 ///
 pub mod integration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationArgs {
         /// API identifier.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
         #[builder(into, default)]
-        pub connection_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub connection_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
         #[builder(into, default)]
-        pub connection_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub connection_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`. Supported only for WebSocket APIs.
         #[builder(into, default)]
-        pub content_handling_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_handling_strategy: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Credentials required for the integration, if any.
         #[builder(into, default)]
-        pub credentials_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub credentials_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Description of the integration.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Integration's HTTP method. Must be specified if `integration_type` is not `MOCK`.
         #[builder(into, default)]
-        pub integration_method: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub integration_method: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
         #[builder(into, default)]
-        pub integration_subtype: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub integration_subtype: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Integration type of an integration.
         /// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
         #[builder(into)]
-        pub integration_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub integration_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
         /// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
         #[builder(into, default)]
-        pub integration_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub integration_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
         /// Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
         #[builder(into, default)]
-        pub passthrough_behavior: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub passthrough_behavior: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
         #[builder(into, default)]
-        pub payload_format_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub payload_format_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
         /// For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
         /// For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
         #[builder(into, default)]
-        pub request_parameters: pulumi_wasm_rust::InputOrOutput<
+        pub request_parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
         #[builder(into, default)]
-        pub request_templates: pulumi_wasm_rust::InputOrOutput<
+        pub request_templates: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
         #[builder(into, default)]
-        pub response_parameters: pulumi_wasm_rust::InputOrOutput<
+        pub response_parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::apigatewayv2::IntegrationResponseParameter>>,
         >,
         /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
         #[builder(into, default)]
-        pub template_selection_expression: pulumi_wasm_rust::InputOrOutput<
+        pub template_selection_expression: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
         /// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
         /// this provider will only perform drift detection of its value when present in a configuration.
         #[builder(into, default)]
-        pub timeout_milliseconds: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub timeout_milliseconds: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// TLS configuration for a private integration. Supported only for HTTP APIs.
         #[builder(into, default)]
-        pub tls_config: pulumi_wasm_rust::InputOrOutput<
+        pub tls_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::apigatewayv2::IntegrationTlsConfig>,
         >,
     }
     #[allow(dead_code)]
     pub struct IntegrationResult {
         /// API identifier.
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_gestalt_rust::Output<String>,
         /// ID of the VPC link for a private integration. Supported only for HTTP APIs. Must be between 1 and 1024 characters in length.
-        pub connection_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub connection_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Type of the network connection to the integration endpoint. Valid values: `INTERNET`, `VPC_LINK`. Default is `INTERNET`.
-        pub connection_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub connection_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`. Supported only for WebSocket APIs.
-        pub content_handling_strategy: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_handling_strategy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Credentials required for the integration, if any.
-        pub credentials_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub credentials_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Description of the integration.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Integration's HTTP method. Must be specified if `integration_type` is not `MOCK`.
-        pub integration_method: pulumi_wasm_rust::Output<Option<String>>,
+        pub integration_method: pulumi_gestalt_rust::Output<Option<String>>,
         /// The [integration response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-integration-response-selection-expressions) for the integration.
-        pub integration_response_selection_expression: pulumi_wasm_rust::Output<String>,
+        pub integration_response_selection_expression: pulumi_gestalt_rust::Output<
+            String,
+        >,
         /// AWS service action to invoke. Supported only for HTTP APIs when `integration_type` is `AWS_PROXY`. See the [AWS service integration reference](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-aws-services-reference.html) documentation for supported values. Must be between 1 and 128 characters in length.
-        pub integration_subtype: pulumi_wasm_rust::Output<Option<String>>,
+        pub integration_subtype: pulumi_gestalt_rust::Output<Option<String>>,
         /// Integration type of an integration.
         /// Valid values: `AWS` (supported only for WebSocket APIs), `AWS_PROXY`, `HTTP` (supported only for WebSocket APIs), `HTTP_PROXY`, `MOCK` (supported only for WebSocket APIs). For an HTTP API private integration, use `HTTP_PROXY`.
-        pub integration_type: pulumi_wasm_rust::Output<String>,
+        pub integration_type: pulumi_gestalt_rust::Output<String>,
         /// URI of the Lambda function for a Lambda proxy integration, when `integration_type` is `AWS_PROXY`.
         /// For an `HTTP` integration, specify a fully-qualified URL. For an HTTP API private integration, specify the ARN of an Application Load Balancer listener, Network Load Balancer listener, or AWS Cloud Map service.
-        pub integration_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub integration_uri: pulumi_gestalt_rust::Output<Option<String>>,
         /// Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
         /// Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
-        pub passthrough_behavior: pulumi_wasm_rust::Output<Option<String>>,
+        pub passthrough_behavior: pulumi_gestalt_rust::Output<Option<String>>,
         /// The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
-        pub payload_format_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub payload_format_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
         /// For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
         /// For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
         /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
-        pub request_parameters: pulumi_wasm_rust::Output<
+        pub request_parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of [Velocity](https://velocity.apache.org/) templates that are applied on the request payload based on the value of the Content-Type header sent by the client. Supported only for WebSocket APIs.
-        pub request_templates: pulumi_wasm_rust::Output<
+        pub request_templates: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Mappings to transform the HTTP response from a backend integration before returning the response to clients. Supported only for HTTP APIs.
-        pub response_parameters: pulumi_wasm_rust::Output<
+        pub response_parameters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::apigatewayv2::IntegrationResponseParameter>>,
         >,
         /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration.
-        pub template_selection_expression: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_selection_expression: pulumi_gestalt_rust::Output<Option<String>>,
         /// Custom timeout between 50 and 29,000 milliseconds for WebSocket APIs and between 50 and 30,000 milliseconds for HTTP APIs.
         /// The default timeout is 29 seconds for WebSocket APIs and 30 seconds for HTTP APIs.
         /// this provider will only perform drift detection of its value when present in a configuration.
-        pub timeout_milliseconds: pulumi_wasm_rust::Output<i32>,
+        pub timeout_milliseconds: pulumi_gestalt_rust::Output<i32>,
         /// TLS configuration for a private integration. Supported only for HTTP APIs.
-        pub tls_config: pulumi_wasm_rust::Output<
+        pub tls_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::apigatewayv2::IntegrationTlsConfig>,
         >,
     }
@@ -242,11 +246,11 @@ pub mod integration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IntegrationArgs,
     ) -> IntegrationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_id_binding = args.api_id.get_output(context).get_inner();
         let connection_id_binding = args.connection_id.get_output(context).get_inner();
@@ -389,59 +393,61 @@ pub mod integration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IntegrationResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
-            connection_id: pulumi_wasm_rust::__private::into_domain(
+            api_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiId"),
+            ),
+            connection_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionId"),
             ),
-            connection_type: pulumi_wasm_rust::__private::into_domain(
+            connection_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionType"),
             ),
-            content_handling_strategy: pulumi_wasm_rust::__private::into_domain(
+            content_handling_strategy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentHandlingStrategy"),
             ),
-            credentials_arn: pulumi_wasm_rust::__private::into_domain(
+            credentials_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("credentialsArn"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            integration_method: pulumi_wasm_rust::__private::into_domain(
+            integration_method: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationMethod"),
             ),
-            integration_response_selection_expression: pulumi_wasm_rust::__private::into_domain(
+            integration_response_selection_expression: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationResponseSelectionExpression"),
             ),
-            integration_subtype: pulumi_wasm_rust::__private::into_domain(
+            integration_subtype: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationSubtype"),
             ),
-            integration_type: pulumi_wasm_rust::__private::into_domain(
+            integration_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationType"),
             ),
-            integration_uri: pulumi_wasm_rust::__private::into_domain(
+            integration_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationUri"),
             ),
-            passthrough_behavior: pulumi_wasm_rust::__private::into_domain(
+            passthrough_behavior: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("passthroughBehavior"),
             ),
-            payload_format_version: pulumi_wasm_rust::__private::into_domain(
+            payload_format_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("payloadFormatVersion"),
             ),
-            request_parameters: pulumi_wasm_rust::__private::into_domain(
+            request_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestParameters"),
             ),
-            request_templates: pulumi_wasm_rust::__private::into_domain(
+            request_templates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestTemplates"),
             ),
-            response_parameters: pulumi_wasm_rust::__private::into_domain(
+            response_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("responseParameters"),
             ),
-            template_selection_expression: pulumi_wasm_rust::__private::into_domain(
+            template_selection_expression: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("templateSelectionExpression"),
             ),
-            timeout_milliseconds: pulumi_wasm_rust::__private::into_domain(
+            timeout_milliseconds: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeoutMilliseconds"),
             ),
-            tls_config: pulumi_wasm_rust::__private::into_domain(
+            tls_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tlsConfig"),
             ),
         }

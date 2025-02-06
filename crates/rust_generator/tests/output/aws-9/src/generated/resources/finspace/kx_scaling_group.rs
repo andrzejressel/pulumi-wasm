@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = kx_scaling_group::create(
@@ -29,50 +29,50 @@
 /// $ pulumi import aws:finspace/kxScalingGroup:KxScalingGroup example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-scalinggroup
 /// ```
 pub mod kx_scaling_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KxScalingGroupArgs {
         /// The availability zone identifiers for the requested regions.
         #[builder(into)]
-        pub availability_zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub availability_zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A unique identifier for the kdb environment, where you want to create the scaling group.
         #[builder(into)]
-        pub environment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub environment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub host_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub host_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Unique name for the scaling group that you want to create.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct KxScalingGroupResult {
         /// Amazon Resource Name (ARN) identifier of the KX Scaling Group.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The availability zone identifiers for the requested regions.
-        pub availability_zone_id: pulumi_wasm_rust::Output<String>,
+        pub availability_zone_id: pulumi_gestalt_rust::Output<String>,
         /// The list of Managed kdb clusters that are currently active in the given scaling group.
-        pub clusters: pulumi_wasm_rust::Output<Vec<String>>,
+        pub clusters: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The timestamp at which the scaling group was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.
-        pub created_timestamp: pulumi_wasm_rust::Output<String>,
+        pub created_timestamp: pulumi_gestalt_rust::Output<String>,
         /// A unique identifier for the kdb environment, where you want to create the scaling group.
-        pub environment_id: pulumi_wasm_rust::Output<String>,
+        pub environment_id: pulumi_gestalt_rust::Output<String>,
         /// The memory and CPU capabilities of the scaling group host on which FinSpace Managed kdb clusters will be placed.
         ///
         /// The following arguments are optional:
-        pub host_type: pulumi_wasm_rust::Output<String>,
+        pub host_type: pulumi_gestalt_rust::Output<String>,
         /// Last timestamp at which the scaling group was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        pub last_modified_timestamp: pulumi_wasm_rust::Output<String>,
+        pub last_modified_timestamp: pulumi_gestalt_rust::Output<String>,
         /// Unique name for the scaling group that you want to create.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The status of scaling group.
         /// * `CREATING` – The scaling group creation is in progress.
         /// * `CREATE_FAILED` – The scaling group creation has failed.
@@ -82,15 +82,15 @@ pub mod kx_scaling_group {
         /// * `DELETING` – The scaling group is in the process of being deleted.
         /// * `DELETE_FAILED` – The system failed to delete the scaling group.
         /// * `DELETED` – The scaling group is successfully deleted.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// The error message when a failed state occurs.
-        pub status_reason: pulumi_wasm_rust::Output<String>,
+        pub status_reason: pulumi_gestalt_rust::Output<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -99,11 +99,11 @@ pub mod kx_scaling_group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: KxScalingGroupArgs,
     ) -> KxScalingGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let availability_zone_id_binding = args
             .availability_zone_id
@@ -142,32 +142,34 @@ pub mod kx_scaling_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         KxScalingGroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            availability_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZoneId"),
             ),
-            clusters: pulumi_wasm_rust::__private::into_domain(
+            clusters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusters"),
             ),
-            created_timestamp: pulumi_wasm_rust::__private::into_domain(
+            created_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdTimestamp"),
             ),
-            environment_id: pulumi_wasm_rust::__private::into_domain(
+            environment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environmentId"),
             ),
-            host_type: pulumi_wasm_rust::__private::into_domain(
+            host_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostType"),
             ),
-            last_modified_timestamp: pulumi_wasm_rust::__private::into_domain(
+            last_modified_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModifiedTimestamp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            status_reason: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            status_reason: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statusReason"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

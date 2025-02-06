@@ -62,54 +62,54 @@
 /// ```
 ///
 pub mod sql_role_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SqlRoleAssignmentArgs {
         /// The name of the Cosmos DB Account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The GUID as the name of the Cosmos DB SQL Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Principal (Client) in Azure Active Directory. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub principal_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub principal_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group in which the Cosmos DB SQL Role Assignment is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource ID of the Cosmos DB SQL Role Definition.
         #[builder(into)]
-        pub role_definition_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_definition_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The data plane resource path for which access is being granted through this Cosmos DB SQL Role Assignment. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub scope: pulumi_wasm_rust::InputOrOutput<String>,
+        pub scope: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SqlRoleAssignmentResult {
         /// The name of the Cosmos DB Account. Changing this forces a new resource to be created.
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_gestalt_rust::Output<String>,
         /// The GUID as the name of the Cosmos DB SQL Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Principal (Client) in Azure Active Directory. Changing this forces a new resource to be created.
-        pub principal_id: pulumi_wasm_rust::Output<String>,
+        pub principal_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group in which the Cosmos DB SQL Role Assignment is created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The resource ID of the Cosmos DB SQL Role Definition.
-        pub role_definition_id: pulumi_wasm_rust::Output<String>,
+        pub role_definition_id: pulumi_gestalt_rust::Output<String>,
         /// The data plane resource path for which access is being granted through this Cosmos DB SQL Role Assignment. Changing this forces a new resource to be created.
-        pub scope: pulumi_wasm_rust::Output<String>,
+        pub scope: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SqlRoleAssignmentArgs,
     ) -> SqlRoleAssignmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_name_binding = args.account_name.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -156,20 +156,20 @@ pub mod sql_role_assignment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SqlRoleAssignmentResult {
-            account_name: pulumi_wasm_rust::__private::into_domain(
+            account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            principal_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            principal_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principalId"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            role_definition_id: pulumi_wasm_rust::__private::into_domain(
+            role_definition_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleDefinitionId"),
             ),
-            scope: pulumi_wasm_rust::__private::into_domain(o.extract_field("scope")),
+            scope: pulumi_gestalt_rust::__private::into_domain(o.extract_field("scope")),
         }
     }
 }

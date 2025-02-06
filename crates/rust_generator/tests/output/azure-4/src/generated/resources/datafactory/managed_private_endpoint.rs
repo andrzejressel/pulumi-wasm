@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -55,53 +55,53 @@
 /// ```
 ///
 pub mod managed_private_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedPrivateEndpointArgs {
         /// The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Fully qualified domain names. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         #[builder(into, default)]
-        pub fqdns: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub fqdns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub subresource_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subresource_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub target_resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ManagedPrivateEndpointResult {
         /// The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// Fully qualified domain names. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
-        pub fqdns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub fqdns: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
-        pub subresource_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub subresource_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
-        pub target_resource_id: pulumi_wasm_rust::Output<String>,
+        pub target_resource_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ManagedPrivateEndpointArgs,
     ) -> ManagedPrivateEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_factory_id_binding = args
             .data_factory_id
@@ -147,15 +147,15 @@ pub mod managed_private_endpoint {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ManagedPrivateEndpointResult {
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            fqdns: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdns")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            subresource_name: pulumi_wasm_rust::__private::into_domain(
+            fqdns: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdns")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            subresource_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subresourceName"),
             ),
-            target_resource_id: pulumi_wasm_rust::__private::into_domain(
+            target_resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetResourceId"),
             ),
         }

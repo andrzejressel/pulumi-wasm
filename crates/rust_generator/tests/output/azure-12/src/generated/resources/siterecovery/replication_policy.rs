@@ -12,7 +12,7 @@
 /// ```
 ///
 pub mod replication_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReplicationPolicyArgs {
@@ -20,49 +20,49 @@ pub mod replication_policy {
         ///
         /// > **Note:** The value of `application_consistent_snapshot_frequency_in_minutes` must be less than or equal to the value of `recovery_point_retention_in_minutes`.
         #[builder(into)]
-        pub application_consistent_snapshot_frequency_in_minutes: pulumi_wasm_rust::InputOrOutput<
+        pub application_consistent_snapshot_frequency_in_minutes: pulumi_gestalt_rust::InputOrOutput<
             i32,
         >,
         /// The name of the replication policy. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The duration in minutes for which the recovery points need to be stored.
         #[builder(into)]
-        pub recovery_point_retention_in_minutes: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub recovery_point_retention_in_minutes: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The name of the vault that should be updated. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_vault_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub recovery_vault_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ReplicationPolicyResult {
         /// Specifies the frequency(in minutes) at which to create application consistent recovery points.
         ///
         /// > **Note:** The value of `application_consistent_snapshot_frequency_in_minutes` must be less than or equal to the value of `recovery_point_retention_in_minutes`.
-        pub application_consistent_snapshot_frequency_in_minutes: pulumi_wasm_rust::Output<
+        pub application_consistent_snapshot_frequency_in_minutes: pulumi_gestalt_rust::Output<
             i32,
         >,
         /// The name of the replication policy. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The duration in minutes for which the recovery points need to be stored.
-        pub recovery_point_retention_in_minutes: pulumi_wasm_rust::Output<i32>,
+        pub recovery_point_retention_in_minutes: pulumi_gestalt_rust::Output<i32>,
         /// The name of the vault that should be updated. Changing this forces a new resource to be created.
-        pub recovery_vault_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_name: pulumi_gestalt_rust::Output<String>,
         /// Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ReplicationPolicyArgs,
     ) -> ReplicationPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_consistent_snapshot_frequency_in_minutes_binding = args
             .application_consistent_snapshot_frequency_in_minutes
@@ -110,17 +110,17 @@ pub mod replication_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ReplicationPolicyResult {
-            application_consistent_snapshot_frequency_in_minutes: pulumi_wasm_rust::__private::into_domain(
+            application_consistent_snapshot_frequency_in_minutes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationConsistentSnapshotFrequencyInMinutes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            recovery_point_retention_in_minutes: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            recovery_point_retention_in_minutes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryPointRetentionInMinutes"),
             ),
-            recovery_vault_name: pulumi_wasm_rust::__private::into_domain(
+            recovery_vault_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryVaultName"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
         }

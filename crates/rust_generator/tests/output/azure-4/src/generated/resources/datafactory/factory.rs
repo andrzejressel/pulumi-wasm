@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -34,100 +34,102 @@
 /// ```
 ///
 pub mod factory {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FactoryArgs {
         /// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
         #[builder(into, default)]
-        pub customer_managed_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub customer_managed_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
         #[builder(into, default)]
-        pub customer_managed_key_identity_id: pulumi_wasm_rust::InputOrOutput<
+        pub customer_managed_key_identity_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// A `github_configuration` block as defined below.
         #[builder(into, default)]
-        pub github_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub github_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datafactory::FactoryGithubConfiguration>,
         >,
         /// A list of `global_parameter` blocks as defined above.
         #[builder(into, default)]
-        pub global_parameters: pulumi_wasm_rust::InputOrOutput<
+        pub global_parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::datafactory::FactoryGlobalParameter>>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datafactory::FactoryIdentity>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Is Managed Virtual Network enabled?
         #[builder(into, default)]
-        pub managed_virtual_network_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub managed_virtual_network_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Is the Data Factory visible to the public network? Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the ID of the purview account resource associated with the Data Factory.
         #[builder(into, default)]
-        pub purview_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub purview_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `vsts_configuration` block as defined below.
         #[builder(into, default)]
-        pub vsts_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub vsts_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datafactory::FactoryVstsConfiguration>,
         >,
     }
     #[allow(dead_code)]
     pub struct FactoryResult {
         /// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
-        pub customer_managed_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub customer_managed_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set.
-        pub customer_managed_key_identity_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub customer_managed_key_identity_id: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// A `github_configuration` block as defined below.
-        pub github_configuration: pulumi_wasm_rust::Output<
+        pub github_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::datafactory::FactoryGithubConfiguration>,
         >,
         /// A list of `global_parameter` blocks as defined above.
-        pub global_parameters: pulumi_wasm_rust::Output<
+        pub global_parameters: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::datafactory::FactoryGlobalParameter>>,
         >,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::datafactory::FactoryIdentity>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Is Managed Virtual Network enabled?
-        pub managed_virtual_network_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub managed_virtual_network_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Is the Data Factory visible to the public network? Defaults to `true`.
-        pub public_network_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the ID of the purview account resource associated with the Data Factory.
-        pub purview_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub purview_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `vsts_configuration` block as defined below.
-        pub vsts_configuration: pulumi_wasm_rust::Output<
+        pub vsts_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::datafactory::FactoryVstsConfiguration>,
         >,
     }
@@ -136,11 +138,11 @@ pub mod factory {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FactoryArgs,
     ) -> FactoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let customer_managed_key_id_binding = args
             .customer_managed_key_id
@@ -240,39 +242,39 @@ pub mod factory {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FactoryResult {
-            customer_managed_key_id: pulumi_wasm_rust::__private::into_domain(
+            customer_managed_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerManagedKeyId"),
             ),
-            customer_managed_key_identity_id: pulumi_wasm_rust::__private::into_domain(
+            customer_managed_key_identity_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerManagedKeyIdentityId"),
             ),
-            github_configuration: pulumi_wasm_rust::__private::into_domain(
+            github_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("githubConfiguration"),
             ),
-            global_parameters: pulumi_wasm_rust::__private::into_domain(
+            global_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("globalParameters"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            managed_virtual_network_enabled: pulumi_wasm_rust::__private::into_domain(
+            managed_virtual_network_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedVirtualNetworkEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            public_network_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            public_network_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkEnabled"),
             ),
-            purview_id: pulumi_wasm_rust::__private::into_domain(
+            purview_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("purviewId"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            vsts_configuration: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            vsts_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vstsConfiguration"),
             ),
         }

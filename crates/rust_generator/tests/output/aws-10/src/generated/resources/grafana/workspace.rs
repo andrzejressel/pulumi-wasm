@@ -61,118 +61,120 @@
 /// $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
 /// ```
 pub mod workspace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkspaceArgs {
         /// The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
         #[builder(into)]
-        pub account_access_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_access_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         #[builder(into)]
-        pub authentication_providers: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub authentication_providers: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         #[builder(into, default)]
-        pub configuration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub configuration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
         #[builder(into, default)]
-        pub data_sources: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub data_sources: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The workspace description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
         #[builder(into, default)]
-        pub grafana_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub grafana_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Grafana workspace name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration for network access to your workspace.See Network Access Control below.
         #[builder(into, default)]
-        pub network_access_control: pulumi_wasm_rust::InputOrOutput<
+        pub network_access_control: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::grafana::WorkspaceNetworkAccessControl>,
         >,
         /// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
         #[builder(into, default)]
-        pub notification_destinations: pulumi_wasm_rust::InputOrOutput<
+        pub notification_destinations: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The role name that the workspace uses to access resources through Amazon Organizations.
         #[builder(into, default)]
-        pub organization_role_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub organization_role_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
         #[builder(into, default)]
-        pub organizational_units: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub organizational_units: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub permission_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub permission_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The IAM role ARN that the workspace assumes.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         #[builder(into, default)]
-        pub stack_set_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub stack_set_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
         #[builder(into, default)]
-        pub vpc_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::grafana::WorkspaceVpcConfiguration>,
         >,
     }
     #[allow(dead_code)]
     pub struct WorkspaceResult {
         /// The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
-        pub account_access_type: pulumi_wasm_rust::Output<String>,
+        pub account_access_type: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the Grafana workspace.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
-        pub authentication_providers: pulumi_wasm_rust::Output<Vec<String>>,
+        pub authentication_providers: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
-        pub configuration: pulumi_wasm_rust::Output<String>,
+        pub configuration: pulumi_gestalt_rust::Output<String>,
         /// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
-        pub data_sources: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub data_sources: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The workspace description.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The endpoint of the Grafana workspace.
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_gestalt_rust::Output<String>,
         /// Specifies the version of Grafana to support in the new workspace. Supported values are `8.4`, `9.4` and `10.4`. If not specified, defaults to the latest version.
-        pub grafana_version: pulumi_wasm_rust::Output<String>,
+        pub grafana_version: pulumi_gestalt_rust::Output<String>,
         /// The Grafana workspace name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Configuration for network access to your workspace.See Network Access Control below.
-        pub network_access_control: pulumi_wasm_rust::Output<
+        pub network_access_control: pulumi_gestalt_rust::Output<
             Option<super::super::types::grafana::WorkspaceNetworkAccessControl>,
         >,
         /// The notification destinations. If a data source is specified here, Amazon Managed Grafana will create IAM roles and permissions needed to use these destinations. Must be set to `SNS`.
-        pub notification_destinations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub notification_destinations: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The role name that the workspace uses to access resources through Amazon Organizations.
-        pub organization_role_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub organization_role_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Amazon Organizations organizational units that the workspace is authorized to use data sources from.
-        pub organizational_units: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub organizational_units: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The permission type of the workspace. If `SERVICE_MANAGED` is specified, the IAM roles and IAM policy attachments are generated automatically. If `CUSTOMER_MANAGED` is specified, the IAM roles and IAM policy attachments will not be created.
         ///
         /// The following arguments are optional:
-        pub permission_type: pulumi_wasm_rust::Output<String>,
+        pub permission_type: pulumi_gestalt_rust::Output<String>,
         /// The IAM role ARN that the workspace assumes.
-        pub role_arn: pulumi_wasm_rust::Output<Option<String>>,
-        pub saml_configuration_status: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<Option<String>>,
+        pub saml_configuration_status: pulumi_gestalt_rust::Output<String>,
         /// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
-        pub stack_set_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub stack_set_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to. See VPC Configuration below.
-        pub vpc_configuration: pulumi_wasm_rust::Output<
+        pub vpc_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::grafana::WorkspaceVpcConfiguration>,
         >,
     }
@@ -181,11 +183,11 @@ pub mod workspace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkspaceArgs,
     ) -> WorkspaceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_access_type_binding = args
             .account_access_type
@@ -303,58 +305,58 @@ pub mod workspace {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkspaceResult {
-            account_access_type: pulumi_wasm_rust::__private::into_domain(
+            account_access_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountAccessType"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_providers: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            authentication_providers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationProviders"),
             ),
-            configuration: pulumi_wasm_rust::__private::into_domain(
+            configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configuration"),
             ),
-            data_sources: pulumi_wasm_rust::__private::into_domain(
+            data_sources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSources"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            grafana_version: pulumi_wasm_rust::__private::into_domain(
+            grafana_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("grafanaVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_access_control: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_access_control: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkAccessControl"),
             ),
-            notification_destinations: pulumi_wasm_rust::__private::into_domain(
+            notification_destinations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notificationDestinations"),
             ),
-            organization_role_name: pulumi_wasm_rust::__private::into_domain(
+            organization_role_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organizationRoleName"),
             ),
-            organizational_units: pulumi_wasm_rust::__private::into_domain(
+            organizational_units: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organizationalUnits"),
             ),
-            permission_type: pulumi_wasm_rust::__private::into_domain(
+            permission_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissionType"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            saml_configuration_status: pulumi_wasm_rust::__private::into_domain(
+            saml_configuration_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("samlConfigurationStatus"),
             ),
-            stack_set_name: pulumi_wasm_rust::__private::into_domain(
+            stack_set_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stackSetName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vpc_configuration: pulumi_wasm_rust::__private::into_domain(
+            vpc_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcConfiguration"),
             ),
         }

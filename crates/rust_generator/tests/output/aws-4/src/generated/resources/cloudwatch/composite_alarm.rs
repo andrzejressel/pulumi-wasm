@@ -30,72 +30,72 @@
 /// $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
 /// ```
 pub mod composite_alarm {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CompositeAlarmArgs {
         /// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
         #[builder(into, default)]
-        pub actions_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub actions_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Actions will be suppressed if the suppressor alarm is in the ALARM state.
         #[builder(into, default)]
-        pub actions_suppressor: pulumi_wasm_rust::InputOrOutput<
+        pub actions_suppressor: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::CompositeAlarmActionsSuppressor>,
         >,
         /// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         #[builder(into, default)]
-        pub alarm_actions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub alarm_actions: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The description for the composite alarm.
         #[builder(into, default)]
-        pub alarm_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub alarm_description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name for the composite alarm. This name must be unique within the region.
         #[builder(into)]
-        pub alarm_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub alarm_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
         #[builder(into)]
-        pub alarm_rule: pulumi_wasm_rust::InputOrOutput<String>,
+        pub alarm_rule: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         #[builder(into, default)]
-        pub insufficient_data_actions: pulumi_wasm_rust::InputOrOutput<
+        pub insufficient_data_actions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
         #[builder(into, default)]
-        pub ok_actions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub ok_actions: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CompositeAlarmResult {
         /// Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
-        pub actions_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub actions_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Actions will be suppressed if the suppressor alarm is in the ALARM state.
-        pub actions_suppressor: pulumi_wasm_rust::Output<
+        pub actions_suppressor: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudwatch::CompositeAlarmActionsSuppressor>,
         >,
         /// The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        pub alarm_actions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub alarm_actions: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The description for the composite alarm.
-        pub alarm_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub alarm_description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name for the composite alarm. This name must be unique within the region.
-        pub alarm_name: pulumi_wasm_rust::Output<String>,
+        pub alarm_name: pulumi_gestalt_rust::Output<String>,
         /// An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
-        pub alarm_rule: pulumi_wasm_rust::Output<String>,
+        pub alarm_rule: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the composite alarm.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        pub insufficient_data_actions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub insufficient_data_actions: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
-        pub ok_actions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ok_actions: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -104,11 +104,11 @@ pub mod composite_alarm {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CompositeAlarmArgs,
     ) -> CompositeAlarmResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let actions_enabled_binding = args
             .actions_enabled
@@ -176,33 +176,33 @@ pub mod composite_alarm {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CompositeAlarmResult {
-            actions_enabled: pulumi_wasm_rust::__private::into_domain(
+            actions_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actionsEnabled"),
             ),
-            actions_suppressor: pulumi_wasm_rust::__private::into_domain(
+            actions_suppressor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actionsSuppressor"),
             ),
-            alarm_actions: pulumi_wasm_rust::__private::into_domain(
+            alarm_actions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("alarmActions"),
             ),
-            alarm_description: pulumi_wasm_rust::__private::into_domain(
+            alarm_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("alarmDescription"),
             ),
-            alarm_name: pulumi_wasm_rust::__private::into_domain(
+            alarm_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("alarmName"),
             ),
-            alarm_rule: pulumi_wasm_rust::__private::into_domain(
+            alarm_rule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("alarmRule"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            insufficient_data_actions: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            insufficient_data_actions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("insufficientDataActions"),
             ),
-            ok_actions: pulumi_wasm_rust::__private::into_domain(
+            ok_actions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("okActions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

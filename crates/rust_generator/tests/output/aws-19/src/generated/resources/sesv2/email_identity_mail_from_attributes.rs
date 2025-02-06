@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = email_identity::create(
@@ -32,39 +32,39 @@
 /// $ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
 /// ```
 pub mod email_identity_mail_from_attributes {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EmailIdentityMailFromAttributesArgs {
         /// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
         #[builder(into, default)]
-        pub behavior_on_mx_failure: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub behavior_on_mx_failure: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The verified email identity.
         #[builder(into)]
-        pub email_identity: pulumi_wasm_rust::InputOrOutput<String>,
+        pub email_identity: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
         #[builder(into, default)]
-        pub mail_from_domain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mail_from_domain: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EmailIdentityMailFromAttributesResult {
         /// The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
-        pub behavior_on_mx_failure: pulumi_wasm_rust::Output<Option<String>>,
+        pub behavior_on_mx_failure: pulumi_gestalt_rust::Output<Option<String>>,
         /// The verified email identity.
-        pub email_identity: pulumi_wasm_rust::Output<String>,
+        pub email_identity: pulumi_gestalt_rust::Output<String>,
         /// The custom MAIL FROM domain that you want the verified identity to use. Required if `behavior_on_mx_failure` is `REJECT_MESSAGE`.
-        pub mail_from_domain: pulumi_wasm_rust::Output<Option<String>>,
+        pub mail_from_domain: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EmailIdentityMailFromAttributesArgs,
     ) -> EmailIdentityMailFromAttributesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let behavior_on_mx_failure_binding = args
             .behavior_on_mx_failure
@@ -97,13 +97,13 @@ pub mod email_identity_mail_from_attributes {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EmailIdentityMailFromAttributesResult {
-            behavior_on_mx_failure: pulumi_wasm_rust::__private::into_domain(
+            behavior_on_mx_failure: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("behaviorOnMxFailure"),
             ),
-            email_identity: pulumi_wasm_rust::__private::into_domain(
+            email_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emailIdentity"),
             ),
-            mail_from_domain: pulumi_wasm_rust::__private::into_domain(
+            mail_from_domain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mailFromDomain"),
             ),
         }

@@ -37,39 +37,39 @@
 /// ```
 ///
 pub mod account_static_website {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountStaticWebsiteArgs {
         /// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
         #[builder(into, default)]
-        pub error404_document: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub error404_document: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html.
         #[builder(into, default)]
-        pub index_document: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub index_document: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Storage Account to set Static Website on. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AccountStaticWebsiteResult {
         /// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
-        pub error404_document: pulumi_wasm_rust::Output<Option<String>>,
+        pub error404_document: pulumi_gestalt_rust::Output<Option<String>>,
         /// The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html.
-        pub index_document: pulumi_wasm_rust::Output<Option<String>>,
+        pub index_document: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Storage Account to set Static Website on. Changing this forces a new resource to be created.
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccountStaticWebsiteArgs,
     ) -> AccountStaticWebsiteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let error404_document_binding = args
             .error404_document
@@ -101,13 +101,13 @@ pub mod account_static_website {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccountStaticWebsiteResult {
-            error404_document: pulumi_wasm_rust::__private::into_domain(
+            error404_document: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("error404Document"),
             ),
-            index_document: pulumi_wasm_rust::__private::into_domain(
+            index_document: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("indexDocument"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
         }

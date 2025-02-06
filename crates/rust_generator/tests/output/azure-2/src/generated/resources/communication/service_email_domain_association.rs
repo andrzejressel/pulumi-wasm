@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -57,34 +57,34 @@
 /// ```
 ///
 pub mod service_email_domain_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceEmailDomainAssociationArgs {
         /// The ID of the Communication Service. Changing this forces a new communication service email domain association to be created.
         #[builder(into)]
-        pub communication_service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub communication_service_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the EMail Service Domain. Changing this forces a new communication service email domain association to be created.
         #[builder(into)]
-        pub email_service_domain_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub email_service_domain_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServiceEmailDomainAssociationResult {
         /// The ID of the Communication Service. Changing this forces a new communication service email domain association to be created.
-        pub communication_service_id: pulumi_wasm_rust::Output<String>,
+        pub communication_service_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the EMail Service Domain. Changing this forces a new communication service email domain association to be created.
-        pub email_service_domain_id: pulumi_wasm_rust::Output<String>,
+        pub email_service_domain_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServiceEmailDomainAssociationArgs,
     ) -> ServiceEmailDomainAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let communication_service_id_binding = args
             .communication_service_id
@@ -112,10 +112,10 @@ pub mod service_email_domain_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServiceEmailDomainAssociationResult {
-            communication_service_id: pulumi_wasm_rust::__private::into_domain(
+            communication_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("communicationServiceId"),
             ),
-            email_service_domain_id: pulumi_wasm_rust::__private::into_domain(
+            email_service_domain_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emailServiceDomainId"),
             ),
         }

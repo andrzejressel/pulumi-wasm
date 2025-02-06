@@ -15,8 +15,8 @@
 /// You can directly supply a topic and ARN by hand in the `topic_arn` property along with the queue ARN:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let userUpdatesSqsTarget = topic_subscription::create(
@@ -33,8 +33,8 @@
 /// Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let userUpdates = topic::create(
@@ -170,98 +170,98 @@
 /// $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
 /// ```
 pub mod topic_subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TopicSubscriptionArgs {
         /// Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
         #[builder(into, default)]
-        pub confirmation_timeout_in_minutes: pulumi_wasm_rust::InputOrOutput<
+        pub confirmation_timeout_in_minutes: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
         #[builder(into, default)]
-        pub delivery_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub delivery_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Endpoint to send data to. The contents vary with the protocol. See details below.
         #[builder(into)]
-        pub endpoint: pulumi_wasm_rust::InputOrOutput<String>,
+        pub endpoint: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
         #[builder(into, default)]
-        pub endpoint_auto_confirms: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub endpoint_auto_confirms: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
         #[builder(into, default)]
-        pub filter_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub filter_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
         #[builder(into, default)]
-        pub filter_policy_scope: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub filter_policy_scope: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         #[builder(into, default)]
-        pub raw_message_delivery: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub raw_message_delivery: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         #[builder(into, default)]
-        pub redrive_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub redrive_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
         #[builder(into, default)]
-        pub replay_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub replay_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         #[builder(into, default)]
-        pub subscription_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subscription_role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN of the SNS topic to subscribe to.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub topic: pulumi_wasm_rust::InputOrOutput<String>,
+        pub topic: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TopicSubscriptionResult {
         /// ARN of the subscription.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
-        pub confirmation_timeout_in_minutes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub confirmation_timeout_in_minutes: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Whether the subscription confirmation request was authenticated.
-        pub confirmation_was_authenticated: pulumi_wasm_rust::Output<bool>,
+        pub confirmation_was_authenticated: pulumi_gestalt_rust::Output<bool>,
         /// JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
-        pub delivery_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub delivery_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Endpoint to send data to. The contents vary with the protocol. See details below.
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_gestalt_rust::Output<String>,
         /// Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
-        pub endpoint_auto_confirms: pulumi_wasm_rust::Output<Option<bool>>,
+        pub endpoint_auto_confirms: pulumi_gestalt_rust::Output<Option<bool>>,
         /// JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
-        pub filter_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub filter_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
-        pub filter_policy_scope: pulumi_wasm_rust::Output<String>,
+        pub filter_policy_scope: pulumi_gestalt_rust::Output<String>,
         /// AWS account ID of the subscription's owner.
-        pub owner_id: pulumi_wasm_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
         /// Whether the subscription has not been confirmed.
-        pub pending_confirmation: pulumi_wasm_rust::Output<bool>,
+        pub pending_confirmation: pulumi_gestalt_rust::Output<bool>,
         /// Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_gestalt_rust::Output<String>,
         /// Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
-        pub raw_message_delivery: pulumi_wasm_rust::Output<Option<bool>>,
+        pub raw_message_delivery: pulumi_gestalt_rust::Output<Option<bool>>,
         /// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
-        pub redrive_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub redrive_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
-        pub replay_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub replay_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
-        pub subscription_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub subscription_role_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of the SNS topic to subscribe to.
         ///
         /// The following arguments are optional:
-        pub topic: pulumi_wasm_rust::Output<String>,
+        pub topic: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TopicSubscriptionArgs,
     ) -> TopicSubscriptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let confirmation_timeout_in_minutes_binding = args
             .confirmation_timeout_in_minutes
@@ -350,50 +350,50 @@ pub mod topic_subscription {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TopicSubscriptionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            confirmation_timeout_in_minutes: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            confirmation_timeout_in_minutes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("confirmationTimeoutInMinutes"),
             ),
-            confirmation_was_authenticated: pulumi_wasm_rust::__private::into_domain(
+            confirmation_was_authenticated: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("confirmationWasAuthenticated"),
             ),
-            delivery_policy: pulumi_wasm_rust::__private::into_domain(
+            delivery_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deliveryPolicy"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            endpoint_auto_confirms: pulumi_wasm_rust::__private::into_domain(
+            endpoint_auto_confirms: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointAutoConfirms"),
             ),
-            filter_policy: pulumi_wasm_rust::__private::into_domain(
+            filter_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filterPolicy"),
             ),
-            filter_policy_scope: pulumi_wasm_rust::__private::into_domain(
+            filter_policy_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filterPolicyScope"),
             ),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            pending_confirmation: pulumi_wasm_rust::__private::into_domain(
+            pending_confirmation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pendingConfirmation"),
             ),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            raw_message_delivery: pulumi_wasm_rust::__private::into_domain(
+            raw_message_delivery: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rawMessageDelivery"),
             ),
-            redrive_policy: pulumi_wasm_rust::__private::into_domain(
+            redrive_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("redrivePolicy"),
             ),
-            replay_policy: pulumi_wasm_rust::__private::into_domain(
+            replay_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replayPolicy"),
             ),
-            subscription_role_arn: pulumi_wasm_rust::__private::into_domain(
+            subscription_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscriptionRoleArn"),
             ),
-            topic: pulumi_wasm_rust::__private::into_domain(o.extract_field("topic")),
+            topic: pulumi_gestalt_rust::__private::into_domain(o.extract_field("topic")),
         }
     }
 }

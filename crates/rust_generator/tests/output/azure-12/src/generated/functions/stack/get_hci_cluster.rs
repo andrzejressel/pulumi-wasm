@@ -1,51 +1,51 @@
 pub mod get_hci_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetHciClusterArgs {
         /// The name of the Azure Stack HCI Cluster.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Azure Stack HCI Cluster exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetHciClusterResult {
         /// The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster.
-        pub automanage_configuration_id: pulumi_wasm_rust::Output<String>,
+        pub automanage_configuration_id: pulumi_gestalt_rust::Output<String>,
         /// The Client ID of the Azure Active Directory used by the Azure Stack HCI Cluster.
-        pub client_id: pulumi_wasm_rust::Output<String>,
+        pub client_id: pulumi_gestalt_rust::Output<String>,
         /// An immutable UUID for the Azure Stack HCI Cluster.
-        pub cloud_id: pulumi_wasm_rust::Output<String>,
+        pub cloud_id: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below.
-        pub identities: pulumi_wasm_rust::Output<
+        pub identities: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::stack::GetHciClusterIdentity>,
         >,
         /// The Azure Region where the Azure Stack HCI Cluster exists.
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The object ID of the Resource Provider Service Principal.
-        pub resource_provider_object_id: pulumi_wasm_rust::Output<String>,
+        pub resource_provider_object_id: pulumi_gestalt_rust::Output<String>,
         /// The region specific Data Path Endpoint of the Azure Stack HCI Cluster.
-        pub service_endpoint: pulumi_wasm_rust::Output<String>,
+        pub service_endpoint: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags assigned to the Azure Stack HCI Cluster.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// The Tenant ID associated with this Managed Service Identity.
-        pub tenant_id: pulumi_wasm_rust::Output<String>,
+        pub tenant_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetHciClusterArgs,
     ) -> GetHciClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -68,34 +68,34 @@ pub mod get_hci_cluster {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetHciClusterResult {
-            automanage_configuration_id: pulumi_wasm_rust::__private::into_domain(
+            automanage_configuration_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automanageConfigurationId"),
             ),
-            client_id: pulumi_wasm_rust::__private::into_domain(
+            client_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientId"),
             ),
-            cloud_id: pulumi_wasm_rust::__private::into_domain(
+            cloud_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudId"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            identities: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identities"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            resource_provider_object_id: pulumi_wasm_rust::__private::into_domain(
+            resource_provider_object_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceProviderObjectId"),
             ),
-            service_endpoint: pulumi_wasm_rust::__private::into_domain(
+            service_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceEndpoint"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tenant_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tenant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tenantId"),
             ),
         }

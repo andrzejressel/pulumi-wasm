@@ -1,11 +1,11 @@
 pub mod get_principal_application_assignments {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPrincipalApplicationAssignmentsArgs {
         /// List of principals assigned to the application. See the `application_assignments` attribute reference below.
         #[builder(into, default)]
-        pub application_assignments: pulumi_wasm_rust::InputOrOutput<
+        pub application_assignments: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::ssoadmin::GetPrincipalApplicationAssignmentsApplicationAssignment,
@@ -14,40 +14,40 @@ pub mod get_principal_application_assignments {
         >,
         /// ARN of the instance of IAM Identity Center.
         #[builder(into)]
-        pub instance_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An identifier for an object in IAM Identity Center, such as a user or group.
         #[builder(into)]
-        pub principal_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub principal_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
         #[builder(into)]
-        pub principal_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub principal_type: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetPrincipalApplicationAssignmentsResult {
         /// List of principals assigned to the application. See the `application_assignments` attribute reference below.
-        pub application_assignments: pulumi_wasm_rust::Output<
+        pub application_assignments: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::super::types::ssoadmin::GetPrincipalApplicationAssignmentsApplicationAssignment,
                 >,
             >,
         >,
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub instance_arn: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub instance_arn: pulumi_gestalt_rust::Output<String>,
         /// An identifier for an object in IAM Identity Center, such as a user or group.
-        pub principal_id: pulumi_wasm_rust::Output<String>,
+        pub principal_id: pulumi_gestalt_rust::Output<String>,
         /// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        pub principal_type: pulumi_wasm_rust::Output<String>,
+        pub principal_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetPrincipalApplicationAssignmentsArgs,
     ) -> GetPrincipalApplicationAssignmentsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_assignments_binding = args
             .application_assignments
@@ -81,17 +81,17 @@ pub mod get_principal_application_assignments {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetPrincipalApplicationAssignmentsResult {
-            application_assignments: pulumi_wasm_rust::__private::into_domain(
+            application_assignments: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationAssignments"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            instance_arn: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            instance_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceArn"),
             ),
-            principal_id: pulumi_wasm_rust::__private::into_domain(
+            principal_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principalId"),
             ),
-            principal_type: pulumi_wasm_rust::__private::into_domain(
+            principal_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principalType"),
             ),
         }

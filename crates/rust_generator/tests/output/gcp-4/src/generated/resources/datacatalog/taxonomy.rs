@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basicTaxonomy = taxonomy::create(
@@ -41,7 +41,7 @@
 /// ```
 ///
 pub mod taxonomy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TaxonomyArgs {
@@ -49,12 +49,14 @@ pub mod taxonomy {
         /// defaults to an empty list.
         /// Each value may be one of: `POLICY_TYPE_UNSPECIFIED`, `FINE_GRAINED_ACCESS_CONTROL`.
         #[builder(into, default)]
-        pub activated_policy_types: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub activated_policy_types: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Description of this taxonomy. It must: contain only unicode characters,
         /// tabs, newlines, carriage returns and page breaks; and be at most 2000 bytes
         /// long when encoded in UTF-8. If not set, defaults to an empty description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User defined name of this taxonomy.
         /// The taxonomy display name must be unique within an organization.
         /// It must: contain only unicode letters, numbers, underscores, dashes
@@ -64,25 +66,25 @@ pub mod taxonomy {
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Taxonomy location region.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TaxonomyResult {
         /// A list of policy types that are activated for this taxonomy. If not set,
         /// defaults to an empty list.
         /// Each value may be one of: `POLICY_TYPE_UNSPECIFIED`, `FINE_GRAINED_ACCESS_CONTROL`.
-        pub activated_policy_types: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub activated_policy_types: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Description of this taxonomy. It must: contain only unicode characters,
         /// tabs, newlines, carriage returns and page breaks; and be at most 2000 bytes
         /// long when encoded in UTF-8. If not set, defaults to an empty description.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// User defined name of this taxonomy.
         /// The taxonomy display name must be unique within an organization.
         /// It must: contain only unicode letters, numbers, underscores, dashes
@@ -91,26 +93,26 @@ pub mod taxonomy {
         ///
         ///
         /// - - -
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// Resource name of this taxonomy, whose format is:
         /// "projects/{project}/locations/{region}/taxonomies/{taxonomy}".
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Taxonomy location region.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TaxonomyArgs,
     ) -> TaxonomyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let activated_policy_types_binding = args
             .activated_policy_types
@@ -149,20 +151,22 @@ pub mod taxonomy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TaxonomyResult {
-            activated_policy_types: pulumi_wasm_rust::__private::into_domain(
+            activated_policy_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activatedPolicyTypes"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
         }
     }
 }

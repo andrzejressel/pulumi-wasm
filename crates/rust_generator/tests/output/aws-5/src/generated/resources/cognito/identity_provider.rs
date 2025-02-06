@@ -34,62 +34,62 @@
 /// $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
 /// ```
 pub mod identity_provider {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IdentityProviderArgs {
         /// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
         #[builder(into, default)]
-        pub attribute_mapping: pulumi_wasm_rust::InputOrOutput<
+        pub attribute_mapping: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The list of identity providers.
         #[builder(into, default)]
-        pub idp_identifiers: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub idp_identifiers: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The map of identity details, such as access token
         #[builder(into)]
-        pub provider_details: pulumi_wasm_rust::InputOrOutput<
+        pub provider_details: pulumi_gestalt_rust::InputOrOutput<
             std::collections::HashMap<String, String>,
         >,
         /// The provider name
         #[builder(into)]
-        pub provider_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub provider_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
         #[builder(into)]
-        pub provider_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub provider_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The user pool id
         #[builder(into)]
-        pub user_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_pool_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IdentityProviderResult {
         /// The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
-        pub attribute_mapping: pulumi_wasm_rust::Output<
+        pub attribute_mapping: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The list of identity providers.
-        pub idp_identifiers: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub idp_identifiers: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The map of identity details, such as access token
-        pub provider_details: pulumi_wasm_rust::Output<
+        pub provider_details: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The provider name
-        pub provider_name: pulumi_wasm_rust::Output<String>,
+        pub provider_name: pulumi_gestalt_rust::Output<String>,
         /// The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
-        pub provider_type: pulumi_wasm_rust::Output<String>,
+        pub provider_type: pulumi_gestalt_rust::Output<String>,
         /// The user pool id
-        pub user_pool_id: pulumi_wasm_rust::Output<String>,
+        pub user_pool_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IdentityProviderArgs,
     ) -> IdentityProviderResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let attribute_mapping_binding = args
             .attribute_mapping
@@ -139,22 +139,22 @@ pub mod identity_provider {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IdentityProviderResult {
-            attribute_mapping: pulumi_wasm_rust::__private::into_domain(
+            attribute_mapping: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attributeMapping"),
             ),
-            idp_identifiers: pulumi_wasm_rust::__private::into_domain(
+            idp_identifiers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("idpIdentifiers"),
             ),
-            provider_details: pulumi_wasm_rust::__private::into_domain(
+            provider_details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("providerDetails"),
             ),
-            provider_name: pulumi_wasm_rust::__private::into_domain(
+            provider_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("providerName"),
             ),
-            provider_type: pulumi_wasm_rust::__private::into_domain(
+            provider_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("providerType"),
             ),
-            user_pool_id: pulumi_wasm_rust::__private::into_domain(
+            user_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userPoolId"),
             ),
         }

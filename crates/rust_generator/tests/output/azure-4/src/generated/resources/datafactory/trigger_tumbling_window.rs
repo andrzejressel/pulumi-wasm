@@ -62,61 +62,61 @@
 /// ```
 ///
 pub mod trigger_tumbling_window {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TriggerTumblingWindowArgs {
         /// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
         #[builder(into, default)]
-        pub activated: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub activated: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
         #[builder(into, default)]
-        pub additional_properties: pulumi_wasm_rust::InputOrOutput<
+        pub additional_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`.
         #[builder(into, default)]
-        pub delay: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub delay: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description for the Data Factory Tumbling Window Trigger.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
         #[builder(into, default)]
-        pub end_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub end_time: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
         #[builder(into)]
-        pub frequency: pulumi_wasm_rust::InputOrOutput<String>,
+        pub frequency: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the interval of Tumbling Window. Changing this forces a new resource.
         #[builder(into)]
-        pub interval: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub interval: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
         #[builder(into, default)]
-        pub max_concurrency: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_concurrency: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `pipeline` block as defined below.
         #[builder(into)]
-        pub pipeline: pulumi_wasm_rust::InputOrOutput<
+        pub pipeline: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::datafactory::TriggerTumblingWindowPipeline,
         >,
         /// A `retry` block as defined below.
         #[builder(into, default)]
-        pub retry: pulumi_wasm_rust::InputOrOutput<
+        pub retry: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datafactory::TriggerTumblingWindowRetry>,
         >,
         /// Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
         #[builder(into)]
-        pub start_time: pulumi_wasm_rust::InputOrOutput<String>,
+        pub start_time: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more `trigger_dependency` block as defined below.
         #[builder(into, default)]
-        pub trigger_dependencies: pulumi_wasm_rust::InputOrOutput<
+        pub trigger_dependencies: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::datafactory::TriggerTumblingWindowTriggerDependency,
@@ -127,41 +127,41 @@ pub mod trigger_tumbling_window {
     #[allow(dead_code)]
     pub struct TriggerTumblingWindowResult {
         /// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
-        pub activated: pulumi_wasm_rust::Output<Option<bool>>,
+        pub activated: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A map of additional properties to associate with the Data Factory Tumbling Window Trigger.
-        pub additional_properties: pulumi_wasm_rust::Output<
+        pub additional_properties: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Tumbling Window Trigger.
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`.
-        pub delay: pulumi_wasm_rust::Output<Option<String>>,
+        pub delay: pulumi_gestalt_rust::Output<Option<String>>,
         /// The description for the Data Factory Tumbling Window Trigger.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the end time of Tumbling Window, formatted as an RFC3339 string.
-        pub end_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub end_time: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource.
-        pub frequency: pulumi_wasm_rust::Output<String>,
+        pub frequency: pulumi_gestalt_rust::Output<String>,
         /// Specifies the interval of Tumbling Window. Changing this forces a new resource.
-        pub interval: pulumi_wasm_rust::Output<i32>,
+        pub interval: pulumi_gestalt_rust::Output<i32>,
         /// The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`.
-        pub max_concurrency: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_concurrency: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `pipeline` block as defined below.
-        pub pipeline: pulumi_wasm_rust::Output<
+        pub pipeline: pulumi_gestalt_rust::Output<
             super::super::types::datafactory::TriggerTumblingWindowPipeline,
         >,
         /// A `retry` block as defined below.
-        pub retry: pulumi_wasm_rust::Output<
+        pub retry: pulumi_gestalt_rust::Output<
             Option<super::super::types::datafactory::TriggerTumblingWindowRetry>,
         >,
         /// Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource.
-        pub start_time: pulumi_wasm_rust::Output<String>,
+        pub start_time: pulumi_gestalt_rust::Output<String>,
         /// One or more `trigger_dependency` block as defined below.
-        pub trigger_dependencies: pulumi_wasm_rust::Output<
+        pub trigger_dependencies: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::datafactory::TriggerTumblingWindowTriggerDependency,
@@ -174,11 +174,11 @@ pub mod trigger_tumbling_window {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TriggerTumblingWindowArgs,
     ) -> TriggerTumblingWindowResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let activated_binding = args.activated.get_output(context).get_inner();
         let additional_properties_binding = args
@@ -277,43 +277,43 @@ pub mod trigger_tumbling_window {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TriggerTumblingWindowResult {
-            activated: pulumi_wasm_rust::__private::into_domain(
+            activated: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activated"),
             ),
-            additional_properties: pulumi_wasm_rust::__private::into_domain(
+            additional_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalProperties"),
             ),
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            delay: pulumi_wasm_rust::__private::into_domain(o.extract_field("delay")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            delay: pulumi_gestalt_rust::__private::into_domain(o.extract_field("delay")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            end_time: pulumi_wasm_rust::__private::into_domain(
+            end_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endTime"),
             ),
-            frequency: pulumi_wasm_rust::__private::into_domain(
+            frequency: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frequency"),
             ),
-            interval: pulumi_wasm_rust::__private::into_domain(
+            interval: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("interval"),
             ),
-            max_concurrency: pulumi_wasm_rust::__private::into_domain(
+            max_concurrency: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxConcurrency"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            pipeline: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            pipeline: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipeline"),
             ),
-            retry: pulumi_wasm_rust::__private::into_domain(o.extract_field("retry")),
-            start_time: pulumi_wasm_rust::__private::into_domain(
+            retry: pulumi_gestalt_rust::__private::into_domain(o.extract_field("retry")),
+            start_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startTime"),
             ),
-            trigger_dependencies: pulumi_wasm_rust::__private::into_domain(
+            trigger_dependencies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggerDependencies"),
             ),
         }

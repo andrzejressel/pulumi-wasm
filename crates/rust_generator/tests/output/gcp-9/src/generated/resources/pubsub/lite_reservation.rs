@@ -58,7 +58,7 @@
 /// ```
 ///
 pub mod lite_reservation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LiteReservationArgs {
@@ -67,19 +67,19 @@ pub mod lite_reservation {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region of the pubsub lite reservation.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The reserved throughput capacity. Every unit of throughput capacity is
         /// equivalent to 1 MiB/s of published messages or 2 MiB/s of subscribed
         /// messages.
         #[builder(into)]
-        pub throughput_capacity: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub throughput_capacity: pulumi_gestalt_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct LiteReservationResult {
@@ -87,27 +87,27 @@ pub mod lite_reservation {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The region of the pubsub lite reservation.
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_gestalt_rust::Output<Option<String>>,
         /// The reserved throughput capacity. Every unit of throughput capacity is
         /// equivalent to 1 MiB/s of published messages or 2 MiB/s of subscribed
         /// messages.
-        pub throughput_capacity: pulumi_wasm_rust::Output<i32>,
+        pub throughput_capacity: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LiteReservationArgs,
     ) -> LiteReservationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -141,12 +141,14 @@ pub mod lite_reservation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LiteReservationResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            throughput_capacity: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            throughput_capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("throughputCapacity"),
             ),
         }

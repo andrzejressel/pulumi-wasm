@@ -1,13 +1,13 @@
 [package]
-name = "pulumi_wasm_providers_random"
+name = "pulumi_gestalt_providers_random"
 version.workspace = true
 edition.workspace = true
 
 [dependencies]
-pulumi_wasm_rust.workspace = true
+pulumi_gestalt_rust.workspace = true
 wit-bindgen.workspace = true
 bon.workspace = true
 serde.workspace = true
 
 [build-dependencies]
-pulumi_wasm_build.workspace = true
+pulumi_gestalt_build.workspace = true

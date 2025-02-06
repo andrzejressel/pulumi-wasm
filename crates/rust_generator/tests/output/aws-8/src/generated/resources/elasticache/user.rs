@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = user::create(
@@ -60,81 +60,81 @@
 /// $ pulumi import aws:elasticache/user:User my_user userId1
 /// ```
 pub mod user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserArgs {
         /// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         #[builder(into)]
-        pub access_string: pulumi_wasm_rust::InputOrOutput<String>,
+        pub access_string: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Denotes the user's authentication properties. Detailed below.
         #[builder(into, default)]
-        pub authentication_mode: pulumi_wasm_rust::InputOrOutput<
+        pub authentication_mode: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::elasticache::UserAuthenticationMode>,
         >,
         /// The current supported value is `REDIS`.
         #[builder(into)]
-        pub engine: pulumi_wasm_rust::InputOrOutput<String>,
+        pub engine: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Indicates a password is not required for this user.
         #[builder(into, default)]
-        pub no_password_required: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub no_password_required: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Passwords used for this user. You can create up to two passwords for each user.
         #[builder(into, default)]
-        pub passwords: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub passwords: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A list of tags to be added to this resource. A tag is a key-value pair.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the user.
         #[builder(into)]
-        pub user_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The username of the user.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub user_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserResult {
         /// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
-        pub access_string: pulumi_wasm_rust::Output<String>,
+        pub access_string: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the created ElastiCache User.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Denotes the user's authentication properties. Detailed below.
-        pub authentication_mode: pulumi_wasm_rust::Output<
+        pub authentication_mode: pulumi_gestalt_rust::Output<
             super::super::types::elasticache::UserAuthenticationMode,
         >,
         /// The current supported value is `REDIS`.
-        pub engine: pulumi_wasm_rust::Output<String>,
+        pub engine: pulumi_gestalt_rust::Output<String>,
         /// Indicates a password is not required for this user.
-        pub no_password_required: pulumi_wasm_rust::Output<Option<bool>>,
+        pub no_password_required: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Passwords used for this user. You can create up to two passwords for each user.
-        pub passwords: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub passwords: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A list of tags to be added to this resource. A tag is a key-value pair.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The ID of the user.
-        pub user_id: pulumi_wasm_rust::Output<String>,
+        pub user_id: pulumi_gestalt_rust::Output<String>,
         /// The username of the user.
         ///
         /// The following arguments are optional:
-        pub user_name: pulumi_wasm_rust::Output<String>,
+        pub user_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserArgs,
     ) -> UserResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_string_binding = args.access_string.get_output(context).get_inner();
         let authentication_mode_binding = args
@@ -191,26 +191,30 @@ pub mod user {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserResult {
-            access_string: pulumi_wasm_rust::__private::into_domain(
+            access_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessString"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_mode: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            authentication_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationMode"),
             ),
-            engine: pulumi_wasm_rust::__private::into_domain(o.extract_field("engine")),
-            no_password_required: pulumi_wasm_rust::__private::into_domain(
+            engine: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("engine"),
+            ),
+            no_password_required: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("noPasswordRequired"),
             ),
-            passwords: pulumi_wasm_rust::__private::into_domain(
+            passwords: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("passwords"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            user_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("userId")),
-            user_name: pulumi_wasm_rust::__private::into_domain(
+            user_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("userId"),
+            ),
+            user_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userName"),
             ),
         }

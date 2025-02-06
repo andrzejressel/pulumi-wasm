@@ -264,144 +264,144 @@
 /// ```
 ///
 pub mod vpc_flow_logs_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcFlowLogsConfigArgs {
         /// Optional. The aggregation interval for the logs. Default value is
         /// INTERVAL_5_SEC.   Possible values:  AGGREGATION_INTERVAL_UNSPECIFIED INTERVAL_5_SEC INTERVAL_30_SEC INTERVAL_1_MIN INTERVAL_5_MIN INTERVAL_10_MIN INTERVAL_15_MIN"
         #[builder(into, default)]
-        pub aggregation_interval: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub aggregation_interval: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. The user-supplied description of the VPC Flow Logs configuration. Maximum
         /// of 512 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. Export filter used to define which VPC Flow Logs should be logged.
         #[builder(into, default)]
-        pub filter_expr: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub filter_expr: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. The value of the field must be in (0, 1]. The sampling rate
         /// of VPC Flow Logs where 1.0 means all collected logs are reported. Setting the
         /// sampling rate to 0.0 is not allowed. If you want to disable VPC Flow Logs, use
         /// the state field instead. Default value is 1.0.
         #[builder(into, default)]
-        pub flow_sampling: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub flow_sampling: pulumi_gestalt_rust::InputOrOutput<Option<f64>>,
         /// Traffic will be logged from the Interconnect Attachment. Format: projects/{project_id}/regions/{region}/interconnectAttachments/{name}
         #[builder(into, default)]
-        pub interconnect_attachment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub interconnect_attachment: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. Resource labels to represent user-provided metadata.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. It identifies the resource
         /// within its parent collection as described in https://google.aip.dev/122. See documentation
         /// for resource type `networkmanagement.googleapis.com/VpcFlowLogsConfig`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Optional. Configures whether all, none or a subset of metadata fields
         /// should be added to the reported VPC flow logs. Default value is INCLUDE_ALL_METADATA.
         /// Possible values:  METADATA_UNSPECIFIED INCLUDE_ALL_METADATA EXCLUDE_ALL_METADATA CUSTOM_METADATA
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. Custom metadata fields to include in the reported VPC flow
         /// logs. Can only be specified if \"metadata\" was set to CUSTOM_METADATA.
         #[builder(into, default)]
-        pub metadata_fields: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub metadata_fields: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. The state of the VPC Flow Log configuration. Default value
         /// is ENABLED. When creating a new configuration, it must be enabled.   Possible
         #[builder(into, default)]
-        pub state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub state: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Required. ID of the `VpcFlowLogsConfig`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub vpc_flow_logs_config_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpc_flow_logs_config_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Traffic will be logged from the VPN Tunnel. Format: projects/{project_id}/regions/{region}/vpnTunnels/{name}
         #[builder(into, default)]
-        pub vpn_tunnel: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub vpn_tunnel: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VpcFlowLogsConfigResult {
         /// Optional. The aggregation interval for the logs. Default value is
         /// INTERVAL_5_SEC.   Possible values:  AGGREGATION_INTERVAL_UNSPECIFIED INTERVAL_5_SEC INTERVAL_30_SEC INTERVAL_1_MIN INTERVAL_5_MIN INTERVAL_10_MIN INTERVAL_15_MIN"
-        pub aggregation_interval: pulumi_wasm_rust::Output<String>,
+        pub aggregation_interval: pulumi_gestalt_rust::Output<String>,
         /// Output only. The time the config was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Optional. The user-supplied description of the VPC Flow Logs configuration. Maximum
         /// of 512 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Optional. Export filter used to define which VPC Flow Logs should be logged.
-        pub filter_expr: pulumi_wasm_rust::Output<Option<String>>,
+        pub filter_expr: pulumi_gestalt_rust::Output<Option<String>>,
         /// Optional. The value of the field must be in (0, 1]. The sampling rate
         /// of VPC Flow Logs where 1.0 means all collected logs are reported. Setting the
         /// sampling rate to 0.0 is not allowed. If you want to disable VPC Flow Logs, use
         /// the state field instead. Default value is 1.0.
-        pub flow_sampling: pulumi_wasm_rust::Output<f64>,
+        pub flow_sampling: pulumi_gestalt_rust::Output<f64>,
         /// Traffic will be logged from the Interconnect Attachment. Format: projects/{project_id}/regions/{region}/interconnectAttachments/{name}
-        pub interconnect_attachment: pulumi_wasm_rust::Output<Option<String>>,
+        pub interconnect_attachment: pulumi_gestalt_rust::Output<Option<String>>,
         /// Optional. Resource labels to represent user-provided metadata.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. It identifies the resource
         /// within its parent collection as described in https://google.aip.dev/122. See documentation
         /// for resource type `networkmanagement.googleapis.com/VpcFlowLogsConfig`.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Optional. Configures whether all, none or a subset of metadata fields
         /// should be added to the reported VPC flow logs. Default value is INCLUDE_ALL_METADATA.
         /// Possible values:  METADATA_UNSPECIFIED INCLUDE_ALL_METADATA EXCLUDE_ALL_METADATA CUSTOM_METADATA
-        pub metadata: pulumi_wasm_rust::Output<String>,
+        pub metadata: pulumi_gestalt_rust::Output<String>,
         /// Optional. Custom metadata fields to include in the reported VPC flow
         /// logs. Can only be specified if \"metadata\" was set to CUSTOM_METADATA.
-        pub metadata_fields: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub metadata_fields: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Identifier. Unique name of the configuration using the form:     `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Optional. The state of the VPC Flow Log configuration. Default value
         /// is ENABLED. When creating a new configuration, it must be enabled.   Possible
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Output only. The time the config was updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// Required. ID of the `VpcFlowLogsConfig`.
         ///
         ///
         /// - - -
-        pub vpc_flow_logs_config_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_flow_logs_config_id: pulumi_gestalt_rust::Output<String>,
         /// Traffic will be logged from the VPN Tunnel. Format: projects/{project_id}/regions/{region}/vpnTunnels/{name}
-        pub vpn_tunnel: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpn_tunnel: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpcFlowLogsConfigArgs,
     ) -> VpcFlowLogsConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let aggregation_interval_binding = args
             .aggregation_interval
@@ -489,52 +489,54 @@ pub mod vpc_flow_logs_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpcFlowLogsConfigResult {
-            aggregation_interval: pulumi_wasm_rust::__private::into_domain(
+            aggregation_interval: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("aggregationInterval"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            filter_expr: pulumi_wasm_rust::__private::into_domain(
+            filter_expr: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filterExpr"),
             ),
-            flow_sampling: pulumi_wasm_rust::__private::into_domain(
+            flow_sampling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("flowSampling"),
             ),
-            interconnect_attachment: pulumi_wasm_rust::__private::into_domain(
+            interconnect_attachment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("interconnectAttachment"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            metadata_fields: pulumi_wasm_rust::__private::into_domain(
+            metadata_fields: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadataFields"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            vpc_flow_logs_config_id: pulumi_wasm_rust::__private::into_domain(
+            vpc_flow_logs_config_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcFlowLogsConfigId"),
             ),
-            vpn_tunnel: pulumi_wasm_rust::__private::into_domain(
+            vpn_tunnel: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpnTunnel"),
             ),
         }

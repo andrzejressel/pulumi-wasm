@@ -4,8 +4,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = android_app::create(
@@ -26,8 +26,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let android = api_key::create(
@@ -107,7 +107,7 @@
 /// ```
 ///
 pub mod android_app {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AndroidAppArgs {
@@ -115,72 +115,72 @@ pub mod android_app {
         /// If apiKeyId is not set during creation, then Firebase automatically associates an apiKeyId with the AndroidApp.
         /// This auto-associated key may be an existing valid key or, if no valid key exists, a new one will be provisioned.
         #[builder(into, default)]
-        pub api_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub api_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub deletion_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The user-assigned display name of the AndroidApp.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The canonical package name of the Android app as would appear in the Google Play
         /// Developer Console.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub package_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub package_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The SHA1 certificate hashes for the AndroidApp.
         #[builder(into, default)]
-        pub sha1_hashes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub sha1_hashes: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The SHA256 certificate hashes for the AndroidApp.
         #[builder(into, default)]
-        pub sha256_hashes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub sha256_hashes: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct AndroidAppResult {
         /// The globally unique, Google-assigned identifier (UID) for the Firebase API key associated with the AndroidApp.
         /// If apiKeyId is not set during creation, then Firebase automatically associates an apiKeyId with the AndroidApp.
         /// This auto-associated key may be an existing valid key or, if no valid key exists, a new one will be provisioned.
-        pub api_key_id: pulumi_wasm_rust::Output<String>,
+        pub api_key_id: pulumi_gestalt_rust::Output<String>,
         /// The globally unique, Firebase-assigned identifier of the AndroidApp.
         /// This identifier should be treated as an opaque token, as the data format is not specified.
-        pub app_id: pulumi_wasm_rust::Output<String>,
-        pub deletion_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub app_id: pulumi_gestalt_rust::Output<String>,
+        pub deletion_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The user-assigned display name of the AndroidApp.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// This checksum is computed by the server based on the value of other fields, and it may be sent
         /// with update requests to ensure the client has an up-to-date value before proceeding.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The fully qualified resource name of the AndroidApp, for example:
         /// projects/projectId/androidApps/appId
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The canonical package name of the Android app as would appear in the Google Play
         /// Developer Console.
         ///
         ///
         /// - - -
-        pub package_name: pulumi_wasm_rust::Output<String>,
+        pub package_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The SHA1 certificate hashes for the AndroidApp.
-        pub sha1_hashes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub sha1_hashes: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The SHA256 certificate hashes for the AndroidApp.
-        pub sha256_hashes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub sha256_hashes: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AndroidAppArgs,
     ) -> AndroidAppResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_key_id_binding = args.api_key_id.get_output(context).get_inner();
         let deletion_policy_binding = args
@@ -229,28 +229,30 @@ pub mod android_app {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AndroidAppResult {
-            api_key_id: pulumi_wasm_rust::__private::into_domain(
+            api_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiKeyId"),
             ),
-            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
-            deletion_policy: pulumi_wasm_rust::__private::into_domain(
+            app_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("appId"),
+            ),
+            deletion_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionPolicy"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            package_name: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            package_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("packageName"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            sha1_hashes: pulumi_wasm_rust::__private::into_domain(
+            sha1_hashes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sha1Hashes"),
             ),
-            sha256_hashes: pulumi_wasm_rust::__private::into_domain(
+            sha256_hashes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sha256Hashes"),
             ),
         }

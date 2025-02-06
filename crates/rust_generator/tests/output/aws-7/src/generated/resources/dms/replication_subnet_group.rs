@@ -69,57 +69,57 @@
 /// $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
 /// ```
 pub mod replication_subnet_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReplicationSubnetGroupArgs {
         /// Description for the subnet group.
         #[builder(into)]
-        pub replication_subnet_group_description: pulumi_wasm_rust::InputOrOutput<
+        pub replication_subnet_group_description: pulumi_gestalt_rust::InputOrOutput<
             String,
         >,
         /// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
         #[builder(into)]
-        pub replication_subnet_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub replication_subnet_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
         #[builder(into)]
-        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub subnet_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ReplicationSubnetGroupResult {
-        pub replication_subnet_group_arn: pulumi_wasm_rust::Output<String>,
+        pub replication_subnet_group_arn: pulumi_gestalt_rust::Output<String>,
         /// Description for the subnet group.
-        pub replication_subnet_group_description: pulumi_wasm_rust::Output<String>,
+        pub replication_subnet_group_description: pulumi_gestalt_rust::Output<String>,
         /// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
-        pub replication_subnet_group_id: pulumi_wasm_rust::Output<String>,
+        pub replication_subnet_group_id: pulumi_gestalt_rust::Output<String>,
         /// List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
-        pub subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnet_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The ID of the VPC the subnet group is in.
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ReplicationSubnetGroupArgs,
     ) -> ReplicationSubnetGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let replication_subnet_group_description_binding = args
             .replication_subnet_group_description
@@ -156,23 +156,23 @@ pub mod replication_subnet_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ReplicationSubnetGroupResult {
-            replication_subnet_group_arn: pulumi_wasm_rust::__private::into_domain(
+            replication_subnet_group_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationSubnetGroupArn"),
             ),
-            replication_subnet_group_description: pulumi_wasm_rust::__private::into_domain(
+            replication_subnet_group_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationSubnetGroupDescription"),
             ),
-            replication_subnet_group_id: pulumi_wasm_rust::__private::into_domain(
+            replication_subnet_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationSubnetGroupId"),
             ),
-            subnet_ids: pulumi_wasm_rust::__private::into_domain(
+            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

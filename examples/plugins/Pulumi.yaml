@@ -1,2 +1,2 @@
 name: Pulumi-Wasm-repository-examples-plugins
-runtime: wasm
+runtime: gestalt

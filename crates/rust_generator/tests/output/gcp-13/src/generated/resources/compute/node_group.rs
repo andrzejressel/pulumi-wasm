@@ -147,7 +147,7 @@
 /// ```
 ///
 pub mod node_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NodeGroupArgs {
@@ -156,52 +156,52 @@ pub mod node_group {
         /// One of `initial_size` or `autoscaling_policy` must be configured on resource creation.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub autoscaling_policy: pulumi_wasm_rust::InputOrOutput<
+        pub autoscaling_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::NodeGroupAutoscalingPolicy>,
         >,
         /// An optional textual description of the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The initial number of nodes in the node group. One of `initial_size` or `autoscaling_policy` must be configured on resource creation.
         #[builder(into, default)]
-        pub initial_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub initial_size: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the frequency of planned maintenance events. Set to one of the following:
         /// - AS_NEEDED: Hosts are eligible to receive infrastructure and hypervisor updates as they become available.
         /// - RECURRENT: Hosts receive planned infrastructure and hypervisor updates on a periodic basis, but not more frequently than every 28 days. This minimizes the number of planned maintenance operations on individual hosts and reduces the frequency of disruptions, both live migrations and terminations, on individual VMs.
         /// Possible values are: `AS_NEEDED`, `RECURRENT`.
         #[builder(into, default)]
-        pub maintenance_interval: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub maintenance_interval: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies how to handle instances when a node in the group undergoes maintenance. Set to one of: DEFAULT, RESTART_IN_PLACE, or MIGRATE_WITHIN_NODE_GROUP. The default value is DEFAULT.
         #[builder(into, default)]
-        pub maintenance_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub maintenance_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// contains properties for the timeframe of maintenance
         /// Structure is documented below.
         #[builder(into, default)]
-        pub maintenance_window: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance_window: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::NodeGroupMaintenanceWindow>,
         >,
         /// Name of the resource.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The URL of the node template to which this node group belongs.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub node_template: pulumi_wasm_rust::InputOrOutput<String>,
+        pub node_template: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Share settings for the node group.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub share_settings: pulumi_wasm_rust::InputOrOutput<
+        pub share_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::NodeGroupShareSettings>,
         >,
         /// Zone where this node group is located
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NodeGroupResult {
@@ -209,59 +209,59 @@ pub mod node_group {
         /// group autoscaler to automatically manage the sizes of your node groups.
         /// One of `initial_size` or `autoscaling_policy` must be configured on resource creation.
         /// Structure is documented below.
-        pub autoscaling_policy: pulumi_wasm_rust::Output<
+        pub autoscaling_policy: pulumi_gestalt_rust::Output<
             super::super::types::compute::NodeGroupAutoscalingPolicy,
         >,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional textual description of the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The initial number of nodes in the node group. One of `initial_size` or `autoscaling_policy` must be configured on resource creation.
-        pub initial_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub initial_size: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the frequency of planned maintenance events. Set to one of the following:
         /// - AS_NEEDED: Hosts are eligible to receive infrastructure and hypervisor updates as they become available.
         /// - RECURRENT: Hosts receive planned infrastructure and hypervisor updates on a periodic basis, but not more frequently than every 28 days. This minimizes the number of planned maintenance operations on individual hosts and reduces the frequency of disruptions, both live migrations and terminations, on individual VMs.
         /// Possible values are: `AS_NEEDED`, `RECURRENT`.
-        pub maintenance_interval: pulumi_wasm_rust::Output<String>,
+        pub maintenance_interval: pulumi_gestalt_rust::Output<String>,
         /// Specifies how to handle instances when a node in the group undergoes maintenance. Set to one of: DEFAULT, RESTART_IN_PLACE, or MIGRATE_WITHIN_NODE_GROUP. The default value is DEFAULT.
-        pub maintenance_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub maintenance_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// contains properties for the timeframe of maintenance
         /// Structure is documented below.
-        pub maintenance_window: pulumi_wasm_rust::Output<
+        pub maintenance_window: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::NodeGroupMaintenanceWindow>,
         >,
         /// Name of the resource.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The URL of the node template to which this node group belongs.
         ///
         ///
         /// - - -
-        pub node_template: pulumi_wasm_rust::Output<String>,
+        pub node_template: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// Share settings for the node group.
         /// Structure is documented below.
-        pub share_settings: pulumi_wasm_rust::Output<
+        pub share_settings: pulumi_gestalt_rust::Output<
             super::super::types::compute::NodeGroupShareSettings,
         >,
         /// The total number of nodes in the node group.
-        pub size: pulumi_wasm_rust::Output<i32>,
+        pub size: pulumi_gestalt_rust::Output<i32>,
         /// Zone where this node group is located
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NodeGroupArgs,
     ) -> NodeGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let autoscaling_policy_binding = args
             .autoscaling_policy
@@ -339,42 +339,42 @@ pub mod node_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NodeGroupResult {
-            autoscaling_policy: pulumi_wasm_rust::__private::into_domain(
+            autoscaling_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoscalingPolicy"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            initial_size: pulumi_wasm_rust::__private::into_domain(
+            initial_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("initialSize"),
             ),
-            maintenance_interval: pulumi_wasm_rust::__private::into_domain(
+            maintenance_interval: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceInterval"),
             ),
-            maintenance_policy: pulumi_wasm_rust::__private::into_domain(
+            maintenance_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenancePolicy"),
             ),
-            maintenance_window: pulumi_wasm_rust::__private::into_domain(
+            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceWindow"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            node_template: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            node_template: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeTemplate"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            share_settings: pulumi_wasm_rust::__private::into_domain(
+            share_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shareSettings"),
             ),
-            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

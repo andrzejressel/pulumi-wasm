@@ -5,8 +5,8 @@
 /// ### Basic usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = hub::create(
@@ -24,55 +24,55 @@
 /// $ pulumi import aws:sagemaker/hub:Hub test_hub my-code-repo
 /// ```
 pub mod hub {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HubArgs {
         /// A description of the hub.
         #[builder(into)]
-        pub hub_description: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hub_description: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The display name of the hub.
         #[builder(into, default)]
-        pub hub_display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub hub_display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the hub.
         #[builder(into)]
-        pub hub_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hub_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The searchable keywords for the hub.
         #[builder(into, default)]
-        pub hub_search_keywords: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub hub_search_keywords: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
         #[builder(into, default)]
-        pub s3_storage_config: pulumi_wasm_rust::InputOrOutput<
+        pub s3_storage_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sagemaker::HubS3StorageConfig>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct HubResult {
         /// The Amazon Resource Name (ARN) assigned by AWS to this Hub.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A description of the hub.
-        pub hub_description: pulumi_wasm_rust::Output<String>,
+        pub hub_description: pulumi_gestalt_rust::Output<String>,
         /// The display name of the hub.
-        pub hub_display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub hub_display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the hub.
-        pub hub_name: pulumi_wasm_rust::Output<String>,
+        pub hub_name: pulumi_gestalt_rust::Output<String>,
         /// The searchable keywords for the hub.
-        pub hub_search_keywords: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub hub_search_keywords: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
-        pub s3_storage_config: pulumi_wasm_rust::Output<
+        pub s3_storage_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::sagemaker::HubS3StorageConfig>,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -81,11 +81,11 @@ pub mod hub {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HubArgs,
     ) -> HubResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let hub_description_binding = args
             .hub_description
@@ -138,24 +138,24 @@ pub mod hub {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HubResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            hub_description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            hub_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hubDescription"),
             ),
-            hub_display_name: pulumi_wasm_rust::__private::into_domain(
+            hub_display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hubDisplayName"),
             ),
-            hub_name: pulumi_wasm_rust::__private::into_domain(
+            hub_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hubName"),
             ),
-            hub_search_keywords: pulumi_wasm_rust::__private::into_domain(
+            hub_search_keywords: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hubSearchKeywords"),
             ),
-            s3_storage_config: pulumi_wasm_rust::__private::into_domain(
+            s3_storage_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3StorageConfig"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

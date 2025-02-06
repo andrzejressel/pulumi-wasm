@@ -7,8 +7,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -54,128 +54,132 @@
 /// ```
 ///
 pub mod network_security_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkSecurityRuleArgs {
         /// Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
         #[builder(into)]
-        pub access: pulumi_wasm_rust::InputOrOutput<String>,
+        pub access: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A description for this rule. Restricted to 140 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destination_address_prefixes` is not specified.
         #[builder(into, default)]
-        pub destination_address_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub destination_address_prefix: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
         #[builder(into, default)]
-        pub destination_address_prefixes: pulumi_wasm_rust::InputOrOutput<
+        pub destination_address_prefixes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// A List of destination Application Security Group IDs
         #[builder(into, default)]
-        pub destination_application_security_group_ids: pulumi_wasm_rust::InputOrOutput<
+        pub destination_application_security_group_ids: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
         #[builder(into, default)]
-        pub destination_port_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub destination_port_range: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
         #[builder(into, default)]
-        pub destination_port_ranges: pulumi_wasm_rust::InputOrOutput<
+        pub destination_port_ranges: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
         #[builder(into)]
-        pub direction: pulumi_wasm_rust::InputOrOutput<String>,
+        pub direction: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub network_security_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network_security_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
         #[builder(into, default)]
-        pub source_address_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_address_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
         #[builder(into, default)]
-        pub source_address_prefixes: pulumi_wasm_rust::InputOrOutput<
+        pub source_address_prefixes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// A List of source Application Security Group IDs
         #[builder(into, default)]
-        pub source_application_security_group_ids: pulumi_wasm_rust::InputOrOutput<
+        pub source_application_security_group_ids: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
         #[builder(into, default)]
-        pub source_port_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_port_range: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of source ports or port ranges. This is required if `source_port_range` is not specified.
         #[builder(into, default)]
-        pub source_port_ranges: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub source_port_ranges: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct NetworkSecurityRuleResult {
         /// Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
-        pub access: pulumi_wasm_rust::Output<String>,
+        pub access: pulumi_gestalt_rust::Output<String>,
         /// A description for this rule. Restricted to 140 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// CIDR or destination IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. Besides, it also supports all available Service Tags like ‘Sql.WestEurope‘, ‘Storage.EastUS‘, etc. You can list the available service tags with the CLI: ```shell az network list-service-tags --location westcentralus```. For further information please see [Azure CLI - az network list-service-tags](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags). This is required if `destination_address_prefixes` is not specified.
-        pub destination_address_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub destination_address_prefix: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
-        pub destination_address_prefixes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub destination_address_prefixes: pulumi_gestalt_rust::Output<
+            Option<Vec<String>>,
+        >,
         /// A List of destination Application Security Group IDs
-        pub destination_application_security_group_ids: pulumi_wasm_rust::Output<
+        pub destination_application_security_group_ids: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
-        pub destination_port_range: pulumi_wasm_rust::Output<Option<String>>,
+        pub destination_port_range: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
-        pub destination_port_ranges: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub destination_port_ranges: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
-        pub direction: pulumi_wasm_rust::Output<String>,
+        pub direction: pulumi_gestalt_rust::Output<String>,
         /// The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
-        pub network_security_group_name: pulumi_wasm_rust::Output<String>,
+        pub network_security_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_gestalt_rust::Output<i32>,
         /// Network protocol this rule applies to. Possible values include `Tcp`, `Udp`, `Icmp`, `Esp`, `Ah` or `*` (which matches all).
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// CIDR or source IP range or * to match any IP. Tags such as `VirtualNetwork`, `AzureLoadBalancer` and `Internet` can also be used. This is required if `source_address_prefixes` is not specified.
-        pub source_address_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_address_prefix: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
-        pub source_address_prefixes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub source_address_prefixes: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A List of source Application Security Group IDs
-        pub source_application_security_group_ids: pulumi_wasm_rust::Output<
+        pub source_application_security_group_ids: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
-        pub source_port_range: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_port_range: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of source ports or port ranges. This is required if `source_port_range` is not specified.
-        pub source_port_ranges: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub source_port_ranges: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkSecurityRuleArgs,
     ) -> NetworkSecurityRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_binding = args.access.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -312,54 +316,56 @@ pub mod network_security_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkSecurityRuleResult {
-            access: pulumi_wasm_rust::__private::into_domain(o.extract_field("access")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            access: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("access"),
+            ),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            destination_address_prefix: pulumi_wasm_rust::__private::into_domain(
+            destination_address_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationAddressPrefix"),
             ),
-            destination_address_prefixes: pulumi_wasm_rust::__private::into_domain(
+            destination_address_prefixes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationAddressPrefixes"),
             ),
-            destination_application_security_group_ids: pulumi_wasm_rust::__private::into_domain(
+            destination_application_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationApplicationSecurityGroupIds"),
             ),
-            destination_port_range: pulumi_wasm_rust::__private::into_domain(
+            destination_port_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationPortRange"),
             ),
-            destination_port_ranges: pulumi_wasm_rust::__private::into_domain(
+            destination_port_ranges: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationPortRanges"),
             ),
-            direction: pulumi_wasm_rust::__private::into_domain(
+            direction: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("direction"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_security_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_security_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkSecurityGroupName"),
             ),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            source_address_prefix: pulumi_wasm_rust::__private::into_domain(
+            source_address_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceAddressPrefix"),
             ),
-            source_address_prefixes: pulumi_wasm_rust::__private::into_domain(
+            source_address_prefixes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceAddressPrefixes"),
             ),
-            source_application_security_group_ids: pulumi_wasm_rust::__private::into_domain(
+            source_application_security_group_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceApplicationSecurityGroupIds"),
             ),
-            source_port_range: pulumi_wasm_rust::__private::into_domain(
+            source_port_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourcePortRange"),
             ),
-            source_port_ranges: pulumi_wasm_rust::__private::into_domain(
+            source_port_ranges: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourcePortRanges"),
             ),
         }

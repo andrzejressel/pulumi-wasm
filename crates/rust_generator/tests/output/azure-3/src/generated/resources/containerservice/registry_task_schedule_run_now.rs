@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -50,29 +50,29 @@
 /// }
 /// ```
 pub mod registry_task_schedule_run_now {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegistryTaskScheduleRunNowArgs {
         /// The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created.
         #[builder(into)]
-        pub container_registry_task_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub container_registry_task_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RegistryTaskScheduleRunNowResult {
         /// The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created.
-        pub container_registry_task_id: pulumi_wasm_rust::Output<String>,
+        pub container_registry_task_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RegistryTaskScheduleRunNowArgs,
     ) -> RegistryTaskScheduleRunNowResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let container_registry_task_id_binding = args
             .container_registry_task_id
@@ -92,7 +92,7 @@ pub mod registry_task_schedule_run_now {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RegistryTaskScheduleRunNowResult {
-            container_registry_task_id: pulumi_wasm_rust::__private::into_domain(
+            container_registry_task_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerRegistryTaskId"),
             ),
         }

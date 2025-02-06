@@ -58,34 +58,34 @@
 /// $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
 /// ```
 pub mod role_policy_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RolePolicyAttachmentArgs {
         /// The ARN of the policy you want to apply
         #[builder(into)]
-        pub policy_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the IAM role to which the policy should be applied
         #[builder(into)]
-        pub role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RolePolicyAttachmentResult {
         /// The ARN of the policy you want to apply
-        pub policy_arn: pulumi_wasm_rust::Output<String>,
+        pub policy_arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the IAM role to which the policy should be applied
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RolePolicyAttachmentArgs,
     ) -> RolePolicyAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let policy_arn_binding = args.policy_arn.get_output(context).get_inner();
         let role_binding = args.role.get_output(context).get_inner();
@@ -106,10 +106,10 @@ pub mod role_policy_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RolePolicyAttachmentResult {
-            policy_arn: pulumi_wasm_rust::__private::into_domain(
+            policy_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyArn"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
         }
     }
 }

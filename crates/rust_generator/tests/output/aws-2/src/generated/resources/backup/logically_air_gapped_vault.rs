@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = logically_air_gapped_vault::create(
@@ -28,48 +28,48 @@
 /// $ pulumi import aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault example lag-example-vault
 /// ```
 pub mod logically_air_gapped_vault {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LogicallyAirGappedVaultArgs {
         /// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         #[builder(into)]
-        pub max_retention_days: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub max_retention_days: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         #[builder(into)]
-        pub min_retention_days: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub min_retention_days: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Name of the Logically Air Gapped Backup Vault to create.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::backup::LogicallyAirGappedVaultTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct LogicallyAirGappedVaultResult {
         /// The ARN of the Logically Air Gapped Backup Vault.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        pub max_retention_days: pulumi_wasm_rust::Output<i32>,
+        pub max_retention_days: pulumi_gestalt_rust::Output<i32>,
         /// Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
-        pub min_retention_days: pulumi_wasm_rust::Output<i32>,
+        pub min_retention_days: pulumi_gestalt_rust::Output<i32>,
         /// Name of the Logically Air Gapped Backup Vault to create.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::backup::LogicallyAirGappedVaultTimeouts>,
         >,
     }
@@ -78,11 +78,11 @@ pub mod logically_air_gapped_vault {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LogicallyAirGappedVaultArgs,
     ) -> LogicallyAirGappedVaultResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let max_retention_days_binding = args
             .max_retention_days
@@ -124,19 +124,19 @@ pub mod logically_air_gapped_vault {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LogicallyAirGappedVaultResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            max_retention_days: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            max_retention_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxRetentionDays"),
             ),
-            min_retention_days: pulumi_wasm_rust::__private::into_domain(
+            min_retention_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minRetentionDays"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

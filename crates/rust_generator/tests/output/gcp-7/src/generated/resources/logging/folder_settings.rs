@@ -64,56 +64,56 @@
 /// ```
 ///
 pub mod folder_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FolderSettingsArgs {
         /// If set to true, the _Default sink in newly created projects and folders will created in a disabled state. This can be used to automatically disable log storage if there is already an aggregated sink configured in the hierarchy. The _Default sink can be re-enabled manually if needed.
         #[builder(into, default)]
-        pub disable_default_sink: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disable_default_sink: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The folder for which to retrieve settings.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub folder: pulumi_wasm_rust::InputOrOutput<String>,
+        pub folder: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource name for the configured Cloud KMS key.
         #[builder(into, default)]
-        pub kms_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The storage location that Cloud Logging will use to create new resources when a location is needed but not explicitly provided.
         #[builder(into, default)]
-        pub storage_location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FolderSettingsResult {
         /// If set to true, the _Default sink in newly created projects and folders will created in a disabled state. This can be used to automatically disable log storage if there is already an aggregated sink configured in the hierarchy. The _Default sink can be re-enabled manually if needed.
-        pub disable_default_sink: pulumi_wasm_rust::Output<bool>,
+        pub disable_default_sink: pulumi_gestalt_rust::Output<bool>,
         /// The folder for which to retrieve settings.
         ///
         ///
         /// - - -
-        pub folder: pulumi_wasm_rust::Output<String>,
+        pub folder: pulumi_gestalt_rust::Output<String>,
         /// The resource name for the configured Cloud KMS key.
-        pub kms_key_name: pulumi_wasm_rust::Output<String>,
+        pub kms_key_name: pulumi_gestalt_rust::Output<String>,
         /// The service account that will be used by the Log Router to access your Cloud KMS key.
-        pub kms_service_account_id: pulumi_wasm_rust::Output<String>,
+        pub kms_service_account_id: pulumi_gestalt_rust::Output<String>,
         /// The service account for the given container. Sinks use this service account as their writerIdentity if no custom service account is provided.
-        pub logging_service_account_id: pulumi_wasm_rust::Output<String>,
+        pub logging_service_account_id: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the settings.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The storage location that Cloud Logging will use to create new resources when a location is needed but not explicitly provided.
-        pub storage_location: pulumi_wasm_rust::Output<String>,
+        pub storage_location: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FolderSettingsArgs,
     ) -> FolderSettingsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let disable_default_sink_binding = args
             .disable_default_sink
@@ -150,21 +150,23 @@ pub mod folder_settings {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FolderSettingsResult {
-            disable_default_sink: pulumi_wasm_rust::__private::into_domain(
+            disable_default_sink: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disableDefaultSink"),
             ),
-            folder: pulumi_wasm_rust::__private::into_domain(o.extract_field("folder")),
-            kms_key_name: pulumi_wasm_rust::__private::into_domain(
+            folder: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("folder"),
+            ),
+            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyName"),
             ),
-            kms_service_account_id: pulumi_wasm_rust::__private::into_domain(
+            kms_service_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsServiceAccountId"),
             ),
-            logging_service_account_id: pulumi_wasm_rust::__private::into_domain(
+            logging_service_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loggingServiceAccountId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            storage_location: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            storage_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageLocation"),
             ),
         }

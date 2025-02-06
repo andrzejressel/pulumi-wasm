@@ -87,47 +87,47 @@
 /// ```
 ///
 pub mod custom_https_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomHttpsConfigurationArgs {
         /// A `custom_https_configuration` block as defined above.
         #[builder(into, default)]
-        pub custom_https_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub custom_https_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::frontdoor::CustomHttpsConfigurationCustomHttpsConfiguration,
             >,
         >,
         /// Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
         #[builder(into)]
-        pub custom_https_provisioning_enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub custom_https_provisioning_enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub frontend_endpoint_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub frontend_endpoint_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CustomHttpsConfigurationResult {
         /// A `custom_https_configuration` block as defined above.
-        pub custom_https_configuration: pulumi_wasm_rust::Output<
+        pub custom_https_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::frontdoor::CustomHttpsConfigurationCustomHttpsConfiguration,
             >,
         >,
         /// Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
-        pub custom_https_provisioning_enabled: pulumi_wasm_rust::Output<bool>,
+        pub custom_https_provisioning_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
-        pub frontend_endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub frontend_endpoint_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CustomHttpsConfigurationArgs,
     ) -> CustomHttpsConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let custom_https_configuration_binding = args
             .custom_https_configuration
@@ -163,13 +163,13 @@ pub mod custom_https_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CustomHttpsConfigurationResult {
-            custom_https_configuration: pulumi_wasm_rust::__private::into_domain(
+            custom_https_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customHttpsConfiguration"),
             ),
-            custom_https_provisioning_enabled: pulumi_wasm_rust::__private::into_domain(
+            custom_https_provisioning_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customHttpsProvisioningEnabled"),
             ),
-            frontend_endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            frontend_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontendEndpointId"),
             ),
         }

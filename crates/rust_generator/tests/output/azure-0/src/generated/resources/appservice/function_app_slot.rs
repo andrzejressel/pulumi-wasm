@@ -7,8 +7,8 @@
 /// ### With App Service Plan)
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -72,13 +72,13 @@
 /// ```
 ///
 pub mod function_app_slot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FunctionAppSlotArgs {
         /// The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub app_service_plan_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_service_plan_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A key-value pair of App Settings.
         ///
         /// > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
@@ -87,77 +87,77 @@ pub mod function_app_slot {
         ///
         /// > **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         #[builder(into, default)]
-        pub app_settings: pulumi_wasm_rust::InputOrOutput<
+        pub app_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An `auth_settings` block as defined below.
         #[builder(into, default)]
-        pub auth_settings: pulumi_wasm_rust::InputOrOutput<
+        pub auth_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::FunctionAppSlotAuthSettings>,
         >,
         /// A `connection_string` block as defined below.
         #[builder(into, default)]
-        pub connection_strings: pulumi_wasm_rust::InputOrOutput<
+        pub connection_strings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::appservice::FunctionAppSlotConnectionString>>,
         >,
         /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
         #[builder(into, default)]
-        pub daily_memory_time_quota: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub daily_memory_time_quota: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Should the built-in logging of the Function App be enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enable_builtin_logging: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_builtin_logging: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Is the Function App enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub function_app_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub function_app_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Can the Function App only be accessed via HTTPS? Defaults to `false`.
         #[builder(into, default)]
-        pub https_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub https_only: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::FunctionAppSlotIdentity>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Function App. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
         #[builder(into, default)]
-        pub os_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub os_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `site_config` object as defined below.
         #[builder(into, default)]
-        pub site_config: pulumi_wasm_rust::InputOrOutput<
+        pub site_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appservice::FunctionAppSlotSiteConfig>,
         >,
         /// The access key which will be used to access the backend storage account for the Function App.
         #[builder(into)]
-        pub storage_account_access_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_access_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The runtime version associated with the Function App. Defaults to `~1`.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct FunctionAppSlotResult {
         /// The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created.
-        pub app_service_plan_id: pulumi_wasm_rust::Output<String>,
+        pub app_service_plan_id: pulumi_gestalt_rust::Output<String>,
         /// A key-value pair of App Settings.
         ///
         /// > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
@@ -165,78 +165,78 @@ pub mod function_app_slot {
         /// > **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
         ///
         /// > **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
-        pub app_settings: pulumi_wasm_rust::Output<
+        pub app_settings: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// An `auth_settings` block as defined below.
-        pub auth_settings: pulumi_wasm_rust::Output<
+        pub auth_settings: pulumi_gestalt_rust::Output<
             super::super::types::appservice::FunctionAppSlotAuthSettings,
         >,
         /// A `connection_string` block as defined below.
-        pub connection_strings: pulumi_wasm_rust::Output<
+        pub connection_strings: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appservice::FunctionAppSlotConnectionString>,
         >,
         /// The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan.
-        pub daily_memory_time_quota: pulumi_wasm_rust::Output<Option<i32>>,
+        pub daily_memory_time_quota: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
-        pub default_hostname: pulumi_wasm_rust::Output<String>,
+        pub default_hostname: pulumi_gestalt_rust::Output<String>,
         /// Should the built-in logging of the Function App be enabled? Defaults to `true`.
-        pub enable_builtin_logging: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_builtin_logging: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Is the Function App enabled? Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created.
-        pub function_app_name: pulumi_wasm_rust::Output<String>,
+        pub function_app_name: pulumi_gestalt_rust::Output<String>,
         /// Can the Function App only be accessed via HTTPS? Defaults to `false`.
-        pub https_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub https_only: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::appservice::FunctionAppSlotIdentity>,
         >,
         /// The Function App kind - such as `functionapp,linux,container`
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Function App. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** This value will be `linux` for Linux Derivatives or an empty string for Windows (default).
-        pub os_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub os_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
-        pub outbound_ip_addresses: pulumi_wasm_rust::Output<String>,
+        pub outbound_ip_addresses: pulumi_gestalt_rust::Output<String>,
         /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
-        pub possible_outbound_ip_addresses: pulumi_wasm_rust::Output<String>,
+        pub possible_outbound_ip_addresses: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `site_config` object as defined below.
-        pub site_config: pulumi_wasm_rust::Output<
+        pub site_config: pulumi_gestalt_rust::Output<
             super::super::types::appservice::FunctionAppSlotSiteConfig,
         >,
         /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this Function App Slot.
-        pub site_credentials: pulumi_wasm_rust::Output<
+        pub site_credentials: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appservice::FunctionAppSlotSiteCredential>,
         >,
         /// The access key which will be used to access the backend storage account for the Function App.
-        pub storage_account_access_key: pulumi_wasm_rust::Output<String>,
+        pub storage_account_access_key: pulumi_gestalt_rust::Output<String>,
         /// The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created.
-        pub storage_account_name: pulumi_wasm_rust::Output<String>,
+        pub storage_account_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The runtime version associated with the Function App. Defaults to `~1`.
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FunctionAppSlotArgs,
     ) -> FunctionAppSlotResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_service_plan_id_binding = args
             .app_service_plan_id
@@ -366,68 +366,72 @@ pub mod function_app_slot {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FunctionAppSlotResult {
-            app_service_plan_id: pulumi_wasm_rust::__private::into_domain(
+            app_service_plan_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appServicePlanId"),
             ),
-            app_settings: pulumi_wasm_rust::__private::into_domain(
+            app_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appSettings"),
             ),
-            auth_settings: pulumi_wasm_rust::__private::into_domain(
+            auth_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authSettings"),
             ),
-            connection_strings: pulumi_wasm_rust::__private::into_domain(
+            connection_strings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionStrings"),
             ),
-            daily_memory_time_quota: pulumi_wasm_rust::__private::into_domain(
+            daily_memory_time_quota: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dailyMemoryTimeQuota"),
             ),
-            default_hostname: pulumi_wasm_rust::__private::into_domain(
+            default_hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultHostname"),
             ),
-            enable_builtin_logging: pulumi_wasm_rust::__private::into_domain(
+            enable_builtin_logging: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableBuiltinLogging"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            function_app_name: pulumi_wasm_rust::__private::into_domain(
+            function_app_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("functionAppName"),
             ),
-            https_only: pulumi_wasm_rust::__private::into_domain(
+            https_only: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpsOnly"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            os_type: pulumi_wasm_rust::__private::into_domain(o.extract_field("osType")),
-            outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            os_type: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("osType"),
+            ),
+            outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outboundIpAddresses"),
             ),
-            possible_outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            possible_outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("possibleOutboundIpAddresses"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            site_config: pulumi_wasm_rust::__private::into_domain(
+            site_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("siteConfig"),
             ),
-            site_credentials: pulumi_wasm_rust::__private::into_domain(
+            site_credentials: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("siteCredentials"),
             ),
-            storage_account_access_key: pulumi_wasm_rust::__private::into_domain(
+            storage_account_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountAccessKey"),
             ),
-            storage_account_name: pulumi_wasm_rust::__private::into_domain(
+            storage_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

@@ -263,7 +263,7 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
@@ -272,17 +272,19 @@ pub mod instance {
         /// which the customers can provide during the instance creation. By default, the customer
         /// project associated with the Apigee organization will be included to the list.
         #[builder(into, default)]
-        pub consumer_accept_lists: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub consumer_accept_lists: pulumi_gestalt_rust::InputOrOutput<
+            Option<Vec<String>>,
+        >,
         /// Description of the instance.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Customer Managed Encryption Key (CMEK) used for disk and volume encryption. Required for Apigee paid subscriptions only.
         /// Use the following format: `projects/([^/]+)/locations/([^/]+)/keyRings/([^/]+)/cryptoKeys/([^/]+)`
         #[builder(into, default)]
-        pub disk_encryption_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub disk_encryption_key_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Display name of the instance.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// IP range represents the customer-provided CIDR block of length 22 that will be used for
         /// the Apigee instance creation. This optional range, if provided, should be freely
         /// available as part of larger named range the customer has allocated to the Service
@@ -291,24 +293,24 @@ pub mod instance {
         /// for configuring their firewall needs to allow traffic from Apigee.
         /// Input format: "a.b.c.d/22"
         #[builder(into, default)]
-        pub ip_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_range: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Required. Compute Engine location where the instance resides.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Resource ID of the instance.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Apigee Organization associated with the Apigee instance,
         /// in the format `organizations/{{org_name}}`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub org_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The size of the CIDR block range that will be reserved by the instance. For valid values,
         /// see [CidrRange](https://cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.instances#CidrRange) on the documentation.
         #[builder(into, default)]
-        pub peering_cidr_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub peering_cidr_range: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
@@ -316,16 +318,16 @@ pub mod instance {
         /// side that can privately connect to the service attachment. It is an optional field
         /// which the customers can provide during the instance creation. By default, the customer
         /// project associated with the Apigee organization will be included to the list.
-        pub consumer_accept_lists: pulumi_wasm_rust::Output<Vec<String>>,
+        pub consumer_accept_lists: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Description of the instance.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Customer Managed Encryption Key (CMEK) used for disk and volume encryption. Required for Apigee paid subscriptions only.
         /// Use the following format: `projects/([^/]+)/locations/([^/]+)/keyRings/([^/]+)/cryptoKeys/([^/]+)`
-        pub disk_encryption_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub disk_encryption_key_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Display name of the instance.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Output only. Hostname or IP address of the exposed Apigee endpoint used by clients to connect to the service.
-        pub host: pulumi_wasm_rust::Output<String>,
+        pub host: pulumi_gestalt_rust::Output<String>,
         /// IP range represents the customer-provided CIDR block of length 22 that will be used for
         /// the Apigee instance creation. This optional range, if provided, should be freely
         /// available as part of larger named range the customer has allocated to the Service
@@ -333,37 +335,37 @@ pub mod instance {
         /// available /22 CIDR block from Service Networking. The customer should use this CIDR block
         /// for configuring their firewall needs to allow traffic from Apigee.
         /// Input format: "a.b.c.d/22"
-        pub ip_range: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_range: pulumi_gestalt_rust::Output<Option<String>>,
         /// Required. Compute Engine location where the instance resides.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Resource ID of the instance.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Apigee Organization associated with the Apigee instance,
         /// in the format `organizations/{{org_name}}`.
         ///
         ///
         /// - - -
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_gestalt_rust::Output<String>,
         /// The size of the CIDR block range that will be reserved by the instance. For valid values,
         /// see [CidrRange](https://cloud.google.com/apigee/docs/reference/apis/apigee/rest/v1/organizations.instances#CidrRange) on the documentation.
-        pub peering_cidr_range: pulumi_wasm_rust::Output<String>,
+        pub peering_cidr_range: pulumi_gestalt_rust::Output<String>,
         /// Output only. Port number of the exposed Apigee endpoint.
-        pub port: pulumi_wasm_rust::Output<String>,
+        pub port: pulumi_gestalt_rust::Output<String>,
         /// Output only. Resource name of the service attachment created for the instance in
         /// the format: projects/*/regions/*/serviceAttachments/* Apigee customers can privately
         /// forward traffic to this service attachment using the PSC endpoints.
-        pub service_attachment: pulumi_wasm_rust::Output<String>,
+        pub service_attachment: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let consumer_accept_lists_binding = args
             .consumer_accept_lists
@@ -428,32 +430,34 @@ pub mod instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceResult {
-            consumer_accept_lists: pulumi_wasm_rust::__private::into_domain(
+            consumer_accept_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("consumerAcceptLists"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            disk_encryption_key_name: pulumi_wasm_rust::__private::into_domain(
+            disk_encryption_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diskEncryptionKeyName"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
-            ip_range: pulumi_wasm_rust::__private::into_domain(
+            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
+            ip_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipRange"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
-            peering_cidr_range: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            org_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("orgId"),
+            ),
+            peering_cidr_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peeringCidrRange"),
             ),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            service_attachment: pulumi_wasm_rust::__private::into_domain(
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            service_attachment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAttachment"),
             ),
         }

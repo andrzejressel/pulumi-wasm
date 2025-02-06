@@ -1,5 +1,5 @@
 pub mod get_repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRepositoryArgs {
@@ -7,52 +7,54 @@ pub mod get_repository {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The last part of the repository name.
         #[builder(into)]
-        pub repository_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub repository_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetRepositoryResult {
-        pub cleanup_policies: pulumi_wasm_rust::Output<
+        pub cleanup_policies: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::artifactregistry::GetRepositoryCleanupPolicy>,
         >,
-        pub cleanup_policy_dry_run: pulumi_wasm_rust::Output<bool>,
-        pub create_time: pulumi_wasm_rust::Output<String>,
-        pub description: pulumi_wasm_rust::Output<String>,
-        pub docker_configs: pulumi_wasm_rust::Output<
+        pub cleanup_policy_dry_run: pulumi_gestalt_rust::Output<bool>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
+        pub docker_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::artifactregistry::GetRepositoryDockerConfig>,
         >,
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub format: pulumi_wasm_rust::Output<String>,
+        pub format: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub kms_key_name: pulumi_wasm_rust::Output<String>,
-        pub labels: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub maven_configs: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub kms_key_name: pulumi_gestalt_rust::Output<String>,
+        pub labels: pulumi_gestalt_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub maven_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::artifactregistry::GetRepositoryMavenConfig>,
         >,
-        pub mode: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub mode: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub remote_repository_configs: pulumi_wasm_rust::Output<
+        pub remote_repository_configs: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::artifactregistry::GetRepositoryRemoteRepositoryConfig,
             >,
         >,
-        pub repository_id: pulumi_wasm_rust::Output<String>,
-        pub update_time: pulumi_wasm_rust::Output<String>,
-        pub virtual_repository_configs: pulumi_wasm_rust::Output<
+        pub repository_id: pulumi_gestalt_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
+        pub virtual_repository_configs: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::artifactregistry::GetRepositoryVirtualRepositoryConfig,
             >,
@@ -63,10 +65,10 @@ pub mod get_repository {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetRepositoryArgs,
     ) -> GetRepositoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -91,54 +93,58 @@ pub mod get_repository {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetRepositoryResult {
-            cleanup_policies: pulumi_wasm_rust::__private::into_domain(
+            cleanup_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cleanupPolicies"),
             ),
-            cleanup_policy_dry_run: pulumi_wasm_rust::__private::into_domain(
+            cleanup_policy_dry_run: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cleanupPolicyDryRun"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            docker_configs: pulumi_wasm_rust::__private::into_domain(
+            docker_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dockerConfigs"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            format: pulumi_wasm_rust::__private::into_domain(o.extract_field("format")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            kms_key_name: pulumi_wasm_rust::__private::into_domain(
+            format: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("format"),
+            ),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyName"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maven_configs: pulumi_wasm_rust::__private::into_domain(
+            maven_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mavenConfigs"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            remote_repository_configs: pulumi_wasm_rust::__private::into_domain(
+            remote_repository_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remoteRepositoryConfigs"),
             ),
-            repository_id: pulumi_wasm_rust::__private::into_domain(
+            repository_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repositoryId"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            virtual_repository_configs: pulumi_wasm_rust::__private::into_domain(
+            virtual_repository_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualRepositoryConfigs"),
             ),
         }

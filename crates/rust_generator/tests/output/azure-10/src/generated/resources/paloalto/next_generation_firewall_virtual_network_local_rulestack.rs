@@ -124,13 +124,13 @@
 /// ```
 ///
 pub mod next_generation_firewall_virtual_network_local_rulestack {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NextGenerationFirewallVirtualNetworkLocalRulestackArgs {
         /// One or more `destination_nat` blocks as defined below.
         #[builder(into, default)]
-        pub destination_nats: pulumi_wasm_rust::InputOrOutput<
+        pub destination_nats: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::paloalto::NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat,
@@ -139,35 +139,35 @@ pub mod next_generation_firewall_virtual_network_local_rulestack {
         >,
         /// A `dns_settings` block as defined below.
         #[builder(into, default)]
-        pub dns_settings: pulumi_wasm_rust::InputOrOutput<
+        pub dns_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::paloalto::NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings,
             >,
         >,
         /// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `network_profile` block as defined below.
         #[builder(into)]
-        pub network_profile: pulumi_wasm_rust::InputOrOutput<
+        pub network_profile: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::paloalto::NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile,
         >,
         /// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Local Rulestack which will be used to configure this Firewall Resource.
         #[builder(into)]
-        pub rulestack_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rulestack_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct NextGenerationFirewallVirtualNetworkLocalRulestackResult {
         /// One or more `destination_nat` blocks as defined below.
-        pub destination_nats: pulumi_wasm_rust::Output<
+        pub destination_nats: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::paloalto::NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNat,
@@ -175,23 +175,23 @@ pub mod next_generation_firewall_virtual_network_local_rulestack {
             >,
         >,
         /// A `dns_settings` block as defined below.
-        pub dns_settings: pulumi_wasm_rust::Output<
+        pub dns_settings: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::paloalto::NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettings,
             >,
         >,
         /// The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `network_profile` block as defined below.
-        pub network_profile: pulumi_wasm_rust::Output<
+        pub network_profile: pulumi_gestalt_rust::Output<
             super::super::types::paloalto::NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile,
         >,
         /// The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Local Rulestack which will be used to configure this Firewall Resource.
-        pub rulestack_id: pulumi_wasm_rust::Output<String>,
+        pub rulestack_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -200,11 +200,11 @@ pub mod next_generation_firewall_virtual_network_local_rulestack {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NextGenerationFirewallVirtualNetworkLocalRulestackArgs,
     ) -> NextGenerationFirewallVirtualNetworkLocalRulestackResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let destination_nats_binding = args
             .destination_nats
@@ -260,23 +260,23 @@ pub mod next_generation_firewall_virtual_network_local_rulestack {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NextGenerationFirewallVirtualNetworkLocalRulestackResult {
-            destination_nats: pulumi_wasm_rust::__private::into_domain(
+            destination_nats: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationNats"),
             ),
-            dns_settings: pulumi_wasm_rust::__private::into_domain(
+            dns_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsSettings"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_profile: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkProfile"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            rulestack_id: pulumi_wasm_rust::__private::into_domain(
+            rulestack_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rulestackId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

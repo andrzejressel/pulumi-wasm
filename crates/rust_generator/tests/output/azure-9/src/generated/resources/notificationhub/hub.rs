@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -45,7 +45,7 @@
 /// ```
 ///
 pub mod hub {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HubArgs {
@@ -53,36 +53,36 @@ pub mod hub {
         ///
         /// > **NOTE:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
         #[builder(into, default)]
-        pub apns_credential: pulumi_wasm_rust::InputOrOutput<
+        pub apns_credential: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::notificationhub::HubApnsCredential>,
         >,
         /// A `browser_credential` block as defined below.
         #[builder(into, default)]
-        pub browser_credential: pulumi_wasm_rust::InputOrOutput<
+        pub browser_credential: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::notificationhub::HubBrowserCredential>,
         >,
         /// A `gcm_credential` block as defined below.
         ///
         /// > **NOTE:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
         #[builder(into, default)]
-        pub gcm_credential: pulumi_wasm_rust::InputOrOutput<
+        pub gcm_credential: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::notificationhub::HubGcmCredential>,
         >,
         /// The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name to use for this Notification Hub. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub namespace_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub namespace_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -91,29 +91,29 @@ pub mod hub {
         /// A `apns_credential` block as defined below.
         ///
         /// > **NOTE:** Removing the `apns_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
-        pub apns_credential: pulumi_wasm_rust::Output<
+        pub apns_credential: pulumi_gestalt_rust::Output<
             Option<super::super::types::notificationhub::HubApnsCredential>,
         >,
         /// A `browser_credential` block as defined below.
-        pub browser_credential: pulumi_wasm_rust::Output<
+        pub browser_credential: pulumi_gestalt_rust::Output<
             Option<super::super::types::notificationhub::HubBrowserCredential>,
         >,
         /// A `gcm_credential` block as defined below.
         ///
         /// > **NOTE:** Removing the `gcm_credential` block will currently force a recreation of this resource [due to this bug in the Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go/issues/2246) - we'll remove this limitation when the SDK bug is fixed.
-        pub gcm_credential: pulumi_wasm_rust::Output<
+        pub gcm_credential: pulumi_gestalt_rust::Output<
             Option<super::super::types::notificationhub::HubGcmCredential>,
         >,
         /// The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name to use for this Notification Hub. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
-        pub namespace_name: pulumi_wasm_rust::Output<String>,
+        pub namespace_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -122,11 +122,11 @@ pub mod hub {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HubArgs,
     ) -> HubResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let apns_credential_binding = args
             .apns_credential
@@ -186,26 +186,26 @@ pub mod hub {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HubResult {
-            apns_credential: pulumi_wasm_rust::__private::into_domain(
+            apns_credential: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apnsCredential"),
             ),
-            browser_credential: pulumi_wasm_rust::__private::into_domain(
+            browser_credential: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("browserCredential"),
             ),
-            gcm_credential: pulumi_wasm_rust::__private::into_domain(
+            gcm_credential: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gcmCredential"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            namespace_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            namespace_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespaceName"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

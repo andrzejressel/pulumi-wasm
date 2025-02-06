@@ -23,98 +23,98 @@
 /// $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
 /// ```
 pub mod volume {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VolumeArgs {
         /// The AZ where the EBS volume will exist.
         #[builder(into)]
-        pub availability_zone: pulumi_wasm_rust::InputOrOutput<String>,
+        pub availability_zone: pulumi_gestalt_rust::InputOrOutput<String>,
         /// If true, the disk will be encrypted.
         #[builder(into, default)]
-        pub encrypted: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub encrypted: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
         #[builder(into, default)]
-        pub final_snapshot: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub final_snapshot: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         #[builder(into, default)]
-        pub iops: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub iops: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
         #[builder(into, default)]
-        pub multi_attach_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub multi_attach_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The Amazon Resource Name (ARN) of the Outpost.
         #[builder(into, default)]
-        pub outpost_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub outpost_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The size of the drive in GiBs.
         #[builder(into, default)]
-        pub size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub size: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A snapshot to base the EBS volume off of.
         #[builder(into, default)]
-        pub snapshot_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub snapshot_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         ///
         /// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
         #[builder(into, default)]
-        pub throughput: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub throughput: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VolumeResult {
         /// The volume ARN (e.g., arn:aws:ec2:us-east-1:123456789012:volume/vol-59fcb34e).
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The AZ where the EBS volume will exist.
-        pub availability_zone: pulumi_wasm_rust::Output<String>,
+        pub availability_zone: pulumi_gestalt_rust::Output<String>,
         /// If true, the disk will be encrypted.
-        pub encrypted: pulumi_wasm_rust::Output<bool>,
+        pub encrypted: pulumi_gestalt_rust::Output<bool>,
         /// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
-        pub final_snapshot: pulumi_wasm_rust::Output<Option<bool>>,
+        pub final_snapshot: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-        pub iops: pulumi_wasm_rust::Output<i32>,
+        pub iops: pulumi_gestalt_rust::Output<i32>,
         /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
-        pub kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
-        pub multi_attach_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub multi_attach_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The Amazon Resource Name (ARN) of the Outpost.
-        pub outpost_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub outpost_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// The size of the drive in GiBs.
-        pub size: pulumi_wasm_rust::Output<i32>,
+        pub size: pulumi_gestalt_rust::Output<i32>,
         /// A snapshot to base the EBS volume off of.
-        pub snapshot_id: pulumi_wasm_rust::Output<String>,
+        pub snapshot_id: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         ///
         /// > **NOTE:** When changing the `size`, `iops` or `type` of an instance, there are [considerations](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/considerations.html) to be aware of.
-        pub throughput: pulumi_wasm_rust::Output<i32>,
+        pub throughput: pulumi_gestalt_rust::Output<i32>,
         /// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VolumeArgs,
     ) -> VolumeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let availability_zone_binding = args
             .availability_zone
@@ -191,38 +191,38 @@ pub mod volume {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VolumeResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zone: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            availability_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZone"),
             ),
-            encrypted: pulumi_wasm_rust::__private::into_domain(
+            encrypted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encrypted"),
             ),
-            final_snapshot: pulumi_wasm_rust::__private::into_domain(
+            final_snapshot: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("finalSnapshot"),
             ),
-            iops: pulumi_wasm_rust::__private::into_domain(o.extract_field("iops")),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            iops: pulumi_gestalt_rust::__private::into_domain(o.extract_field("iops")),
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            multi_attach_enabled: pulumi_wasm_rust::__private::into_domain(
+            multi_attach_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("multiAttachEnabled"),
             ),
-            outpost_arn: pulumi_wasm_rust::__private::into_domain(
+            outpost_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outpostArn"),
             ),
-            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
-            snapshot_id: pulumi_wasm_rust::__private::into_domain(
+            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
+            snapshot_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snapshotId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            throughput: pulumi_wasm_rust::__private::into_domain(
+            throughput: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("throughput"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

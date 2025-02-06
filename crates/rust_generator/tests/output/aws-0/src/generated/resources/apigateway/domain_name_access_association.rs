@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = domain_name_access_association::create(
@@ -26,41 +26,41 @@
 /// $ pulumi import aws:apigateway/domainNameAccessAssociation:DomainNameAccessAssociation example arn:aws:apigateway:us-west-2:123456789012:/domainnameaccessassociations/domainname/12qmzgp2.9m7ilski.test+hykg7a12e7/vpcesource/vpce-05de3f8f82740a748
 /// ```
 pub mod domain_name_access_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainNameAccessAssociationArgs {
         /// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
         #[builder(into)]
-        pub access_association_source: pulumi_wasm_rust::InputOrOutput<String>,
+        pub access_association_source: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of the domain name access association source. Valid values are `VPCE`.
         #[builder(into)]
-        pub access_association_source_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub access_association_source_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ARN of the domain name.
         #[builder(into)]
-        pub domain_name_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DomainNameAccessAssociationResult {
         /// The identifier of the domain name access association source. For a `VPCE`, the value is the VPC endpoint ID.
-        pub access_association_source: pulumi_wasm_rust::Output<String>,
+        pub access_association_source: pulumi_gestalt_rust::Output<String>,
         /// The type of the domain name access association source. Valid values are `VPCE`.
-        pub access_association_source_type: pulumi_wasm_rust::Output<String>,
+        pub access_association_source_type: pulumi_gestalt_rust::Output<String>,
         /// ARN of the domain name access association.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the domain name.
-        pub domain_name_arn: pulumi_wasm_rust::Output<String>,
+        pub domain_name_arn: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -69,11 +69,11 @@ pub mod domain_name_access_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DomainNameAccessAssociationArgs,
     ) -> DomainNameAccessAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_association_source_binding = args
             .access_association_source
@@ -114,18 +114,18 @@ pub mod domain_name_access_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DomainNameAccessAssociationResult {
-            access_association_source: pulumi_wasm_rust::__private::into_domain(
+            access_association_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessAssociationSource"),
             ),
-            access_association_source_type: pulumi_wasm_rust::__private::into_domain(
+            access_association_source_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessAssociationSourceType"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            domain_name_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            domain_name_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainNameArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

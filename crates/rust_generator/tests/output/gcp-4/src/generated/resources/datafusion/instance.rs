@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basicInstance = instance::create(
@@ -76,8 +76,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let psc = network::create(
@@ -172,8 +172,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let enterpriseInstance = instance::create(
@@ -191,8 +191,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let event = instance::create(
@@ -219,8 +219,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let zone = instance::create(
@@ -266,7 +266,7 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
@@ -275,37 +275,39 @@ pub mod instance {
         /// Users will need to either manually update their state file to include these diffed options, or include the field in a lifecycle ignore changes block.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub accelerators: pulumi_wasm_rust::InputOrOutput<
+        pub accelerators: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::datafusion::InstanceAccelerator>>,
         >,
         /// The crypto key configuration. This field is used by the Customer-Managed Encryption Keys (CMEK) feature.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub crypto_key_config: pulumi_wasm_rust::InputOrOutput<
+        pub crypto_key_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datafusion::InstanceCryptoKeyConfig>,
         >,
         /// User-managed service account to set on Dataproc when Cloud Data Fusion creates Dataproc to run data processing pipelines.
         #[builder(into, default)]
-        pub dataproc_service_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub dataproc_service_account: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An optional description of the instance.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Display name for an instance.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Option to enable granular role-based access control.
         #[builder(into, default)]
-        pub enable_rbac: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_rbac: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Option to enable Stackdriver Logging.
         #[builder(into, default)]
-        pub enable_stackdriver_logging: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_stackdriver_logging: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Option to enable Stackdriver Monitoring.
         #[builder(into, default)]
-        pub enable_stackdriver_monitoring: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_stackdriver_monitoring: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Option to enable and pass metadata for event publishing.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub event_publish_config: pulumi_wasm_rust::InputOrOutput<
+        pub event_publish_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datafusion::InstanceEventPublishConfig>,
         >,
         /// The resource labels for instance to use to annotate any related underlying resources,
@@ -314,35 +316,35 @@ pub mod instance {
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the instance or a fully qualified identifier for the instance.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Network configuration options. These are required when a private Data Fusion instance is to be created.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub network_config: pulumi_wasm_rust::InputOrOutput<
+        pub network_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datafusion::InstanceNetworkConfig>,
         >,
         /// Map of additional options used to configure the behavior of Data Fusion instance.
         #[builder(into, default)]
-        pub options: pulumi_wasm_rust::InputOrOutput<
+        pub options: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies whether the Data Fusion instance should be private. If set to
         /// true, all Data Fusion nodes will have private IP addresses and will not be
         /// able to access the public internet.
         #[builder(into, default)]
-        pub private_instance: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub private_instance: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region of the Data Fusion instance.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Represents the type of Data Fusion instance. Each type is configured with
         /// the default settings for processing and memory.
         /// - BASIC: Basic Data Fusion instance. In Basic type, the user will be able to create data pipelines
@@ -358,13 +360,13 @@ pub mod instance {
         ///
         /// - - -
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Current version of the Data Fusion.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the zone in which the Data Fusion instance will be created. Only DEVELOPER instances use this field.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
@@ -372,78 +374,80 @@ pub mod instance {
         /// If accelerators are enabled it is possible a permadiff will be created with the Options field.
         /// Users will need to either manually update their state file to include these diffed options, or include the field in a lifecycle ignore changes block.
         /// Structure is documented below.
-        pub accelerators: pulumi_wasm_rust::Output<
+        pub accelerators: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::datafusion::InstanceAccelerator>>,
         >,
         /// Endpoint on which the REST APIs is accessible.
-        pub api_endpoint: pulumi_wasm_rust::Output<String>,
+        pub api_endpoint: pulumi_gestalt_rust::Output<String>,
         /// The time the instance was created in RFC3339 UTC "Zulu" format, accurate to nanoseconds.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The crypto key configuration. This field is used by the Customer-Managed Encryption Keys (CMEK) feature.
         /// Structure is documented below.
-        pub crypto_key_config: pulumi_wasm_rust::Output<
+        pub crypto_key_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::datafusion::InstanceCryptoKeyConfig>,
         >,
         /// User-managed service account to set on Dataproc when Cloud Data Fusion creates Dataproc to run data processing pipelines.
-        pub dataproc_service_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub dataproc_service_account: pulumi_gestalt_rust::Output<Option<String>>,
         /// An optional description of the instance.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Display name for an instance.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Option to enable granular role-based access control.
-        pub enable_rbac: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_rbac: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Option to enable Stackdriver Logging.
-        pub enable_stackdriver_logging: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_stackdriver_logging: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Option to enable Stackdriver Monitoring.
-        pub enable_stackdriver_monitoring: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_stackdriver_monitoring: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Option to enable and pass metadata for event publishing.
         /// Structure is documented below.
-        pub event_publish_config: pulumi_wasm_rust::Output<
+        pub event_publish_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::datafusion::InstanceEventPublishConfig>,
         >,
         /// Cloud Storage bucket generated by Data Fusion in the customer project.
-        pub gcs_bucket: pulumi_wasm_rust::Output<String>,
+        pub gcs_bucket: pulumi_gestalt_rust::Output<String>,
         /// The resource labels for instance to use to annotate any related underlying resources,
         /// such as Compute Engine VMs.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the instance or a fully qualified identifier for the instance.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Network configuration options. These are required when a private Data Fusion instance is to be created.
         /// Structure is documented below.
-        pub network_config: pulumi_wasm_rust::Output<
+        pub network_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::datafusion::InstanceNetworkConfig>,
         >,
         /// Map of additional options used to configure the behavior of Data Fusion instance.
-        pub options: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub options: pulumi_gestalt_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
         /// P4 service account for the customer project.
-        pub p4_service_account: pulumi_wasm_rust::Output<String>,
+        pub p4_service_account: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether the Data Fusion instance should be private. If set to
         /// true, all Data Fusion nodes will have private IP addresses and will not be
         /// able to access the public internet.
-        pub private_instance: pulumi_wasm_rust::Output<Option<bool>>,
+        pub private_instance: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The region of the Data Fusion instance.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// Service account which will be used to access resources in the customer project.
-        pub service_account: pulumi_wasm_rust::Output<String>,
+        pub service_account: pulumi_gestalt_rust::Output<String>,
         /// Endpoint on which the Data Fusion UI and REST APIs are accessible.
-        pub service_endpoint: pulumi_wasm_rust::Output<String>,
+        pub service_endpoint: pulumi_gestalt_rust::Output<String>,
         /// The current state of this Data Fusion instance.
         /// - CREATING: Instance is being created
         /// - RUNNING: Instance is running and ready for requests
@@ -451,11 +455,11 @@ pub mod instance {
         /// - DELETING: Instance is being deleted
         /// - UPGRADING: Instance is being upgraded
         /// - RESTARTING: Instance is being restarted
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Additional information about the current state of this Data Fusion instance if available.
-        pub state_message: pulumi_wasm_rust::Output<String>,
+        pub state_message: pulumi_gestalt_rust::Output<String>,
         /// The name of the tenant project.
-        pub tenant_project_id: pulumi_wasm_rust::Output<String>,
+        pub tenant_project_id: pulumi_gestalt_rust::Output<String>,
         /// Represents the type of Data Fusion instance. Each type is configured with
         /// the default settings for processing and memory.
         /// - BASIC: Basic Data Fusion instance. In Basic type, the user will be able to create data pipelines
@@ -470,24 +474,24 @@ pub mod instance {
         ///
         ///
         /// - - -
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// The time the instance was last updated in RFC3339 UTC "Zulu" format, accurate to nanoseconds.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// Current version of the Data Fusion.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
         /// Name of the zone in which the Data Fusion instance will be created. Only DEVELOPER instances use this field.
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let accelerators_binding = args.accelerators.get_output(context).get_inner();
         let crypto_key_config_binding = args
@@ -611,87 +615,91 @@ pub mod instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceResult {
-            accelerators: pulumi_wasm_rust::__private::into_domain(
+            accelerators: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accelerators"),
             ),
-            api_endpoint: pulumi_wasm_rust::__private::into_domain(
+            api_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiEndpoint"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            crypto_key_config: pulumi_wasm_rust::__private::into_domain(
+            crypto_key_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cryptoKeyConfig"),
             ),
-            dataproc_service_account: pulumi_wasm_rust::__private::into_domain(
+            dataproc_service_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataprocServiceAccount"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            enable_rbac: pulumi_wasm_rust::__private::into_domain(
+            enable_rbac: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableRbac"),
             ),
-            enable_stackdriver_logging: pulumi_wasm_rust::__private::into_domain(
+            enable_stackdriver_logging: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableStackdriverLogging"),
             ),
-            enable_stackdriver_monitoring: pulumi_wasm_rust::__private::into_domain(
+            enable_stackdriver_monitoring: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableStackdriverMonitoring"),
             ),
-            event_publish_config: pulumi_wasm_rust::__private::into_domain(
+            event_publish_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventPublishConfig"),
             ),
-            gcs_bucket: pulumi_wasm_rust::__private::into_domain(
+            gcs_bucket: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gcsBucket"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_config: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkConfig"),
             ),
-            options: pulumi_wasm_rust::__private::into_domain(
+            options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("options"),
             ),
-            p4_service_account: pulumi_wasm_rust::__private::into_domain(
+            p4_service_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("p4ServiceAccount"),
             ),
-            private_instance: pulumi_wasm_rust::__private::into_domain(
+            private_instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateInstance"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            service_account: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            service_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccount"),
             ),
-            service_endpoint: pulumi_wasm_rust::__private::into_domain(
+            service_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceEndpoint"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            state_message: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            state_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateMessage"),
             ),
-            tenant_project_id: pulumi_wasm_rust::__private::into_domain(
+            tenant_project_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tenantProjectId"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
+            version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("version"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

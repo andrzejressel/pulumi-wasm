@@ -36,20 +36,20 @@
 /// ```
 ///
 pub mod ledger {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LedgerArgs {
         /// A list of `azuread_based_service_principal` blocks as defined below.
         #[builder(into)]
-        pub azuread_based_service_principals: pulumi_wasm_rust::InputOrOutput<
+        pub azuread_based_service_principals: pulumi_gestalt_rust::InputOrOutput<
             Vec<
                 super::super::types::confidentialledger::LedgerAzureadBasedServicePrincipal,
             >,
         >,
         /// A list of `certificate_based_security_principal` blocks as defined below.
         #[builder(into, default)]
-        pub certificate_based_security_principals: pulumi_wasm_rust::InputOrOutput<
+        pub certificate_based_security_principals: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::confidentialledger::LedgerCertificateBasedSecurityPrincipal,
@@ -58,32 +58,32 @@ pub mod ledger {
         >,
         /// Specifies the type of Confidential Ledger. Possible values are `Private` and `Public`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub ledger_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub ledger_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the supported Azure location where the Confidential Ledger exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Confidential Ledger. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Confidential Ledger exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the Confidential Ledger.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LedgerResult {
         /// A list of `azuread_based_service_principal` blocks as defined below.
-        pub azuread_based_service_principals: pulumi_wasm_rust::Output<
+        pub azuread_based_service_principals: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::confidentialledger::LedgerAzureadBasedServicePrincipal,
             >,
         >,
         /// A list of `certificate_based_security_principal` blocks as defined below.
-        pub certificate_based_security_principals: pulumi_wasm_rust::Output<
+        pub certificate_based_security_principals: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::confidentialledger::LedgerCertificateBasedSecurityPrincipal,
@@ -91,19 +91,19 @@ pub mod ledger {
             >,
         >,
         /// The Identity Service Endpoint for this Confidential Ledger.
-        pub identity_service_endpoint: pulumi_wasm_rust::Output<String>,
+        pub identity_service_endpoint: pulumi_gestalt_rust::Output<String>,
         /// The Endpoint for this Confidential Ledger.
-        pub ledger_endpoint: pulumi_wasm_rust::Output<String>,
+        pub ledger_endpoint: pulumi_gestalt_rust::Output<String>,
         /// Specifies the type of Confidential Ledger. Possible values are `Private` and `Public`. Changing this forces a new resource to be created.
-        pub ledger_type: pulumi_wasm_rust::Output<String>,
+        pub ledger_type: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the Confidential Ledger exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Confidential Ledger. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Confidential Ledger exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the Confidential Ledger.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -112,11 +112,11 @@ pub mod ledger {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LedgerArgs,
     ) -> LedgerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let azuread_based_service_principals_binding = args
             .azuread_based_service_principals
@@ -171,29 +171,29 @@ pub mod ledger {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LedgerResult {
-            azuread_based_service_principals: pulumi_wasm_rust::__private::into_domain(
+            azuread_based_service_principals: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("azureadBasedServicePrincipals"),
             ),
-            certificate_based_security_principals: pulumi_wasm_rust::__private::into_domain(
+            certificate_based_security_principals: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateBasedSecurityPrincipals"),
             ),
-            identity_service_endpoint: pulumi_wasm_rust::__private::into_domain(
+            identity_service_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identityServiceEndpoint"),
             ),
-            ledger_endpoint: pulumi_wasm_rust::__private::into_domain(
+            ledger_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ledgerEndpoint"),
             ),
-            ledger_type: pulumi_wasm_rust::__private::into_domain(
+            ledger_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ledgerType"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket_accelerate_configuration_v_2::create(
@@ -40,39 +40,39 @@
 /// $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
 /// ```
 pub mod bucket_accelerate_configuration_v_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketAccelerateConfigurationV2Args {
         /// Name of the bucket.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Account ID of the expected bucket owner.
         #[builder(into, default)]
-        pub expected_bucket_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub expected_bucket_owner: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         #[builder(into)]
-        pub status: pulumi_wasm_rust::InputOrOutput<String>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BucketAccelerateConfigurationV2Result {
         /// Name of the bucket.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// Account ID of the expected bucket owner.
-        pub expected_bucket_owner: pulumi_wasm_rust::Output<Option<String>>,
+        pub expected_bucket_owner: pulumi_gestalt_rust::Output<Option<String>>,
         /// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BucketAccelerateConfigurationV2Args,
     ) -> BucketAccelerateConfigurationV2Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let expected_bucket_owner_binding = args
@@ -102,11 +102,15 @@ pub mod bucket_accelerate_configuration_v_2 {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BucketAccelerateConfigurationV2Result {
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            expected_bucket_owner: pulumi_wasm_rust::__private::into_domain(
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            expected_bucket_owner: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expectedBucketOwner"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -94,193 +94,199 @@
 /// ```
 ///
 pub mod virtual_network_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VirtualNetworkGatewayArgs {
         /// If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
         #[builder(into, default)]
-        pub active_active: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub active_active: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Is BGP Route Translation for NAT enabled? Defaults to `false`.
         #[builder(into, default)]
-        pub bgp_route_translation_for_nat_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub bgp_route_translation_for_nat_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
         #[builder(into, default)]
-        pub bgp_settings: pulumi_wasm_rust::InputOrOutput<
+        pub bgp_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::network::VirtualNetworkGatewayBgpSettings>,
         >,
         /// A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
         #[builder(into, default)]
-        pub custom_route: pulumi_wasm_rust::InputOrOutput<
+        pub custom_route: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::network::VirtualNetworkGatewayCustomRoute>,
         >,
         /// The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
         #[builder(into, default)]
-        pub default_local_network_gateway_id: pulumi_wasm_rust::InputOrOutput<
+        pub default_local_network_gateway_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Is DNS forwarding enabled?
         #[builder(into, default)]
-        pub dns_forwarding_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub dns_forwarding_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
         #[builder(into, default)]
-        pub edge_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub edge_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
         #[builder(into, default)]
-        pub enable_bgp: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_bgp: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
         #[builder(into, default)]
-        pub generation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub generation: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more (up to 3) `ip_configuration` blocks documented below. Changing this forces a new resource to be created.
         /// An active-standby gateway requires exactly one `ip_configuration` block,
         /// an active-active gateway requires exactly two `ip_configuration` blocks whereas
         /// an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
         #[builder(into)]
-        pub ip_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub ip_configurations: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::network::VirtualNetworkGatewayIpConfiguration>,
         >,
         /// Is IP Sec Replay Protection enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub ip_sec_replay_protection_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub ip_sec_replay_protection_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `policy_group` blocks as defined below.
         #[builder(into, default)]
-        pub policy_groups: pulumi_wasm_rust::InputOrOutput<
+        pub policy_groups: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::network::VirtualNetworkGatewayPolicyGroup>>,
         >,
         /// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub private_ip_address_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub private_ip_address_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
         #[builder(into, default)]
-        pub remote_vnet_traffic_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub remote_vnet_traffic_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
         ///
         /// > **NOTE:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU "Basic" not "Standard"
         ///
         /// > **NOTE:** Not all SKUs (e.g. `ErGw1AZ`) are available in all regions. If you see `StatusCode=400 -- Original Error: Code="InvalidGatewaySkuSpecifiedForGatewayDeploymentType"` please try another region.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
         #[builder(into, default)]
-        pub virtual_wan_traffic_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub virtual_wan_traffic_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         #[builder(into, default)]
-        pub vpn_client_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub vpn_client_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::network::VirtualNetworkGatewayVpnClientConfiguration,
             >,
         >,
         /// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub vpn_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub vpn_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct VirtualNetworkGatewayResult {
         /// If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
-        pub active_active: pulumi_wasm_rust::Output<bool>,
+        pub active_active: pulumi_gestalt_rust::Output<bool>,
         /// Is BGP Route Translation for NAT enabled? Defaults to `false`.
-        pub bgp_route_translation_for_nat_enabled: pulumi_wasm_rust::Output<
+        pub bgp_route_translation_for_nat_enabled: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined.
-        pub bgp_settings: pulumi_wasm_rust::Output<
+        pub bgp_settings: pulumi_gestalt_rust::Output<
             super::super::types::network::VirtualNetworkGatewayBgpSettings,
         >,
         /// A `custom_route` block as defined below. Specifies a custom routes address space for a virtual network gateway and a VpnClient.
-        pub custom_route: pulumi_wasm_rust::Output<
+        pub custom_route: pulumi_gestalt_rust::Output<
             Option<super::super::types::network::VirtualNetworkGatewayCustomRoute>,
         >,
         /// The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled.
-        pub default_local_network_gateway_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_local_network_gateway_id: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// Is DNS forwarding enabled?
-        pub dns_forwarding_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub dns_forwarding_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
-        pub edge_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub edge_zone: pulumi_gestalt_rust::Output<Option<String>>,
         /// If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
-        pub enable_bgp: pulumi_wasm_rust::Output<bool>,
+        pub enable_bgp: pulumi_gestalt_rust::Output<bool>,
         /// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
-        pub generation: pulumi_wasm_rust::Output<String>,
+        pub generation: pulumi_gestalt_rust::Output<String>,
         /// One or more (up to 3) `ip_configuration` blocks documented below. Changing this forces a new resource to be created.
         /// An active-standby gateway requires exactly one `ip_configuration` block,
         /// an active-active gateway requires exactly two `ip_configuration` blocks whereas
         /// an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
-        pub ip_configurations: pulumi_wasm_rust::Output<
+        pub ip_configurations: pulumi_gestalt_rust::Output<
             Vec<super::super::types::network::VirtualNetworkGatewayIpConfiguration>,
         >,
         /// Is IP Sec Replay Protection enabled? Defaults to `true`.
-        pub ip_sec_replay_protection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ip_sec_replay_protection_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `policy_group` blocks as defined below.
-        pub policy_groups: pulumi_wasm_rust::Output<
+        pub policy_groups: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::network::VirtualNetworkGatewayPolicyGroup>>,
         >,
         /// Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
-        pub private_ip_address_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub private_ip_address_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`.
-        pub remote_vnet_traffic_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub remote_vnet_traffic_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway.
         ///
         /// > **NOTE:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU "Basic" not "Standard"
         ///
         /// > **NOTE:** Not all SKUs (e.g. `ErGw1AZ`) are available in all regions. If you see `StatusCode=400 -- Original Error: Code="InvalidGatewaySkuSpecifiedForGatewayDeploymentType"` please try another region.
-        pub sku: pulumi_wasm_rust::Output<String>,
+        pub sku: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`.
-        pub virtual_wan_traffic_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub virtual_wan_traffic_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
-        pub vpn_client_configuration: pulumi_wasm_rust::Output<
+        pub vpn_client_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::network::VirtualNetworkGatewayVpnClientConfiguration,
             >,
         >,
         /// The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
-        pub vpn_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpn_type: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VirtualNetworkGatewayArgs,
     ) -> VirtualNetworkGatewayResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let active_active_binding = args.active_active.get_output(context).get_inner();
         let bgp_route_translation_for_nat_enabled_binding = args
@@ -436,65 +442,65 @@ pub mod virtual_network_gateway {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VirtualNetworkGatewayResult {
-            active_active: pulumi_wasm_rust::__private::into_domain(
+            active_active: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activeActive"),
             ),
-            bgp_route_translation_for_nat_enabled: pulumi_wasm_rust::__private::into_domain(
+            bgp_route_translation_for_nat_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bgpRouteTranslationForNatEnabled"),
             ),
-            bgp_settings: pulumi_wasm_rust::__private::into_domain(
+            bgp_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bgpSettings"),
             ),
-            custom_route: pulumi_wasm_rust::__private::into_domain(
+            custom_route: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customRoute"),
             ),
-            default_local_network_gateway_id: pulumi_wasm_rust::__private::into_domain(
+            default_local_network_gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultLocalNetworkGatewayId"),
             ),
-            dns_forwarding_enabled: pulumi_wasm_rust::__private::into_domain(
+            dns_forwarding_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsForwardingEnabled"),
             ),
-            edge_zone: pulumi_wasm_rust::__private::into_domain(
+            edge_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edgeZone"),
             ),
-            enable_bgp: pulumi_wasm_rust::__private::into_domain(
+            enable_bgp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableBgp"),
             ),
-            generation: pulumi_wasm_rust::__private::into_domain(
+            generation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("generation"),
             ),
-            ip_configurations: pulumi_wasm_rust::__private::into_domain(
+            ip_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipConfigurations"),
             ),
-            ip_sec_replay_protection_enabled: pulumi_wasm_rust::__private::into_domain(
+            ip_sec_replay_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipSecReplayProtectionEnabled"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            policy_groups: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            policy_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyGroups"),
             ),
-            private_ip_address_enabled: pulumi_wasm_rust::__private::into_domain(
+            private_ip_address_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpAddressEnabled"),
             ),
-            remote_vnet_traffic_enabled: pulumi_wasm_rust::__private::into_domain(
+            remote_vnet_traffic_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remoteVnetTrafficEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            virtual_wan_traffic_enabled: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            virtual_wan_traffic_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualWanTrafficEnabled"),
             ),
-            vpn_client_configuration: pulumi_wasm_rust::__private::into_domain(
+            vpn_client_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpnClientConfiguration"),
             ),
-            vpn_type: pulumi_wasm_rust::__private::into_domain(
+            vpn_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpnType"),
             ),
         }

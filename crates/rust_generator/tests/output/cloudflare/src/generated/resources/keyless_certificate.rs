@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = keyless_certificate::create(
@@ -29,61 +29,61 @@
 /// ```
 ///
 pub mod keyless_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KeylessCertificateArgs {
         /// A ubiquitous bundle has the highest probability of being verified everywhere, even by clients using outdated or unusual trust stores. An optimal bundle uses the shortest chain and newest intermediates. And the force bundle verifies the chain, but does not otherwise modify it. Available values: `ubiquitous`, `optimal`, `force`. Defaults to `ubiquitous`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub bundle_method: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub bundle_method: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The zone's SSL certificate or SSL certificate and intermediate(s). **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub certificate: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether the KeyLess SSL is on.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The KeyLess SSL host.
         #[builder(into)]
-        pub host: pulumi_wasm_rust::InputOrOutput<String>,
+        pub host: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The KeyLess SSL name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The KeyLess SSL port used to communicate between Cloudflare and the client's KeyLess SSL server. Defaults to `24008`.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The zone identifier to target for the resource.
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct KeylessCertificateResult {
         /// A ubiquitous bundle has the highest probability of being verified everywhere, even by clients using outdated or unusual trust stores. An optimal bundle uses the shortest chain and newest intermediates. And the force bundle verifies the chain, but does not otherwise modify it. Available values: `ubiquitous`, `optimal`, `force`. Defaults to `ubiquitous`. **Modifying this attribute will force creation of a new resource.**
-        pub bundle_method: pulumi_wasm_rust::Output<Option<String>>,
+        pub bundle_method: pulumi_gestalt_rust::Output<Option<String>>,
         /// The zone's SSL certificate or SSL certificate and intermediate(s). **Modifying this attribute will force creation of a new resource.**
-        pub certificate: pulumi_wasm_rust::Output<String>,
+        pub certificate: pulumi_gestalt_rust::Output<String>,
         /// Whether the KeyLess SSL is on.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The KeyLess SSL host.
-        pub host: pulumi_wasm_rust::Output<String>,
+        pub host: pulumi_gestalt_rust::Output<String>,
         /// The KeyLess SSL name.
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The KeyLess SSL port used to communicate between Cloudflare and the client's KeyLess SSL server. Defaults to `24008`.
-        pub port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Status of the KeyLess SSL.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// The zone identifier to target for the resource.
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: KeylessCertificateArgs,
     ) -> KeylessCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bundle_method_binding = args.bundle_method.get_output(context).get_inner();
         let certificate_binding = args.certificate.get_output(context).get_inner();
@@ -129,20 +129,24 @@ pub mod keyless_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         KeylessCertificateResult {
-            bundle_method: pulumi_wasm_rust::__private::into_domain(
+            bundle_method: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bundleMethod"),
             ),
-            certificate: pulumi_wasm_rust::__private::into_domain(
+            certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificate"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            host: pulumi_wasm_rust::__private::into_domain(o.extract_field("host")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            host: pulumi_gestalt_rust::__private::into_domain(o.extract_field("host")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

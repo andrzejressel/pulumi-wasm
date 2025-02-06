@@ -6,8 +6,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = auto_scaling_configuration_version::create(
@@ -36,29 +36,29 @@
 /// $ pulumi import aws:apprunner/defaultAutoScalingConfigurationVersion:DefaultAutoScalingConfigurationVersion example us-west-2
 /// ```
 pub mod default_auto_scaling_configuration_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DefaultAutoScalingConfigurationVersionArgs {
         /// The ARN of the App Runner auto scaling configuration that you want to set as the default.
         #[builder(into)]
-        pub auto_scaling_configuration_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub auto_scaling_configuration_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DefaultAutoScalingConfigurationVersionResult {
         /// The ARN of the App Runner auto scaling configuration that you want to set as the default.
-        pub auto_scaling_configuration_arn: pulumi_wasm_rust::Output<String>,
+        pub auto_scaling_configuration_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DefaultAutoScalingConfigurationVersionArgs,
     ) -> DefaultAutoScalingConfigurationVersionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_scaling_configuration_arn_binding = args
             .auto_scaling_configuration_arn
@@ -78,7 +78,7 @@ pub mod default_auto_scaling_configuration_version {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DefaultAutoScalingConfigurationVersionResult {
-            auto_scaling_configuration_arn: pulumi_wasm_rust::__private::into_domain(
+            auto_scaling_configuration_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoScalingConfigurationArn"),
             ),
         }

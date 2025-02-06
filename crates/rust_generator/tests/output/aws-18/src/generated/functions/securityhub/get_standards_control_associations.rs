@@ -1,20 +1,20 @@
 pub mod get_standards_control_associations {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetStandardsControlAssociationsArgs {
         /// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
         #[builder(into)]
-        pub security_control_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub security_control_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetStandardsControlAssociationsResult {
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// ID of the security control.
-        pub security_control_id: pulumi_wasm_rust::Output<String>,
+        pub security_control_id: pulumi_gestalt_rust::Output<String>,
         /// A list that provides the status and other details for each security control that applies to each enabled standard.
         /// See `standards_control_associations` below.
-        pub standards_control_associations: pulumi_wasm_rust::Output<
+        pub standards_control_associations: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::securityhub::GetStandardsControlAssociationsStandardsControlAssociation,
             >,
@@ -25,10 +25,10 @@ pub mod get_standards_control_associations {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetStandardsControlAssociationsArgs,
     ) -> GetStandardsControlAssociationsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let security_control_id_binding = args
             .security_control_id
@@ -47,11 +47,11 @@ pub mod get_standards_control_associations {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetStandardsControlAssociationsResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            security_control_id: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            security_control_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityControlId"),
             ),
-            standards_control_associations: pulumi_wasm_rust::__private::into_domain(
+            standards_control_associations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("standardsControlAssociations"),
             ),
         }

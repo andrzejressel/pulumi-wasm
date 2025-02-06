@@ -17,8 +17,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = organization_custom_module::create(
@@ -56,8 +56,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = organization_custom_module::create(
@@ -128,14 +128,14 @@
 /// ```
 ///
 pub mod organization_custom_module {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationCustomModuleArgs {
         /// The user specified custom configuration for the module.
         /// Structure is documented below.
         #[builder(into)]
-        pub custom_config: pulumi_wasm_rust::InputOrOutput<
+        pub custom_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::securitycenter::OrganizationCustomModuleCustomConfig,
         >,
         /// The display name of the Security Health Analytics custom module. This
@@ -144,24 +144,24 @@ pub mod organization_custom_module {
         /// 128 characters, start with a lowercase letter, and contain alphanumeric
         /// characters or underscores only.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The enablement state of the custom module.
         /// Possible values are: `ENABLED`, `DISABLED`.
         #[builder(into)]
-        pub enablement_state: pulumi_wasm_rust::InputOrOutput<String>,
+        pub enablement_state: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Numerical ID of the parent organization.
         #[builder(into)]
-        pub organization: pulumi_wasm_rust::InputOrOutput<String>,
+        pub organization: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OrganizationCustomModuleResult {
         /// If empty, indicates that the custom module was created in the organization, folder,
         /// or project in which you are viewing the custom module. Otherwise, ancestor_module
         /// specifies the organization or folder from which the custom module is inherited.
-        pub ancestor_module: pulumi_wasm_rust::Output<String>,
+        pub ancestor_module: pulumi_gestalt_rust::Output<String>,
         /// The user specified custom configuration for the module.
         /// Structure is documented below.
-        pub custom_config: pulumi_wasm_rust::Output<
+        pub custom_config: pulumi_gestalt_rust::Output<
             super::super::types::securitycenter::OrganizationCustomModuleCustomConfig,
         >,
         /// The display name of the Security Health Analytics custom module. This
@@ -169,32 +169,32 @@ pub mod organization_custom_module {
         /// returned by this custom module. The display name must be between 1 and
         /// 128 characters, start with a lowercase letter, and contain alphanumeric
         /// characters or underscores only.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The enablement state of the custom module.
         /// Possible values are: `ENABLED`, `DISABLED`.
-        pub enablement_state: pulumi_wasm_rust::Output<String>,
+        pub enablement_state: pulumi_gestalt_rust::Output<String>,
         /// The editor that last updated the custom module.
-        pub last_editor: pulumi_wasm_rust::Output<String>,
+        pub last_editor: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the custom module. Its format is "organizations/{org_id}/securityHealthAnalyticsSettings/customModules/{customModule}".
         /// The id {customModule} is server-generated and is not user settable. It will be a numeric id containing 1-20 digits.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Numerical ID of the parent organization.
-        pub organization: pulumi_wasm_rust::Output<String>,
+        pub organization: pulumi_gestalt_rust::Output<String>,
         /// The time at which the custom module was last updated.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and
         /// up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OrganizationCustomModuleArgs,
     ) -> OrganizationCustomModuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let custom_config_binding = args.custom_config.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -229,26 +229,26 @@ pub mod organization_custom_module {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OrganizationCustomModuleResult {
-            ancestor_module: pulumi_wasm_rust::__private::into_domain(
+            ancestor_module: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ancestorModule"),
             ),
-            custom_config: pulumi_wasm_rust::__private::into_domain(
+            custom_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customConfig"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            enablement_state: pulumi_wasm_rust::__private::into_domain(
+            enablement_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enablementState"),
             ),
-            last_editor: pulumi_wasm_rust::__private::into_domain(
+            last_editor: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastEditor"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            organization: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            organization: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organization"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

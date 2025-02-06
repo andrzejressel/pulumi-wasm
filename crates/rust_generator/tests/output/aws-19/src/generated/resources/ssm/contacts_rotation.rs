@@ -3,8 +3,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = contacts_rotation::create(
@@ -74,8 +74,8 @@
 /// ### Usage with Monthly Settings Fields
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = contacts_rotation::create(
@@ -116,72 +116,72 @@
 /// $ pulumi import aws:ssm/contactsRotation:ContactsRotation example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
 /// ```
 pub mod contacts_rotation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContactsRotationArgs {
         /// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
         #[builder(into)]
-        pub contact_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub contact_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The name for the rotation.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub recurrence: pulumi_wasm_rust::InputOrOutput<
+        pub recurrence: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ssm::ContactsRotationRecurrence>,
         >,
         /// The date and time, in RFC 3339 format, that the rotation goes into effect.
         #[builder(into, default)]
-        pub start_time: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub start_time: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
         #[builder(into)]
-        pub time_zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub time_zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ContactsRotationResult {
         /// The Amazon Resource Name (ARN) of the rotation.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
-        pub contact_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub contact_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The name for the rotation.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
         ///
         /// The following arguments are optional:
-        pub recurrence: pulumi_wasm_rust::Output<
+        pub recurrence: pulumi_gestalt_rust::Output<
             Option<super::super::types::ssm::ContactsRotationRecurrence>,
         >,
         /// The date and time, in RFC 3339 format, that the rotation goes into effect.
-        pub start_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub start_time: pulumi_gestalt_rust::Output<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
-        pub time_zone_id: pulumi_wasm_rust::Output<String>,
+        pub time_zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ContactsRotationArgs,
     ) -> ContactsRotationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let contact_ids_binding = args.contact_ids.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -222,22 +222,22 @@ pub mod contacts_rotation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ContactsRotationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            contact_ids: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            contact_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contactIds"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            recurrence: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            recurrence: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recurrence"),
             ),
-            start_time: pulumi_wasm_rust::__private::into_domain(
+            start_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startTime"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            time_zone_id: pulumi_wasm_rust::__private::into_domain(
+            time_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeZoneId"),
             ),
         }

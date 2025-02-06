@@ -174,86 +174,86 @@
 /// $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
 /// ```
 pub mod compute_environment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ComputeEnvironmentArgs {
         /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
         #[builder(into, default)]
-        pub compute_environment_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub compute_environment_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
         #[builder(into, default)]
-        pub compute_environment_name_prefix: pulumi_wasm_rust::InputOrOutput<
+        pub compute_environment_name_prefix: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
         #[builder(into, default)]
-        pub compute_resources: pulumi_wasm_rust::InputOrOutput<
+        pub compute_resources: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::batch::ComputeEnvironmentComputeResources>,
         >,
         /// Details for the Amazon EKS cluster that supports the compute environment. See details below.
         #[builder(into, default)]
-        pub eks_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub eks_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::batch::ComputeEnvironmentEksConfiguration>,
         >,
         /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         #[builder(into, default)]
-        pub service_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_role: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         #[builder(into, default)]
-        pub state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub state: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the infrastructure update policy for the compute environment. See details below.
         #[builder(into, default)]
-        pub update_policy: pulumi_wasm_rust::InputOrOutput<
+        pub update_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::batch::ComputeEnvironmentUpdatePolicy>,
         >,
     }
     #[allow(dead_code)]
     pub struct ComputeEnvironmentResult {
         /// The Amazon Resource Name (ARN) of the compute environment.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, the provider will assign a random, unique name.
-        pub compute_environment_name: pulumi_wasm_rust::Output<String>,
+        pub compute_environment_name: pulumi_gestalt_rust::Output<String>,
         /// Creates a unique compute environment name beginning with the specified prefix. Conflicts with `compute_environment_name`.
-        pub compute_environment_name_prefix: pulumi_wasm_rust::Output<String>,
+        pub compute_environment_name_prefix: pulumi_gestalt_rust::Output<String>,
         /// Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
-        pub compute_resources: pulumi_wasm_rust::Output<
+        pub compute_resources: pulumi_gestalt_rust::Output<
             Option<super::super::types::batch::ComputeEnvironmentComputeResources>,
         >,
         /// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
-        pub ecs_cluster_arn: pulumi_wasm_rust::Output<String>,
+        pub ecs_cluster_arn: pulumi_gestalt_rust::Output<String>,
         /// Details for the Amazon EKS cluster that supports the compute environment. See details below.
-        pub eks_configuration: pulumi_wasm_rust::Output<
+        pub eks_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::batch::ComputeEnvironmentEksConfiguration>,
         >,
         /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
-        pub service_role: pulumi_wasm_rust::Output<String>,
+        pub service_role: pulumi_gestalt_rust::Output<String>,
         /// The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        pub state: pulumi_wasm_rust::Output<Option<String>>,
+        pub state: pulumi_gestalt_rust::Output<Option<String>>,
         /// The current status of the compute environment (for example, CREATING or VALID).
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// A short, human-readable string to provide additional details about the current status of the compute environment.
-        pub status_reason: pulumi_wasm_rust::Output<String>,
+        pub status_reason: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The type of the compute environment. Valid items are `MANAGED` or `UNMANAGED`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// Specifies the infrastructure update policy for the compute environment. See details below.
-        pub update_policy: pulumi_wasm_rust::Output<
+        pub update_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::batch::ComputeEnvironmentUpdatePolicy>,
         >,
     }
@@ -262,11 +262,11 @@ pub mod compute_environment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ComputeEnvironmentArgs,
     ) -> ComputeEnvironmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let compute_environment_name_binding = args
             .compute_environment_name
@@ -334,36 +334,38 @@ pub mod compute_environment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ComputeEnvironmentResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            compute_environment_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            compute_environment_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("computeEnvironmentName"),
             ),
-            compute_environment_name_prefix: pulumi_wasm_rust::__private::into_domain(
+            compute_environment_name_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("computeEnvironmentNamePrefix"),
             ),
-            compute_resources: pulumi_wasm_rust::__private::into_domain(
+            compute_resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("computeResources"),
             ),
-            ecs_cluster_arn: pulumi_wasm_rust::__private::into_domain(
+            ecs_cluster_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ecsClusterArn"),
             ),
-            eks_configuration: pulumi_wasm_rust::__private::into_domain(
+            eks_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eksConfiguration"),
             ),
-            service_role: pulumi_wasm_rust::__private::into_domain(
+            service_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceRole"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            status_reason: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            status_reason: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statusReason"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            update_policy: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            update_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updatePolicy"),
             ),
         }

@@ -1,7 +1,7 @@
 use crate::output_id::OutputId;
 use crate::pulumi_state::PulumiState;
-use pulumi_wasm_proto::grpc::ResourceInvokeRequest;
-use pulumi_wasm_proto::grpc::{RegisterResourceOutputsRequest, RegisterResourceRequest};
+use pulumi_gestalt_proto::grpc::ResourceInvokeRequest;
+use pulumi_gestalt_proto::grpc::{RegisterResourceOutputsRequest, RegisterResourceRequest};
 use tokio::runtime::{Builder, Runtime};
 
 pub struct PulumiStateSync {
@@ -68,7 +68,7 @@ impl PulumiStateSync {
 #[cfg(test)]
 mod tests {
     use crate::output_id::OutputId;
-    use pulumi_wasm_proto::grpc::engine_server::EngineServer;
+    use pulumi_gestalt_proto::grpc::engine_server::EngineServer;
     use std::time::Instant;
     use tokio::net::TcpListener;
 
@@ -77,8 +77,8 @@ mod tests {
 
     use crate::sync_pulumi_state::PulumiStateSync;
     use crate::test_server::{MyResourceEngineServer, MyResourceMonitorServer};
-    use pulumi_wasm_proto::grpc::resource_monitor_server::ResourceMonitorServer;
-    use pulumi_wasm_proto::grpc::RegisterResourceRequest;
+    use pulumi_gestalt_proto::grpc::resource_monitor_server::ResourceMonitorServer;
+    use pulumi_gestalt_proto::grpc::RegisterResourceRequest;
 
     #[test]
     fn test() -> Result<(), anyhow::Error> {

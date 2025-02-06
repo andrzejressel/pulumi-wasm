@@ -5,8 +5,8 @@
 /// ### Basic usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = code_repository::create(
@@ -61,40 +61,40 @@
 /// $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
 /// ```
 pub mod code_repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CodeRepositoryArgs {
         /// The name of the Code Repository (must be unique).
         #[builder(into)]
-        pub code_repository_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub code_repository_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies details about the repository. see Git Config details below.
         #[builder(into)]
-        pub git_config: pulumi_wasm_rust::InputOrOutput<
+        pub git_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::sagemaker::CodeRepositoryGitConfig,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CodeRepositoryResult {
         /// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the Code Repository (must be unique).
-        pub code_repository_name: pulumi_wasm_rust::Output<String>,
+        pub code_repository_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies details about the repository. see Git Config details below.
-        pub git_config: pulumi_wasm_rust::Output<
+        pub git_config: pulumi_gestalt_rust::Output<
             super::super::types::sagemaker::CodeRepositoryGitConfig,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -103,11 +103,11 @@ pub mod code_repository {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CodeRepositoryArgs,
     ) -> CodeRepositoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let code_repository_name_binding = args
             .code_repository_name
@@ -136,15 +136,15 @@ pub mod code_repository {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CodeRepositoryResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            code_repository_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            code_repository_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("codeRepositoryName"),
             ),
-            git_config: pulumi_wasm_rust::__private::into_domain(
+            git_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gitConfig"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

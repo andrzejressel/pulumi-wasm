@@ -1,45 +1,45 @@
 pub mod instance_iam_member {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceIamMemberArgs {
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::InputOrOutput<
+        pub condition: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::securesourcemanager::InstanceIamMemberCondition>,
         >,
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub member: pulumi_wasm_rust::InputOrOutput<String>,
+        pub member: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct InstanceIamMemberResult {
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_gestalt_rust::Output<
             Option<super::super::types::securesourcemanager::InstanceIamMemberCondition>,
         >,
-        pub etag: pulumi_wasm_rust::Output<String>,
-        pub instance_id: pulumi_wasm_rust::Output<String>,
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub member: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub member: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
+        pub role: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceIamMemberArgs,
     ) -> InstanceIamMemberResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let condition_binding = args.condition.get_output(context).get_inner();
         let instance_id_binding = args.instance_id.get_output(context).get_inner();
@@ -80,21 +80,23 @@ pub mod instance_iam_member {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceIamMemberResult {
-            condition: pulumi_wasm_rust::__private::into_domain(
+            condition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("condition"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            member: pulumi_wasm_rust::__private::into_domain(o.extract_field("member")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            member: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("member"),
+            ),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
         }
     }
 }

@@ -40,39 +40,39 @@
 /// $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
 /// ```
 pub mod tag {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TagArgs {
         /// The tag name.
         #[builder(into)]
-        pub key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the EC2 resource to manage the tag for.
         #[builder(into)]
-        pub resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The value of the tag.
         #[builder(into)]
-        pub value: pulumi_wasm_rust::InputOrOutput<String>,
+        pub value: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TagResult {
         /// The tag name.
-        pub key: pulumi_wasm_rust::Output<String>,
+        pub key: pulumi_gestalt_rust::Output<String>,
         /// The ID of the EC2 resource to manage the tag for.
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_gestalt_rust::Output<String>,
         /// The value of the tag.
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TagArgs,
     ) -> TagResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let key_binding = args.key.get_output(context).get_inner();
         let resource_id_binding = args.resource_id.get_output(context).get_inner();
@@ -98,11 +98,11 @@ pub mod tag {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TagResult {
-            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
-            resource_id: pulumi_wasm_rust::__private::into_domain(
+            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
+            resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceId"),
             ),
-            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
+            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

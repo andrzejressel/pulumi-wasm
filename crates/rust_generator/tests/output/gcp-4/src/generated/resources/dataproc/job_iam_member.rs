@@ -33,8 +33,8 @@
 /// ## gcp.dataproc.JobIAMBinding
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let editor = job_iam_binding::create(
@@ -51,8 +51,8 @@
 /// ## gcp.dataproc.JobIAMMember
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let editor = job_iam_member::create(
@@ -91,8 +91,8 @@
 /// ## gcp.dataproc.JobIAMBinding
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let editor = job_iam_binding::create(
@@ -109,8 +109,8 @@
 /// ## gcp.dataproc.JobIAMMember
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let editor = job_iam_member::create(
@@ -151,16 +151,16 @@
 /// ```
 ///
 pub mod job_iam_member {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct JobIAMMemberArgs {
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::InputOrOutput<
+        pub condition: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::JobIamMemberCondition>,
         >,
         #[builder(into)]
-        pub job_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub job_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Identities that will be granted the privilege in `role`.
         /// Each entry can have one of the following values:
         /// * **allUsers**: A special identifier that represents anyone who is on the internet; with or without a Google account.
@@ -170,31 +170,31 @@ pub mod job_iam_member {
         /// * **group:{emailid}**: An email address that represents a Google group. For example, admins@example.com.
         /// * **domain:{domain}**: A G Suite domain (primary, instead of alias) name that represents all the users of that domain. For example, google.com or example.com.
         #[builder(into)]
-        pub member: pulumi_wasm_rust::InputOrOutput<String>,
+        pub member: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The project in which the job belongs. If it
         /// is not provided, the provider will use a default.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region in which the job belongs. If it
         /// is not provided, the provider will use a default.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The role that should be applied. Only one
         /// `gcp.dataproc.JobIAMBinding` can be used per role. Note that custom roles must be of the format
         /// `[projects|organizations]/{parent-name}/roles/{role-name}`.
         ///
         /// `gcp.dataproc.JobIAMPolicy` only:
         #[builder(into)]
-        pub role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct JobIAMMemberResult {
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataproc::JobIamMemberCondition>,
         >,
         /// (Computed) The etag of the jobs's IAM policy.
-        pub etag: pulumi_wasm_rust::Output<String>,
-        pub job_id: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
+        pub job_id: pulumi_gestalt_rust::Output<String>,
         /// Identities that will be granted the privilege in `role`.
         /// Each entry can have one of the following values:
         /// * **allUsers**: A special identifier that represents anyone who is on the internet; with or without a Google account.
@@ -203,30 +203,30 @@ pub mod job_iam_member {
         /// * **serviceAccount:{emailid}**: An email address that represents a service account. For example, my-other-app@appspot.gserviceaccount.com.
         /// * **group:{emailid}**: An email address that represents a Google group. For example, admins@example.com.
         /// * **domain:{domain}**: A G Suite domain (primary, instead of alias) name that represents all the users of that domain. For example, google.com or example.com.
-        pub member: pulumi_wasm_rust::Output<String>,
+        pub member: pulumi_gestalt_rust::Output<String>,
         /// The project in which the job belongs. If it
         /// is not provided, the provider will use a default.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The region in which the job belongs. If it
         /// is not provided, the provider will use a default.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The role that should be applied. Only one
         /// `gcp.dataproc.JobIAMBinding` can be used per role. Note that custom roles must be of the format
         /// `[projects|organizations]/{parent-name}/roles/{role-name}`.
         ///
         /// `gcp.dataproc.JobIAMPolicy` only:
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: JobIAMMemberArgs,
     ) -> JobIAMMemberResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let condition_binding = args.condition.get_output(context).get_inner();
         let job_id_binding = args.job_id.get_output(context).get_inner();
@@ -267,17 +267,23 @@ pub mod job_iam_member {
         };
         let o = register_interface::register(context.get_inner(), &request);
         JobIAMMemberResult {
-            condition: pulumi_wasm_rust::__private::into_domain(
+            condition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("condition"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            job_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("jobId")),
-            member: pulumi_wasm_rust::__private::into_domain(o.extract_field("member")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            job_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("jobId"),
+            ),
+            member: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("member"),
+            ),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
         }
     }
 }

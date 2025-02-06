@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = organization::create(
@@ -33,29 +33,29 @@
 /// $ pulumi import aws:iam/organizationsFeatures:OrganizationsFeatures example o-1234567
 /// ```
 pub mod organizations_features {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationsFeaturesArgs {
         /// List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
         #[builder(into)]
-        pub enabled_features: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub enabled_features: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct OrganizationsFeaturesResult {
         /// List of IAM features to enable. Valid values are `RootCredentialsManagement` and `RootSessions`.
-        pub enabled_features: pulumi_wasm_rust::Output<Vec<String>>,
+        pub enabled_features: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OrganizationsFeaturesArgs,
     ) -> OrganizationsFeaturesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let enabled_features_binding = args
             .enabled_features
@@ -74,7 +74,7 @@ pub mod organizations_features {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OrganizationsFeaturesResult {
-            enabled_features: pulumi_wasm_rust::__private::into_domain(
+            enabled_features: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabledFeatures"),
             ),
         }

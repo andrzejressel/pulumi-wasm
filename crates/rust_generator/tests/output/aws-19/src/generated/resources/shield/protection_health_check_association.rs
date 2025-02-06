@@ -62,34 +62,34 @@
 /// $ pulumi import aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation example ff9592dc-22f3-4e88-afa1-7b29fde9669a+arn:aws:route53:::healthcheck/3742b175-edb9-46bc-9359-f53e3b794b1b
 /// ```
 pub mod protection_health_check_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProtectionHealthCheckAssociationArgs {
         /// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
         #[builder(into)]
-        pub health_check_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub health_check_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the protected resource.
         #[builder(into)]
-        pub shield_protection_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub shield_protection_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ProtectionHealthCheckAssociationResult {
         /// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
-        pub health_check_arn: pulumi_wasm_rust::Output<String>,
+        pub health_check_arn: pulumi_gestalt_rust::Output<String>,
         /// The ID of the protected resource.
-        pub shield_protection_id: pulumi_wasm_rust::Output<String>,
+        pub shield_protection_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProtectionHealthCheckAssociationArgs,
     ) -> ProtectionHealthCheckAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let health_check_arn_binding = args
             .health_check_arn
@@ -117,10 +117,10 @@ pub mod protection_health_check_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProtectionHealthCheckAssociationResult {
-            health_check_arn: pulumi_wasm_rust::__private::into_domain(
+            health_check_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("healthCheckArn"),
             ),
-            shield_protection_id: pulumi_wasm_rust::__private::into_domain(
+            shield_protection_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shieldProtectionId"),
             ),
         }

@@ -54,96 +54,96 @@
 /// ```
 ///
 pub mod spring_cloud_container_deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpringCloudContainerDeploymentArgs {
         /// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
         #[builder(into, default)]
-        pub addon_json: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub addon_json: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
         #[builder(into, default)]
-        pub application_performance_monitoring_ids: pulumi_wasm_rust::InputOrOutput<
+        pub application_performance_monitoring_ids: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
         #[builder(into, default)]
-        pub arguments: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub arguments: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
         #[builder(into, default)]
-        pub commands: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub commands: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         #[builder(into, default)]
-        pub environment_variables: pulumi_wasm_rust::InputOrOutput<
+        pub environment_variables: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
         #[builder(into)]
-        pub image: pulumi_wasm_rust::InputOrOutput<String>,
+        pub image: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         #[builder(into, default)]
-        pub instance_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub instance_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the language framework of the container image. The only possible value is `springboot`.
         #[builder(into, default)]
-        pub language_framework: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub language_framework: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `quota` block as defined below.
         #[builder(into, default)]
-        pub quota: pulumi_wasm_rust::InputOrOutput<
+        pub quota: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appplatform::SpringCloudContainerDeploymentQuota>,
         >,
         /// The name of the registry that contains the container image.
         #[builder(into)]
-        pub server: pulumi_wasm_rust::InputOrOutput<String>,
+        pub server: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Container Deployment to be created.
         #[builder(into)]
-        pub spring_cloud_app_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub spring_cloud_app_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SpringCloudContainerDeploymentResult {
         /// A JSON object that contains the addon configurations of the Spring Cloud Container Deployment.
-        pub addon_json: pulumi_wasm_rust::Output<String>,
+        pub addon_json: pulumi_gestalt_rust::Output<String>,
         /// Specifies a list of Spring Cloud Application Performance Monitoring IDs.
-        pub application_performance_monitoring_ids: pulumi_wasm_rust::Output<
+        pub application_performance_monitoring_ids: pulumi_gestalt_rust::Output<
             Option<Vec<String>>,
         >,
         /// Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified.
-        pub arguments: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub arguments: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified.
-        pub commands: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub commands: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
-        pub environment_variables: pulumi_wasm_rust::Output<
+        pub environment_variables: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry.
-        pub image: pulumi_wasm_rust::Output<String>,
+        pub image: pulumi_gestalt_rust::Output<String>,
         /// Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
-        pub instance_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub instance_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the language framework of the container image. The only possible value is `springboot`.
-        pub language_framework: pulumi_wasm_rust::Output<Option<String>>,
+        pub language_framework: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `quota` block as defined below.
-        pub quota: pulumi_wasm_rust::Output<
+        pub quota: pulumi_gestalt_rust::Output<
             super::super::types::appplatform::SpringCloudContainerDeploymentQuota,
         >,
         /// The name of the registry that contains the container image.
-        pub server: pulumi_wasm_rust::Output<String>,
+        pub server: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Container Deployment to be created.
-        pub spring_cloud_app_id: pulumi_wasm_rust::Output<String>,
+        pub spring_cloud_app_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SpringCloudContainerDeploymentArgs,
     ) -> SpringCloudContainerDeploymentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let addon_json_binding = args.addon_json.get_output(context).get_inner();
         let application_performance_monitoring_ids_binding = args
@@ -227,32 +227,34 @@ pub mod spring_cloud_container_deployment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SpringCloudContainerDeploymentResult {
-            addon_json: pulumi_wasm_rust::__private::into_domain(
+            addon_json: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addonJson"),
             ),
-            application_performance_monitoring_ids: pulumi_wasm_rust::__private::into_domain(
+            application_performance_monitoring_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationPerformanceMonitoringIds"),
             ),
-            arguments: pulumi_wasm_rust::__private::into_domain(
+            arguments: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("arguments"),
             ),
-            commands: pulumi_wasm_rust::__private::into_domain(
+            commands: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("commands"),
             ),
-            environment_variables: pulumi_wasm_rust::__private::into_domain(
+            environment_variables: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environmentVariables"),
             ),
-            image: pulumi_wasm_rust::__private::into_domain(o.extract_field("image")),
-            instance_count: pulumi_wasm_rust::__private::into_domain(
+            image: pulumi_gestalt_rust::__private::into_domain(o.extract_field("image")),
+            instance_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceCount"),
             ),
-            language_framework: pulumi_wasm_rust::__private::into_domain(
+            language_framework: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("languageFramework"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            quota: pulumi_wasm_rust::__private::into_domain(o.extract_field("quota")),
-            server: pulumi_wasm_rust::__private::into_domain(o.extract_field("server")),
-            spring_cloud_app_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            quota: pulumi_gestalt_rust::__private::into_domain(o.extract_field("quota")),
+            server: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("server"),
+            ),
+            spring_cloud_app_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("springCloudAppId"),
             ),
         }

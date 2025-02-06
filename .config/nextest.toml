@@ -2,9 +2,9 @@
 path = "junit.xml"
 
 [[profile.default.overrides]]
-filter = 'package(pulumi_wasm_generator) and kind(test)'
+filter = 'package(pulumi_gestalt_generator) and kind(test)'
 threads-required = 4
 
 [[profile.all_cores.overrides]]
-filter = 'package(pulumi_wasm_generator) and kind(test)'
+filter = 'package(pulumi_gestalt_generator) and kind(test)'
 threads-required = 1

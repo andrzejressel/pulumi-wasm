@@ -5,8 +5,8 @@
 /// ### Fixed response action
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = service::create(
@@ -36,8 +36,8 @@
 /// ### Forward action
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = service::create(
@@ -84,8 +84,8 @@
 /// ### Forward action with weighted target groups
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = service::create(
@@ -154,66 +154,66 @@
 /// $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
 /// ```
 pub mod listener {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListenerArgs {
         /// Default action block for the default listener rule. Default action blocks are defined below.
         #[builder(into)]
-        pub default_action: pulumi_wasm_rust::InputOrOutput<
+        pub default_action: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::vpclattice::ListenerDefaultAction,
         >,
         /// Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
         #[builder(into, default)]
-        pub port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         #[builder(into)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<String>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         #[builder(into, default)]
-        pub service_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         /// > **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
         #[builder(into, default)]
-        pub service_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_identifier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ListenerResult {
         /// ARN of the listener.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Date and time that the listener was created, specified in ISO-8601 format.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// Default action block for the default listener rule. Default action blocks are defined below.
-        pub default_action: pulumi_wasm_rust::Output<
+        pub default_action: pulumi_gestalt_rust::Output<
             super::super::types::vpclattice::ListenerDefaultAction,
         >,
-        pub last_updated_at: pulumi_wasm_rust::Output<String>,
+        pub last_updated_at: pulumi_gestalt_rust::Output<String>,
         /// Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
-        pub listener_id: pulumi_wasm_rust::Output<String>,
+        pub listener_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
-        pub port: pulumi_wasm_rust::Output<i32>,
+        pub port: pulumi_gestalt_rust::Output<i32>,
         /// Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
-        pub service_arn: pulumi_wasm_rust::Output<String>,
+        pub service_arn: pulumi_gestalt_rust::Output<String>,
         /// ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         /// > **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
-        pub service_identifier: pulumi_wasm_rust::Output<String>,
+        pub service_identifier: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -222,11 +222,11 @@ pub mod listener {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ListenerArgs,
     ) -> ListenerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let default_action_binding = args.default_action.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -275,32 +275,32 @@ pub mod listener {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ListenerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            default_action: pulumi_wasm_rust::__private::into_domain(
+            default_action: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultAction"),
             ),
-            last_updated_at: pulumi_wasm_rust::__private::into_domain(
+            last_updated_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdatedAt"),
             ),
-            listener_id: pulumi_wasm_rust::__private::into_domain(
+            listener_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("listenerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            port: pulumi_wasm_rust::__private::into_domain(o.extract_field("port")),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            port: pulumi_gestalt_rust::__private::into_domain(o.extract_field("port")),
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            service_arn: pulumi_wasm_rust::__private::into_domain(
+            service_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceArn"),
             ),
-            service_identifier: pulumi_wasm_rust::__private::into_domain(
+            service_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceIdentifier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

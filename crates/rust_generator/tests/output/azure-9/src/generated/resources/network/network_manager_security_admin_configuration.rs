@@ -53,48 +53,48 @@
 /// ```
 ///
 pub mod network_manager_security_admin_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkManagerSecurityAdminConfigurationArgs {
         /// A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
         #[builder(into, default)]
-        pub apply_on_network_intent_policy_based_services: pulumi_wasm_rust::InputOrOutput<
+        pub apply_on_network_intent_policy_based_services: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// A description of the Security Admin Configuration.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name which should be used for this Network Manager Security Admin Configuration. Changing this forces a new Network Manager Security Admin Configuration to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Network Manager Security Admin Configuration. Changing this forces a new Network Manager Security Admin Configuration to be created.
         #[builder(into)]
-        pub network_manager_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network_manager_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NetworkManagerSecurityAdminConfigurationResult {
         /// A list of network intent policy based services. Possible values are `All`, `None` and `AllowRulesOnly`. Exactly one value should be set. The `All` option requires `Microsoft.Network/AllowAdminRulesOnNipBasedServices` feature registration to Subscription. Please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#network-intent-policies-and-security-admin-rules) for more information.
-        pub apply_on_network_intent_policy_based_services: pulumi_wasm_rust::Output<
+        pub apply_on_network_intent_policy_based_services: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// A description of the Security Admin Configuration.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name which should be used for this Network Manager Security Admin Configuration. Changing this forces a new Network Manager Security Admin Configuration to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the ID of the Network Manager Security Admin Configuration. Changing this forces a new Network Manager Security Admin Configuration to be created.
-        pub network_manager_id: pulumi_wasm_rust::Output<String>,
+        pub network_manager_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkManagerSecurityAdminConfigurationArgs,
     ) -> NetworkManagerSecurityAdminConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let apply_on_network_intent_policy_based_services_binding = args
             .apply_on_network_intent_policy_based_services
@@ -132,14 +132,14 @@ pub mod network_manager_security_admin_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkManagerSecurityAdminConfigurationResult {
-            apply_on_network_intent_policy_based_services: pulumi_wasm_rust::__private::into_domain(
+            apply_on_network_intent_policy_based_services: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applyOnNetworkIntentPolicyBasedServices"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_manager_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_manager_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkManagerId"),
             ),
         }

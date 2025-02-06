@@ -35,8 +35,8 @@
 /// ## gcp.servicedirectory.ServiceIamBinding
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let binding = service_iam_binding::create(
@@ -53,8 +53,8 @@
 /// ## gcp.servicedirectory.ServiceIamMember
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let member = service_iam_member::create(
@@ -112,8 +112,8 @@
 /// ## gcp.servicedirectory.ServiceIamBinding
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let binding = service_iam_binding::create(
@@ -130,8 +130,8 @@
 /// ## gcp.servicedirectory.ServiceIamMember
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let member = service_iam_member::create(
@@ -182,12 +182,12 @@
 ///  full name of the custom role, e.g. `[projects/my-project|organizations/my-org]/roles/my-custom-role`.
 ///
 pub mod service_iam_member {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceIamMemberArgs {
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::InputOrOutput<
+        pub condition: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::servicedirectory::ServiceIamMemberCondition>,
         >,
         /// Identities that will be granted the privilege in `role`.
@@ -202,23 +202,23 @@ pub mod service_iam_member {
         /// * **projectEditor:projectid**: Editors of the given project. For example, "projectEditor:my-example-project"
         /// * **projectViewer:projectid**: Viewers of the given project. For example, "projectViewer:my-example-project"
         #[builder(into)]
-        pub member: pulumi_wasm_rust::InputOrOutput<String>,
+        pub member: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Used to find the parent resource to bind the IAM policy to
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The role that should be applied. Only one
         /// `gcp.servicedirectory.ServiceIamBinding` can be used per role. Note that custom roles must be of the format
         /// `[projects|organizations]/{parent-name}/roles/{role-name}`.
         #[builder(into)]
-        pub role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ServiceIamMemberResult {
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_gestalt_rust::Output<
             Option<super::super::types::servicedirectory::ServiceIamMemberCondition>,
         >,
         /// (Computed) The etag of the IAM policy.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Identities that will be granted the privilege in `role`.
         /// Each entry can have one of the following values:
         /// * **allUsers**: A special identifier that represents anyone who is on the internet; with or without a Google account.
@@ -230,24 +230,24 @@ pub mod service_iam_member {
         /// * **projectOwner:projectid**: Owners of the given project. For example, "projectOwner:my-example-project"
         /// * **projectEditor:projectid**: Editors of the given project. For example, "projectEditor:my-example-project"
         /// * **projectViewer:projectid**: Viewers of the given project. For example, "projectViewer:my-example-project"
-        pub member: pulumi_wasm_rust::Output<String>,
+        pub member: pulumi_gestalt_rust::Output<String>,
         /// Used to find the parent resource to bind the IAM policy to
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The role that should be applied. Only one
         /// `gcp.servicedirectory.ServiceIamBinding` can be used per role. Note that custom roles must be of the format
         /// `[projects|organizations]/{parent-name}/roles/{role-name}`.
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServiceIamMemberArgs,
     ) -> ServiceIamMemberResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let condition_binding = args.condition.get_output(context).get_inner();
         let member_binding = args.member.get_output(context).get_inner();
@@ -278,13 +278,15 @@ pub mod service_iam_member {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServiceIamMemberResult {
-            condition: pulumi_wasm_rust::__private::into_domain(
+            condition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("condition"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            member: pulumi_wasm_rust::__private::into_domain(o.extract_field("member")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            member: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("member"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
         }
     }
 }

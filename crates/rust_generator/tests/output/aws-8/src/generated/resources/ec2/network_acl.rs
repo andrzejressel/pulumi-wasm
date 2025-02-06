@@ -45,69 +45,69 @@
 /// $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
 /// ```
 pub mod network_acl {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkAclArgs {
         /// Specifies an egress rule. Parameters defined below.
         #[builder(into, default)]
-        pub egress: pulumi_wasm_rust::InputOrOutput<
+        pub egress: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::NetworkAclEgress>>,
         >,
         /// Specifies an ingress rule. Parameters defined below.
         #[builder(into, default)]
-        pub ingress: pulumi_wasm_rust::InputOrOutput<
+        pub ingress: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::ec2::NetworkAclIngress>>,
         >,
         /// A list of Subnet IDs to apply the ACL to
         #[builder(into, default)]
-        pub subnet_ids: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub subnet_ids: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the associated VPC.
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpc_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NetworkAclResult {
         /// The ARN of the network ACL
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Specifies an egress rule. Parameters defined below.
-        pub egress: pulumi_wasm_rust::Output<
+        pub egress: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ec2::NetworkAclEgress>,
         >,
         /// Specifies an ingress rule. Parameters defined below.
-        pub ingress: pulumi_wasm_rust::Output<
+        pub ingress: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ec2::NetworkAclIngress>,
         >,
         /// The ID of the AWS account that owns the network ACL.
-        pub owner_id: pulumi_wasm_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
         /// A list of Subnet IDs to apply the ACL to
-        pub subnet_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub subnet_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The ID of the associated VPC.
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkAclArgs,
     ) -> NetworkAclResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let egress_binding = args.egress.get_output(context).get_inner();
         let ingress_binding = args.ingress.get_output(context).get_inner();
@@ -143,22 +143,24 @@ pub mod network_acl {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkAclResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            egress: pulumi_wasm_rust::__private::into_domain(o.extract_field("egress")),
-            ingress: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            egress: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("egress"),
+            ),
+            ingress: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ingress"),
             ),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            subnet_ids: pulumi_wasm_rust::__private::into_domain(
+            subnet_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetIds"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

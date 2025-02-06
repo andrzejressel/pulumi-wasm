@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = graph_ql_api::create(
@@ -32,42 +32,42 @@
 /// $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
 /// ```
 pub mod api_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiKeyArgs {
         /// ID of the associated AppSync API
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// API key description. Defaults to "Managed by Pulumi".
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
         #[builder(into, default)]
-        pub expires: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub expires: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ApiKeyResult {
         /// ID of the associated AppSync API
-        pub api_id: pulumi_wasm_rust::Output<String>,
-        pub api_key_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_gestalt_rust::Output<String>,
+        pub api_key_id: pulumi_gestalt_rust::Output<String>,
         /// API key description. Defaults to "Managed by Pulumi".
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
-        pub expires: pulumi_wasm_rust::Output<Option<String>>,
+        pub expires: pulumi_gestalt_rust::Output<Option<String>>,
         /// API key
-        pub key: pulumi_wasm_rust::Output<String>,
+        pub key: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApiKeyArgs,
     ) -> ApiKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_id_binding = args.api_id.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -93,17 +93,19 @@ pub mod api_key {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApiKeyResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
-            api_key_id: pulumi_wasm_rust::__private::into_domain(
+            api_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiId"),
+            ),
+            api_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiKeyId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            expires: pulumi_wasm_rust::__private::into_domain(
+            expires: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expires"),
             ),
-            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
+            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
         }
     }
 }

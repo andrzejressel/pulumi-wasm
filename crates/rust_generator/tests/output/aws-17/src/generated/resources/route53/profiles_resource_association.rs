@@ -39,45 +39,45 @@
 /// $ pulumi import aws:route53/profilesResourceAssociation:ProfilesResourceAssociation example rpa-id-12345678
 /// ```
 pub mod profiles_resource_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProfilesResourceAssociationArgs {
         /// Name of the Profile Resource Association.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the profile associated with the VPC.
         #[builder(into)]
-        pub profile_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub profile_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Resource ID of the resource to be associated with the profile.
         #[builder(into)]
-        pub resource_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Resource properties for the resource to be associated with the profile.
         #[builder(into, default)]
-        pub resource_properties: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resource_properties: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::route53::ProfilesResourceAssociationTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct ProfilesResourceAssociationResult {
         /// Name of the Profile Resource Association.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub owner_id: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
         /// ID of the profile associated with the VPC.
-        pub profile_id: pulumi_wasm_rust::Output<String>,
+        pub profile_id: pulumi_gestalt_rust::Output<String>,
         /// Resource ID of the resource to be associated with the profile.
-        pub resource_arn: pulumi_wasm_rust::Output<String>,
+        pub resource_arn: pulumi_gestalt_rust::Output<String>,
         /// Resource properties for the resource to be associated with the profile.
-        pub resource_properties: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_properties: pulumi_gestalt_rust::Output<Option<String>>,
         /// Type of resource associated with the profile.
-        pub resource_type: pulumi_wasm_rust::Output<String>,
+        pub resource_type: pulumi_gestalt_rust::Output<String>,
         /// Status of the Profile Association. Valid values [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_Profile.html)
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Status message of the Profile Resource Association.
-        pub status_message: pulumi_wasm_rust::Output<String>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub status_message: pulumi_gestalt_rust::Output<String>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::route53::ProfilesResourceAssociationTimeouts>,
         >,
     }
@@ -86,11 +86,11 @@ pub mod profiles_resource_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProfilesResourceAssociationArgs,
     ) -> ProfilesResourceAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let profile_id_binding = args.profile_id.get_output(context).get_inner();
@@ -130,27 +130,29 @@ pub mod profiles_resource_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProfilesResourceAssociationResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            profile_id: pulumi_wasm_rust::__private::into_domain(
+            profile_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("profileId"),
             ),
-            resource_arn: pulumi_wasm_rust::__private::into_domain(
+            resource_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceArn"),
             ),
-            resource_properties: pulumi_wasm_rust::__private::into_domain(
+            resource_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceProperties"),
             ),
-            resource_type: pulumi_wasm_rust::__private::into_domain(
+            resource_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            status_message: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            status_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statusMessage"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

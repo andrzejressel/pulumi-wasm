@@ -15,58 +15,58 @@
 /// ```
 ///
 pub mod zero_trust_access_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustAccessGroupArgs {
         /// The account identifier to target for the resource. Conflicts with `zone_id`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub excludes: pulumi_wasm_rust::InputOrOutput<
+        pub excludes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::ZeroTrustAccessGroupExclude>>,
         >,
         #[builder(into)]
-        pub includes: pulumi_wasm_rust::InputOrOutput<
+        pub includes: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::types::ZeroTrustAccessGroupInclude>,
         >,
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub requires: pulumi_wasm_rust::InputOrOutput<
+        pub requires: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::ZeroTrustAccessGroupRequire>>,
         >,
         /// The zone identifier to target for the resource. Conflicts with `account_id`.
         #[builder(into, default)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustAccessGroupResult {
         /// The account identifier to target for the resource. Conflicts with `zone_id`. **Modifying this attribute will force creation of a new resource.**
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
-        pub excludes: pulumi_wasm_rust::Output<
+        pub account_id: pulumi_gestalt_rust::Output<Option<String>>,
+        pub excludes: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::ZeroTrustAccessGroupExclude>>,
         >,
-        pub includes: pulumi_wasm_rust::Output<
+        pub includes: pulumi_gestalt_rust::Output<
             Vec<super::types::ZeroTrustAccessGroupInclude>,
         >,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub requires: pulumi_wasm_rust::Output<
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub requires: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::ZeroTrustAccessGroupRequire>>,
         >,
         /// The zone identifier to target for the resource. Conflicts with `account_id`.
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ZeroTrustAccessGroupArgs,
     ) -> ZeroTrustAccessGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let excludes_binding = args.excludes.get_output(context).get_inner();
@@ -107,20 +107,22 @@ pub mod zero_trust_access_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ZeroTrustAccessGroupResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            excludes: pulumi_wasm_rust::__private::into_domain(
+            excludes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("excludes"),
             ),
-            includes: pulumi_wasm_rust::__private::into_domain(
+            includes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("includes"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            requires: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            requires: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requires"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

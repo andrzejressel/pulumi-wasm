@@ -111,7 +111,7 @@
 /// ```
 ///
 pub mod backup_schedule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupScheduleArgs {
@@ -120,37 +120,37 @@ pub mod backup_schedule {
         ///
         /// - - -
         #[builder(into)]
-        pub database: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The schedule creates only full backups..
         #[builder(into, default)]
-        pub full_backup_spec: pulumi_wasm_rust::InputOrOutput<
+        pub full_backup_spec: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::spanner::BackupScheduleFullBackupSpec>,
         >,
         /// The schedule creates incremental backup chains.
         #[builder(into, default)]
-        pub incremental_backup_spec: pulumi_wasm_rust::InputOrOutput<
+        pub incremental_backup_spec: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::spanner::BackupScheduleIncrementalBackupSpec>,
         >,
         /// The instance to create the database on.
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A unique identifier for the backup schedule, which cannot be changed after
         /// the backup schedule is created. Values are of the form [a-z][-a-z0-9]*[a-z0-9].
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// At what relative time in the future, compared to its creation time, the backup should be deleted, e.g. keep backups for 7 days.
         /// A duration in seconds with up to nine fractional digits, ending with 's'. Example: '3.5s'.
         /// You can set this to a value up to 366 days.
         #[builder(into)]
-        pub retention_duration: pulumi_wasm_rust::InputOrOutput<String>,
+        pub retention_duration: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Defines specifications of the backup schedule.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub spec: pulumi_wasm_rust::InputOrOutput<
+        pub spec: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::spanner::BackupScheduleSpec>,
         >,
     }
@@ -160,30 +160,30 @@ pub mod backup_schedule {
         ///
         ///
         /// - - -
-        pub database: pulumi_wasm_rust::Output<String>,
+        pub database: pulumi_gestalt_rust::Output<String>,
         /// The schedule creates only full backups..
-        pub full_backup_spec: pulumi_wasm_rust::Output<
+        pub full_backup_spec: pulumi_gestalt_rust::Output<
             Option<super::super::types::spanner::BackupScheduleFullBackupSpec>,
         >,
         /// The schedule creates incremental backup chains.
-        pub incremental_backup_spec: pulumi_wasm_rust::Output<
+        pub incremental_backup_spec: pulumi_gestalt_rust::Output<
             Option<super::super::types::spanner::BackupScheduleIncrementalBackupSpec>,
         >,
         /// The instance to create the database on.
-        pub instance: pulumi_wasm_rust::Output<String>,
+        pub instance: pulumi_gestalt_rust::Output<String>,
         /// A unique identifier for the backup schedule, which cannot be changed after
         /// the backup schedule is created. Values are of the form [a-z][-a-z0-9]*[a-z0-9].
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// At what relative time in the future, compared to its creation time, the backup should be deleted, e.g. keep backups for 7 days.
         /// A duration in seconds with up to nine fractional digits, ending with 's'. Example: '3.5s'.
         /// You can set this to a value up to 366 days.
-        pub retention_duration: pulumi_wasm_rust::Output<String>,
+        pub retention_duration: pulumi_gestalt_rust::Output<String>,
         /// Defines specifications of the backup schedule.
         /// Structure is documented below.
-        pub spec: pulumi_wasm_rust::Output<
+        pub spec: pulumi_gestalt_rust::Output<
             Option<super::super::types::spanner::BackupScheduleSpec>,
         >,
     }
@@ -192,11 +192,11 @@ pub mod backup_schedule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackupScheduleArgs,
     ) -> BackupScheduleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let database_binding = args.database.get_output(context).get_inner();
         let full_backup_spec_binding = args
@@ -256,26 +256,26 @@ pub mod backup_schedule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackupScheduleResult {
-            database: pulumi_wasm_rust::__private::into_domain(
+            database: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("database"),
             ),
-            full_backup_spec: pulumi_wasm_rust::__private::into_domain(
+            full_backup_spec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fullBackupSpec"),
             ),
-            incremental_backup_spec: pulumi_wasm_rust::__private::into_domain(
+            incremental_backup_spec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("incrementalBackupSpec"),
             ),
-            instance: pulumi_wasm_rust::__private::into_domain(
+            instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instance"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            retention_duration: pulumi_wasm_rust::__private::into_domain(
+            retention_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionDuration"),
             ),
-            spec: pulumi_wasm_rust::__private::into_domain(o.extract_field("spec")),
+            spec: pulumi_gestalt_rust::__private::into_domain(o.extract_field("spec")),
         }
     }
 }

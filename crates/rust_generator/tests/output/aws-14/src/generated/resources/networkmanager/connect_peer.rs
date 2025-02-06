@@ -19,76 +19,76 @@
 /// $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
 /// ```
 pub mod connect_peer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectPeerArgs {
         /// The Connect peer BGP options.
         #[builder(into, default)]
-        pub bgp_options: pulumi_wasm_rust::InputOrOutput<
+        pub bgp_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::networkmanager::ConnectPeerBgpOptions>,
         >,
         /// The ID of the connection attachment.
         #[builder(into)]
-        pub connect_attachment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connect_attachment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A Connect peer core network address.
         #[builder(into, default)]
-        pub core_network_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub core_network_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
         #[builder(into, default)]
-        pub inside_cidr_blocks: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub inside_cidr_blocks: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The Connect peer address.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub peer_address: pulumi_wasm_rust::InputOrOutput<String>,
+        pub peer_address: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
         #[builder(into, default)]
-        pub subnet_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subnet_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ConnectPeerResult {
         /// The ARN of the attachment.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The Connect peer BGP options.
-        pub bgp_options: pulumi_wasm_rust::Output<
+        pub bgp_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::networkmanager::ConnectPeerBgpOptions>,
         >,
         /// The configuration of the Connect peer.
-        pub configurations: pulumi_wasm_rust::Output<
+        pub configurations: pulumi_gestalt_rust::Output<
             Vec<super::super::types::networkmanager::ConnectPeerConfiguration>,
         >,
         /// The ID of the connection attachment.
-        pub connect_attachment_id: pulumi_wasm_rust::Output<String>,
-        pub connect_peer_id: pulumi_wasm_rust::Output<String>,
+        pub connect_attachment_id: pulumi_gestalt_rust::Output<String>,
+        pub connect_peer_id: pulumi_gestalt_rust::Output<String>,
         /// A Connect peer core network address.
-        pub core_network_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub core_network_address: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of a core network.
-        pub core_network_id: pulumi_wasm_rust::Output<String>,
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub core_network_id: pulumi_gestalt_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// The Region where the peer is located.
-        pub edge_location: pulumi_wasm_rust::Output<String>,
+        pub edge_location: pulumi_gestalt_rust::Output<String>,
         /// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
-        pub inside_cidr_blocks: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub inside_cidr_blocks: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The Connect peer address.
         ///
         /// The following arguments are optional:
-        pub peer_address: pulumi_wasm_rust::Output<String>,
+        pub peer_address: pulumi_gestalt_rust::Output<String>,
         /// The state of the Connect peer.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
-        pub subnet_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnet_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -97,11 +97,11 @@ pub mod connect_peer {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectPeerArgs,
     ) -> ConnectPeerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bgp_options_binding = args.bgp_options.get_output(context).get_inner();
         let connect_attachment_id_binding = args
@@ -156,43 +156,43 @@ pub mod connect_peer {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectPeerResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            bgp_options: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            bgp_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bgpOptions"),
             ),
-            configurations: pulumi_wasm_rust::__private::into_domain(
+            configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurations"),
             ),
-            connect_attachment_id: pulumi_wasm_rust::__private::into_domain(
+            connect_attachment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectAttachmentId"),
             ),
-            connect_peer_id: pulumi_wasm_rust::__private::into_domain(
+            connect_peer_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectPeerId"),
             ),
-            core_network_address: pulumi_wasm_rust::__private::into_domain(
+            core_network_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coreNetworkAddress"),
             ),
-            core_network_id: pulumi_wasm_rust::__private::into_domain(
+            core_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coreNetworkId"),
             ),
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            edge_location: pulumi_wasm_rust::__private::into_domain(
+            edge_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edgeLocation"),
             ),
-            inside_cidr_blocks: pulumi_wasm_rust::__private::into_domain(
+            inside_cidr_blocks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("insideCidrBlocks"),
             ),
-            peer_address: pulumi_wasm_rust::__private::into_domain(
+            peer_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peerAddress"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            subnet_arn: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            subnet_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

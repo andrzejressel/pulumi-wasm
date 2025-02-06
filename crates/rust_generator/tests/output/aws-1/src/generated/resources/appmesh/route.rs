@@ -80,8 +80,8 @@
 /// ### TCP Routing
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let serviceb = route::create(
@@ -122,72 +122,72 @@
 /// $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
 /// ```
 pub mod route {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteArgs {
         /// Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
         #[builder(into)]
-        pub mesh_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub mesh_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         #[builder(into, default)]
-        pub mesh_owner: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mesh_owner: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name to use for the route. Must be between 1 and 255 characters in length.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Route specification to apply.
         #[builder(into)]
-        pub spec: pulumi_wasm_rust::InputOrOutput<
+        pub spec: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::appmesh::RouteSpec,
         >,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
         #[builder(into)]
-        pub virtual_router_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_router_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RouteResult {
         /// ARN of the route.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Creation date of the route.
-        pub created_date: pulumi_wasm_rust::Output<String>,
+        pub created_date: pulumi_gestalt_rust::Output<String>,
         /// Last update date of the route.
-        pub last_updated_date: pulumi_wasm_rust::Output<String>,
+        pub last_updated_date: pulumi_gestalt_rust::Output<String>,
         /// Name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
-        pub mesh_name: pulumi_wasm_rust::Output<String>,
+        pub mesh_name: pulumi_gestalt_rust::Output<String>,
         /// AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
-        pub mesh_owner: pulumi_wasm_rust::Output<String>,
+        pub mesh_owner: pulumi_gestalt_rust::Output<String>,
         /// Name to use for the route. Must be between 1 and 255 characters in length.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Resource owner's AWS account ID.
-        pub resource_owner: pulumi_wasm_rust::Output<String>,
+        pub resource_owner: pulumi_gestalt_rust::Output<String>,
         /// Route specification to apply.
-        pub spec: pulumi_wasm_rust::Output<super::super::types::appmesh::RouteSpec>,
+        pub spec: pulumi_gestalt_rust::Output<super::super::types::appmesh::RouteSpec>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
-        pub virtual_router_name: pulumi_wasm_rust::Output<String>,
+        pub virtual_router_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouteArgs,
     ) -> RouteResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let mesh_name_binding = args.mesh_name.get_output(context).get_inner();
         let mesh_owner_binding = args.mesh_owner.get_output(context).get_inner();
@@ -231,29 +231,29 @@ pub mod route {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouteResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            created_date: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            created_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdDate"),
             ),
-            last_updated_date: pulumi_wasm_rust::__private::into_domain(
+            last_updated_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdatedDate"),
             ),
-            mesh_name: pulumi_wasm_rust::__private::into_domain(
+            mesh_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("meshName"),
             ),
-            mesh_owner: pulumi_wasm_rust::__private::into_domain(
+            mesh_owner: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("meshOwner"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_owner: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_owner: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceOwner"),
             ),
-            spec: pulumi_wasm_rust::__private::into_domain(o.extract_field("spec")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            spec: pulumi_gestalt_rust::__private::into_domain(o.extract_field("spec")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            virtual_router_name: pulumi_wasm_rust::__private::into_domain(
+            virtual_router_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualRouterName"),
             ),
         }

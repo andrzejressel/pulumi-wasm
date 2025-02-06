@@ -1,36 +1,36 @@
 pub mod get_databases {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDatabasesArgs {
         /// The name of the Cloud SQL database instance in which the database belongs.
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the instance belongs.
         ///
         /// > **Note** This datasource performs client-side sorting to provide consistent ordering of the databases.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetDatabasesResult {
-        pub databases: pulumi_wasm_rust::Output<
+        pub databases: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::sql::GetDatabasesDatabase>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub instance: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub instance: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetDatabasesArgs,
     ) -> GetDatabasesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let instance_binding = args.instance.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -50,14 +50,16 @@ pub mod get_databases {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetDatabasesResult {
-            databases: pulumi_wasm_rust::__private::into_domain(
+            databases: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databases"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            instance: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instance"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

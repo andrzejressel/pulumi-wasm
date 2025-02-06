@@ -17,8 +17,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foo = vpc_peering_connection::create(
@@ -35,8 +35,8 @@
 /// Basic usage with connection options:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foo = vpc_peering_connection::create(
@@ -87,8 +87,8 @@
 /// Basic usage with region:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let bar = vpc::create(
@@ -125,90 +125,90 @@
 /// $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
 /// ```
 pub mod vpc_peering_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcPeeringConnectionArgs {
         /// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
         /// the peering connection (a maximum of one).
         #[builder(into, default)]
-        pub accepter: pulumi_wasm_rust::InputOrOutput<
+        pub accepter: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ec2::VpcPeeringConnectionAccepter>,
         >,
         /// Accept the peering (both VPCs need to be in the same AWS account and region).
         #[builder(into, default)]
-        pub auto_accept: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_accept: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The AWS account ID of the target peer VPC.
         /// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
         #[builder(into, default)]
-        pub peer_owner_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub peer_owner_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
         /// and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
         #[builder(into, default)]
-        pub peer_region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub peer_region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the target VPC with which you are creating the VPC Peering Connection.
         #[builder(into)]
-        pub peer_vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub peer_vpc_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
         /// the peering connection (a maximum of one).
         #[builder(into, default)]
-        pub requester: pulumi_wasm_rust::InputOrOutput<
+        pub requester: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::ec2::VpcPeeringConnectionRequester>,
         >,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the requester VPC.
         #[builder(into)]
-        pub vpc_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpc_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpcPeeringConnectionResult {
         /// The status of the VPC Peering Connection request.
-        pub accept_status: pulumi_wasm_rust::Output<String>,
+        pub accept_status: pulumi_gestalt_rust::Output<String>,
         /// An optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
         /// the peering connection (a maximum of one).
-        pub accepter: pulumi_wasm_rust::Output<
+        pub accepter: pulumi_gestalt_rust::Output<
             super::super::types::ec2::VpcPeeringConnectionAccepter,
         >,
         /// Accept the peering (both VPCs need to be in the same AWS account and region).
-        pub auto_accept: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_accept: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The AWS account ID of the target peer VPC.
         /// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
-        pub peer_owner_id: pulumi_wasm_rust::Output<String>,
+        pub peer_owner_id: pulumi_gestalt_rust::Output<String>,
         /// The region of the accepter VPC of the VPC Peering Connection. `auto_accept` must be `false`,
         /// and use the `aws.ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
-        pub peer_region: pulumi_wasm_rust::Output<String>,
+        pub peer_region: pulumi_gestalt_rust::Output<String>,
         /// The ID of the target VPC with which you are creating the VPC Peering Connection.
-        pub peer_vpc_id: pulumi_wasm_rust::Output<String>,
+        pub peer_vpc_id: pulumi_gestalt_rust::Output<String>,
         /// A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
         /// the peering connection (a maximum of one).
-        pub requester: pulumi_wasm_rust::Output<
+        pub requester: pulumi_gestalt_rust::Output<
             super::super::types::ec2::VpcPeeringConnectionRequester,
         >,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The ID of the requester VPC.
-        pub vpc_id: pulumi_wasm_rust::Output<String>,
+        pub vpc_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpcPeeringConnectionArgs,
     ) -> VpcPeeringConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let accepter_binding = args.accepter.get_output(context).get_inner();
         let auto_accept_binding = args.auto_accept.get_output(context).get_inner();
@@ -259,32 +259,32 @@ pub mod vpc_peering_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpcPeeringConnectionResult {
-            accept_status: pulumi_wasm_rust::__private::into_domain(
+            accept_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("acceptStatus"),
             ),
-            accepter: pulumi_wasm_rust::__private::into_domain(
+            accepter: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accepter"),
             ),
-            auto_accept: pulumi_wasm_rust::__private::into_domain(
+            auto_accept: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoAccept"),
             ),
-            peer_owner_id: pulumi_wasm_rust::__private::into_domain(
+            peer_owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peerOwnerId"),
             ),
-            peer_region: pulumi_wasm_rust::__private::into_domain(
+            peer_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peerRegion"),
             ),
-            peer_vpc_id: pulumi_wasm_rust::__private::into_domain(
+            peer_vpc_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peerVpcId"),
             ),
-            requester: pulumi_wasm_rust::__private::into_domain(
+            requester: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requester"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            vpc_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpcId")),
+            vpc_id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpcId")),
         }
     }
 }

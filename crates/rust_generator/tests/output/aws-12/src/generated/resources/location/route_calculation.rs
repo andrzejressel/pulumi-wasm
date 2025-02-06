@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = route_calculation::create(
@@ -25,62 +25,62 @@
 /// $ pulumi import aws:location/routeCalculation:RouteCalculation example example
 /// ```
 pub mod route_calculation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteCalculationArgs {
         /// The name of the route calculator resource.
         #[builder(into)]
-        pub calculator_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub calculator_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the data provider of traffic and road network data.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub data_source: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_source: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The optional description for the route calculator resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value tags for the route calculator. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RouteCalculationResult {
         /// The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
-        pub calculator_arn: pulumi_wasm_rust::Output<String>,
+        pub calculator_arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the route calculator resource.
-        pub calculator_name: pulumi_wasm_rust::Output<String>,
+        pub calculator_name: pulumi_gestalt_rust::Output<String>,
         /// The timestamp for when the route calculator resource was created in ISO 8601 format.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Specifies the data provider of traffic and road network data.
         ///
         /// The following arguments are optional:
-        pub data_source: pulumi_wasm_rust::Output<String>,
+        pub data_source: pulumi_gestalt_rust::Output<String>,
         /// The optional description for the route calculator resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value tags for the route calculator. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The timestamp for when the route calculator resource was last update in ISO 8601.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouteCalculationArgs,
     ) -> RouteCalculationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let calculator_name_binding = args
             .calculator_name
@@ -114,26 +114,26 @@ pub mod route_calculation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouteCalculationResult {
-            calculator_arn: pulumi_wasm_rust::__private::into_domain(
+            calculator_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("calculatorArn"),
             ),
-            calculator_name: pulumi_wasm_rust::__private::into_domain(
+            calculator_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("calculatorName"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            data_source: pulumi_wasm_rust::__private::into_domain(
+            data_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSource"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

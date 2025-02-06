@@ -5,8 +5,8 @@
 /// ### Windows Web App
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -105,36 +105,36 @@
 /// ```
 ///
 pub mod web_app_active_slot {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebAppActiveSlotArgs {
         /// The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub overwrite_network_config: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub overwrite_network_config: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Slot to swap with `Production`.
         #[builder(into)]
-        pub slot_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub slot_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WebAppActiveSlotResult {
         /// The timestamp of the last successful swap with `Production`.
-        pub last_successful_swap: pulumi_wasm_rust::Output<String>,
+        pub last_successful_swap: pulumi_gestalt_rust::Output<String>,
         /// The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created.
-        pub overwrite_network_config: pulumi_wasm_rust::Output<Option<bool>>,
+        pub overwrite_network_config: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the Slot to swap with `Production`.
-        pub slot_id: pulumi_wasm_rust::Output<String>,
+        pub slot_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WebAppActiveSlotArgs,
     ) -> WebAppActiveSlotResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let overwrite_network_config_binding = args
             .overwrite_network_config
@@ -158,13 +158,15 @@ pub mod web_app_active_slot {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WebAppActiveSlotResult {
-            last_successful_swap: pulumi_wasm_rust::__private::into_domain(
+            last_successful_swap: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastSuccessfulSwap"),
             ),
-            overwrite_network_config: pulumi_wasm_rust::__private::into_domain(
+            overwrite_network_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("overwriteNetworkConfig"),
             ),
-            slot_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("slotId")),
+            slot_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("slotId"),
+            ),
         }
     }
 }

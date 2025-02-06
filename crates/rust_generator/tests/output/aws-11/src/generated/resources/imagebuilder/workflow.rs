@@ -7,8 +7,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = workflow::create(
@@ -35,86 +35,86 @@
 /// Certain resource arguments, such as `uri`, cannot be read via the API and imported into Terraform. Terraform will display a difference for these arguments the first run after import if declared in the Terraform configuration for an imported resource.
 ///
 pub mod workflow {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkflowArgs {
         /// Change description of the workflow.
         #[builder(into, default)]
-        pub change_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub change_description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
         #[builder(into, default)]
-        pub data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub data: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Description of the workflow.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the workflow.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Type of the workflow. Valid values: `BUILD`, `TEST`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
         /// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
         #[builder(into, default)]
-        pub uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Version of the workflow.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkflowResult {
         /// Amazon Resource Name (ARN) of the workflow.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Change description of the workflow.
-        pub change_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub change_description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Inline YAML string with data of the workflow. Exactly one of `data` and `uri` can be specified.
-        pub data: pulumi_wasm_rust::Output<String>,
+        pub data: pulumi_gestalt_rust::Output<String>,
         /// Date the workflow was created.
-        pub date_created: pulumi_wasm_rust::Output<String>,
+        pub date_created: pulumi_gestalt_rust::Output<String>,
         /// Description of the workflow.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the workflow.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Owner of the workflow.
-        pub owner: pulumi_wasm_rust::Output<String>,
+        pub owner: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags for the workflow. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Type of the workflow. Valid values: `BUILD`, `TEST`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// S3 URI with data of the workflow. Exactly one of `data` and `uri` can be specified.
-        pub uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub uri: pulumi_gestalt_rust::Output<Option<String>>,
         /// Version of the workflow.
         ///
         /// The following arguments are optional:
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkflowArgs,
     ) -> WorkflowResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let change_description_binding = args
             .change_description
@@ -173,29 +173,31 @@ pub mod workflow {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkflowResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            change_description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            change_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("changeDescription"),
             ),
-            data: pulumi_wasm_rust::__private::into_domain(o.extract_field("data")),
-            date_created: pulumi_wasm_rust::__private::into_domain(
+            data: pulumi_gestalt_rust::__private::into_domain(o.extract_field("data")),
+            date_created: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dateCreated"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

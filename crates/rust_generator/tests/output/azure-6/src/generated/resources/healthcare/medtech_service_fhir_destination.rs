@@ -107,56 +107,56 @@
 /// ```
 ///
 pub mod medtech_service_fhir_destination {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MedtechServiceFhirDestinationArgs {
         /// Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
         #[builder(into)]
-        pub destination_fhir_mapping_json: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination_fhir_mapping_json: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
         #[builder(into)]
-        pub destination_fhir_service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub destination_fhir_service_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
         #[builder(into)]
-        pub destination_identity_resolution_type: pulumi_wasm_rust::InputOrOutput<
+        pub destination_identity_resolution_type: pulumi_gestalt_rust::InputOrOutput<
             String,
         >,
         /// Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Healthcare Med Tech Service where the Healthcare Med Tech Service Fhir Destination should exist. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         #[builder(into)]
-        pub medtech_service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub medtech_service_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Healthcare Med Tech Service Fhir Destination. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MedtechServiceFhirDestinationResult {
         /// Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination.
-        pub destination_fhir_mapping_json: pulumi_wasm_rust::Output<String>,
+        pub destination_fhir_mapping_json: pulumi_gestalt_rust::Output<String>,
         /// Specifies the destination fhir service id of the Med Tech Service Fhir Destination.
-        pub destination_fhir_service_id: pulumi_wasm_rust::Output<String>,
+        pub destination_fhir_service_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`.
-        pub destination_identity_resolution_type: pulumi_wasm_rust::Output<String>,
+        pub destination_identity_resolution_type: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Healthcare Med Tech Service where the Healthcare Med Tech Service Fhir Destination should exist. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
-        pub medtech_service_id: pulumi_wasm_rust::Output<String>,
+        pub medtech_service_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Healthcare Med Tech Service Fhir Destination. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MedtechServiceFhirDestinationArgs,
     ) -> MedtechServiceFhirDestinationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let destination_fhir_mapping_json_binding = args
             .destination_fhir_mapping_json
@@ -210,22 +210,22 @@ pub mod medtech_service_fhir_destination {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MedtechServiceFhirDestinationResult {
-            destination_fhir_mapping_json: pulumi_wasm_rust::__private::into_domain(
+            destination_fhir_mapping_json: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationFhirMappingJson"),
             ),
-            destination_fhir_service_id: pulumi_wasm_rust::__private::into_domain(
+            destination_fhir_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationFhirServiceId"),
             ),
-            destination_identity_resolution_type: pulumi_wasm_rust::__private::into_domain(
+            destination_identity_resolution_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinationIdentityResolutionType"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            medtech_service_id: pulumi_wasm_rust::__private::into_domain(
+            medtech_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("medtechServiceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

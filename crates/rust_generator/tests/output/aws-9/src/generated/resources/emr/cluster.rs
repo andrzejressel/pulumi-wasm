@@ -116,8 +116,8 @@
 /// ### Instance Fleet
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = cluster::create(
@@ -221,8 +221,8 @@
 /// [Debug logging in EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-debugging.html) is implemented as a step. It is highly recommended that you utilize the resource options configuration with `ignoreChanges` if other steps are being managed outside of this provider.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = cluster::create(
@@ -246,8 +246,8 @@
 /// Available in EMR version 5.23.0 and later, an EMR Cluster can be launched with three master nodes for high availability. Additional information about this functionality and its requirements can be found in the [EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html).
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = subnet::create(
@@ -281,39 +281,39 @@
 /// Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:
 ///
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
         /// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
         #[builder(into, default)]
-        pub additional_info: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub additional_info: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
         #[builder(into, default)]
-        pub applications: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub applications: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         #[builder(into, default)]
-        pub auto_termination_policy: pulumi_wasm_rust::InputOrOutput<
+        pub auto_termination_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::emr::ClusterAutoTerminationPolicy>,
         >,
         /// IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         #[builder(into, default)]
-        pub autoscaling_role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub autoscaling_role: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
         #[builder(into, default)]
-        pub bootstrap_actions: pulumi_wasm_rust::InputOrOutput<
+        pub bootstrap_actions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::emr::ClusterBootstrapAction>>,
         >,
         /// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         #[builder(into, default)]
-        pub configurations: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub configurations: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// JSON string for supplying list of configurations for the EMR cluster.
         ///
         /// > **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
         ///
         /// ```ignore
-        /// use pulumi_wasm_rust::Output;
-        /// use pulumi_wasm_rust::{add_export, pulumi_main};
+        /// use pulumi_gestalt_rust::Output;
+        /// use pulumi_gestalt_rust::{add_export, pulumi_main};
         /// #[pulumi_main]
         /// fn test_main() -> Result<(), Error> {
         ///     let cluster = cluster::create(
@@ -327,130 +327,132 @@ pub mod cluster {
         /// }
         /// ```
         #[builder(into, default)]
-        pub configurations_json: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub configurations_json: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
         #[builder(into, default)]
-        pub core_instance_fleet: pulumi_wasm_rust::InputOrOutput<
+        pub core_instance_fleet: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::emr::ClusterCoreInstanceFleet>,
         >,
         /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
         #[builder(into, default)]
-        pub core_instance_group: pulumi_wasm_rust::InputOrOutput<
+        pub core_instance_group: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::emr::ClusterCoreInstanceGroup>,
         >,
         /// Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
         #[builder(into, default)]
-        pub custom_ami_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub custom_ami_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
         #[builder(into, default)]
-        pub ebs_root_volume_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub ebs_root_volume_size: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Attributes for the EC2 instances running the job flow. See below.
         #[builder(into, default)]
-        pub ec2_attributes: pulumi_wasm_rust::InputOrOutput<
+        pub ec2_attributes: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::emr::ClusterEc2Attributes>,
         >,
         /// Switch on/off run cluster with no steps or when all steps are complete (default is on)
         #[builder(into, default)]
-        pub keep_job_flow_alive_when_no_steps: pulumi_wasm_rust::InputOrOutput<
+        pub keep_job_flow_alive_when_no_steps: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Kerberos configuration for the cluster. See below.
         #[builder(into, default)]
-        pub kerberos_attributes: pulumi_wasm_rust::InputOrOutput<
+        pub kerberos_attributes: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::emr::ClusterKerberosAttributes>,
         >,
         /// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
         #[builder(into, default)]
-        pub list_steps_states: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub list_steps_states: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
         #[builder(into, default)]
-        pub log_encryption_kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub log_encryption_kms_key_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
         #[builder(into, default)]
-        pub log_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub log_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         #[builder(into, default)]
-        pub master_instance_fleet: pulumi_wasm_rust::InputOrOutput<
+        pub master_instance_fleet: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::emr::ClusterMasterInstanceFleet>,
         >,
         /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
         #[builder(into, default)]
-        pub master_instance_group: pulumi_wasm_rust::InputOrOutput<
+        pub master_instance_group: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::emr::ClusterMasterInstanceGroup>,
         >,
         /// Name of the job flow.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The specified placement group configuration for an Amazon EMR cluster.
         #[builder(into, default)]
-        pub placement_group_configs: pulumi_wasm_rust::InputOrOutput<
+        pub placement_group_configs: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::emr::ClusterPlacementGroupConfig>>,
         >,
         /// Release label for the Amazon EMR release.
         #[builder(into)]
-        pub release_label: pulumi_wasm_rust::InputOrOutput<String>,
+        pub release_label: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         #[builder(into, default)]
-        pub scale_down_behavior: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub scale_down_behavior: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
         #[builder(into, default)]
-        pub security_configuration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub security_configuration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub service_role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_role: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
         #[builder(into, default)]
-        pub step_concurrency_level: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub step_concurrency_level: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
         #[builder(into, default)]
-        pub steps: pulumi_wasm_rust::InputOrOutput<
+        pub steps: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::emr::ClusterStep>>,
         >,
         /// list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
         #[builder(into, default)]
-        pub termination_protection: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub termination_protection: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
         #[builder(into, default)]
-        pub unhealthy_node_replacement: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub unhealthy_node_replacement: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
         #[builder(into, default)]
-        pub visible_to_all_users: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub visible_to_all_users: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct ClusterResult {
         /// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore the provider cannot detect drift from the actual EMR cluster if its value is changed outside the provider.
-        pub additional_info: pulumi_wasm_rust::Output<Option<String>>,
+        pub additional_info: pulumi_gestalt_rust::Output<Option<String>>,
         /// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
-        pub applications: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub applications: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// ARN of the cluster.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
-        pub auto_termination_policy: pulumi_wasm_rust::Output<
+        pub auto_termination_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::emr::ClusterAutoTerminationPolicy>,
         >,
         /// IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
-        pub autoscaling_role: pulumi_wasm_rust::Output<Option<String>>,
+        pub autoscaling_role: pulumi_gestalt_rust::Output<Option<String>>,
         /// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
-        pub bootstrap_actions: pulumi_wasm_rust::Output<
+        pub bootstrap_actions: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::emr::ClusterBootstrapAction>>,
         >,
-        pub cluster_state: pulumi_wasm_rust::Output<String>,
+        pub cluster_state: pulumi_gestalt_rust::Output<String>,
         /// List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
-        pub configurations: pulumi_wasm_rust::Output<Option<String>>,
+        pub configurations: pulumi_gestalt_rust::Output<Option<String>>,
         /// JSON string for supplying list of configurations for the EMR cluster.
         ///
         /// > **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
         ///
         /// ```ignore
-        /// use pulumi_wasm_rust::Output;
-        /// use pulumi_wasm_rust::{add_export, pulumi_main};
+        /// use pulumi_gestalt_rust::Output;
+        /// use pulumi_gestalt_rust::{add_export, pulumi_main};
         /// #[pulumi_main]
         /// fn test_main() -> Result<(), Error> {
         ///     let cluster = cluster::create(
@@ -463,90 +465,92 @@ pub mod cluster {
         ///     );
         /// }
         /// ```
-        pub configurations_json: pulumi_wasm_rust::Output<Option<String>>,
+        pub configurations_json: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the core node type. Cannot be specified if any `core_instance_group` configuration blocks are set. Detailed below.
-        pub core_instance_fleet: pulumi_wasm_rust::Output<
+        pub core_instance_fleet: pulumi_gestalt_rust::Output<
             super::super::types::emr::ClusterCoreInstanceFleet,
         >,
         /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [core node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-core).
-        pub core_instance_group: pulumi_wasm_rust::Output<
+        pub core_instance_group: pulumi_gestalt_rust::Output<
             super::super::types::emr::ClusterCoreInstanceGroup,
         >,
         /// Custom Amazon Linux AMI for the cluster (instead of an EMR-owned AMI). Available in Amazon EMR version 5.7.0 and later.
-        pub custom_ami_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_ami_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Size in GiB of the EBS root device volume of the Linux AMI that is used for each EC2 instance. Available in Amazon EMR version 4.x and later.
-        pub ebs_root_volume_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub ebs_root_volume_size: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Attributes for the EC2 instances running the job flow. See below.
-        pub ec2_attributes: pulumi_wasm_rust::Output<
+        pub ec2_attributes: pulumi_gestalt_rust::Output<
             Option<super::super::types::emr::ClusterEc2Attributes>,
         >,
         /// Switch on/off run cluster with no steps or when all steps are complete (default is on)
-        pub keep_job_flow_alive_when_no_steps: pulumi_wasm_rust::Output<bool>,
+        pub keep_job_flow_alive_when_no_steps: pulumi_gestalt_rust::Output<bool>,
         /// Kerberos configuration for the cluster. See below.
-        pub kerberos_attributes: pulumi_wasm_rust::Output<
+        pub kerberos_attributes: pulumi_gestalt_rust::Output<
             Option<super::super::types::emr::ClusterKerberosAttributes>,
         >,
         /// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
-        pub list_steps_states: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub list_steps_states: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
-        pub log_encryption_kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub log_encryption_kms_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
-        pub log_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub log_uri: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
-        pub master_instance_fleet: pulumi_wasm_rust::Output<
+        pub master_instance_fleet: pulumi_gestalt_rust::Output<
             super::super::types::emr::ClusterMasterInstanceFleet,
         >,
         /// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
-        pub master_instance_group: pulumi_wasm_rust::Output<
+        pub master_instance_group: pulumi_gestalt_rust::Output<
             super::super::types::emr::ClusterMasterInstanceGroup,
         >,
         /// The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
-        pub master_public_dns: pulumi_wasm_rust::Output<String>,
+        pub master_public_dns: pulumi_gestalt_rust::Output<String>,
         /// Name of the job flow.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The specified placement group configuration for an Amazon EMR cluster.
-        pub placement_group_configs: pulumi_wasm_rust::Output<
+        pub placement_group_configs: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::emr::ClusterPlacementGroupConfig>>,
         >,
         /// Release label for the Amazon EMR release.
-        pub release_label: pulumi_wasm_rust::Output<String>,
+        pub release_label: pulumi_gestalt_rust::Output<String>,
         /// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
-        pub scale_down_behavior: pulumi_wasm_rust::Output<String>,
+        pub scale_down_behavior: pulumi_gestalt_rust::Output<String>,
         /// Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
-        pub security_configuration: pulumi_wasm_rust::Output<Option<String>>,
+        pub security_configuration: pulumi_gestalt_rust::Output<Option<String>>,
         /// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
         ///
         /// The following arguments are optional:
-        pub service_role: pulumi_wasm_rust::Output<String>,
+        pub service_role: pulumi_gestalt_rust::Output<String>,
         /// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
-        pub step_concurrency_level: pulumi_wasm_rust::Output<Option<i32>>,
+        pub step_concurrency_level: pulumi_gestalt_rust::Output<Option<i32>>,
         /// List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
-        pub steps: pulumi_wasm_rust::Output<Vec<super::super::types::emr::ClusterStep>>,
+        pub steps: pulumi_gestalt_rust::Output<
+            Vec<super::super::types::emr::ClusterStep>,
+        >,
         /// list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
-        pub termination_protection: pulumi_wasm_rust::Output<bool>,
+        pub termination_protection: pulumi_gestalt_rust::Output<bool>,
         /// Whether whether Amazon EMR should gracefully replace core nodes that have degraded within the cluster. Default value is `false`.
-        pub unhealthy_node_replacement: pulumi_wasm_rust::Output<Option<bool>>,
+        pub unhealthy_node_replacement: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether the job flow is visible to all IAM users of the AWS account associated with the job flow. Default value is `true`.
-        pub visible_to_all_users: pulumi_wasm_rust::Output<Option<bool>>,
+        pub visible_to_all_users: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let additional_info_binding = args
             .additional_info
@@ -775,99 +779,101 @@ pub mod cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterResult {
-            additional_info: pulumi_wasm_rust::__private::into_domain(
+            additional_info: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalInfo"),
             ),
-            applications: pulumi_wasm_rust::__private::into_domain(
+            applications: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applications"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auto_termination_policy: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auto_termination_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoTerminationPolicy"),
             ),
-            autoscaling_role: pulumi_wasm_rust::__private::into_domain(
+            autoscaling_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoscalingRole"),
             ),
-            bootstrap_actions: pulumi_wasm_rust::__private::into_domain(
+            bootstrap_actions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bootstrapActions"),
             ),
-            cluster_state: pulumi_wasm_rust::__private::into_domain(
+            cluster_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterState"),
             ),
-            configurations: pulumi_wasm_rust::__private::into_domain(
+            configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurations"),
             ),
-            configurations_json: pulumi_wasm_rust::__private::into_domain(
+            configurations_json: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationsJson"),
             ),
-            core_instance_fleet: pulumi_wasm_rust::__private::into_domain(
+            core_instance_fleet: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coreInstanceFleet"),
             ),
-            core_instance_group: pulumi_wasm_rust::__private::into_domain(
+            core_instance_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coreInstanceGroup"),
             ),
-            custom_ami_id: pulumi_wasm_rust::__private::into_domain(
+            custom_ami_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customAmiId"),
             ),
-            ebs_root_volume_size: pulumi_wasm_rust::__private::into_domain(
+            ebs_root_volume_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ebsRootVolumeSize"),
             ),
-            ec2_attributes: pulumi_wasm_rust::__private::into_domain(
+            ec2_attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ec2Attributes"),
             ),
-            keep_job_flow_alive_when_no_steps: pulumi_wasm_rust::__private::into_domain(
+            keep_job_flow_alive_when_no_steps: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keepJobFlowAliveWhenNoSteps"),
             ),
-            kerberos_attributes: pulumi_wasm_rust::__private::into_domain(
+            kerberos_attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kerberosAttributes"),
             ),
-            list_steps_states: pulumi_wasm_rust::__private::into_domain(
+            list_steps_states: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("listStepsStates"),
             ),
-            log_encryption_kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            log_encryption_kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logEncryptionKmsKeyId"),
             ),
-            log_uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("logUri")),
-            master_instance_fleet: pulumi_wasm_rust::__private::into_domain(
+            log_uri: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("logUri"),
+            ),
+            master_instance_fleet: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("masterInstanceFleet"),
             ),
-            master_instance_group: pulumi_wasm_rust::__private::into_domain(
+            master_instance_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("masterInstanceGroup"),
             ),
-            master_public_dns: pulumi_wasm_rust::__private::into_domain(
+            master_public_dns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("masterPublicDns"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            placement_group_configs: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            placement_group_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("placementGroupConfigs"),
             ),
-            release_label: pulumi_wasm_rust::__private::into_domain(
+            release_label: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("releaseLabel"),
             ),
-            scale_down_behavior: pulumi_wasm_rust::__private::into_domain(
+            scale_down_behavior: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scaleDownBehavior"),
             ),
-            security_configuration: pulumi_wasm_rust::__private::into_domain(
+            security_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityConfiguration"),
             ),
-            service_role: pulumi_wasm_rust::__private::into_domain(
+            service_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceRole"),
             ),
-            step_concurrency_level: pulumi_wasm_rust::__private::into_domain(
+            step_concurrency_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stepConcurrencyLevel"),
             ),
-            steps: pulumi_wasm_rust::__private::into_domain(o.extract_field("steps")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            steps: pulumi_gestalt_rust::__private::into_domain(o.extract_field("steps")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            termination_protection: pulumi_wasm_rust::__private::into_domain(
+            termination_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("terminationProtection"),
             ),
-            unhealthy_node_replacement: pulumi_wasm_rust::__private::into_domain(
+            unhealthy_node_replacement: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("unhealthyNodeReplacement"),
             ),
-            visible_to_all_users: pulumi_wasm_rust::__private::into_domain(
+            visible_to_all_users: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("visibleToAllUsers"),
             ),
         }

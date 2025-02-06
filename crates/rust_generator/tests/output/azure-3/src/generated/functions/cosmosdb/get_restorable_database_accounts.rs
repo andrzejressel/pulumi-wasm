@@ -1,38 +1,38 @@
 pub mod get_restorable_database_accounts {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRestorableDatabaseAccountsArgs {
         /// The location where the Cosmos DB Database Account.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of this Cosmos DB Database Account.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetRestorableDatabaseAccountsResult {
         /// One or more `accounts` blocks as defined below.
-        pub accounts: pulumi_wasm_rust::Output<
+        pub accounts: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::cosmosdb::GetRestorableDatabaseAccountsAccount,
             >,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The location of the regional Cosmos DB Restorable Database Account.
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetRestorableDatabaseAccountsArgs,
     ) -> GetRestorableDatabaseAccountsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -53,14 +53,14 @@ pub mod get_restorable_database_accounts {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetRestorableDatabaseAccountsResult {
-            accounts: pulumi_wasm_rust::__private::into_domain(
+            accounts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accounts"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

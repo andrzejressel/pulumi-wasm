@@ -77,80 +77,80 @@
 /// ```
 ///
 pub mod datastore_datalake_gen_2 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatastoreDatalakeGen2Args {
         /// An URL used for authentication.
         #[builder(into, default)]
-        pub authority_url: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub authority_url: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The object ID of the Service Principal.
         #[builder(into, default)]
-        pub client_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The secret of the Service Principal.
         #[builder(into, default)]
-        pub client_secret: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_secret: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
         #[builder(into, default)]
-        pub service_data_identity: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_data_identity: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into)]
-        pub storage_container_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_container_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the Tenant which the Service Principal belongs to.
         #[builder(into, default)]
-        pub tenant_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tenant_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DatastoreDatalakeGen2Result {
         /// An URL used for authentication.
-        pub authority_url: pulumi_wasm_rust::Output<Option<String>>,
+        pub authority_url: pulumi_gestalt_rust::Output<Option<String>>,
         /// The object ID of the Service Principal.
-        pub client_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The secret of the Service Principal.
-        pub client_secret: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_secret: pulumi_gestalt_rust::Output<Option<String>>,
         /// Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Indicates whether this Machines Learning DataStore is the default for the Workspace.
-        pub is_default: pulumi_wasm_rust::Output<bool>,
+        pub is_default: pulumi_gestalt_rust::Output<bool>,
         /// The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`.
-        pub service_data_identity: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_data_identity: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created.
-        pub storage_container_id: pulumi_wasm_rust::Output<String>,
+        pub storage_container_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the Tenant which the Service Principal belongs to.
-        pub tenant_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub tenant_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created.
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatastoreDatalakeGen2Args,
     ) -> DatastoreDatalakeGen2Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authority_url_binding = args.authority_url.get_output(context).get_inner();
         let client_id_binding = args.client_id.get_output(context).get_inner();
@@ -218,33 +218,33 @@ pub mod datastore_datalake_gen_2 {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatastoreDatalakeGen2Result {
-            authority_url: pulumi_wasm_rust::__private::into_domain(
+            authority_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorityUrl"),
             ),
-            client_id: pulumi_wasm_rust::__private::into_domain(
+            client_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientId"),
             ),
-            client_secret: pulumi_wasm_rust::__private::into_domain(
+            client_secret: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientSecret"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            is_default: pulumi_wasm_rust::__private::into_domain(
+            is_default: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isDefault"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            service_data_identity: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            service_data_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceDataIdentity"),
             ),
-            storage_container_id: pulumi_wasm_rust::__private::into_domain(
+            storage_container_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageContainerId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tenant_id: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tenant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tenantId"),
             ),
-            workspace_id: pulumi_wasm_rust::__private::into_domain(
+            workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceId"),
             ),
         }

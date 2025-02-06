@@ -8,8 +8,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = target_pool::create(
@@ -63,104 +63,104 @@
 /// ```
 ///
 pub mod target_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TargetPoolArgs {
         /// URL to the backup target pool. Must also set
         /// failover_ratio.
         #[builder(into, default)]
-        pub backup_pool: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub backup_pool: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Textual description field.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Ratio (0 to 1) of failed nodes before using the
         /// backup pool (which must also be set).
         #[builder(into, default)]
-        pub failover_ratio: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub failover_ratio: pulumi_gestalt_rust::InputOrOutput<Option<f64>>,
         /// List of zero or one health check name or self_link. Only
         /// legacy `gcp.compute.HttpHealthCheck` is supported.
         #[builder(into, default)]
-        pub health_checks: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub health_checks: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of instances in the pool. They can be given as
         /// URLs, or in the form of "zone/name". Note that the instances need not exist
         /// at the time of target pool creation, so there is no need to use the
         /// interpolation to create a dependency on the instances from the
         /// target pool.
         #[builder(into, default)]
-        pub instances: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub instances: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A unique name for the resource, required by GCE. Changing
         /// this forces a new resource to be created.
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Where the target pool resides. Defaults to project
         /// region.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource URL for the security policy associated with this target pool.
         #[builder(into, default)]
-        pub security_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub security_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// How to distribute load. Options are "NONE" (no
         /// affinity). "CLIENT_IP" (hash of the source/dest addresses / ports), and
         /// "CLIENT_IP_PROTO" also includes the protocol (default "NONE").
         #[builder(into, default)]
-        pub session_affinity: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub session_affinity: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TargetPoolResult {
         /// URL to the backup target pool. Must also set
         /// failover_ratio.
-        pub backup_pool: pulumi_wasm_rust::Output<Option<String>>,
+        pub backup_pool: pulumi_gestalt_rust::Output<Option<String>>,
         /// Textual description field.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Ratio (0 to 1) of failed nodes before using the
         /// backup pool (which must also be set).
-        pub failover_ratio: pulumi_wasm_rust::Output<Option<f64>>,
+        pub failover_ratio: pulumi_gestalt_rust::Output<Option<f64>>,
         /// List of zero or one health check name or self_link. Only
         /// legacy `gcp.compute.HttpHealthCheck` is supported.
-        pub health_checks: pulumi_wasm_rust::Output<Option<String>>,
+        pub health_checks: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of instances in the pool. They can be given as
         /// URLs, or in the form of "zone/name". Note that the instances need not exist
         /// at the time of target pool creation, so there is no need to use the
         /// interpolation to create a dependency on the instances from the
         /// target pool.
-        pub instances: pulumi_wasm_rust::Output<Vec<String>>,
+        pub instances: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A unique name for the resource, required by GCE. Changing
         /// this forces a new resource to be created.
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Where the target pool resides. Defaults to project
         /// region.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The resource URL for the security policy associated with this target pool.
-        pub security_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub security_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// How to distribute load. Options are "NONE" (no
         /// affinity). "CLIENT_IP" (hash of the source/dest addresses / ports), and
         /// "CLIENT_IP_PROTO" also includes the protocol (default "NONE").
-        pub session_affinity: pulumi_wasm_rust::Output<Option<String>>,
+        pub session_affinity: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TargetPoolArgs,
     ) -> TargetPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_pool_binding = args.backup_pool.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -227,33 +227,35 @@ pub mod target_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TargetPoolResult {
-            backup_pool: pulumi_wasm_rust::__private::into_domain(
+            backup_pool: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupPool"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            failover_ratio: pulumi_wasm_rust::__private::into_domain(
+            failover_ratio: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("failoverRatio"),
             ),
-            health_checks: pulumi_wasm_rust::__private::into_domain(
+            health_checks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("healthChecks"),
             ),
-            instances: pulumi_wasm_rust::__private::into_domain(
+            instances: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instances"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            security_policy: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            security_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityPolicy"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            session_affinity: pulumi_wasm_rust::__private::into_domain(
+            session_affinity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sessionAffinity"),
             ),
         }

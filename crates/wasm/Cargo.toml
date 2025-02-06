@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm"
+name = "pulumi_gestalt"
 version.workspace = true
 edition.workspace = true
 
@@ -12,18 +12,18 @@ crate-type = ["cdylib"]
 wit-bindgen-rt.workspace = true
 serde.workspace = true
 serde_json.workspace = true
-pulumi_wasm_common.workspace = true
+pulumi_gestalt_common.workspace = true
 log.workspace = true
-pulumi_wasm_core.workspace = true
-pulumi_wasm_proto.workspace = true
+pulumi_gestalt_core.workspace = true
+pulumi_gestalt_proto.workspace = true
 prost.workspace = true
 
 [package.metadata.component]
-package = "component:pulumi-wasm"
+package = "component:pulumi-gestalt"
 
 [package.metadata.component.target.dependencies]
-"component:pulumi-wasm-external" = { path = "../wit/wit/deps/pulumi-wasm-external.wit" }
+"component:pulumi-gestalt-external" = { path = "../wit/wit/deps/pulumi-gestalt-external.wit" }
 
 [package.metadata.component.target]
 path = "../wit/wit/world.wit"
-world = "pulumi-wasm"
+world = "pulumi-gestalt"

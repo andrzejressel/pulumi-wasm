@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -113,30 +113,30 @@
 /// ```
 ///
 pub mod frontdoor_security_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FrontdoorSecurityPolicyArgs {
         /// The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
         #[builder(into)]
-        pub cdn_frontdoor_profile_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cdn_frontdoor_profile_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
         #[builder(into)]
-        pub security_policies: pulumi_wasm_rust::InputOrOutput<
+        pub security_policies: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cdn::FrontdoorSecurityPolicySecurityPolicies,
         >,
     }
     #[allow(dead_code)]
     pub struct FrontdoorSecurityPolicyResult {
         /// The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
-        pub cdn_frontdoor_profile_id: pulumi_wasm_rust::Output<String>,
+        pub cdn_frontdoor_profile_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
-        pub security_policies: pulumi_wasm_rust::Output<
+        pub security_policies: pulumi_gestalt_rust::Output<
             super::super::types::cdn::FrontdoorSecurityPolicySecurityPolicies,
         >,
     }
@@ -145,11 +145,11 @@ pub mod frontdoor_security_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FrontdoorSecurityPolicyArgs,
     ) -> FrontdoorSecurityPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cdn_frontdoor_profile_id_binding = args
             .cdn_frontdoor_profile_id
@@ -181,11 +181,11 @@ pub mod frontdoor_security_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FrontdoorSecurityPolicyResult {
-            cdn_frontdoor_profile_id: pulumi_wasm_rust::__private::into_domain(
+            cdn_frontdoor_profile_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnFrontdoorProfileId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            security_policies: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            security_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityPolicies"),
             ),
         }

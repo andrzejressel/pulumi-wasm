@@ -1,5 +1,5 @@
 use assert_cmd::prelude::*;
-use pulumi_wasm_examples_common::{init_stack, select_stack};
+use pulumi_gestalt_examples_common::{init_stack, select_stack};
 use std::process::Command;
 use std::str;
 

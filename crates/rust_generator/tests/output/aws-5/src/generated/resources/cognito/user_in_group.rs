@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = user_pool::create(
@@ -47,39 +47,39 @@
 /// }
 /// ```
 pub mod user_in_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserInGroupArgs {
         /// The name of the group to which the user is to be added.
         #[builder(into)]
-        pub group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The user pool ID of the user and group.
         #[builder(into)]
-        pub user_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_pool_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The username of the user to be added to the group.
         #[builder(into)]
-        pub username: pulumi_wasm_rust::InputOrOutput<String>,
+        pub username: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserInGroupResult {
         /// The name of the group to which the user is to be added.
-        pub group_name: pulumi_wasm_rust::Output<String>,
+        pub group_name: pulumi_gestalt_rust::Output<String>,
         /// The user pool ID of the user and group.
-        pub user_pool_id: pulumi_wasm_rust::Output<String>,
+        pub user_pool_id: pulumi_gestalt_rust::Output<String>,
         /// The username of the user to be added to the group.
-        pub username: pulumi_wasm_rust::Output<String>,
+        pub username: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserInGroupArgs,
     ) -> UserInGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let group_name_binding = args.group_name.get_output(context).get_inner();
         let user_pool_id_binding = args.user_pool_id.get_output(context).get_inner();
@@ -105,13 +105,13 @@ pub mod user_in_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserInGroupResult {
-            group_name: pulumi_wasm_rust::__private::into_domain(
+            group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupName"),
             ),
-            user_pool_id: pulumi_wasm_rust::__private::into_domain(
+            user_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userPoolId"),
             ),
-            username: pulumi_wasm_rust::__private::into_domain(
+            username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("username"),
             ),
         }

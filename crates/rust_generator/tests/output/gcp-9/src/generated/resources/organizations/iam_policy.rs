@@ -72,8 +72,8 @@
 /// > **Note:** If `role` is set to `roles/owner` and you don't specify a user or service account you have access to in `members`, you can lock yourself out of your organization.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_binding::create(
@@ -90,8 +90,8 @@
 /// With IAM Conditions:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_binding::create(
@@ -115,8 +115,8 @@
 /// ## gcp.organizations.IAMMember
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_member::create(
@@ -133,8 +133,8 @@
 /// With IAM Conditions:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_member::create(
@@ -158,8 +158,8 @@
 /// ## gcp.organizations.IamAuditConfig
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_audit_config::create(
@@ -185,8 +185,8 @@
 /// > **Note:** If `role` is set to `roles/owner` and you don't specify a user or service account you have access to in `members`, you can lock yourself out of your organization.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_binding::create(
@@ -203,8 +203,8 @@
 /// With IAM Conditions:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_binding::create(
@@ -228,8 +228,8 @@
 /// ## gcp.organizations.IAMMember
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_member::create(
@@ -246,8 +246,8 @@
 /// With IAM Conditions:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_member::create(
@@ -271,8 +271,8 @@
 /// ## gcp.organizations.IamAuditConfig
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let organization = iam_audit_config::create(
@@ -320,13 +320,13 @@
 /// ```
 ///
 pub mod iam_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IAMPolicyArgs {
         /// The organization id of the target organization.
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub org_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The `gcp.organizations.getIAMPolicy` data source that represents
         /// the IAM policy that will be applied to the organization. The policy will be
         /// merged with any existing policy applied to the organization.
@@ -336,14 +336,14 @@ pub mod iam_policy {
         /// Deleting this removes all policies from the organization, locking out users without
         /// organization-level access.
         #[builder(into)]
-        pub policy_data: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_data: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IAMPolicyResult {
         /// (Computed) The etag of the organization's IAM policy.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The organization id of the target organization.
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_gestalt_rust::Output<String>,
         /// The `gcp.organizations.getIAMPolicy` data source that represents
         /// the IAM policy that will be applied to the organization. The policy will be
         /// merged with any existing policy applied to the organization.
@@ -352,18 +352,18 @@ pub mod iam_policy {
         ///
         /// Deleting this removes all policies from the organization, locking out users without
         /// organization-level access.
-        pub policy_data: pulumi_wasm_rust::Output<String>,
+        pub policy_data: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IAMPolicyArgs,
     ) -> IAMPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let org_id_binding = args.org_id.get_output(context).get_inner();
         let policy_data_binding = args.policy_data.get_output(context).get_inner();
@@ -384,9 +384,11 @@ pub mod iam_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IAMPolicyResult {
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
-            policy_data: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            org_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("orgId"),
+            ),
+            policy_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyData"),
             ),
         }

@@ -380,27 +380,27 @@
 /// ```
 ///
 pub mod spoke {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SpokeArgs {
         /// An optional description of the spoke.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Immutable. The URI of the hub that this spoke is attached to.
         #[builder(into)]
-        pub hub: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hub: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Optional labels in key:value format. For more information about labels, see [Requirements for labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A collection of VLAN attachment resources. These resources should be redundant attachments that all advertise the same prefixes to Google Cloud. Alternatively, in active/passive configurations, all attachments should be capable of advertising the same prefixes.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub linked_interconnect_attachments: pulumi_wasm_rust::InputOrOutput<
+        pub linked_interconnect_attachments: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::networkconnectivity::SpokeLinkedInterconnectAttachments,
             >,
@@ -408,7 +408,7 @@ pub mod spoke {
         /// Producer VPC network that is associated with the spoke.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub linked_producer_vpc_network: pulumi_wasm_rust::InputOrOutput<
+        pub linked_producer_vpc_network: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::networkconnectivity::SpokeLinkedProducerVpcNetwork,
             >,
@@ -416,7 +416,7 @@ pub mod spoke {
         /// The URIs of linked Router appliance resources
         /// Structure is documented below.
         #[builder(into, default)]
-        pub linked_router_appliance_instances: pulumi_wasm_rust::InputOrOutput<
+        pub linked_router_appliance_instances: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::networkconnectivity::SpokeLinkedRouterApplianceInstances,
             >,
@@ -424,13 +424,13 @@ pub mod spoke {
         /// VPC network that is associated with the spoke.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub linked_vpc_network: pulumi_wasm_rust::InputOrOutput<
+        pub linked_vpc_network: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::networkconnectivity::SpokeLinkedVpcNetwork>,
         >,
         /// The URIs of linked VPN tunnel resources
         /// Structure is documented below.
         #[builder(into, default)]
-        pub linked_vpn_tunnels: pulumi_wasm_rust::InputOrOutput<
+        pub linked_vpn_tunnels: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::networkconnectivity::SpokeLinkedVpnTunnels>,
         >,
         /// The location for the resource
@@ -438,96 +438,96 @@ pub mod spoke {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Immutable. The name of the spoke. Spoke names must be unique.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SpokeResult {
         /// Output only. The time the spoke was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// An optional description of the spoke.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Immutable. The URI of the hub that this spoke is attached to.
-        pub hub: pulumi_wasm_rust::Output<String>,
+        pub hub: pulumi_gestalt_rust::Output<String>,
         /// Optional labels in key:value format. For more information about labels, see [Requirements for labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A collection of VLAN attachment resources. These resources should be redundant attachments that all advertise the same prefixes to Google Cloud. Alternatively, in active/passive configurations, all attachments should be capable of advertising the same prefixes.
         /// Structure is documented below.
-        pub linked_interconnect_attachments: pulumi_wasm_rust::Output<
+        pub linked_interconnect_attachments: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::networkconnectivity::SpokeLinkedInterconnectAttachments,
             >,
         >,
         /// Producer VPC network that is associated with the spoke.
         /// Structure is documented below.
-        pub linked_producer_vpc_network: pulumi_wasm_rust::Output<
+        pub linked_producer_vpc_network: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::networkconnectivity::SpokeLinkedProducerVpcNetwork,
             >,
         >,
         /// The URIs of linked Router appliance resources
         /// Structure is documented below.
-        pub linked_router_appliance_instances: pulumi_wasm_rust::Output<
+        pub linked_router_appliance_instances: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::networkconnectivity::SpokeLinkedRouterApplianceInstances,
             >,
         >,
         /// VPC network that is associated with the spoke.
         /// Structure is documented below.
-        pub linked_vpc_network: pulumi_wasm_rust::Output<
+        pub linked_vpc_network: pulumi_gestalt_rust::Output<
             Option<super::super::types::networkconnectivity::SpokeLinkedVpcNetwork>,
         >,
         /// The URIs of linked VPN tunnel resources
         /// Structure is documented below.
-        pub linked_vpn_tunnels: pulumi_wasm_rust::Output<
+        pub linked_vpn_tunnels: pulumi_gestalt_rust::Output<
             Option<super::super::types::networkconnectivity::SpokeLinkedVpnTunnels>,
         >,
         /// The location for the resource
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Immutable. The name of the spoke. Spoke names must be unique.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Output only. The current lifecycle state of this spoke.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Output only. The Google-generated UUID for the spoke. This value is unique across all spoke resources. If a spoke is deleted and another with the same name is created, the new spoke is assigned a different unique_id.
-        pub unique_id: pulumi_wasm_rust::Output<String>,
+        pub unique_id: pulumi_gestalt_rust::Output<String>,
         /// Output only. The time the spoke was last updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SpokeArgs,
     ) -> SpokeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let hub_binding = args.hub.get_output(context).get_inner();
@@ -608,47 +608,49 @@ pub mod spoke {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SpokeResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            hub: pulumi_wasm_rust::__private::into_domain(o.extract_field("hub")),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            linked_interconnect_attachments: pulumi_wasm_rust::__private::into_domain(
+            hub: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hub")),
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            linked_interconnect_attachments: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("linkedInterconnectAttachments"),
             ),
-            linked_producer_vpc_network: pulumi_wasm_rust::__private::into_domain(
+            linked_producer_vpc_network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("linkedProducerVpcNetwork"),
             ),
-            linked_router_appliance_instances: pulumi_wasm_rust::__private::into_domain(
+            linked_router_appliance_instances: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("linkedRouterApplianceInstances"),
             ),
-            linked_vpc_network: pulumi_wasm_rust::__private::into_domain(
+            linked_vpc_network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("linkedVpcNetwork"),
             ),
-            linked_vpn_tunnels: pulumi_wasm_rust::__private::into_domain(
+            linked_vpn_tunnels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("linkedVpnTunnels"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            unique_id: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            unique_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("uniqueId"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

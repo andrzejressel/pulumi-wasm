@@ -9,55 +9,55 @@
 /// $ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H
 /// ```
 pub mod landing_zone {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LandingZoneArgs {
         /// The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
         #[builder(into)]
-        pub manifest_json: pulumi_wasm_rust::InputOrOutput<String>,
+        pub manifest_json: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The landing zone version.
         #[builder(into)]
-        pub version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct LandingZoneResult {
         /// The ARN of the landing zone.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The drift status summary of the landing zone.
-        pub drift_statuses: pulumi_wasm_rust::Output<
+        pub drift_statuses: pulumi_gestalt_rust::Output<
             Vec<super::super::types::controltower::LandingZoneDriftStatus>,
         >,
         /// The latest available version of the landing zone.
-        pub latest_available_version: pulumi_wasm_rust::Output<String>,
+        pub latest_available_version: pulumi_gestalt_rust::Output<String>,
         /// The manifest JSON file is a text file that describes your AWS resources. For examples, review [Launch your landing zone](https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch).
-        pub manifest_json: pulumi_wasm_rust::Output<String>,
+        pub manifest_json: pulumi_gestalt_rust::Output<String>,
         /// Tags to apply to the landing zone. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the landing zone, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The landing zone version.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LandingZoneArgs,
     ) -> LandingZoneResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let manifest_json_binding = args.manifest_json.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();
@@ -83,21 +83,23 @@ pub mod landing_zone {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LandingZoneResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            drift_statuses: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            drift_statuses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("driftStatuses"),
             ),
-            latest_available_version: pulumi_wasm_rust::__private::into_domain(
+            latest_available_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("latestAvailableVersion"),
             ),
-            manifest_json: pulumi_wasm_rust::__private::into_domain(
+            manifest_json: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("manifestJson"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

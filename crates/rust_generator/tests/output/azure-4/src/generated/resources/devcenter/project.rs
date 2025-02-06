@@ -45,52 +45,52 @@
 /// * Where `{projectName}` is the name of the Project. For example `projectValue`.
 ///
 pub mod project {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectArgs {
         /// Description of the project. Changing this forces a new Dev Center Project to be created.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Resource Id of an associated DevCenter. Changing this forces a new Dev Center Project to be created.
         #[builder(into)]
-        pub dev_center_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dev_center_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project.
         #[builder(into, default)]
-        pub maximum_dev_boxes_per_user: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub maximum_dev_boxes_per_user: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the name of this Dev Center Project. Changing this forces a new Dev Center Project to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group within which this Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Dev Center Project.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ProjectResult {
         /// Description of the project. Changing this forces a new Dev Center Project to be created.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Resource Id of an associated DevCenter. Changing this forces a new Dev Center Project to be created.
-        pub dev_center_id: pulumi_wasm_rust::Output<String>,
+        pub dev_center_id: pulumi_gestalt_rust::Output<String>,
         /// The URI of the Dev Center resource this project is associated with.
-        pub dev_center_uri: pulumi_wasm_rust::Output<String>,
+        pub dev_center_uri: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project.
-        pub maximum_dev_boxes_per_user: pulumi_wasm_rust::Output<Option<i32>>,
+        pub maximum_dev_boxes_per_user: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the name of this Dev Center Project. Changing this forces a new Dev Center Project to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Resource Group within which this Dev Center Project should exist. Changing this forces a new Dev Center Project to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Dev Center Project.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -99,11 +99,11 @@ pub mod project {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProjectArgs,
     ) -> ProjectResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let dev_center_id_binding = args.dev_center_id.get_output(context).get_inner();
@@ -155,26 +155,26 @@ pub mod project {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProjectResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            dev_center_id: pulumi_wasm_rust::__private::into_domain(
+            dev_center_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("devCenterId"),
             ),
-            dev_center_uri: pulumi_wasm_rust::__private::into_domain(
+            dev_center_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("devCenterUri"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maximum_dev_boxes_per_user: pulumi_wasm_rust::__private::into_domain(
+            maximum_dev_boxes_per_user: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maximumDevBoxesPerUser"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

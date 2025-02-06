@@ -56,71 +56,71 @@
 /// ```
 ///
 pub mod backup_plan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackupPlanArgs {
         /// The ID of the backup plan
         #[builder(into)]
-        pub backup_plan_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub backup_plan_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The backup rules for this `BackupPlan`. There must be at least one `BackupRule` message.
         /// Structure is documented below.
         #[builder(into)]
-        pub backup_rules: pulumi_wasm_rust::InputOrOutput<
+        pub backup_rules: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::backupdisasterrecovery::BackupPlanBackupRule>,
         >,
         /// Backup vault where the backups gets stored using this Backup plan.
         #[builder(into)]
-        pub backup_vault: pulumi_wasm_rust::InputOrOutput<String>,
+        pub backup_vault: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description allows for additional details about 'BackupPlan' and its use cases to be provided.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location for the backup plan
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource type to which the `BackupPlan` will be applied. Examples include, "compute.googleapis.com/Instance" and "storage.googleapis.com/Bucket".
         #[builder(into)]
-        pub resource_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_type: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BackupPlanResult {
         /// The ID of the backup plan
-        pub backup_plan_id: pulumi_wasm_rust::Output<String>,
+        pub backup_plan_id: pulumi_gestalt_rust::Output<String>,
         /// The backup rules for this `BackupPlan`. There must be at least one `BackupRule` message.
         /// Structure is documented below.
-        pub backup_rules: pulumi_wasm_rust::Output<
+        pub backup_rules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::backupdisasterrecovery::BackupPlanBackupRule>,
         >,
         /// Backup vault where the backups gets stored using this Backup plan.
-        pub backup_vault: pulumi_wasm_rust::Output<String>,
+        pub backup_vault: pulumi_gestalt_rust::Output<String>,
         /// The Google Cloud Platform Service Account to be used by the BackupVault for taking backups.
-        pub backup_vault_service_account: pulumi_wasm_rust::Output<String>,
+        pub backup_vault_service_account: pulumi_gestalt_rust::Output<String>,
         /// When the `BackupPlan` was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The description allows for additional details about 'BackupPlan' and its use cases to be provided.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The location for the backup plan
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of backup plan resource created
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The resource type to which the `BackupPlan` will be applied. Examples include, "compute.googleapis.com/Instance" and "storage.googleapis.com/Bucket".
-        pub resource_type: pulumi_wasm_rust::Output<String>,
+        pub resource_type: pulumi_gestalt_rust::Output<String>,
         /// When the `BackupPlan` was last updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackupPlanArgs,
     ) -> BackupPlanResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_plan_id_binding = args.backup_plan_id.get_output(context).get_inner();
         let backup_rules_binding = args.backup_rules.get_output(context).get_inner();
@@ -166,35 +166,35 @@ pub mod backup_plan {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackupPlanResult {
-            backup_plan_id: pulumi_wasm_rust::__private::into_domain(
+            backup_plan_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupPlanId"),
             ),
-            backup_rules: pulumi_wasm_rust::__private::into_domain(
+            backup_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupRules"),
             ),
-            backup_vault: pulumi_wasm_rust::__private::into_domain(
+            backup_vault: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupVault"),
             ),
-            backup_vault_service_account: pulumi_wasm_rust::__private::into_domain(
+            backup_vault_service_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupVaultServiceAccount"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            resource_type: pulumi_wasm_rust::__private::into_domain(
+            resource_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceType"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

@@ -63,25 +63,25 @@
 /// $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
 /// ```
 pub mod resource_data_sync {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceDataSyncArgs {
         /// Name for the configuration.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Amazon S3 configuration details for the sync.
         #[builder(into)]
-        pub s3_destination: pulumi_wasm_rust::InputOrOutput<
+        pub s3_destination: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::ssm::ResourceDataSyncS3Destination,
         >,
     }
     #[allow(dead_code)]
     pub struct ResourceDataSyncResult {
         /// Name for the configuration.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Amazon S3 configuration details for the sync.
-        pub s3_destination: pulumi_wasm_rust::Output<
+        pub s3_destination: pulumi_gestalt_rust::Output<
             super::super::types::ssm::ResourceDataSyncS3Destination,
         >,
     }
@@ -90,11 +90,11 @@ pub mod resource_data_sync {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResourceDataSyncArgs,
     ) -> ResourceDataSyncResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let s3_destination_binding = args.s3_destination.get_output(context).get_inner();
@@ -115,8 +115,8 @@ pub mod resource_data_sync {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResourceDataSyncResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            s3_destination: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            s3_destination: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3Destination"),
             ),
         }

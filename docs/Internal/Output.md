@@ -19,7 +19,7 @@ This is output which wait to be mapped by host. More details are in [Mapping](#M
 
 ### RegisterResource
 
-Output that will eventually be sent to Pulumi as register resource instruction. This is internal to pulumi-wasm and is not exposed to user
+Output that will eventually be sent to Pulumi as register resource instruction. This is internal to pulumi-gestalt and is not exposed to user
 
 ### ExtractField
 
@@ -47,13 +47,13 @@ Simplified sequence diagram of this process:
 sequenceDiagram
     User --> User: Create function
     User --> User: Assign ID to function
-    User -> Pulumi_Wasm: Map given output with function "ID"
+    User -> Pulumi_Gestalt: Map given output with function "ID"
     Note left of User: Other computations
     
     loop While there are still outputs to map (1)
-    User -> Pulumi_Wasm: Get output values with function ids
+    User -> Pulumi_Gestalt: Get output values with function ids
     User --> User: Compute results
-    User -> Pulumi_Wasm: Return values
+    User -> Pulumi_Gestalt: Return values
     end
 ```
 

@@ -199,7 +199,7 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
@@ -207,23 +207,25 @@ pub mod instance {
         /// AUTH_DISABLED
         /// IAM_AUTH
         #[builder(into, default)]
-        pub authorization_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub authorization_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. If set to true deletion of the instance will fail.
         #[builder(into, default)]
-        pub deletion_protection_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deletion_protection_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Required. Immutable. User inputs for the auto-created PSC connections.
         #[builder(into)]
-        pub desired_psc_auto_connections: pulumi_wasm_rust::InputOrOutput<
+        pub desired_psc_auto_connections: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::memorystore::InstanceDesiredPscAutoConnection>,
         >,
         /// Optional. User-provided engine configurations for the instance.
         #[builder(into, default)]
-        pub engine_configs: pulumi_wasm_rust::InputOrOutput<
+        pub engine_configs: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Optional. Immutable. Engine version of the instance.
         #[builder(into, default)]
-        pub engine_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub engine_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Required. The ID to use for the instance, which will become the final component of
         /// the instance's resource name.
         /// This value is subject to the following restrictions:
@@ -236,24 +238,24 @@ pub mod instance {
         ///
         /// - - -
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Optional. Labels to represent user-provided metadata.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type `memorystore.googleapis.com/CertificateAuthority`.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Optional. Standalone or cluster.
         /// Possible values:
         /// CLUSTER
         /// STANDALONE
         /// Possible values are: `CLUSTER`, `STANDALONE`.
         #[builder(into, default)]
-        pub mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. Immutable. Machine type for individual nodes of the instance.
         /// Possible values:
         /// SHARED_CORE_NANO
@@ -261,33 +263,33 @@ pub mod instance {
         /// HIGHMEM_XLARGE
         /// STANDARD_SMALL
         #[builder(into, default)]
-        pub node_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub node_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Represents persistence configuration for a instance.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub persistence_config: pulumi_wasm_rust::InputOrOutput<
+        pub persistence_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::memorystore::InstancePersistenceConfig>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. Number of replica nodes per shard. If omitted the default is 0 replicas.
         #[builder(into, default)]
-        pub replica_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub replica_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Required. Number of shards for the instance.
         #[builder(into)]
-        pub shard_count: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub shard_count: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Optional. Immutable. In-transit encryption mode of the instance.
         /// Possible values:
         /// TRANSIT_ENCRYPTION_DISABLED
         /// SERVER_AUTHENTICATION
         #[builder(into, default)]
-        pub transit_encryption_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub transit_encryption_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Zone distribution configuration for allocation of instance resources.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub zone_distribution_config: pulumi_wasm_rust::InputOrOutput<
+        pub zone_distribution_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::memorystore::InstanceZoneDistributionConfig>,
         >,
     }
@@ -296,33 +298,33 @@ pub mod instance {
         /// Optional. Immutable. Authorization mode of the instance. Possible values:
         /// AUTH_DISABLED
         /// IAM_AUTH
-        pub authorization_mode: pulumi_wasm_rust::Output<String>,
+        pub authorization_mode: pulumi_gestalt_rust::Output<String>,
         /// Output only. Creation timestamp of the instance.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Optional. If set to true deletion of the instance will fail.
-        pub deletion_protection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Required. Immutable. User inputs for the auto-created PSC connections.
-        pub desired_psc_auto_connections: pulumi_wasm_rust::Output<
+        pub desired_psc_auto_connections: pulumi_gestalt_rust::Output<
             Vec<super::super::types::memorystore::InstanceDesiredPscAutoConnection>,
         >,
         /// Output only. Endpoints clients can connect to the instance through. Currently only one
         /// discovery endpoint is supported.
         /// Structure is documented below.
-        pub discovery_endpoints: pulumi_wasm_rust::Output<
+        pub discovery_endpoints: pulumi_gestalt_rust::Output<
             Vec<super::super::types::memorystore::InstanceDiscoveryEndpoint>,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Endpoints for the instance.
-        pub endpoints: pulumi_wasm_rust::Output<Vec<Vec<String>>>,
+        pub endpoints: pulumi_gestalt_rust::Output<Vec<Vec<String>>>,
         /// Optional. User-provided engine configurations for the instance.
-        pub engine_configs: pulumi_wasm_rust::Output<
+        pub engine_configs: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Optional. Immutable. Engine version of the instance.
-        pub engine_version: pulumi_wasm_rust::Output<String>,
+        pub engine_version: pulumi_gestalt_rust::Output<String>,
         /// Required. The ID to use for the instance, which will become the final component of
         /// the instance's resource name.
         /// This value is subject to the following restrictions:
@@ -334,27 +336,27 @@ pub mod instance {
         ///
         ///
         /// - - -
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
         /// Optional. Labels to represent user-provided metadata.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Resource ID segment making up resource `name`. It identifies the resource within its parent collection as described in https://google.aip.dev/122. See documentation for resource type `memorystore.googleapis.com/CertificateAuthority`.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Optional. Standalone or cluster.
         /// Possible values:
         /// CLUSTER
         /// STANDALONE
         /// Possible values are: `CLUSTER`, `STANDALONE`.
-        pub mode: pulumi_wasm_rust::Output<String>,
+        pub mode: pulumi_gestalt_rust::Output<String>,
         /// Identifier. Unique name of the instance.
         /// Format: projects/{project}/locations/{location}/instances/{instance}
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Represents configuration for nodes of the instance.
         /// Structure is documented below.
-        pub node_configs: pulumi_wasm_rust::Output<
+        pub node_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::memorystore::InstanceNodeConfig>,
         >,
         /// Optional. Immutable. Machine type for individual nodes of the instance.
@@ -363,53 +365,53 @@ pub mod instance {
         /// HIGHMEM_MEDIUM
         /// HIGHMEM_XLARGE
         /// STANDARD_SMALL
-        pub node_type: pulumi_wasm_rust::Output<String>,
+        pub node_type: pulumi_gestalt_rust::Output<String>,
         /// Represents persistence configuration for a instance.
         /// Structure is documented below.
-        pub persistence_config: pulumi_wasm_rust::Output<
+        pub persistence_config: pulumi_gestalt_rust::Output<
             super::super::types::memorystore::InstancePersistenceConfig,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Output only. User inputs and resource details of the auto-created PSC connections.
         /// Structure is documented below.
-        pub psc_auto_connections: pulumi_wasm_rust::Output<
+        pub psc_auto_connections: pulumi_gestalt_rust::Output<
             Vec<super::super::types::memorystore::InstancePscAutoConnection>,
         >,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Optional. Number of replica nodes per shard. If omitted the default is 0 replicas.
-        pub replica_count: pulumi_wasm_rust::Output<i32>,
+        pub replica_count: pulumi_gestalt_rust::Output<i32>,
         /// Required. Number of shards for the instance.
-        pub shard_count: pulumi_wasm_rust::Output<i32>,
+        pub shard_count: pulumi_gestalt_rust::Output<i32>,
         /// Output only. Current state of the instance.
         /// Possible values:
         /// CREATING
         /// ACTIVE
         /// UPDATING
         /// DELETING
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Additional information about the state of the instance.
         /// Structure is documented below.
-        pub state_infos: pulumi_wasm_rust::Output<
+        pub state_infos: pulumi_gestalt_rust::Output<
             Vec<super::super::types::memorystore::InstanceStateInfo>,
         >,
         /// Optional. Immutable. In-transit encryption mode of the instance.
         /// Possible values:
         /// TRANSIT_ENCRYPTION_DISABLED
         /// SERVER_AUTHENTICATION
-        pub transit_encryption_mode: pulumi_wasm_rust::Output<String>,
+        pub transit_encryption_mode: pulumi_gestalt_rust::Output<String>,
         /// Output only. System assigned, unique identifier for the instance.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Output only. Latest update timestamp of the instance.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// Zone distribution configuration for allocation of instance resources.
         /// Structure is documented below.
-        pub zone_distribution_config: pulumi_wasm_rust::Output<
+        pub zone_distribution_config: pulumi_gestalt_rust::Output<
             super::super::types::memorystore::InstanceZoneDistributionConfig,
         >,
     }
@@ -418,11 +420,11 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authorization_mode_binding = args
             .authorization_mode
@@ -531,78 +533,80 @@ pub mod instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceResult {
-            authorization_mode: pulumi_wasm_rust::__private::into_domain(
+            authorization_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizationMode"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            deletion_protection_enabled: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtectionEnabled"),
             ),
-            desired_psc_auto_connections: pulumi_wasm_rust::__private::into_domain(
+            desired_psc_auto_connections: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("desiredPscAutoConnections"),
             ),
-            discovery_endpoints: pulumi_wasm_rust::__private::into_domain(
+            discovery_endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("discoveryEndpoints"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            endpoints: pulumi_wasm_rust::__private::into_domain(
+            endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoints"),
             ),
-            engine_configs: pulumi_wasm_rust::__private::into_domain(
+            engine_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineConfigs"),
             ),
-            engine_version: pulumi_wasm_rust::__private::into_domain(
+            engine_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("engineVersion"),
             ),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            node_configs: pulumi_wasm_rust::__private::into_domain(
+            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            node_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeConfigs"),
             ),
-            node_type: pulumi_wasm_rust::__private::into_domain(
+            node_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeType"),
             ),
-            persistence_config: pulumi_wasm_rust::__private::into_domain(
+            persistence_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("persistenceConfig"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            psc_auto_connections: pulumi_wasm_rust::__private::into_domain(
+            psc_auto_connections: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pscAutoConnections"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            replica_count: pulumi_wasm_rust::__private::into_domain(
+            replica_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicaCount"),
             ),
-            shard_count: pulumi_wasm_rust::__private::into_domain(
+            shard_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shardCount"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            state_infos: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            state_infos: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateInfos"),
             ),
-            transit_encryption_mode: pulumi_wasm_rust::__private::into_domain(
+            transit_encryption_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitEncryptionMode"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            zone_distribution_config: pulumi_wasm_rust::__private::into_domain(
+            zone_distribution_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("zoneDistributionConfig"),
             ),
         }

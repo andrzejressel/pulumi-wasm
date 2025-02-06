@@ -1,11 +1,11 @@
 pub mod get_runtime_versions {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRuntimeVersionsArgs {
         /// List of runtime versions. See `runtime_versions` attribute reference.
         #[builder(into, default)]
-        pub runtime_versions: pulumi_wasm_rust::InputOrOutput<
+        pub runtime_versions: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::synthetics::GetRuntimeVersionsRuntimeVersion,
@@ -16,9 +16,9 @@ pub mod get_runtime_versions {
     #[allow(dead_code)]
     pub struct GetRuntimeVersionsResult {
         /// Name of the AWS region from which runtime versions are fetched.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// List of runtime versions. See `runtime_versions` attribute reference.
-        pub runtime_versions: pulumi_wasm_rust::Output<
+        pub runtime_versions: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::super::types::synthetics::GetRuntimeVersionsRuntimeVersion,
@@ -31,10 +31,10 @@ pub mod get_runtime_versions {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetRuntimeVersionsArgs,
     ) -> GetRuntimeVersionsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let runtime_versions_binding = args
             .runtime_versions
@@ -52,8 +52,8 @@ pub mod get_runtime_versions {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetRuntimeVersionsResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            runtime_versions: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            runtime_versions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runtimeVersions"),
             ),
         }

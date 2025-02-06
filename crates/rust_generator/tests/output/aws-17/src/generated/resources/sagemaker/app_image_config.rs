@@ -37,66 +37,66 @@
 /// $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
 /// ```
 pub mod app_image_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppImageConfigArgs {
         /// The name of the App Image Config.
         #[builder(into)]
-        pub app_image_config_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_image_config_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
         #[builder(into, default)]
-        pub code_editor_app_image_config: pulumi_wasm_rust::InputOrOutput<
+        pub code_editor_app_image_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::sagemaker::AppImageConfigCodeEditorAppImageConfig,
             >,
         >,
         /// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
         #[builder(into, default)]
-        pub jupyter_lab_image_config: pulumi_wasm_rust::InputOrOutput<
+        pub jupyter_lab_image_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sagemaker::AppImageConfigJupyterLabImageConfig>,
         >,
         /// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         #[builder(into, default)]
-        pub kernel_gateway_image_config: pulumi_wasm_rust::InputOrOutput<
+        pub kernel_gateway_image_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::sagemaker::AppImageConfigKernelGatewayImageConfig,
             >,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AppImageConfigResult {
         /// The name of the App Image Config.
-        pub app_image_config_name: pulumi_wasm_rust::Output<String>,
+        pub app_image_config_name: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
-        pub code_editor_app_image_config: pulumi_wasm_rust::Output<
+        pub code_editor_app_image_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::sagemaker::AppImageConfigCodeEditorAppImageConfig,
             >,
         >,
         /// The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
-        pub jupyter_lab_image_config: pulumi_wasm_rust::Output<
+        pub jupyter_lab_image_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::sagemaker::AppImageConfigJupyterLabImageConfig>,
         >,
         /// The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
-        pub kernel_gateway_image_config: pulumi_wasm_rust::Output<
+        pub kernel_gateway_image_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::sagemaker::AppImageConfigKernelGatewayImageConfig,
             >,
         >,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -105,11 +105,11 @@ pub mod app_image_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AppImageConfigArgs,
     ) -> AppImageConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_image_config_name_binding = args
             .app_image_config_name
@@ -157,21 +157,21 @@ pub mod app_image_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AppImageConfigResult {
-            app_image_config_name: pulumi_wasm_rust::__private::into_domain(
+            app_image_config_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appImageConfigName"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            code_editor_app_image_config: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            code_editor_app_image_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("codeEditorAppImageConfig"),
             ),
-            jupyter_lab_image_config: pulumi_wasm_rust::__private::into_domain(
+            jupyter_lab_image_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jupyterLabImageConfig"),
             ),
-            kernel_gateway_image_config: pulumi_wasm_rust::__private::into_domain(
+            kernel_gateway_image_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kernelGatewayImageConfig"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

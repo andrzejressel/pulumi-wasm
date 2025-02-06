@@ -170,147 +170,159 @@
 /// ```
 ///
 pub mod workspace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkspaceArgs {
         /// An `azure_devops_repo` block as defined below.
         #[builder(into, default)]
-        pub azure_devops_repo: pulumi_wasm_rust::InputOrOutput<
+        pub azure_devops_repo: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::synapse::WorkspaceAzureDevopsRepo>,
         >,
         /// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         #[builder(into, default)]
-        pub azuread_authentication_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub azuread_authentication_only: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub compute_subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub compute_subnet_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `customer_managed_key` block as defined below.
         #[builder(into, default)]
-        pub customer_managed_key: pulumi_wasm_rust::InputOrOutput<
+        pub customer_managed_key: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::synapse::WorkspaceCustomerManagedKey>,
         >,
         /// Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub data_exfiltration_protection_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub data_exfiltration_protection_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// A `github_repo` block as defined below.
         #[builder(into, default)]
-        pub github_repo: pulumi_wasm_rust::InputOrOutput<
+        pub github_repo: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::synapse::WorkspaceGithubRepo>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::synapse::WorkspaceIdentity>,
         >,
         /// Allowed AAD Tenant Ids For Linking.
         #[builder(into, default)]
-        pub linking_allowed_for_aad_tenant_ids: pulumi_wasm_rust::InputOrOutput<
+        pub linking_allowed_for_aad_tenant_ids: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Workspace managed resource group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub managed_resource_group_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub managed_resource_group_name: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub managed_virtual_network_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub managed_virtual_network_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The ID of purview account.
         #[builder(into, default)]
-        pub purview_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub purview_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
         #[builder(into, default)]
-        pub sql_administrator_login: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sql_administrator_login: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
         #[builder(into, default)]
-        pub sql_administrator_login_password: pulumi_wasm_rust::InputOrOutput<
+        pub sql_administrator_login_password: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
         #[builder(into, default)]
-        pub sql_identity_control_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub sql_identity_control_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_data_lake_gen2_filesystem_id: pulumi_wasm_rust::InputOrOutput<
+        pub storage_data_lake_gen2_filesystem_id: pulumi_gestalt_rust::InputOrOutput<
             String,
         >,
         /// A mapping of tags which should be assigned to the Synapse Workspace.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct WorkspaceResult {
         /// An `azure_devops_repo` block as defined below.
-        pub azure_devops_repo: pulumi_wasm_rust::Output<
+        pub azure_devops_repo: pulumi_gestalt_rust::Output<
             Option<super::super::types::synapse::WorkspaceAzureDevopsRepo>,
         >,
         /// Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
-        pub azuread_authentication_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub azuread_authentication_only: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Subnet ID used for computes in workspace Changing this forces a new resource to be created.
-        pub compute_subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub compute_subnet_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A list of Connectivity endpoints for this Synapse Workspace.
-        pub connectivity_endpoints: pulumi_wasm_rust::Output<
+        pub connectivity_endpoints: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A `customer_managed_key` block as defined below.
-        pub customer_managed_key: pulumi_wasm_rust::Output<
+        pub customer_managed_key: pulumi_gestalt_rust::Output<
             Option<super::super::types::synapse::WorkspaceCustomerManagedKey>,
         >,
         /// Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created.
-        pub data_exfiltration_protection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub data_exfiltration_protection_enabled: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// A `github_repo` block as defined below.
-        pub github_repo: pulumi_wasm_rust::Output<
+        pub github_repo: pulumi_gestalt_rust::Output<
             Option<super::super::types::synapse::WorkspaceGithubRepo>,
         >,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::synapse::WorkspaceIdentity>,
         >,
         /// Allowed AAD Tenant Ids For Linking.
-        pub linking_allowed_for_aad_tenant_ids: pulumi_wasm_rust::Output<
+        pub linking_allowed_for_aad_tenant_ids: pulumi_gestalt_rust::Output<
             Option<Vec<String>>,
         >,
         /// Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Workspace managed resource group. Changing this forces a new resource to be created.
-        pub managed_resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub managed_resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created.
-        pub managed_virtual_network_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub managed_virtual_network_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of purview account.
-        pub purview_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub purview_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `customer_managed_key` must be provided.
-        pub sql_administrator_login: pulumi_wasm_rust::Output<Option<String>>,
+        pub sql_administrator_login: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `customer_managed_key` must be provided.
-        pub sql_administrator_login_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub sql_administrator_login_password: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
-        pub sql_identity_control_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub sql_identity_control_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
-        pub storage_data_lake_gen2_filesystem_id: pulumi_wasm_rust::Output<String>,
+        pub storage_data_lake_gen2_filesystem_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Synapse Workspace.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -319,11 +331,11 @@ pub mod workspace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkspaceArgs,
     ) -> WorkspaceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let azure_devops_repo_binding = args
             .azure_devops_repo
@@ -476,65 +488,65 @@ pub mod workspace {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkspaceResult {
-            azure_devops_repo: pulumi_wasm_rust::__private::into_domain(
+            azure_devops_repo: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("azureDevopsRepo"),
             ),
-            azuread_authentication_only: pulumi_wasm_rust::__private::into_domain(
+            azuread_authentication_only: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("azureadAuthenticationOnly"),
             ),
-            compute_subnet_id: pulumi_wasm_rust::__private::into_domain(
+            compute_subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("computeSubnetId"),
             ),
-            connectivity_endpoints: pulumi_wasm_rust::__private::into_domain(
+            connectivity_endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectivityEndpoints"),
             ),
-            customer_managed_key: pulumi_wasm_rust::__private::into_domain(
+            customer_managed_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerManagedKey"),
             ),
-            data_exfiltration_protection_enabled: pulumi_wasm_rust::__private::into_domain(
+            data_exfiltration_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataExfiltrationProtectionEnabled"),
             ),
-            github_repo: pulumi_wasm_rust::__private::into_domain(
+            github_repo: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("githubRepo"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            linking_allowed_for_aad_tenant_ids: pulumi_wasm_rust::__private::into_domain(
+            linking_allowed_for_aad_tenant_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("linkingAllowedForAadTenantIds"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            managed_resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            managed_resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedResourceGroupName"),
             ),
-            managed_virtual_network_enabled: pulumi_wasm_rust::__private::into_domain(
+            managed_virtual_network_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedVirtualNetworkEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            purview_id: pulumi_wasm_rust::__private::into_domain(
+            purview_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("purviewId"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sql_administrator_login: pulumi_wasm_rust::__private::into_domain(
+            sql_administrator_login: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sqlAdministratorLogin"),
             ),
-            sql_administrator_login_password: pulumi_wasm_rust::__private::into_domain(
+            sql_administrator_login_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sqlAdministratorLoginPassword"),
             ),
-            sql_identity_control_enabled: pulumi_wasm_rust::__private::into_domain(
+            sql_identity_control_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sqlIdentityControlEnabled"),
             ),
-            storage_data_lake_gen2_filesystem_id: pulumi_wasm_rust::__private::into_domain(
+            storage_data_lake_gen2_filesystem_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageDataLakeGen2FilesystemId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

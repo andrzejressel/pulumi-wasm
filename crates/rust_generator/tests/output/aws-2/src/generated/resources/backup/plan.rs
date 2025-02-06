@@ -28,62 +28,64 @@
 /// $ pulumi import aws:backup/plan:Plan test <id>
 /// ```
 pub mod plan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PlanArgs {
         /// An object that specifies backup options for each resource type.
         #[builder(into, default)]
-        pub advanced_backup_settings: pulumi_wasm_rust::InputOrOutput<
+        pub advanced_backup_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::backup::PlanAdvancedBackupSetting>>,
         >,
         /// The display name of a backup plan.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A rule object that specifies a scheduled task that is used to back up a selection of resources.
         #[builder(into)]
-        pub rules: pulumi_wasm_rust::InputOrOutput<
+        pub rules: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::backup::PlanRule>,
         >,
         /// Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct PlanResult {
         /// An object that specifies backup options for each resource type.
-        pub advanced_backup_settings: pulumi_wasm_rust::Output<
+        pub advanced_backup_settings: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::backup::PlanAdvancedBackupSetting>>,
         >,
         /// The ARN of the backup plan.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The display name of a backup plan.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A rule object that specifies a scheduled task that is used to back up a selection of resources.
-        pub rules: pulumi_wasm_rust::Output<Vec<super::super::types::backup::PlanRule>>,
+        pub rules: pulumi_gestalt_rust::Output<
+            Vec<super::super::types::backup::PlanRule>,
+        >,
         /// Metadata that you can assign to help organize the plans you create. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PlanArgs,
     ) -> PlanResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let advanced_backup_settings_binding = args
             .advanced_backup_settings
@@ -117,17 +119,19 @@ pub mod plan {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PlanResult {
-            advanced_backup_settings: pulumi_wasm_rust::__private::into_domain(
+            advanced_backup_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("advancedBackupSettings"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

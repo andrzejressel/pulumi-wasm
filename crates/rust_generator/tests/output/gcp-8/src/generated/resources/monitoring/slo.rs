@@ -47,8 +47,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let customsrv = custom_service::create(
@@ -245,7 +245,7 @@
 /// ```
 ///
 pub mod slo {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SloArgs {
@@ -257,25 +257,25 @@ pub mod slo {
         /// `basic_sli`, `request_based_sli`, `windows_based_sli`
         /// Structure is documented below.
         #[builder(into, default)]
-        pub basic_sli: pulumi_wasm_rust::InputOrOutput<
+        pub basic_sli: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::monitoring::SloBasicSli>,
         >,
         /// A calendar period, semantically "since the start of the current
         /// <calendarPeriod>".
         /// Possible values are: `DAY`, `WEEK`, `FORTNIGHT`, `MONTH`.
         #[builder(into, default)]
-        pub calendar_period: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub calendar_period: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name used for UI elements listing this SLO.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The fraction of service that must be good in order for this objective
         /// to be met. 0 < goal <= 0.999
         #[builder(into)]
-        pub goal: pulumi_wasm_rust::InputOrOutput<f64>,
+        pub goal: pulumi_gestalt_rust::InputOrOutput<f64>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A request-based SLI defines a SLI for which atomic units of
         /// service are counted directly.
         /// A SLI describes a good service.
@@ -285,29 +285,29 @@ pub mod slo {
         /// `basic_sli`, `request_based_sli`, `windows_based_sli`
         /// Structure is documented below.
         #[builder(into, default)]
-        pub request_based_sli: pulumi_wasm_rust::InputOrOutput<
+        pub request_based_sli: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::monitoring::SloRequestBasedSli>,
         >,
         /// A rolling time period, semantically "in the past X days".
         /// Must be between 1 to 30 days, inclusive.
         #[builder(into, default)]
-        pub rolling_period_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub rolling_period_days: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// ID of the service to which this SLO belongs.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub service: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The id to use for this ServiceLevelObjective. If omitted, an id will be generated instead.
         #[builder(into, default)]
-        pub slo_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub slo_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// This field is intended to be used for organizing and identifying the AlertPolicy
         /// objects.The field can contain up to 64 entries. Each key and value is limited
         /// to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values
         /// can contain only lowercase letters, numerals, underscores, and dashes. Keys
         /// must begin with a letter.
         #[builder(into, default)]
-        pub user_labels: pulumi_wasm_rust::InputOrOutput<
+        pub user_labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A windows-based SLI defines the criteria for time windows.
@@ -320,7 +320,7 @@ pub mod slo {
         /// `basic_sli`, `request_based_sli`, `windows_based_sli`
         /// Structure is documented below.
         #[builder(into, default)]
-        pub windows_based_sli: pulumi_wasm_rust::InputOrOutput<
+        pub windows_based_sli: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::monitoring::SloWindowsBasedSli>,
         >,
     }
@@ -333,24 +333,24 @@ pub mod slo {
         /// Exactly one of the following must be set:
         /// `basic_sli`, `request_based_sli`, `windows_based_sli`
         /// Structure is documented below.
-        pub basic_sli: pulumi_wasm_rust::Output<
+        pub basic_sli: pulumi_gestalt_rust::Output<
             Option<super::super::types::monitoring::SloBasicSli>,
         >,
         /// A calendar period, semantically "since the start of the current
         /// <calendarPeriod>".
         /// Possible values are: `DAY`, `WEEK`, `FORTNIGHT`, `MONTH`.
-        pub calendar_period: pulumi_wasm_rust::Output<Option<String>>,
+        pub calendar_period: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name used for UI elements listing this SLO.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The fraction of service that must be good in order for this objective
         /// to be met. 0 < goal <= 0.999
-        pub goal: pulumi_wasm_rust::Output<f64>,
+        pub goal: pulumi_gestalt_rust::Output<f64>,
         /// The full resource name for this service. The syntax is:
         /// projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// A request-based SLI defines a SLI for which atomic units of
         /// service are counted directly.
         /// A SLI describes a good service.
@@ -359,25 +359,25 @@ pub mod slo {
         /// Exactly one of the following must be set:
         /// `basic_sli`, `request_based_sli`, `windows_based_sli`
         /// Structure is documented below.
-        pub request_based_sli: pulumi_wasm_rust::Output<
+        pub request_based_sli: pulumi_gestalt_rust::Output<
             Option<super::super::types::monitoring::SloRequestBasedSli>,
         >,
         /// A rolling time period, semantically "in the past X days".
         /// Must be between 1 to 30 days, inclusive.
-        pub rolling_period_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub rolling_period_days: pulumi_gestalt_rust::Output<Option<i32>>,
         /// ID of the service to which this SLO belongs.
         ///
         ///
         /// - - -
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_gestalt_rust::Output<String>,
         /// The id to use for this ServiceLevelObjective. If omitted, an id will be generated instead.
-        pub slo_id: pulumi_wasm_rust::Output<String>,
+        pub slo_id: pulumi_gestalt_rust::Output<String>,
         /// This field is intended to be used for organizing and identifying the AlertPolicy
         /// objects.The field can contain up to 64 entries. Each key and value is limited
         /// to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values
         /// can contain only lowercase letters, numerals, underscores, and dashes. Keys
         /// must begin with a letter.
-        pub user_labels: pulumi_wasm_rust::Output<
+        pub user_labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A windows-based SLI defines the criteria for time windows.
@@ -389,7 +389,7 @@ pub mod slo {
         /// Exactly one of the following must be set:
         /// `basic_sli`, `request_based_sli`, `windows_based_sli`
         /// Structure is documented below.
-        pub windows_based_sli: pulumi_wasm_rust::Output<
+        pub windows_based_sli: pulumi_gestalt_rust::Output<
             Option<super::super::types::monitoring::SloWindowsBasedSli>,
         >,
     }
@@ -398,11 +398,11 @@ pub mod slo {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SloArgs,
     ) -> SloResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let basic_sli_binding = args.basic_sli.get_output(context).get_inner();
         let calendar_period_binding = args
@@ -480,34 +480,36 @@ pub mod slo {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SloResult {
-            basic_sli: pulumi_wasm_rust::__private::into_domain(
+            basic_sli: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("basicSli"),
             ),
-            calendar_period: pulumi_wasm_rust::__private::into_domain(
+            calendar_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("calendarPeriod"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            goal: pulumi_wasm_rust::__private::into_domain(o.extract_field("goal")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            goal: pulumi_gestalt_rust::__private::into_domain(o.extract_field("goal")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            request_based_sli: pulumi_wasm_rust::__private::into_domain(
+            request_based_sli: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestBasedSli"),
             ),
-            rolling_period_days: pulumi_wasm_rust::__private::into_domain(
+            rolling_period_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rollingPeriodDays"),
             ),
-            service: pulumi_wasm_rust::__private::into_domain(
+            service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("service"),
             ),
-            slo_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("sloId")),
-            user_labels: pulumi_wasm_rust::__private::into_domain(
+            slo_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("sloId"),
+            ),
+            user_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userLabels"),
             ),
-            windows_based_sli: pulumi_wasm_rust::__private::into_domain(
+            windows_based_sli: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("windowsBasedSli"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let main = usage_plan_key::create(
@@ -46,43 +46,43 @@
 /// $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
 /// ```
 pub mod usage_plan_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UsagePlanKeyArgs {
         /// Identifier of the API key resource.
         #[builder(into)]
-        pub key_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Type of the API key resource. Currently, the valid key type is API_KEY.
         #[builder(into)]
-        pub key_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Id of the usage plan resource representing to associate the key to.
         #[builder(into)]
-        pub usage_plan_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub usage_plan_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UsagePlanKeyResult {
         /// Identifier of the API key resource.
-        pub key_id: pulumi_wasm_rust::Output<String>,
+        pub key_id: pulumi_gestalt_rust::Output<String>,
         /// Type of the API key resource. Currently, the valid key type is API_KEY.
-        pub key_type: pulumi_wasm_rust::Output<String>,
+        pub key_type: pulumi_gestalt_rust::Output<String>,
         /// Name of a usage plan key.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Id of the usage plan resource representing to associate the key to.
-        pub usage_plan_id: pulumi_wasm_rust::Output<String>,
+        pub usage_plan_id: pulumi_gestalt_rust::Output<String>,
         /// Value of a usage plan key.
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UsagePlanKeyArgs,
     ) -> UsagePlanKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let key_id_binding = args.key_id.get_output(context).get_inner();
         let key_type_binding = args.key_type.get_output(context).get_inner();
@@ -108,15 +108,17 @@ pub mod usage_plan_key {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UsagePlanKeyResult {
-            key_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("keyId")),
-            key_type: pulumi_wasm_rust::__private::into_domain(
+            key_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("keyId"),
+            ),
+            key_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            usage_plan_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            usage_plan_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("usagePlanId"),
             ),
-            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
+            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

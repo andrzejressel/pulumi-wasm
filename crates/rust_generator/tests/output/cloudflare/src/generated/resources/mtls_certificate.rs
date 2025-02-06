@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = mtls_certificate::create(
@@ -31,59 +31,59 @@
 /// ```
 ///
 pub mod mtls_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MtlsCertificateArgs {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether this is a CA or leaf certificate. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub ca: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub ca: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// Certificate you intend to use with mTLS-enabled services. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub certificates: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificates: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Optional unique name for the certificate. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The certificate's private key. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub private_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub private_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MtlsCertificateResult {
         /// The account identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// Whether this is a CA or leaf certificate. **Modifying this attribute will force creation of a new resource.**
-        pub ca: pulumi_wasm_rust::Output<bool>,
+        pub ca: pulumi_gestalt_rust::Output<bool>,
         /// Certificate you intend to use with mTLS-enabled services. **Modifying this attribute will force creation of a new resource.**
-        pub certificates: pulumi_wasm_rust::Output<String>,
+        pub certificates: pulumi_gestalt_rust::Output<String>,
         /// **Modifying this attribute will force creation of a new resource.**
-        pub expires_on: pulumi_wasm_rust::Output<String>,
+        pub expires_on: pulumi_gestalt_rust::Output<String>,
         /// **Modifying this attribute will force creation of a new resource.**
-        pub issuer: pulumi_wasm_rust::Output<String>,
+        pub issuer: pulumi_gestalt_rust::Output<String>,
         /// Optional unique name for the certificate. **Modifying this attribute will force creation of a new resource.**
-        pub name: pulumi_wasm_rust::Output<Option<String>>,
+        pub name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The certificate's private key. **Modifying this attribute will force creation of a new resource.**
-        pub private_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub private_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// **Modifying this attribute will force creation of a new resource.**
-        pub serial_number: pulumi_wasm_rust::Output<String>,
+        pub serial_number: pulumi_gestalt_rust::Output<String>,
         /// **Modifying this attribute will force creation of a new resource.**
-        pub signature: pulumi_wasm_rust::Output<String>,
+        pub signature: pulumi_gestalt_rust::Output<String>,
         /// **Modifying this attribute will force creation of a new resource.**
-        pub uploaded_on: pulumi_wasm_rust::Output<String>,
+        pub uploaded_on: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MtlsCertificateArgs,
     ) -> MtlsCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let ca_binding = args.ca.get_output(context).get_inner();
@@ -119,28 +119,30 @@ pub mod mtls_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MtlsCertificateResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            ca: pulumi_wasm_rust::__private::into_domain(o.extract_field("ca")),
-            certificates: pulumi_wasm_rust::__private::into_domain(
+            ca: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ca")),
+            certificates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificates"),
             ),
-            expires_on: pulumi_wasm_rust::__private::into_domain(
+            expires_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expiresOn"),
             ),
-            issuer: pulumi_wasm_rust::__private::into_domain(o.extract_field("issuer")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            private_key: pulumi_wasm_rust::__private::into_domain(
+            issuer: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("issuer"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            private_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateKey"),
             ),
-            serial_number: pulumi_wasm_rust::__private::into_domain(
+            serial_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serialNumber"),
             ),
-            signature: pulumi_wasm_rust::__private::into_domain(
+            signature: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signature"),
             ),
-            uploaded_on: pulumi_wasm_rust::__private::into_domain(
+            uploaded_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("uploadedOn"),
             ),
         }

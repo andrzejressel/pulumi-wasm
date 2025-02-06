@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -58,91 +58,91 @@
 /// ```
 ///
 pub mod authomation_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AuthomationRuleArgs {
         /// One or more `action_incident` blocks as defined below.
         #[builder(into, default)]
-        pub action_incidents: pulumi_wasm_rust::InputOrOutput<
+        pub action_incidents: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::sentinel::AuthomationRuleActionIncident>>,
         >,
         /// One or more `action_playbook` blocks as defined below.
         ///
         /// > **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
         #[builder(into, default)]
-        pub action_playbooks: pulumi_wasm_rust::InputOrOutput<
+        pub action_playbooks: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::sentinel::AuthomationRuleActionPlaybook>>,
         >,
         /// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
         #[builder(into, default)]
-        pub condition_json: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub condition_json: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The display name which should be used for this Sentinel Automation Rule.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
         #[builder(into, default)]
-        pub expiration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub expiration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
         #[builder(into)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub log_analytics_workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
         #[builder(into)]
-        pub order: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub order: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
         #[builder(into, default)]
-        pub triggers_on: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub triggers_on: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
         #[builder(into, default)]
-        pub triggers_when: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub triggers_when: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AuthomationRuleResult {
         /// One or more `action_incident` blocks as defined below.
-        pub action_incidents: pulumi_wasm_rust::Output<
+        pub action_incidents: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::sentinel::AuthomationRuleActionIncident>>,
         >,
         /// One or more `action_playbook` blocks as defined below.
         ///
         /// > **Note:** Either one `action_incident` block or `action_playbook` block has to be specified.
-        pub action_playbooks: pulumi_wasm_rust::Output<
+        pub action_playbooks: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::sentinel::AuthomationRuleActionPlaybook>>,
         >,
         /// A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic).
-        pub condition_json: pulumi_wasm_rust::Output<Option<String>>,
+        pub condition_json: pulumi_gestalt_rust::Output<Option<String>>,
         /// The display name which should be used for this Sentinel Automation Rule.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// Whether this Sentinel Automation Rule is enabled? Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled.
-        pub expiration: pulumi_wasm_rust::Output<Option<String>>,
+        pub expiration: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Log Analytics Workspace where this Sentinel applies to. Changing this forces a new Sentinel Automation Rule to be created.
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_workspace_id: pulumi_gestalt_rust::Output<String>,
         /// The UUID which should be used for this Sentinel Automation Rule. Changing this forces a new Sentinel Automation Rule to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The order of this Sentinel Automation Rule. Possible values varies between `1` and `1000`.
-        pub order: pulumi_wasm_rust::Output<i32>,
+        pub order: pulumi_gestalt_rust::Output<i32>,
         /// Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`.
-        pub triggers_on: pulumi_wasm_rust::Output<Option<String>>,
+        pub triggers_on: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`.
-        pub triggers_when: pulumi_wasm_rust::Output<Option<String>>,
+        pub triggers_when: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AuthomationRuleArgs,
     ) -> AuthomationRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let action_incidents_binding = args
             .action_incidents
@@ -217,33 +217,33 @@ pub mod authomation_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AuthomationRuleResult {
-            action_incidents: pulumi_wasm_rust::__private::into_domain(
+            action_incidents: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actionIncidents"),
             ),
-            action_playbooks: pulumi_wasm_rust::__private::into_domain(
+            action_playbooks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actionPlaybooks"),
             ),
-            condition_json: pulumi_wasm_rust::__private::into_domain(
+            condition_json: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("conditionJson"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            expiration: pulumi_wasm_rust::__private::into_domain(
+            expiration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expiration"),
             ),
-            log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
+            log_analytics_workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logAnalyticsWorkspaceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            order: pulumi_wasm_rust::__private::into_domain(o.extract_field("order")),
-            triggers_on: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            order: pulumi_gestalt_rust::__private::into_domain(o.extract_field("order")),
+            triggers_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggersOn"),
             ),
-            triggers_when: pulumi_wasm_rust::__private::into_domain(
+            triggers_when: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggersWhen"),
             ),
         }

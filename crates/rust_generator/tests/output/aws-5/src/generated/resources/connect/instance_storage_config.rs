@@ -6,8 +6,8 @@
 /// ### Storage Config Kinesis Firehose Config
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = instance_storage_config::create(
@@ -35,8 +35,8 @@
 /// ### Storage Config Kinesis Stream Config
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = instance_storage_config::create(
@@ -62,8 +62,8 @@
 /// ### Storage Config Kinesis Video Stream Config
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = instance_storage_config::create(
@@ -96,8 +96,8 @@
 /// ### Storage Config S3 Config
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = instance_storage_config::create(
@@ -124,8 +124,8 @@
 /// ### Storage Config S3 Config with Encryption Config
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = instance_storage_config::create(
@@ -163,32 +163,32 @@
 /// $ pulumi import aws:connect/instanceStorageConfig:InstanceStorageConfig example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5:CHAT_TRANSCRIPTS
 /// ```
 pub mod instance_storage_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceStorageConfigArgs {
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
         #[builder(into)]
-        pub resource_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the storage configuration options for the Connect Instance. Documented below.
         #[builder(into)]
-        pub storage_config: pulumi_wasm_rust::InputOrOutput<
+        pub storage_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::connect::InstanceStorageConfigStorageConfig,
         >,
     }
     #[allow(dead_code)]
     pub struct InstanceStorageConfigResult {
         /// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-        pub association_id: pulumi_wasm_rust::Output<String>,
+        pub association_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the identifier of the hosting Amazon Connect Instance.
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
         /// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
-        pub resource_type: pulumi_wasm_rust::Output<String>,
+        pub resource_type: pulumi_gestalt_rust::Output<String>,
         /// Specifies the storage configuration options for the Connect Instance. Documented below.
-        pub storage_config: pulumi_wasm_rust::Output<
+        pub storage_config: pulumi_gestalt_rust::Output<
             super::super::types::connect::InstanceStorageConfigStorageConfig,
         >,
     }
@@ -197,11 +197,11 @@ pub mod instance_storage_config {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceStorageConfigArgs,
     ) -> InstanceStorageConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let instance_id_binding = args.instance_id.get_output(context).get_inner();
         let resource_type_binding = args.resource_type.get_output(context).get_inner();
@@ -227,16 +227,16 @@ pub mod instance_storage_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceStorageConfigResult {
-            association_id: pulumi_wasm_rust::__private::into_domain(
+            association_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("associationId"),
             ),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            resource_type: pulumi_wasm_rust::__private::into_domain(
+            resource_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceType"),
             ),
-            storage_config: pulumi_wasm_rust::__private::into_domain(
+            storage_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageConfig"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -49,62 +49,62 @@
 /// ```
 ///
 pub mod integration_account_batch_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationAccountBatchConfigurationArgs {
         /// The batch group name of the Logic App Integration Batch Configuration. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub batch_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub batch_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Logic App Integration Account. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub integration_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub integration_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A JSON mapping of any Metadata for this Logic App Integration Account Batch Configuration.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
         #[builder(into)]
-        pub release_criteria: pulumi_wasm_rust::InputOrOutput<
+        pub release_criteria: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::logicapps::IntegrationAccountBatchConfigurationReleaseCriteria,
         >,
         /// The name of the Resource Group where the Logic App Integration Account Batch Configuration should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IntegrationAccountBatchConfigurationResult {
         /// The batch group name of the Logic App Integration Batch Configuration. Changing this forces a new resource to be created.
-        pub batch_group_name: pulumi_wasm_rust::Output<String>,
+        pub batch_group_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Logic App Integration Account. Changing this forces a new resource to be created.
-        pub integration_account_name: pulumi_wasm_rust::Output<String>,
+        pub integration_account_name: pulumi_gestalt_rust::Output<String>,
         /// A JSON mapping of any Metadata for this Logic App Integration Account Batch Configuration.
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `release_criteria` block as documented below, which is used to select the criteria to meet before processing each batch.
-        pub release_criteria: pulumi_wasm_rust::Output<
+        pub release_criteria: pulumi_gestalt_rust::Output<
             super::super::types::logicapps::IntegrationAccountBatchConfigurationReleaseCriteria,
         >,
         /// The name of the Resource Group where the Logic App Integration Account Batch Configuration should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IntegrationAccountBatchConfigurationArgs,
     ) -> IntegrationAccountBatchConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let batch_group_name_binding = args
             .batch_group_name
@@ -158,20 +158,20 @@ pub mod integration_account_batch_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IntegrationAccountBatchConfigurationResult {
-            batch_group_name: pulumi_wasm_rust::__private::into_domain(
+            batch_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("batchGroupName"),
             ),
-            integration_account_name: pulumi_wasm_rust::__private::into_domain(
+            integration_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationAccountName"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            release_criteria: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            release_criteria: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("releaseCriteria"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
         }

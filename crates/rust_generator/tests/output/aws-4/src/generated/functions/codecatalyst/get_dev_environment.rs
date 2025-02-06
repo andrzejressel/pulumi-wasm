@@ -1,23 +1,23 @@
 pub mod get_dev_environment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDevEnvironmentArgs {
         /// The user-specified alias for the Dev Environment.
         #[builder(into, default)]
-        pub alias: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub alias: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The system-generated unique ID of the user who created the Dev Environment.
         #[builder(into, default)]
-        pub creator_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub creator_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
         #[builder(into)]
-        pub env_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub env_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the project in the space.
         #[builder(into)]
-        pub project_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub project_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The source repository that contains the branch to clone into the Dev Environment.
         #[builder(into, default)]
-        pub repositories: pulumi_wasm_rust::InputOrOutput<
+        pub repositories: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::codecatalyst::GetDevEnvironmentRepository,
@@ -26,62 +26,62 @@ pub mod get_dev_environment {
         >,
         /// The name of the space.
         #[builder(into)]
-        pub space_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub space_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetDevEnvironmentResult {
         /// The user-specified alias for the Dev Environment.
-        pub alias: pulumi_wasm_rust::Output<Option<String>>,
+        pub alias: pulumi_gestalt_rust::Output<Option<String>>,
         /// The system-generated unique ID of the user who created the Dev Environment.
-        pub creator_id: pulumi_wasm_rust::Output<Option<String>>,
-        pub env_id: pulumi_wasm_rust::Output<String>,
+        pub creator_id: pulumi_gestalt_rust::Output<Option<String>>,
+        pub env_id: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Information about the integrated development environment (IDE) configured for a Dev Environment.
-        pub ides: pulumi_wasm_rust::Output<
+        pub ides: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::codecatalyst::GetDevEnvironmentIde>,
         >,
         /// The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-        pub inactivity_timeout_minutes: pulumi_wasm_rust::Output<i32>,
+        pub inactivity_timeout_minutes: pulumi_gestalt_rust::Output<i32>,
         /// The Amazon EC2 instace type to use for the Dev Environment.
-        pub instance_type: pulumi_wasm_rust::Output<String>,
+        pub instance_type: pulumi_gestalt_rust::Output<String>,
         /// The time when the Dev Environment was last updated, in coordinated universal time (UTC) timestamp format as specified in [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339#section-5.6).
-        pub last_updated_time: pulumi_wasm_rust::Output<String>,
+        pub last_updated_time: pulumi_gestalt_rust::Output<String>,
         /// Information about the amount of storage allocated to the Dev Environment.
-        pub persistent_storages: pulumi_wasm_rust::Output<
+        pub persistent_storages: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::codecatalyst::GetDevEnvironmentPersistentStorage,
             >,
         >,
-        pub project_name: pulumi_wasm_rust::Output<String>,
+        pub project_name: pulumi_gestalt_rust::Output<String>,
         /// The source repository that contains the branch to clone into the Dev Environment.
-        pub repositories: pulumi_wasm_rust::Output<
+        pub repositories: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::super::types::codecatalyst::GetDevEnvironmentRepository,
                 >,
             >,
         >,
-        pub space_name: pulumi_wasm_rust::Output<String>,
+        pub space_name: pulumi_gestalt_rust::Output<String>,
         /// The current status of the Dev Environment. From: PENDING | RUNNING | STARTING | STOPPING | STOPPED | FAILED | DELETING | DELETED.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// The reason for the status.
-        pub status_reason: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub status_reason: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetDevEnvironmentArgs,
     ) -> GetDevEnvironmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let alias_binding = args.alias.get_output(context).get_inner();
         let creator_id_binding = args.creator_id.get_output(context).get_inner();
@@ -126,39 +126,43 @@ pub mod get_dev_environment {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetDevEnvironmentResult {
-            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
-            creator_id: pulumi_wasm_rust::__private::into_domain(
+            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
+            creator_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creatorId"),
             ),
-            env_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("envId")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            ides: pulumi_wasm_rust::__private::into_domain(o.extract_field("ides")),
-            inactivity_timeout_minutes: pulumi_wasm_rust::__private::into_domain(
+            env_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("envId"),
+            ),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            ides: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ides")),
+            inactivity_timeout_minutes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inactivityTimeoutMinutes"),
             ),
-            instance_type: pulumi_wasm_rust::__private::into_domain(
+            instance_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceType"),
             ),
-            last_updated_time: pulumi_wasm_rust::__private::into_domain(
+            last_updated_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdatedTime"),
             ),
-            persistent_storages: pulumi_wasm_rust::__private::into_domain(
+            persistent_storages: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("persistentStorages"),
             ),
-            project_name: pulumi_wasm_rust::__private::into_domain(
+            project_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("projectName"),
             ),
-            repositories: pulumi_wasm_rust::__private::into_domain(
+            repositories: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("repositories"),
             ),
-            space_name: pulumi_wasm_rust::__private::into_domain(
+            space_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("spaceName"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            status_reason: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            status_reason: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statusReason"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

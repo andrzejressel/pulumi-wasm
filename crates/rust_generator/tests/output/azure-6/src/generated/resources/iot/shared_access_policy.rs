@@ -39,7 +39,7 @@
 /// ```
 ///
 pub mod shared_access_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SharedAccessPolicyArgs {
@@ -47,67 +47,67 @@ pub mod shared_access_policy {
         ///
         /// > **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
         #[builder(into, default)]
-        pub device_connect: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub device_connect: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub iothub_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub iothub_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
         #[builder(into, default)]
-        pub registry_read: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub registry_read: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
         ///
         /// > **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
         #[builder(into, default)]
-        pub registry_write: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub registry_write: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
         #[builder(into, default)]
-        pub service_connect: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub service_connect: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct SharedAccessPolicyResult {
         /// Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
         ///
         /// > **NOTE** At least one of `registry_read`, `registry_write`, `service_connect`, `device_connect` permissions must be set to `true`.
-        pub device_connect: pulumi_wasm_rust::Output<Option<bool>>,
+        pub device_connect: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
-        pub iothub_name: pulumi_wasm_rust::Output<String>,
+        pub iothub_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The primary connection string of the Shared Access Policy.
-        pub primary_connection_string: pulumi_wasm_rust::Output<String>,
+        pub primary_connection_string: pulumi_gestalt_rust::Output<String>,
         /// The primary key used to create the authentication token.
-        pub primary_key: pulumi_wasm_rust::Output<String>,
+        pub primary_key: pulumi_gestalt_rust::Output<String>,
         /// Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
-        pub registry_read: pulumi_wasm_rust::Output<Option<bool>>,
+        pub registry_read: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
         ///
         /// > **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
-        pub registry_write: pulumi_wasm_rust::Output<Option<bool>>,
+        pub registry_write: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The secondary connection string of the Shared Access Policy.
-        pub secondary_connection_string: pulumi_wasm_rust::Output<String>,
+        pub secondary_connection_string: pulumi_gestalt_rust::Output<String>,
         /// The secondary key used to create the authentication token.
-        pub secondary_key: pulumi_wasm_rust::Output<String>,
+        pub secondary_key: pulumi_gestalt_rust::Output<String>,
         /// Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
-        pub service_connect: pulumi_wasm_rust::Output<Option<bool>>,
+        pub service_connect: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SharedAccessPolicyArgs,
     ) -> SharedAccessPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let device_connect_binding = args.device_connect.get_output(context).get_inner();
         let iothub_name_binding = args.iothub_name.get_output(context).get_inner();
@@ -159,35 +159,35 @@ pub mod shared_access_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SharedAccessPolicyResult {
-            device_connect: pulumi_wasm_rust::__private::into_domain(
+            device_connect: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deviceConnect"),
             ),
-            iothub_name: pulumi_wasm_rust::__private::into_domain(
+            iothub_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iothubName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            primary_connection_string: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryConnectionString"),
             ),
-            primary_key: pulumi_wasm_rust::__private::into_domain(
+            primary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryKey"),
             ),
-            registry_read: pulumi_wasm_rust::__private::into_domain(
+            registry_read: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registryRead"),
             ),
-            registry_write: pulumi_wasm_rust::__private::into_domain(
+            registry_write: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registryWrite"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
+            secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryConnectionString"),
             ),
-            secondary_key: pulumi_wasm_rust::__private::into_domain(
+            secondary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryKey"),
             ),
-            service_connect: pulumi_wasm_rust::__private::into_domain(
+            service_connect: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceConnect"),
             ),
         }

@@ -30,43 +30,43 @@
 /// $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
 /// ```
 pub mod archive_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ArchiveRuleArgs {
         /// Analyzer name.
         #[builder(into)]
-        pub analyzer_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub analyzer_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Filter criteria for the archive rule. See Filter for more details.
         #[builder(into)]
-        pub filters: pulumi_wasm_rust::InputOrOutput<
+        pub filters: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::accessanalyzer::ArchiveRuleFilter>,
         >,
         /// Rule name.
         #[builder(into)]
-        pub rule_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rule_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ArchiveRuleResult {
         /// Analyzer name.
-        pub analyzer_name: pulumi_wasm_rust::Output<String>,
+        pub analyzer_name: pulumi_gestalt_rust::Output<String>,
         /// Filter criteria for the archive rule. See Filter for more details.
-        pub filters: pulumi_wasm_rust::Output<
+        pub filters: pulumi_gestalt_rust::Output<
             Vec<super::super::types::accessanalyzer::ArchiveRuleFilter>,
         >,
         /// Rule name.
-        pub rule_name: pulumi_wasm_rust::Output<String>,
+        pub rule_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ArchiveRuleArgs,
     ) -> ArchiveRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let analyzer_name_binding = args.analyzer_name.get_output(context).get_inner();
         let filters_binding = args.filters.get_output(context).get_inner();
@@ -92,13 +92,13 @@ pub mod archive_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ArchiveRuleResult {
-            analyzer_name: pulumi_wasm_rust::__private::into_domain(
+            analyzer_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("analyzerName"),
             ),
-            filters: pulumi_wasm_rust::__private::into_domain(
+            filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filters"),
             ),
-            rule_name: pulumi_wasm_rust::__private::into_domain(
+            rule_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleName"),
             ),
         }

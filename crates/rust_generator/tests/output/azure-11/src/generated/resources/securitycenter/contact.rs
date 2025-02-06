@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = contact::create(
@@ -31,49 +31,49 @@
 /// ```
 ///
 pub mod contact {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ContactArgs {
         /// Whether to send security alerts notifications to the security contact.
         #[builder(into)]
-        pub alert_notifications: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub alert_notifications: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// Whether to send security alerts notifications to subscription admins.
         #[builder(into)]
-        pub alerts_to_admins: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub alerts_to_admins: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// The email of the Security Center Contact.
         #[builder(into)]
-        pub email: pulumi_wasm_rust::InputOrOutput<String>,
+        pub email: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Security Center Contact. Defaults to `default1`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The phone number of the Security Center Contact.
         #[builder(into, default)]
-        pub phone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub phone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ContactResult {
         /// Whether to send security alerts notifications to the security contact.
-        pub alert_notifications: pulumi_wasm_rust::Output<bool>,
+        pub alert_notifications: pulumi_gestalt_rust::Output<bool>,
         /// Whether to send security alerts notifications to subscription admins.
-        pub alerts_to_admins: pulumi_wasm_rust::Output<bool>,
+        pub alerts_to_admins: pulumi_gestalt_rust::Output<bool>,
         /// The email of the Security Center Contact.
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_gestalt_rust::Output<String>,
         /// The name of the Security Center Contact. Defaults to `default1`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The phone number of the Security Center Contact.
-        pub phone: pulumi_wasm_rust::Output<Option<String>>,
+        pub phone: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ContactArgs,
     ) -> ContactResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let alert_notifications_binding = args
             .alert_notifications
@@ -115,15 +115,15 @@ pub mod contact {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ContactResult {
-            alert_notifications: pulumi_wasm_rust::__private::into_domain(
+            alert_notifications: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("alertNotifications"),
             ),
-            alerts_to_admins: pulumi_wasm_rust::__private::into_domain(
+            alerts_to_admins: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("alertsToAdmins"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            phone: pulumi_wasm_rust::__private::into_domain(o.extract_field("phone")),
+            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            phone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("phone")),
         }
     }
 }

@@ -30,38 +30,38 @@
 /// $ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb
 /// ```
 pub mod default_vpc_dhcp_options {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DefaultVpcDhcpOptionsArgs {
         /// The ID of the AWS account that owns the DHCP options set.
         #[builder(into, default)]
-        pub owner_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub owner_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DefaultVpcDhcpOptionsResult {
         /// The ARN of the DHCP Options Set.
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub domain_name: pulumi_wasm_rust::Output<String>,
-        pub domain_name_servers: pulumi_wasm_rust::Output<String>,
-        pub ipv6_address_preferred_lease_time: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
+        pub domain_name_servers: pulumi_gestalt_rust::Output<String>,
+        pub ipv6_address_preferred_lease_time: pulumi_gestalt_rust::Output<String>,
         /// List of NETBIOS name servers.
-        pub netbios_name_servers: pulumi_wasm_rust::Output<String>,
+        pub netbios_name_servers: pulumi_gestalt_rust::Output<String>,
         /// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-        pub netbios_node_type: pulumi_wasm_rust::Output<String>,
-        pub ntp_servers: pulumi_wasm_rust::Output<String>,
+        pub netbios_node_type: pulumi_gestalt_rust::Output<String>,
+        pub ntp_servers: pulumi_gestalt_rust::Output<String>,
         /// The ID of the AWS account that owns the DHCP options set.
-        pub owner_id: pulumi_wasm_rust::Output<String>,
+        pub owner_id: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -70,11 +70,11 @@ pub mod default_vpc_dhcp_options {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DefaultVpcDhcpOptionsArgs,
     ) -> DefaultVpcDhcpOptionsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let owner_id_binding = args.owner_id.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();
@@ -95,30 +95,30 @@ pub mod default_vpc_dhcp_options {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DefaultVpcDhcpOptionsResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            domain_name_servers: pulumi_wasm_rust::__private::into_domain(
+            domain_name_servers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainNameServers"),
             ),
-            ipv6_address_preferred_lease_time: pulumi_wasm_rust::__private::into_domain(
+            ipv6_address_preferred_lease_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6AddressPreferredLeaseTime"),
             ),
-            netbios_name_servers: pulumi_wasm_rust::__private::into_domain(
+            netbios_name_servers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("netbiosNameServers"),
             ),
-            netbios_node_type: pulumi_wasm_rust::__private::into_domain(
+            netbios_node_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("netbiosNodeType"),
             ),
-            ntp_servers: pulumi_wasm_rust::__private::into_domain(
+            ntp_servers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ntpServers"),
             ),
-            owner_id: pulumi_wasm_rust::__private::into_domain(
+            owner_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

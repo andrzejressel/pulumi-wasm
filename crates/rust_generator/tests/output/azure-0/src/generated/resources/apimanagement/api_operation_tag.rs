@@ -49,39 +49,39 @@
 /// ```
 ///
 pub mod api_operation_tag {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiOperationTagArgs {
         /// The ID of the API Management API Operation. Changing this forces a new API Management API Operation Tag to be created.
         #[builder(into)]
-        pub api_operation_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_operation_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The display name of the API Management API Operation Tag.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this API Management API Operation Tag. Changing this forces a new API Management API Operation Tag to be created. The name must be unique in the API Management Service.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ApiOperationTagResult {
         /// The ID of the API Management API Operation. Changing this forces a new API Management API Operation Tag to be created.
-        pub api_operation_id: pulumi_wasm_rust::Output<String>,
+        pub api_operation_id: pulumi_gestalt_rust::Output<String>,
         /// The display name of the API Management API Operation Tag.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this API Management API Operation Tag. Changing this forces a new API Management API Operation Tag to be created. The name must be unique in the API Management Service.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApiOperationTagArgs,
     ) -> ApiOperationTagResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_operation_id_binding = args
             .api_operation_id
@@ -110,13 +110,13 @@ pub mod api_operation_tag {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApiOperationTagResult {
-            api_operation_id: pulumi_wasm_rust::__private::into_domain(
+            api_operation_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiOperationId"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

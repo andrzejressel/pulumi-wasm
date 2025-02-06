@@ -26,8 +26,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let ipAddress = address::create(
@@ -40,8 +40,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = network::create(
@@ -73,8 +73,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let internalWithGceEndpoint = address::create(
@@ -170,7 +170,7 @@
 /// ```
 ///
 pub mod address {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AddressArgs {
@@ -178,32 +178,32 @@ pub mod address {
         /// The IP address must be inside the specified subnetwork,
         /// if any. Set by the API if undefined.
         #[builder(into, default)]
-        pub address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of address to reserve.
         /// Note: if you set this argument's value as `INTERNAL` you need to leave the `network_tier` argument unset in that resource block.
         /// Default value is `EXTERNAL`.
         /// Possible values are: `INTERNAL`, `EXTERNAL`.
         #[builder(into, default)]
-        pub address_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub address_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IP Version that will be used by this address. The default value is `IPV4`.
         /// Possible values are: `IPV4`, `IPV6`.
         #[builder(into, default)]
-        pub ip_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The endpoint type of this address, which should be VM or NETLB. This is
         /// used for deciding which type of endpoint this address can be used after
         /// the external IPv6 address reservation.
         /// Possible values are: `VM`, `NETLB`.
         #[builder(into, default)]
-        pub ipv6_endpoint_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ipv6_endpoint_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Labels to apply to this address.  A list of key->value pairs.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the resource. The name must be 1-63 characters long, and
@@ -216,25 +216,25 @@ pub mod address {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The URL of the network in which to reserve the address. This field
         /// can only be used with INTERNAL type with the VPC_PEERING and
         /// IPSEC_INTERCONNECT purposes.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The networking tier used for configuring this address. If this field is not
         /// specified, it is assumed to be PREMIUM.
         /// This argument should not be used when configuring Internal addresses, because [network tier cannot be set for internal traffic; it's always Premium](https://cloud.google.com/network-tiers/docs/overview).
         /// Possible values are: `PREMIUM`, `STANDARD`.
         #[builder(into, default)]
-        pub network_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network_tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The prefix length if the resource represents an IP range.
         #[builder(into, default)]
-        pub prefix_length: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub prefix_length: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The purpose of this resource, which can be one of the following values.
         /// * GCE_ENDPOINT for addresses that are used by VM instances, alias IP
         /// ranges, load balancers, and similar resources.
@@ -249,53 +249,53 @@ pub mod address {
         /// this purpose.
         /// This should only be set when using an Internal address.
         #[builder(into, default)]
-        pub purpose: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub purpose: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Region in which the created address should reside.
         /// If it is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The URL of the subnetwork in which to reserve the address. If an IP
         /// address is specified, it must be within the subnetwork's IP range.
         /// This field can only be used with INTERNAL type with
         /// GCE_ENDPOINT/DNS_RESOLVER purposes.
         #[builder(into, default)]
-        pub subnetwork: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subnetwork: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AddressResult {
         /// The static external IP address represented by this resource.
         /// The IP address must be inside the specified subnetwork,
         /// if any. Set by the API if undefined.
-        pub address: pulumi_wasm_rust::Output<String>,
+        pub address: pulumi_gestalt_rust::Output<String>,
         /// The type of address to reserve.
         /// Note: if you set this argument's value as `INTERNAL` you need to leave the `network_tier` argument unset in that resource block.
         /// Default value is `EXTERNAL`.
         /// Possible values are: `INTERNAL`, `EXTERNAL`.
-        pub address_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub address_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The IP Version that will be used by this address. The default value is `IPV4`.
         /// Possible values are: `IPV4`, `IPV6`.
-        pub ip_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// The endpoint type of this address, which should be VM or NETLB. This is
         /// used for deciding which type of endpoint this address can be used after
         /// the external IPv6 address reservation.
         /// Possible values are: `VM`, `NETLB`.
-        pub ipv6_endpoint_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub ipv6_endpoint_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The fingerprint used for optimistic locking of this resource.  Used
         /// internally during updates.
-        pub label_fingerprint: pulumi_wasm_rust::Output<String>,
+        pub label_fingerprint: pulumi_gestalt_rust::Output<String>,
         /// Labels to apply to this address.  A list of key->value pairs.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Name of the resource. The name must be 1-63 characters long, and
@@ -307,24 +307,24 @@ pub mod address {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The URL of the network in which to reserve the address. This field
         /// can only be used with INTERNAL type with the VPC_PEERING and
         /// IPSEC_INTERCONNECT purposes.
-        pub network: pulumi_wasm_rust::Output<Option<String>>,
+        pub network: pulumi_gestalt_rust::Output<Option<String>>,
         /// The networking tier used for configuring this address. If this field is not
         /// specified, it is assumed to be PREMIUM.
         /// This argument should not be used when configuring Internal addresses, because [network tier cannot be set for internal traffic; it's always Premium](https://cloud.google.com/network-tiers/docs/overview).
         /// Possible values are: `PREMIUM`, `STANDARD`.
-        pub network_tier: pulumi_wasm_rust::Output<String>,
+        pub network_tier: pulumi_gestalt_rust::Output<String>,
         /// The prefix length if the resource represents an IP range.
-        pub prefix_length: pulumi_wasm_rust::Output<i32>,
+        pub prefix_length: pulumi_gestalt_rust::Output<i32>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The purpose of this resource, which can be one of the following values.
@@ -340,30 +340,30 @@ pub mod address {
         /// configure Private Service Connect. Only global internal addresses can use
         /// this purpose.
         /// This should only be set when using an Internal address.
-        pub purpose: pulumi_wasm_rust::Output<String>,
+        pub purpose: pulumi_gestalt_rust::Output<String>,
         /// The Region in which the created address should reside.
         /// If it is not provided, the provider region is used.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// The URL of the subnetwork in which to reserve the address. If an IP
         /// address is specified, it must be within the subnetwork's IP range.
         /// This field can only be used with INTERNAL type with
         /// GCE_ENDPOINT/DNS_RESOLVER purposes.
-        pub subnetwork: pulumi_wasm_rust::Output<String>,
+        pub subnetwork: pulumi_gestalt_rust::Output<String>,
         /// The URLs of the resources that are using this address.
-        pub users: pulumi_wasm_rust::Output<Vec<String>>,
+        pub users: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AddressArgs,
     ) -> AddressResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let address_binding = args.address.get_output(context).get_inner();
         let address_type_binding = args.address_type.get_output(context).get_inner();
@@ -447,58 +447,62 @@ pub mod address {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AddressResult {
-            address: pulumi_wasm_rust::__private::into_domain(
+            address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("address"),
             ),
-            address_type: pulumi_wasm_rust::__private::into_domain(
+            address_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addressType"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            ip_version: pulumi_wasm_rust::__private::into_domain(
+            ip_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipVersion"),
             ),
-            ipv6_endpoint_type: pulumi_wasm_rust::__private::into_domain(
+            ipv6_endpoint_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipv6EndpointType"),
             ),
-            label_fingerprint: pulumi_wasm_rust::__private::into_domain(
+            label_fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("labelFingerprint"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            network_tier: pulumi_wasm_rust::__private::into_domain(
+            network_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkTier"),
             ),
-            prefix_length: pulumi_wasm_rust::__private::into_domain(
+            prefix_length: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("prefixLength"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            purpose: pulumi_wasm_rust::__private::into_domain(
+            purpose: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("purpose"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            subnetwork: pulumi_wasm_rust::__private::into_domain(
+            subnetwork: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetwork"),
             ),
-            users: pulumi_wasm_rust::__private::into_domain(o.extract_field("users")),
+            users: pulumi_gestalt_rust::__private::into_domain(o.extract_field("users")),
         }
     }
 }

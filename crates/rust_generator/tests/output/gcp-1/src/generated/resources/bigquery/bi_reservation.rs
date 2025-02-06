@@ -46,7 +46,7 @@
 /// ```
 ///
 pub mod bi_reservation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BiReservationArgs {
@@ -55,20 +55,20 @@ pub mod bi_reservation {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Preferred tables to use BI capacity for.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub preferred_tables: pulumi_wasm_rust::InputOrOutput<
+        pub preferred_tables: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::bigquery::BiReservationPreferredTable>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Size of a reservation, in bytes.
         #[builder(into, default)]
-        pub size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub size: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct BiReservationResult {
@@ -76,33 +76,33 @@ pub mod bi_reservation {
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the singleton BI reservation. Reservation names have the form `projects/{projectId}/locations/{locationId}/biReservation`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Preferred tables to use BI capacity for.
         /// Structure is documented below.
-        pub preferred_tables: pulumi_wasm_rust::Output<
+        pub preferred_tables: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::bigquery::BiReservationPreferredTable>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Size of a reservation, in bytes.
-        pub size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub size: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The last update timestamp of a reservation.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BiReservationArgs,
     ) -> BiReservationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let preferred_tables_binding = args
@@ -136,18 +136,18 @@ pub mod bi_reservation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BiReservationResult {
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            preferred_tables: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            preferred_tables: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("preferredTables"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

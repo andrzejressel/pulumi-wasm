@@ -86,17 +86,17 @@
 /// ```
 ///
 pub mod table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TableArgs {
         /// The id of the parent database.
         #[builder(into, default)]
-        pub database: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub database: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Options of a Hive table.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub hive_options: pulumi_wasm_rust::InputOrOutput<
+        pub hive_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::biglake::TableHiveOptions>,
         >,
         /// Output only. The name of the Table. Format:
@@ -105,11 +105,11 @@ pub mod table {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The database type.
         /// Possible values are: `HIVE`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TableResult {
@@ -117,27 +117,27 @@ pub mod table {
         /// "Zulu" format, with nanosecond resolution and up to nine fractional
         /// digits. Examples: "2014-10-02T15:01:23Z" and
         /// "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The id of the parent database.
-        pub database: pulumi_wasm_rust::Output<Option<String>>,
+        pub database: pulumi_gestalt_rust::Output<Option<String>>,
         /// Output only. The deletion time of the table. Only set after the
         /// table is deleted. A timestamp in RFC3339 UTC "Zulu" format, with
         /// nanosecond resolution and up to nine fractional digits. Examples:
         /// "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub delete_time: pulumi_wasm_rust::Output<String>,
+        pub delete_time: pulumi_gestalt_rust::Output<String>,
         /// The checksum of a table object computed by the server based on the value
         /// of other fields. It may be sent on update requests to ensure the client
         /// has an up-to-date value before proceeding. It is only checked for update
         /// table operations.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Output only. The time when this table is considered expired. Only set
         /// after the table is deleted. A timestamp in RFC3339 UTC "Zulu" format,
         /// with nanosecond resolution and up to nine fractional digits. Examples:
         /// "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub expire_time: pulumi_wasm_rust::Output<String>,
+        pub expire_time: pulumi_gestalt_rust::Output<String>,
         /// Options of a Hive table.
         /// Structure is documented below.
-        pub hive_options: pulumi_wasm_rust::Output<
+        pub hive_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::biglake::TableHiveOptions>,
         >,
         /// Output only. The name of the Table. Format:
@@ -145,26 +145,26 @@ pub mod table {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The database type.
         /// Possible values are: `HIVE`.
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
         /// Output only. The last modification time of the table. A timestamp in
         /// RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine
         /// fractional digits. Examples: "2014-10-02T15:01:23Z" and
         /// "2014-10-02T15:01:23.045123456Z".
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TableArgs,
     ) -> TableResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let database_binding = args.database.get_output(context).get_inner();
         let hive_options_binding = args.hive_options.get_output(context).get_inner();
@@ -195,25 +195,25 @@ pub mod table {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TableResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            database: pulumi_wasm_rust::__private::into_domain(
+            database: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("database"),
             ),
-            delete_time: pulumi_wasm_rust::__private::into_domain(
+            delete_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteTime"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            expire_time: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            expire_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expireTime"),
             ),
-            hive_options: pulumi_wasm_rust::__private::into_domain(
+            hive_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hiveOptions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

@@ -10,8 +10,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let app = application::create(
@@ -45,13 +45,13 @@
 /// ```
 ///
 pub mod application {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApplicationArgs {
         /// The domain to authenticate users with when using App Engine's User API.
         #[builder(into, default)]
-        pub auth_domain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub auth_domain: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of the Cloud Firestore or Cloud Datastore database associated with this application.
         /// Can be `CLOUD_FIRESTORE` or `CLOUD_DATASTORE_COMPATIBILITY` for new
         /// instances.  To support old instances, the value `CLOUD_DATASTORE` is accepted by the provider, but will be rejected by the API.
@@ -59,72 +59,72 @@ pub mod application {
         /// `gcp.firestore.Database`
         /// resource instead.
         #[builder(into, default)]
-        pub database_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub database_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A block of optional settings to configure specific App Engine features:
         #[builder(into, default)]
-        pub feature_settings: pulumi_wasm_rust::InputOrOutput<
+        pub feature_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appengine::ApplicationFeatureSettings>,
         >,
         /// Settings for enabling Cloud Identity Aware Proxy
         #[builder(into, default)]
-        pub iap: pulumi_wasm_rust::InputOrOutput<
+        pub iap: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appengine::ApplicationIap>,
         >,
         /// The [location](https://cloud.google.com/appengine/docs/locations)
         /// to serve the app from.
         #[builder(into)]
-        pub location_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The project ID to create the application under.
         /// ~>**NOTE:** GCP only accepts project ID, not project number. If you are using number,
         /// you may get a "Permission denied" error.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The serving status of the app.
         #[builder(into, default)]
-        pub serving_status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub serving_status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ApplicationResult {
         /// Identifier of the app, usually `{PROJECT_ID}`
-        pub app_id: pulumi_wasm_rust::Output<String>,
+        pub app_id: pulumi_gestalt_rust::Output<String>,
         /// The domain to authenticate users with when using App Engine's User API.
-        pub auth_domain: pulumi_wasm_rust::Output<String>,
+        pub auth_domain: pulumi_gestalt_rust::Output<String>,
         /// The GCS bucket code is being stored in for this app.
-        pub code_bucket: pulumi_wasm_rust::Output<String>,
+        pub code_bucket: pulumi_gestalt_rust::Output<String>,
         /// The type of the Cloud Firestore or Cloud Datastore database associated with this application.
         /// Can be `CLOUD_FIRESTORE` or `CLOUD_DATASTORE_COMPATIBILITY` for new
         /// instances.  To support old instances, the value `CLOUD_DATASTORE` is accepted by the provider, but will be rejected by the API.
         /// To create a Cloud Firestore database without creating an App Engine application, use the
         /// `gcp.firestore.Database`
         /// resource instead.
-        pub database_type: pulumi_wasm_rust::Output<String>,
+        pub database_type: pulumi_gestalt_rust::Output<String>,
         /// The GCS bucket content is being stored in for this app.
-        pub default_bucket: pulumi_wasm_rust::Output<String>,
+        pub default_bucket: pulumi_gestalt_rust::Output<String>,
         /// The default hostname for this app.
-        pub default_hostname: pulumi_wasm_rust::Output<String>,
+        pub default_hostname: pulumi_gestalt_rust::Output<String>,
         /// A block of optional settings to configure specific App Engine features:
-        pub feature_settings: pulumi_wasm_rust::Output<
+        pub feature_settings: pulumi_gestalt_rust::Output<
             super::super::types::appengine::ApplicationFeatureSettings,
         >,
         /// The GCR domain used for storing managed Docker images for this app.
-        pub gcr_domain: pulumi_wasm_rust::Output<String>,
+        pub gcr_domain: pulumi_gestalt_rust::Output<String>,
         /// Settings for enabling Cloud Identity Aware Proxy
-        pub iap: pulumi_wasm_rust::Output<
+        pub iap: pulumi_gestalt_rust::Output<
             super::super::types::appengine::ApplicationIap,
         >,
         /// The [location](https://cloud.google.com/appengine/docs/locations)
         /// to serve the app from.
-        pub location_id: pulumi_wasm_rust::Output<String>,
+        pub location_id: pulumi_gestalt_rust::Output<String>,
         /// Unique name of the app, usually `apps/{PROJECT_ID}`
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The project ID to create the application under.
         /// ~>**NOTE:** GCP only accepts project ID, not project number. If you are using number,
         /// you may get a "Permission denied" error.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The serving status of the app.
-        pub serving_status: pulumi_wasm_rust::Output<String>,
+        pub serving_status: pulumi_gestalt_rust::Output<String>,
         /// A list of dispatch rule blocks. Each block has a `domain`, `path`, and `service` field.
-        pub url_dispatch_rules: pulumi_wasm_rust::Output<
+        pub url_dispatch_rules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appengine::ApplicationUrlDispatchRule>,
         >,
     }
@@ -133,11 +133,11 @@ pub mod application {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApplicationArgs,
     ) -> ApplicationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auth_domain_binding = args.auth_domain.get_output(context).get_inner();
         let database_type_binding = args.database_type.get_output(context).get_inner();
@@ -186,40 +186,42 @@ pub mod application {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApplicationResult {
-            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
-            auth_domain: pulumi_wasm_rust::__private::into_domain(
+            app_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("appId"),
+            ),
+            auth_domain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authDomain"),
             ),
-            code_bucket: pulumi_wasm_rust::__private::into_domain(
+            code_bucket: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("codeBucket"),
             ),
-            database_type: pulumi_wasm_rust::__private::into_domain(
+            database_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseType"),
             ),
-            default_bucket: pulumi_wasm_rust::__private::into_domain(
+            default_bucket: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultBucket"),
             ),
-            default_hostname: pulumi_wasm_rust::__private::into_domain(
+            default_hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultHostname"),
             ),
-            feature_settings: pulumi_wasm_rust::__private::into_domain(
+            feature_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("featureSettings"),
             ),
-            gcr_domain: pulumi_wasm_rust::__private::into_domain(
+            gcr_domain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gcrDomain"),
             ),
-            iap: pulumi_wasm_rust::__private::into_domain(o.extract_field("iap")),
-            location_id: pulumi_wasm_rust::__private::into_domain(
+            iap: pulumi_gestalt_rust::__private::into_domain(o.extract_field("iap")),
+            location_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("locationId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            serving_status: pulumi_wasm_rust::__private::into_domain(
+            serving_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("servingStatus"),
             ),
-            url_dispatch_rules: pulumi_wasm_rust::__private::into_domain(
+            url_dispatch_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("urlDispatchRules"),
             ),
         }

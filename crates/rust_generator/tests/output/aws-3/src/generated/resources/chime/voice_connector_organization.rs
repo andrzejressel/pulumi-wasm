@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = voice_connector::create(
@@ -40,43 +40,43 @@
 /// $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4
 /// ```
 pub mod voice_connector_organization {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VoiceConnectorOrganizationArgs {
         /// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
         #[builder(into, default)]
-        pub disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
         #[builder(into)]
-        pub routes: pulumi_wasm_rust::InputOrOutput<
+        pub routes: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::chime::VoiceConnectorOrganizationRoute>,
         >,
         /// The Amazon Chime Voice Connector ID.
         #[builder(into)]
-        pub voice_connector_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub voice_connector_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VoiceConnectorOrganizationResult {
         /// When origination settings are disabled, inbound calls are not enabled for your Amazon Chime Voice Connector.
-        pub disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Set of call distribution properties defined for your SIP hosts. See route below for more details. Minimum of 1. Maximum of 20.
-        pub routes: pulumi_wasm_rust::Output<
+        pub routes: pulumi_gestalt_rust::Output<
             Vec<super::super::types::chime::VoiceConnectorOrganizationRoute>,
         >,
         /// The Amazon Chime Voice Connector ID.
-        pub voice_connector_id: pulumi_wasm_rust::Output<String>,
+        pub voice_connector_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VoiceConnectorOrganizationArgs,
     ) -> VoiceConnectorOrganizationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let disabled_binding = args.disabled.get_output(context).get_inner();
         let routes_binding = args.routes.get_output(context).get_inner();
@@ -106,11 +106,13 @@ pub mod voice_connector_organization {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VoiceConnectorOrganizationResult {
-            disabled: pulumi_wasm_rust::__private::into_domain(
+            disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disabled"),
             ),
-            routes: pulumi_wasm_rust::__private::into_domain(o.extract_field("routes")),
-            voice_connector_id: pulumi_wasm_rust::__private::into_domain(
+            routes: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("routes"),
+            ),
+            voice_connector_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("voiceConnectorId"),
             ),
         }

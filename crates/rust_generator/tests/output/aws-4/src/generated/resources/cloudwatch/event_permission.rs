@@ -9,8 +9,8 @@
 /// ### Account Access
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let devAccountAccess = event_permission::create(
@@ -47,55 +47,55 @@
 /// $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
 /// ```
 pub mod event_permission {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventPermissionArgs {
         /// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
         #[builder(into, default)]
-        pub action: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub action: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::InputOrOutput<
+        pub condition: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudwatch::EventPermissionCondition>,
         >,
         /// The name of the event bus to set the permissions on.
         /// If you omit this, the permissions are set on the `default` event bus.
         #[builder(into, default)]
-        pub event_bus_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub event_bus_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
         #[builder(into)]
-        pub principal: pulumi_wasm_rust::InputOrOutput<String>,
+        pub principal: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An identifier string for the external account that you are granting permissions to.
         #[builder(into)]
-        pub statement_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub statement_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct EventPermissionResult {
         /// The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
-        pub action: pulumi_wasm_rust::Output<Option<String>>,
+        pub action: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudwatch::EventPermissionCondition>,
         >,
         /// The name of the event bus to set the permissions on.
         /// If you omit this, the permissions are set on the `default` event bus.
-        pub event_bus_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub event_bus_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
-        pub principal: pulumi_wasm_rust::Output<String>,
+        pub principal: pulumi_gestalt_rust::Output<String>,
         /// An identifier string for the external account that you are granting permissions to.
-        pub statement_id: pulumi_wasm_rust::Output<String>,
+        pub statement_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EventPermissionArgs,
     ) -> EventPermissionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let action_binding = args.action.get_output(context).get_inner();
         let condition_binding = args.condition.get_output(context).get_inner();
@@ -131,17 +131,19 @@ pub mod event_permission {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EventPermissionResult {
-            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
-            condition: pulumi_wasm_rust::__private::into_domain(
+            action: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("action"),
+            ),
+            condition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("condition"),
             ),
-            event_bus_name: pulumi_wasm_rust::__private::into_domain(
+            event_bus_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventBusName"),
             ),
-            principal: pulumi_wasm_rust::__private::into_domain(
+            principal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principal"),
             ),
-            statement_id: pulumi_wasm_rust::__private::into_domain(
+            statement_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statementId"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let authenticateSdkControlChannel = api_key::create(
@@ -75,50 +75,50 @@
 /// ```
 ///
 pub mod api_key {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ApiKeyArgs {
         /// The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub application_insights_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_insights_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub read_permissions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub read_permissions: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         ///
         /// > **Note:** At least one read or write permission must be defined.
         #[builder(into, default)]
-        pub write_permissions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub write_permissions: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct ApiKeyResult {
         /// The API Key secret (Sensitive).
-        pub api_key: pulumi_wasm_rust::Output<String>,
+        pub api_key: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
-        pub application_insights_id: pulumi_wasm_rust::Output<String>,
+        pub application_insights_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Application Insights API key. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
-        pub read_permissions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub read_permissions: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
         ///
         /// > **Note:** At least one read or write permission must be defined.
-        pub write_permissions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub write_permissions: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ApiKeyArgs,
     ) -> ApiKeyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_insights_id_binding = args
             .application_insights_id
@@ -158,15 +158,17 @@ pub mod api_key {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ApiKeyResult {
-            api_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiKey")),
-            application_insights_id: pulumi_wasm_rust::__private::into_domain(
+            api_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiKey"),
+            ),
+            application_insights_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationInsightsId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            read_permissions: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            read_permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("readPermissions"),
             ),
-            write_permissions: pulumi_wasm_rust::__private::into_domain(
+            write_permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("writePermissions"),
             ),
         }

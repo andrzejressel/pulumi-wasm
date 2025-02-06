@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = app_authorization::create(
@@ -36,84 +36,84 @@
 /// }
 /// ```
 pub mod app_authorization {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppAuthorizationArgs {
         /// The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
         #[builder(into)]
-        pub app: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
         #[builder(into)]
-        pub app_bundle_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_bundle_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The authorization type for the app authorization valid values are oauth2 and apiKey.
         #[builder(into)]
-        pub auth_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub auth_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
         /// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
         #[builder(into, default)]
-        pub credential: pulumi_wasm_rust::InputOrOutput<
+        pub credential: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appfabric::AppAuthorizationCredential>,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Contains information about an application tenant, such as the application display name and identifier.
         #[builder(into, default)]
-        pub tenants: pulumi_wasm_rust::InputOrOutput<
+        pub tenants: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::appfabric::AppAuthorizationTenant>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appfabric::AppAuthorizationTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct AppAuthorizationResult {
         /// The name of the application for valid values see https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html.
-        pub app: pulumi_wasm_rust::Output<String>,
+        pub app: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the app bundle to use for the request.
-        pub app_bundle_arn: pulumi_wasm_rust::Output<String>,
+        pub app_bundle_arn: pulumi_gestalt_rust::Output<String>,
         /// ARN of the App Authorization. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The authorization type for the app authorization valid values are oauth2 and apiKey.
-        pub auth_type: pulumi_wasm_rust::Output<String>,
+        pub auth_type: pulumi_gestalt_rust::Output<String>,
         /// The application URL for the OAuth flow.
-        pub auth_url: pulumi_wasm_rust::Output<String>,
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub auth_url: pulumi_gestalt_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
         /// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
-        pub credential: pulumi_wasm_rust::Output<
+        pub credential: pulumi_gestalt_rust::Output<
             Option<super::super::types::appfabric::AppAuthorizationCredential>,
         >,
         /// The user persona of the app authorization.
-        pub persona: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub persona: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Contains information about an application tenant, such as the application display name and identifier.
-        pub tenants: pulumi_wasm_rust::Output<
+        pub tenants: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::appfabric::AppAuthorizationTenant>>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::appfabric::AppAuthorizationTimeouts>,
         >,
-        pub updated_at: pulumi_wasm_rust::Output<String>,
+        pub updated_at: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AppAuthorizationArgs,
     ) -> AppAuthorizationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_binding = args.app.get_output(context).get_inner();
         let app_bundle_arn_binding = args.app_bundle_arn.get_output(context).get_inner();
@@ -159,37 +159,37 @@ pub mod app_authorization {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AppAuthorizationResult {
-            app: pulumi_wasm_rust::__private::into_domain(o.extract_field("app")),
-            app_bundle_arn: pulumi_wasm_rust::__private::into_domain(
+            app: pulumi_gestalt_rust::__private::into_domain(o.extract_field("app")),
+            app_bundle_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appBundleArn"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auth_type: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auth_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authType"),
             ),
-            auth_url: pulumi_wasm_rust::__private::into_domain(
+            auth_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authUrl"),
             ),
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            credential: pulumi_wasm_rust::__private::into_domain(
+            credential: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("credential"),
             ),
-            persona: pulumi_wasm_rust::__private::into_domain(
+            persona: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("persona"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            tenants: pulumi_wasm_rust::__private::into_domain(
+            tenants: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tenants"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            updated_at: pulumi_wasm_rust::__private::into_domain(
+            updated_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updatedAt"),
             ),
         }

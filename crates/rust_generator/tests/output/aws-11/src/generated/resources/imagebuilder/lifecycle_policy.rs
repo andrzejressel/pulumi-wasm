@@ -64,73 +64,73 @@
 /// $ pulumi import aws:imagebuilder/lifecyclePolicy:LifecyclePolicy example arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/example
 /// ```
 pub mod lifecycle_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LifecyclePolicyArgs {
         /// description for the lifecycle policy.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         #[builder(into)]
-        pub execution_role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub execution_role: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the lifecycle policy to create.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block with policy details. Detailed below.
         #[builder(into, default)]
-        pub policy_details: pulumi_wasm_rust::InputOrOutput<
+        pub policy_details: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::imagebuilder::LifecyclePolicyPolicyDetail>>,
         >,
         /// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub resource_selection: pulumi_wasm_rust::InputOrOutput<
+        pub resource_selection: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::imagebuilder::LifecyclePolicyResourceSelection>,
         >,
         /// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
         #[builder(into)]
-        pub resource_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The status of the lifecycle policy.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LifecyclePolicyResult {
         /// Amazon Resource Name (ARN) of the lifecycle policy.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// description for the lifecycle policy.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
-        pub execution_role: pulumi_wasm_rust::Output<String>,
+        pub execution_role: pulumi_gestalt_rust::Output<String>,
         /// The name of the lifecycle policy to create.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Configuration block with policy details. Detailed below.
-        pub policy_details: pulumi_wasm_rust::Output<
+        pub policy_details: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::imagebuilder::LifecyclePolicyPolicyDetail>>,
         >,
         /// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
         ///
         /// The following arguments are optional:
-        pub resource_selection: pulumi_wasm_rust::Output<
+        pub resource_selection: pulumi_gestalt_rust::Output<
             Option<super::super::types::imagebuilder::LifecyclePolicyResourceSelection>,
         >,
         /// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
-        pub resource_type: pulumi_wasm_rust::Output<String>,
+        pub resource_type: pulumi_gestalt_rust::Output<String>,
         /// The status of the lifecycle policy.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -139,11 +139,11 @@ pub mod lifecycle_policy {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LifecyclePolicyArgs,
     ) -> LifecyclePolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let execution_role_binding = args.execution_role.get_output(context).get_inner();
@@ -197,26 +197,28 @@ pub mod lifecycle_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LifecyclePolicyResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            execution_role: pulumi_wasm_rust::__private::into_domain(
+            execution_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("executionRole"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            policy_details: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            policy_details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyDetails"),
             ),
-            resource_selection: pulumi_wasm_rust::__private::into_domain(
+            resource_selection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceSelection"),
             ),
-            resource_type: pulumi_wasm_rust::__private::into_domain(
+            resource_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

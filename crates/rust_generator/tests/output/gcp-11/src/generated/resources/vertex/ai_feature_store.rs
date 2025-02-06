@@ -98,103 +98,103 @@
 /// ```
 ///
 pub mod ai_feature_store {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AiFeatureStoreArgs {
         /// If set, both of the online and offline data storage will be secured by this key.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub encryption_spec: pulumi_wasm_rust::InputOrOutput<
+        pub encryption_spec: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::vertex::AiFeatureStoreEncryptionSpec>,
         >,
         /// If set to true, any EntityTypes and Features for this Featurestore will also be deleted
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A set of key/value label pairs to assign to this Featurestore.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the Featurestore. This value may be up to 60 characters, and valid characters are [a-z0-9_]. The first character cannot be a number.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Config for online serving resources.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub online_serving_config: pulumi_wasm_rust::InputOrOutput<
+        pub online_serving_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::vertex::AiFeatureStoreOnlineServingConfig>,
         >,
         /// TTL in days for feature values that will be stored in online serving storage. The Feature Store online storage periodically removes obsolete feature values older than onlineStorageTtlDays since the feature generation time. Note that onlineStorageTtlDays should be less than or equal to offlineStorageTtlDays for each EntityType under a featurestore. If not set, default to 4000 days
         #[builder(into, default)]
-        pub online_storage_ttl_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub online_storage_ttl_days: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region of the dataset. eg us-central1
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AiFeatureStoreResult {
         /// The timestamp of when the featurestore was created in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// If set, both of the online and offline data storage will be secured by this key.
         /// Structure is documented below.
-        pub encryption_spec: pulumi_wasm_rust::Output<
+        pub encryption_spec: pulumi_gestalt_rust::Output<
             Option<super::super::types::vertex::AiFeatureStoreEncryptionSpec>,
         >,
         /// Used to perform consistent read-modify-write updates.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// If set to true, any EntityTypes and Features for this Featurestore will also be deleted
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A set of key/value label pairs to assign to this Featurestore.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the Featurestore. This value may be up to 60 characters, and valid characters are [a-z0-9_]. The first character cannot be a number.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Config for online serving resources.
         /// Structure is documented below.
-        pub online_serving_config: pulumi_wasm_rust::Output<
+        pub online_serving_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::vertex::AiFeatureStoreOnlineServingConfig>,
         >,
         /// TTL in days for feature values that will be stored in online serving storage. The Feature Store online storage periodically removes obsolete feature values older than onlineStorageTtlDays since the feature generation time. Note that onlineStorageTtlDays should be less than or equal to offlineStorageTtlDays for each EntityType under a featurestore. If not set, default to 4000 days
-        pub online_storage_ttl_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub online_storage_ttl_days: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The region of the dataset. eg us-central1
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The timestamp of when the featurestore was last updated in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AiFeatureStoreArgs,
     ) -> AiFeatureStoreResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let encryption_spec_binding = args
             .encryption_spec
@@ -254,35 +254,39 @@ pub mod ai_feature_store {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AiFeatureStoreResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            encryption_spec: pulumi_wasm_rust::__private::into_domain(
+            encryption_spec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionSpec"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            force_destroy: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            force_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDestroy"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            online_serving_config: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            online_serving_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("onlineServingConfig"),
             ),
-            online_storage_ttl_days: pulumi_wasm_rust::__private::into_domain(
+            online_storage_ttl_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("onlineStorageTtlDays"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = source_credential::create(
@@ -23,8 +23,8 @@
 /// ### Bitbucket Server Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = source_credential::create(
@@ -47,46 +47,46 @@
 /// $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
 /// ```
 pub mod source_credential {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SourceCredentialArgs {
         /// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
         #[builder(into)]
-        pub auth_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub auth_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The source provider used for this project.
         #[builder(into)]
-        pub server_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub server_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
         #[builder(into)]
-        pub token: pulumi_wasm_rust::InputOrOutput<String>,
+        pub token: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
         #[builder(into, default)]
-        pub user_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SourceCredentialResult {
         /// The ARN of Source Credential.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
-        pub auth_type: pulumi_wasm_rust::Output<String>,
+        pub auth_type: pulumi_gestalt_rust::Output<String>,
         /// The source provider used for this project.
-        pub server_type: pulumi_wasm_rust::Output<String>,
+        pub server_type: pulumi_gestalt_rust::Output<String>,
         /// For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
-        pub token: pulumi_wasm_rust::Output<String>,
+        pub token: pulumi_gestalt_rust::Output<String>,
         /// The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
-        pub user_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_name: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SourceCredentialArgs,
     ) -> SourceCredentialResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auth_type_binding = args.auth_type.get_output(context).get_inner();
         let server_type_binding = args.server_type.get_output(context).get_inner();
@@ -117,15 +117,15 @@ pub mod source_credential {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SourceCredentialResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auth_type: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auth_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authType"),
             ),
-            server_type: pulumi_wasm_rust::__private::into_domain(
+            server_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverType"),
             ),
-            token: pulumi_wasm_rust::__private::into_domain(o.extract_field("token")),
-            user_name: pulumi_wasm_rust::__private::into_domain(
+            token: pulumi_gestalt_rust::__private::into_domain(o.extract_field("token")),
+            user_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userName"),
             ),
         }

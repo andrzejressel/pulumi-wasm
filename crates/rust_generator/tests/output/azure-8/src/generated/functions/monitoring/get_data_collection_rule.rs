@@ -1,65 +1,65 @@
 pub mod get_data_collection_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetDataCollectionRuleArgs {
         /// Specifies the name of the Data Collection Rule.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the resource group the Data Collection Rule is located in.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetDataCollectionRuleResult {
         /// The resource ID of the Data Collection Endpoint that this rule can be used with.
-        pub data_collection_endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub data_collection_endpoint_id: pulumi_gestalt_rust::Output<String>,
         /// One or more `data_flow` blocks as defined below.
-        pub data_flows: pulumi_wasm_rust::Output<
+        pub data_flows: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::monitoring::GetDataCollectionRuleDataFlow>,
         >,
         /// A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
-        pub data_sources: pulumi_wasm_rust::Output<
+        pub data_sources: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::monitoring::GetDataCollectionRuleDataSource>,
         >,
         /// The description of the Data Collection Rule.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
-        pub destinations: pulumi_wasm_rust::Output<
+        pub destinations: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::monitoring::GetDataCollectionRuleDestination>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below.
-        pub identities: pulumi_wasm_rust::Output<
+        pub identities: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::monitoring::GetDataCollectionRuleIdentity>,
         >,
-        pub immutable_id: pulumi_wasm_rust::Output<String>,
+        pub immutable_id: pulumi_gestalt_rust::Output<String>,
         /// The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`,and `AgentDirectToStore`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `stream_declaration` block as defined below.
-        pub stream_declarations: pulumi_wasm_rust::Output<
+        pub stream_declarations: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::monitoring::GetDataCollectionRuleStreamDeclaration,
             >,
         >,
         /// A mapping of tags which should be assigned to the Data Collection Rule.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetDataCollectionRuleArgs,
     ) -> GetDataCollectionRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -82,40 +82,40 @@ pub mod get_data_collection_rule {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetDataCollectionRuleResult {
-            data_collection_endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            data_collection_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataCollectionEndpointId"),
             ),
-            data_flows: pulumi_wasm_rust::__private::into_domain(
+            data_flows: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFlows"),
             ),
-            data_sources: pulumi_wasm_rust::__private::into_domain(
+            data_sources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataSources"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            destinations: pulumi_wasm_rust::__private::into_domain(
+            destinations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("destinations"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            identities: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            identities: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identities"),
             ),
-            immutable_id: pulumi_wasm_rust::__private::into_domain(
+            immutable_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("immutableId"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            stream_declarations: pulumi_wasm_rust::__private::into_domain(
+            stream_declarations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("streamDeclarations"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -91,8 +91,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = forwarding_rule::create(
@@ -113,8 +113,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let fwdRule = forwarding_rule::create(
@@ -781,8 +781,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let basic = address::create(
@@ -901,7 +901,7 @@
 /// ```
 ///
 pub mod forwarding_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ForwardingRuleArgs {
@@ -920,7 +920,7 @@ pub mod forwarding_rule {
         /// forwarding rule. The L3_DEFAULT protocol requires `allPorts` be set to
         /// true.
         #[builder(into, default)]
-        pub all_ports: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub all_ports: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// This field is used along with the `backend_service` field for
         /// internal load balancing or with the `target` field for internal
         /// TargetInstance.
@@ -929,19 +929,19 @@ pub mod forwarding_rule {
         /// Otherwise only allows access from clients in the same region as the
         /// internal load balancer.
         #[builder(into, default)]
-        pub allow_global_access: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_global_access: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// This is used in PSC consumer ForwardingRule to control whether the PSC endpoint can be accessed from another region.
         #[builder(into, default)]
-        pub allow_psc_global_access: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_psc_global_access: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Identifies the backend service to which the forwarding rule sends traffic.
         /// Required for Internal TCP/UDP Load Balancing and Network Load Balancing;
         /// must be omitted for all other load balancer types.
         #[builder(into, default)]
-        pub backend_service: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub backend_service: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// IP address for which this forwarding rule accepts traffic. When a client
         /// sends traffic to this IP address, the forwarding rule directs the traffic
         /// to the referenced `target` or `backendService`.
@@ -974,7 +974,7 @@ pub mod forwarding_rule {
         /// When reading an `IPAddress`, the API always returns the IP
         /// address number.
         #[builder(into, default)]
-        pub ip_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IP protocol to which this rule applies.
         /// For protocol forwarding, valid
         /// options are `TCP`, `UDP`, `ESP`,
@@ -988,13 +988,13 @@ pub mod forwarding_rule {
         /// A forwarding rule with "L3_DEFAULT" IPProtocal cannot be attached to a backend service with TCP or UDP.
         /// Possible values are: `TCP`, `UDP`, `ESP`, `AH`, `SCTP`, `ICMP`, `L3_DEFAULT`.
         #[builder(into, default)]
-        pub ip_protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_protocol: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IP address version that will be used by this forwarding rule.
         /// Valid options are IPV4 and IPV6.
         /// If not set, the IPv4 address will be used by default.
         /// Possible values are: `IPV4`, `IPV6`.
         #[builder(into, default)]
-        pub ip_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Indicates whether or not this load balancer can be used as a collector for
         /// packet mirroring. To prevent mirroring loops, instances behind this
         /// load balancer will not have their traffic mirrored even if a
@@ -1002,13 +1002,13 @@ pub mod forwarding_rule {
         /// This can only be set to true for load balancers that have their
         /// `loadBalancingScheme` set to `INTERNAL`.
         #[builder(into, default)]
-        pub is_mirroring_collector: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_mirroring_collector: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Labels to apply to this forwarding rule.  A list of key->value pairs.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the forwarding rule type.
@@ -1017,7 +1017,7 @@ pub mod forwarding_rule {
         /// Default value is `EXTERNAL`.
         /// Possible values are: `EXTERNAL`, `EXTERNAL_MANAGED`, `INTERNAL`, `INTERNAL_MANAGED`.
         #[builder(into, default)]
-        pub load_balancing_scheme: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub load_balancing_scheme: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the resource; provided by the client when the resource is created.
         /// The name must be 1-63 characters long, and comply with
         /// [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
@@ -1033,7 +1033,7 @@ pub mod forwarding_rule {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// This field is not used for external load balancing.
         /// For Internal TCP/UDP Load Balancing, this field identifies the network that
         /// the load balanced IP should belong to for this Forwarding Rule.
@@ -1043,7 +1043,7 @@ pub mod forwarding_rule {
         /// For Private Service Connect forwarding rules that forward traffic to Google
         /// APIs, a network must be provided.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// This signifies the networking tier used for configuring
         /// this load balancer and can only take the following values:
         /// `PREMIUM`, `STANDARD`.
@@ -1055,10 +1055,10 @@ pub mod forwarding_rule {
         /// networkTier of the Address.
         /// Possible values are: `PREMIUM`, `STANDARD`.
         #[builder(into, default)]
-        pub network_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network_tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// This is used in PSC consumer ForwardingRule to control whether it should try to auto-generate a DNS zone or not. Non-PSC forwarding rules do not use this field.
         #[builder(into, default)]
-        pub no_automate_dns_zone: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub no_automate_dns_zone: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The `ports`, `portRange`, and `allPorts` fields are mutually exclusive.
         /// Only packets addressed to ports in the specified range will be forwarded
         /// to the backends configured with this forwarding rule.
@@ -1080,7 +1080,7 @@ pub mod forwarding_rule {
         /// cannot have overlapping `portRange`s.
         /// @pattern: \d+(?:-\d+)?
         #[builder(into, default)]
-        pub port_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub port_range: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The `ports`, `portRange`, and `allPorts` fields are mutually exclusive.
         /// Only packets addressed to ports in the specified range will be forwarded
         /// to the backends configured with this forwarding rule.
@@ -1100,22 +1100,22 @@ pub mod forwarding_rule {
         /// they share at least one port number.
         /// @pattern: \d+(?:-\d+)?
         #[builder(into, default)]
-        pub ports: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub ports: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub recreate_closed_psc: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub recreate_closed_psc: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A reference to the region where the regional forwarding rule resides.
         /// This field is not applicable to global forwarding rules.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Service Directory resources to register this forwarding rule with.
         /// Currently, only supports a single Service Directory resource.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub service_directory_registrations: pulumi_wasm_rust::InputOrOutput<
+        pub service_directory_registrations: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::compute::ForwardingRuleServiceDirectoryRegistrations,
             >,
@@ -1131,10 +1131,10 @@ pub mod forwarding_rule {
         /// character, which cannot be a dash.
         /// This field is only used for INTERNAL load balancing.
         #[builder(into, default)]
-        pub service_label: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_label: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If not empty, this Forwarding Rule will only forward the traffic when the source IP address matches one of the IP addresses or CIDR ranges set here. Note that a Forwarding Rule can only have up to 64 source IP ranges, and this field can only be used with a regional Forwarding Rule whose scheme is EXTERNAL. Each sourceIpRange entry should be either an IP address (for example, 1.2.3.4) or a CIDR range (for example, 1.2.3.0/24).
         #[builder(into, default)]
-        pub source_ip_ranges: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub source_ip_ranges: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// This field identifies the subnetwork that the load balanced IP should
         /// belong to for this Forwarding Rule, used in internal load balancing and
         /// network load balancing with IPv6.
@@ -1142,7 +1142,7 @@ pub mod forwarding_rule {
         /// However, a subnetwork must be specified if the network is in custom subnet
         /// mode or when creating external forwarding rule with IPv6.
         #[builder(into, default)]
-        pub subnetwork: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subnetwork: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The URL of the target resource to receive the matched traffic.  For
         /// regional forwarding rules, this target must be in the same region as the
         /// forwarding rule. For global forwarding rules, this target must be a global
@@ -1154,7 +1154,7 @@ pub mod forwarding_rule {
         /// *  `all-apis` - [All supported Google APIs](https://cloud.google.com/vpc/docs/private-service-connect#supported-apis).
         /// For Private Service Connect forwarding rules that forward traffic to managed services, the target must be a service attachment.
         #[builder(into, default)]
-        pub target: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub target: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ForwardingRuleResult {
@@ -1172,7 +1172,7 @@ pub mod forwarding_rule {
         /// first fragment) to be forwarded to the backends configured with this
         /// forwarding rule. The L3_DEFAULT protocol requires `allPorts` be set to
         /// true.
-        pub all_ports: pulumi_wasm_rust::Output<Option<bool>>,
+        pub all_ports: pulumi_gestalt_rust::Output<Option<bool>>,
         /// This field is used along with the `backend_service` field for
         /// internal load balancing or with the `target` field for internal
         /// TargetInstance.
@@ -1180,26 +1180,26 @@ pub mod forwarding_rule {
         /// regions.
         /// Otherwise only allows access from clients in the same region as the
         /// internal load balancer.
-        pub allow_global_access: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_global_access: pulumi_gestalt_rust::Output<Option<bool>>,
         /// This is used in PSC consumer ForwardingRule to control whether the PSC endpoint can be accessed from another region.
-        pub allow_psc_global_access: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_psc_global_access: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Identifies the backend service to which the forwarding rule sends traffic.
         /// Required for Internal TCP/UDP Load Balancing and Network Load Balancing;
         /// must be omitted for all other load balancer types.
-        pub backend_service: pulumi_wasm_rust::Output<Option<String>>,
+        pub backend_service: pulumi_gestalt_rust::Output<Option<String>>,
         /// [Output Only] The URL for the corresponding base Forwarding Rule. By base Forwarding Rule, we mean the Forwarding Rule that has the same IP address, protocol, and port settings with the current Forwarding Rule, but without sourceIPRanges specified. Always empty if the current Forwarding Rule does not have sourceIPRanges specified.
-        pub base_forwarding_rule: pulumi_wasm_rust::Output<String>,
+        pub base_forwarding_rule: pulumi_gestalt_rust::Output<String>,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The unique identifier number for the resource. This identifier is defined by the server.
-        pub forwarding_rule_id: pulumi_wasm_rust::Output<i32>,
+        pub forwarding_rule_id: pulumi_gestalt_rust::Output<i32>,
         /// IP address for which this forwarding rule accepts traffic. When a client
         /// sends traffic to this IP address, the forwarding rule directs the traffic
         /// to the referenced `target` or `backendService`.
@@ -1231,7 +1231,7 @@ pub mod forwarding_rule {
         /// specifications](https://cloud.google.com/load-balancing/docs/forwarding-rule-concepts#ip_address_specifications).
         /// When reading an `IPAddress`, the API always returns the IP
         /// address number.
-        pub ip_address: pulumi_wasm_rust::Output<String>,
+        pub ip_address: pulumi_gestalt_rust::Output<String>,
         /// The IP protocol to which this rule applies.
         /// For protocol forwarding, valid
         /// options are `TCP`, `UDP`, `ESP`,
@@ -1244,27 +1244,27 @@ pub mod forwarding_rule {
         /// backend service with UNSPECIFIED protocol.
         /// A forwarding rule with "L3_DEFAULT" IPProtocal cannot be attached to a backend service with TCP or UDP.
         /// Possible values are: `TCP`, `UDP`, `ESP`, `AH`, `SCTP`, `ICMP`, `L3_DEFAULT`.
-        pub ip_protocol: pulumi_wasm_rust::Output<String>,
+        pub ip_protocol: pulumi_gestalt_rust::Output<String>,
         /// The IP address version that will be used by this forwarding rule.
         /// Valid options are IPV4 and IPV6.
         /// If not set, the IPv4 address will be used by default.
         /// Possible values are: `IPV4`, `IPV6`.
-        pub ip_version: pulumi_wasm_rust::Output<String>,
+        pub ip_version: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether or not this load balancer can be used as a collector for
         /// packet mirroring. To prevent mirroring loops, instances behind this
         /// load balancer will not have their traffic mirrored even if a
         /// `PacketMirroring` rule applies to them.
         /// This can only be set to true for load balancers that have their
         /// `loadBalancingScheme` set to `INTERNAL`.
-        pub is_mirroring_collector: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_mirroring_collector: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The fingerprint used for optimistic locking of this resource.  Used
         /// internally during updates.
-        pub label_fingerprint: pulumi_wasm_rust::Output<String>,
+        pub label_fingerprint: pulumi_gestalt_rust::Output<String>,
         /// Labels to apply to this forwarding rule.  A list of key->value pairs.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the forwarding rule type.
@@ -1272,7 +1272,7 @@ pub mod forwarding_rule {
         /// [Forwarding rule concepts](https://cloud.google.com/load-balancing/docs/forwarding-rule-concepts).
         /// Default value is `EXTERNAL`.
         /// Possible values are: `EXTERNAL`, `EXTERNAL_MANAGED`, `INTERNAL`, `INTERNAL_MANAGED`.
-        pub load_balancing_scheme: pulumi_wasm_rust::Output<Option<String>>,
+        pub load_balancing_scheme: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the resource; provided by the client when the resource is created.
         /// The name must be 1-63 characters long, and comply with
         /// [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
@@ -1287,7 +1287,7 @@ pub mod forwarding_rule {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// This field is not used for external load balancing.
         /// For Internal TCP/UDP Load Balancing, this field identifies the network that
         /// the load balanced IP should belong to for this Forwarding Rule.
@@ -1296,7 +1296,7 @@ pub mod forwarding_rule {
         /// be used.
         /// For Private Service Connect forwarding rules that forward traffic to Google
         /// APIs, a network must be provided.
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// This signifies the networking tier used for configuring
         /// this load balancer and can only take the following values:
         /// `PREMIUM`, `STANDARD`.
@@ -1307,9 +1307,9 @@ pub mod forwarding_rule {
         /// If `IPAddress` is specified, this value must be equal to the
         /// networkTier of the Address.
         /// Possible values are: `PREMIUM`, `STANDARD`.
-        pub network_tier: pulumi_wasm_rust::Output<String>,
+        pub network_tier: pulumi_gestalt_rust::Output<String>,
         /// This is used in PSC consumer ForwardingRule to control whether it should try to auto-generate a DNS zone or not. Non-PSC forwarding rules do not use this field.
-        pub no_automate_dns_zone: pulumi_wasm_rust::Output<Option<bool>>,
+        pub no_automate_dns_zone: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The `ports`, `portRange`, and `allPorts` fields are mutually exclusive.
         /// Only packets addressed to ports in the specified range will be forwarded
         /// to the backends configured with this forwarding rule.
@@ -1330,7 +1330,7 @@ pub mod forwarding_rule {
         /// forwarding rules cannot use the same `[IPAddress, IPProtocol]` pair, and
         /// cannot have overlapping `portRange`s.
         /// @pattern: \d+(?:-\d+)?
-        pub port_range: pulumi_wasm_rust::Output<String>,
+        pub port_range: pulumi_gestalt_rust::Output<String>,
         /// The `ports`, `portRange`, and `allPorts` fields are mutually exclusive.
         /// Only packets addressed to ports in the specified range will be forwarded
         /// to the backends configured with this forwarding rule.
@@ -1349,29 +1349,29 @@ pub mod forwarding_rule {
         /// forwarding rules cannot use the same `[IPAddress, IPProtocol]` pair if
         /// they share at least one port number.
         /// @pattern: \d+(?:-\d+)?
-        pub ports: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ports: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The PSC connection id of the PSC Forwarding Rule.
-        pub psc_connection_id: pulumi_wasm_rust::Output<String>,
+        pub psc_connection_id: pulumi_gestalt_rust::Output<String>,
         /// The PSC connection status of the PSC Forwarding Rule. Possible values: `STATUS_UNSPECIFIED`, `PENDING`, `ACCEPTED`, `REJECTED`, `CLOSED`
-        pub psc_connection_status: pulumi_wasm_rust::Output<String>,
+        pub psc_connection_status: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub recreate_closed_psc: pulumi_wasm_rust::Output<Option<bool>>,
+        pub recreate_closed_psc: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A reference to the region where the regional forwarding rule resides.
         /// This field is not applicable to global forwarding rules.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// Service Directory resources to register this forwarding rule with.
         /// Currently, only supports a single Service Directory resource.
         /// Structure is documented below.
-        pub service_directory_registrations: pulumi_wasm_rust::Output<
+        pub service_directory_registrations: pulumi_gestalt_rust::Output<
             super::super::types::compute::ForwardingRuleServiceDirectoryRegistrations,
         >,
         /// An optional prefix to the service name for this Forwarding Rule.
@@ -1384,19 +1384,19 @@ pub mod forwarding_rule {
         /// must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
         /// This field is only used for INTERNAL load balancing.
-        pub service_label: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_label: pulumi_gestalt_rust::Output<Option<String>>,
         /// The internal fully qualified service name for this Forwarding Rule.
         /// This field is only used for INTERNAL load balancing.
-        pub service_name: pulumi_wasm_rust::Output<String>,
+        pub service_name: pulumi_gestalt_rust::Output<String>,
         /// If not empty, this Forwarding Rule will only forward the traffic when the source IP address matches one of the IP addresses or CIDR ranges set here. Note that a Forwarding Rule can only have up to 64 source IP ranges, and this field can only be used with a regional Forwarding Rule whose scheme is EXTERNAL. Each sourceIpRange entry should be either an IP address (for example, 1.2.3.4) or a CIDR range (for example, 1.2.3.0/24).
-        pub source_ip_ranges: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub source_ip_ranges: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// This field identifies the subnetwork that the load balanced IP should
         /// belong to for this Forwarding Rule, used in internal load balancing and
         /// network load balancing with IPv6.
         /// If the network specified is in auto subnet mode, this field is optional.
         /// However, a subnetwork must be specified if the network is in custom subnet
         /// mode or when creating external forwarding rule with IPv6.
-        pub subnetwork: pulumi_wasm_rust::Output<String>,
+        pub subnetwork: pulumi_gestalt_rust::Output<String>,
         /// The URL of the target resource to receive the matched traffic.  For
         /// regional forwarding rules, this target must be in the same region as the
         /// forwarding rule. For global forwarding rules, this target must be a global
@@ -1407,18 +1407,18 @@ pub mod forwarding_rule {
         /// *  `vpc-sc` - [ APIs that support VPC Service Controls](https://cloud.google.com/vpc-service-controls/docs/supported-products).
         /// *  `all-apis` - [All supported Google APIs](https://cloud.google.com/vpc/docs/private-service-connect#supported-apis).
         /// For Private Service Connect forwarding rules that forward traffic to managed services, the target must be a service attachment.
-        pub target: pulumi_wasm_rust::Output<Option<String>>,
+        pub target: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ForwardingRuleArgs,
     ) -> ForwardingRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let all_ports_binding = args.all_ports.get_output(context).get_inner();
         let allow_global_access_binding = args
@@ -1581,101 +1581,107 @@ pub mod forwarding_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ForwardingRuleResult {
-            all_ports: pulumi_wasm_rust::__private::into_domain(
+            all_ports: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allPorts"),
             ),
-            allow_global_access: pulumi_wasm_rust::__private::into_domain(
+            allow_global_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowGlobalAccess"),
             ),
-            allow_psc_global_access: pulumi_wasm_rust::__private::into_domain(
+            allow_psc_global_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowPscGlobalAccess"),
             ),
-            backend_service: pulumi_wasm_rust::__private::into_domain(
+            backend_service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backendService"),
             ),
-            base_forwarding_rule: pulumi_wasm_rust::__private::into_domain(
+            base_forwarding_rule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("baseForwardingRule"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            forwarding_rule_id: pulumi_wasm_rust::__private::into_domain(
+            forwarding_rule_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forwardingRuleId"),
             ),
-            ip_address: pulumi_wasm_rust::__private::into_domain(
+            ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddress"),
             ),
-            ip_protocol: pulumi_wasm_rust::__private::into_domain(
+            ip_protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipProtocol"),
             ),
-            ip_version: pulumi_wasm_rust::__private::into_domain(
+            ip_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipVersion"),
             ),
-            is_mirroring_collector: pulumi_wasm_rust::__private::into_domain(
+            is_mirroring_collector: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isMirroringCollector"),
             ),
-            label_fingerprint: pulumi_wasm_rust::__private::into_domain(
+            label_fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("labelFingerprint"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            load_balancing_scheme: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            load_balancing_scheme: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancingScheme"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            network_tier: pulumi_wasm_rust::__private::into_domain(
+            network_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkTier"),
             ),
-            no_automate_dns_zone: pulumi_wasm_rust::__private::into_domain(
+            no_automate_dns_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("noAutomateDnsZone"),
             ),
-            port_range: pulumi_wasm_rust::__private::into_domain(
+            port_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("portRange"),
             ),
-            ports: pulumi_wasm_rust::__private::into_domain(o.extract_field("ports")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            ports: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ports")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            psc_connection_id: pulumi_wasm_rust::__private::into_domain(
+            psc_connection_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pscConnectionId"),
             ),
-            psc_connection_status: pulumi_wasm_rust::__private::into_domain(
+            psc_connection_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pscConnectionStatus"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            recreate_closed_psc: pulumi_wasm_rust::__private::into_domain(
+            recreate_closed_psc: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recreateClosedPsc"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            service_directory_registrations: pulumi_wasm_rust::__private::into_domain(
+            service_directory_registrations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceDirectoryRegistrations"),
             ),
-            service_label: pulumi_wasm_rust::__private::into_domain(
+            service_label: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceLabel"),
             ),
-            service_name: pulumi_wasm_rust::__private::into_domain(
+            service_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceName"),
             ),
-            source_ip_ranges: pulumi_wasm_rust::__private::into_domain(
+            source_ip_ranges: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceIpRanges"),
             ),
-            subnetwork: pulumi_wasm_rust::__private::into_domain(
+            subnetwork: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetwork"),
             ),
-            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
+            target: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("target"),
+            ),
         }
     }
 }

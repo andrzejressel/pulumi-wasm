@@ -38,34 +38,34 @@
 ///               - '*'
 /// ```
 pub mod policy_attachment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyAttachmentArgs {
         /// The name of the policy to attach.
         #[builder(into)]
-        pub policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The identity to which the policy is attached.
         #[builder(into)]
-        pub target: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PolicyAttachmentResult {
         /// The name of the policy to attach.
-        pub policy: pulumi_wasm_rust::Output<String>,
+        pub policy: pulumi_gestalt_rust::Output<String>,
         /// The identity to which the policy is attached.
-        pub target: pulumi_wasm_rust::Output<String>,
+        pub target: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicyAttachmentArgs,
     ) -> PolicyAttachmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let policy_binding = args.policy.get_output(context).get_inner();
         let target_binding = args.target.get_output(context).get_inner();
@@ -86,8 +86,12 @@ pub mod policy_attachment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicyAttachmentResult {
-            policy: pulumi_wasm_rust::__private::into_domain(o.extract_field("policy")),
-            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
+            policy: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("policy"),
+            ),
+            target: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("target"),
+            ),
         }
     }
 }

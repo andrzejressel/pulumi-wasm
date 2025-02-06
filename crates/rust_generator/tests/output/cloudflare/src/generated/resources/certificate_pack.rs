@@ -11,78 +11,78 @@
 /// certificate entirely instead.
 ///
 pub mod certificate_pack {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CertificatePackArgs {
         /// Which certificate authority to issue the certificate pack. Available values: `digicert`, `lets_encrypt`, `google`, `ssl_com`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub certificate_authority: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate_authority: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether or not to include Cloudflare branding. This will add `sni.cloudflaressl.com` as the Common Name if set to `true`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub cloudflare_branding: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub cloudflare_branding: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// List of hostnames to provision the certificate pack for. The zone name must be included as a host. Note: If using Let's Encrypt, you cannot use individual subdomains and only a wildcard for subdomain is available. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub hosts: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub hosts: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Certificate pack configuration type. Available values: `advanced`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub validation_errors: pulumi_wasm_rust::InputOrOutput<
+        pub validation_errors: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::CertificatePackValidationError>>,
         >,
         /// Which validation method to use in order to prove domain ownership. Available values: `txt`, `http`, `email`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub validation_method: pulumi_wasm_rust::InputOrOutput<String>,
+        pub validation_method: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub validation_records: pulumi_wasm_rust::InputOrOutput<
+        pub validation_records: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::CertificatePackValidationRecord>>,
         >,
         /// How long the certificate is valid for. Note: If using Let's Encrypt, this value can only be 90 days. Available values: `14`, `30`, `90`, `365`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub validity_days: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub validity_days: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Whether or not to wait for a certificate pack to reach status `active` during creation. Defaults to `false`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub wait_for_active_status: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub wait_for_active_status: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct CertificatePackResult {
         /// Which certificate authority to issue the certificate pack. Available values: `digicert`, `lets_encrypt`, `google`, `ssl_com`. **Modifying this attribute will force creation of a new resource.**
-        pub certificate_authority: pulumi_wasm_rust::Output<String>,
+        pub certificate_authority: pulumi_gestalt_rust::Output<String>,
         /// Whether or not to include Cloudflare branding. This will add `sni.cloudflaressl.com` as the Common Name if set to `true`. **Modifying this attribute will force creation of a new resource.**
-        pub cloudflare_branding: pulumi_wasm_rust::Output<Option<bool>>,
+        pub cloudflare_branding: pulumi_gestalt_rust::Output<Option<bool>>,
         /// List of hostnames to provision the certificate pack for. The zone name must be included as a host. Note: If using Let's Encrypt, you cannot use individual subdomains and only a wildcard for subdomain is available. **Modifying this attribute will force creation of a new resource.**
-        pub hosts: pulumi_wasm_rust::Output<Vec<String>>,
+        pub hosts: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Certificate pack configuration type. Available values: `advanced`. **Modifying this attribute will force creation of a new resource.**
-        pub type_: pulumi_wasm_rust::Output<String>,
-        pub validation_errors: pulumi_wasm_rust::Output<
+        pub type_: pulumi_gestalt_rust::Output<String>,
+        pub validation_errors: pulumi_gestalt_rust::Output<
             Vec<super::types::CertificatePackValidationError>,
         >,
         /// Which validation method to use in order to prove domain ownership. Available values: `txt`, `http`, `email`. **Modifying this attribute will force creation of a new resource.**
-        pub validation_method: pulumi_wasm_rust::Output<String>,
-        pub validation_records: pulumi_wasm_rust::Output<
+        pub validation_method: pulumi_gestalt_rust::Output<String>,
+        pub validation_records: pulumi_gestalt_rust::Output<
             Vec<super::types::CertificatePackValidationRecord>,
         >,
         /// How long the certificate is valid for. Note: If using Let's Encrypt, this value can only be 90 days. Available values: `14`, `30`, `90`, `365`. **Modifying this attribute will force creation of a new resource.**
-        pub validity_days: pulumi_wasm_rust::Output<i32>,
+        pub validity_days: pulumi_gestalt_rust::Output<i32>,
         /// Whether or not to wait for a certificate pack to reach status `active` during creation. Defaults to `false`. **Modifying this attribute will force creation of a new resource.**
-        pub wait_for_active_status: pulumi_wasm_rust::Output<Option<bool>>,
+        pub wait_for_active_status: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CertificatePackArgs,
     ) -> CertificatePackResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_authority_binding = args
             .certificate_authority
@@ -161,30 +161,32 @@ pub mod certificate_pack {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CertificatePackResult {
-            certificate_authority: pulumi_wasm_rust::__private::into_domain(
+            certificate_authority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateAuthority"),
             ),
-            cloudflare_branding: pulumi_wasm_rust::__private::into_domain(
+            cloudflare_branding: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudflareBranding"),
             ),
-            hosts: pulumi_wasm_rust::__private::into_domain(o.extract_field("hosts")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            validation_errors: pulumi_wasm_rust::__private::into_domain(
+            hosts: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hosts")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            validation_errors: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationErrors"),
             ),
-            validation_method: pulumi_wasm_rust::__private::into_domain(
+            validation_method: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationMethod"),
             ),
-            validation_records: pulumi_wasm_rust::__private::into_domain(
+            validation_records: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationRecords"),
             ),
-            validity_days: pulumi_wasm_rust::__private::into_domain(
+            validity_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validityDays"),
             ),
-            wait_for_active_status: pulumi_wasm_rust::__private::into_domain(
+            wait_for_active_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("waitForActiveStatus"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

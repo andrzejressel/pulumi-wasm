@@ -14,8 +14,8 @@
 /// ### Basic
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let simplecluster = cluster::create(
@@ -99,25 +99,25 @@
 /// This resource does not support import.
 ///
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
         /// Allows you to configure various aspects of the cluster.
         /// Structure defined below.
         #[builder(into, default)]
-        pub cluster_config: pulumi_wasm_rust::InputOrOutput<
+        pub cluster_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::ClusterClusterConfig>,
         >,
         #[builder(into, default)]
-        pub graceful_decommission_timeout: pulumi_wasm_rust::InputOrOutput<
+        pub graceful_decommission_timeout: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The list of the labels (key/value pairs) configured on the resource and to be applied to instances in the cluster.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration. Please refer
         /// to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the cluster, unique within the project and
@@ -125,19 +125,19 @@ pub mod cluster {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the `cluster` will exist. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region in which the cluster and associated nodes will be created in.
         /// Defaults to `global`.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Allows you to configure a virtual Dataproc on GKE cluster.
         /// Structure defined below.
         #[builder(into, default)]
-        pub virtual_cluster_config: pulumi_wasm_rust::InputOrOutput<
+        pub virtual_cluster_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataproc::ClusterVirtualClusterConfig>,
         >,
     }
@@ -145,40 +145,40 @@ pub mod cluster {
     pub struct ClusterResult {
         /// Allows you to configure various aspects of the cluster.
         /// Structure defined below.
-        pub cluster_config: pulumi_wasm_rust::Output<
+        pub cluster_config: pulumi_gestalt_rust::Output<
             super::super::types::dataproc::ClusterClusterConfig,
         >,
         /// The list of labels (key/value pairs) to be applied to
         /// instances in the cluster. GCP generates some itself including `goog-dataproc-cluster-name`
         /// which is the name of the cluster.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub graceful_decommission_timeout: pulumi_wasm_rust::Output<Option<String>>,
+        pub graceful_decommission_timeout: pulumi_gestalt_rust::Output<Option<String>>,
         /// The list of the labels (key/value pairs) configured on the resource and to be applied to instances in the cluster.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration. Please refer
         /// to the field 'effective_labels' for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the cluster, unique within the project and
         /// zone.
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the `cluster` will exist. If it
         /// is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The region in which the cluster and associated nodes will be created in.
         /// Defaults to `global`.
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_gestalt_rust::Output<Option<String>>,
         /// Allows you to configure a virtual Dataproc on GKE cluster.
         /// Structure defined below.
-        pub virtual_cluster_config: pulumi_wasm_rust::Output<
+        pub virtual_cluster_config: pulumi_gestalt_rust::Output<
             super::super::types::dataproc::ClusterVirtualClusterConfig,
         >,
     }
@@ -187,11 +187,11 @@ pub mod cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_config_binding = args.cluster_config.get_output(context).get_inner();
         let graceful_decommission_timeout_binding = args
@@ -243,25 +243,29 @@ pub mod cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterResult {
-            cluster_config: pulumi_wasm_rust::__private::into_domain(
+            cluster_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterConfig"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            graceful_decommission_timeout: pulumi_wasm_rust::__private::into_domain(
+            graceful_decommission_timeout: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gracefulDecommissionTimeout"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            virtual_cluster_config: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            virtual_cluster_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualClusterConfig"),
             ),
         }

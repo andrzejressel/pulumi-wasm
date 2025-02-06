@@ -1,5 +1,5 @@
 pub mod get_topic {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetTopicArgs {
@@ -7,34 +7,36 @@ pub mod get_topic {
         ///
         /// - - -
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetTopicResult {
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub ingestion_data_source_settings: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub ingestion_data_source_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::pubsub::GetTopicIngestionDataSourceSetting>,
         >,
-        pub kms_key_name: pulumi_wasm_rust::Output<String>,
-        pub labels: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
-        pub message_retention_duration: pulumi_wasm_rust::Output<String>,
-        pub message_storage_policies: pulumi_wasm_rust::Output<
-            Vec<super::super::super::types::pubsub::GetTopicMessageStoragePolicy>,
-        >,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub kms_key_name: pulumi_gestalt_rust::Output<String>,
+        pub labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub schema_settings: pulumi_wasm_rust::Output<
+        pub message_retention_duration: pulumi_gestalt_rust::Output<String>,
+        pub message_storage_policies: pulumi_gestalt_rust::Output<
+            Vec<super::super::super::types::pubsub::GetTopicMessageStoragePolicy>,
+        >,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
+        pub schema_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::pubsub::GetTopicSchemaSetting>,
         >,
     }
@@ -43,10 +45,10 @@ pub mod get_topic {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetTopicArgs,
     ) -> GetTopicResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -66,31 +68,33 @@ pub mod get_topic {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetTopicResult {
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            ingestion_data_source_settings: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            ingestion_data_source_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ingestionDataSourceSettings"),
             ),
-            kms_key_name: pulumi_wasm_rust::__private::into_domain(
+            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyName"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            message_retention_duration: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            message_retention_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("messageRetentionDuration"),
             ),
-            message_storage_policies: pulumi_wasm_rust::__private::into_domain(
+            message_storage_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("messageStoragePolicies"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            schema_settings: pulumi_wasm_rust::__private::into_domain(
+            schema_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schemaSettings"),
             ),
         }

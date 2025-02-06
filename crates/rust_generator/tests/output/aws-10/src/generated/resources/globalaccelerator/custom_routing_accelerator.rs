@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = custom_routing_accelerator::create(
@@ -34,67 +34,67 @@
 /// $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 /// ```
 pub mod custom_routing_accelerator {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomRoutingAcceleratorArgs {
         /// The attributes of the accelerator. Fields documented below.
         #[builder(into, default)]
-        pub attributes: pulumi_wasm_rust::InputOrOutput<
+        pub attributes: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::globalaccelerator::CustomRoutingAcceleratorAttributes,
             >,
         >,
         /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
         #[builder(into, default)]
-        pub ip_address_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_address_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         #[builder(into, default)]
-        pub ip_addresses: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub ip_addresses: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of a custom routing accelerator.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CustomRoutingAcceleratorResult {
         /// The attributes of the accelerator. Fields documented below.
-        pub attributes: pulumi_wasm_rust::Output<
+        pub attributes: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::globalaccelerator::CustomRoutingAcceleratorAttributes,
             >,
         >,
         /// The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-        pub dns_name: pulumi_wasm_rust::Output<String>,
+        pub dns_name: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// -  The Global Accelerator Route 53 zone ID that can be used to
         /// route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
         /// is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
-        pub hosted_zone_id: pulumi_wasm_rust::Output<String>,
+        pub hosted_zone_id: pulumi_gestalt_rust::Output<String>,
         /// The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
-        pub ip_address_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        pub ip_addresses: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub ip_addresses: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// IP address set associated with the accelerator.
-        pub ip_sets: pulumi_wasm_rust::Output<
+        pub ip_sets: pulumi_gestalt_rust::Output<
             Vec<super::super::types::globalaccelerator::CustomRoutingAcceleratorIpSet>,
         >,
         /// The name of a custom routing accelerator.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -103,11 +103,11 @@ pub mod custom_routing_accelerator {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CustomRoutingAcceleratorArgs,
     ) -> CustomRoutingAcceleratorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let attributes_binding = args.attributes.get_output(context).get_inner();
         let enabled_binding = args.enabled.get_output(context).get_inner();
@@ -152,28 +152,30 @@ pub mod custom_routing_accelerator {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CustomRoutingAcceleratorResult {
-            attributes: pulumi_wasm_rust::__private::into_domain(
+            attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attributes"),
             ),
-            dns_name: pulumi_wasm_rust::__private::into_domain(
+            dns_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsName"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            hosted_zone_id: pulumi_wasm_rust::__private::into_domain(
+            hosted_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostedZoneId"),
             ),
-            ip_address_type: pulumi_wasm_rust::__private::into_domain(
+            ip_address_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddressType"),
             ),
-            ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddresses"),
             ),
-            ip_sets: pulumi_wasm_rust::__private::into_domain(o.extract_field("ipSets")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            ip_sets: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("ipSets"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

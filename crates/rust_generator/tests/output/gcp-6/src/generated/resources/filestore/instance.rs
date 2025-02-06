@@ -15,8 +15,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let instance = instance::create(
@@ -45,8 +45,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let instance = instance::create(
@@ -86,8 +86,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let instance = instance::create(
@@ -117,8 +117,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let filestoreKey = crypto_key::create(
@@ -184,140 +184,144 @@
 /// ```
 ///
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
         /// Indicates whether the instance is protected against deletion.
         #[builder(into, default)]
-        pub deletion_protection_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deletion_protection_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The reason for enabling deletion protection.
         #[builder(into, default)]
-        pub deletion_protection_reason: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_protection_reason: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A description of the instance.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// File system shares on the instance. For this version, only a
         /// single file share is supported.
         /// Structure is documented below.
         #[builder(into)]
-        pub file_shares: pulumi_wasm_rust::InputOrOutput<
+        pub file_shares: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::filestore::InstanceFileShares,
         >,
         /// KMS key name used for data encryption.
         #[builder(into, default)]
-        pub kms_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Resource labels to represent user-provided metadata. **Note**: This field is non-authoritative, and will only manage the
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the location of the instance. This can be a region for ENTERPRISE tier instances.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource name of the instance.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// VPC networks to which the instance is connected. For this version,
         /// only a single network is supported.
         /// Structure is documented below.
         #[builder(into)]
-        pub networks: pulumi_wasm_rust::InputOrOutput<
+        pub networks: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::filestore::InstanceNetwork>,
         >,
         /// Performance configuration for the instance. If not provided, the default performance settings will be used.
         #[builder(into, default)]
-        pub performance_config: pulumi_wasm_rust::InputOrOutput<
+        pub performance_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::filestore::InstancePerformanceConfig>,
         >,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Either NFSv3, for using NFS version 3 as file sharing protocol, or NFSv4.1, for using NFS version 4.1 as file sharing
         /// protocol. NFSv4.1 can be used with HIGH_SCALE_SSD, ZONAL, REGIONAL and ENTERPRISE. The default is NFSv3. Default value:
         /// "NFS_V3" Possible values: ["NFS_V3", "NFS_V4_1"]
         #[builder(into, default)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The service tier of the instance.
         /// Possible values include: STANDARD, PREMIUM, BASIC_HDD, BASIC_SSD, HIGH_SCALE_SSD, ZONAL, REGIONAL and ENTERPRISE
         #[builder(into)]
-        pub tier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub tier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Filestore zone of the instance.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
         /// Creation timestamp in RFC3339 text format.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether the instance is protected against deletion.
-        pub deletion_protection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deletion_protection_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The reason for enabling deletion protection.
-        pub deletion_protection_reason: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_protection_reason: pulumi_gestalt_rust::Output<Option<String>>,
         /// A description of the instance.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Server-specified ETag for the instance resource to prevent
         /// simultaneous updates from overwriting each other.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// File system shares on the instance. For this version, only a
         /// single file share is supported.
         /// Structure is documented below.
-        pub file_shares: pulumi_wasm_rust::Output<
+        pub file_shares: pulumi_gestalt_rust::Output<
             super::super::types::filestore::InstanceFileShares,
         >,
         /// KMS key name used for data encryption.
-        pub kms_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Resource labels to represent user-provided metadata. **Note**: This field is non-authoritative, and will only manage the
         /// labels present in your configuration. Please refer to the field 'effective_labels' for all of the labels present on the
         /// resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the location of the instance. This can be a region for ENTERPRISE tier instances.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the instance.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// VPC networks to which the instance is connected. For this version,
         /// only a single network is supported.
         /// Structure is documented below.
-        pub networks: pulumi_wasm_rust::Output<
+        pub networks: pulumi_gestalt_rust::Output<
             Vec<super::super::types::filestore::InstanceNetwork>,
         >,
         /// Performance configuration for the instance. If not provided, the default performance settings will be used.
-        pub performance_config: pulumi_wasm_rust::Output<
+        pub performance_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::filestore::InstancePerformanceConfig>,
         >,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Either NFSv3, for using NFS version 3 as file sharing protocol, or NFSv4.1, for using NFS version 4.1 as file sharing
         /// protocol. NFSv4.1 can be used with HIGH_SCALE_SSD, ZONAL, REGIONAL and ENTERPRISE. The default is NFSv3. Default value:
         /// "NFS_V3" Possible values: ["NFS_V3", "NFS_V4_1"]
-        pub protocol: pulumi_wasm_rust::Output<Option<String>>,
+        pub protocol: pulumi_gestalt_rust::Output<Option<String>>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The service tier of the instance.
         /// Possible values include: STANDARD, PREMIUM, BASIC_HDD, BASIC_SSD, HIGH_SCALE_SSD, ZONAL, REGIONAL and ENTERPRISE
-        pub tier: pulumi_wasm_rust::Output<String>,
+        pub tier: pulumi_gestalt_rust::Output<String>,
         /// The name of the Filestore zone of the instance.
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let deletion_protection_enabled_binding = args
             .deletion_protection_enabled
@@ -407,50 +411,52 @@ pub mod instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            deletion_protection_enabled: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtectionEnabled"),
             ),
-            deletion_protection_reason: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection_reason: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtectionReason"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            file_shares: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            file_shares: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fileShares"),
             ),
-            kms_key_name: pulumi_wasm_rust::__private::into_domain(
+            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyName"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            networks: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            networks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networks"),
             ),
-            performance_config: pulumi_wasm_rust::__private::into_domain(
+            performance_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("performanceConfig"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            tier: pulumi_wasm_rust::__private::into_domain(o.extract_field("tier")),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            tier: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tier")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

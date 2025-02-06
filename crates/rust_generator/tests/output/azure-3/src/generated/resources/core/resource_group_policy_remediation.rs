@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -58,71 +58,71 @@
 /// ```
 ///
 pub mod resource_group_policy_remediation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceGroupPolicyRemediationArgs {
         /// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
         #[builder(into, default)]
-        pub failure_percentage: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub failure_percentage: pulumi_gestalt_rust::InputOrOutput<Option<f64>>,
         /// A list of the resource locations that will be remediated.
         #[builder(into, default)]
-        pub location_filters: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub location_filters: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The name of the Policy Remediation. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
         #[builder(into, default)]
-        pub parallel_deployments: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub parallel_deployments: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the Policy Assignment that should be remediated.
         #[builder(into)]
-        pub policy_assignment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_assignment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         #[builder(into, default)]
-        pub policy_definition_reference_id: pulumi_wasm_rust::InputOrOutput<
+        pub policy_definition_reference_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
         #[builder(into, default)]
-        pub resource_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub resource_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
         #[builder(into, default)]
-        pub resource_discovery_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resource_discovery_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Resource Group ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ResourceGroupPolicyRemediationResult {
         /// A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold.
-        pub failure_percentage: pulumi_wasm_rust::Output<Option<f64>>,
+        pub failure_percentage: pulumi_gestalt_rust::Output<Option<f64>>,
         /// A list of the resource locations that will be remediated.
-        pub location_filters: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub location_filters: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The name of the Policy Remediation. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
-        pub parallel_deployments: pulumi_wasm_rust::Output<Option<i32>>,
+        pub parallel_deployments: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The ID of the Policy Assignment that should be remediated.
-        pub policy_assignment_id: pulumi_wasm_rust::Output<String>,
+        pub policy_assignment_id: pulumi_gestalt_rust::Output<String>,
         /// The unique ID for the policy definition reference within the policy set definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-        pub policy_definition_reference_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_definition_reference_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
-        pub resource_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub resource_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`.
-        pub resource_discovery_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub resource_discovery_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Resource Group ID at which the Policy Remediation should be applied. Changing this forces a new resource to be created.
-        pub resource_group_id: pulumi_wasm_rust::Output<String>,
+        pub resource_group_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResourceGroupPolicyRemediationArgs,
     ) -> ResourceGroupPolicyRemediationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let failure_percentage_binding = args
             .failure_percentage
@@ -200,29 +200,29 @@ pub mod resource_group_policy_remediation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResourceGroupPolicyRemediationResult {
-            failure_percentage: pulumi_wasm_rust::__private::into_domain(
+            failure_percentage: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("failurePercentage"),
             ),
-            location_filters: pulumi_wasm_rust::__private::into_domain(
+            location_filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("locationFilters"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parallel_deployments: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parallel_deployments: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parallelDeployments"),
             ),
-            policy_assignment_id: pulumi_wasm_rust::__private::into_domain(
+            policy_assignment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyAssignmentId"),
             ),
-            policy_definition_reference_id: pulumi_wasm_rust::__private::into_domain(
+            policy_definition_reference_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyDefinitionReferenceId"),
             ),
-            resource_count: pulumi_wasm_rust::__private::into_domain(
+            resource_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceCount"),
             ),
-            resource_discovery_mode: pulumi_wasm_rust::__private::into_domain(
+            resource_discovery_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceDiscoveryMode"),
             ),
-            resource_group_id: pulumi_wasm_rust::__private::into_domain(
+            resource_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupId"),
             ),
         }

@@ -84,65 +84,65 @@
 /// $ pulumi import aws:bedrock/agentAgentAlias:AgentAgentAlias example 66IVY0GUTF,GGRRAED6JP
 /// ```
 pub mod agent_agent_alias {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AgentAgentAliasArgs {
         /// Name of the alias.
         #[builder(into)]
-        pub agent_alias_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub agent_alias_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Identifier of the agent to create an alias for.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub agent_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub agent_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description of the alias.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Details about the routing configuration of the alias. See `routing_configuration` Block for details.
         #[builder(into, default)]
-        pub routing_configurations: pulumi_wasm_rust::InputOrOutput<
+        pub routing_configurations: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::bedrock::AgentAgentAliasRoutingConfiguration>,
             >,
         >,
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bedrock::AgentAgentAliasTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct AgentAgentAliasResult {
         /// ARN of the alias.
-        pub agent_alias_arn: pulumi_wasm_rust::Output<String>,
+        pub agent_alias_arn: pulumi_gestalt_rust::Output<String>,
         /// Unique identifier of the alias.
-        pub agent_alias_id: pulumi_wasm_rust::Output<String>,
+        pub agent_alias_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the alias.
-        pub agent_alias_name: pulumi_wasm_rust::Output<String>,
+        pub agent_alias_name: pulumi_gestalt_rust::Output<String>,
         /// Identifier of the agent to create an alias for.
         ///
         /// The following arguments are optional:
-        pub agent_id: pulumi_wasm_rust::Output<String>,
+        pub agent_id: pulumi_gestalt_rust::Output<String>,
         /// Description of the alias.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Details about the routing configuration of the alias. See `routing_configuration` Block for details.
-        pub routing_configurations: pulumi_wasm_rust::Output<
+        pub routing_configurations: pulumi_gestalt_rust::Output<
             Vec<super::super::types::bedrock::AgentAgentAliasRoutingConfiguration>,
         >,
         /// Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::bedrock::AgentAgentAliasTimeouts>,
         >,
     }
@@ -151,11 +151,11 @@ pub mod agent_agent_alias {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AgentAgentAliasArgs,
     ) -> AgentAgentAliasResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let agent_alias_name_binding = args
             .agent_alias_name
@@ -202,29 +202,29 @@ pub mod agent_agent_alias {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AgentAgentAliasResult {
-            agent_alias_arn: pulumi_wasm_rust::__private::into_domain(
+            agent_alias_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentAliasArn"),
             ),
-            agent_alias_id: pulumi_wasm_rust::__private::into_domain(
+            agent_alias_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentAliasId"),
             ),
-            agent_alias_name: pulumi_wasm_rust::__private::into_domain(
+            agent_alias_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentAliasName"),
             ),
-            agent_id: pulumi_wasm_rust::__private::into_domain(
+            agent_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            routing_configurations: pulumi_wasm_rust::__private::into_domain(
+            routing_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routingConfigurations"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

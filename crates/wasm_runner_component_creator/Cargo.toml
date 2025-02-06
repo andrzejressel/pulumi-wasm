@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm_runner_component_creator"
+name = "pulumi_gestalt_runner_component_creator"
 version.workspace = true
 edition.workspace = true
 

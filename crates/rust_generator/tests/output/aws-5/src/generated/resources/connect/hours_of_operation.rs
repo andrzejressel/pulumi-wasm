@@ -39,70 +39,70 @@
 /// $ pulumi import aws:connect/hoursOfOperation:HoursOfOperation example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 /// ```
 pub mod hours_of_operation {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HoursOfOperationArgs {
         /// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         #[builder(into)]
-        pub configs: pulumi_wasm_rust::InputOrOutput<
+        pub configs: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::connect::HoursOfOperationConfig>,
         >,
         /// Specifies the description of the Hours of Operation.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the identifier of the hosting Amazon Connect Instance.
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Hours of Operation.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the time zone of the Hours of Operation.
         #[builder(into)]
-        pub time_zone: pulumi_wasm_rust::InputOrOutput<String>,
+        pub time_zone: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HoursOfOperationResult {
         /// The Amazon Resource Name (ARN) of the Hours of Operation.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
-        pub configs: pulumi_wasm_rust::Output<
+        pub configs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::connect::HoursOfOperationConfig>,
         >,
         /// Specifies the description of the Hours of Operation.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The identifier for the hours of operation.
-        pub hours_of_operation_id: pulumi_wasm_rust::Output<String>,
+        pub hours_of_operation_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the identifier of the hosting Amazon Connect Instance.
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Hours of Operation.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Tags to apply to the Hours of Operation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Specifies the time zone of the Hours of Operation.
-        pub time_zone: pulumi_wasm_rust::Output<String>,
+        pub time_zone: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HoursOfOperationArgs,
     ) -> HoursOfOperationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let configs_binding = args.configs.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -143,25 +143,25 @@ pub mod hours_of_operation {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HoursOfOperationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            configs: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configs"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            hours_of_operation_id: pulumi_wasm_rust::__private::into_domain(
+            hours_of_operation_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hoursOfOperationId"),
             ),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            time_zone: pulumi_wasm_rust::__private::into_domain(
+            time_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeZone"),
             ),
         }

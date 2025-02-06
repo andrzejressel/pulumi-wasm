@@ -4,8 +4,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let access = dataset_access::create(
@@ -30,8 +30,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let access = dataset_access::create(
@@ -75,8 +75,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let access = dataset_access::create(
@@ -159,14 +159,14 @@
 /// This resource does not support import.
 ///
 pub mod dataset_access {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatasetAccessArgs {
         /// Grants all resources of particular types in a particular dataset read access to the current dataset.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub authorized_dataset: pulumi_wasm_rust::InputOrOutput<
+        pub authorized_dataset: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::DatasetAccessAuthorizedDataset>,
         >,
         /// A unique ID for this dataset, without the project name. The ID
@@ -176,22 +176,22 @@ pub mod dataset_access {
         ///
         /// - - -
         #[builder(into)]
-        pub dataset_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dataset_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A domain to grant access to. Any users signed in with the
         /// domain specified will be granted the specified access
         #[builder(into, default)]
-        pub domain: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub domain: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An email address of a Google Group to grant access to.
         #[builder(into, default)]
-        pub group_by_email: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub group_by_email: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Some other type of member that appears in the IAM Policy but isn't a user,
         /// group, domain, or special group. For example: `allUsers`
         #[builder(into, default)]
-        pub iam_member: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub iam_member: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Describes the rights granted to the user specified by the other
         /// member of the access object. Basic, predefined, and custom roles are
         /// supported. Predefined roles that have equivalent basic roles are
@@ -199,7 +199,7 @@ pub mod dataset_access {
         /// post-create. See
         /// [official docs](https://cloud.google.com/bigquery/docs/access-control).
         #[builder(into, default)]
-        pub role: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A routine from a different dataset to grant access to. Queries
         /// executed against that routine will have read access to tables in
         /// this dataset. The role field is not required when this field is
@@ -207,7 +207,7 @@ pub mod dataset_access {
         /// needs to be granted again via an update operation.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub routine: pulumi_wasm_rust::InputOrOutput<
+        pub routine: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::DatasetAccessRoutine>,
         >,
         /// A special group to grant access to. Possible values include:
@@ -216,11 +216,11 @@ pub mod dataset_access {
         /// * `projectWriters`: Writers of the enclosing project.
         /// * `allAuthenticatedUsers`: All authenticated BigQuery users.
         #[builder(into, default)]
-        pub special_group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub special_group: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An email address of a user to grant access to. For example:
         /// fred@example.com
         #[builder(into, default)]
-        pub user_by_email: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_by_email: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A view from a different dataset to grant access to. Queries
         /// executed against that view will have read access to tables in
         /// this dataset. The role field is not required when this field is
@@ -228,7 +228,7 @@ pub mod dataset_access {
         /// needs to be granted again via an update operation.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub view: pulumi_wasm_rust::InputOrOutput<
+        pub view: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::DatasetAccessView>,
         >,
     }
@@ -236,10 +236,10 @@ pub mod dataset_access {
     pub struct DatasetAccessResult {
         /// If true, represents that that the iam_member in the config was translated to a different member type by the API, and is
         /// stored in state as a different member type
-        pub api_updated_member: pulumi_wasm_rust::Output<bool>,
+        pub api_updated_member: pulumi_gestalt_rust::Output<bool>,
         /// Grants all resources of particular types in a particular dataset read access to the current dataset.
         /// Structure is documented below.
-        pub authorized_dataset: pulumi_wasm_rust::Output<
+        pub authorized_dataset: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::DatasetAccessAuthorizedDataset>,
         >,
         /// A unique ID for this dataset, without the project name. The ID
@@ -248,32 +248,32 @@ pub mod dataset_access {
         ///
         ///
         /// - - -
-        pub dataset_id: pulumi_wasm_rust::Output<String>,
+        pub dataset_id: pulumi_gestalt_rust::Output<String>,
         /// A domain to grant access to. Any users signed in with the
         /// domain specified will be granted the specified access
-        pub domain: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain: pulumi_gestalt_rust::Output<Option<String>>,
         /// An email address of a Google Group to grant access to.
-        pub group_by_email: pulumi_wasm_rust::Output<Option<String>>,
+        pub group_by_email: pulumi_gestalt_rust::Output<Option<String>>,
         /// Some other type of member that appears in the IAM Policy but isn't a user,
         /// group, domain, or special group. For example: `allUsers`
-        pub iam_member: pulumi_wasm_rust::Output<Option<String>>,
+        pub iam_member: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Describes the rights granted to the user specified by the other
         /// member of the access object. Basic, predefined, and custom roles are
         /// supported. Predefined roles that have equivalent basic roles are
         /// swapped by the API to their basic counterparts, and will show a diff
         /// post-create. See
         /// [official docs](https://cloud.google.com/bigquery/docs/access-control).
-        pub role: pulumi_wasm_rust::Output<Option<String>>,
+        pub role: pulumi_gestalt_rust::Output<Option<String>>,
         /// A routine from a different dataset to grant access to. Queries
         /// executed against that routine will have read access to tables in
         /// this dataset. The role field is not required when this field is
         /// set. If that routine is updated by any user, access to the routine
         /// needs to be granted again via an update operation.
         /// Structure is documented below.
-        pub routine: pulumi_wasm_rust::Output<
+        pub routine: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::DatasetAccessRoutine>,
         >,
         /// A special group to grant access to. Possible values include:
@@ -281,17 +281,17 @@ pub mod dataset_access {
         /// * `projectReaders`: Readers of the enclosing project.
         /// * `projectWriters`: Writers of the enclosing project.
         /// * `allAuthenticatedUsers`: All authenticated BigQuery users.
-        pub special_group: pulumi_wasm_rust::Output<Option<String>>,
+        pub special_group: pulumi_gestalt_rust::Output<Option<String>>,
         /// An email address of a user to grant access to. For example:
         /// fred@example.com
-        pub user_by_email: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_by_email: pulumi_gestalt_rust::Output<Option<String>>,
         /// A view from a different dataset to grant access to. Queries
         /// executed against that view will have read access to tables in
         /// this dataset. The role field is not required when this field is
         /// set. If that view is updated by any user, access to the view
         /// needs to be granted again via an update operation.
         /// Structure is documented below.
-        pub view: pulumi_wasm_rust::Output<
+        pub view: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::DatasetAccessView>,
         >,
     }
@@ -300,11 +300,11 @@ pub mod dataset_access {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatasetAccessArgs,
     ) -> DatasetAccessResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authorized_dataset_binding = args
             .authorized_dataset
@@ -373,36 +373,38 @@ pub mod dataset_access {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatasetAccessResult {
-            api_updated_member: pulumi_wasm_rust::__private::into_domain(
+            api_updated_member: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiUpdatedMember"),
             ),
-            authorized_dataset: pulumi_wasm_rust::__private::into_domain(
+            authorized_dataset: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizedDataset"),
             ),
-            dataset_id: pulumi_wasm_rust::__private::into_domain(
+            dataset_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("datasetId"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
-            group_by_email: pulumi_wasm_rust::__private::into_domain(
+            domain: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("domain"),
+            ),
+            group_by_email: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupByEmail"),
             ),
-            iam_member: pulumi_wasm_rust::__private::into_domain(
+            iam_member: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iamMember"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
-            routine: pulumi_wasm_rust::__private::into_domain(
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
+            routine: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routine"),
             ),
-            special_group: pulumi_wasm_rust::__private::into_domain(
+            special_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("specialGroup"),
             ),
-            user_by_email: pulumi_wasm_rust::__private::into_domain(
+            user_by_email: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userByEmail"),
             ),
-            view: pulumi_wasm_rust::__private::into_domain(o.extract_field("view")),
+            view: pulumi_gestalt_rust::__private::into_domain(o.extract_field("view")),
         }
     }
 }

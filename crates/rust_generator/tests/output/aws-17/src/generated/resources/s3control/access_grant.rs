@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = access_grants_instance::create(
@@ -51,70 +51,70 @@
 /// $ pulumi import aws:s3control/accessGrant:AccessGrant example 123456789012,04549c5e-2f3c-4a07-824d-2cafe720aa22
 /// ```
 pub mod access_grant {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessGrantArgs {
         /// See Location Configuration below for more details.
         #[builder(into, default)]
-        pub access_grants_location_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub access_grants_location_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::s3control::AccessGrantAccessGrantsLocationConfiguration,
             >,
         >,
         /// The ID of the S3 Access Grants location to with the access grant is giving access.
         #[builder(into)]
-        pub access_grants_location_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub access_grants_location_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// See Grantee below for more details.
         #[builder(into, default)]
-        pub grantee: pulumi_wasm_rust::InputOrOutput<
+        pub grantee: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::s3control::AccessGrantGrantee>,
         >,
         /// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         #[builder(into)]
-        pub permission: pulumi_wasm_rust::InputOrOutput<String>,
+        pub permission: pulumi_gestalt_rust::InputOrOutput<String>,
         /// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
         #[builder(into, default)]
-        pub s3_prefix_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub s3_prefix_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AccessGrantResult {
         /// Amazon Resource Name (ARN) of the S3 Access Grant.
-        pub access_grant_arn: pulumi_wasm_rust::Output<String>,
+        pub access_grant_arn: pulumi_gestalt_rust::Output<String>,
         /// Unique ID of the S3 Access Grant.
-        pub access_grant_id: pulumi_wasm_rust::Output<String>,
+        pub access_grant_id: pulumi_gestalt_rust::Output<String>,
         /// See Location Configuration below for more details.
-        pub access_grants_location_configuration: pulumi_wasm_rust::Output<
+        pub access_grants_location_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::s3control::AccessGrantAccessGrantsLocationConfiguration,
             >,
         >,
         /// The ID of the S3 Access Grants location to with the access grant is giving access.
-        pub access_grants_location_id: pulumi_wasm_rust::Output<String>,
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub access_grants_location_id: pulumi_gestalt_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// The access grant's scope.
-        pub grant_scope: pulumi_wasm_rust::Output<String>,
+        pub grant_scope: pulumi_gestalt_rust::Output<String>,
         /// See Grantee below for more details.
-        pub grantee: pulumi_wasm_rust::Output<
+        pub grantee: pulumi_gestalt_rust::Output<
             Option<super::super::types::s3control::AccessGrantGrantee>,
         >,
         /// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
-        pub permission: pulumi_wasm_rust::Output<String>,
+        pub permission: pulumi_gestalt_rust::Output<String>,
         /// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
-        pub s3_prefix_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_prefix_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -123,11 +123,11 @@ pub mod access_grant {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccessGrantArgs,
     ) -> AccessGrantResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_grants_location_configuration_binding = args
             .access_grants_location_configuration
@@ -179,35 +179,35 @@ pub mod access_grant {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccessGrantResult {
-            access_grant_arn: pulumi_wasm_rust::__private::into_domain(
+            access_grant_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessGrantArn"),
             ),
-            access_grant_id: pulumi_wasm_rust::__private::into_domain(
+            access_grant_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessGrantId"),
             ),
-            access_grants_location_configuration: pulumi_wasm_rust::__private::into_domain(
+            access_grants_location_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessGrantsLocationConfiguration"),
             ),
-            access_grants_location_id: pulumi_wasm_rust::__private::into_domain(
+            access_grants_location_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessGrantsLocationId"),
             ),
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            grant_scope: pulumi_wasm_rust::__private::into_domain(
+            grant_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("grantScope"),
             ),
-            grantee: pulumi_wasm_rust::__private::into_domain(
+            grantee: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("grantee"),
             ),
-            permission: pulumi_wasm_rust::__private::into_domain(
+            permission: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permission"),
             ),
-            s3_prefix_type: pulumi_wasm_rust::__private::into_domain(
+            s3_prefix_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3PrefixType"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

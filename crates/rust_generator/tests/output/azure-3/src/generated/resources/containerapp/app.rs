@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -65,131 +65,131 @@
 /// ```
 ///
 pub mod app {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppArgs {
         /// The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub container_app_environment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub container_app_environment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `dapr` block as detailed below.
         #[builder(into, default)]
-        pub dapr: pulumi_wasm_rust::InputOrOutput<
+        pub dapr: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerapp::AppDapr>,
         >,
         /// An `identity` block as detailed below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerapp::AppIdentity>,
         >,
         /// An `ingress` block as detailed below.
         #[builder(into, default)]
-        pub ingress: pulumi_wasm_rust::InputOrOutput<
+        pub ingress: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerapp::AppIngress>,
         >,
         /// The maximum of inactive revisions allowed for this Container App.
         #[builder(into, default)]
-        pub max_inactive_revisions: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_inactive_revisions: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name for this Container App. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `registry` block as detailed below.
         #[builder(into, default)]
-        pub registries: pulumi_wasm_rust::InputOrOutput<
+        pub registries: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::containerapp::AppRegistry>>,
         >,
         /// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `traffic_weight` block in the `ingress` configuration.
         #[builder(into)]
-        pub revision_mode: pulumi_wasm_rust::InputOrOutput<String>,
+        pub revision_mode: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more `secret` block as detailed below.
         #[builder(into, default)]
-        pub secrets: pulumi_wasm_rust::InputOrOutput<
+        pub secrets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::containerapp::AppSecret>>,
         >,
         /// A mapping of tags to assign to the Container App.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `template` block as detailed below.
         #[builder(into)]
-        pub template: pulumi_wasm_rust::InputOrOutput<
+        pub template: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::containerapp::AppTemplate,
         >,
         /// The name of the Workload Profile in the Container App Environment to place this Container App.
         ///
         /// > **Note:** Omit this value to use the default `Consumption` Workload Profile.
         #[builder(into, default)]
-        pub workload_profile_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub workload_profile_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AppResult {
         /// The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created.
-        pub container_app_environment_id: pulumi_wasm_rust::Output<String>,
+        pub container_app_environment_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Custom Domain Verification for this Container App.
-        pub custom_domain_verification_id: pulumi_wasm_rust::Output<String>,
+        pub custom_domain_verification_id: pulumi_gestalt_rust::Output<String>,
         /// A `dapr` block as detailed below.
-        pub dapr: pulumi_wasm_rust::Output<
+        pub dapr: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerapp::AppDapr>,
         >,
         /// An `identity` block as detailed below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerapp::AppIdentity>,
         >,
         /// An `ingress` block as detailed below.
-        pub ingress: pulumi_wasm_rust::Output<
+        pub ingress: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerapp::AppIngress>,
         >,
         /// The FQDN of the Latest Revision of the Container App.
-        pub latest_revision_fqdn: pulumi_wasm_rust::Output<String>,
+        pub latest_revision_fqdn: pulumi_gestalt_rust::Output<String>,
         /// The name of the latest Container Revision.
-        pub latest_revision_name: pulumi_wasm_rust::Output<String>,
+        pub latest_revision_name: pulumi_gestalt_rust::Output<String>,
         /// The location this Container App is deployed in. This is the same as the Environment in which it is deployed.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The maximum of inactive revisions allowed for this Container App.
-        pub max_inactive_revisions: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_inactive_revisions: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The name for this Container App. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A list of the Public IP Addresses which the Container App uses for outbound network access.
-        pub outbound_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub outbound_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A `registry` block as detailed below.
-        pub registries: pulumi_wasm_rust::Output<
+        pub registries: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::containerapp::AppRegistry>>,
         >,
         /// The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `traffic_weight` block in the `ingress` configuration.
-        pub revision_mode: pulumi_wasm_rust::Output<String>,
+        pub revision_mode: pulumi_gestalt_rust::Output<String>,
         /// One or more `secret` block as detailed below.
-        pub secrets: pulumi_wasm_rust::Output<
+        pub secrets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::containerapp::AppSecret>>,
         >,
         /// A mapping of tags to assign to the Container App.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `template` block as detailed below.
-        pub template: pulumi_wasm_rust::Output<
+        pub template: pulumi_gestalt_rust::Output<
             super::super::types::containerapp::AppTemplate,
         >,
         /// The name of the Workload Profile in the Container App Environment to place this Container App.
         ///
         /// > **Note:** Omit this value to use the default `Consumption` Workload Profile.
-        pub workload_profile_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub workload_profile_name: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AppArgs,
     ) -> AppResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let container_app_environment_id_binding = args
             .container_app_environment_id
@@ -277,52 +277,52 @@ pub mod app {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AppResult {
-            container_app_environment_id: pulumi_wasm_rust::__private::into_domain(
+            container_app_environment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerAppEnvironmentId"),
             ),
-            custom_domain_verification_id: pulumi_wasm_rust::__private::into_domain(
+            custom_domain_verification_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customDomainVerificationId"),
             ),
-            dapr: pulumi_wasm_rust::__private::into_domain(o.extract_field("dapr")),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            dapr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("dapr")),
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            ingress: pulumi_wasm_rust::__private::into_domain(
+            ingress: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ingress"),
             ),
-            latest_revision_fqdn: pulumi_wasm_rust::__private::into_domain(
+            latest_revision_fqdn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("latestRevisionFqdn"),
             ),
-            latest_revision_name: pulumi_wasm_rust::__private::into_domain(
+            latest_revision_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("latestRevisionName"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            max_inactive_revisions: pulumi_wasm_rust::__private::into_domain(
+            max_inactive_revisions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxInactiveRevisions"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outboundIpAddresses"),
             ),
-            registries: pulumi_wasm_rust::__private::into_domain(
+            registries: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registries"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            revision_mode: pulumi_wasm_rust::__private::into_domain(
+            revision_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("revisionMode"),
             ),
-            secrets: pulumi_wasm_rust::__private::into_domain(
+            secrets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secrets"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            template: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            template: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("template"),
             ),
-            workload_profile_name: pulumi_wasm_rust::__private::into_domain(
+            workload_profile_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workloadProfileName"),
             ),
         }

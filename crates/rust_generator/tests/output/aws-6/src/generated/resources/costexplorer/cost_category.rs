@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = cost_category::create(
@@ -44,70 +44,70 @@
 /// $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
 /// ```
 pub mod cost_category {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CostCategoryArgs {
         /// Default value for the cost category.
         #[builder(into, default)]
-        pub default_value: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_value: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub effective_start: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub effective_start: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Unique name for the Cost Category.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Rule schema version in this particular Cost Category.
         #[builder(into)]
-        pub rule_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rule_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block for the Cost Category rules used to categorize costs. See below.
         #[builder(into)]
-        pub rules: pulumi_wasm_rust::InputOrOutput<
+        pub rules: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::costexplorer::CostCategoryRule>,
         >,
         /// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
         #[builder(into, default)]
-        pub split_charge_rules: pulumi_wasm_rust::InputOrOutput<
+        pub split_charge_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::costexplorer::CostCategorySplitChargeRule>>,
         >,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CostCategoryResult {
         /// ARN of the cost category.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Default value for the cost category.
-        pub default_value: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_value: pulumi_gestalt_rust::Output<Option<String>>,
         /// Effective end data of your Cost Category.
-        pub effective_end: pulumi_wasm_rust::Output<String>,
+        pub effective_end: pulumi_gestalt_rust::Output<String>,
         /// The Cost Category's effective start date. It can only be a billing start date (first day of the month). If the date isn't provided, it's the first day of the current month. Dates can't be before the previous twelve months, or in the future. For example `2022-11-01T00:00:00Z`.
         ///
         /// The following arguments are optional:
-        pub effective_start: pulumi_wasm_rust::Output<String>,
+        pub effective_start: pulumi_gestalt_rust::Output<String>,
         /// Unique name for the Cost Category.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Rule schema version in this particular Cost Category.
-        pub rule_version: pulumi_wasm_rust::Output<String>,
+        pub rule_version: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for the Cost Category rules used to categorize costs. See below.
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::costexplorer::CostCategoryRule>,
         >,
         /// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
-        pub split_charge_rules: pulumi_wasm_rust::Output<
+        pub split_charge_rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::costexplorer::CostCategorySplitChargeRule>>,
         >,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -116,11 +116,11 @@ pub mod cost_category {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CostCategoryArgs,
     ) -> CostCategoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let default_value_binding = args.default_value.get_output(context).get_inner();
         let effective_start_binding = args
@@ -172,26 +172,26 @@ pub mod cost_category {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CostCategoryResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            default_value: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            default_value: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultValue"),
             ),
-            effective_end: pulumi_wasm_rust::__private::into_domain(
+            effective_end: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveEnd"),
             ),
-            effective_start: pulumi_wasm_rust::__private::into_domain(
+            effective_start: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveStart"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            rule_version: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            rule_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ruleVersion"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
-            split_charge_rules: pulumi_wasm_rust::__private::into_domain(
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
+            split_charge_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("splitChargeRules"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

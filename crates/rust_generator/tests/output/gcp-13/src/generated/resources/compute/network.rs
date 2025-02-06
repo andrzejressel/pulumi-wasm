@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let vpcNetwork = network::create(
@@ -27,8 +27,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let vpcNetwork = network::create(
@@ -46,8 +46,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let vpcNetwork = network::create(
@@ -65,8 +65,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let vpcNetwork = network::create(
@@ -83,8 +83,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let vpcNetwork = network::create(
@@ -102,8 +102,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let vpcNetwork = network::create(
@@ -145,7 +145,7 @@
 /// ```
 ///
 pub mod network {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkArgs {
@@ -155,49 +155,49 @@ pub mod network {
         /// When set to `false`, the network is created in "custom subnet mode" so
         /// the user can explicitly connect subnetwork resources.
         #[builder(into, default)]
-        pub auto_create_subnetworks: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_create_subnetworks: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Enables/disables the comparison of MED across routes with different Neighbor ASNs.
         /// This value can only be set if the --bgp-best-path-selection-mode is STANDARD
         #[builder(into, default)]
-        pub bgp_always_compare_med: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub bgp_always_compare_med: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The BGP best selection algorithm to be employed. MODE can be LEGACY or STANDARD.
         /// Possible values are: `LEGACY`, `STANDARD`.
         #[builder(into, default)]
-        pub bgp_best_path_selection_mode: pulumi_wasm_rust::InputOrOutput<
+        pub bgp_best_path_selection_mode: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Choice of the behavior of inter-regional cost and MED in the BPS algorithm.
         /// Possible values are: `DEFAULT`, `ADD_COST_TO_MED`.
         #[builder(into, default)]
-        pub bgp_inter_region_cost: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub bgp_inter_region_cost: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If set to `true`, default routes (`0.0.0.0/0`) will be deleted
         /// immediately after network creation. Defaults to `false`.
         #[builder(into, default)]
-        pub delete_default_routes_on_create: pulumi_wasm_rust::InputOrOutput<
+        pub delete_default_routes_on_create: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// An optional description of this resource. The resource must be
         /// recreated to modify this field.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Enable ULA internal ipv6 on this network. Enabling this feature will assign
         /// a /48 from google defined ULA prefix fd20::/20.
         #[builder(into, default)]
-        pub enable_ula_internal_ipv6: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_ula_internal_ipv6: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// When enabling ula internal ipv6, caller optionally can specify the /48 range
         /// they want from the google defined ULA prefix fd20::/20. The input must be a
         /// valid /48 ULA IPv6 address and must be within the fd20::/20. Operation will
         /// fail if the speficied /48 is already in used by another resource.
         /// If the field is not speficied, then a /48 range will be randomly allocated from fd20::/20 and returned via this field.
         #[builder(into, default)]
-        pub internal_ipv6_range: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub internal_ipv6_range: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Maximum Transmission Unit in bytes. The default value is 1460 bytes.
         /// The minimum value for this field is 1300 and the maximum value is 8896 bytes (jumbo frames).
         /// Note that packets larger than 1500 bytes (standard Ethernet) can be subject to TCP-MSS clamping or dropped
         /// with an ICMP `Fragmentation-Needed` message if the packets are routed to the Internet or other VPCs
         /// with varying MTUs.
         #[builder(into, default)]
-        pub mtu: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub mtu: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -209,12 +209,12 @@ pub mod network {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Set the order that Firewall Rules and Firewall Policies are evaluated.
         /// Default value is `AFTER_CLASSIC_FIREWALL`.
         /// Possible values are: `BEFORE_CLASSIC_FIREWALL`, `AFTER_CLASSIC_FIREWALL`.
         #[builder(into, default)]
-        pub network_firewall_policy_enforcement_order: pulumi_wasm_rust::InputOrOutput<
+        pub network_firewall_policy_enforcement_order: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// A full or partial URL of the network profile to apply to this network.
@@ -223,11 +223,11 @@ pub mod network {
         /// * https://www.googleapis.com/compute/beta/projects/{projectId}/global/networkProfiles/{network_profile_name}
         /// * projects/{projectId}/global/networkProfiles/{network_profile_name}
         #[builder(into, default)]
-        pub network_profile: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network_profile: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The network-wide routing mode to use. If set to `REGIONAL`, this
         /// network's cloud routers will only advertise routes with subnetworks
         /// of this network in the same region as the router. If set to `GLOBAL`,
@@ -235,7 +235,7 @@ pub mod network {
         /// subnetworks of this network, across regions.
         /// Possible values are: `REGIONAL`, `GLOBAL`.
         #[builder(into, default)]
-        pub routing_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub routing_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NetworkResult {
@@ -244,40 +244,40 @@ pub mod network {
         /// `10.128.0.0/9` address range.
         /// When set to `false`, the network is created in "custom subnet mode" so
         /// the user can explicitly connect subnetwork resources.
-        pub auto_create_subnetworks: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_create_subnetworks: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Enables/disables the comparison of MED across routes with different Neighbor ASNs.
         /// This value can only be set if the --bgp-best-path-selection-mode is STANDARD
-        pub bgp_always_compare_med: pulumi_wasm_rust::Output<bool>,
+        pub bgp_always_compare_med: pulumi_gestalt_rust::Output<bool>,
         /// The BGP best selection algorithm to be employed. MODE can be LEGACY or STANDARD.
         /// Possible values are: `LEGACY`, `STANDARD`.
-        pub bgp_best_path_selection_mode: pulumi_wasm_rust::Output<String>,
+        pub bgp_best_path_selection_mode: pulumi_gestalt_rust::Output<String>,
         /// Choice of the behavior of inter-regional cost and MED in the BPS algorithm.
         /// Possible values are: `DEFAULT`, `ADD_COST_TO_MED`.
-        pub bgp_inter_region_cost: pulumi_wasm_rust::Output<String>,
+        pub bgp_inter_region_cost: pulumi_gestalt_rust::Output<String>,
         /// If set to `true`, default routes (`0.0.0.0/0`) will be deleted
         /// immediately after network creation. Defaults to `false`.
-        pub delete_default_routes_on_create: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_default_routes_on_create: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An optional description of this resource. The resource must be
         /// recreated to modify this field.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Enable ULA internal ipv6 on this network. Enabling this feature will assign
         /// a /48 from google defined ULA prefix fd20::/20.
-        pub enable_ula_internal_ipv6: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_ula_internal_ipv6: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The gateway address for default routing out of the network. This value
         /// is selected by GCP.
-        pub gateway_ipv4: pulumi_wasm_rust::Output<String>,
+        pub gateway_ipv4: pulumi_gestalt_rust::Output<String>,
         /// When enabling ula internal ipv6, caller optionally can specify the /48 range
         /// they want from the google defined ULA prefix fd20::/20. The input must be a
         /// valid /48 ULA IPv6 address and must be within the fd20::/20. Operation will
         /// fail if the speficied /48 is already in used by another resource.
         /// If the field is not speficied, then a /48 range will be randomly allocated from fd20::/20 and returned via this field.
-        pub internal_ipv6_range: pulumi_wasm_rust::Output<String>,
+        pub internal_ipv6_range: pulumi_gestalt_rust::Output<String>,
         /// Maximum Transmission Unit in bytes. The default value is 1460 bytes.
         /// The minimum value for this field is 1300 and the maximum value is 8896 bytes (jumbo frames).
         /// Note that packets larger than 1500 bytes (standard Ethernet) can be subject to TCP-MSS clamping or dropped
         /// with an ICMP `Fragmentation-Needed` message if the packets are routed to the Internet or other VPCs
         /// with varying MTUs.
-        pub mtu: pulumi_wasm_rust::Output<i32>,
+        pub mtu: pulumi_gestalt_rust::Output<i32>,
         /// Name of the resource. Provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -288,11 +288,11 @@ pub mod network {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Set the order that Firewall Rules and Firewall Policies are evaluated.
         /// Default value is `AFTER_CLASSIC_FIREWALL`.
         /// Possible values are: `BEFORE_CLASSIC_FIREWALL`, `AFTER_CLASSIC_FIREWALL`.
-        pub network_firewall_policy_enforcement_order: pulumi_wasm_rust::Output<
+        pub network_firewall_policy_enforcement_order: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// A full or partial URL of the network profile to apply to this network.
@@ -300,32 +300,32 @@ pub mod network {
         /// following are valid URLs:
         /// * https://www.googleapis.com/compute/beta/projects/{projectId}/global/networkProfiles/{network_profile_name}
         /// * projects/{projectId}/global/networkProfiles/{network_profile_name}
-        pub network_profile: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_profile: pulumi_gestalt_rust::Output<Option<String>>,
         /// The unique identifier for the resource. This identifier is defined by the server.
-        pub numeric_id: pulumi_wasm_rust::Output<String>,
+        pub numeric_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The network-wide routing mode to use. If set to `REGIONAL`, this
         /// network's cloud routers will only advertise routes with subnetworks
         /// of this network in the same region as the router. If set to `GLOBAL`,
         /// this network's cloud routers will advertise routes with all
         /// subnetworks of this network, across regions.
         /// Possible values are: `REGIONAL`, `GLOBAL`.
-        pub routing_mode: pulumi_wasm_rust::Output<String>,
+        pub routing_mode: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkArgs,
     ) -> NetworkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_create_subnetworks_binding = args
             .auto_create_subnetworks
@@ -433,51 +433,51 @@ pub mod network {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkResult {
-            auto_create_subnetworks: pulumi_wasm_rust::__private::into_domain(
+            auto_create_subnetworks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoCreateSubnetworks"),
             ),
-            bgp_always_compare_med: pulumi_wasm_rust::__private::into_domain(
+            bgp_always_compare_med: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bgpAlwaysCompareMed"),
             ),
-            bgp_best_path_selection_mode: pulumi_wasm_rust::__private::into_domain(
+            bgp_best_path_selection_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bgpBestPathSelectionMode"),
             ),
-            bgp_inter_region_cost: pulumi_wasm_rust::__private::into_domain(
+            bgp_inter_region_cost: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bgpInterRegionCost"),
             ),
-            delete_default_routes_on_create: pulumi_wasm_rust::__private::into_domain(
+            delete_default_routes_on_create: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteDefaultRoutesOnCreate"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            enable_ula_internal_ipv6: pulumi_wasm_rust::__private::into_domain(
+            enable_ula_internal_ipv6: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableUlaInternalIpv6"),
             ),
-            gateway_ipv4: pulumi_wasm_rust::__private::into_domain(
+            gateway_ipv4: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayIpv4"),
             ),
-            internal_ipv6_range: pulumi_wasm_rust::__private::into_domain(
+            internal_ipv6_range: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("internalIpv6Range"),
             ),
-            mtu: pulumi_wasm_rust::__private::into_domain(o.extract_field("mtu")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_firewall_policy_enforcement_order: pulumi_wasm_rust::__private::into_domain(
+            mtu: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mtu")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_firewall_policy_enforcement_order: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkFirewallPolicyEnforcementOrder"),
             ),
-            network_profile: pulumi_wasm_rust::__private::into_domain(
+            network_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkProfile"),
             ),
-            numeric_id: pulumi_wasm_rust::__private::into_domain(
+            numeric_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("numericId"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            routing_mode: pulumi_wasm_rust::__private::into_domain(
+            routing_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routingMode"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
         }

@@ -22,8 +22,8 @@
 /// ### With Existing Active Directory
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = instance::create(
@@ -43,8 +43,8 @@
 /// ### With SAML
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = instance::create(
@@ -67,88 +67,88 @@
 /// $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
 /// ```
 pub mod instance {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceArgs {
         /// Specifies whether auto resolve best voices is enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub auto_resolve_best_voices_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub auto_resolve_best_voices_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Specifies whether contact flow logs are enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub contact_flow_logs_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub contact_flow_logs_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether contact lens is enabled. Defaults to `true`.
         #[builder(into, default)]
-        pub contact_lens_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub contact_lens_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
         #[builder(into, default)]
-        pub directory_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub directory_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
         #[builder(into, default)]
-        pub early_media_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub early_media_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
         #[builder(into)]
-        pub identity_management_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub identity_management_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies whether inbound calls are enabled.
         #[builder(into)]
-        pub inbound_calls_enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub inbound_calls_enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// Specifies the name of the instance. Required if `directory_id` not specified.
         #[builder(into, default)]
-        pub instance_alias: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub instance_alias: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub multi_party_conference_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub multi_party_conference_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Specifies whether outbound calls are enabled.
         #[builder(into)]
-        pub outbound_calls_enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub outbound_calls_enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct InstanceResult {
         /// Amazon Resource Name (ARN) of the instance.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether auto resolve best voices is enabled. Defaults to `true`.
-        pub auto_resolve_best_voices_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_resolve_best_voices_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies whether contact flow logs are enabled. Defaults to `false`.
-        pub contact_flow_logs_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub contact_flow_logs_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies whether contact lens is enabled. Defaults to `true`.
-        pub contact_lens_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub contact_lens_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// When the instance was created.
-        pub created_time: pulumi_wasm_rust::Output<String>,
+        pub created_time: pulumi_gestalt_rust::Output<String>,
         /// The identifier for the directory if identity_management_type is `EXISTING_DIRECTORY`.
-        pub directory_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub directory_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
-        pub early_media_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub early_media_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the identity management type attached to the instance. Allowed Values are: `SAML`, `CONNECT_MANAGED`, `EXISTING_DIRECTORY`.
-        pub identity_management_type: pulumi_wasm_rust::Output<String>,
+        pub identity_management_type: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether inbound calls are enabled.
-        pub inbound_calls_enabled: pulumi_wasm_rust::Output<bool>,
+        pub inbound_calls_enabled: pulumi_gestalt_rust::Output<bool>,
         /// Specifies the name of the instance. Required if `directory_id` not specified.
-        pub instance_alias: pulumi_wasm_rust::Output<Option<String>>,
+        pub instance_alias: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
-        pub multi_party_conference_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub multi_party_conference_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies whether outbound calls are enabled.
-        pub outbound_calls_enabled: pulumi_wasm_rust::Output<bool>,
+        pub outbound_calls_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The service role of the instance.
-        pub service_role: pulumi_wasm_rust::Output<String>,
+        pub service_role: pulumi_gestalt_rust::Output<String>,
         /// The state of the instance.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -157,11 +157,11 @@ pub mod instance {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceArgs,
     ) -> InstanceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_resolve_best_voices_enabled_binding = args
             .auto_resolve_best_voices_enabled
@@ -251,46 +251,48 @@ pub mod instance {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auto_resolve_best_voices_enabled: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auto_resolve_best_voices_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoResolveBestVoicesEnabled"),
             ),
-            contact_flow_logs_enabled: pulumi_wasm_rust::__private::into_domain(
+            contact_flow_logs_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contactFlowLogsEnabled"),
             ),
-            contact_lens_enabled: pulumi_wasm_rust::__private::into_domain(
+            contact_lens_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contactLensEnabled"),
             ),
-            created_time: pulumi_wasm_rust::__private::into_domain(
+            created_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdTime"),
             ),
-            directory_id: pulumi_wasm_rust::__private::into_domain(
+            directory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("directoryId"),
             ),
-            early_media_enabled: pulumi_wasm_rust::__private::into_domain(
+            early_media_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("earlyMediaEnabled"),
             ),
-            identity_management_type: pulumi_wasm_rust::__private::into_domain(
+            identity_management_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identityManagementType"),
             ),
-            inbound_calls_enabled: pulumi_wasm_rust::__private::into_domain(
+            inbound_calls_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inboundCallsEnabled"),
             ),
-            instance_alias: pulumi_wasm_rust::__private::into_domain(
+            instance_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceAlias"),
             ),
-            multi_party_conference_enabled: pulumi_wasm_rust::__private::into_domain(
+            multi_party_conference_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("multiPartyConferenceEnabled"),
             ),
-            outbound_calls_enabled: pulumi_wasm_rust::__private::into_domain(
+            outbound_calls_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outboundCallsEnabled"),
             ),
-            service_role: pulumi_wasm_rust::__private::into_domain(
+            service_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceRole"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

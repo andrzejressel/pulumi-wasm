@@ -41,39 +41,39 @@
 /// $ pulumi import aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
 /// ```
 pub mod permission_set_inline_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PermissionSetInlinePolicyArgs {
         /// The IAM inline policy to attach to a Permission Set.
         #[builder(into)]
-        pub inline_policy: pulumi_wasm_rust::InputOrOutput<String>,
+        pub inline_policy: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         #[builder(into)]
-        pub instance_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Amazon Resource Name (ARN) of the Permission Set.
         #[builder(into)]
-        pub permission_set_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub permission_set_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PermissionSetInlinePolicyResult {
         /// The IAM inline policy to attach to a Permission Set.
-        pub inline_policy: pulumi_wasm_rust::Output<String>,
+        pub inline_policy: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
-        pub instance_arn: pulumi_wasm_rust::Output<String>,
+        pub instance_arn: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the Permission Set.
-        pub permission_set_arn: pulumi_wasm_rust::Output<String>,
+        pub permission_set_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PermissionSetInlinePolicyArgs,
     ) -> PermissionSetInlinePolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let inline_policy_binding = args.inline_policy.get_output(context).get_inner();
         let instance_arn_binding = args.instance_arn.get_output(context).get_inner();
@@ -103,13 +103,13 @@ pub mod permission_set_inline_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PermissionSetInlinePolicyResult {
-            inline_policy: pulumi_wasm_rust::__private::into_domain(
+            inline_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inlinePolicy"),
             ),
-            instance_arn: pulumi_wasm_rust::__private::into_domain(
+            instance_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceArn"),
             ),
-            permission_set_arn: pulumi_wasm_rust::__private::into_domain(
+            permission_set_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissionSetArn"),
             ),
         }

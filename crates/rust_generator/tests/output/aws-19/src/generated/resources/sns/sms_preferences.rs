@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let updateSmsPrefs = sms_preferences::create(
@@ -19,60 +19,60 @@
 /// You cannot import the SMS preferences.
 ///
 pub mod sms_preferences {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SmsPreferencesArgs {
         /// A string, such as your business brand, that is displayed as the sender on the receiving device.
         #[builder(into, default)]
-        pub default_sender_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_sender_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
         #[builder(into, default)]
-        pub default_sms_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_sms_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
         #[builder(into, default)]
-        pub delivery_status_iam_role_arn: pulumi_wasm_rust::InputOrOutput<
+        pub delivery_status_iam_role_arn: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
         #[builder(into, default)]
-        pub delivery_status_success_sampling_rate: pulumi_wasm_rust::InputOrOutput<
+        pub delivery_status_success_sampling_rate: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The maximum amount in USD that you are willing to spend each month to send SMS messages.
         #[builder(into, default)]
-        pub monthly_spend_limit: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub monthly_spend_limit: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         #[builder(into, default)]
-        pub usage_report_s3_bucket: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub usage_report_s3_bucket: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SmsPreferencesResult {
         /// A string, such as your business brand, that is displayed as the sender on the receiving device.
-        pub default_sender_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_sender_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The type of SMS message that you will send by default. Possible values are: Promotional, Transactional
-        pub default_sms_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub default_sms_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
-        pub delivery_status_iam_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub delivery_status_iam_role_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
-        pub delivery_status_success_sampling_rate: pulumi_wasm_rust::Output<
+        pub delivery_status_success_sampling_rate: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// The maximum amount in USD that you are willing to spend each month to send SMS messages.
-        pub monthly_spend_limit: pulumi_wasm_rust::Output<i32>,
+        pub monthly_spend_limit: pulumi_gestalt_rust::Output<i32>,
         /// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
-        pub usage_report_s3_bucket: pulumi_wasm_rust::Output<Option<String>>,
+        pub usage_report_s3_bucket: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SmsPreferencesArgs,
     ) -> SmsPreferencesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let default_sender_id_binding = args
             .default_sender_id
@@ -131,22 +131,22 @@ pub mod sms_preferences {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SmsPreferencesResult {
-            default_sender_id: pulumi_wasm_rust::__private::into_domain(
+            default_sender_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSenderId"),
             ),
-            default_sms_type: pulumi_wasm_rust::__private::into_domain(
+            default_sms_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultSmsType"),
             ),
-            delivery_status_iam_role_arn: pulumi_wasm_rust::__private::into_domain(
+            delivery_status_iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deliveryStatusIamRoleArn"),
             ),
-            delivery_status_success_sampling_rate: pulumi_wasm_rust::__private::into_domain(
+            delivery_status_success_sampling_rate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deliveryStatusSuccessSamplingRate"),
             ),
-            monthly_spend_limit: pulumi_wasm_rust::__private::into_domain(
+            monthly_spend_limit: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monthlySpendLimit"),
             ),
-            usage_report_s3_bucket: pulumi_wasm_rust::__private::into_domain(
+            usage_report_s3_bucket: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("usageReportS3Bucket"),
             ),
         }

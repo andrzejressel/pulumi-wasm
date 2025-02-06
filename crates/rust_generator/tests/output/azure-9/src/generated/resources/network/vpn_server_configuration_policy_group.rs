@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -60,53 +60,53 @@
 /// ```
 ///
 pub mod vpn_server_configuration_policy_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpnServerConfigurationPolicyGroupArgs {
         /// Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub is_default: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_default: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `policy` blocks as documented below.
         #[builder(into)]
-        pub policies: pulumi_wasm_rust::InputOrOutput<
+        pub policies: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::network::VpnServerConfigurationPolicyGroupPolicy>,
         >,
         /// The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The ID of the VPN Server Configuration that the VPN Server Configuration Policy Group belongs to. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub vpn_server_configuration_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vpn_server_configuration_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpnServerConfigurationPolicyGroupResult {
         /// Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
-        pub is_default: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_default: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `policy` blocks as documented below.
-        pub policies: pulumi_wasm_rust::Output<
+        pub policies: pulumi_gestalt_rust::Output<
             Vec<super::super::types::network::VpnServerConfigurationPolicyGroupPolicy>,
         >,
         /// The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
-        pub priority: pulumi_wasm_rust::Output<Option<i32>>,
+        pub priority: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The ID of the VPN Server Configuration that the VPN Server Configuration Policy Group belongs to. Changing this forces a new resource to be created.
-        pub vpn_server_configuration_id: pulumi_wasm_rust::Output<String>,
+        pub vpn_server_configuration_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpnServerConfigurationPolicyGroupArgs,
     ) -> VpnServerConfigurationPolicyGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let is_default_binding = args.is_default.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -146,17 +146,17 @@ pub mod vpn_server_configuration_policy_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpnServerConfigurationPolicyGroupResult {
-            is_default: pulumi_wasm_rust::__private::into_domain(
+            is_default: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isDefault"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            policies: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policies"),
             ),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            vpn_server_configuration_id: pulumi_wasm_rust::__private::into_domain(
+            vpn_server_configuration_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpnServerConfigurationId"),
             ),
         }

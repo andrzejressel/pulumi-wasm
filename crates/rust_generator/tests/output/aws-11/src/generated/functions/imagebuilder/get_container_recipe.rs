@@ -1,74 +1,74 @@
 pub mod get_container_recipe {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetContainerRecipeArgs {
         /// ARN of the container recipe.
         #[builder(into)]
-        pub arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags for the container recipe.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetContainerRecipeResult {
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// List of objects with components for the container recipe.
-        pub components: pulumi_wasm_rust::Output<
+        pub components: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::imagebuilder::GetContainerRecipeComponent>,
         >,
         /// Type of the container.
-        pub container_type: pulumi_wasm_rust::Output<String>,
+        pub container_type: pulumi_gestalt_rust::Output<String>,
         /// Date the container recipe was created.
-        pub date_created: pulumi_wasm_rust::Output<String>,
+        pub date_created: pulumi_gestalt_rust::Output<String>,
         /// Description of the container recipe.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Dockerfile template used to build the image.
-        pub dockerfile_template_data: pulumi_wasm_rust::Output<String>,
+        pub dockerfile_template_data: pulumi_gestalt_rust::Output<String>,
         /// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-        pub encrypted: pulumi_wasm_rust::Output<bool>,
+        pub encrypted: pulumi_gestalt_rust::Output<bool>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// List of objects with instance configurations for building and testing container images.
-        pub instance_configurations: pulumi_wasm_rust::Output<
+        pub instance_configurations: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::imagebuilder::GetContainerRecipeInstanceConfiguration,
             >,
         >,
         /// KMS key used to encrypt the container image.
-        pub kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the container recipe.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Owner of the container recipe.
-        pub owner: pulumi_wasm_rust::Output<String>,
+        pub owner: pulumi_gestalt_rust::Output<String>,
         /// Base image for the container recipe.
-        pub parent_image: pulumi_wasm_rust::Output<String>,
+        pub parent_image: pulumi_gestalt_rust::Output<String>,
         /// Platform of the container recipe.
-        pub platform: pulumi_wasm_rust::Output<String>,
+        pub platform: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags for the container recipe.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
         /// Destination repository for the container image.
-        pub target_repositories: pulumi_wasm_rust::Output<
+        pub target_repositories: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::imagebuilder::GetContainerRecipeTargetRepository,
             >,
         >,
         /// Version of the container recipe.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
         /// Working directory used during build and test workflows.
-        pub working_directory: pulumi_wasm_rust::Output<String>,
+        pub working_directory: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetContainerRecipeArgs,
     ) -> GetContainerRecipeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let arn_binding = args.arn.get_output(context).get_inner();
         let tags_binding = args.tags.get_output(context).get_inner();
@@ -88,48 +88,48 @@ pub mod get_container_recipe {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetContainerRecipeResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            components: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            components: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("components"),
             ),
-            container_type: pulumi_wasm_rust::__private::into_domain(
+            container_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerType"),
             ),
-            date_created: pulumi_wasm_rust::__private::into_domain(
+            date_created: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dateCreated"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            dockerfile_template_data: pulumi_wasm_rust::__private::into_domain(
+            dockerfile_template_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dockerfileTemplateData"),
             ),
-            encrypted: pulumi_wasm_rust::__private::into_domain(
+            encrypted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encrypted"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            instance_configurations: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            instance_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceConfigurations"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner: pulumi_wasm_rust::__private::into_domain(o.extract_field("owner")),
-            parent_image: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner: pulumi_gestalt_rust::__private::into_domain(o.extract_field("owner")),
+            parent_image: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parentImage"),
             ),
-            platform: pulumi_wasm_rust::__private::into_domain(
+            platform: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platform"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            target_repositories: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            target_repositories: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetRepositories"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
+            version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("version"),
             ),
-            working_directory: pulumi_wasm_rust::__private::into_domain(
+            working_directory: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workingDirectory"),
             ),
         }

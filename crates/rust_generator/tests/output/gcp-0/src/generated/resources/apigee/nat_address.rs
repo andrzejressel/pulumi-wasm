@@ -204,51 +204,51 @@
 /// ```
 ///
 pub mod nat_address {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NatAddressArgs {
         /// Flag that specifies whether the reserved NAT address should be activate.
         #[builder(into, default)]
-        pub activate: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub activate: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The Apigee instance associated with the Apigee environment,
         /// in the format `organizations/{{org_name}}/instances/{{instance_name}}`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub instance_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Resource ID of the NAT address.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NatAddressResult {
         /// Flag that specifies whether the reserved NAT address should be activate.
-        pub activate: pulumi_wasm_rust::Output<Option<bool>>,
+        pub activate: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The Apigee instance associated with the Apigee environment,
         /// in the format `organizations/{{org_name}}/instances/{{instance_name}}`.
         ///
         ///
         /// - - -
-        pub instance_id: pulumi_wasm_rust::Output<String>,
+        pub instance_id: pulumi_gestalt_rust::Output<String>,
         /// The allocated NAT IP address.
-        pub ip_address: pulumi_wasm_rust::Output<String>,
+        pub ip_address: pulumi_gestalt_rust::Output<String>,
         /// Resource ID of the NAT address.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// State of the NAT IP address.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NatAddressArgs,
     ) -> NatAddressResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let activate_binding = args.activate.get_output(context).get_inner();
         let instance_id_binding = args.instance_id.get_output(context).get_inner();
@@ -274,17 +274,17 @@ pub mod nat_address {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NatAddressResult {
-            activate: pulumi_wasm_rust::__private::into_domain(
+            activate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activate"),
             ),
-            instance_id: pulumi_wasm_rust::__private::into_domain(
+            instance_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceId"),
             ),
-            ip_address: pulumi_wasm_rust::__private::into_domain(
+            ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddress"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

@@ -90,13 +90,13 @@
 /// ```
 ///
 pub mod linux_virtual_machine {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LinuxVirtualMachineArgs {
         /// A `additional_capabilities` block as defined below.
         #[builder(into, default)]
-        pub additional_capabilities: pulumi_wasm_rust::InputOrOutput<
+        pub additional_capabilities: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::compute::LinuxVirtualMachineAdditionalCapabilities,
             >,
@@ -106,198 +106,198 @@ pub mod linux_virtual_machine {
         /// > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         /// > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         #[builder(into, default)]
-        pub admin_password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub admin_password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         #[builder(into, default)]
-        pub admin_ssh_keys: pulumi_wasm_rust::InputOrOutput<
+        pub admin_ssh_keys: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::LinuxVirtualMachineAdminSshKey>>,
         >,
         /// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub admin_username: pulumi_wasm_rust::InputOrOutput<String>,
+        pub admin_username: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
         #[builder(into, default)]
-        pub allow_extension_operations: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_extension_operations: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub availability_set_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub availability_set_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `boot_diagnostics` block as defined below.
         #[builder(into, default)]
-        pub boot_diagnostics: pulumi_wasm_rust::InputOrOutput<
+        pub boot_diagnostics: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::LinuxVirtualMachineBootDiagnostics>,
         >,
         /// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
         ///
         /// > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
         #[builder(into, default)]
-        pub bypass_platform_safety_checks_on_user_schedule_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub bypass_platform_safety_checks_on_user_schedule_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
         ///
         /// > **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
         #[builder(into, default)]
-        pub capacity_reservation_group_id: pulumi_wasm_rust::InputOrOutput<
+        pub capacity_reservation_group_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub computer_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub computer_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub custom_data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub custom_data: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
         #[builder(into, default)]
-        pub dedicated_host_group_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub dedicated_host_group_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
         #[builder(into, default)]
-        pub dedicated_host_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub dedicated_host_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         ///
         /// > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
         ///
         /// > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         #[builder(into, default)]
-        pub disable_password_authentication: pulumi_wasm_rust::InputOrOutput<
+        pub disable_password_authentication: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
         #[builder(into, default)]
-        pub disk_controller_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub disk_controller_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
         #[builder(into, default)]
-        pub edge_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub edge_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         #[builder(into, default)]
-        pub encryption_at_host_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub encryption_at_host_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         #[builder(into, default)]
-        pub eviction_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub eviction_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
         #[builder(into, default)]
-        pub extensions_time_budget: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub extensions_time_budget: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `gallery_application` blocks as defined below.
         ///
         /// > **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
         #[builder(into, default)]
-        pub gallery_applications: pulumi_wasm_rust::InputOrOutput<
+        pub gallery_applications: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::compute::LinuxVirtualMachineGalleryApplication>,
             >,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::LinuxVirtualMachineIdentity>,
         >,
         /// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`, `UBUNTU_PRO`.
         #[builder(into, default)]
-        pub license_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub license_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
         ///
         /// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
         #[builder(into, default)]
-        pub max_bid_price: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub max_bid_price: pulumi_gestalt_rust::InputOrOutput<Option<f64>>,
         /// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         #[builder(into)]
-        pub network_interface_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub network_interface_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// A `os_disk` block as defined below.
         #[builder(into)]
-        pub os_disk: pulumi_wasm_rust::InputOrOutput<
+        pub os_disk: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::compute::LinuxVirtualMachineOsDisk,
         >,
         /// A `os_image_notification` block as defined below.
         #[builder(into, default)]
-        pub os_image_notification: pulumi_wasm_rust::InputOrOutput<
+        pub os_image_notification: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::LinuxVirtualMachineOsImageNotification>,
         >,
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         ///
         /// > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         #[builder(into, default)]
-        pub patch_assessment_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub patch_assessment_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         ///
         /// > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
         #[builder(into, default)]
-        pub patch_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub patch_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `plan` block as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub plan: pulumi_wasm_rust::InputOrOutput<
+        pub plan: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::LinuxVirtualMachinePlan>,
         >,
         /// Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
         #[builder(into, default)]
-        pub platform_fault_domain: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub platform_fault_domain: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
         #[builder(into, default)]
-        pub provision_vm_agent: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub provision_vm_agent: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
         #[builder(into, default)]
-        pub proximity_placement_group_id: pulumi_wasm_rust::InputOrOutput<
+        pub proximity_placement_group_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
         ///
         /// > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
         #[builder(into, default)]
-        pub reboot_setting: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub reboot_setting: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more `secret` blocks as defined below.
         #[builder(into, default)]
-        pub secrets: pulumi_wasm_rust::InputOrOutput<
+        pub secrets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::LinuxVirtualMachineSecret>>,
         >,
         /// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub secure_boot_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub secure_boot_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
         #[builder(into)]
-        pub size: pulumi_wasm_rust::InputOrOutput<String>,
+        pub size: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         ///
         /// > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
         #[builder(into, default)]
-        pub source_image_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_image_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
         #[builder(into, default)]
-        pub source_image_reference: pulumi_wasm_rust::InputOrOutput<
+        pub source_image_reference: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::LinuxVirtualMachineSourceImageReference>,
         >,
         /// A mapping of tags which should be assigned to this Virtual Machine.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `termination_notification` block as defined below.
         #[builder(into, default)]
-        pub termination_notification: pulumi_wasm_rust::InputOrOutput<
+        pub termination_notification: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::compute::LinuxVirtualMachineTerminationNotification,
             >,
         >,
         /// The Base64-Encoded User Data which should be used for this Virtual Machine.
         #[builder(into, default)]
-        pub user_data: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_data: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
         ///
         /// > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
@@ -306,25 +306,25 @@ pub mod linux_virtual_machine {
         ///
         /// > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
         #[builder(into, default)]
-        pub virtual_machine_scale_set_id: pulumi_wasm_rust::InputOrOutput<
+        pub virtual_machine_scale_set_id: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub vm_agent_platform_updates_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub vm_agent_platform_updates_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub vtpm_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub vtpm_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LinuxVirtualMachineResult {
         /// A `additional_capabilities` block as defined below.
-        pub additional_capabilities: pulumi_wasm_rust::Output<
+        pub additional_capabilities: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::compute::LinuxVirtualMachineAdditionalCapabilities,
             >,
@@ -333,157 +333,157 @@ pub mod linux_virtual_machine {
         ///
         /// > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
         /// > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
-        pub admin_password: pulumi_wasm_rust::Output<Option<String>>,
+        pub admin_password: pulumi_gestalt_rust::Output<Option<String>>,
         /// One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
-        pub admin_ssh_keys: pulumi_wasm_rust::Output<
+        pub admin_ssh_keys: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::LinuxVirtualMachineAdminSshKey>>,
         >,
         /// The username of the local administrator used for the Virtual Machine. Changing this forces a new resource to be created.
-        pub admin_username: pulumi_wasm_rust::Output<String>,
+        pub admin_username: pulumi_gestalt_rust::Output<String>,
         /// Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`.
-        pub allow_extension_operations: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_extension_operations: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-        pub availability_set_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub availability_set_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `boot_diagnostics` block as defined below.
-        pub boot_diagnostics: pulumi_wasm_rust::Output<
+        pub boot_diagnostics: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::LinuxVirtualMachineBootDiagnostics>,
         >,
         /// Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`.
         ///
         /// > **NOTE:** `bypass_platform_safety_checks_on_user_schedule_enabled` can only be set to `true` when `patch_mode` is set to `AutomaticByPlatform`.
-        pub bypass_platform_safety_checks_on_user_schedule_enabled: pulumi_wasm_rust::Output<
+        pub bypass_platform_safety_checks_on_user_schedule_enabled: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to.
         ///
         /// > **NOTE:** `capacity_reservation_group_id` cannot be used with `availability_set_id` or `proximity_placement_group_id`
-        pub capacity_reservation_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub capacity_reservation_group_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created.
-        pub computer_name: pulumi_wasm_rust::Output<String>,
+        pub computer_name: pulumi_gestalt_rust::Output<String>,
         /// The Base64-Encoded Custom Data which should be used for this Virtual Machine. Changing this forces a new resource to be created.
-        pub custom_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub custom_data: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of a Dedicated Host Group that this Linux Virtual Machine should be run within. Conflicts with `dedicated_host_id`.
-        pub dedicated_host_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub dedicated_host_group_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of a Dedicated Host where this machine should be run on. Conflicts with `dedicated_host_group_id`.
-        pub dedicated_host_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub dedicated_host_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Should Password Authentication be disabled on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         ///
         /// > In general we'd recommend using SSH Keys for authentication rather than Passwords - but there's tradeoff's to each - please [see this thread for more information](https://security.stackexchange.com/questions/69407/why-is-using-an-ssh-key-more-secure-than-using-passwords).
         ///
         /// > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-        pub disable_password_authentication: pulumi_wasm_rust::Output<Option<bool>>,
+        pub disable_password_authentication: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the Disk Controller Type used for this Virtual Machine. Possible values are `SCSI` and `NVMe`.
-        pub disk_controller_type: pulumi_wasm_rust::Output<String>,
+        pub disk_controller_type: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Edge Zone within the Azure Region where this Linux Virtual Machine should exist. Changing this forces a new Linux Virtual Machine to be created.
-        pub edge_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub edge_zone: pulumi_gestalt_rust::Output<Option<String>>,
         /// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
-        pub encryption_at_host_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub encryption_at_host_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
-        pub eviction_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub eviction_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
-        pub extensions_time_budget: pulumi_wasm_rust::Output<Option<String>>,
+        pub extensions_time_budget: pulumi_gestalt_rust::Output<Option<String>>,
         /// One or more `gallery_application` blocks as defined below.
         ///
         /// > **Note** Gallery Application Assignments can be defined either directly on `azure.compute.LinuxVirtualMachine` resource, or using the `azure.compute.GalleryApplicationAssignment` resource - but the two approaches cannot be used together. If both are used with the same Virtual Machine, spurious changes will occur. If `azure.compute.GalleryApplicationAssignment` is used, it's recommended to use `ignore_changes` for the `gallery_application` block on the corresponding `azure.compute.LinuxVirtualMachine` resource, to avoid a persistent diff when using this resource.
-        pub gallery_applications: pulumi_wasm_rust::Output<
+        pub gallery_applications: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::compute::LinuxVirtualMachineGalleryApplication>,
             >,
         >,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::LinuxVirtualMachineIdentity>,
         >,
         /// Specifies the License Type for this Virtual Machine. Possible values are `RHEL_BYOS`, `RHEL_BASE`, `RHEL_EUS`, `RHEL_SAPAPPS`, `RHEL_SAPHA`, `RHEL_BASESAPAPPS`, `RHEL_BASESAPHA`, `SLES_BYOS`, `SLES_SAP`, `SLES_HPC`, `UBUNTU_PRO`.
-        pub license_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub license_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Azure location where the Linux Virtual Machine should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
         ///
         /// > **NOTE:** This can only be configured when `priority` is set to `Spot`.
-        pub max_bid_price: pulumi_wasm_rust::Output<Option<f64>>,
+        pub max_bid_price: pulumi_gestalt_rust::Output<Option<f64>>,
         /// The name of the Linux Virtual Machine. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
-        pub network_interface_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub network_interface_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A `os_disk` block as defined below.
-        pub os_disk: pulumi_wasm_rust::Output<
+        pub os_disk: pulumi_gestalt_rust::Output<
             super::super::types::compute::LinuxVirtualMachineOsDisk,
         >,
         /// A `os_image_notification` block as defined below.
-        pub os_image_notification: pulumi_wasm_rust::Output<
+        pub os_image_notification: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::LinuxVirtualMachineOsImageNotification>,
         >,
         /// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         ///
         /// > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
-        pub patch_assessment_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub patch_assessment_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         ///
         /// > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` then `provision_vm_agent` must also be set to `true`.
-        pub patch_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub patch_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `plan` block as defined below. Changing this forces a new resource to be created.
-        pub plan: pulumi_wasm_rust::Output<
+        pub plan: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::LinuxVirtualMachinePlan>,
         >,
         /// Specifies the Platform Fault Domain in which this Linux Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Linux Virtual Machine to be created.
-        pub platform_fault_domain: pulumi_wasm_rust::Output<Option<i32>>,
+        pub platform_fault_domain: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
-        pub priority: pulumi_wasm_rust::Output<Option<String>>,
+        pub priority: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Primary Private IP Address assigned to this Virtual Machine.
-        pub private_ip_address: pulumi_wasm_rust::Output<String>,
+        pub private_ip_address: pulumi_gestalt_rust::Output<String>,
         /// A list of Private IP Addresses assigned to this Virtual Machine.
-        pub private_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub private_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** If `provision_vm_agent` is set to `false` then `allow_extension_operations` must also be set to `false`.
-        pub provision_vm_agent: pulumi_wasm_rust::Output<Option<bool>>,
+        pub provision_vm_agent: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to.
-        pub proximity_placement_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub proximity_placement_group_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Primary Public IP Address assigned to this Virtual Machine.
-        pub public_ip_address: pulumi_wasm_rust::Output<String>,
+        pub public_ip_address: pulumi_gestalt_rust::Output<String>,
         /// A list of the Public IP Addresses assigned to this Virtual Machine.
-        pub public_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub public_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`.
         ///
         /// > **NOTE:** `reboot_setting` can only be set when `patch_mode` is set to `AutomaticByPlatform`.
-        pub reboot_setting: pulumi_wasm_rust::Output<Option<String>>,
+        pub reboot_setting: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Resource Group in which the Linux Virtual Machine should be exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// One or more `secret` blocks as defined below.
-        pub secrets: pulumi_wasm_rust::Output<
+        pub secrets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::LinuxVirtualMachineSecret>>,
         >,
         /// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
-        pub secure_boot_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub secure_boot_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
-        pub size: pulumi_wasm_rust::Output<String>,
+        pub size: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         ///
         /// > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
-        pub source_image_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_image_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `source_image_reference` block as defined below. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
-        pub source_image_reference: pulumi_wasm_rust::Output<
+        pub source_image_reference: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::LinuxVirtualMachineSourceImageReference>,
         >,
         /// A mapping of tags which should be assigned to this Virtual Machine.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `termination_notification` block as defined below.
-        pub termination_notification: pulumi_wasm_rust::Output<
+        pub termination_notification: pulumi_gestalt_rust::Output<
             super::super::types::compute::LinuxVirtualMachineTerminationNotification,
         >,
         /// The Base64-Encoded User Data which should be used for this Virtual Machine.
-        pub user_data: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_data: pulumi_gestalt_rust::Output<Option<String>>,
         /// A 128-bit identifier which uniquely identifies this Virtual Machine.
-        pub virtual_machine_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_machine_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within.
         ///
         /// > **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
@@ -491,24 +491,24 @@ pub mod linux_virtual_machine {
         /// > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azure.compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
         ///
         /// > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
-        pub virtual_machine_scale_set_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub virtual_machine_scale_set_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-        pub vm_agent_platform_updates_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub vm_agent_platform_updates_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
-        pub vtpm_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub vtpm_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LinuxVirtualMachineArgs,
     ) -> LinuxVirtualMachineResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let additional_capabilities_binding = args
             .additional_capabilities
@@ -845,156 +845,158 @@ pub mod linux_virtual_machine {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LinuxVirtualMachineResult {
-            additional_capabilities: pulumi_wasm_rust::__private::into_domain(
+            additional_capabilities: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalCapabilities"),
             ),
-            admin_password: pulumi_wasm_rust::__private::into_domain(
+            admin_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminPassword"),
             ),
-            admin_ssh_keys: pulumi_wasm_rust::__private::into_domain(
+            admin_ssh_keys: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminSshKeys"),
             ),
-            admin_username: pulumi_wasm_rust::__private::into_domain(
+            admin_username: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminUsername"),
             ),
-            allow_extension_operations: pulumi_wasm_rust::__private::into_domain(
+            allow_extension_operations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowExtensionOperations"),
             ),
-            availability_set_id: pulumi_wasm_rust::__private::into_domain(
+            availability_set_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilitySetId"),
             ),
-            boot_diagnostics: pulumi_wasm_rust::__private::into_domain(
+            boot_diagnostics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bootDiagnostics"),
             ),
-            bypass_platform_safety_checks_on_user_schedule_enabled: pulumi_wasm_rust::__private::into_domain(
+            bypass_platform_safety_checks_on_user_schedule_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bypassPlatformSafetyChecksOnUserScheduleEnabled"),
             ),
-            capacity_reservation_group_id: pulumi_wasm_rust::__private::into_domain(
+            capacity_reservation_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capacityReservationGroupId"),
             ),
-            computer_name: pulumi_wasm_rust::__private::into_domain(
+            computer_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("computerName"),
             ),
-            custom_data: pulumi_wasm_rust::__private::into_domain(
+            custom_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customData"),
             ),
-            dedicated_host_group_id: pulumi_wasm_rust::__private::into_domain(
+            dedicated_host_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dedicatedHostGroupId"),
             ),
-            dedicated_host_id: pulumi_wasm_rust::__private::into_domain(
+            dedicated_host_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dedicatedHostId"),
             ),
-            disable_password_authentication: pulumi_wasm_rust::__private::into_domain(
+            disable_password_authentication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("disablePasswordAuthentication"),
             ),
-            disk_controller_type: pulumi_wasm_rust::__private::into_domain(
+            disk_controller_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diskControllerType"),
             ),
-            edge_zone: pulumi_wasm_rust::__private::into_domain(
+            edge_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edgeZone"),
             ),
-            encryption_at_host_enabled: pulumi_wasm_rust::__private::into_domain(
+            encryption_at_host_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionAtHostEnabled"),
             ),
-            eviction_policy: pulumi_wasm_rust::__private::into_domain(
+            eviction_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("evictionPolicy"),
             ),
-            extensions_time_budget: pulumi_wasm_rust::__private::into_domain(
+            extensions_time_budget: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("extensionsTimeBudget"),
             ),
-            gallery_applications: pulumi_wasm_rust::__private::into_domain(
+            gallery_applications: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("galleryApplications"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            license_type: pulumi_wasm_rust::__private::into_domain(
+            license_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenseType"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            max_bid_price: pulumi_wasm_rust::__private::into_domain(
+            max_bid_price: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxBidPrice"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_interface_ids: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_interface_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkInterfaceIds"),
             ),
-            os_disk: pulumi_wasm_rust::__private::into_domain(o.extract_field("osDisk")),
-            os_image_notification: pulumi_wasm_rust::__private::into_domain(
+            os_disk: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("osDisk"),
+            ),
+            os_image_notification: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("osImageNotification"),
             ),
-            patch_assessment_mode: pulumi_wasm_rust::__private::into_domain(
+            patch_assessment_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("patchAssessmentMode"),
             ),
-            patch_mode: pulumi_wasm_rust::__private::into_domain(
+            patch_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("patchMode"),
             ),
-            plan: pulumi_wasm_rust::__private::into_domain(o.extract_field("plan")),
-            platform_fault_domain: pulumi_wasm_rust::__private::into_domain(
+            plan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("plan")),
+            platform_fault_domain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platformFaultDomain"),
             ),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            private_ip_address: pulumi_wasm_rust::__private::into_domain(
+            private_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpAddress"),
             ),
-            private_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            private_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIpAddresses"),
             ),
-            provision_vm_agent: pulumi_wasm_rust::__private::into_domain(
+            provision_vm_agent: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("provisionVmAgent"),
             ),
-            proximity_placement_group_id: pulumi_wasm_rust::__private::into_domain(
+            proximity_placement_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("proximityPlacementGroupId"),
             ),
-            public_ip_address: pulumi_wasm_rust::__private::into_domain(
+            public_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicIpAddress"),
             ),
-            public_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            public_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicIpAddresses"),
             ),
-            reboot_setting: pulumi_wasm_rust::__private::into_domain(
+            reboot_setting: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rebootSetting"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            secrets: pulumi_wasm_rust::__private::into_domain(
+            secrets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secrets"),
             ),
-            secure_boot_enabled: pulumi_wasm_rust::__private::into_domain(
+            secure_boot_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secureBootEnabled"),
             ),
-            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
-            source_image_id: pulumi_wasm_rust::__private::into_domain(
+            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
+            source_image_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceImageId"),
             ),
-            source_image_reference: pulumi_wasm_rust::__private::into_domain(
+            source_image_reference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceImageReference"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            termination_notification: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            termination_notification: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("terminationNotification"),
             ),
-            user_data: pulumi_wasm_rust::__private::into_domain(
+            user_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userData"),
             ),
-            virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualMachineId"),
             ),
-            virtual_machine_scale_set_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_machine_scale_set_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualMachineScaleSetId"),
             ),
-            vm_agent_platform_updates_enabled: pulumi_wasm_rust::__private::into_domain(
+            vm_agent_platform_updates_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vmAgentPlatformUpdatesEnabled"),
             ),
-            vtpm_enabled: pulumi_wasm_rust::__private::into_domain(
+            vtpm_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vtpmEnabled"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

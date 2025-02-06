@@ -72,43 +72,43 @@
 /// $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
 /// ```
 pub mod bucket_metric {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketMetricArgs {
         /// Name of the bucket to put metric configuration.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::InputOrOutput<
+        pub filter: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::s3::BucketMetricFilter>,
         >,
         /// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BucketMetricResult {
         /// Name of the bucket to put metric configuration.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-        pub filter: pulumi_wasm_rust::Output<
+        pub filter: pulumi_gestalt_rust::Output<
             Option<super::super::types::s3::BucketMetricFilter>,
         >,
         /// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BucketMetricArgs,
     ) -> BucketMetricResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let bucket_binding = args.bucket.get_output(context).get_inner();
         let filter_binding = args.filter.get_output(context).get_inner();
@@ -134,9 +134,13 @@ pub mod bucket_metric {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BucketMetricResult {
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            filter: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("filter"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

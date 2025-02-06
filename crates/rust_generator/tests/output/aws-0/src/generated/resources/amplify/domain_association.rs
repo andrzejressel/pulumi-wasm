@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = app::create(
@@ -52,66 +52,66 @@
 /// $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
 /// ```
 pub mod domain_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainAssociationArgs {
         /// Unique ID for an Amplify app.
         #[builder(into)]
-        pub app_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         #[builder(into, default)]
-        pub certificate_settings: pulumi_wasm_rust::InputOrOutput<
+        pub certificate_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::amplify::DomainAssociationCertificateSettings>,
         >,
         /// Domain name for the domain association.
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Enables the automated creation of subdomains for branches.
         #[builder(into, default)]
-        pub enable_auto_sub_domain: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_auto_sub_domain: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Setting for the subdomain. Documented below.
         #[builder(into)]
-        pub sub_domains: pulumi_wasm_rust::InputOrOutput<
+        pub sub_domains: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::amplify::DomainAssociationSubDomain>,
         >,
         /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         #[builder(into, default)]
-        pub wait_for_verification: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub wait_for_verification: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct DomainAssociationResult {
         /// Unique ID for an Amplify app.
-        pub app_id: pulumi_wasm_rust::Output<String>,
+        pub app_id: pulumi_gestalt_rust::Output<String>,
         /// ARN for the domain association.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
-        pub certificate_settings: pulumi_wasm_rust::Output<
+        pub certificate_settings: pulumi_gestalt_rust::Output<
             super::super::types::amplify::DomainAssociationCertificateSettings,
         >,
         /// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
-        pub certificate_verification_dns_record: pulumi_wasm_rust::Output<String>,
+        pub certificate_verification_dns_record: pulumi_gestalt_rust::Output<String>,
         /// Domain name for the domain association.
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// Enables the automated creation of subdomains for branches.
-        pub enable_auto_sub_domain: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_auto_sub_domain: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Setting for the subdomain. Documented below.
-        pub sub_domains: pulumi_wasm_rust::Output<
+        pub sub_domains: pulumi_gestalt_rust::Output<
             Vec<super::super::types::amplify::DomainAssociationSubDomain>,
         >,
         /// If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
-        pub wait_for_verification: pulumi_wasm_rust::Output<Option<bool>>,
+        pub wait_for_verification: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DomainAssociationArgs,
     ) -> DomainAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_id_binding = args.app_id.get_output(context).get_inner();
         let certificate_settings_binding = args
@@ -161,24 +161,26 @@ pub mod domain_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DomainAssociationResult {
-            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            certificate_settings: pulumi_wasm_rust::__private::into_domain(
+            app_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("appId"),
+            ),
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            certificate_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateSettings"),
             ),
-            certificate_verification_dns_record: pulumi_wasm_rust::__private::into_domain(
+            certificate_verification_dns_record: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateVerificationDnsRecord"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            enable_auto_sub_domain: pulumi_wasm_rust::__private::into_domain(
+            enable_auto_sub_domain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableAutoSubDomain"),
             ),
-            sub_domains: pulumi_wasm_rust::__private::into_domain(
+            sub_domains: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subDomains"),
             ),
-            wait_for_verification: pulumi_wasm_rust::__private::into_domain(
+            wait_for_verification: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("waitForVerification"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = domain::create(
@@ -33,49 +33,49 @@
 /// $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
 /// ```
 pub mod domain_entry {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainEntryArgs {
         /// The name of the Lightsail domain in which to create the entry
         #[builder(into)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// If the entry should be an alias Defaults to `false`
         #[builder(into, default)]
-        pub is_alias: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_alias: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Name of the entry record
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Target of the domain entry
         #[builder(into)]
-        pub target: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Type of record
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DomainEntryResult {
         /// The name of the Lightsail domain in which to create the entry
-        pub domain_name: pulumi_wasm_rust::Output<String>,
+        pub domain_name: pulumi_gestalt_rust::Output<String>,
         /// If the entry should be an alias Defaults to `false`
-        pub is_alias: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_alias: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Name of the entry record
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Target of the domain entry
-        pub target: pulumi_wasm_rust::Output<String>,
+        pub target: pulumi_gestalt_rust::Output<String>,
         /// Type of record
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DomainEntryArgs,
     ) -> DomainEntryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_name_binding = args.domain_name.get_output(context).get_inner();
         let is_alias_binding = args.is_alias.get_output(context).get_inner();
@@ -111,15 +111,17 @@ pub mod domain_entry {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DomainEntryResult {
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            is_alias: pulumi_wasm_rust::__private::into_domain(
+            is_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isAlias"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            target: pulumi_wasm_rust::__private::into_domain(o.extract_field("target")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            target: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("target"),
+            ),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

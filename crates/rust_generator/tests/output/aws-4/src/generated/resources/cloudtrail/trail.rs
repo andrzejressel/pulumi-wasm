@@ -100,8 +100,8 @@
 /// ### Logging All Lambda Function Invocations By Using Basic Event Selectors
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = trail::create(
@@ -124,8 +124,8 @@
 /// ### Logging All S3 Object Events By Using Basic Event Selectors
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = trail::create(
@@ -269,8 +269,8 @@
 /// ### Sending Events to CloudWatch Logs
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = log_group::create(
@@ -294,119 +294,125 @@
 /// $ pulumi import aws:cloudtrail/trail:Trail sample arn:aws:cloudtrail:us-east-1:123456789012:trail/my-sample-trail
 /// ```
 pub mod trail {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrailArgs {
         /// Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
         #[builder(into, default)]
-        pub advanced_event_selectors: pulumi_wasm_rust::InputOrOutput<
+        pub advanced_event_selectors: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::cloudtrail::TrailAdvancedEventSelector>>,
         >,
         /// Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         #[builder(into, default)]
-        pub cloud_watch_logs_group_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cloud_watch_logs_group_arn: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
         #[builder(into, default)]
-        pub cloud_watch_logs_role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cloud_watch_logs_role_arn: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Whether log file integrity validation is enabled. Defaults to `false`.
         #[builder(into, default)]
-        pub enable_log_file_validation: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_log_file_validation: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
         #[builder(into, default)]
-        pub enable_logging: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_logging: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
         #[builder(into, default)]
-        pub event_selectors: pulumi_wasm_rust::InputOrOutput<
+        pub event_selectors: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::cloudtrail::TrailEventSelector>>,
         >,
         /// Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
         #[builder(into, default)]
-        pub include_global_service_events: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub include_global_service_events: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Configuration block for identifying unusual operational activity. See details below.
         #[builder(into, default)]
-        pub insight_selectors: pulumi_wasm_rust::InputOrOutput<
+        pub insight_selectors: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::cloudtrail::TrailInsightSelector>>,
         >,
         /// Whether the trail is created in the current region or in all regions. Defaults to `false`.
         #[builder(into, default)]
-        pub is_multi_region_trail: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_multi_region_trail: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         #[builder(into, default)]
-        pub is_organization_trail: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_organization_trail: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the trail.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the S3 bucket designated for publishing log files.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub s3_bucket_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub s3_bucket_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
         #[builder(into, default)]
-        pub s3_key_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub s3_key_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the Amazon SNS topic defined for notification of log file delivery.
         #[builder(into, default)]
-        pub sns_topic_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sns_topic_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct TrailResult {
         /// Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `event_selector`.
-        pub advanced_event_selectors: pulumi_wasm_rust::Output<
+        pub advanced_event_selectors: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::cloudtrail::TrailAdvancedEventSelector>>,
         >,
         /// ARN of the trail.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
-        pub cloud_watch_logs_group_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub cloud_watch_logs_group_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
-        pub cloud_watch_logs_role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub cloud_watch_logs_role_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether log file integrity validation is enabled. Defaults to `false`.
-        pub enable_log_file_validation: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_log_file_validation: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
-        pub enable_logging: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_logging: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advanced_event_selector`.
-        pub event_selectors: pulumi_wasm_rust::Output<
+        pub event_selectors: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::cloudtrail::TrailEventSelector>>,
         >,
         /// Region in which the trail was created.
-        pub home_region: pulumi_wasm_rust::Output<String>,
+        pub home_region: pulumi_gestalt_rust::Output<String>,
         /// Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
-        pub include_global_service_events: pulumi_wasm_rust::Output<Option<bool>>,
+        pub include_global_service_events: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Configuration block for identifying unusual operational activity. See details below.
-        pub insight_selectors: pulumi_wasm_rust::Output<
+        pub insight_selectors: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::cloudtrail::TrailInsightSelector>>,
         >,
         /// Whether the trail is created in the current region or in all regions. Defaults to `false`.
-        pub is_multi_region_trail: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_multi_region_trail: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
-        pub is_organization_trail: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_organization_trail: pulumi_gestalt_rust::Output<Option<bool>>,
         /// KMS key ARN to use to encrypt the logs delivered by CloudTrail.
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the trail.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Name of the S3 bucket designated for publishing log files.
         ///
         /// The following arguments are optional:
-        pub s3_bucket_name: pulumi_wasm_rust::Output<String>,
+        pub s3_bucket_name: pulumi_gestalt_rust::Output<String>,
         /// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
-        pub s3_key_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub s3_key_prefix: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the Amazon SNS topic defined for notification of log file delivery.
-        pub sns_topic_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub sns_topic_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -415,11 +421,11 @@ pub mod trail {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TrailArgs,
     ) -> TrailResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let advanced_event_selectors_binding = args
             .advanced_event_selectors
@@ -537,55 +543,55 @@ pub mod trail {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TrailResult {
-            advanced_event_selectors: pulumi_wasm_rust::__private::into_domain(
+            advanced_event_selectors: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("advancedEventSelectors"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            cloud_watch_logs_group_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            cloud_watch_logs_group_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudWatchLogsGroupArn"),
             ),
-            cloud_watch_logs_role_arn: pulumi_wasm_rust::__private::into_domain(
+            cloud_watch_logs_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudWatchLogsRoleArn"),
             ),
-            enable_log_file_validation: pulumi_wasm_rust::__private::into_domain(
+            enable_log_file_validation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableLogFileValidation"),
             ),
-            enable_logging: pulumi_wasm_rust::__private::into_domain(
+            enable_logging: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableLogging"),
             ),
-            event_selectors: pulumi_wasm_rust::__private::into_domain(
+            event_selectors: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventSelectors"),
             ),
-            home_region: pulumi_wasm_rust::__private::into_domain(
+            home_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("homeRegion"),
             ),
-            include_global_service_events: pulumi_wasm_rust::__private::into_domain(
+            include_global_service_events: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("includeGlobalServiceEvents"),
             ),
-            insight_selectors: pulumi_wasm_rust::__private::into_domain(
+            insight_selectors: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("insightSelectors"),
             ),
-            is_multi_region_trail: pulumi_wasm_rust::__private::into_domain(
+            is_multi_region_trail: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isMultiRegionTrail"),
             ),
-            is_organization_trail: pulumi_wasm_rust::__private::into_domain(
+            is_organization_trail: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isOrganizationTrail"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            s3_bucket_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            s3_bucket_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3BucketName"),
             ),
-            s3_key_prefix: pulumi_wasm_rust::__private::into_domain(
+            s3_key_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3KeyPrefix"),
             ),
-            sns_topic_name: pulumi_wasm_rust::__private::into_domain(
+            sns_topic_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("snsTopicName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

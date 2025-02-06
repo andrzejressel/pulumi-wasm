@@ -1,24 +1,24 @@
 pub mod get_templates {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetTemplatesArgs {
         /// AWS Region to which the quota increases apply.
         #[builder(into)]
-        pub region: pulumi_wasm_rust::InputOrOutput<String>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of quota increase templates for specified region. See `templates`.
         #[builder(into, default)]
-        pub templates: pulumi_wasm_rust::InputOrOutput<
+        pub templates: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::super::types::servicequotas::GetTemplatesTemplate>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetTemplatesResult {
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// AWS Region to which the template applies.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// A list of quota increase templates for specified region. See `templates`.
-        pub templates: pulumi_wasm_rust::Output<
+        pub templates: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::super::types::servicequotas::GetTemplatesTemplate>>,
         >,
     }
@@ -27,10 +27,10 @@ pub mod get_templates {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetTemplatesArgs,
     ) -> GetTemplatesResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let region_binding = args.region.get_output(context).get_inner();
         let templates_binding = args.templates.get_output(context).get_inner();
@@ -50,9 +50,11 @@ pub mod get_templates {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetTemplatesResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            templates: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            templates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("templates"),
             ),
         }

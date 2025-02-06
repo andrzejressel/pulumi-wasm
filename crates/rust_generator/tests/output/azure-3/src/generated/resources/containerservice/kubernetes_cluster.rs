@@ -41,27 +41,27 @@
 /// ```
 ///
 pub mod kubernetes_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KubernetesClusterArgs {
         /// A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
         #[builder(into, default)]
-        pub aci_connector_linux: pulumi_wasm_rust::InputOrOutput<
+        pub aci_connector_linux: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterAciConnectorLinux,
             >,
         >,
         /// An `api_server_access_profile` block as defined below.
         #[builder(into, default)]
-        pub api_server_access_profile: pulumi_wasm_rust::InputOrOutput<
+        pub api_server_access_profile: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterApiServerAccessProfile,
             >,
         >,
         /// A `auto_scaler_profile` block as defined below.
         #[builder(into, default)]
-        pub auto_scaler_profile: pulumi_wasm_rust::InputOrOutput<
+        pub auto_scaler_profile: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterAutoScalerProfile,
             >,
@@ -72,58 +72,62 @@ pub mod kubernetes_cluster {
         ///
         /// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
         #[builder(into, default)]
-        pub automatic_upgrade_channel: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub automatic_upgrade_channel: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A `azure_active_directory_role_based_access_control` block as defined below.
         #[builder(into, default)]
-        pub azure_active_directory_role_based_access_control: pulumi_wasm_rust::InputOrOutput<
+        pub azure_active_directory_role_based_access_control: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl,
             >,
         >,
         /// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         #[builder(into, default)]
-        pub azure_policy_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub azure_policy_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         #[builder(into, default)]
-        pub confidential_computing: pulumi_wasm_rust::InputOrOutput<
+        pub confidential_computing: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterConfidentialComputing,
             >,
         >,
         /// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
         #[builder(into, default)]
-        pub cost_analysis_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub cost_analysis_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
         #[builder(into)]
-        pub default_node_pool: pulumi_wasm_rust::InputOrOutput<
+        pub default_node_pool: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::containerservice::KubernetesClusterDefaultNodePool,
         >,
         /// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub disk_encryption_set_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub disk_encryption_set_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub dns_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub dns_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
         ///
         /// > **Note:** You must define either a `dns_prefix` or a `dns_prefix_private_cluster` field.
         ///
         /// In addition, one of either `identity` or `service_principal` blocks must be specified.
         #[builder(into, default)]
-        pub dns_prefix_private_cluster: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub dns_prefix_private_cluster: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub edge_zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub edge_zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Should HTTP Application Routing be enabled?
         ///
         /// > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
         #[builder(into, default)]
-        pub http_application_routing_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub http_application_routing_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// A `http_proxy_config` block as defined below.
         #[builder(into, default)]
-        pub http_proxy_config: pulumi_wasm_rust::InputOrOutput<
+        pub http_proxy_config: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterHttpProxyConfig,
             >,
@@ -132,41 +136,43 @@ pub mod kubernetes_cluster {
         ///
         /// !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerservice::KubernetesClusterIdentity>,
         >,
         /// Specifies whether Image Cleaner is enabled.
         #[builder(into, default)]
-        pub image_cleaner_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub image_cleaner_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
         #[builder(into, default)]
-        pub image_cleaner_interval_hours: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub image_cleaner_interval_hours: pulumi_gestalt_rust::InputOrOutput<
+            Option<i32>,
+        >,
         /// A `ingress_application_gateway` block as defined below.
         ///
         /// > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
         #[builder(into, default)]
-        pub ingress_application_gateway: pulumi_wasm_rust::InputOrOutput<
+        pub ingress_application_gateway: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterIngressApplicationGateway,
             >,
         >,
         /// A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
         #[builder(into, default)]
-        pub key_management_service: pulumi_wasm_rust::InputOrOutput<
+        pub key_management_service: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterKeyManagementService,
             >,
         >,
         /// A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
         #[builder(into, default)]
-        pub key_vault_secrets_provider: pulumi_wasm_rust::InputOrOutput<
+        pub key_vault_secrets_provider: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterKeyVaultSecretsProvider,
             >,
         >,
         /// A `kubelet_identity` block as defined below.
         #[builder(into, default)]
-        pub kubelet_identity: pulumi_wasm_rust::InputOrOutput<
+        pub kubelet_identity: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterKubeletIdentity,
             >,
@@ -175,44 +181,44 @@ pub mod kubernetes_cluster {
         ///
         /// > **Note:** Upgrading your cluster may take up to 10 minutes per node.
         #[builder(into, default)]
-        pub kubernetes_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kubernetes_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `linux_profile` block as defined below.
         #[builder(into, default)]
-        pub linux_profile: pulumi_wasm_rust::InputOrOutput<
+        pub linux_profile: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerservice::KubernetesClusterLinuxProfile>,
         >,
         /// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         ///
         /// > **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
         #[builder(into, default)]
-        pub local_account_disabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub local_account_disabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `maintenance_window` block as defined below.
         #[builder(into, default)]
-        pub maintenance_window: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance_window: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterMaintenanceWindow,
             >,
         >,
         /// A `maintenance_window_auto_upgrade` block as defined below.
         #[builder(into, default)]
-        pub maintenance_window_auto_upgrade: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance_window_auto_upgrade: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterMaintenanceWindowAutoUpgrade,
             >,
         >,
         /// A `maintenance_window_node_os` block as defined below.
         #[builder(into, default)]
-        pub maintenance_window_node_os: pulumi_wasm_rust::InputOrOutput<
+        pub maintenance_window_node_os: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterMaintenanceWindowNodeOs,
             >,
         >,
         /// A `microsoft_defender` block as defined below.
         #[builder(into, default)]
-        pub microsoft_defender: pulumi_wasm_rust::InputOrOutput<
+        pub microsoft_defender: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterMicrosoftDefender,
             >,
@@ -221,19 +227,19 @@ pub mod kubernetes_cluster {
         ///
         /// > **Note:** If deploying Managed Prometheus, the `monitor_metrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
         #[builder(into, default)]
-        pub monitor_metrics: pulumi_wasm_rust::InputOrOutput<
+        pub monitor_metrics: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterMonitorMetrics,
             >,
         >,
         /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `network_profile` block as defined below. Changing this forces a new resource to be created.
         ///
         /// > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
         #[builder(into, default)]
-        pub network_profile: pulumi_wasm_rust::InputOrOutput<
+        pub network_profile: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterNetworkProfile,
             >,
@@ -242,33 +248,33 @@ pub mod kubernetes_cluster {
         ///
         /// > **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
         #[builder(into, default)]
-        pub node_os_upgrade_channel: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub node_os_upgrade_channel: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         ///
         /// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
         #[builder(into, default)]
-        pub node_resource_group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub node_resource_group: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
         #[builder(into, default)]
-        pub oidc_issuer_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub oidc_issuer_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A `oms_agent` block as defined below.
         #[builder(into, default)]
-        pub oms_agent: pulumi_wasm_rust::InputOrOutput<
+        pub oms_agent: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerservice::KubernetesClusterOmsAgent>,
         >,
         /// Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
         #[builder(into, default)]
-        pub open_service_mesh_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub open_service_mesh_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub private_cluster_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub private_cluster_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         ///
         /// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
         ///
         /// ```ignore
-        /// use pulumi_wasm_rust::Output;
-        /// use pulumi_wasm_rust::{add_export, pulumi_main};
+        /// use pulumi_gestalt_rust::Output;
+        /// use pulumi_gestalt_rust::{add_export, pulumi_main};
         /// #[pulumi_main]
         /// fn test_main() -> Result<(), Error> {
         ///     let example = resource_group::create(
@@ -315,26 +321,26 @@ pub mod kubernetes_cluster {
         /// }
         /// ```
         #[builder(into, default)]
-        pub private_cluster_public_fqdn_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub private_cluster_public_fqdn_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub private_dns_zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub private_dns_zone_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub role_based_access_control_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub role_based_access_control_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Whether to enable run command for the cluster or not. Defaults to `true`.
         #[builder(into, default)]
-        pub run_command_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub run_command_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A `service_mesh_profile` block as defined below.
         #[builder(into, default)]
-        pub service_mesh_profile: pulumi_wasm_rust::InputOrOutput<
+        pub service_mesh_profile: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterServiceMeshProfile,
             >,
@@ -343,7 +349,7 @@ pub mod kubernetes_cluster {
         ///
         /// !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
         #[builder(into, default)]
-        pub service_principal: pulumi_wasm_rust::InputOrOutput<
+        pub service_principal: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterServicePrincipal,
             >,
@@ -352,37 +358,37 @@ pub mod kubernetes_cluster {
         ///
         /// > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
         #[builder(into, default)]
-        pub sku_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sku_tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `storage_profile` block as defined below.
         #[builder(into, default)]
-        pub storage_profile: pulumi_wasm_rust::InputOrOutput<
+        pub storage_profile: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterStorageProfile,
             >,
         >,
         /// Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
         #[builder(into, default)]
-        pub support_plan: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub support_plan: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `web_app_routing` block as defined below.
         #[builder(into, default)]
-        pub web_app_routing: pulumi_wasm_rust::InputOrOutput<
+        pub web_app_routing: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::containerservice::KubernetesClusterWebAppRouting>,
         >,
         /// A `windows_profile` block as defined below.
         #[builder(into, default)]
-        pub windows_profile: pulumi_wasm_rust::InputOrOutput<
+        pub windows_profile: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterWindowsProfile,
             >,
         >,
         /// A `workload_autoscaler_profile` block defined below.
         #[builder(into, default)]
-        pub workload_autoscaler_profile: pulumi_wasm_rust::InputOrOutput<
+        pub workload_autoscaler_profile: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::containerservice::KubernetesClusterWorkloadAutoscalerProfile,
             >,
@@ -393,24 +399,24 @@ pub mod kubernetes_cluster {
         ///
         /// > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
         #[builder(into, default)]
-        pub workload_identity_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub workload_identity_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct KubernetesClusterResult {
         /// A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
-        pub aci_connector_linux: pulumi_wasm_rust::Output<
+        pub aci_connector_linux: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::containerservice::KubernetesClusterAciConnectorLinux,
             >,
         >,
         /// An `api_server_access_profile` block as defined below.
-        pub api_server_access_profile: pulumi_wasm_rust::Output<
+        pub api_server_access_profile: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::containerservice::KubernetesClusterApiServerAccessProfile,
             >,
         >,
         /// A `auto_scaler_profile` block as defined below.
-        pub auto_scaler_profile: pulumi_wasm_rust::Output<
+        pub auto_scaler_profile: pulumi_gestalt_rust::Output<
             super::super::types::containerservice::KubernetesClusterAutoScalerProfile,
         >,
         /// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
@@ -418,51 +424,51 @@ pub mod kubernetes_cluster {
         /// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
         ///
         /// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
-        pub automatic_upgrade_channel: pulumi_wasm_rust::Output<Option<String>>,
+        pub automatic_upgrade_channel: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `azure_active_directory_role_based_access_control` block as defined below.
-        pub azure_active_directory_role_based_access_control: pulumi_wasm_rust::Output<
+        pub azure_active_directory_role_based_access_control: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::containerservice::KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl,
             >,
         >,
         /// Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
-        pub azure_policy_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub azure_policy_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
-        pub confidential_computing: pulumi_wasm_rust::Output<
+        pub confidential_computing: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::containerservice::KubernetesClusterConfidentialComputing,
             >,
         >,
         /// Should cost analysis be enabled for this Kubernetes Cluster? Defaults to `false`. The `sku_tier` must be set to `Standard` or `Premium` to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal.
-        pub cost_analysis_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub cost_analysis_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The current version running on the Azure Kubernetes Managed Cluster.
-        pub current_kubernetes_version: pulumi_wasm_rust::Output<String>,
+        pub current_kubernetes_version: pulumi_gestalt_rust::Output<String>,
         /// Specifies configuration for "System" mode node pool. A `default_node_pool` block as defined below.
-        pub default_node_pool: pulumi_wasm_rust::Output<
+        pub default_node_pool: pulumi_gestalt_rust::Output<
             super::super::types::containerservice::KubernetesClusterDefaultNodePool,
         >,
         /// The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
-        pub disk_encryption_set_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub disk_encryption_set_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
-        pub dns_prefix: pulumi_wasm_rust::Output<Option<String>>,
+        pub dns_prefix: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
         ///
         /// > **Note:** You must define either a `dns_prefix` or a `dns_prefix_private_cluster` field.
         ///
         /// In addition, one of either `identity` or `service_principal` blocks must be specified.
-        pub dns_prefix_private_cluster: pulumi_wasm_rust::Output<Option<String>>,
+        pub dns_prefix_private_cluster: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the Extended Zone (formerly called Edge Zone) within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        pub edge_zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub edge_zone: pulumi_gestalt_rust::Output<Option<String>>,
         /// The FQDN of the Azure Kubernetes Managed Cluster.
-        pub fqdn: pulumi_wasm_rust::Output<String>,
+        pub fqdn: pulumi_gestalt_rust::Output<String>,
         /// Should HTTP Application Routing be enabled?
         ///
         /// > **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government.
-        pub http_application_routing_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub http_application_routing_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The Zone Name of the HTTP Application Routing.
-        pub http_application_routing_zone_name: pulumi_wasm_rust::Output<String>,
+        pub http_application_routing_zone_name: pulumi_gestalt_rust::Output<String>,
         /// A `http_proxy_config` block as defined below.
-        pub http_proxy_config: pulumi_wasm_rust::Output<
+        pub http_proxy_config: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::containerservice::KubernetesClusterHttpProxyConfig,
             >,
@@ -470,83 +476,83 @@ pub mod kubernetes_cluster {
         /// An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
         ///
         /// !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerservice::KubernetesClusterIdentity>,
         >,
         /// Specifies whether Image Cleaner is enabled.
-        pub image_cleaner_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub image_cleaner_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the interval in hours when images should be cleaned up. Defaults to `0`.
-        pub image_cleaner_interval_hours: pulumi_wasm_rust::Output<Option<i32>>,
+        pub image_cleaner_interval_hours: pulumi_gestalt_rust::Output<Option<i32>>,
         /// A `ingress_application_gateway` block as defined below.
         ///
         /// > **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the `Microsoft.Network/virtualNetworks/subnets/join/action` permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission).
-        pub ingress_application_gateway: pulumi_wasm_rust::Output<
+        pub ingress_application_gateway: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::containerservice::KubernetesClusterIngressApplicationGateway,
             >,
         >,
         /// A `key_management_service` block as defined below. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption).
-        pub key_management_service: pulumi_wasm_rust::Output<
+        pub key_management_service: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::containerservice::KubernetesClusterKeyManagementService,
             >,
         >,
         /// A `key_vault_secrets_provider` block as defined below. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver).
-        pub key_vault_secrets_provider: pulumi_wasm_rust::Output<
+        pub key_vault_secrets_provider: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::containerservice::KubernetesClusterKeyVaultSecretsProvider,
             >,
         >,
         /// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
-        pub kube_admin_config_raw: pulumi_wasm_rust::Output<String>,
+        pub kube_admin_config_raw: pulumi_gestalt_rust::Output<String>,
         /// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled.
-        pub kube_admin_configs: pulumi_wasm_rust::Output<
+        pub kube_admin_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::containerservice::KubernetesClusterKubeAdminConfig>,
         >,
         /// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools.
-        pub kube_config_raw: pulumi_wasm_rust::Output<String>,
+        pub kube_config_raw: pulumi_gestalt_rust::Output<String>,
         /// A `kube_config` block as defined below.
-        pub kube_configs: pulumi_wasm_rust::Output<
+        pub kube_configs: pulumi_gestalt_rust::Output<
             Vec<super::super::types::containerservice::KubernetesClusterKubeConfig>,
         >,
         /// A `kubelet_identity` block as defined below.
-        pub kubelet_identity: pulumi_wasm_rust::Output<
+        pub kubelet_identity: pulumi_gestalt_rust::Output<
             super::super::types::containerservice::KubernetesClusterKubeletIdentity,
         >,
         /// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
         ///
         /// > **Note:** Upgrading your cluster may take up to 10 minutes per node.
-        pub kubernetes_version: pulumi_wasm_rust::Output<String>,
+        pub kubernetes_version: pulumi_gestalt_rust::Output<String>,
         /// A `linux_profile` block as defined below.
-        pub linux_profile: pulumi_wasm_rust::Output<
+        pub linux_profile: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerservice::KubernetesClusterLinuxProfile>,
         >,
         /// If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information.
         ///
         /// > **Note:** If `local_account_disabled` is set to `true`, it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information.
-        pub local_account_disabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_account_disabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// A `maintenance_window` block as defined below.
-        pub maintenance_window: pulumi_wasm_rust::Output<
+        pub maintenance_window: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::containerservice::KubernetesClusterMaintenanceWindow,
             >,
         >,
         /// A `maintenance_window_auto_upgrade` block as defined below.
-        pub maintenance_window_auto_upgrade: pulumi_wasm_rust::Output<
+        pub maintenance_window_auto_upgrade: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::containerservice::KubernetesClusterMaintenanceWindowAutoUpgrade,
             >,
         >,
         /// A `maintenance_window_node_os` block as defined below.
-        pub maintenance_window_node_os: pulumi_wasm_rust::Output<
+        pub maintenance_window_node_os: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::containerservice::KubernetesClusterMaintenanceWindowNodeOs,
             >,
         >,
         /// A `microsoft_defender` block as defined below.
-        pub microsoft_defender: pulumi_wasm_rust::Output<
+        pub microsoft_defender: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::containerservice::KubernetesClusterMicrosoftDefender,
             >,
@@ -554,50 +560,50 @@ pub mod kubernetes_cluster {
         /// Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
         ///
         /// > **Note:** If deploying Managed Prometheus, the `monitor_metrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
-        pub monitor_metrics: pulumi_wasm_rust::Output<
+        pub monitor_metrics: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::containerservice::KubernetesClusterMonitorMetrics,
             >,
         >,
         /// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `network_profile` block as defined below. Changing this forces a new resource to be created.
         ///
         /// > **Note:** If `network_profile` is not defined, `kubenet` profile will be used by default.
-        pub network_profile: pulumi_wasm_rust::Output<
+        pub network_profile: pulumi_gestalt_rust::Output<
             super::super::types::containerservice::KubernetesClusterNetworkProfile,
         >,
         /// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. Defaults to `NodeImage`.
         ///
         /// > **Note:** `node_os_upgrade_channel` must be set to `NodeImage` if `automatic_upgrade_channel` has been set to `node-image`
-        pub node_os_upgrade_channel: pulumi_wasm_rust::Output<Option<String>>,
+        pub node_os_upgrade_channel: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
         ///
         /// > **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail.
-        pub node_resource_group: pulumi_wasm_rust::Output<String>,
+        pub node_resource_group: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster.
-        pub node_resource_group_id: pulumi_wasm_rust::Output<String>,
+        pub node_resource_group_id: pulumi_gestalt_rust::Output<String>,
         /// Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer)
-        pub oidc_issuer_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub oidc_issuer_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The OIDC issuer URL that is associated with the cluster.
-        pub oidc_issuer_url: pulumi_wasm_rust::Output<String>,
+        pub oidc_issuer_url: pulumi_gestalt_rust::Output<String>,
         /// A `oms_agent` block as defined below.
-        pub oms_agent: pulumi_wasm_rust::Output<
+        pub oms_agent: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerservice::KubernetesClusterOmsAgent>,
         >,
         /// Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about).
-        pub open_service_mesh_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub open_service_mesh_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-        pub portal_fqdn: pulumi_wasm_rust::Output<String>,
+        pub portal_fqdn: pulumi_gestalt_rust::Output<String>,
         /// Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created.
-        pub private_cluster_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub private_cluster_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`.
         ///
         /// > **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the `Private DNS Zone Contributor` role and access to this Private DNS Zone. If `UserAssigned` identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example:
         ///
         /// ```ignore
-        /// use pulumi_wasm_rust::Output;
-        /// use pulumi_wasm_rust::{add_export, pulumi_main};
+        /// use pulumi_gestalt_rust::Output;
+        /// use pulumi_gestalt_rust::{add_export, pulumi_main};
         /// #[pulumi_main]
         /// fn test_main() -> Result<(), Error> {
         ///     let example = resource_group::create(
@@ -643,19 +649,21 @@ pub mod kubernetes_cluster {
         ///     );
         /// }
         /// ```
-        pub private_cluster_public_fqdn_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub private_cluster_public_fqdn_enabled: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created.
-        pub private_dns_zone_id: pulumi_wasm_rust::Output<String>,
+        pub private_dns_zone_id: pulumi_gestalt_rust::Output<String>,
         /// The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster.
-        pub private_fqdn: pulumi_wasm_rust::Output<String>,
+        pub private_fqdn: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created.
-        pub role_based_access_control_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub role_based_access_control_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether to enable run command for the cluster or not. Defaults to `true`.
-        pub run_command_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub run_command_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A `service_mesh_profile` block as defined below.
-        pub service_mesh_profile: pulumi_wasm_rust::Output<
+        pub service_mesh_profile: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::containerservice::KubernetesClusterServiceMeshProfile,
             >,
@@ -663,7 +671,7 @@ pub mod kubernetes_cluster {
         /// A `service_principal` block as documented below. One of either `identity` or `service_principal` must be specified.
         ///
         /// !> **Note:** A migration scenario from `service_principal` to `identity` is supported. When upgrading `service_principal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `service_principal` until you upgrade your Node Pool.
-        pub service_principal: pulumi_wasm_rust::Output<
+        pub service_principal: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::containerservice::KubernetesClusterServicePrincipal,
             >,
@@ -671,29 +679,29 @@ pub mod kubernetes_cluster {
         /// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
         ///
         /// > **Note:** Whilst the AKS API previously supported the `Paid` SKU - the AKS API introduced a breaking change in API Version `2023-02-01` (used in v3.51.0 and later) where the value `Paid` must now be set to `Standard`.
-        pub sku_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub sku_tier: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `storage_profile` block as defined below.
-        pub storage_profile: pulumi_wasm_rust::Output<
+        pub storage_profile: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::containerservice::KubernetesClusterStorageProfile,
             >,
         >,
         /// Specifies the support plan which should be used for this Kubernetes Cluster. Possible values are `KubernetesOfficial` and `AKSLongTermSupport`. Defaults to `KubernetesOfficial`.
-        pub support_plan: pulumi_wasm_rust::Output<Option<String>>,
+        pub support_plan: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `web_app_routing` block as defined below.
-        pub web_app_routing: pulumi_wasm_rust::Output<
+        pub web_app_routing: pulumi_gestalt_rust::Output<
             Option<super::super::types::containerservice::KubernetesClusterWebAppRouting>,
         >,
         /// A `windows_profile` block as defined below.
-        pub windows_profile: pulumi_wasm_rust::Output<
+        pub windows_profile: pulumi_gestalt_rust::Output<
             super::super::types::containerservice::KubernetesClusterWindowsProfile,
         >,
         /// A `workload_autoscaler_profile` block defined below.
-        pub workload_autoscaler_profile: pulumi_wasm_rust::Output<
+        pub workload_autoscaler_profile: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::containerservice::KubernetesClusterWorkloadAutoscalerProfile,
             >,
@@ -703,18 +711,18 @@ pub mod kubernetes_cluster {
         /// > **Note:** To enable Azure AD Workload Identity `oidc_issuer_enabled` must be set to `true`.
         ///
         /// > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
-        pub workload_identity_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub workload_identity_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: KubernetesClusterArgs,
     ) -> KubernetesClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let aci_connector_linux_binding = args
             .aci_connector_linux
@@ -1127,193 +1135,193 @@ pub mod kubernetes_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         KubernetesClusterResult {
-            aci_connector_linux: pulumi_wasm_rust::__private::into_domain(
+            aci_connector_linux: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("aciConnectorLinux"),
             ),
-            api_server_access_profile: pulumi_wasm_rust::__private::into_domain(
+            api_server_access_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiServerAccessProfile"),
             ),
-            auto_scaler_profile: pulumi_wasm_rust::__private::into_domain(
+            auto_scaler_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoScalerProfile"),
             ),
-            automatic_upgrade_channel: pulumi_wasm_rust::__private::into_domain(
+            automatic_upgrade_channel: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automaticUpgradeChannel"),
             ),
-            azure_active_directory_role_based_access_control: pulumi_wasm_rust::__private::into_domain(
+            azure_active_directory_role_based_access_control: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("azureActiveDirectoryRoleBasedAccessControl"),
             ),
-            azure_policy_enabled: pulumi_wasm_rust::__private::into_domain(
+            azure_policy_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("azurePolicyEnabled"),
             ),
-            confidential_computing: pulumi_wasm_rust::__private::into_domain(
+            confidential_computing: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("confidentialComputing"),
             ),
-            cost_analysis_enabled: pulumi_wasm_rust::__private::into_domain(
+            cost_analysis_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("costAnalysisEnabled"),
             ),
-            current_kubernetes_version: pulumi_wasm_rust::__private::into_domain(
+            current_kubernetes_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("currentKubernetesVersion"),
             ),
-            default_node_pool: pulumi_wasm_rust::__private::into_domain(
+            default_node_pool: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultNodePool"),
             ),
-            disk_encryption_set_id: pulumi_wasm_rust::__private::into_domain(
+            disk_encryption_set_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diskEncryptionSetId"),
             ),
-            dns_prefix: pulumi_wasm_rust::__private::into_domain(
+            dns_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsPrefix"),
             ),
-            dns_prefix_private_cluster: pulumi_wasm_rust::__private::into_domain(
+            dns_prefix_private_cluster: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsPrefixPrivateCluster"),
             ),
-            edge_zone: pulumi_wasm_rust::__private::into_domain(
+            edge_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edgeZone"),
             ),
-            fqdn: pulumi_wasm_rust::__private::into_domain(o.extract_field("fqdn")),
-            http_application_routing_enabled: pulumi_wasm_rust::__private::into_domain(
+            fqdn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fqdn")),
+            http_application_routing_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpApplicationRoutingEnabled"),
             ),
-            http_application_routing_zone_name: pulumi_wasm_rust::__private::into_domain(
+            http_application_routing_zone_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpApplicationRoutingZoneName"),
             ),
-            http_proxy_config: pulumi_wasm_rust::__private::into_domain(
+            http_proxy_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpProxyConfig"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            image_cleaner_enabled: pulumi_wasm_rust::__private::into_domain(
+            image_cleaner_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageCleanerEnabled"),
             ),
-            image_cleaner_interval_hours: pulumi_wasm_rust::__private::into_domain(
+            image_cleaner_interval_hours: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageCleanerIntervalHours"),
             ),
-            ingress_application_gateway: pulumi_wasm_rust::__private::into_domain(
+            ingress_application_gateway: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ingressApplicationGateway"),
             ),
-            key_management_service: pulumi_wasm_rust::__private::into_domain(
+            key_management_service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyManagementService"),
             ),
-            key_vault_secrets_provider: pulumi_wasm_rust::__private::into_domain(
+            key_vault_secrets_provider: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultSecretsProvider"),
             ),
-            kube_admin_config_raw: pulumi_wasm_rust::__private::into_domain(
+            kube_admin_config_raw: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kubeAdminConfigRaw"),
             ),
-            kube_admin_configs: pulumi_wasm_rust::__private::into_domain(
+            kube_admin_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kubeAdminConfigs"),
             ),
-            kube_config_raw: pulumi_wasm_rust::__private::into_domain(
+            kube_config_raw: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kubeConfigRaw"),
             ),
-            kube_configs: pulumi_wasm_rust::__private::into_domain(
+            kube_configs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kubeConfigs"),
             ),
-            kubelet_identity: pulumi_wasm_rust::__private::into_domain(
+            kubelet_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kubeletIdentity"),
             ),
-            kubernetes_version: pulumi_wasm_rust::__private::into_domain(
+            kubernetes_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kubernetesVersion"),
             ),
-            linux_profile: pulumi_wasm_rust::__private::into_domain(
+            linux_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("linuxProfile"),
             ),
-            local_account_disabled: pulumi_wasm_rust::__private::into_domain(
+            local_account_disabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localAccountDisabled"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maintenance_window: pulumi_wasm_rust::__private::into_domain(
+            maintenance_window: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceWindow"),
             ),
-            maintenance_window_auto_upgrade: pulumi_wasm_rust::__private::into_domain(
+            maintenance_window_auto_upgrade: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceWindowAutoUpgrade"),
             ),
-            maintenance_window_node_os: pulumi_wasm_rust::__private::into_domain(
+            maintenance_window_node_os: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceWindowNodeOs"),
             ),
-            microsoft_defender: pulumi_wasm_rust::__private::into_domain(
+            microsoft_defender: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("microsoftDefender"),
             ),
-            monitor_metrics: pulumi_wasm_rust::__private::into_domain(
+            monitor_metrics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitorMetrics"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_profile: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkProfile"),
             ),
-            node_os_upgrade_channel: pulumi_wasm_rust::__private::into_domain(
+            node_os_upgrade_channel: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeOsUpgradeChannel"),
             ),
-            node_resource_group: pulumi_wasm_rust::__private::into_domain(
+            node_resource_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeResourceGroup"),
             ),
-            node_resource_group_id: pulumi_wasm_rust::__private::into_domain(
+            node_resource_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeResourceGroupId"),
             ),
-            oidc_issuer_enabled: pulumi_wasm_rust::__private::into_domain(
+            oidc_issuer_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("oidcIssuerEnabled"),
             ),
-            oidc_issuer_url: pulumi_wasm_rust::__private::into_domain(
+            oidc_issuer_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("oidcIssuerUrl"),
             ),
-            oms_agent: pulumi_wasm_rust::__private::into_domain(
+            oms_agent: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("omsAgent"),
             ),
-            open_service_mesh_enabled: pulumi_wasm_rust::__private::into_domain(
+            open_service_mesh_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("openServiceMeshEnabled"),
             ),
-            portal_fqdn: pulumi_wasm_rust::__private::into_domain(
+            portal_fqdn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("portalFqdn"),
             ),
-            private_cluster_enabled: pulumi_wasm_rust::__private::into_domain(
+            private_cluster_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateClusterEnabled"),
             ),
-            private_cluster_public_fqdn_enabled: pulumi_wasm_rust::__private::into_domain(
+            private_cluster_public_fqdn_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateClusterPublicFqdnEnabled"),
             ),
-            private_dns_zone_id: pulumi_wasm_rust::__private::into_domain(
+            private_dns_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateDnsZoneId"),
             ),
-            private_fqdn: pulumi_wasm_rust::__private::into_domain(
+            private_fqdn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateFqdn"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            role_based_access_control_enabled: pulumi_wasm_rust::__private::into_domain(
+            role_based_access_control_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleBasedAccessControlEnabled"),
             ),
-            run_command_enabled: pulumi_wasm_rust::__private::into_domain(
+            run_command_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("runCommandEnabled"),
             ),
-            service_mesh_profile: pulumi_wasm_rust::__private::into_domain(
+            service_mesh_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceMeshProfile"),
             ),
-            service_principal: pulumi_wasm_rust::__private::into_domain(
+            service_principal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("servicePrincipal"),
             ),
-            sku_tier: pulumi_wasm_rust::__private::into_domain(
+            sku_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuTier"),
             ),
-            storage_profile: pulumi_wasm_rust::__private::into_domain(
+            storage_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageProfile"),
             ),
-            support_plan: pulumi_wasm_rust::__private::into_domain(
+            support_plan: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportPlan"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            web_app_routing: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            web_app_routing: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("webAppRouting"),
             ),
-            windows_profile: pulumi_wasm_rust::__private::into_domain(
+            windows_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("windowsProfile"),
             ),
-            workload_autoscaler_profile: pulumi_wasm_rust::__private::into_domain(
+            workload_autoscaler_profile: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workloadAutoscalerProfile"),
             ),
-            workload_identity_enabled: pulumi_wasm_rust::__private::into_domain(
+            workload_identity_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workloadIdentityEnabled"),
             ),
         }

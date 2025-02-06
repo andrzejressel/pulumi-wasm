@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -43,18 +43,18 @@
 /// ```
 ///
 pub mod integration_runtime_ssis {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationRuntimeSsisArgs {
         /// A `catalog_info` block as defined below.
         #[builder(into, default)]
-        pub catalog_info: pulumi_wasm_rust::InputOrOutput<
+        pub catalog_info: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datafactory::IntegrationRuntimeSsisCatalogInfo>,
         >,
         /// One `copy_compute_scale` block as defined below.
         #[builder(into, default)]
-        pub copy_compute_scale: pulumi_wasm_rust::InputOrOutput<
+        pub copy_compute_scale: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::IntegrationRuntimeSsisCopyComputeScale,
             >,
@@ -63,79 +63,79 @@ pub mod integration_runtime_ssis {
         ///
         /// > **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
         #[builder(into, default)]
-        pub credential_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub credential_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `custom_setup_script` block as defined below.
         #[builder(into, default)]
-        pub custom_setup_script: pulumi_wasm_rust::InputOrOutput<
+        pub custom_setup_script: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::IntegrationRuntimeSsisCustomSetupScript,
             >,
         >,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Integration runtime description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
         #[builder(into, default)]
-        pub edition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub edition: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `express_custom_setup` block as defined below.
         #[builder(into, default)]
-        pub express_custom_setup: pulumi_wasm_rust::InputOrOutput<
+        pub express_custom_setup: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::IntegrationRuntimeSsisExpressCustomSetup,
             >,
         >,
         /// A `express_vnet_integration` block as defined below.
         #[builder(into, default)]
-        pub express_vnet_integration: pulumi_wasm_rust::InputOrOutput<
+        pub express_vnet_integration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::IntegrationRuntimeSsisExpressVnetIntegration,
             >,
         >,
         /// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         #[builder(into, default)]
-        pub license_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub license_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
         #[builder(into, default)]
-        pub max_parallel_executions_per_node: pulumi_wasm_rust::InputOrOutput<
+        pub max_parallel_executions_per_node: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
         #[builder(into)]
-        pub node_size: pulumi_wasm_rust::InputOrOutput<String>,
+        pub node_size: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
         #[builder(into, default)]
-        pub number_of_nodes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub number_of_nodes: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// One or more `package_store` block as defined below.
         #[builder(into, default)]
-        pub package_stores: pulumi_wasm_rust::InputOrOutput<
+        pub package_stores: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::datafactory::IntegrationRuntimeSsisPackageStore>,
             >,
         >,
         /// One `pipeline_external_compute_scale` block as defined below.
         #[builder(into, default)]
-        pub pipeline_external_compute_scale: pulumi_wasm_rust::InputOrOutput<
+        pub pipeline_external_compute_scale: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::IntegrationRuntimeSsisPipelineExternalComputeScale,
             >,
         >,
         /// A `proxy` block as defined below.
         #[builder(into, default)]
-        pub proxy: pulumi_wasm_rust::InputOrOutput<
+        pub proxy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datafactory::IntegrationRuntimeSsisProxy>,
         >,
         /// A `vnet_integration` block as defined below.
         #[builder(into, default)]
-        pub vnet_integration: pulumi_wasm_rust::InputOrOutput<
+        pub vnet_integration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::datafactory::IntegrationRuntimeSsisVnetIntegration,
             >,
@@ -144,11 +144,11 @@ pub mod integration_runtime_ssis {
     #[allow(dead_code)]
     pub struct IntegrationRuntimeSsisResult {
         /// A `catalog_info` block as defined below.
-        pub catalog_info: pulumi_wasm_rust::Output<
+        pub catalog_info: pulumi_gestalt_rust::Output<
             Option<super::super::types::datafactory::IntegrationRuntimeSsisCatalogInfo>,
         >,
         /// One `copy_compute_scale` block as defined below.
-        pub copy_compute_scale: pulumi_wasm_rust::Output<
+        pub copy_compute_scale: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::datafactory::IntegrationRuntimeSsisCopyComputeScale,
             >,
@@ -156,61 +156,61 @@ pub mod integration_runtime_ssis {
         /// The name of a Data Factory Credential that the SSIS integration will use to access data sources. For example, `azure.datafactory.CredentialUserManagedIdentity`
         ///
         /// > **NOTE** If `credential_name` is omitted, the integration runtime will use the Data Factory assigned identity.
-        pub credential_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub credential_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `custom_setup_script` block as defined below.
-        pub custom_setup_script: pulumi_wasm_rust::Output<
+        pub custom_setup_script: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::datafactory::IntegrationRuntimeSsisCustomSetupScript,
             >,
         >,
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// Integration runtime description.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
-        pub edition: pulumi_wasm_rust::Output<Option<String>>,
+        pub edition: pulumi_gestalt_rust::Output<Option<String>>,
         /// An `express_custom_setup` block as defined below.
-        pub express_custom_setup: pulumi_wasm_rust::Output<
+        pub express_custom_setup: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::datafactory::IntegrationRuntimeSsisExpressCustomSetup,
             >,
         >,
         /// A `express_vnet_integration` block as defined below.
-        pub express_vnet_integration: pulumi_wasm_rust::Output<
+        pub express_vnet_integration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::datafactory::IntegrationRuntimeSsisExpressVnetIntegration,
             >,
         >,
         /// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
-        pub license_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub license_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`.
-        pub max_parallel_executions_per_node: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_parallel_executions_per_node: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2`
-        pub node_size: pulumi_wasm_rust::Output<String>,
+        pub node_size: pulumi_gestalt_rust::Output<String>,
         /// Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`.
-        pub number_of_nodes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub number_of_nodes: pulumi_gestalt_rust::Output<Option<i32>>,
         /// One or more `package_store` block as defined below.
-        pub package_stores: pulumi_wasm_rust::Output<
+        pub package_stores: pulumi_gestalt_rust::Output<
             Option<
                 Vec<super::super::types::datafactory::IntegrationRuntimeSsisPackageStore>,
             >,
         >,
         /// One `pipeline_external_compute_scale` block as defined below.
-        pub pipeline_external_compute_scale: pulumi_wasm_rust::Output<
+        pub pipeline_external_compute_scale: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::datafactory::IntegrationRuntimeSsisPipelineExternalComputeScale,
             >,
         >,
         /// A `proxy` block as defined below.
-        pub proxy: pulumi_wasm_rust::Output<
+        pub proxy: pulumi_gestalt_rust::Output<
             Option<super::super::types::datafactory::IntegrationRuntimeSsisProxy>,
         >,
         /// A `vnet_integration` block as defined below.
-        pub vnet_integration: pulumi_wasm_rust::Output<
+        pub vnet_integration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::datafactory::IntegrationRuntimeSsisVnetIntegration,
             >,
@@ -221,11 +221,11 @@ pub mod integration_runtime_ssis {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IntegrationRuntimeSsisArgs,
     ) -> IntegrationRuntimeSsisResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let catalog_info_binding = args.catalog_info.get_output(context).get_inner();
         let copy_compute_scale_binding = args
@@ -362,57 +362,57 @@ pub mod integration_runtime_ssis {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IntegrationRuntimeSsisResult {
-            catalog_info: pulumi_wasm_rust::__private::into_domain(
+            catalog_info: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("catalogInfo"),
             ),
-            copy_compute_scale: pulumi_wasm_rust::__private::into_domain(
+            copy_compute_scale: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("copyComputeScale"),
             ),
-            credential_name: pulumi_wasm_rust::__private::into_domain(
+            credential_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("credentialName"),
             ),
-            custom_setup_script: pulumi_wasm_rust::__private::into_domain(
+            custom_setup_script: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customSetupScript"),
             ),
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            edition: pulumi_wasm_rust::__private::into_domain(
+            edition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edition"),
             ),
-            express_custom_setup: pulumi_wasm_rust::__private::into_domain(
+            express_custom_setup: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expressCustomSetup"),
             ),
-            express_vnet_integration: pulumi_wasm_rust::__private::into_domain(
+            express_vnet_integration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expressVnetIntegration"),
             ),
-            license_type: pulumi_wasm_rust::__private::into_domain(
+            license_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenseType"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            max_parallel_executions_per_node: pulumi_wasm_rust::__private::into_domain(
+            max_parallel_executions_per_node: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxParallelExecutionsPerNode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            node_size: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            node_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeSize"),
             ),
-            number_of_nodes: pulumi_wasm_rust::__private::into_domain(
+            number_of_nodes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("numberOfNodes"),
             ),
-            package_stores: pulumi_wasm_rust::__private::into_domain(
+            package_stores: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("packageStores"),
             ),
-            pipeline_external_compute_scale: pulumi_wasm_rust::__private::into_domain(
+            pipeline_external_compute_scale: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineExternalComputeScale"),
             ),
-            proxy: pulumi_wasm_rust::__private::into_domain(o.extract_field("proxy")),
-            vnet_integration: pulumi_wasm_rust::__private::into_domain(
+            proxy: pulumi_gestalt_rust::__private::into_domain(o.extract_field("proxy")),
+            vnet_integration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vnetIntegration"),
             ),
         }

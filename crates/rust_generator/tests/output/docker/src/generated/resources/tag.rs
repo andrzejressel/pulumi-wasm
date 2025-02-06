@@ -1,35 +1,35 @@
 /// Creates a docker tag. It has the exact same functionality as the `docker tag` command. Deleting the resource will neither delete the source nor target images. The source image must exist on the machine running the docker daemon.
 pub mod tag {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TagArgs {
         /// Name of the source image.
         #[builder(into)]
-        pub source_image: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_image: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the target image.
         #[builder(into)]
-        pub target_image: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_image: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TagResult {
         /// Name of the source image.
-        pub source_image: pulumi_wasm_rust::Output<String>,
+        pub source_image: pulumi_gestalt_rust::Output<String>,
         /// ImageID of the source image in the format of `sha256:<<ID>>`
-        pub source_image_id: pulumi_wasm_rust::Output<String>,
+        pub source_image_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the target image.
-        pub target_image: pulumi_wasm_rust::Output<String>,
+        pub target_image: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TagArgs,
     ) -> TagResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let source_image_binding = args.source_image.get_output(context).get_inner();
         let target_image_binding = args.target_image.get_output(context).get_inner();
@@ -50,13 +50,13 @@ pub mod tag {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TagResult {
-            source_image: pulumi_wasm_rust::__private::into_domain(
+            source_image: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceImage"),
             ),
-            source_image_id: pulumi_wasm_rust::__private::into_domain(
+            source_image_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceImageId"),
             ),
-            target_image: pulumi_wasm_rust::__private::into_domain(
+            target_image: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetImage"),
             ),
         }

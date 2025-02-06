@@ -162,61 +162,61 @@
 /// ```
 ///
 pub mod user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserArgs {
         /// Identifies the alloydb cluster. Must be in the format
         /// 'projects/{project}/locations/{location}/clusters/{cluster_id}'
         #[builder(into)]
-        pub cluster: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of database roles this database user has.
         #[builder(into, default)]
-        pub database_roles: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub database_roles: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Password for this database user.
         #[builder(into, default)]
-        pub password: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub password: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The database role name of the user.
         #[builder(into)]
-        pub user_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of this user.
         /// Possible values are: `ALLOYDB_BUILT_IN`, `ALLOYDB_IAM_USER`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub user_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_type: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserResult {
         /// Identifies the alloydb cluster. Must be in the format
         /// 'projects/{project}/locations/{location}/clusters/{cluster_id}'
-        pub cluster: pulumi_wasm_rust::Output<String>,
+        pub cluster: pulumi_gestalt_rust::Output<String>,
         /// List of database roles this database user has.
-        pub database_roles: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub database_roles: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Name of the resource in the form of projects/{project}/locations/{location}/clusters/{cluster}/users/{user}.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Password for this database user.
-        pub password: pulumi_wasm_rust::Output<Option<String>>,
+        pub password: pulumi_gestalt_rust::Output<Option<String>>,
         /// The database role name of the user.
-        pub user_id: pulumi_wasm_rust::Output<String>,
+        pub user_id: pulumi_gestalt_rust::Output<String>,
         /// The type of this user.
         /// Possible values are: `ALLOYDB_BUILT_IN`, `ALLOYDB_IAM_USER`.
         ///
         ///
         /// - - -
-        pub user_type: pulumi_wasm_rust::Output<String>,
+        pub user_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserArgs,
     ) -> UserResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_binding = args.cluster.get_output(context).get_inner();
         let database_roles_binding = args.database_roles.get_output(context).get_inner();
@@ -252,18 +252,20 @@ pub mod user {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserResult {
-            cluster: pulumi_wasm_rust::__private::into_domain(
+            cluster: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cluster"),
             ),
-            database_roles: pulumi_wasm_rust::__private::into_domain(
+            database_roles: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseRoles"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            password: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("password"),
             ),
-            user_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("userId")),
-            user_type: pulumi_wasm_rust::__private::into_domain(
+            user_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("userId"),
+            ),
+            user_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userType"),
             ),
         }

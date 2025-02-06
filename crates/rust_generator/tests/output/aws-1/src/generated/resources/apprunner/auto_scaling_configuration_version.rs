@@ -23,54 +23,54 @@
 /// $ pulumi import aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion example "arn:aws:apprunner:us-east-1:1234567890:autoscalingconfiguration/example/1/69bdfe0115224b0db49398b7beb68e0f
 /// ```
 pub mod auto_scaling_configuration_version {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AutoScalingConfigurationVersionArgs {
         /// Name of the auto scaling configuration.
         #[builder(into)]
-        pub auto_scaling_configuration_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub auto_scaling_configuration_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
         #[builder(into, default)]
-        pub max_concurrency: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_concurrency: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Maximal number of instances that App Runner provisions for your service.
         #[builder(into, default)]
-        pub max_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub max_size: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Minimal number of instances that App Runner provisions for your service.
         #[builder(into, default)]
-        pub min_size: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub min_size: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct AutoScalingConfigurationVersionResult {
         /// ARN of this auto scaling configuration version.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Name of the auto scaling configuration.
-        pub auto_scaling_configuration_name: pulumi_wasm_rust::Output<String>,
+        pub auto_scaling_configuration_name: pulumi_gestalt_rust::Output<String>,
         /// The revision of this auto scaling configuration.
-        pub auto_scaling_configuration_revision: pulumi_wasm_rust::Output<i32>,
-        pub has_associated_service: pulumi_wasm_rust::Output<bool>,
-        pub is_default: pulumi_wasm_rust::Output<bool>,
+        pub auto_scaling_configuration_revision: pulumi_gestalt_rust::Output<i32>,
+        pub has_associated_service: pulumi_gestalt_rust::Output<bool>,
+        pub is_default: pulumi_gestalt_rust::Output<bool>,
         /// Whether the auto scaling configuration has the highest `auto_scaling_configuration_revision` among all configurations that share the same `auto_scaling_configuration_name`.
-        pub latest: pulumi_wasm_rust::Output<bool>,
+        pub latest: pulumi_gestalt_rust::Output<bool>,
         /// Maximal number of concurrent requests that you want an instance to process. When the number of concurrent requests goes over this limit, App Runner scales up your service.
-        pub max_concurrency: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_concurrency: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Maximal number of instances that App Runner provisions for your service.
-        pub max_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub max_size: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Minimal number of instances that App Runner provisions for your service.
-        pub min_size: pulumi_wasm_rust::Output<Option<i32>>,
+        pub min_size: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Current state of the auto scaling configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -79,11 +79,11 @@ pub mod auto_scaling_configuration_version {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AutoScalingConfigurationVersionArgs,
     ) -> AutoScalingConfigurationVersionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_scaling_configuration_name_binding = args
             .auto_scaling_configuration_name
@@ -126,32 +126,36 @@ pub mod auto_scaling_configuration_version {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AutoScalingConfigurationVersionResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auto_scaling_configuration_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auto_scaling_configuration_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoScalingConfigurationName"),
             ),
-            auto_scaling_configuration_revision: pulumi_wasm_rust::__private::into_domain(
+            auto_scaling_configuration_revision: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoScalingConfigurationRevision"),
             ),
-            has_associated_service: pulumi_wasm_rust::__private::into_domain(
+            has_associated_service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hasAssociatedService"),
             ),
-            is_default: pulumi_wasm_rust::__private::into_domain(
+            is_default: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isDefault"),
             ),
-            latest: pulumi_wasm_rust::__private::into_domain(o.extract_field("latest")),
-            max_concurrency: pulumi_wasm_rust::__private::into_domain(
+            latest: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("latest"),
+            ),
+            max_concurrency: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxConcurrency"),
             ),
-            max_size: pulumi_wasm_rust::__private::into_domain(
+            max_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxSize"),
             ),
-            min_size: pulumi_wasm_rust::__private::into_domain(
+            min_size: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minSize"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

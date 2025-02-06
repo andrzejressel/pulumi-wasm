@@ -8,8 +8,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let tfenvtest = environment::create(
@@ -45,8 +45,8 @@
 /// ### Example With Options
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let tfenvtest = environment::create(
@@ -83,156 +83,156 @@
 /// $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
 /// ```
 pub mod environment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentArgs {
         /// Name of the application that contains the version
         /// to be deployed
         #[builder(into)]
-        pub application: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Prefix to use for the fully qualified DNS name of
         /// the Environment.
         #[builder(into, default)]
-        pub cname_prefix: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cname_prefix: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Short description of the Environment
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A unique name for this Environment. This name is used
         /// in the application URL
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
         /// to use in deployment
         #[builder(into, default)]
-        pub platform_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub platform_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The time between polling the AWS API to
         /// check if changes have been applied. Use this to adjust the rate of API calls
         /// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
         /// use the default behavior, which is an exponential backoff
         #[builder(into, default)]
-        pub poll_interval: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub poll_interval: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Option settings to configure the new Environment. These
         /// override specific values that are set as defaults. The format is detailed
         /// below in Option Settings
         #[builder(into, default)]
-        pub settings: pulumi_wasm_rust::InputOrOutput<
+        pub settings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::elasticbeanstalk::EnvironmentSetting>>,
         >,
         /// A solution stack to base your environment
         /// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         #[builder(into, default)]
-        pub solution_stack_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub solution_stack_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the Elastic Beanstalk Configuration
         /// template to use in deployment
         #[builder(into, default)]
-        pub template_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub template_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Elastic Beanstalk Environment tier. Valid values are `Worker`
         /// or `WebServer`. If tier is left blank `WebServer` will be used.
         #[builder(into, default)]
-        pub tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Elastic Beanstalk Application Version
         /// to use in deployment.
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The maximum
         /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
         /// wait for an Elastic Beanstalk Environment to be in a ready state before timing
         /// out.
         #[builder(into, default)]
-        pub wait_for_ready_timeout: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub wait_for_ready_timeout: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentResult {
         /// List of all option settings configured in this Environment. These
         /// are a combination of default settings and their overrides from `setting` in
         /// the configuration.
-        pub all_settings: pulumi_wasm_rust::Output<
+        pub all_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::types::elasticbeanstalk::EnvironmentAllSetting>,
         >,
         /// Name of the application that contains the version
         /// to be deployed
-        pub application: pulumi_wasm_rust::Output<String>,
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub application: pulumi_gestalt_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The autoscaling groups used by this Environment.
-        pub autoscaling_groups: pulumi_wasm_rust::Output<Vec<String>>,
+        pub autoscaling_groups: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Fully qualified DNS name for this Environment.
-        pub cname: pulumi_wasm_rust::Output<String>,
+        pub cname: pulumi_gestalt_rust::Output<String>,
         /// Prefix to use for the fully qualified DNS name of
         /// the Environment.
-        pub cname_prefix: pulumi_wasm_rust::Output<String>,
+        pub cname_prefix: pulumi_gestalt_rust::Output<String>,
         /// Short description of the Environment
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The URL to the Load Balancer for this Environment
-        pub endpoint_url: pulumi_wasm_rust::Output<String>,
+        pub endpoint_url: pulumi_gestalt_rust::Output<String>,
         /// Instances used by this Environment.
-        pub instances: pulumi_wasm_rust::Output<Vec<String>>,
+        pub instances: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Launch configurations in use by this Environment.
-        pub launch_configurations: pulumi_wasm_rust::Output<Vec<String>>,
+        pub launch_configurations: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Elastic load balancers in use by this Environment.
-        pub load_balancers: pulumi_wasm_rust::Output<Vec<String>>,
+        pub load_balancers: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A unique name for this Environment. This name is used
         /// in the application URL
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) of the Elastic Beanstalk [Platform](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn)
         /// to use in deployment
-        pub platform_arn: pulumi_wasm_rust::Output<String>,
+        pub platform_arn: pulumi_gestalt_rust::Output<String>,
         /// The time between polling the AWS API to
         /// check if changes have been applied. Use this to adjust the rate of API calls
         /// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
         /// use the default behavior, which is an exponential backoff
-        pub poll_interval: pulumi_wasm_rust::Output<Option<String>>,
+        pub poll_interval: pulumi_gestalt_rust::Output<Option<String>>,
         /// SQS queues in use by this Environment.
-        pub queues: pulumi_wasm_rust::Output<Vec<String>>,
+        pub queues: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Option settings to configure the new Environment. These
         /// override specific values that are set as defaults. The format is detailed
         /// below in Option Settings
-        pub settings: pulumi_wasm_rust::Output<
+        pub settings: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::elasticbeanstalk::EnvironmentSetting>>,
         >,
         /// A solution stack to base your environment
         /// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
-        pub solution_stack_name: pulumi_wasm_rust::Output<String>,
+        pub solution_stack_name: pulumi_gestalt_rust::Output<String>,
         /// A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The name of the Elastic Beanstalk Configuration
         /// template to use in deployment
-        pub template_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Elastic Beanstalk Environment tier. Valid values are `Worker`
         /// or `WebServer`. If tier is left blank `WebServer` will be used.
-        pub tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub tier: pulumi_gestalt_rust::Output<Option<String>>,
         /// Autoscaling triggers in use by this Environment.
-        pub triggers: pulumi_wasm_rust::Output<Vec<String>>,
+        pub triggers: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The name of the Elastic Beanstalk Application Version
         /// to use in deployment.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
         /// The maximum
         /// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
         /// wait for an Elastic Beanstalk Environment to be in a ready state before timing
         /// out.
-        pub wait_for_ready_timeout: pulumi_wasm_rust::Output<Option<String>>,
+        pub wait_for_ready_timeout: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvironmentArgs,
     ) -> EnvironmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_binding = args.application.get_output(context).get_inner();
         let cname_prefix_binding = args.cname_prefix.get_output(context).get_inner();
@@ -314,64 +314,66 @@ pub mod environment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvironmentResult {
-            all_settings: pulumi_wasm_rust::__private::into_domain(
+            all_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allSettings"),
             ),
-            application: pulumi_wasm_rust::__private::into_domain(
+            application: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("application"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            autoscaling_groups: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            autoscaling_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoscalingGroups"),
             ),
-            cname: pulumi_wasm_rust::__private::into_domain(o.extract_field("cname")),
-            cname_prefix: pulumi_wasm_rust::__private::into_domain(
+            cname: pulumi_gestalt_rust::__private::into_domain(o.extract_field("cname")),
+            cname_prefix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cnamePrefix"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            endpoint_url: pulumi_wasm_rust::__private::into_domain(
+            endpoint_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointUrl"),
             ),
-            instances: pulumi_wasm_rust::__private::into_domain(
+            instances: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instances"),
             ),
-            launch_configurations: pulumi_wasm_rust::__private::into_domain(
+            launch_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("launchConfigurations"),
             ),
-            load_balancers: pulumi_wasm_rust::__private::into_domain(
+            load_balancers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancers"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            platform_arn: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            platform_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platformArn"),
             ),
-            poll_interval: pulumi_wasm_rust::__private::into_domain(
+            poll_interval: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pollInterval"),
             ),
-            queues: pulumi_wasm_rust::__private::into_domain(o.extract_field("queues")),
-            settings: pulumi_wasm_rust::__private::into_domain(
+            queues: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("queues"),
+            ),
+            settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("settings"),
             ),
-            solution_stack_name: pulumi_wasm_rust::__private::into_domain(
+            solution_stack_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("solutionStackName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            template_name: pulumi_wasm_rust::__private::into_domain(
+            template_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("templateName"),
             ),
-            tier: pulumi_wasm_rust::__private::into_domain(o.extract_field("tier")),
-            triggers: pulumi_wasm_rust::__private::into_domain(
+            tier: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tier")),
+            triggers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggers"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
+            version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("version"),
             ),
-            wait_for_ready_timeout: pulumi_wasm_rust::__private::into_domain(
+            wait_for_ready_timeout: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("waitForReadyTimeout"),
             ),
         }

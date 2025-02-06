@@ -104,46 +104,46 @@
 /// ```
 ///
 pub mod os_policy_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OsPolicyAssignmentArgs {
         /// OS policy assignment description. Length of the description is limited to 1024 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Filter to select VMs. Structure is
         /// documented below.
         #[builder(into)]
-        pub instance_filter: pulumi_wasm_rust::InputOrOutput<
+        pub instance_filter: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::osconfig::OsPolicyAssignmentInstanceFilter,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Resource name.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of OS policies to be applied to the VMs.
         /// Structure is documented below.
         #[builder(into)]
-        pub os_policies: pulumi_wasm_rust::InputOrOutput<
+        pub os_policies: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::osconfig::OsPolicyAssignmentOsPolicy>,
         >,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Rollout to deploy the OS policy assignment. A rollout
         /// is triggered in the following situations: 1) OSPolicyAssignment is created.
         /// 2) OSPolicyAssignment is updated and the update contains changes to one of
         /// the following fields: - instance_filter - os_policies 3) OSPolicyAssignment
         /// is deleted. Structure is documented below.
         #[builder(into)]
-        pub rollout: pulumi_wasm_rust::InputOrOutput<
+        pub rollout: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::osconfig::OsPolicyAssignmentRollout,
         >,
         /// Set to true to skip awaiting rollout during resource creation and update.
         #[builder(into, default)]
-        pub skip_await_rollout: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub skip_await_rollout: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct OsPolicyAssignmentResult {
@@ -151,66 +151,66 @@ pub mod os_policy_assignment {
         /// rolled out in this zone and new VMs will be assigned OS policies from this
         /// revision. For a given OS policy assignment, there is only one revision with
         /// a value of `true` for this field.
-        pub baseline: pulumi_wasm_rust::Output<bool>,
+        pub baseline: pulumi_gestalt_rust::Output<bool>,
         /// Output only. Indicates that this revision deletes the OS policy
         /// assignment.
-        pub deleted: pulumi_wasm_rust::Output<bool>,
+        pub deleted: pulumi_gestalt_rust::Output<bool>,
         /// OS policy assignment description. Length of the description is limited to 1024 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The etag for this OS policy assignment. If this is provided on
         /// update, it must match the server's etag.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Filter to select VMs. Structure is
         /// documented below.
-        pub instance_filter: pulumi_wasm_rust::Output<
+        pub instance_filter: pulumi_gestalt_rust::Output<
             super::super::types::osconfig::OsPolicyAssignmentInstanceFilter,
         >,
         /// The location for the resource
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Resource name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// List of OS policies to be applied to the VMs.
         /// Structure is documented below.
-        pub os_policies: pulumi_wasm_rust::Output<
+        pub os_policies: pulumi_gestalt_rust::Output<
             Vec<super::super::types::osconfig::OsPolicyAssignmentOsPolicy>,
         >,
         /// The project for the resource
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Output only. Indicates that reconciliation is in progress
         /// for the revision. This value is `true` when the `rollout_state` is one of:
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// Output only. The timestamp that the revision was
         /// created.
-        pub revision_create_time: pulumi_wasm_rust::Output<String>,
+        pub revision_create_time: pulumi_gestalt_rust::Output<String>,
         /// Output only. The assignment revision ID A new revision is
         /// committed whenever a rollout is triggered for a OS policy assignment
-        pub revision_id: pulumi_wasm_rust::Output<String>,
+        pub revision_id: pulumi_gestalt_rust::Output<String>,
         /// Rollout to deploy the OS policy assignment. A rollout
         /// is triggered in the following situations: 1) OSPolicyAssignment is created.
         /// 2) OSPolicyAssignment is updated and the update contains changes to one of
         /// the following fields: - instance_filter - os_policies 3) OSPolicyAssignment
         /// is deleted. Structure is documented below.
-        pub rollout: pulumi_wasm_rust::Output<
+        pub rollout: pulumi_gestalt_rust::Output<
             super::super::types::osconfig::OsPolicyAssignmentRollout,
         >,
         /// Output only. OS policy assignment rollout state
-        pub rollout_state: pulumi_wasm_rust::Output<String>,
+        pub rollout_state: pulumi_gestalt_rust::Output<String>,
         /// Set to true to skip awaiting rollout during resource creation and update.
-        pub skip_await_rollout: pulumi_wasm_rust::Output<Option<bool>>,
+        pub skip_await_rollout: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Output only. Server generated unique id for the OS policy assignment
         /// resource.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OsPolicyAssignmentArgs,
     ) -> OsPolicyAssignmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let instance_filter_binding = args
@@ -267,48 +267,48 @@ pub mod os_policy_assignment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OsPolicyAssignmentResult {
-            baseline: pulumi_wasm_rust::__private::into_domain(
+            baseline: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("baseline"),
             ),
-            deleted: pulumi_wasm_rust::__private::into_domain(
+            deleted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleted"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            instance_filter: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            instance_filter: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceFilter"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            os_policies: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            os_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("osPolicies"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            revision_create_time: pulumi_wasm_rust::__private::into_domain(
+            revision_create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("revisionCreateTime"),
             ),
-            revision_id: pulumi_wasm_rust::__private::into_domain(
+            revision_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("revisionId"),
             ),
-            rollout: pulumi_wasm_rust::__private::into_domain(
+            rollout: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rollout"),
             ),
-            rollout_state: pulumi_wasm_rust::__private::into_domain(
+            rollout_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rolloutState"),
             ),
-            skip_await_rollout: pulumi_wasm_rust::__private::into_domain(
+            skip_await_rollout: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skipAwaitRollout"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
         }
     }
 }

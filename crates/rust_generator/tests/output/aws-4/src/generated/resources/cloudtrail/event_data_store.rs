@@ -11,8 +11,8 @@
 /// The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = event_data_store::create(
@@ -66,87 +66,87 @@
 /// $ pulumi import aws:cloudtrail/eventDataStore:EventDataStore example arn:aws:cloudtrail:us-east-1:123456789123:eventdatastore/22333815-4414-412c-b155-dd254033gfhf
 /// ```
 pub mod event_data_store {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EventDataStoreArgs {
         /// The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
         #[builder(into, default)]
-        pub advanced_event_selectors: pulumi_wasm_rust::InputOrOutput<
+        pub advanced_event_selectors: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<super::super::types::cloudtrail::EventDataStoreAdvancedEventSelector>,
             >,
         >,
         /// The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
         #[builder(into, default)]
-        pub billing_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub billing_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
         #[builder(into, default)]
-        pub multi_region_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub multi_region_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the event data store.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
         #[builder(into, default)]
-        pub organization_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub organization_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
         #[builder(into, default)]
-        pub retention_period: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub retention_period: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
         #[builder(into, default)]
-        pub termination_protection_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub termination_protection_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
     }
     #[allow(dead_code)]
     pub struct EventDataStoreResult {
         /// The advanced event selectors to use to select the events for the data store. For more information about how to use advanced event selectors, see [Log events by using advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced) in the CloudTrail User Guide.
-        pub advanced_event_selectors: pulumi_wasm_rust::Output<
+        pub advanced_event_selectors: pulumi_gestalt_rust::Output<
             Vec<super::super::types::cloudtrail::EventDataStoreAdvancedEventSelector>,
         >,
         /// ARN of the event data store.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The billing mode for the event data store. The valid values are `EXTENDABLE_RETENTION_PRICING` and `FIXED_RETENTION_PRICING`. Defaults to `EXTENDABLE_RETENTION_PRICING`.
-        pub billing_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub billing_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the AWS KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by alias/, a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
-        pub multi_region_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub multi_region_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the event data store.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
-        pub organization_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub organization_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
-        pub retention_period: pulumi_wasm_rust::Output<Option<i32>>,
+        pub retention_period: pulumi_gestalt_rust::Output<Option<i32>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
-        pub termination_protection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub termination_protection_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EventDataStoreArgs,
     ) -> EventDataStoreResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let advanced_event_selectors_binding = args
             .advanced_event_selectors
@@ -217,31 +217,31 @@ pub mod event_data_store {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EventDataStoreResult {
-            advanced_event_selectors: pulumi_wasm_rust::__private::into_domain(
+            advanced_event_selectors: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("advancedEventSelectors"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            billing_mode: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            billing_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("billingMode"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            multi_region_enabled: pulumi_wasm_rust::__private::into_domain(
+            multi_region_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("multiRegionEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            organization_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            organization_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organizationEnabled"),
             ),
-            retention_period: pulumi_wasm_rust::__private::into_domain(
+            retention_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionPeriod"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            termination_protection_enabled: pulumi_wasm_rust::__private::into_domain(
+            termination_protection_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("terminationProtectionEnabled"),
             ),
         }

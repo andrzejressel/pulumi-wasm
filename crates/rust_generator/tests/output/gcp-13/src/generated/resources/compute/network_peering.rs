@@ -49,75 +49,79 @@
 /// ```
 ///
 pub mod network_peering {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkPeeringArgs {
         /// Whether to export the custom routes to the peer network. Defaults to `false`.
         #[builder(into, default)]
-        pub export_custom_routes: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub export_custom_routes: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether subnet routes with public IP range are exported. The default value is true, all subnet routes are exported. The IPv4 special-use ranges (https://en.wikipedia.org/wiki/IPv4#Special_addresses) are always exported to peers and are not controlled by this field.
         #[builder(into, default)]
-        pub export_subnet_routes_with_public_ip: pulumi_wasm_rust::InputOrOutput<
+        pub export_subnet_routes_with_public_ip: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Whether to import the custom routes from the peer network. Defaults to `false`.
         #[builder(into, default)]
-        pub import_custom_routes: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub import_custom_routes: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether subnet routes with public IP range are imported. The default value is false. The IPv4 special-use ranges (https://en.wikipedia.org/wiki/IPv4#Special_addresses) are always imported from peers and are not controlled by this field.
         #[builder(into, default)]
-        pub import_subnet_routes_with_public_ip: pulumi_wasm_rust::InputOrOutput<
+        pub import_subnet_routes_with_public_ip: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Name of the peering.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The primary network of the peering.
         #[builder(into)]
-        pub network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The peer network in the peering. The peer network
         /// may belong to a different project.
         #[builder(into)]
-        pub peer_network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub peer_network: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Which IP version(s) of traffic and routes are allowed to be imported or exported between peer networks. The default value is IPV4_ONLY. Possible values: ["IPV4_ONLY", "IPV4_IPV6"].
         #[builder(into, default)]
-        pub stack_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub stack_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NetworkPeeringResult {
         /// Whether to export the custom routes to the peer network. Defaults to `false`.
-        pub export_custom_routes: pulumi_wasm_rust::Output<Option<bool>>,
+        pub export_custom_routes: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether subnet routes with public IP range are exported. The default value is true, all subnet routes are exported. The IPv4 special-use ranges (https://en.wikipedia.org/wiki/IPv4#Special_addresses) are always exported to peers and are not controlled by this field.
-        pub export_subnet_routes_with_public_ip: pulumi_wasm_rust::Output<Option<bool>>,
+        pub export_subnet_routes_with_public_ip: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// Whether to import the custom routes from the peer network. Defaults to `false`.
-        pub import_custom_routes: pulumi_wasm_rust::Output<Option<bool>>,
+        pub import_custom_routes: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether subnet routes with public IP range are imported. The default value is false. The IPv4 special-use ranges (https://en.wikipedia.org/wiki/IPv4#Special_addresses) are always imported from peers and are not controlled by this field.
-        pub import_subnet_routes_with_public_ip: pulumi_wasm_rust::Output<Option<bool>>,
+        pub import_subnet_routes_with_public_ip: pulumi_gestalt_rust::Output<
+            Option<bool>,
+        >,
         /// Name of the peering.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The primary network of the peering.
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// The peer network in the peering. The peer network
         /// may belong to a different project.
-        pub peer_network: pulumi_wasm_rust::Output<String>,
+        pub peer_network: pulumi_gestalt_rust::Output<String>,
         /// Which IP version(s) of traffic and routes are allowed to be imported or exported between peer networks. The default value is IPV4_ONLY. Possible values: ["IPV4_ONLY", "IPV4_IPV6"].
-        pub stack_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub stack_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// State for the peering, either `ACTIVE` or `INACTIVE`. The peering is
         /// `ACTIVE` when there's a matching configuration in the peer network.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Details about the current state of the peering.
-        pub state_details: pulumi_wasm_rust::Output<String>,
+        pub state_details: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkPeeringArgs,
     ) -> NetworkPeeringResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let export_custom_routes_binding = args
             .export_custom_routes
@@ -180,30 +184,30 @@ pub mod network_peering {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkPeeringResult {
-            export_custom_routes: pulumi_wasm_rust::__private::into_domain(
+            export_custom_routes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exportCustomRoutes"),
             ),
-            export_subnet_routes_with_public_ip: pulumi_wasm_rust::__private::into_domain(
+            export_subnet_routes_with_public_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("exportSubnetRoutesWithPublicIp"),
             ),
-            import_custom_routes: pulumi_wasm_rust::__private::into_domain(
+            import_custom_routes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("importCustomRoutes"),
             ),
-            import_subnet_routes_with_public_ip: pulumi_wasm_rust::__private::into_domain(
+            import_subnet_routes_with_public_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("importSubnetRoutesWithPublicIp"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            peer_network: pulumi_wasm_rust::__private::into_domain(
+            peer_network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peerNetwork"),
             ),
-            stack_type: pulumi_wasm_rust::__private::into_domain(
+            stack_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stackType"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            state_details: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            state_details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stateDetails"),
             ),
         }

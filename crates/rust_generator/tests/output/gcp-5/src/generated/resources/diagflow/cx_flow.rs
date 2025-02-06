@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let agent = cx_agent::create(
@@ -294,7 +294,7 @@
 /// ```
 ///
 pub mod cx_flow {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CxFlowArgs {
@@ -302,25 +302,25 @@ pub mod cx_flow {
         /// Hierarchy: Agent->Flow->Page->Fulfillment/Parameter.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub advanced_settings: pulumi_wasm_rust::InputOrOutput<
+        pub advanced_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::diagflow::CxFlowAdvancedSettings>,
         >,
         /// The description of the flow. The maximum length is 500 characters. If exceeded, the request is rejected.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The human-readable name of the flow.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A flow's event handlers serve two purposes:
         /// They are responsible for handling events (e.g. no match, webhook errors) in the flow.
         /// They are inherited by every page's [event handlers][Page.event_handlers], which can be used to handle common events regardless of the current page. Event handlers defined in the page have higher priority than those defined in the flow.
         /// Unlike transitionRoutes, these handlers are evaluated on a first-match basis. The first one that matches the event get executed, with the rest being ignored.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub event_handlers: pulumi_wasm_rust::InputOrOutput<
+        pub event_handlers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::diagflow::CxFlowEventHandler>>,
         >,
         /// Marks this as the [Default Start Flow](https://cloud.google.com/dialogflow/cx/docs/concept/flow#start) for an agent. When you create an agent, the Default Start Flow is created automatically.
@@ -328,7 +328,7 @@ pub mod cx_flow {
         ///
         /// > Avoid having multiple `gcp.diagflow.CxFlow` resources linked to the same agent with `is_default_start_flow = true` because they will compete to control a single Default Start Flow resource in GCP.
         #[builder(into, default)]
-        pub is_default_start_flow: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_default_start_flow: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The language of the following fields in flow:
         /// Flow.event_handlers.trigger_fulfillment.messages
         /// Flow.event_handlers.trigger_fulfillment.conditional_cases
@@ -336,23 +336,23 @@ pub mod cx_flow {
         /// Flow.transition_routes.trigger_fulfillment.conditional_cases
         /// If not specified, the agent's default language is used. Many languages are supported. Note: languages must be enabled in the agent before they can be used.
         #[builder(into, default)]
-        pub language_code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub language_code: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// NLU related settings of the flow.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub nlu_settings: pulumi_wasm_rust::InputOrOutput<
+        pub nlu_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::diagflow::CxFlowNluSettings>,
         >,
         /// The agent to create a flow for.
         /// Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>.
         #[builder(into, default)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A flow's transition route group serve two purposes:
         /// They are responsible for matching the user's first utterances in the flow.
         /// They are inherited by every page's [transition route groups][Page.transition_route_groups]. Transition route groups defined in the page have higher priority than those defined in the flow.
         /// Format:projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>/flows/<Flow ID>/transitionRouteGroups/<TransitionRouteGroup ID>.
         #[builder(into, default)]
-        pub transition_route_groups: pulumi_wasm_rust::InputOrOutput<
+        pub transition_route_groups: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// A flow's transition routes serve two purposes:
@@ -364,7 +364,7 @@ pub mod cx_flow {
         /// TransitionRoutes with intent specified are inherited by pages in the flow.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub transition_routes: pulumi_wasm_rust::InputOrOutput<
+        pub transition_routes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::diagflow::CxFlowTransitionRoute>>,
         >,
     }
@@ -373,52 +373,52 @@ pub mod cx_flow {
         /// Hierarchical advanced settings for this flow. The settings exposed at the lower level overrides the settings exposed at the higher level.
         /// Hierarchy: Agent->Flow->Page->Fulfillment/Parameter.
         /// Structure is documented below.
-        pub advanced_settings: pulumi_wasm_rust::Output<
+        pub advanced_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::diagflow::CxFlowAdvancedSettings>,
         >,
         /// The description of the flow. The maximum length is 500 characters. If exceeded, the request is rejected.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The human-readable name of the flow.
         ///
         ///
         /// - - -
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// A flow's event handlers serve two purposes:
         /// They are responsible for handling events (e.g. no match, webhook errors) in the flow.
         /// They are inherited by every page's [event handlers][Page.event_handlers], which can be used to handle common events regardless of the current page. Event handlers defined in the page have higher priority than those defined in the flow.
         /// Unlike transitionRoutes, these handlers are evaluated on a first-match basis. The first one that matches the event get executed, with the rest being ignored.
         /// Structure is documented below.
-        pub event_handlers: pulumi_wasm_rust::Output<
+        pub event_handlers: pulumi_gestalt_rust::Output<
             Vec<super::super::types::diagflow::CxFlowEventHandler>,
         >,
         /// Marks this as the [Default Start Flow](https://cloud.google.com/dialogflow/cx/docs/concept/flow#start) for an agent. When you create an agent, the Default Start Flow is created automatically.
         /// The Default Start Flow cannot be deleted; deleting the `gcp.diagflow.CxFlow` resource does nothing to the underlying GCP resources.
         ///
         /// > Avoid having multiple `gcp.diagflow.CxFlow` resources linked to the same agent with `is_default_start_flow = true` because they will compete to control a single Default Start Flow resource in GCP.
-        pub is_default_start_flow: pulumi_wasm_rust::Output<Option<bool>>,
+        pub is_default_start_flow: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The language of the following fields in flow:
         /// Flow.event_handlers.trigger_fulfillment.messages
         /// Flow.event_handlers.trigger_fulfillment.conditional_cases
         /// Flow.transition_routes.trigger_fulfillment.messages
         /// Flow.transition_routes.trigger_fulfillment.conditional_cases
         /// If not specified, the agent's default language is used. Many languages are supported. Note: languages must be enabled in the agent before they can be used.
-        pub language_code: pulumi_wasm_rust::Output<Option<String>>,
+        pub language_code: pulumi_gestalt_rust::Output<Option<String>>,
         /// The unique identifier of the flow.
         /// Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>/flows/<Flow ID>.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// NLU related settings of the flow.
         /// Structure is documented below.
-        pub nlu_settings: pulumi_wasm_rust::Output<
+        pub nlu_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::diagflow::CxFlowNluSettings>,
         >,
         /// The agent to create a flow for.
         /// Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>.
-        pub parent: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent: pulumi_gestalt_rust::Output<Option<String>>,
         /// A flow's transition route group serve two purposes:
         /// They are responsible for matching the user's first utterances in the flow.
         /// They are inherited by every page's [transition route groups][Page.transition_route_groups]. Transition route groups defined in the page have higher priority than those defined in the flow.
         /// Format:projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>/flows/<Flow ID>/transitionRouteGroups/<TransitionRouteGroup ID>.
-        pub transition_route_groups: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub transition_route_groups: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A flow's transition routes serve two purposes:
         /// They are responsible for matching the user's first utterances in the flow.
         /// They are inherited by every page's [transition routes][Page.transition_routes] and can support use cases such as the user saying "help" or "can I talk to a human?", which can be handled in a common way regardless of the current page. Transition routes defined in the page have higher priority than those defined in the flow.
@@ -427,7 +427,7 @@ pub mod cx_flow {
         /// TransitionRoutes with only condition specified.
         /// TransitionRoutes with intent specified are inherited by pages in the flow.
         /// Structure is documented below.
-        pub transition_routes: pulumi_wasm_rust::Output<
+        pub transition_routes: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::diagflow::CxFlowTransitionRoute>>,
         >,
     }
@@ -436,11 +436,11 @@ pub mod cx_flow {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CxFlowArgs,
     ) -> CxFlowResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let advanced_settings_binding = args
             .advanced_settings
@@ -513,33 +513,35 @@ pub mod cx_flow {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CxFlowResult {
-            advanced_settings: pulumi_wasm_rust::__private::into_domain(
+            advanced_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("advancedSettings"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            event_handlers: pulumi_wasm_rust::__private::into_domain(
+            event_handlers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventHandlers"),
             ),
-            is_default_start_flow: pulumi_wasm_rust::__private::into_domain(
+            is_default_start_flow: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isDefaultStartFlow"),
             ),
-            language_code: pulumi_wasm_rust::__private::into_domain(
+            language_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("languageCode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            nlu_settings: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            nlu_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nluSettings"),
             ),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            transition_route_groups: pulumi_wasm_rust::__private::into_domain(
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            transition_route_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitionRouteGroups"),
             ),
-            transition_routes: pulumi_wasm_rust::__private::into_domain(
+            transition_routes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitionRoutes"),
             ),
         }

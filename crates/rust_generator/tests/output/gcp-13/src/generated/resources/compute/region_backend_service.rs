@@ -39,8 +39,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = region_backend_service::create(
@@ -65,8 +65,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = region_backend_service::create(
@@ -106,8 +106,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = region_backend_service::create(
@@ -136,8 +136,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = region_backend_service::create(
@@ -166,8 +166,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = region_backend_service::create(
@@ -197,8 +197,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = region_backend_service::create(
@@ -253,8 +253,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = region_backend_service::create(
@@ -370,8 +370,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = region_backend_service::create(
@@ -410,8 +410,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = region_backend_service::create(
@@ -469,7 +469,7 @@
 /// ```
 ///
 pub mod region_backend_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RegionBackendServiceArgs {
@@ -479,17 +479,17 @@ pub mod region_backend_service {
         /// maximum allowed value for TTL is one day.
         /// When the load balancing scheme is INTERNAL, this field is not used.
         #[builder(into, default)]
-        pub affinity_cookie_ttl_sec: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub affinity_cookie_ttl_sec: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The set of backends that serve this RegionBackendService.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub backends: pulumi_wasm_rust::InputOrOutput<
+        pub backends: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::RegionBackendServiceBackend>>,
         >,
         /// Cloud CDN configuration for this BackendService.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub cdn_policy: pulumi_wasm_rust::InputOrOutput<
+        pub cdn_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RegionBackendServiceCdnPolicy>,
         >,
         /// Settings controlling the volume of connections to a backend service. This field
@@ -497,13 +497,13 @@ pub mod region_backend_service {
         /// and the `protocol` is set to HTTP, HTTPS, or HTTP2.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub circuit_breakers: pulumi_wasm_rust::InputOrOutput<
+        pub circuit_breakers: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RegionBackendServiceCircuitBreakers>,
         >,
         /// Time for which instance will be drained (not accept new
         /// connections, but still work to finish started).
         #[builder(into, default)]
-        pub connection_draining_timeout_sec: pulumi_wasm_rust::InputOrOutput<
+        pub connection_draining_timeout_sec: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// Connection Tracking configuration for this BackendService.
@@ -511,7 +511,7 @@ pub mod region_backend_service {
         /// Network Load Balancing.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub connection_tracking_policy: pulumi_wasm_rust::InputOrOutput<
+        pub connection_tracking_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::compute::RegionBackendServiceConnectionTrackingPolicy,
             >,
@@ -524,19 +524,19 @@ pub mod region_backend_service {
         /// hashing.
         /// This field only applies when all of the following are true -
         #[builder(into, default)]
-        pub consistent_hash: pulumi_wasm_rust::InputOrOutput<
+        pub consistent_hash: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RegionBackendServiceConsistentHash>,
         >,
         /// An optional description of this resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If true, enable Cloud CDN for this RegionBackendService.
         #[builder(into, default)]
-        pub enable_cdn: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_cdn: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Policy for failovers.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub failover_policy: pulumi_wasm_rust::InputOrOutput<
+        pub failover_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RegionBackendServiceFailoverPolicy>,
         >,
         /// The set of URLs to HealthCheck resources for health checking
@@ -545,17 +545,19 @@ pub mod region_backend_service {
         /// A health check must be specified unless the backend service uses an internet
         /// or serverless NEG as a backend.
         #[builder(into, default)]
-        pub health_checks: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub health_checks: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Settings for enabling Cloud Identity Aware Proxy
         /// Structure is documented below.
         #[builder(into, default)]
-        pub iap: pulumi_wasm_rust::InputOrOutput<
+        pub iap: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RegionBackendServiceIap>,
         >,
         /// Specifies preference of traffic to the backend (from the proxy and from the client for proxyless gRPC).
         /// Possible values are: `IPV4_ONLY`, `PREFER_IPV6`, `IPV6_ONLY`.
         #[builder(into, default)]
-        pub ip_address_selection_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_address_selection_policy: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Indicates what kind of load balancing this regional backend service
         /// will be used for. A backend service created for one type of load
         /// balancing cannot be used with the other(s). For more information, refer to
@@ -563,7 +565,7 @@ pub mod region_backend_service {
         /// Default value is `INTERNAL`.
         /// Possible values are: `EXTERNAL`, `EXTERNAL_MANAGED`, `INTERNAL`, `INTERNAL_MANAGED`.
         #[builder(into, default)]
-        pub load_balancing_scheme: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub load_balancing_scheme: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The load balancing algorithm used within the scope of the locality.
         /// The possible values are:
         /// * `ROUND_ROBIN`: This is a simple policy in which each healthy backend
@@ -611,12 +613,12 @@ pub mod region_backend_service {
         /// field set to true.
         /// Possible values are: `ROUND_ROBIN`, `LEAST_REQUEST`, `RING_HASH`, `RANDOM`, `ORIGINAL_DESTINATION`, `MAGLEV`, `WEIGHTED_MAGLEV`.
         #[builder(into, default)]
-        pub locality_lb_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub locality_lb_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// This field denotes the logging options for the load balancer traffic served by this backend service.
         /// If logging is enabled, logs will be exported to Stackdriver.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub log_config: pulumi_wasm_rust::InputOrOutput<
+        pub log_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RegionBackendServiceLogConfig>,
         >,
         /// Name of the resource. Provided by the client when the resource is
@@ -630,17 +632,17 @@ pub mod region_backend_service {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The URL of the network to which this backend service belongs.
         /// This field can only be specified when the load balancing scheme is set to INTERNAL.
         #[builder(into, default)]
-        pub network: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Settings controlling eviction of unhealthy hosts from the load balancing pool.
         /// This field is applicable only when the `load_balancing_scheme` is set
         /// to INTERNAL_MANAGED and the `protocol` is set to HTTP, HTTPS, or HTTP2.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub outlier_detection: pulumi_wasm_rust::InputOrOutput<
+        pub outlier_detection: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RegionBackendServiceOutlierDetection>,
         >,
         /// A named port on a backend instance group representing the port for
@@ -651,33 +653,33 @@ pub mod region_backend_service {
         /// default of "http" if not given.
         /// Must be omitted when the loadBalancingScheme is INTERNAL (Internal TCP/UDP Load Balancing).
         #[builder(into, default)]
-        pub port_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub port_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The protocol this RegionBackendService uses to communicate with backends.
         /// The default is HTTP. **NOTE**: HTTP2 is only valid for beta HTTP/2 load balancer
         /// types and may result in errors if used with the GA API.
         /// Possible values are: `HTTP`, `HTTPS`, `HTTP2`, `SSL`, `TCP`, `UDP`, `GRPC`, `UNSPECIFIED`.
         #[builder(into, default)]
-        pub protocol: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub protocol: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Region in which the created backend service should reside.
         /// If it is not provided, the provider region is used.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The security policy associated with this backend service.
         #[builder(into, default)]
-        pub security_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub security_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Type of session affinity to use. The default is NONE. Session affinity is
         /// not applicable if the protocol is UDP.
         /// Possible values are: `NONE`, `CLIENT_IP`, `CLIENT_IP_PORT_PROTO`, `CLIENT_IP_PROTO`, `GENERATED_COOKIE`, `HEADER_FIELD`, `HTTP_COOKIE`, `CLIENT_IP_NO_DESTINATION`, `STRONG_COOKIE_AFFINITY`.
         #[builder(into, default)]
-        pub session_affinity: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub session_affinity: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Describes the HTTP cookie used for stateful session affinity. This field is applicable and required if the sessionAffinity is set to STRONG_COOKIE_AFFINITY.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub strong_session_affinity_cookie: pulumi_wasm_rust::InputOrOutput<
+        pub strong_session_affinity_cookie: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::compute::RegionBackendServiceStrongSessionAffinityCookie,
             >,
@@ -685,7 +687,7 @@ pub mod region_backend_service {
         /// Subsetting configuration for this BackendService. Currently this is applicable only for Internal TCP/UDP load balancing and Internal HTTP(S) load balancing.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub subsetting: pulumi_wasm_rust::InputOrOutput<
+        pub subsetting: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::RegionBackendServiceSubsetting>,
         >,
         /// The backend service timeout has a different meaning depending on the type of load balancer.
@@ -693,7 +695,7 @@ pub mod region_backend_service {
         /// The default is 30 seconds.
         /// The full range of timeout values allowed goes from 1 through 2,147,483,647 seconds.
         #[builder(into, default)]
-        pub timeout_sec: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub timeout_sec: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct RegionBackendServiceResult {
@@ -702,32 +704,32 @@ pub mod region_backend_service {
         /// only until the end of the browser session (or equivalent). The
         /// maximum allowed value for TTL is one day.
         /// When the load balancing scheme is INTERNAL, this field is not used.
-        pub affinity_cookie_ttl_sec: pulumi_wasm_rust::Output<Option<i32>>,
+        pub affinity_cookie_ttl_sec: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The set of backends that serve this RegionBackendService.
         /// Structure is documented below.
-        pub backends: pulumi_wasm_rust::Output<
+        pub backends: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::compute::RegionBackendServiceBackend>>,
         >,
         /// Cloud CDN configuration for this BackendService.
         /// Structure is documented below.
-        pub cdn_policy: pulumi_wasm_rust::Output<
+        pub cdn_policy: pulumi_gestalt_rust::Output<
             super::super::types::compute::RegionBackendServiceCdnPolicy,
         >,
         /// Settings controlling the volume of connections to a backend service. This field
         /// is applicable only when the `load_balancing_scheme` is set to INTERNAL_MANAGED
         /// and the `protocol` is set to HTTP, HTTPS, or HTTP2.
         /// Structure is documented below.
-        pub circuit_breakers: pulumi_wasm_rust::Output<
+        pub circuit_breakers: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RegionBackendServiceCircuitBreakers>,
         >,
         /// Time for which instance will be drained (not accept new
         /// connections, but still work to finish started).
-        pub connection_draining_timeout_sec: pulumi_wasm_rust::Output<Option<i32>>,
+        pub connection_draining_timeout_sec: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Connection Tracking configuration for this BackendService.
         /// This is available only for Layer 4 Internal Load Balancing and
         /// Network Load Balancing.
         /// Structure is documented below.
-        pub connection_tracking_policy: pulumi_wasm_rust::Output<
+        pub connection_tracking_policy: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::compute::RegionBackendServiceConnectionTrackingPolicy,
             >,
@@ -739,46 +741,46 @@ pub mod region_backend_service {
         /// destination service. This field specifies parameters that control consistent
         /// hashing.
         /// This field only applies when all of the following are true -
-        pub consistent_hash: pulumi_wasm_rust::Output<
+        pub consistent_hash: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RegionBackendServiceConsistentHash>,
         >,
         /// Creation timestamp in RFC3339 text format.
-        pub creation_timestamp: pulumi_wasm_rust::Output<String>,
+        pub creation_timestamp: pulumi_gestalt_rust::Output<String>,
         /// An optional description of this resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// If true, enable Cloud CDN for this RegionBackendService.
-        pub enable_cdn: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enable_cdn: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Policy for failovers.
         /// Structure is documented below.
-        pub failover_policy: pulumi_wasm_rust::Output<
+        pub failover_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RegionBackendServiceFailoverPolicy>,
         >,
         /// Fingerprint of this resource. A hash of the contents stored in this
         /// object. This field is used in optimistic locking.
-        pub fingerprint: pulumi_wasm_rust::Output<String>,
+        pub fingerprint: pulumi_gestalt_rust::Output<String>,
         /// The unique identifier for the resource. This identifier is defined by the server.
-        pub generated_id: pulumi_wasm_rust::Output<i32>,
+        pub generated_id: pulumi_gestalt_rust::Output<i32>,
         /// The set of URLs to HealthCheck resources for health checking
         /// this RegionBackendService. Currently at most one health
         /// check can be specified.
         /// A health check must be specified unless the backend service uses an internet
         /// or serverless NEG as a backend.
-        pub health_checks: pulumi_wasm_rust::Output<Option<String>>,
+        pub health_checks: pulumi_gestalt_rust::Output<Option<String>>,
         /// Settings for enabling Cloud Identity Aware Proxy
         /// Structure is documented below.
-        pub iap: pulumi_wasm_rust::Output<
+        pub iap: pulumi_gestalt_rust::Output<
             super::super::types::compute::RegionBackendServiceIap,
         >,
         /// Specifies preference of traffic to the backend (from the proxy and from the client for proxyless gRPC).
         /// Possible values are: `IPV4_ONLY`, `PREFER_IPV6`, `IPV6_ONLY`.
-        pub ip_address_selection_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub ip_address_selection_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Indicates what kind of load balancing this regional backend service
         /// will be used for. A backend service created for one type of load
         /// balancing cannot be used with the other(s). For more information, refer to
         /// [Choosing a load balancer](https://cloud.google.com/load-balancing/docs/backend-service).
         /// Default value is `INTERNAL`.
         /// Possible values are: `EXTERNAL`, `EXTERNAL_MANAGED`, `INTERNAL`, `INTERNAL_MANAGED`.
-        pub load_balancing_scheme: pulumi_wasm_rust::Output<Option<String>>,
+        pub load_balancing_scheme: pulumi_gestalt_rust::Output<Option<String>>,
         /// The load balancing algorithm used within the scope of the locality.
         /// The possible values are:
         /// * `ROUND_ROBIN`: This is a simple policy in which each healthy backend
@@ -825,11 +827,11 @@ pub mod region_backend_service {
         /// by a URL map that is bound to target gRPC proxy that has validate_for_proxyless
         /// field set to true.
         /// Possible values are: `ROUND_ROBIN`, `LEAST_REQUEST`, `RING_HASH`, `RANDOM`, `ORIGINAL_DESTINATION`, `MAGLEV`, `WEIGHTED_MAGLEV`.
-        pub locality_lb_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub locality_lb_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// This field denotes the logging options for the load balancer traffic served by this backend service.
         /// If logging is enabled, logs will be exported to Stackdriver.
         /// Structure is documented below.
-        pub log_config: pulumi_wasm_rust::Output<
+        pub log_config: pulumi_gestalt_rust::Output<
             super::super::types::compute::RegionBackendServiceLogConfig,
         >,
         /// Name of the resource. Provided by the client when the resource is
@@ -842,15 +844,15 @@ pub mod region_backend_service {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The URL of the network to which this backend service belongs.
         /// This field can only be specified when the load balancing scheme is set to INTERNAL.
-        pub network: pulumi_wasm_rust::Output<Option<String>>,
+        pub network: pulumi_gestalt_rust::Output<Option<String>>,
         /// Settings controlling eviction of unhealthy hosts from the load balancing pool.
         /// This field is applicable only when the `load_balancing_scheme` is set
         /// to INTERNAL_MANAGED and the `protocol` is set to HTTP, HTTPS, or HTTP2.
         /// Structure is documented below.
-        pub outlier_detection: pulumi_wasm_rust::Output<
+        pub outlier_detection: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RegionBackendServiceOutlierDetection>,
         >,
         /// A named port on a backend instance group representing the port for
@@ -860,54 +862,54 @@ pub mod region_backend_service {
         /// backend instance group. This parameter has no meaning if the backends are NEGs. API sets a
         /// default of "http" if not given.
         /// Must be omitted when the loadBalancingScheme is INTERNAL (Internal TCP/UDP Load Balancing).
-        pub port_name: pulumi_wasm_rust::Output<String>,
+        pub port_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The protocol this RegionBackendService uses to communicate with backends.
         /// The default is HTTP. **NOTE**: HTTP2 is only valid for beta HTTP/2 load balancer
         /// types and may result in errors if used with the GA API.
         /// Possible values are: `HTTP`, `HTTPS`, `HTTP2`, `SSL`, `TCP`, `UDP`, `GRPC`, `UNSPECIFIED`.
-        pub protocol: pulumi_wasm_rust::Output<String>,
+        pub protocol: pulumi_gestalt_rust::Output<String>,
         /// The Region in which the created backend service should reside.
         /// If it is not provided, the provider region is used.
-        pub region: pulumi_wasm_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<String>,
         /// The security policy associated with this backend service.
-        pub security_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub security_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// Type of session affinity to use. The default is NONE. Session affinity is
         /// not applicable if the protocol is UDP.
         /// Possible values are: `NONE`, `CLIENT_IP`, `CLIENT_IP_PORT_PROTO`, `CLIENT_IP_PROTO`, `GENERATED_COOKIE`, `HEADER_FIELD`, `HTTP_COOKIE`, `CLIENT_IP_NO_DESTINATION`, `STRONG_COOKIE_AFFINITY`.
-        pub session_affinity: pulumi_wasm_rust::Output<String>,
+        pub session_affinity: pulumi_gestalt_rust::Output<String>,
         /// Describes the HTTP cookie used for stateful session affinity. This field is applicable and required if the sessionAffinity is set to STRONG_COOKIE_AFFINITY.
         /// Structure is documented below.
-        pub strong_session_affinity_cookie: pulumi_wasm_rust::Output<
+        pub strong_session_affinity_cookie: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::compute::RegionBackendServiceStrongSessionAffinityCookie,
             >,
         >,
         /// Subsetting configuration for this BackendService. Currently this is applicable only for Internal TCP/UDP load balancing and Internal HTTP(S) load balancing.
         /// Structure is documented below.
-        pub subsetting: pulumi_wasm_rust::Output<
+        pub subsetting: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::RegionBackendServiceSubsetting>,
         >,
         /// The backend service timeout has a different meaning depending on the type of load balancer.
         /// For more information see, [Backend service settings](https://cloud.google.com/compute/docs/reference/rest/v1/backendServices).
         /// The default is 30 seconds.
         /// The full range of timeout values allowed goes from 1 through 2,147,483,647 seconds.
-        pub timeout_sec: pulumi_wasm_rust::Output<i32>,
+        pub timeout_sec: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RegionBackendServiceArgs,
     ) -> RegionBackendServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let affinity_cookie_ttl_sec_binding = args
             .affinity_cookie_ttl_sec
@@ -1097,94 +1099,96 @@ pub mod region_backend_service {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RegionBackendServiceResult {
-            affinity_cookie_ttl_sec: pulumi_wasm_rust::__private::into_domain(
+            affinity_cookie_ttl_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("affinityCookieTtlSec"),
             ),
-            backends: pulumi_wasm_rust::__private::into_domain(
+            backends: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backends"),
             ),
-            cdn_policy: pulumi_wasm_rust::__private::into_domain(
+            cdn_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnPolicy"),
             ),
-            circuit_breakers: pulumi_wasm_rust::__private::into_domain(
+            circuit_breakers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("circuitBreakers"),
             ),
-            connection_draining_timeout_sec: pulumi_wasm_rust::__private::into_domain(
+            connection_draining_timeout_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionDrainingTimeoutSec"),
             ),
-            connection_tracking_policy: pulumi_wasm_rust::__private::into_domain(
+            connection_tracking_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionTrackingPolicy"),
             ),
-            consistent_hash: pulumi_wasm_rust::__private::into_domain(
+            consistent_hash: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("consistentHash"),
             ),
-            creation_timestamp: pulumi_wasm_rust::__private::into_domain(
+            creation_timestamp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTimestamp"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            enable_cdn: pulumi_wasm_rust::__private::into_domain(
+            enable_cdn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableCdn"),
             ),
-            failover_policy: pulumi_wasm_rust::__private::into_domain(
+            failover_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("failoverPolicy"),
             ),
-            fingerprint: pulumi_wasm_rust::__private::into_domain(
+            fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fingerprint"),
             ),
-            generated_id: pulumi_wasm_rust::__private::into_domain(
+            generated_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("generatedId"),
             ),
-            health_checks: pulumi_wasm_rust::__private::into_domain(
+            health_checks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("healthChecks"),
             ),
-            iap: pulumi_wasm_rust::__private::into_domain(o.extract_field("iap")),
-            ip_address_selection_policy: pulumi_wasm_rust::__private::into_domain(
+            iap: pulumi_gestalt_rust::__private::into_domain(o.extract_field("iap")),
+            ip_address_selection_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddressSelectionPolicy"),
             ),
-            load_balancing_scheme: pulumi_wasm_rust::__private::into_domain(
+            load_balancing_scheme: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loadBalancingScheme"),
             ),
-            locality_lb_policy: pulumi_wasm_rust::__private::into_domain(
+            locality_lb_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localityLbPolicy"),
             ),
-            log_config: pulumi_wasm_rust::__private::into_domain(
+            log_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logConfig"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            outlier_detection: pulumi_wasm_rust::__private::into_domain(
+            outlier_detection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outlierDetection"),
             ),
-            port_name: pulumi_wasm_rust::__private::into_domain(
+            port_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("portName"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            protocol: pulumi_wasm_rust::__private::into_domain(
+            protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocol"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            security_policy: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            security_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("securityPolicy"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            session_affinity: pulumi_wasm_rust::__private::into_domain(
+            session_affinity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sessionAffinity"),
             ),
-            strong_session_affinity_cookie: pulumi_wasm_rust::__private::into_domain(
+            strong_session_affinity_cookie: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("strongSessionAffinityCookie"),
             ),
-            subsetting: pulumi_wasm_rust::__private::into_domain(
+            subsetting: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subsetting"),
             ),
-            timeout_sec: pulumi_wasm_rust::__private::into_domain(
+            timeout_sec: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeoutSec"),
             ),
         }

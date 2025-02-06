@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = hosted_transit_virtual_interface::create(
@@ -30,81 +30,81 @@
 /// $ pulumi import aws:directconnect/hostedTransitVirtualInterface:HostedTransitVirtualInterface test dxvif-33cc44dd
 /// ```
 pub mod hosted_transit_virtual_interface {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostedTransitVirtualInterfaceArgs {
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
         #[builder(into)]
-        pub address_family: pulumi_wasm_rust::InputOrOutput<String>,
+        pub address_family: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         #[builder(into, default)]
-        pub amazon_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub amazon_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         #[builder(into)]
-        pub bgp_asn: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub bgp_asn: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The authentication key for BGP configuration.
         #[builder(into, default)]
-        pub bgp_auth_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub bgp_auth_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         #[builder(into)]
-        pub connection_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connection_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         #[builder(into, default)]
-        pub customer_address: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub customer_address: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
         #[builder(into, default)]
-        pub mtu: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub mtu: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name for the virtual interface.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The AWS account that will own the new virtual interface.
         #[builder(into)]
-        pub owner_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub owner_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The VLAN ID.
         #[builder(into)]
-        pub vlan: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub vlan: pulumi_gestalt_rust::InputOrOutput<i32>,
     }
     #[allow(dead_code)]
     pub struct HostedTransitVirtualInterfaceResult {
         /// The address family for the BGP peer. `ipv4 ` or `ipv6`.
-        pub address_family: pulumi_wasm_rust::Output<String>,
+        pub address_family: pulumi_gestalt_rust::Output<String>,
         /// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-        pub amazon_address: pulumi_wasm_rust::Output<String>,
-        pub amazon_side_asn: pulumi_wasm_rust::Output<String>,
+        pub amazon_address: pulumi_gestalt_rust::Output<String>,
+        pub amazon_side_asn: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the virtual interface.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The Direct Connect endpoint on which the virtual interface terminates.
-        pub aws_device: pulumi_wasm_rust::Output<String>,
+        pub aws_device: pulumi_gestalt_rust::Output<String>,
         /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-        pub bgp_asn: pulumi_wasm_rust::Output<i32>,
+        pub bgp_asn: pulumi_gestalt_rust::Output<i32>,
         /// The authentication key for BGP configuration.
-        pub bgp_auth_key: pulumi_wasm_rust::Output<String>,
+        pub bgp_auth_key: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
-        pub connection_id: pulumi_wasm_rust::Output<String>,
+        pub connection_id: pulumi_gestalt_rust::Output<String>,
         /// The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
-        pub customer_address: pulumi_wasm_rust::Output<String>,
+        pub customer_address: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether jumbo frames (8500 MTU) are supported.
-        pub jumbo_frame_capable: pulumi_wasm_rust::Output<bool>,
+        pub jumbo_frame_capable: pulumi_gestalt_rust::Output<bool>,
         /// The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
-        pub mtu: pulumi_wasm_rust::Output<Option<i32>>,
+        pub mtu: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The name for the virtual interface.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The AWS account that will own the new virtual interface.
-        pub owner_account_id: pulumi_wasm_rust::Output<String>,
+        pub owner_account_id: pulumi_gestalt_rust::Output<String>,
         /// The VLAN ID.
-        pub vlan: pulumi_wasm_rust::Output<i32>,
+        pub vlan: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HostedTransitVirtualInterfaceArgs,
     ) -> HostedTransitVirtualInterfaceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let address_family_binding = args.address_family.get_output(context).get_inner();
         let amazon_address_binding = args.amazon_address.get_output(context).get_inner();
@@ -172,38 +172,40 @@ pub mod hosted_transit_virtual_interface {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HostedTransitVirtualInterfaceResult {
-            address_family: pulumi_wasm_rust::__private::into_domain(
+            address_family: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("addressFamily"),
             ),
-            amazon_address: pulumi_wasm_rust::__private::into_domain(
+            amazon_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("amazonAddress"),
             ),
-            amazon_side_asn: pulumi_wasm_rust::__private::into_domain(
+            amazon_side_asn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("amazonSideAsn"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            aws_device: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            aws_device: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsDevice"),
             ),
-            bgp_asn: pulumi_wasm_rust::__private::into_domain(o.extract_field("bgpAsn")),
-            bgp_auth_key: pulumi_wasm_rust::__private::into_domain(
+            bgp_asn: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bgpAsn"),
+            ),
+            bgp_auth_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bgpAuthKey"),
             ),
-            connection_id: pulumi_wasm_rust::__private::into_domain(
+            connection_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionId"),
             ),
-            customer_address: pulumi_wasm_rust::__private::into_domain(
+            customer_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customerAddress"),
             ),
-            jumbo_frame_capable: pulumi_wasm_rust::__private::into_domain(
+            jumbo_frame_capable: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jumboFrameCapable"),
             ),
-            mtu: pulumi_wasm_rust::__private::into_domain(o.extract_field("mtu")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            owner_account_id: pulumi_wasm_rust::__private::into_domain(
+            mtu: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mtu")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            owner_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerAccountId"),
             ),
-            vlan: pulumi_wasm_rust::__private::into_domain(o.extract_field("vlan")),
+            vlan: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vlan")),
         }
     }
 }

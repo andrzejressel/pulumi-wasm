@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = access_organization::create(
@@ -36,97 +36,105 @@
 /// ```
 ///
 pub mod access_organization {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccessOrganizationArgs {
         /// The account identifier to target for the resource. Conflicts with `zone_id`.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// When set to true, users can authenticate via WARP for any application in your organization. Application settings will take precedence over this value.
         #[builder(into, default)]
-        pub allow_authenticate_via_warp: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub allow_authenticate_via_warp: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The unique subdomain assigned to your Zero Trust organization.
         #[builder(into)]
-        pub auth_domain: pulumi_wasm_rust::InputOrOutput<String>,
+        pub auth_domain: pulumi_gestalt_rust::InputOrOutput<String>,
         /// When set to true, users skip the identity provider selection step during login.
         #[builder(into, default)]
-        pub auto_redirect_to_identity: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_redirect_to_identity: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Custom pages for your Zero Trust organization.
         #[builder(into, default)]
-        pub custom_pages: pulumi_wasm_rust::InputOrOutput<
+        pub custom_pages: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::AccessOrganizationCustomPage>>,
         >,
         /// When set to true, this will disable all editing of Access resources via the Zero Trust Dashboard.
         #[builder(into, default)]
-        pub is_ui_read_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_ui_read_only: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub login_designs: pulumi_wasm_rust::InputOrOutput<
+        pub login_designs: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::AccessOrganizationLoginDesign>>,
         >,
         /// The name of your Zero Trust organization.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// How often a user will be forced to re-authorise. Must be in the format `48h` or `2h45m`.
         #[builder(into, default)]
-        pub session_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub session_duration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A description of the reason why the UI read only field is being toggled.
         #[builder(into, default)]
-        pub ui_read_only_toggle_reason: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ui_read_only_toggle_reason: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The amount of time a user seat is inactive before it expires. When the user seat exceeds the set time of inactivity, the user is removed as an active seat and no longer counts against your Teams seat count. Must be in the format `300ms` or `2h45m`.
         #[builder(into, default)]
-        pub user_seat_expiration_inactive_time: pulumi_wasm_rust::InputOrOutput<
+        pub user_seat_expiration_inactive_time: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The amount of time that tokens issued for applications will be valid. Must be in the format 30m or 2h45m. Valid time units are: m, h.
         #[builder(into, default)]
-        pub warp_auth_session_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub warp_auth_session_duration: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The zone identifier to target for the resource. Conflicts with `account_id`.
         #[builder(into, default)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AccessOrganizationResult {
         /// The account identifier to target for the resource. Conflicts with `zone_id`.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// When set to true, users can authenticate via WARP for any application in your organization. Application settings will take precedence over this value.
-        pub allow_authenticate_via_warp: pulumi_wasm_rust::Output<Option<bool>>,
+        pub allow_authenticate_via_warp: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The unique subdomain assigned to your Zero Trust organization.
-        pub auth_domain: pulumi_wasm_rust::Output<String>,
+        pub auth_domain: pulumi_gestalt_rust::Output<String>,
         /// When set to true, users skip the identity provider selection step during login.
-        pub auto_redirect_to_identity: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_redirect_to_identity: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Custom pages for your Zero Trust organization.
-        pub custom_pages: pulumi_wasm_rust::Output<
+        pub custom_pages: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::AccessOrganizationCustomPage>>,
         >,
         /// When set to true, this will disable all editing of Access resources via the Zero Trust Dashboard.
-        pub is_ui_read_only: pulumi_wasm_rust::Output<Option<bool>>,
-        pub login_designs: pulumi_wasm_rust::Output<
+        pub is_ui_read_only: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub login_designs: pulumi_gestalt_rust::Output<
             Option<Vec<super::types::AccessOrganizationLoginDesign>>,
         >,
         /// The name of your Zero Trust organization.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// How often a user will be forced to re-authorise. Must be in the format `48h` or `2h45m`.
-        pub session_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub session_duration: pulumi_gestalt_rust::Output<Option<String>>,
         /// A description of the reason why the UI read only field is being toggled.
-        pub ui_read_only_toggle_reason: pulumi_wasm_rust::Output<Option<String>>,
+        pub ui_read_only_toggle_reason: pulumi_gestalt_rust::Output<Option<String>>,
         /// The amount of time a user seat is inactive before it expires. When the user seat exceeds the set time of inactivity, the user is removed as an active seat and no longer counts against your Teams seat count. Must be in the format `300ms` or `2h45m`.
-        pub user_seat_expiration_inactive_time: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_seat_expiration_inactive_time: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// The amount of time that tokens issued for applications will be valid. Must be in the format 30m or 2h45m. Valid time units are: m, h.
-        pub warp_auth_session_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub warp_auth_session_duration: pulumi_gestalt_rust::Output<Option<String>>,
         /// The zone identifier to target for the resource. Conflicts with `account_id`.
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccessOrganizationArgs,
     ) -> AccessOrganizationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let allow_authenticate_via_warp_binding = args
@@ -223,41 +231,43 @@ pub mod access_organization {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccessOrganizationResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            allow_authenticate_via_warp: pulumi_wasm_rust::__private::into_domain(
+            allow_authenticate_via_warp: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowAuthenticateViaWarp"),
             ),
-            auth_domain: pulumi_wasm_rust::__private::into_domain(
+            auth_domain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authDomain"),
             ),
-            auto_redirect_to_identity: pulumi_wasm_rust::__private::into_domain(
+            auto_redirect_to_identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoRedirectToIdentity"),
             ),
-            custom_pages: pulumi_wasm_rust::__private::into_domain(
+            custom_pages: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customPages"),
             ),
-            is_ui_read_only: pulumi_wasm_rust::__private::into_domain(
+            is_ui_read_only: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isUiReadOnly"),
             ),
-            login_designs: pulumi_wasm_rust::__private::into_domain(
+            login_designs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loginDesigns"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            session_duration: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            session_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sessionDuration"),
             ),
-            ui_read_only_toggle_reason: pulumi_wasm_rust::__private::into_domain(
+            ui_read_only_toggle_reason: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("uiReadOnlyToggleReason"),
             ),
-            user_seat_expiration_inactive_time: pulumi_wasm_rust::__private::into_domain(
+            user_seat_expiration_inactive_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userSeatExpirationInactiveTime"),
             ),
-            warp_auth_session_duration: pulumi_wasm_rust::__private::into_domain(
+            warp_auth_session_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("warpAuthSessionDuration"),
             ),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

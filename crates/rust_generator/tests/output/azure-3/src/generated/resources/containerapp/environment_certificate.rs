@@ -50,63 +50,63 @@
 /// ```
 ///
 pub mod environment_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentCertificateArgs {
         /// The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub certificate_blob_base64: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate_blob_base64: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The password for the Certificate. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub certificate_password: pulumi_wasm_rust::InputOrOutput<String>,
+        pub certificate_password: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub container_app_environment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub container_app_environment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Container Apps Environment Certificate. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct EnvironmentCertificateResult {
         /// The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
-        pub certificate_blob_base64: pulumi_wasm_rust::Output<String>,
+        pub certificate_blob_base64: pulumi_gestalt_rust::Output<String>,
         /// The password for the Certificate. Changing this forces a new resource to be created.
-        pub certificate_password: pulumi_wasm_rust::Output<String>,
+        pub certificate_password: pulumi_gestalt_rust::Output<String>,
         /// The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created.
-        pub container_app_environment_id: pulumi_wasm_rust::Output<String>,
+        pub container_app_environment_id: pulumi_gestalt_rust::Output<String>,
         /// The expiration date for the Certificate.
-        pub expiration_date: pulumi_wasm_rust::Output<String>,
+        pub expiration_date: pulumi_gestalt_rust::Output<String>,
         /// The date of issue for the Certificate.
-        pub issue_date: pulumi_wasm_rust::Output<String>,
+        pub issue_date: pulumi_gestalt_rust::Output<String>,
         /// The Certificate Issuer.
-        pub issuer: pulumi_wasm_rust::Output<String>,
+        pub issuer: pulumi_gestalt_rust::Output<String>,
         /// The name of the Container Apps Environment Certificate. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Subject Name for the Certificate.
-        pub subject_name: pulumi_wasm_rust::Output<String>,
+        pub subject_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Thumbprint of the Certificate.
-        pub thumbprint: pulumi_wasm_rust::Output<String>,
+        pub thumbprint: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvironmentCertificateArgs,
     ) -> EnvironmentCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_blob_base64_binding = args
             .certificate_blob_base64
@@ -152,28 +152,30 @@ pub mod environment_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvironmentCertificateResult {
-            certificate_blob_base64: pulumi_wasm_rust::__private::into_domain(
+            certificate_blob_base64: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateBlobBase64"),
             ),
-            certificate_password: pulumi_wasm_rust::__private::into_domain(
+            certificate_password: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificatePassword"),
             ),
-            container_app_environment_id: pulumi_wasm_rust::__private::into_domain(
+            container_app_environment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerAppEnvironmentId"),
             ),
-            expiration_date: pulumi_wasm_rust::__private::into_domain(
+            expiration_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expirationDate"),
             ),
-            issue_date: pulumi_wasm_rust::__private::into_domain(
+            issue_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("issueDate"),
             ),
-            issuer: pulumi_wasm_rust::__private::into_domain(o.extract_field("issuer")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            subject_name: pulumi_wasm_rust::__private::into_domain(
+            issuer: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("issuer"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            subject_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subjectName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            thumbprint: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            thumbprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("thumbprint"),
             ),
         }

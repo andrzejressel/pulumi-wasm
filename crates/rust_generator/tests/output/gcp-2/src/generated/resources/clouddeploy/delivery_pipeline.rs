@@ -178,7 +178,7 @@
 /// ```
 ///
 pub mod delivery_pipeline {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeliveryPipelineArgs {
@@ -187,12 +187,12 @@ pub mod delivery_pipeline {
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// `effective_annotations` for all of the annotations present on the resource.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Description of the `DeliveryPipeline`. Max length is 255 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Labels are attributes that can be set and used by both the user and by Google Cloud Deploy. Labels must meet the
         /// following constraints: * Keys and values can contain only lowercase letters, numeric characters, underscores, and
         /// dashes. * All characters must use UTF-8 encoding, and international characters are allowed. * Keys must start with a
@@ -201,26 +201,26 @@ pub mod delivery_pipeline {
         /// labels present in your configuration. Please refer to the field `effective_labels` for all of the labels present on the
         /// resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location for the resource
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the `DeliveryPipeline`. Format is `a-z?`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The project for the resource
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// SerialPipeline defines a sequential set of stages for a `DeliveryPipeline`.
         #[builder(into, default)]
-        pub serial_pipeline: pulumi_wasm_rust::InputOrOutput<
+        pub serial_pipeline: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::clouddeploy::DeliveryPipelineSerialPipeline>,
         >,
         /// When suspended, no new releases or rollouts can be created, but in-progress ones will complete.
         #[builder(into, default)]
-        pub suspended: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub suspended: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct DeliveryPipelineResult {
@@ -228,26 +228,26 @@ pub mod delivery_pipeline {
         /// https://google.aip.dev/128#annotations for more details such as format and size limitations. **Note**: This field is
         /// non-authoritative, and will only manage the annotations present in your configuration. Please refer to the field
         /// `effective_annotations` for all of the annotations present on the resource.
-        pub annotations: pulumi_wasm_rust::Output<
+        pub annotations: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Output only. Information around the state of the Delivery Pipeline.
-        pub conditions: pulumi_wasm_rust::Output<
+        pub conditions: pulumi_gestalt_rust::Output<
             Vec<super::super::types::clouddeploy::DeliveryPipelineCondition>,
         >,
         /// Output only. Time at which the pipeline was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// Description of the `DeliveryPipeline`. Max length is 255 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
-        pub effective_annotations: pulumi_wasm_rust::Output<
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
+        pub effective_annotations: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Labels are attributes that can be set and used by both the user and by Google Cloud Deploy. Labels must meet the
         /// following constraints: * Keys and values can contain only lowercase letters, numeric characters, underscores, and
         /// dashes. * All characters must use UTF-8 encoding, and international characters are allowed. * Keys must start with a
@@ -255,40 +255,40 @@ pub mod delivery_pipeline {
         /// are additionally constrained to be <= 128 bytes. **Note**: This field is non-authoritative, and will only manage the
         /// labels present in your configuration. Please refer to the field `effective_labels` for all of the labels present on the
         /// resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The location for the resource
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Name of the `DeliveryPipeline`. Format is `a-z?`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The project for the resource
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// SerialPipeline defines a sequential set of stages for a `DeliveryPipeline`.
-        pub serial_pipeline: pulumi_wasm_rust::Output<
+        pub serial_pipeline: pulumi_gestalt_rust::Output<
             Option<super::super::types::clouddeploy::DeliveryPipelineSerialPipeline>,
         >,
         /// When suspended, no new releases or rollouts can be created, but in-progress ones will complete.
-        pub suspended: pulumi_wasm_rust::Output<Option<bool>>,
+        pub suspended: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Output only. Unique identifier of the `DeliveryPipeline`.
-        pub uid: pulumi_wasm_rust::Output<String>,
+        pub uid: pulumi_gestalt_rust::Output<String>,
         /// Output only. Most recent time at which the pipeline was updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DeliveryPipelineArgs,
     ) -> DeliveryPipelineResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let annotations_binding = args.annotations.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -342,44 +342,46 @@ pub mod delivery_pipeline {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DeliveryPipelineResult {
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            conditions: pulumi_wasm_rust::__private::into_domain(
+            conditions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("conditions"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_annotations: pulumi_wasm_rust::__private::into_domain(
+            effective_annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveAnnotations"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            serial_pipeline: pulumi_wasm_rust::__private::into_domain(
+            serial_pipeline: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serialPipeline"),
             ),
-            suspended: pulumi_wasm_rust::__private::into_domain(
+            suspended: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("suspended"),
             ),
-            uid: pulumi_wasm_rust::__private::into_domain(o.extract_field("uid")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            uid: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uid")),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

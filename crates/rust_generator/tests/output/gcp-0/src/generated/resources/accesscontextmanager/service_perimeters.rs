@@ -74,7 +74,7 @@
 /// ```
 ///
 pub mod service_perimeters {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServicePerimetersArgs {
@@ -84,11 +84,11 @@ pub mod service_perimeters {
         ///
         /// - - -
         #[builder(into)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<String>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The desired Service Perimeters that should replace all existing Service Perimeters in the Access Policy.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub service_perimeters: pulumi_wasm_rust::InputOrOutput<
+        pub service_perimeters: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::accesscontextmanager::ServicePerimetersServicePerimeter,
@@ -103,10 +103,10 @@ pub mod service_perimeters {
         ///
         ///
         /// - - -
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// The desired Service Perimeters that should replace all existing Service Perimeters in the Access Policy.
         /// Structure is documented below.
-        pub service_perimeters: pulumi_wasm_rust::Output<
+        pub service_perimeters: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::accesscontextmanager::ServicePerimetersServicePerimeter,
@@ -119,11 +119,11 @@ pub mod service_perimeters {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServicePerimetersArgs,
     ) -> ServicePerimetersResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let parent_binding = args.parent.get_output(context).get_inner();
         let service_perimeters_binding = args
@@ -147,8 +147,10 @@ pub mod service_perimeters {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServicePerimetersResult {
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            service_perimeters: pulumi_wasm_rust::__private::into_domain(
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            service_perimeters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("servicePerimeters"),
             ),
         }

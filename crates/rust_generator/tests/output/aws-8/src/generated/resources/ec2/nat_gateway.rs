@@ -21,8 +21,8 @@
 /// ### Public NAT with Secondary Private IP Addresses
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = nat_gateway::create(
@@ -40,8 +40,8 @@
 /// ### Private NAT
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = nat_gateway::create(
@@ -57,8 +57,8 @@
 /// ### Private NAT with Secondary Private IP Addresses
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = nat_gateway::create(
@@ -80,71 +80,71 @@
 /// $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
 /// ```
 pub mod nat_gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NatGatewayArgs {
         /// The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
         #[builder(into, default)]
-        pub allocation_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub allocation_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
         #[builder(into, default)]
-        pub connectivity_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub connectivity_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
         #[builder(into, default)]
-        pub private_ip: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub private_ip: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of secondary allocation EIP IDs for this NAT Gateway.
         #[builder(into, default)]
-        pub secondary_allocation_ids: pulumi_wasm_rust::InputOrOutput<
+        pub secondary_allocation_ids: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
         #[builder(into, default)]
-        pub secondary_private_ip_address_count: pulumi_wasm_rust::InputOrOutput<
+        pub secondary_private_ip_address_count: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
         #[builder(into, default)]
-        pub secondary_private_ip_addresses: pulumi_wasm_rust::InputOrOutput<
+        pub secondary_private_ip_addresses: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The Subnet ID of the subnet in which to place the NAT Gateway.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct NatGatewayResult {
         /// The Allocation ID of the Elastic IP address for the NAT Gateway. Required for `connectivity_type` of `public`.
-        pub allocation_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub allocation_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The association ID of the Elastic IP address that's associated with the NAT Gateway. Only available when `connectivity_type` is `public`.
-        pub association_id: pulumi_wasm_rust::Output<String>,
+        pub association_id: pulumi_gestalt_rust::Output<String>,
         /// Connectivity type for the NAT Gateway. Valid values are `private` and `public`. Defaults to `public`.
-        pub connectivity_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub connectivity_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the network interface associated with the NAT Gateway.
-        pub network_interface_id: pulumi_wasm_rust::Output<String>,
+        pub network_interface_id: pulumi_gestalt_rust::Output<String>,
         /// The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
-        pub private_ip: pulumi_wasm_rust::Output<String>,
+        pub private_ip: pulumi_gestalt_rust::Output<String>,
         /// The Elastic IP address associated with the NAT Gateway.
-        pub public_ip: pulumi_wasm_rust::Output<String>,
+        pub public_ip: pulumi_gestalt_rust::Output<String>,
         /// A list of secondary allocation EIP IDs for this NAT Gateway.
-        pub secondary_allocation_ids: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub secondary_allocation_ids: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// [Private NAT Gateway only] The number of secondary private IPv4 addresses you want to assign to the NAT Gateway.
-        pub secondary_private_ip_address_count: pulumi_wasm_rust::Output<i32>,
+        pub secondary_private_ip_address_count: pulumi_gestalt_rust::Output<i32>,
         /// A list of secondary private IPv4 addresses to assign to the NAT Gateway.
-        pub secondary_private_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub secondary_private_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The Subnet ID of the subnet in which to place the NAT Gateway.
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -153,11 +153,11 @@ pub mod nat_gateway {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NatGatewayArgs,
     ) -> NatGatewayResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allocation_id_binding = args.allocation_id.get_output(context).get_inner();
         let connectivity_type_binding = args
@@ -220,38 +220,38 @@ pub mod nat_gateway {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NatGatewayResult {
-            allocation_id: pulumi_wasm_rust::__private::into_domain(
+            allocation_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allocationId"),
             ),
-            association_id: pulumi_wasm_rust::__private::into_domain(
+            association_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("associationId"),
             ),
-            connectivity_type: pulumi_wasm_rust::__private::into_domain(
+            connectivity_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectivityType"),
             ),
-            network_interface_id: pulumi_wasm_rust::__private::into_domain(
+            network_interface_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkInterfaceId"),
             ),
-            private_ip: pulumi_wasm_rust::__private::into_domain(
+            private_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateIp"),
             ),
-            public_ip: pulumi_wasm_rust::__private::into_domain(
+            public_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicIp"),
             ),
-            secondary_allocation_ids: pulumi_wasm_rust::__private::into_domain(
+            secondary_allocation_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryAllocationIds"),
             ),
-            secondary_private_ip_address_count: pulumi_wasm_rust::__private::into_domain(
+            secondary_private_ip_address_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryPrivateIpAddressCount"),
             ),
-            secondary_private_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            secondary_private_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryPrivateIpAddresses"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

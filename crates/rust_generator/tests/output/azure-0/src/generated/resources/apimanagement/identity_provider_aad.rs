@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -47,59 +47,59 @@
 /// ```
 ///
 pub mod identity_provider_aad {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IdentityProviderAadArgs {
         /// List of allowed AAD Tenants.
         #[builder(into)]
-        pub allowed_tenants: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub allowed_tenants: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub api_management_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Client Id of the Application in the AAD Identity Provider.
         #[builder(into)]
-        pub client_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub client_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The client library to be used in the AAD Identity Provider.
         #[builder(into, default)]
-        pub client_library: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_library: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Client secret of the Application in the AAD Identity Provider.
         #[builder(into)]
-        pub client_secret: pulumi_wasm_rust::InputOrOutput<String>,
+        pub client_secret: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The AAD Tenant to use instead of Common when logging into Active Directory.
         #[builder(into, default)]
-        pub signin_tenant: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub signin_tenant: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct IdentityProviderAadResult {
         /// List of allowed AAD Tenants.
-        pub allowed_tenants: pulumi_wasm_rust::Output<Vec<String>>,
+        pub allowed_tenants: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
-        pub api_management_name: pulumi_wasm_rust::Output<String>,
+        pub api_management_name: pulumi_gestalt_rust::Output<String>,
         /// Client Id of the Application in the AAD Identity Provider.
-        pub client_id: pulumi_wasm_rust::Output<String>,
+        pub client_id: pulumi_gestalt_rust::Output<String>,
         /// The client library to be used in the AAD Identity Provider.
-        pub client_library: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_library: pulumi_gestalt_rust::Output<Option<String>>,
         /// Client secret of the Application in the AAD Identity Provider.
-        pub client_secret: pulumi_wasm_rust::Output<String>,
+        pub client_secret: pulumi_gestalt_rust::Output<String>,
         /// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The AAD Tenant to use instead of Common when logging into Active Directory.
-        pub signin_tenant: pulumi_wasm_rust::Output<Option<String>>,
+        pub signin_tenant: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IdentityProviderAadArgs,
     ) -> IdentityProviderAadResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allowed_tenants_binding = args
             .allowed_tenants
@@ -154,25 +154,25 @@ pub mod identity_provider_aad {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IdentityProviderAadResult {
-            allowed_tenants: pulumi_wasm_rust::__private::into_domain(
+            allowed_tenants: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowedTenants"),
             ),
-            api_management_name: pulumi_wasm_rust::__private::into_domain(
+            api_management_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementName"),
             ),
-            client_id: pulumi_wasm_rust::__private::into_domain(
+            client_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientId"),
             ),
-            client_library: pulumi_wasm_rust::__private::into_domain(
+            client_library: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientLibrary"),
             ),
-            client_secret: pulumi_wasm_rust::__private::into_domain(
+            client_secret: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientSecret"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            signin_tenant: pulumi_wasm_rust::__private::into_domain(
+            signin_tenant: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signinTenant"),
             ),
         }

@@ -1,56 +1,56 @@
 pub mod get_blob {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetBlobArgs {
         /// A map of custom blob metadata.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the Blob.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Storage Account where the Container exists.
         #[builder(into)]
-        pub storage_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Storage Container where the Blob exists.
         #[builder(into)]
-        pub storage_container_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_container_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetBlobResult {
         /// The access tier of the storage blob.
-        pub access_tier: pulumi_wasm_rust::Output<String>,
+        pub access_tier: pulumi_gestalt_rust::Output<String>,
         /// The MD5 sum of the blob contents.
-        pub content_md5: pulumi_wasm_rust::Output<String>,
+        pub content_md5: pulumi_gestalt_rust::Output<String>,
         /// The content type of the storage blob.
-        pub content_type: pulumi_wasm_rust::Output<String>,
+        pub content_type: pulumi_gestalt_rust::Output<String>,
         /// The encryption scope for this blob.
-        pub encryption_scope: pulumi_wasm_rust::Output<String>,
+        pub encryption_scope: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// A map of custom blob metadata.
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub storage_account_name: pulumi_wasm_rust::Output<String>,
-        pub storage_container_name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub storage_account_name: pulumi_gestalt_rust::Output<String>,
+        pub storage_container_name: pulumi_gestalt_rust::Output<String>,
         /// The type of the storage blob
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// The URL of the storage blob.
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub url: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetBlobArgs,
     ) -> GetBlobResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let metadata_binding = args.metadata.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -86,31 +86,31 @@ pub mod get_blob {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetBlobResult {
-            access_tier: pulumi_wasm_rust::__private::into_domain(
+            access_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessTier"),
             ),
-            content_md5: pulumi_wasm_rust::__private::into_domain(
+            content_md5: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentMd5"),
             ),
-            content_type: pulumi_wasm_rust::__private::into_domain(
+            content_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentType"),
             ),
-            encryption_scope: pulumi_wasm_rust::__private::into_domain(
+            encryption_scope: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("encryptionScope"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            storage_account_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            storage_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountName"),
             ),
-            storage_container_name: pulumi_wasm_rust::__private::into_domain(
+            storage_container_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageContainerName"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

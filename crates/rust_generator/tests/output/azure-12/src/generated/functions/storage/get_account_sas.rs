@@ -1,75 +1,75 @@
 pub mod get_account_sas {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetAccountSasArgs {
         /// The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azure.storage.Account` resource.
         #[builder(into)]
-        pub connection_string: pulumi_wasm_rust::InputOrOutput<String>,
+        pub connection_string: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
         ///
         /// > **NOTE:** The [ISO-8601 Time offset from UTC](https://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC) is currently not supported by the service, which will result into 409 error.
         #[builder(into)]
-        pub expiry: pulumi_wasm_rust::InputOrOutput<String>,
+        pub expiry: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
         #[builder(into, default)]
-        pub https_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub https_only: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.
         #[builder(into, default)]
-        pub ip_addresses: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ip_addresses: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `permissions` block as defined below.
         #[builder(into)]
-        pub permissions: pulumi_wasm_rust::InputOrOutput<
+        pub permissions: pulumi_gestalt_rust::InputOrOutput<
             super::super::super::types::storage::GetAccountSasPermissions,
         >,
         /// A `resource_types` block as defined below.
         #[builder(into)]
-        pub resource_types: pulumi_wasm_rust::InputOrOutput<
+        pub resource_types: pulumi_gestalt_rust::InputOrOutput<
             super::super::super::types::storage::GetAccountSasResourceTypes,
         >,
         /// A `services` block as defined below.
         #[builder(into)]
-        pub services: pulumi_wasm_rust::InputOrOutput<
+        pub services: pulumi_gestalt_rust::InputOrOutput<
             super::super::super::types::storage::GetAccountSasServices,
         >,
         /// Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
         #[builder(into, default)]
-        pub signed_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub signed_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
         #[builder(into)]
-        pub start: pulumi_wasm_rust::InputOrOutput<String>,
+        pub start: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetAccountSasResult {
-        pub connection_string: pulumi_wasm_rust::Output<String>,
-        pub expiry: pulumi_wasm_rust::Output<String>,
-        pub https_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub connection_string: pulumi_gestalt_rust::Output<String>,
+        pub expiry: pulumi_gestalt_rust::Output<String>,
+        pub https_only: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub ip_addresses: pulumi_wasm_rust::Output<Option<String>>,
-        pub permissions: pulumi_wasm_rust::Output<
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub ip_addresses: pulumi_gestalt_rust::Output<Option<String>>,
+        pub permissions: pulumi_gestalt_rust::Output<
             super::super::super::types::storage::GetAccountSasPermissions,
         >,
-        pub resource_types: pulumi_wasm_rust::Output<
+        pub resource_types: pulumi_gestalt_rust::Output<
             super::super::super::types::storage::GetAccountSasResourceTypes,
         >,
         /// The computed Account Shared Access Signature (SAS).
-        pub sas: pulumi_wasm_rust::Output<String>,
-        pub services: pulumi_wasm_rust::Output<
+        pub sas: pulumi_gestalt_rust::Output<String>,
+        pub services: pulumi_gestalt_rust::Output<
             super::super::super::types::storage::GetAccountSasServices,
         >,
-        pub signed_version: pulumi_wasm_rust::Output<Option<String>>,
-        pub start: pulumi_wasm_rust::Output<String>,
+        pub signed_version: pulumi_gestalt_rust::Output<Option<String>>,
+        pub start: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetAccountSasArgs,
     ) -> GetAccountSasResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let connection_string_binding = args
             .connection_string
@@ -127,31 +127,33 @@ pub mod get_account_sas {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetAccountSasResult {
-            connection_string: pulumi_wasm_rust::__private::into_domain(
+            connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionString"),
             ),
-            expiry: pulumi_wasm_rust::__private::into_domain(o.extract_field("expiry")),
-            https_only: pulumi_wasm_rust::__private::into_domain(
+            expiry: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("expiry"),
+            ),
+            https_only: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpsOnly"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddresses"),
             ),
-            permissions: pulumi_wasm_rust::__private::into_domain(
+            permissions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("permissions"),
             ),
-            resource_types: pulumi_wasm_rust::__private::into_domain(
+            resource_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceTypes"),
             ),
-            sas: pulumi_wasm_rust::__private::into_domain(o.extract_field("sas")),
-            services: pulumi_wasm_rust::__private::into_domain(
+            sas: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sas")),
+            services: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("services"),
             ),
-            signed_version: pulumi_wasm_rust::__private::into_domain(
+            signed_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signedVersion"),
             ),
-            start: pulumi_wasm_rust::__private::into_domain(o.extract_field("start")),
+            start: pulumi_gestalt_rust::__private::into_domain(o.extract_field("start")),
         }
     }
 }

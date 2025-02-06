@@ -8,10 +8,10 @@ crate-type = ["cdylib", "staticlib"]
 
 [dependencies]
 anyhow.workspace = true
-pulumi_wasm_core.workspace = true
+pulumi_gestalt_core.workspace = true
 serde_json.workspace = true
-pulumi_wasm_grpc_connection.workspace = true
-pulumi_wasm_proto.workspace = true
+pulumi_gestalt_grpc_connection.workspace = true
+pulumi_gestalt_proto.workspace = true
 uuid.workspace = true
 libc.workspace = true
 

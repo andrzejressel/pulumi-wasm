@@ -12,8 +12,8 @@
 /// ### Network Load Balancers
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = vpc_endpoint_service::create(
@@ -29,8 +29,8 @@
 /// ### Gateway Load Balancers
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = vpc_endpoint_service::create(
@@ -51,83 +51,83 @@
 /// $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
 /// ```
 pub mod vpc_endpoint_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcEndpointServiceArgs {
         /// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
         #[builder(into)]
-        pub acceptance_required: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub acceptance_required: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// The ARNs of one or more principals allowed to discover the endpoint service.
         #[builder(into, default)]
-        pub allowed_principals: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub allowed_principals: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
         #[builder(into, default)]
-        pub gateway_load_balancer_arns: pulumi_wasm_rust::InputOrOutput<
+        pub gateway_load_balancer_arns: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         #[builder(into, default)]
-        pub network_load_balancer_arns: pulumi_wasm_rust::InputOrOutput<
+        pub network_load_balancer_arns: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The private DNS name for the service.
         #[builder(into, default)]
-        pub private_dns_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub private_dns_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The supported IP address types. The possible values are `ipv4` and `ipv6`.
         #[builder(into, default)]
-        pub supported_ip_address_types: pulumi_wasm_rust::InputOrOutput<
+        pub supported_ip_address_types: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The set of regions from which service consumers can access the service.
         #[builder(into, default)]
-        pub supported_regions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub supported_regions: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct VpcEndpointServiceResult {
         /// Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
-        pub acceptance_required: pulumi_wasm_rust::Output<bool>,
+        pub acceptance_required: pulumi_gestalt_rust::Output<bool>,
         /// The ARNs of one or more principals allowed to discover the endpoint service.
-        pub allowed_principals: pulumi_wasm_rust::Output<Vec<String>>,
+        pub allowed_principals: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The Amazon Resource Name (ARN) of the VPC endpoint service.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A set of Availability Zones in which the service is available.
-        pub availability_zones: pulumi_wasm_rust::Output<Vec<String>>,
+        pub availability_zones: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A set of DNS names for the service.
-        pub base_endpoint_dns_names: pulumi_wasm_rust::Output<Vec<String>>,
+        pub base_endpoint_dns_names: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
-        pub gateway_load_balancer_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub gateway_load_balancer_arns: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Whether or not the service manages its VPC endpoints - `true` or `false`.
-        pub manages_vpc_endpoints: pulumi_wasm_rust::Output<bool>,
+        pub manages_vpc_endpoints: pulumi_gestalt_rust::Output<bool>,
         /// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
-        pub network_load_balancer_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub network_load_balancer_arns: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The private DNS name for the service.
-        pub private_dns_name: pulumi_wasm_rust::Output<String>,
+        pub private_dns_name: pulumi_gestalt_rust::Output<String>,
         /// List of objects containing information about the endpoint service private DNS name configuration.
-        pub private_dns_name_configurations: pulumi_wasm_rust::Output<
+        pub private_dns_name_configurations: pulumi_gestalt_rust::Output<
             Vec<super::super::types::ec2::VpcEndpointServicePrivateDnsNameConfiguration>,
         >,
         /// The service name.
-        pub service_name: pulumi_wasm_rust::Output<String>,
+        pub service_name: pulumi_gestalt_rust::Output<String>,
         /// The service type, `Gateway` or `Interface`.
-        pub service_type: pulumi_wasm_rust::Output<String>,
+        pub service_type: pulumi_gestalt_rust::Output<String>,
         /// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The supported IP address types. The possible values are `ipv4` and `ipv6`.
-        pub supported_ip_address_types: pulumi_wasm_rust::Output<Vec<String>>,
+        pub supported_ip_address_types: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The set of regions from which service consumers can access the service.
-        pub supported_regions: pulumi_wasm_rust::Output<Vec<String>>,
+        pub supported_regions: pulumi_gestalt_rust::Output<Vec<String>>,
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -136,11 +136,11 @@ pub mod vpc_endpoint_service {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpcEndpointServiceArgs,
     ) -> VpcEndpointServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let acceptance_required_binding = args
             .acceptance_required
@@ -212,49 +212,49 @@ pub mod vpc_endpoint_service {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpcEndpointServiceResult {
-            acceptance_required: pulumi_wasm_rust::__private::into_domain(
+            acceptance_required: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("acceptanceRequired"),
             ),
-            allowed_principals: pulumi_wasm_rust::__private::into_domain(
+            allowed_principals: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowedPrincipals"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            availability_zones: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            availability_zones: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availabilityZones"),
             ),
-            base_endpoint_dns_names: pulumi_wasm_rust::__private::into_domain(
+            base_endpoint_dns_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("baseEndpointDnsNames"),
             ),
-            gateway_load_balancer_arns: pulumi_wasm_rust::__private::into_domain(
+            gateway_load_balancer_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayLoadBalancerArns"),
             ),
-            manages_vpc_endpoints: pulumi_wasm_rust::__private::into_domain(
+            manages_vpc_endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managesVpcEndpoints"),
             ),
-            network_load_balancer_arns: pulumi_wasm_rust::__private::into_domain(
+            network_load_balancer_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkLoadBalancerArns"),
             ),
-            private_dns_name: pulumi_wasm_rust::__private::into_domain(
+            private_dns_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateDnsName"),
             ),
-            private_dns_name_configurations: pulumi_wasm_rust::__private::into_domain(
+            private_dns_name_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateDnsNameConfigurations"),
             ),
-            service_name: pulumi_wasm_rust::__private::into_domain(
+            service_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceName"),
             ),
-            service_type: pulumi_wasm_rust::__private::into_domain(
+            service_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceType"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            supported_ip_address_types: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            supported_ip_address_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportedIpAddressTypes"),
             ),
-            supported_regions: pulumi_wasm_rust::__private::into_domain(
+            supported_regions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supportedRegions"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

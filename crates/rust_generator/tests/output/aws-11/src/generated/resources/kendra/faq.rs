@@ -22,8 +22,8 @@
 /// ### With File Format
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = faq::create(
@@ -47,8 +47,8 @@
 /// ### With Language Code
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = faq::create(
@@ -77,78 +77,78 @@
 /// $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
 /// ```
 pub mod faq {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FaqArgs {
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub file_format: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub file_format: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The identifier of the index for a FAQ.
         #[builder(into)]
-        pub index_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub index_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub language_code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub language_code: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name that should be associated with the FAQ.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The S3 location of the FAQ input data. Detailed below.
         #[builder(into)]
-        pub s3_path: pulumi_wasm_rust::InputOrOutput<
+        pub s3_path: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::kendra::FaqS3Path,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct FaqResult {
         /// ARN of the FAQ.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The Unix datetime that the FAQ was created.
-        pub created_at: pulumi_wasm_rust::Output<String>,
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// When the Status field value is `FAILED`, this contains a message that explains why.
-        pub error_message: pulumi_wasm_rust::Output<String>,
+        pub error_message: pulumi_gestalt_rust::Output<String>,
         /// The identifier of the FAQ.
-        pub faq_id: pulumi_wasm_rust::Output<String>,
-        pub file_format: pulumi_wasm_rust::Output<Option<String>>,
+        pub faq_id: pulumi_gestalt_rust::Output<String>,
+        pub file_format: pulumi_gestalt_rust::Output<Option<String>>,
         /// The identifier of the index for a FAQ.
-        pub index_id: pulumi_wasm_rust::Output<String>,
-        pub language_code: pulumi_wasm_rust::Output<String>,
+        pub index_id: pulumi_gestalt_rust::Output<String>,
+        pub language_code: pulumi_gestalt_rust::Output<String>,
         /// The name that should be associated with the FAQ.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// The S3 location of the FAQ input data. Detailed below.
-        pub s3_path: pulumi_wasm_rust::Output<super::super::types::kendra::FaqS3Path>,
+        pub s3_path: pulumi_gestalt_rust::Output<super::super::types::kendra::FaqS3Path>,
         /// The status of the FAQ. It is ready to use when the status is ACTIVE.
-        pub status: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub status: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The date and time that the FAQ was last updated.
-        pub updated_at: pulumi_wasm_rust::Output<String>,
+        pub updated_at: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FaqArgs,
     ) -> FaqResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let file_format_binding = args.file_format.get_output(context).get_inner();
@@ -199,37 +199,43 @@ pub mod faq {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FaqResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            error_message: pulumi_wasm_rust::__private::into_domain(
+            error_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("errorMessage"),
             ),
-            faq_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("faqId")),
-            file_format: pulumi_wasm_rust::__private::into_domain(
+            faq_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("faqId"),
+            ),
+            file_format: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fileFormat"),
             ),
-            index_id: pulumi_wasm_rust::__private::into_domain(
+            index_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("indexId"),
             ),
-            language_code: pulumi_wasm_rust::__private::into_domain(
+            language_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("languageCode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            s3_path: pulumi_wasm_rust::__private::into_domain(o.extract_field("s3Path")),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            s3_path: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("s3Path"),
+            ),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            updated_at: pulumi_wasm_rust::__private::into_domain(
+            updated_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updatedAt"),
             ),
         }

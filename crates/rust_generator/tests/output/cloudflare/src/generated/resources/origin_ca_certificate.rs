@@ -38,51 +38,51 @@
 /// ```
 ///
 pub mod origin_ca_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OriginCaCertificateArgs {
         /// The Certificate Signing Request. Must be newline-encoded. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub csr: pulumi_wasm_rust::InputOrOutput<String>,
+        pub csr: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of hostnames or wildcard names bound to the certificate. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub hostnames: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub hostnames: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         #[builder(into, default)]
-        pub min_days_for_renewal: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub min_days_for_renewal: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The signature type desired on the certificate. Available values: `origin-rsa`, `origin-ecc`, `keyless-certificate`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub request_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub request_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The number of days for which the certificate should be valid. Available values: `7`, `30`, `90`, `365`, `730`, `1095`, `5475`. **Modifying this attribute will force creation of a new resource.**
         #[builder(into, default)]
-        pub requested_validity: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub requested_validity: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct OriginCaCertificateResult {
         /// The Origin CA certificate.
-        pub certificate: pulumi_wasm_rust::Output<String>,
+        pub certificate: pulumi_gestalt_rust::Output<String>,
         /// The Certificate Signing Request. Must be newline-encoded. **Modifying this attribute will force creation of a new resource.**
-        pub csr: pulumi_wasm_rust::Output<String>,
+        pub csr: pulumi_gestalt_rust::Output<String>,
         /// The datetime when the certificate will expire.
-        pub expires_on: pulumi_wasm_rust::Output<String>,
+        pub expires_on: pulumi_gestalt_rust::Output<String>,
         /// A list of hostnames or wildcard names bound to the certificate. **Modifying this attribute will force creation of a new resource.**
-        pub hostnames: pulumi_wasm_rust::Output<Vec<String>>,
-        pub min_days_for_renewal: pulumi_wasm_rust::Output<Option<i32>>,
+        pub hostnames: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub min_days_for_renewal: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The signature type desired on the certificate. Available values: `origin-rsa`, `origin-ecc`, `keyless-certificate`. **Modifying this attribute will force creation of a new resource.**
-        pub request_type: pulumi_wasm_rust::Output<String>,
+        pub request_type: pulumi_gestalt_rust::Output<String>,
         /// The number of days for which the certificate should be valid. Available values: `7`, `30`, `90`, `365`, `730`, `1095`, `5475`. **Modifying this attribute will force creation of a new resource.**
-        pub requested_validity: pulumi_wasm_rust::Output<i32>,
+        pub requested_validity: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OriginCaCertificateArgs,
     ) -> OriginCaCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let csr_binding = args.csr.get_output(context).get_inner();
         let hostnames_binding = args.hostnames.get_output(context).get_inner();
@@ -124,23 +124,23 @@ pub mod origin_ca_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OriginCaCertificateResult {
-            certificate: pulumi_wasm_rust::__private::into_domain(
+            certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificate"),
             ),
-            csr: pulumi_wasm_rust::__private::into_domain(o.extract_field("csr")),
-            expires_on: pulumi_wasm_rust::__private::into_domain(
+            csr: pulumi_gestalt_rust::__private::into_domain(o.extract_field("csr")),
+            expires_on: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("expiresOn"),
             ),
-            hostnames: pulumi_wasm_rust::__private::into_domain(
+            hostnames: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostnames"),
             ),
-            min_days_for_renewal: pulumi_wasm_rust::__private::into_domain(
+            min_days_for_renewal: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minDaysForRenewal"),
             ),
-            request_type: pulumi_wasm_rust::__private::into_domain(
+            request_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestType"),
             ),
-            requested_validity: pulumi_wasm_rust::__private::into_domain(
+            requested_validity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("requestedValidity"),
             ),
         }

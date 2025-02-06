@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -69,39 +69,39 @@
 /// ```
 ///
 pub mod lication_load_balancer_subnet_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LicationLoadBalancerSubnetAssociationArgs {
         /// The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub application_load_balancer_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_load_balancer_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Application Gateway for Containers Association. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the subnet which the Application Gateway for Containers associated to.
         ///
         /// > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Application Gateway for Containers Association.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LicationLoadBalancerSubnetAssociationResult {
         /// The ID of the Application Gateway for Containers. Changing this forces a new resource to be created.
-        pub application_load_balancer_id: pulumi_wasm_rust::Output<String>,
+        pub application_load_balancer_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Application Gateway for Containers Association. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the subnet which the Application Gateway for Containers associated to.
         ///
         /// > **Note:** The subnet to be used must have a delegation for  `Microsoft.ServiceNetworking/trafficControllers` as shown in the example above.
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Application Gateway for Containers Association.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -110,11 +110,11 @@ pub mod lication_load_balancer_subnet_association {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LicationLoadBalancerSubnetAssociationArgs,
     ) -> LicationLoadBalancerSubnetAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_load_balancer_id_binding = args
             .application_load_balancer_id
@@ -149,14 +149,14 @@ pub mod lication_load_balancer_subnet_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LicationLoadBalancerSubnetAssociationResult {
-            application_load_balancer_id: pulumi_wasm_rust::__private::into_domain(
+            application_load_balancer_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationLoadBalancerId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

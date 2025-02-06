@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = product_portfolio_association::create(
@@ -27,48 +27,48 @@
 /// $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
 /// ```
 pub mod product_portfolio_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProductPortfolioAssociationArgs {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         #[builder(into, default)]
-        pub accept_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub accept_language: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Portfolio identifier.
         #[builder(into)]
-        pub portfolio_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub portfolio_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Product identifier.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub product_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub product_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Identifier of the source portfolio.
         #[builder(into, default)]
-        pub source_portfolio_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_portfolio_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ProductPortfolioAssociationResult {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        pub accept_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub accept_language: pulumi_gestalt_rust::Output<Option<String>>,
         /// Portfolio identifier.
-        pub portfolio_id: pulumi_wasm_rust::Output<String>,
+        pub portfolio_id: pulumi_gestalt_rust::Output<String>,
         /// Product identifier.
         ///
         /// The following arguments are optional:
-        pub product_id: pulumi_wasm_rust::Output<String>,
+        pub product_id: pulumi_gestalt_rust::Output<String>,
         /// Identifier of the source portfolio.
-        pub source_portfolio_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_portfolio_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProductPortfolioAssociationArgs,
     ) -> ProductPortfolioAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let accept_language_binding = args
             .accept_language
@@ -106,16 +106,16 @@ pub mod product_portfolio_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProductPortfolioAssociationResult {
-            accept_language: pulumi_wasm_rust::__private::into_domain(
+            accept_language: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("acceptLanguage"),
             ),
-            portfolio_id: pulumi_wasm_rust::__private::into_domain(
+            portfolio_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("portfolioId"),
             ),
-            product_id: pulumi_wasm_rust::__private::into_domain(
+            product_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("productId"),
             ),
-            source_portfolio_id: pulumi_wasm_rust::__private::into_domain(
+            source_portfolio_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourcePortfolioId"),
             ),
         }

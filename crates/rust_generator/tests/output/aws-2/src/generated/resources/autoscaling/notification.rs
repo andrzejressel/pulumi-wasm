@@ -7,8 +7,8 @@
 /// Basic usage:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let bar = group::create(
@@ -41,41 +41,41 @@
 /// }
 /// ```
 pub mod notification {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NotificationArgs {
         /// List of AutoScaling Group Names
         #[builder(into)]
-        pub group_names: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub group_names: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// List of Notification Types that trigger
         /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         #[builder(into)]
-        pub notifications: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub notifications: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Topic ARN for notifications to be sent through
         #[builder(into)]
-        pub topic_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub topic_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct NotificationResult {
         /// List of AutoScaling Group Names
-        pub group_names: pulumi_wasm_rust::Output<Vec<String>>,
+        pub group_names: pulumi_gestalt_rust::Output<Vec<String>>,
         /// List of Notification Types that trigger
         /// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-        pub notifications: pulumi_wasm_rust::Output<Vec<String>>,
+        pub notifications: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Topic ARN for notifications to be sent through
-        pub topic_arn: pulumi_wasm_rust::Output<String>,
+        pub topic_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NotificationArgs,
     ) -> NotificationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let group_names_binding = args.group_names.get_output(context).get_inner();
         let notifications_binding = args.notifications.get_output(context).get_inner();
@@ -101,13 +101,13 @@ pub mod notification {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NotificationResult {
-            group_names: pulumi_wasm_rust::__private::into_domain(
+            group_names: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupNames"),
             ),
-            notifications: pulumi_wasm_rust::__private::into_domain(
+            notifications: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("notifications"),
             ),
-            topic_arn: pulumi_wasm_rust::__private::into_domain(
+            topic_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("topicArn"),
             ),
         }

@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = availability_zone_group::create(
@@ -27,34 +27,34 @@
 /// $ pulumi import aws:ec2/availabilityZoneGroup:AvailabilityZoneGroup example us-west-2-lax-1
 /// ```
 pub mod availability_zone_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AvailabilityZoneGroupArgs {
         /// Name of the Availability Zone Group.
         #[builder(into)]
-        pub group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
         #[builder(into)]
-        pub opt_in_status: pulumi_wasm_rust::InputOrOutput<String>,
+        pub opt_in_status: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AvailabilityZoneGroupResult {
         /// Name of the Availability Zone Group.
-        pub group_name: pulumi_wasm_rust::Output<String>,
+        pub group_name: pulumi_gestalt_rust::Output<String>,
         /// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
-        pub opt_in_status: pulumi_wasm_rust::Output<String>,
+        pub opt_in_status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AvailabilityZoneGroupArgs,
     ) -> AvailabilityZoneGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let group_name_binding = args.group_name.get_output(context).get_inner();
         let opt_in_status_binding = args.opt_in_status.get_output(context).get_inner();
@@ -75,10 +75,10 @@ pub mod availability_zone_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AvailabilityZoneGroupResult {
-            group_name: pulumi_wasm_rust::__private::into_domain(
+            group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupName"),
             ),
-            opt_in_status: pulumi_wasm_rust::__private::into_domain(
+            opt_in_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("optInStatus"),
             ),
         }

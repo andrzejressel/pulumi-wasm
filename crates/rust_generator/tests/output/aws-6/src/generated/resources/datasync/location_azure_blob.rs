@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = location_azure_blob::create(
@@ -35,79 +35,79 @@
 /// $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
 /// ```
 pub mod location_azure_blob {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LocationAzureBlobArgs {
         /// The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
         #[builder(into, default)]
-        pub access_tier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub access_tier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of DataSync Agent ARNs with which this location will be associated.
         #[builder(into)]
-        pub agent_arns: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub agent_arns: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         #[builder(into)]
-        pub authentication_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub authentication_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
         #[builder(into, default)]
-        pub blob_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub blob_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The URL of the Azure Blob Storage container involved in your transfer.
         #[builder(into)]
-        pub container_url: pulumi_wasm_rust::InputOrOutput<String>,
+        pub container_url: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         #[builder(into, default)]
-        pub sas_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub sas_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datasync::LocationAzureBlobSasConfiguration>,
         >,
         /// Path segments if you want to limit your transfer to a virtual directory in the container.
         #[builder(into, default)]
-        pub subdirectory: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subdirectory: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LocationAzureBlobResult {
         /// The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
-        pub access_tier: pulumi_wasm_rust::Output<Option<String>>,
+        pub access_tier: pulumi_gestalt_rust::Output<Option<String>>,
         /// A list of DataSync Agent ARNs with which this location will be associated.
-        pub agent_arns: pulumi_wasm_rust::Output<Vec<String>>,
+        pub agent_arns: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Amazon Resource Name (ARN) of the DataSync Location.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
-        pub authentication_type: pulumi_wasm_rust::Output<String>,
+        pub authentication_type: pulumi_gestalt_rust::Output<String>,
         /// The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
-        pub blob_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub blob_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The URL of the Azure Blob Storage container involved in your transfer.
-        pub container_url: pulumi_wasm_rust::Output<String>,
+        pub container_url: pulumi_gestalt_rust::Output<String>,
         /// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
-        pub sas_configuration: pulumi_wasm_rust::Output<
+        pub sas_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::datasync::LocationAzureBlobSasConfiguration>,
         >,
         /// Path segments if you want to limit your transfer to a virtual directory in the container.
-        pub subdirectory: pulumi_wasm_rust::Output<String>,
+        pub subdirectory: pulumi_gestalt_rust::Output<String>,
         /// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub uri: pulumi_wasm_rust::Output<String>,
+        pub uri: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LocationAzureBlobArgs,
     ) -> LocationAzureBlobResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let access_tier_binding = args.access_tier.get_output(context).get_inner();
         let agent_arns_binding = args.agent_arns.get_output(context).get_inner();
@@ -164,33 +164,33 @@ pub mod location_azure_blob {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LocationAzureBlobResult {
-            access_tier: pulumi_wasm_rust::__private::into_domain(
+            access_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accessTier"),
             ),
-            agent_arns: pulumi_wasm_rust::__private::into_domain(
+            agent_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("agentArns"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            authentication_type: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            authentication_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authenticationType"),
             ),
-            blob_type: pulumi_wasm_rust::__private::into_domain(
+            blob_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blobType"),
             ),
-            container_url: pulumi_wasm_rust::__private::into_domain(
+            container_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerUrl"),
             ),
-            sas_configuration: pulumi_wasm_rust::__private::into_domain(
+            sas_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sasConfiguration"),
             ),
-            subdirectory: pulumi_wasm_rust::__private::into_domain(
+            subdirectory: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subdirectory"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            uri: pulumi_wasm_rust::__private::into_domain(o.extract_field("uri")),
+            uri: pulumi_gestalt_rust::__private::into_domain(o.extract_field("uri")),
         }
     }
 }

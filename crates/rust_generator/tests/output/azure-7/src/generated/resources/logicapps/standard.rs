@@ -106,171 +106,175 @@
 /// ```
 ///
 pub mod standard {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StandardArgs {
         /// The ID of the App Service Plan within which to create this Logic App.
         #[builder(into)]
-        pub app_service_plan_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_service_plan_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         ///
         /// > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         #[builder(into, default)]
-        pub app_settings: pulumi_wasm_rust::InputOrOutput<
+        pub app_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         #[builder(into, default)]
-        pub bundle_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub bundle_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         #[builder(into, default)]
-        pub client_affinity_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub client_affinity_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
         #[builder(into, default)]
-        pub client_certificate_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub client_certificate_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `connection_string` block as defined below.
         #[builder(into, default)]
-        pub connection_strings: pulumi_wasm_rust::InputOrOutput<
+        pub connection_strings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::logicapps::StandardConnectionString>>,
         >,
         /// Is the Logic App enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         #[builder(into, default)]
-        pub https_only: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub https_only: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::logicapps::StandardIdentity>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Logic App Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         ///
         /// > **Note:** Setting this property will also set it in the Site Config.
         #[builder(into, default)]
-        pub public_network_access: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub public_network_access: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `site_config` object as defined below.
         #[builder(into, default)]
-        pub site_config: pulumi_wasm_rust::InputOrOutput<
+        pub site_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::logicapps::StandardSiteConfig>,
         >,
         /// The access key which will be used to access the backend storage account for the Logic App.
         #[builder(into)]
-        pub storage_account_access_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_access_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub storage_account_share_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_account_share_name: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         #[builder(into, default)]
-        pub use_extension_bundle: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub use_extension_bundle: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The runtime version associated with the Logic App. Defaults to `~4`.
         ///
         /// > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
         #[builder(into, default)]
-        pub version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub virtual_network_subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub virtual_network_subnet_id: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct StandardResult {
         /// The ID of the App Service Plan within which to create this Logic App.
-        pub app_service_plan_id: pulumi_wasm_rust::Output<String>,
+        pub app_service_plan_id: pulumi_gestalt_rust::Output<String>,
         /// A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
         ///
         /// > **NOTE:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
-        pub app_settings: pulumi_wasm_rust::Output<
+        pub app_settings: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
-        pub bundle_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub bundle_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
-        pub client_affinity_enabled: pulumi_wasm_rust::Output<bool>,
+        pub client_affinity_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`.
-        pub client_certificate_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub client_certificate_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `connection_string` block as defined below.
-        pub connection_strings: pulumi_wasm_rust::Output<
+        pub connection_strings: pulumi_gestalt_rust::Output<
             Vec<super::super::types::logicapps::StandardConnectionString>,
         >,
         /// An identifier used by App Service to perform domain ownership verification via DNS TXT record.
-        pub custom_domain_verification_id: pulumi_wasm_rust::Output<String>,
+        pub custom_domain_verification_id: pulumi_gestalt_rust::Output<String>,
         /// The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`
-        pub default_hostname: pulumi_wasm_rust::Output<String>,
+        pub default_hostname: pulumi_gestalt_rust::Output<String>,
         /// Is the Logic App enabled? Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Can the Logic App only be accessed via HTTPS? Defaults to `false`.
-        pub https_only: pulumi_wasm_rust::Output<Option<bool>>,
+        pub https_only: pulumi_gestalt_rust::Output<Option<bool>>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::logicapps::StandardIdentity>,
         >,
         /// The Logic App kind - will be `functionapp,workflowapp`
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_gestalt_rust::Output<String>,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Logic App Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
-        pub outbound_ip_addresses: pulumi_wasm_rust::Output<String>,
+        pub outbound_ip_addresses: pulumi_gestalt_rust::Output<String>,
         /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
-        pub possible_outbound_ip_addresses: pulumi_wasm_rust::Output<String>,
+        pub possible_outbound_ip_addresses: pulumi_gestalt_rust::Output<String>,
         /// Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
         ///
         /// > **Note:** Setting this property will also set it in the Site Config.
-        pub public_network_access: pulumi_wasm_rust::Output<String>,
+        pub public_network_access: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `site_config` object as defined below.
-        pub site_config: pulumi_wasm_rust::Output<
+        pub site_config: pulumi_gestalt_rust::Output<
             super::super::types::logicapps::StandardSiteConfig,
         >,
         /// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-        pub site_credentials: pulumi_wasm_rust::Output<
+        pub site_credentials: pulumi_gestalt_rust::Output<
             Vec<super::super::types::logicapps::StandardSiteCredential>,
         >,
         /// The access key which will be used to access the backend storage account for the Logic App.
-        pub storage_account_access_key: pulumi_wasm_rust::Output<String>,
+        pub storage_account_access_key: pulumi_gestalt_rust::Output<String>,
         /// The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
-        pub storage_account_name: pulumi_wasm_rust::Output<String>,
-        pub storage_account_share_name: pulumi_wasm_rust::Output<String>,
+        pub storage_account_name: pulumi_gestalt_rust::Output<String>,
+        pub storage_account_share_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
-        pub use_extension_bundle: pulumi_wasm_rust::Output<Option<bool>>,
+        pub use_extension_bundle: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The runtime version associated with the Logic App. Defaults to `~4`.
         ///
         /// > **Note:**  Logic App version `3.x` will be out of support from December 3 2022. For more details refer [Logic Apps Standard Support for Functions Runtime V4](https://azure.microsoft.com/en-us/updates/logic-apps-standard-support-for-functions-runtime-v4/)
-        pub version: pulumi_wasm_rust::Output<Option<String>>,
-        pub virtual_network_subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub version: pulumi_gestalt_rust::Output<Option<String>>,
+        pub virtual_network_subnet_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StandardArgs,
     ) -> StandardResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_service_plan_id_binding = args
             .app_service_plan_id
@@ -419,79 +423,79 @@ pub mod standard {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StandardResult {
-            app_service_plan_id: pulumi_wasm_rust::__private::into_domain(
+            app_service_plan_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appServicePlanId"),
             ),
-            app_settings: pulumi_wasm_rust::__private::into_domain(
+            app_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appSettings"),
             ),
-            bundle_version: pulumi_wasm_rust::__private::into_domain(
+            bundle_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bundleVersion"),
             ),
-            client_affinity_enabled: pulumi_wasm_rust::__private::into_domain(
+            client_affinity_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientAffinityEnabled"),
             ),
-            client_certificate_mode: pulumi_wasm_rust::__private::into_domain(
+            client_certificate_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clientCertificateMode"),
             ),
-            connection_strings: pulumi_wasm_rust::__private::into_domain(
+            connection_strings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connectionStrings"),
             ),
-            custom_domain_verification_id: pulumi_wasm_rust::__private::into_domain(
+            custom_domain_verification_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customDomainVerificationId"),
             ),
-            default_hostname: pulumi_wasm_rust::__private::into_domain(
+            default_hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultHostname"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            https_only: pulumi_wasm_rust::__private::into_domain(
+            https_only: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpsOnly"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outboundIpAddresses"),
             ),
-            possible_outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            possible_outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("possibleOutboundIpAddresses"),
             ),
-            public_network_access: pulumi_wasm_rust::__private::into_domain(
+            public_network_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccess"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            site_config: pulumi_wasm_rust::__private::into_domain(
+            site_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("siteConfig"),
             ),
-            site_credentials: pulumi_wasm_rust::__private::into_domain(
+            site_credentials: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("siteCredentials"),
             ),
-            storage_account_access_key: pulumi_wasm_rust::__private::into_domain(
+            storage_account_access_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountAccessKey"),
             ),
-            storage_account_name: pulumi_wasm_rust::__private::into_domain(
+            storage_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountName"),
             ),
-            storage_account_share_name: pulumi_wasm_rust::__private::into_domain(
+            storage_account_share_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountShareName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            use_extension_bundle: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            use_extension_bundle: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("useExtensionBundle"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(
+            version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("version"),
             ),
-            virtual_network_subnet_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_network_subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualNetworkSubnetId"),
             ),
         }

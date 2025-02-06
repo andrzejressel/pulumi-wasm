@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -40,62 +40,62 @@
 /// ```
 ///
 pub mod custom_provider {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CustomProviderArgs {
         /// Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
         #[builder(into, default)]
-        pub actions: pulumi_wasm_rust::InputOrOutput<
+        pub actions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::core::CustomProviderAction>>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
         #[builder(into, default)]
-        pub resource_types: pulumi_wasm_rust::InputOrOutput<
+        pub resource_types: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::core::CustomProviderResourceType>>,
         >,
         /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Any number of `validation` block as defined below.
         #[builder(into, default)]
-        pub validations: pulumi_wasm_rust::InputOrOutput<
+        pub validations: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::core::CustomProviderValidation>>,
         >,
     }
     #[allow(dead_code)]
     pub struct CustomProviderResult {
         /// Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
-        pub actions: pulumi_wasm_rust::Output<
+        pub actions: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::core::CustomProviderAction>>,
         >,
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Custom Provider. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Any number of `resource_type` block as defined below. One of `resource_type` or `action` must be specified.
-        pub resource_types: pulumi_wasm_rust::Output<
+        pub resource_types: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::core::CustomProviderResourceType>>,
         >,
         /// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Any number of `validation` block as defined below.
-        pub validations: pulumi_wasm_rust::Output<
+        pub validations: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::core::CustomProviderValidation>>,
         >,
     }
@@ -104,11 +104,11 @@ pub mod custom_provider {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CustomProviderArgs,
     ) -> CustomProviderResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let actions_binding = args.actions.get_output(context).get_inner();
         let location_binding = args.location.get_output(context).get_inner();
@@ -157,21 +157,21 @@ pub mod custom_provider {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CustomProviderResult {
-            actions: pulumi_wasm_rust::__private::into_domain(
+            actions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actions"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            resource_types: pulumi_wasm_rust::__private::into_domain(
+            resource_types: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceTypes"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            validations: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            validations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validations"),
             ),
         }

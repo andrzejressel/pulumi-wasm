@@ -12,8 +12,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let deploymentResourcePool = ai_deployment_resource_pool::create(
@@ -77,14 +77,14 @@
 /// ```
 ///
 pub mod ai_deployment_resource_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AiDeploymentResourcePoolArgs {
         /// The underlying dedicated resources that the deployment resource pool uses.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub dedicated_resources: pulumi_wasm_rust::InputOrOutput<
+        pub dedicated_resources: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::vertex::AiDeploymentResourcePoolDedicatedResources,
             >,
@@ -94,22 +94,22 @@ pub mod ai_deployment_resource_pool {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The region of deployment resource pool. eg us-central1
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AiDeploymentResourcePoolResult {
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The underlying dedicated resources that the deployment resource pool uses.
         /// Structure is documented below.
-        pub dedicated_resources: pulumi_wasm_rust::Output<
+        pub dedicated_resources: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::vertex::AiDeploymentResourcePoolDedicatedResources,
             >,
@@ -118,23 +118,23 @@ pub mod ai_deployment_resource_pool {
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The region of deployment resource pool. eg us-central1
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AiDeploymentResourcePoolArgs,
     ) -> AiDeploymentResourcePoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let dedicated_resources_binding = args
             .dedicated_resources
@@ -168,17 +168,19 @@ pub mod ai_deployment_resource_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AiDeploymentResourcePoolResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            dedicated_resources: pulumi_wasm_rust::__private::into_domain(
+            dedicated_resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dedicatedResources"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
         }
     }
 }

@@ -61,70 +61,70 @@
 /// $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
 /// ```
 pub mod listener_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ListenerRuleArgs {
         /// The action for the listener rule.
         #[builder(into)]
-        pub action: pulumi_wasm_rust::InputOrOutput<
+        pub action: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::vpclattice::ListenerRuleAction,
         >,
         /// The ID or Amazon Resource Name (ARN) of the listener.
         #[builder(into)]
-        pub listener_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub listener_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The rule match.
         #[builder(into)]
-        pub match_: pulumi_wasm_rust::InputOrOutput<
+        pub match_: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::vpclattice::ListenerRuleMatch,
         >,
         /// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub priority: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub priority: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The ID or Amazon Resource Identifier (ARN) of the service.
         #[builder(into)]
-        pub service_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ListenerRuleResult {
         /// The action for the listener rule.
-        pub action: pulumi_wasm_rust::Output<
+        pub action: pulumi_gestalt_rust::Output<
             super::super::types::vpclattice::ListenerRuleAction,
         >,
         /// The ARN for the listener rule.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ID or Amazon Resource Name (ARN) of the listener.
-        pub listener_identifier: pulumi_wasm_rust::Output<String>,
+        pub listener_identifier: pulumi_gestalt_rust::Output<String>,
         /// The rule match.
-        pub match_: pulumi_wasm_rust::Output<
+        pub match_: pulumi_gestalt_rust::Output<
             super::super::types::vpclattice::ListenerRuleMatch,
         >,
         /// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
         ///
         /// The following arguments are optional:
-        pub priority: pulumi_wasm_rust::Output<i32>,
+        pub priority: pulumi_gestalt_rust::Output<i32>,
         /// Unique identifier for the listener rule.
-        pub rule_id: pulumi_wasm_rust::Output<String>,
+        pub rule_id: pulumi_gestalt_rust::Output<String>,
         /// The ID or Amazon Resource Identifier (ARN) of the service.
-        pub service_identifier: pulumi_wasm_rust::Output<String>,
+        pub service_identifier: pulumi_gestalt_rust::Output<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -133,11 +133,11 @@ pub mod listener_rule {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ListenerRuleArgs,
     ) -> ListenerRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let action_binding = args.action.get_output(context).get_inner();
         let listener_identifier_binding = args
@@ -189,22 +189,28 @@ pub mod listener_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ListenerRuleResult {
-            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            listener_identifier: pulumi_wasm_rust::__private::into_domain(
+            action: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("action"),
+            ),
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            listener_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("listenerIdentifier"),
             ),
-            match_: pulumi_wasm_rust::__private::into_domain(o.extract_field("match")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            priority: pulumi_wasm_rust::__private::into_domain(
+            match_: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("match"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            priority: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("priority"),
             ),
-            rule_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("ruleId")),
-            service_identifier: pulumi_wasm_rust::__private::into_domain(
+            rule_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("ruleId"),
+            ),
+            service_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceIdentifier"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

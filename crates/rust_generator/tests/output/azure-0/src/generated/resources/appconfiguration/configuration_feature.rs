@@ -54,44 +54,44 @@
 /// ```
 ///
 pub mod configuration_feature {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigurationFeatureArgs {
         /// Specifies the id of the App Configuration. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub configuration_store_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub configuration_store_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description of the App Configuration Feature.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The status of the App Configuration Feature. By default, this is set to false.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub etag: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The label of the App Configuration Feature. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub label: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub label: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Should this App Configuration Feature be Locked to prevent changes?
         #[builder(into, default)]
-        pub locked: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub locked: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the App Configuration Feature. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A number representing the value of the percentage required to enable this feature.
         #[builder(into, default)]
-        pub percentage_filter_value: pulumi_wasm_rust::InputOrOutput<Option<f64>>,
+        pub percentage_filter_value: pulumi_gestalt_rust::InputOrOutput<Option<f64>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `targeting_filter` block as defined below.
         #[builder(into, default)]
-        pub targeting_filters: pulumi_wasm_rust::InputOrOutput<
+        pub targeting_filters: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::appconfiguration::ConfigurationFeatureTargetingFilter,
@@ -100,7 +100,7 @@ pub mod configuration_feature {
         >,
         /// A `timewindow_filter` block as defined below.
         #[builder(into, default)]
-        pub timewindow_filters: pulumi_wasm_rust::InputOrOutput<
+        pub timewindow_filters: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::appconfiguration::ConfigurationFeatureTimewindowFilter,
@@ -111,28 +111,28 @@ pub mod configuration_feature {
     #[allow(dead_code)]
     pub struct ConfigurationFeatureResult {
         /// Specifies the id of the App Configuration. Changing this forces a new resource to be created.
-        pub configuration_store_id: pulumi_wasm_rust::Output<String>,
+        pub configuration_store_id: pulumi_gestalt_rust::Output<String>,
         /// The description of the App Configuration Feature.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The status of the App Configuration Feature. By default, this is set to false.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created.
-        pub key: pulumi_wasm_rust::Output<String>,
+        pub key: pulumi_gestalt_rust::Output<String>,
         /// The label of the App Configuration Feature. Changing this forces a new resource to be created.
-        pub label: pulumi_wasm_rust::Output<Option<String>>,
+        pub label: pulumi_gestalt_rust::Output<Option<String>>,
         /// Should this App Configuration Feature be Locked to prevent changes?
-        pub locked: pulumi_wasm_rust::Output<Option<bool>>,
+        pub locked: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the App Configuration Feature. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A number representing the value of the percentage required to enable this feature.
-        pub percentage_filter_value: pulumi_wasm_rust::Output<Option<f64>>,
+        pub percentage_filter_value: pulumi_gestalt_rust::Output<Option<f64>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A `targeting_filter` block as defined below.
-        pub targeting_filters: pulumi_wasm_rust::Output<
+        pub targeting_filters: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::appconfiguration::ConfigurationFeatureTargetingFilter,
@@ -140,7 +140,7 @@ pub mod configuration_feature {
             >,
         >,
         /// A `timewindow_filter` block as defined below.
-        pub timewindow_filters: pulumi_wasm_rust::Output<
+        pub timewindow_filters: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::appconfiguration::ConfigurationFeatureTimewindowFilter,
@@ -153,11 +153,11 @@ pub mod configuration_feature {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConfigurationFeatureArgs,
     ) -> ConfigurationFeatureResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let configuration_store_id_binding = args
             .configuration_store_id
@@ -241,28 +241,30 @@ pub mod configuration_feature {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConfigurationFeatureResult {
-            configuration_store_id: pulumi_wasm_rust::__private::into_domain(
+            configuration_store_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationStoreId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
-            label: pulumi_wasm_rust::__private::into_domain(o.extract_field("label")),
-            locked: pulumi_wasm_rust::__private::into_domain(o.extract_field("locked")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            percentage_filter_value: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
+            label: pulumi_gestalt_rust::__private::into_domain(o.extract_field("label")),
+            locked: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("locked"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            percentage_filter_value: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("percentageFilterValue"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            targeting_filters: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            targeting_filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetingFilters"),
             ),
-            timewindow_filters: pulumi_wasm_rust::__private::into_domain(
+            timewindow_filters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timewindowFilters"),
             ),
         }

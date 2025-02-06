@@ -24,8 +24,8 @@ pub(crate) fn extract_custom_section(data: &[u8]) -> Vec<ProviderVersion> {
     for payload in parser.parse_all(data) {
         if let Payload::CustomSection(reader) = payload.unwrap() {
             let name = reader.name();
-            if name.starts_with("pulumi_wasm_provider::") {
-                let name = name["pulumi_wasm_provider::".len()..].to_string();
+            if name.starts_with("pulumi_gestalt_provider::") {
+                let name = name["pulumi_gestalt_provider::".len()..].to_string();
                 let version: WasmProviderVersion = serde_json::from_slice(reader.data()).unwrap();
                 providers.push(ProviderVersion {
                     name,

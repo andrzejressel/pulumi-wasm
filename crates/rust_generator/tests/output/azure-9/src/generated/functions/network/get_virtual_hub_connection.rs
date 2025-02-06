@@ -1,46 +1,46 @@
 pub mod get_virtual_hub_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetVirtualHubConnectionArgs {
         /// The name of the Connection which should be retrieved.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Name of the Resource Group where the Virtual Hub Connection exists.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Virtual Hub where this Connection exists.
         #[builder(into)]
-        pub virtual_hub_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_hub_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetVirtualHubConnectionResult {
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Whether Internet Security is enabled to secure internet traffic on this connection
-        pub internet_security_enabled: pulumi_wasm_rust::Output<bool>,
+        pub internet_security_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The name which is used for this Static Route.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Virtual Network which the Virtual Hub is connected
-        pub remote_virtual_network_id: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub remote_virtual_network_id: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `routing` block as defined below.
-        pub routings: pulumi_wasm_rust::Output<
+        pub routings: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::network::GetVirtualHubConnectionRouting>,
         >,
         /// The ID of the Virtual Hub within which this connection is created
-        pub virtual_hub_id: pulumi_wasm_rust::Output<String>,
-        pub virtual_hub_name: pulumi_wasm_rust::Output<String>,
+        pub virtual_hub_id: pulumi_gestalt_rust::Output<String>,
+        pub virtual_hub_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetVirtualHubConnectionArgs,
     ) -> GetVirtualHubConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -72,24 +72,24 @@ pub mod get_virtual_hub_connection {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetVirtualHubConnectionResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            internet_security_enabled: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            internet_security_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("internetSecurityEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            remote_virtual_network_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            remote_virtual_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remoteVirtualNetworkId"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            routings: pulumi_wasm_rust::__private::into_domain(
+            routings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routings"),
             ),
-            virtual_hub_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_hub_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualHubId"),
             ),
-            virtual_hub_name: pulumi_wasm_rust::__private::into_domain(
+            virtual_hub_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualHubName"),
             ),
         }

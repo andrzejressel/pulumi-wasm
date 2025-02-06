@@ -13,8 +13,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = portfolio_share::create(
@@ -36,65 +36,65 @@
 /// $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
 /// ```
 pub mod portfolio_share {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PortfolioShareArgs {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         #[builder(into, default)]
-        pub accept_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub accept_language: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Portfolio identifier.
         #[builder(into)]
-        pub portfolio_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub portfolio_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
         #[builder(into)]
-        pub principal_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub principal_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         #[builder(into, default)]
-        pub share_principals: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub share_principals: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
         #[builder(into, default)]
-        pub share_tag_options: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub share_tag_options: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
         #[builder(into, default)]
-        pub wait_for_acceptance: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub wait_for_acceptance: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct PortfolioShareResult {
         /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        pub accept_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub accept_language: pulumi_gestalt_rust::Output<Option<String>>,
         /// Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
-        pub accepted: pulumi_wasm_rust::Output<bool>,
+        pub accepted: pulumi_gestalt_rust::Output<bool>,
         /// Portfolio identifier.
-        pub portfolio_id: pulumi_wasm_rust::Output<String>,
+        pub portfolio_id: pulumi_gestalt_rust::Output<String>,
         /// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
-        pub principal_id: pulumi_wasm_rust::Output<String>,
+        pub principal_id: pulumi_gestalt_rust::Output<String>,
         /// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
-        pub share_principals: pulumi_wasm_rust::Output<Option<bool>>,
+        pub share_principals: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
-        pub share_tag_options: pulumi_wasm_rust::Output<Option<bool>>,
+        pub share_tag_options: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
         ///
         /// The following arguments are optional:
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
-        pub wait_for_acceptance: pulumi_wasm_rust::Output<Option<bool>>,
+        pub wait_for_acceptance: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PortfolioShareArgs,
     ) -> PortfolioShareResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let accept_language_binding = args
             .accept_language
@@ -152,26 +152,26 @@ pub mod portfolio_share {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PortfolioShareResult {
-            accept_language: pulumi_wasm_rust::__private::into_domain(
+            accept_language: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("acceptLanguage"),
             ),
-            accepted: pulumi_wasm_rust::__private::into_domain(
+            accepted: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accepted"),
             ),
-            portfolio_id: pulumi_wasm_rust::__private::into_domain(
+            portfolio_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("portfolioId"),
             ),
-            principal_id: pulumi_wasm_rust::__private::into_domain(
+            principal_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("principalId"),
             ),
-            share_principals: pulumi_wasm_rust::__private::into_domain(
+            share_principals: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sharePrincipals"),
             ),
-            share_tag_options: pulumi_wasm_rust::__private::into_domain(
+            share_tag_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shareTagOptions"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            wait_for_acceptance: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            wait_for_acceptance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("waitForAcceptance"),
             ),
         }

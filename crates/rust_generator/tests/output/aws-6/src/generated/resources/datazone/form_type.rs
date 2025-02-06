@@ -92,63 +92,63 @@
 /// $ pulumi import aws:datazone/formType:FormType example domain_identifier,name,revision
 /// ```
 pub mod form_type {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FormTypeArgs {
         /// Description of form type. Must have a length of between 1 and 2048 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier of the domain.
         #[builder(into)]
-        pub domain_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Object of the model of the form type that contains the following attributes.
         #[builder(into, default)]
-        pub model: pulumi_wasm_rust::InputOrOutput<
+        pub model: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datazone::FormTypeModel>,
         >,
         /// Name of the form type. Must be the name of the structure in smithy document.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
         #[builder(into)]
-        pub owning_project_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub owning_project_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datazone::FormTypeTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct FormTypeResult {
         /// Creation time of the Form Type.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// Creator of the Form Type.
-        pub created_by: pulumi_wasm_rust::Output<String>,
+        pub created_by: pulumi_gestalt_rust::Output<String>,
         /// Description of form type. Must have a length of between 1 and 2048 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Identifier of the domain.
-        pub domain_identifier: pulumi_wasm_rust::Output<String>,
-        pub imports: pulumi_wasm_rust::Output<
+        pub domain_identifier: pulumi_gestalt_rust::Output<String>,
+        pub imports: pulumi_gestalt_rust::Output<
             Vec<super::super::types::datazone::FormTypeImport>,
         >,
         /// Object of the model of the form type that contains the following attributes.
-        pub model: pulumi_wasm_rust::Output<
+        pub model: pulumi_gestalt_rust::Output<
             Option<super::super::types::datazone::FormTypeModel>,
         >,
         /// Name of the form type. Must be the name of the structure in smithy document.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Origin domain id of the Form Type.
-        pub origin_domain_id: pulumi_wasm_rust::Output<String>,
+        pub origin_domain_id: pulumi_gestalt_rust::Output<String>,
         /// Origin project id of the Form Type.
-        pub origin_project_id: pulumi_wasm_rust::Output<String>,
+        pub origin_project_id: pulumi_gestalt_rust::Output<String>,
         /// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
-        pub owning_project_identifier: pulumi_wasm_rust::Output<String>,
+        pub owning_project_identifier: pulumi_gestalt_rust::Output<String>,
         /// Revision of the Form Type.
-        pub revision: pulumi_wasm_rust::Output<String>,
-        pub status: pulumi_wasm_rust::Output<String>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub revision: pulumi_gestalt_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::datazone::FormTypeTimeouts>,
         >,
     }
@@ -157,11 +157,11 @@ pub mod form_type {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FormTypeArgs,
     ) -> FormTypeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let domain_identifier_binding = args
@@ -213,37 +213,39 @@ pub mod form_type {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FormTypeResult {
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            created_by: pulumi_wasm_rust::__private::into_domain(
+            created_by: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdBy"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            domain_identifier: pulumi_wasm_rust::__private::into_domain(
+            domain_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainIdentifier"),
             ),
-            imports: pulumi_wasm_rust::__private::into_domain(
+            imports: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imports"),
             ),
-            model: pulumi_wasm_rust::__private::into_domain(o.extract_field("model")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            origin_domain_id: pulumi_wasm_rust::__private::into_domain(
+            model: pulumi_gestalt_rust::__private::into_domain(o.extract_field("model")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            origin_domain_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("originDomainId"),
             ),
-            origin_project_id: pulumi_wasm_rust::__private::into_domain(
+            origin_project_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("originProjectId"),
             ),
-            owning_project_identifier: pulumi_wasm_rust::__private::into_domain(
+            owning_project_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("owningProjectIdentifier"),
             ),
-            revision: pulumi_wasm_rust::__private::into_domain(
+            revision: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("revision"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

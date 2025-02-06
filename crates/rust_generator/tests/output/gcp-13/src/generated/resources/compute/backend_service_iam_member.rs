@@ -37,14 +37,14 @@
 ///  full name of the custom role, e.g. `[projects/my-project|organizations/my-org]/roles/my-custom-role`.
 ///
 pub mod backend_service_iam_member {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BackendServiceIamMemberArgs {
         /// An [IAM Condition](https://cloud.google.com/iam/docs/conditions-overview) for a given binding.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub condition: pulumi_wasm_rust::InputOrOutput<
+        pub condition: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::BackendServiceIamMemberCondition>,
         >,
         /// Identities that will be granted the privilege in `role`.
@@ -59,29 +59,29 @@ pub mod backend_service_iam_member {
         /// * **projectEditor:projectid**: Editors of the given project. For example, "projectEditor:my-example-project"
         /// * **projectViewer:projectid**: Viewers of the given project. For example, "projectViewer:my-example-project"
         #[builder(into)]
-        pub member: pulumi_wasm_rust::InputOrOutput<String>,
+        pub member: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Used to find the parent resource to bind the IAM policy to
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the project will be parsed from the identifier of the parent resource. If no project is provided in the parent identifier and no project is specified, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The role that should be applied. Only one
         /// `gcp.compute.BackendServiceIamBinding` can be used per role. Note that custom roles must be of the format
         /// `[projects|organizations]/{parent-name}/roles/{role-name}`.
         #[builder(into)]
-        pub role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct BackendServiceIamMemberResult {
         /// An [IAM Condition](https://cloud.google.com/iam/docs/conditions-overview) for a given binding.
         /// Structure is documented below.
-        pub condition: pulumi_wasm_rust::Output<
+        pub condition: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::BackendServiceIamMemberCondition>,
         >,
         /// (Computed) The etag of the IAM policy.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Identities that will be granted the privilege in `role`.
         /// Each entry can have one of the following values:
         /// * **allUsers**: A special identifier that represents anyone who is on the internet; with or without a Google account.
@@ -93,27 +93,27 @@ pub mod backend_service_iam_member {
         /// * **projectOwner:projectid**: Owners of the given project. For example, "projectOwner:my-example-project"
         /// * **projectEditor:projectid**: Editors of the given project. For example, "projectEditor:my-example-project"
         /// * **projectViewer:projectid**: Viewers of the given project. For example, "projectViewer:my-example-project"
-        pub member: pulumi_wasm_rust::Output<String>,
+        pub member: pulumi_gestalt_rust::Output<String>,
         /// Used to find the parent resource to bind the IAM policy to
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the project will be parsed from the identifier of the parent resource. If no project is provided in the parent identifier and no project is specified, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The role that should be applied. Only one
         /// `gcp.compute.BackendServiceIamBinding` can be used per role. Note that custom roles must be of the format
         /// `[projects|organizations]/{parent-name}/roles/{role-name}`.
-        pub role: pulumi_wasm_rust::Output<String>,
+        pub role: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BackendServiceIamMemberArgs,
     ) -> BackendServiceIamMemberResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let condition_binding = args.condition.get_output(context).get_inner();
         let member_binding = args.member.get_output(context).get_inner();
@@ -149,16 +149,18 @@ pub mod backend_service_iam_member {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BackendServiceIamMemberResult {
-            condition: pulumi_wasm_rust::__private::into_domain(
+            condition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("condition"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            member: pulumi_wasm_rust::__private::into_domain(o.extract_field("member")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            member: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("member"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            role: pulumi_wasm_rust::__private::into_domain(o.extract_field("role")),
+            role: pulumi_gestalt_rust::__private::into_domain(o.extract_field("role")),
         }
     }
 }

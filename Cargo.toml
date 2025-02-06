@@ -22,7 +22,7 @@ members = [
     "providers/random",
     "crates/c_ffi",
     "crates/wasm",
-    "pulumi_wasm_common",
+    "pulumi_gestalt_common",
     "crates/core",
     "crates/rust_build",
     "crates/rust_generator",
@@ -38,22 +38,22 @@ members = [
 [workspace.package]
 version = "0.0.0-DEV"
 edition = "2021"
-repository = "https://github.com/andrzejressel/pulumi-wasm-releases"
+repository = "https://github.com/andrzejressel/pulumi-gestalt-releases"
 
 [workspace.dependencies]
-pulumi_wasm_core = { version = "=0.0.0-DEV", path = "crates/core", registry = "cloudsmith" }
-pulumi_wasm_build = { version = "=0.0.0-DEV", path = "crates/rust_build", registry = "cloudsmith" }
-pulumi_wasm_generator = { version = "=0.0.0-DEV", path = "crates/rust_generator", registry = "cloudsmith" }
-pulumi_wasm_rust = { version = "=0.0.0-DEV", path = "crates/rust", registry = "cloudsmith" }
-pulumi_wasm_common = { version = "=0.0.0-DEV", path = "pulumi_wasm_common", registry = "cloudsmith" }
-pulumi_wasm_proto = { version = "=0.0.0-DEV", path = "crates/proto", registry = "cloudsmith" }
-pulumi_wasm_wit = { version = "=0.0.0-DEV", path = "crates/wit", registry = "cloudsmith" }
-pulumi_wasm_runner_component_creator = { version = "=0.0.0-DEV", path = "crates/wasm_runner_component_creator", registry = "cloudsmith" }
-pulumi_wasm_providers_docker = { version = "=0.0.0-DEV", path = "providers/docker", registry = "cloudsmith" }
-pulumi_wasm_providers_random = { version = "=0.0.0-DEV", path = "providers/random", registry = "cloudsmith" }
-pulumi_wasm_providers_typesystem = { version = "=0.0.0-DEV", path = "providers/typesystem", registry = "cloudsmith" }
-pulumi_wasm_examples_common = { version = "=0.0.0-DEV", path = "examples/common", registry = "cloudsmith" }
-pulumi_wasm_grpc_connection = { version = "=0.0.0-DEV", path = "crates/grpc", registry = "cloudsmith" }
+pulumi_gestalt_core = { version = "=0.0.0-DEV", path = "crates/core", registry = "cloudsmith" }
+pulumi_gestalt_build = { version = "=0.0.0-DEV", path = "crates/rust_build", registry = "cloudsmith" }
+pulumi_gestalt_generator = { version = "=0.0.0-DEV", path = "crates/rust_generator", registry = "cloudsmith" }
+pulumi_gestalt_rust = { version = "=0.0.0-DEV", path = "crates/rust", registry = "cloudsmith" }
+pulumi_gestalt_common = { version = "=0.0.0-DEV", path = "pulumi_gestalt_common", registry = "cloudsmith" }
+pulumi_gestalt_proto = { version = "=0.0.0-DEV", path = "crates/proto", registry = "cloudsmith" }
+pulumi_gestalt_wit = { version = "=0.0.0-DEV", path = "crates/wit", registry = "cloudsmith" }
+pulumi_gestalt_runner_component_creator = { version = "=0.0.0-DEV", path = "crates/wasm_runner_component_creator", registry = "cloudsmith" }
+pulumi_gestalt_providers_docker = { version = "=0.0.0-DEV", path = "providers/docker", registry = "cloudsmith" }
+pulumi_gestalt_providers_random = { version = "=0.0.0-DEV", path = "providers/random", registry = "cloudsmith" }
+pulumi_gestalt_providers_typesystem = { version = "=0.0.0-DEV", path = "providers/typesystem", registry = "cloudsmith" }
+pulumi_gestalt_examples_common = { version = "=0.0.0-DEV", path = "examples/common", registry = "cloudsmith" }
+pulumi_gestalt_grpc_connection = { version = "=0.0.0-DEV", path = "crates/grpc", registry = "cloudsmith" }
 
 anyhow = "1.0.82"
 prost = "0.13.1"

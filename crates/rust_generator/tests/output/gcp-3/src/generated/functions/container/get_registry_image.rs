@@ -1,45 +1,45 @@
 pub mod get_registry_image {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRegistryImageArgs {
         /// The image digest to fetch, if any.
         #[builder(into, default)]
-        pub digest: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub digest: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The image name.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The project ID that this image is attached to.  If not provider, provider project will be used instead.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The GCR region to use.  As of this writing, one of `asia`, `eu`, and `us`.  See [the documentation](https://cloud.google.com/container-registry/docs/pushing-and-pulling) for additional information.
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The tag to fetch, if any.
         #[builder(into, default)]
-        pub tag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub tag: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetRegistryImageResult {
-        pub digest: pulumi_wasm_rust::Output<Option<String>>,
+        pub digest: pulumi_gestalt_rust::Output<Option<String>>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The URL at which the image can be accessed.
-        pub image_url: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
-        pub tag: pulumi_wasm_rust::Output<Option<String>>,
+        pub image_url: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
+        pub region: pulumi_gestalt_rust::Output<Option<String>>,
+        pub tag: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetRegistryImageArgs,
     ) -> GetRegistryImageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let digest_binding = args.digest.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -74,17 +74,21 @@ pub mod get_registry_image {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetRegistryImageResult {
-            digest: pulumi_wasm_rust::__private::into_domain(o.extract_field("digest")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            image_url: pulumi_wasm_rust::__private::into_domain(
+            digest: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("digest"),
+            ),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            image_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("imageUrl"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            tag: pulumi_wasm_rust::__private::into_domain(o.extract_field("tag")),
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            tag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tag")),
         }
     }
 }

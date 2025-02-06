@@ -1,10 +1,10 @@
 pub mod func_with_const_input {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FuncWithConstInputArgs {
         #[builder(into, default)]
-        pub plain_input: pulumi_wasm_rust::InputOrOutput<
+        pub plain_input: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::constants::ConstStringFixed>,
         >,
     }
@@ -13,10 +13,10 @@ pub mod func_with_const_input {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: FuncWithConstInputArgs,
     ) {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let plain_input_binding = args.plain_input.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {

@@ -72,123 +72,125 @@
 /// ```
 ///
 pub mod deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeploymentArgs {
         /// An `auto_scale_profile` block as defined below.
         #[builder(into, default)]
-        pub auto_scale_profiles: pulumi_wasm_rust::InputOrOutput<
+        pub auto_scale_profiles: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::nginx::DeploymentAutoScaleProfile>>,
         >,
         /// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         #[builder(into, default)]
-        pub automatic_upgrade_channel: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub automatic_upgrade_channel: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Specify the number of NGINX capacity units for this NGINX deployment.
         ///
         /// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         #[builder(into, default)]
-        pub capacity: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub capacity: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Should the metrics be exported to Azure Monitor?
         #[builder(into, default)]
-        pub diagnose_support_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub diagnose_support_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specify the preferred support contact email address for receiving alerts and notifications.
         #[builder(into, default)]
-        pub email: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub email: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         #[builder(into, default)]
-        pub frontend_privates: pulumi_wasm_rust::InputOrOutput<
+        pub frontend_privates: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::nginx::DeploymentFrontendPrivate>>,
         >,
         /// A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
         #[builder(into, default)]
-        pub frontend_public: pulumi_wasm_rust::InputOrOutput<
+        pub frontend_public: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::nginx::DeploymentFrontendPublic>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::nginx::DeploymentIdentity>,
         >,
         /// The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `logging_storage_account` blocks as defined below.
         #[builder(into, default)]
-        pub logging_storage_accounts: pulumi_wasm_rust::InputOrOutput<
+        pub logging_storage_accounts: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::nginx::DeploymentLoggingStorageAccount>>,
         >,
         #[builder(into, default)]
-        pub managed_resource_group: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub managed_resource_group: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         #[builder(into, default)]
-        pub network_interfaces: pulumi_wasm_rust::InputOrOutput<
+        pub network_interfaces: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::nginx::DeploymentNetworkInterface>>,
         >,
         /// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the NGINX Deployment.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DeploymentResult {
         /// An `auto_scale_profile` block as defined below.
-        pub auto_scale_profiles: pulumi_wasm_rust::Output<
+        pub auto_scale_profiles: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::nginx::DeploymentAutoScaleProfile>>,
         >,
         /// Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
-        pub automatic_upgrade_channel: pulumi_wasm_rust::Output<Option<String>>,
+        pub automatic_upgrade_channel: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specify the number of NGINX capacity units for this NGINX deployment.
         ///
         /// > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
-        pub capacity: pulumi_wasm_rust::Output<Option<i32>>,
+        pub capacity: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Should the metrics be exported to Azure Monitor?
-        pub diagnose_support_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub diagnose_support_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specify the preferred support contact email address for receiving alerts and notifications.
-        pub email: pulumi_wasm_rust::Output<Option<String>>,
+        pub email: pulumi_gestalt_rust::Output<Option<String>>,
         /// One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
-        pub frontend_privates: pulumi_wasm_rust::Output<
+        pub frontend_privates: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::nginx::DeploymentFrontendPrivate>>,
         >,
         /// A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
-        pub frontend_public: pulumi_wasm_rust::Output<
+        pub frontend_public: pulumi_gestalt_rust::Output<
             Option<super::super::types::nginx::DeploymentFrontendPublic>,
         >,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::nginx::DeploymentIdentity>,
         >,
         /// The IP address of the deployment.
-        pub ip_address: pulumi_wasm_rust::Output<String>,
+        pub ip_address: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// One or more `logging_storage_account` blocks as defined below.
-        pub logging_storage_accounts: pulumi_wasm_rust::Output<
+        pub logging_storage_accounts: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::nginx::DeploymentLoggingStorageAccount>>,
         >,
-        pub managed_resource_group: pulumi_wasm_rust::Output<String>,
+        pub managed_resource_group: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
-        pub network_interfaces: pulumi_wasm_rust::Output<
+        pub network_interfaces: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::nginx::DeploymentNetworkInterface>>,
         >,
         /// The version of deployed NGINX.
-        pub nginx_version: pulumi_wasm_rust::Output<String>,
+        pub nginx_version: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
-        pub sku: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
+        pub sku: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the NGINX Deployment.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -197,11 +199,11 @@ pub mod deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DeploymentArgs,
     ) -> DeploymentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_scale_profiles_binding = args
             .auto_scale_profiles
@@ -319,52 +321,52 @@ pub mod deployment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DeploymentResult {
-            auto_scale_profiles: pulumi_wasm_rust::__private::into_domain(
+            auto_scale_profiles: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoScaleProfiles"),
             ),
-            automatic_upgrade_channel: pulumi_wasm_rust::__private::into_domain(
+            automatic_upgrade_channel: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automaticUpgradeChannel"),
             ),
-            capacity: pulumi_wasm_rust::__private::into_domain(
+            capacity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capacity"),
             ),
-            diagnose_support_enabled: pulumi_wasm_rust::__private::into_domain(
+            diagnose_support_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diagnoseSupportEnabled"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
-            frontend_privates: pulumi_wasm_rust::__private::into_domain(
+            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
+            frontend_privates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontendPrivates"),
             ),
-            frontend_public: pulumi_wasm_rust::__private::into_domain(
+            frontend_public: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontendPublic"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            ip_address: pulumi_wasm_rust::__private::into_domain(
+            ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipAddress"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            logging_storage_accounts: pulumi_wasm_rust::__private::into_domain(
+            logging_storage_accounts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loggingStorageAccounts"),
             ),
-            managed_resource_group: pulumi_wasm_rust::__private::into_domain(
+            managed_resource_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedResourceGroup"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_interfaces: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_interfaces: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkInterfaces"),
             ),
-            nginx_version: pulumi_wasm_rust::__private::into_domain(
+            nginx_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nginxVersion"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

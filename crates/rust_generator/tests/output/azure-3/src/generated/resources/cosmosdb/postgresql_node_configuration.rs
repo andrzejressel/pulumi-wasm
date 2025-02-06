@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -48,39 +48,39 @@
 /// ```
 ///
 pub mod postgresql_node_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PostgresqlNodeConfigurationArgs {
         /// The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to change configuration. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Node Configuration on Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The value of the Node Configuration on Azure Cosmos DB for PostgreSQL Cluster.
         #[builder(into)]
-        pub value: pulumi_wasm_rust::InputOrOutput<String>,
+        pub value: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PostgresqlNodeConfigurationResult {
         /// The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to change configuration. Changing this forces a new resource to be created.
-        pub cluster_id: pulumi_wasm_rust::Output<String>,
+        pub cluster_id: pulumi_gestalt_rust::Output<String>,
         /// The name of the Node Configuration on Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The value of the Node Configuration on Azure Cosmos DB for PostgreSQL Cluster.
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PostgresqlNodeConfigurationArgs,
     ) -> PostgresqlNodeConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_id_binding = args.cluster_id.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -107,11 +107,11 @@ pub mod postgresql_node_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PostgresqlNodeConfigurationResult {
-            cluster_id: pulumi_wasm_rust::__private::into_domain(
+            cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
         }
     }
 }

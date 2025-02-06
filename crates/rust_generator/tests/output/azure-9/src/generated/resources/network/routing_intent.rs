@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -74,43 +74,43 @@
 /// ```
 ///
 pub mod routing_intent {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RoutingIntentArgs {
         /// The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `routing_policy` blocks as defined below.
         #[builder(into)]
-        pub routing_policies: pulumi_wasm_rust::InputOrOutput<
+        pub routing_policies: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::network::RoutingIntentRoutingPolicy>,
         >,
         /// The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_hub_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_hub_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RoutingIntentResult {
         /// The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `routing_policy` blocks as defined below.
-        pub routing_policies: pulumi_wasm_rust::Output<
+        pub routing_policies: pulumi_gestalt_rust::Output<
             Vec<super::super::types::network::RoutingIntentRoutingPolicy>,
         >,
         /// The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
-        pub virtual_hub_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_hub_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RoutingIntentArgs,
     ) -> RoutingIntentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let routing_policies_binding = args
@@ -139,11 +139,11 @@ pub mod routing_intent {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RoutingIntentResult {
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            routing_policies: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            routing_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routingPolicies"),
             ),
-            virtual_hub_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_hub_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualHubId"),
             ),
         }

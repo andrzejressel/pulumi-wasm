@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = control::create(
@@ -33,79 +33,79 @@
 /// $ pulumi import aws:auditmanager/control:Control example abc123-de45
 /// ```
 pub mod control {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ControlArgs {
         /// Recommended actions to carry out if the control isn't fulfilled.
         #[builder(into, default)]
-        pub action_plan_instructions: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub action_plan_instructions: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Title of the action plan for remediating the control.
         #[builder(into, default)]
-        pub action_plan_title: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub action_plan_title: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Data mapping sources. See `control_mapping_sources` below.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub control_mapping_sources: pulumi_wasm_rust::InputOrOutput<
+        pub control_mapping_sources: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::auditmanager::ControlControlMappingSource>>,
         >,
         /// Description of the control.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the control.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Steps to follow to determine if the control is satisfied.
         #[builder(into, default)]
-        pub testing_information: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub testing_information: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ControlResult {
         /// Recommended actions to carry out if the control isn't fulfilled.
-        pub action_plan_instructions: pulumi_wasm_rust::Output<Option<String>>,
+        pub action_plan_instructions: pulumi_gestalt_rust::Output<Option<String>>,
         /// Title of the action plan for remediating the control.
-        pub action_plan_title: pulumi_wasm_rust::Output<Option<String>>,
+        pub action_plan_title: pulumi_gestalt_rust::Output<Option<String>>,
         /// Amazon Resource Name (ARN) of the control.
         /// * `control_mapping_sources.*.source_id` - Unique identifier for the source.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Data mapping sources. See `control_mapping_sources` below.
         ///
         /// The following arguments are optional:
-        pub control_mapping_sources: pulumi_wasm_rust::Output<
+        pub control_mapping_sources: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::auditmanager::ControlControlMappingSource>>,
         >,
         /// Description of the control.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the control.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the control. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Steps to follow to determine if the control is satisfied.
-        pub testing_information: pulumi_wasm_rust::Output<Option<String>>,
+        pub testing_information: pulumi_gestalt_rust::Output<Option<String>>,
         /// Type of control, such as a custom control or a standard control.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ControlArgs,
     ) -> ControlResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let action_plan_instructions_binding = args
             .action_plan_instructions
@@ -163,28 +163,28 @@ pub mod control {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ControlResult {
-            action_plan_instructions: pulumi_wasm_rust::__private::into_domain(
+            action_plan_instructions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actionPlanInstructions"),
             ),
-            action_plan_title: pulumi_wasm_rust::__private::into_domain(
+            action_plan_title: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actionPlanTitle"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            control_mapping_sources: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            control_mapping_sources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("controlMappingSources"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            testing_information: pulumi_wasm_rust::__private::into_domain(
+            testing_information: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("testingInformation"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

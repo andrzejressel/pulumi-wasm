@@ -113,7 +113,7 @@
 /// ```
 ///
 pub mod inference_cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InferenceClusterArgs {
@@ -121,35 +121,35 @@ pub mod inference_cluster {
         ///
         /// > **NOTE:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = "FastProd"`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
         #[builder(into, default)]
-        pub cluster_purpose: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cluster_purpose: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::machinelearning::InferenceClusterIdentity>,
         >,
         /// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         #[builder(into)]
-        pub kubernetes_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kubernetes_cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
         #[builder(into)]
-        pub machine_learning_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub machine_learning_workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
         #[builder(into, default)]
-        pub ssl: pulumi_wasm_rust::InputOrOutput<
+        pub ssl: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::machinelearning::InferenceClusterSsl>,
         >,
         /// A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -158,27 +158,27 @@ pub mod inference_cluster {
         /// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
         ///
         /// > **NOTE:** When creating or attaching a cluster, if the cluster will be used for production (`cluster_purpose = "FastProd"`), then it must contain at least 12 virtual CPUs. The number of virtual CPUs can be calculated by multiplying the number of nodes in the cluster by the number of cores provided by the VM size selected. For example, if you use a VM size of "Standard_D3_v2", which has 4 virtual cores, then you should select 3 or greater as the number of nodes.
-        pub cluster_purpose: pulumi_wasm_rust::Output<Option<String>>,
+        pub cluster_purpose: pulumi_gestalt_rust::Output<Option<String>>,
         /// The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// An `identity` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::machinelearning::InferenceClusterIdentity>,
         >,
         /// The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
-        pub kubernetes_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub kubernetes_cluster_id: pulumi_gestalt_rust::Output<String>,
         /// The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created.
-        pub machine_learning_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub machine_learning_workspace_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `ssl` block as defined below. Changing this forces a new Machine Learning Inference Cluster to be created.
-        pub ssl: pulumi_wasm_rust::Output<
+        pub ssl: pulumi_gestalt_rust::Output<
             Option<super::super::types::machinelearning::InferenceClusterSsl>,
         >,
         /// A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -187,11 +187,11 @@ pub mod inference_cluster {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InferenceClusterArgs,
     ) -> InferenceClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_purpose_binding = args
             .cluster_purpose
@@ -256,27 +256,27 @@ pub mod inference_cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InferenceClusterResult {
-            cluster_purpose: pulumi_wasm_rust::__private::into_domain(
+            cluster_purpose: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterPurpose"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            kubernetes_cluster_id: pulumi_wasm_rust::__private::into_domain(
+            kubernetes_cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kubernetesClusterId"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            machine_learning_workspace_id: pulumi_wasm_rust::__private::into_domain(
+            machine_learning_workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("machineLearningWorkspaceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            ssl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ssl")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            ssl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ssl")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

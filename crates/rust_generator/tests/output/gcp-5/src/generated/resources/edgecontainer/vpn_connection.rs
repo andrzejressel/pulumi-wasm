@@ -88,21 +88,21 @@
 /// ```
 ///
 pub mod vpn_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpnConnectionArgs {
         /// The canonical Cluster name to connect to. It is in the form of projects/{project}/locations/{location}/clusters/{cluster}.
         #[builder(into)]
-        pub cluster: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cluster: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether this VPN connection has HA enabled on cluster side. If enabled, when creating VPN connection we will attempt to use 2 ANG floating IPs.
         #[builder(into, default)]
-        pub enable_high_availability: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enable_high_availability: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Labels associated with this resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Google Cloud Platform location.
@@ -110,81 +110,81 @@ pub mod vpn_connection {
         ///
         /// - - -
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource name of VPN connection
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// NAT gateway IP, or WAN IP address. If a customer has multiple NAT IPs, the customer needs to configure NAT such that only one external IP maps to the GMEC Anthos cluster.
         /// This is empty if NAT is not used.
         #[builder(into, default)]
-        pub nat_gateway_ip: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub nat_gateway_ip: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The VPN connection Cloud Router name.
         #[builder(into, default)]
-        pub router: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub router: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The network ID of VPC to connect to.
         #[builder(into, default)]
-        pub vpc: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub vpc: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Project detail of the VPC network. Required if VPC is in a different project than the cluster project.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub vpc_project: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_project: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::edgecontainer::VpnConnectionVpcProject>,
         >,
     }
     #[allow(dead_code)]
     pub struct VpnConnectionResult {
         /// The canonical Cluster name to connect to. It is in the form of projects/{project}/locations/{location}/clusters/{cluster}.
-        pub cluster: pulumi_wasm_rust::Output<String>,
+        pub cluster: pulumi_gestalt_rust::Output<String>,
         /// The time when the VPN connection was created.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// A nested object resource.
         /// Structure is documented below.
-        pub details: pulumi_wasm_rust::Output<
+        pub details: pulumi_gestalt_rust::Output<
             Vec<super::super::types::edgecontainer::VpnConnectionDetail>,
         >,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Whether this VPN connection has HA enabled on cluster side. If enabled, when creating VPN connection we will attempt to use 2 ANG floating IPs.
-        pub enable_high_availability: pulumi_wasm_rust::Output<bool>,
+        pub enable_high_availability: pulumi_gestalt_rust::Output<bool>,
         /// Labels associated with this resource.
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Google Cloud Platform location.
         ///
         ///
         /// - - -
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource name of VPN connection
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// NAT gateway IP, or WAN IP address. If a customer has multiple NAT IPs, the customer needs to configure NAT such that only one external IP maps to the GMEC Anthos cluster.
         /// This is empty if NAT is not used.
-        pub nat_gateway_ip: pulumi_wasm_rust::Output<Option<String>>,
+        pub nat_gateway_ip: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The VPN connection Cloud Router name.
-        pub router: pulumi_wasm_rust::Output<Option<String>>,
+        pub router: pulumi_gestalt_rust::Output<Option<String>>,
         /// The time when the VPN connection was last updated.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
         /// The network ID of VPC to connect to.
-        pub vpc: pulumi_wasm_rust::Output<Option<String>>,
+        pub vpc: pulumi_gestalt_rust::Output<Option<String>>,
         /// Project detail of the VPC network. Required if VPC is in a different project than the cluster project.
         /// Structure is documented below.
-        pub vpc_project: pulumi_wasm_rust::Output<
+        pub vpc_project: pulumi_gestalt_rust::Output<
             Option<super::super::types::edgecontainer::VpnConnectionVpcProject>,
         >,
     }
@@ -193,11 +193,11 @@ pub mod vpn_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpnConnectionArgs,
     ) -> VpnConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_binding = args.cluster.get_output(context).get_inner();
         let enable_high_availability_binding = args
@@ -261,41 +261,45 @@ pub mod vpn_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpnConnectionResult {
-            cluster: pulumi_wasm_rust::__private::into_domain(
+            cluster: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cluster"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            details: pulumi_wasm_rust::__private::into_domain(
+            details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("details"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            enable_high_availability: pulumi_wasm_rust::__private::into_domain(
+            enable_high_availability: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enableHighAvailability"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            nat_gateway_ip: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            nat_gateway_ip: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("natGatewayIp"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            router: pulumi_wasm_rust::__private::into_domain(o.extract_field("router")),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            router: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("router"),
+            ),
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
-            vpc: pulumi_wasm_rust::__private::into_domain(o.extract_field("vpc")),
-            vpc_project: pulumi_wasm_rust::__private::into_domain(
+            vpc: pulumi_gestalt_rust::__private::into_domain(o.extract_field("vpc")),
+            vpc_project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcProject"),
             ),
         }

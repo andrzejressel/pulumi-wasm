@@ -49,52 +49,52 @@
 /// ```
 ///
 pub mod monitor_tag_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MonitorTagRuleArgs {
         /// The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created.
         #[builder(into)]
-        pub datadog_monitor_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub datadog_monitor_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `log` block as defined below.
         #[builder(into, default)]
-        pub logs: pulumi_wasm_rust::InputOrOutput<
+        pub logs: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::datadog::MonitorTagRuleLog>>,
         >,
         /// A `metric` block as defined below.
         #[builder(into, default)]
-        pub metrics: pulumi_wasm_rust::InputOrOutput<
+        pub metrics: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::datadog::MonitorTagRuleMetric>>,
         >,
         /// The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct MonitorTagRuleResult {
         /// The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created.
-        pub datadog_monitor_id: pulumi_wasm_rust::Output<String>,
+        pub datadog_monitor_id: pulumi_gestalt_rust::Output<String>,
         /// A `log` block as defined below.
-        pub logs: pulumi_wasm_rust::Output<
+        pub logs: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::datadog::MonitorTagRuleLog>>,
         >,
         /// A `metric` block as defined below.
-        pub metrics: pulumi_wasm_rust::Output<
+        pub metrics: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::datadog::MonitorTagRuleMetric>>,
         >,
         /// The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MonitorTagRuleArgs,
     ) -> MonitorTagRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let datadog_monitor_id_binding = args
             .datadog_monitor_id
@@ -128,14 +128,14 @@ pub mod monitor_tag_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MonitorTagRuleResult {
-            datadog_monitor_id: pulumi_wasm_rust::__private::into_domain(
+            datadog_monitor_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("datadogMonitorId"),
             ),
-            logs: pulumi_wasm_rust::__private::into_domain(o.extract_field("logs")),
-            metrics: pulumi_wasm_rust::__private::into_domain(
+            logs: pulumi_gestalt_rust::__private::into_domain(o.extract_field("logs")),
+            metrics: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metrics"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

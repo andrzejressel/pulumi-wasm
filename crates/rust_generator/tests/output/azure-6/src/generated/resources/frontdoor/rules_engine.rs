@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -102,41 +102,41 @@
 /// ```
 ///
 pub mod rules_engine {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RulesEngineArgs {
         /// Whether this Rules engine configuration is enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the Front Door instance. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub frontdoor_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub frontdoor_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Rules engine configuration. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A `rule` block as defined below.
         #[builder(into, default)]
-        pub rules: pulumi_wasm_rust::InputOrOutput<
+        pub rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::frontdoor::RulesEngineRule>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RulesEngineResult {
         /// Whether this Rules engine configuration is enabled? Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the Front Door instance. Changing this forces a new resource to be created.
-        pub frontdoor_name: pulumi_wasm_rust::Output<String>,
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub frontdoor_name: pulumi_gestalt_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the Rules engine configuration. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `rule` block as defined below.
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::frontdoor::RulesEngineRule>>,
         >,
     }
@@ -145,11 +145,11 @@ pub mod rules_engine {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RulesEngineArgs,
     ) -> RulesEngineResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let enabled_binding = args.enabled.get_output(context).get_inner();
         let frontdoor_name_binding = args.frontdoor_name.get_output(context).get_inner();
@@ -188,20 +188,20 @@ pub mod rules_engine {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RulesEngineResult {
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            frontdoor_name: pulumi_wasm_rust::__private::into_domain(
+            frontdoor_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frontdoorName"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
         }
     }
 }

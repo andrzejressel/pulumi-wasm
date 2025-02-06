@@ -48,45 +48,45 @@
 /// $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1
 /// ```
 pub mod storage_lens_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StorageLensConfigurationArgs {
         /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the S3 Storage Lens configuration.
         #[builder(into)]
-        pub config_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub config_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
         #[builder(into)]
-        pub storage_lens_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub storage_lens_configuration: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::s3control::StorageLensConfigurationStorageLensConfiguration,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct StorageLensConfigurationResult {
         /// The AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ID of the S3 Storage Lens configuration.
-        pub config_id: pulumi_wasm_rust::Output<String>,
+        pub config_id: pulumi_gestalt_rust::Output<String>,
         /// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
-        pub storage_lens_configuration: pulumi_wasm_rust::Output<
+        pub storage_lens_configuration: pulumi_gestalt_rust::Output<
             super::super::types::s3control::StorageLensConfigurationStorageLensConfiguration,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -95,11 +95,11 @@ pub mod storage_lens_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StorageLensConfigurationArgs,
     ) -> StorageLensConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let config_id_binding = args.config_id.get_output(context).get_inner();
@@ -134,18 +134,18 @@ pub mod storage_lens_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StorageLensConfigurationResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            config_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            config_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configId"),
             ),
-            storage_lens_configuration: pulumi_wasm_rust::__private::into_domain(
+            storage_lens_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageLensConfiguration"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

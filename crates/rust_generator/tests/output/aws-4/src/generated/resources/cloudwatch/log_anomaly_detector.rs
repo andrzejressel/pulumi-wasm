@@ -31,60 +31,60 @@
 /// $ pulumi import aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector example log_anomaly_detector-arn-12345678
 /// ```
 pub mod log_anomaly_detector {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LogAnomalyDetectorArgs {
         /// Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomaly_visibility_time`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
         #[builder(into, default)]
-        pub anomaly_visibility_time: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub anomaly_visibility_time: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Name for this anomaly detector.
         #[builder(into, default)]
-        pub detector_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub detector_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluation_frequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
         #[builder(into, default)]
-        pub evaluation_frequency: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub evaluation_frequency: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         #[builder(into, default)]
-        pub filter_pattern: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub filter_pattern: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub log_group_arn_lists: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub log_group_arn_lists: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct LogAnomalyDetectorResult {
         /// Number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly, it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as normal. Therefore, if you do not correct the cause of an anomaly during the time period specified in `anomaly_visibility_time`, it will be considered normal going forward and will not be detected as an anomaly. Valid Range: Minimum value of 7. Maximum value of 90.
-        pub anomaly_visibility_time: pulumi_wasm_rust::Output<i32>,
+        pub anomaly_visibility_time: pulumi_gestalt_rust::Output<i32>,
         /// ARN of the log anomaly detector that you just created.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Name for this anomaly detector.
-        pub detector_name: pulumi_wasm_rust::Output<Option<String>>,
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub detector_name: pulumi_gestalt_rust::Output<Option<String>>,
+        pub enabled: pulumi_gestalt_rust::Output<bool>,
         /// Specifies how often the anomaly detector is to run and look for anomalies. Set this value according to the frequency that the log group receives new logs. For example, if the log group receives new log events every 10 minutes, then 15 minutes might be a good setting for `evaluation_frequency`. Valid Values: `ONE_MIN | FIVE_MIN | TEN_MIN | FIFTEEN_MIN | THIRTY_MIN | ONE_HOUR`.
-        pub evaluation_frequency: pulumi_wasm_rust::Output<Option<String>>,
+        pub evaluation_frequency: pulumi_gestalt_rust::Output<Option<String>>,
         /// You can use this parameter to limit the anomaly detection model to examine only log events that match the pattern you specify here. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
-        pub filter_pattern: pulumi_wasm_rust::Output<Option<String>>,
+        pub filter_pattern: pulumi_gestalt_rust::Output<Option<String>>,
         /// Optionally assigns a AWS KMS key to secure this anomaly detector and its findings. If a key is assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If a key is assigned to an anomaly detector, a user must have permissions for both this key and for the anomaly detector to retrieve information about the anomalies that it finds.
-        pub kms_key_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
         ///
         /// The following arguments are optional:
-        pub log_group_arn_lists: pulumi_wasm_rust::Output<Vec<String>>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub log_group_arn_lists: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -93,11 +93,11 @@ pub mod log_anomaly_detector {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LogAnomalyDetectorArgs,
     ) -> LogAnomalyDetectorResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let anomaly_visibility_time_binding = args
             .anomaly_visibility_time
@@ -157,30 +157,30 @@ pub mod log_anomaly_detector {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LogAnomalyDetectorResult {
-            anomaly_visibility_time: pulumi_wasm_rust::__private::into_domain(
+            anomaly_visibility_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("anomalyVisibilityTime"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            detector_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            detector_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("detectorName"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            evaluation_frequency: pulumi_wasm_rust::__private::into_domain(
+            evaluation_frequency: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("evaluationFrequency"),
             ),
-            filter_pattern: pulumi_wasm_rust::__private::into_domain(
+            filter_pattern: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filterPattern"),
             ),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            log_group_arn_lists: pulumi_wasm_rust::__private::into_domain(
+            log_group_arn_lists: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logGroupArnLists"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

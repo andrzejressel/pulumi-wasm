@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -59,87 +59,87 @@
 /// ```
 ///
 pub mod smart_detector_alert_rule {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SmartDetectorAlertRuleArgs {
         /// An `action_group` block as defined below.
         #[builder(into)]
-        pub action_group: pulumi_wasm_rust::InputOrOutput<
+        pub action_group: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::monitoring::SmartDetectorAlertRuleActionGroup,
         >,
         /// Specifies a description for the Smart Detector Alert Rule.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
         #[builder(into)]
-        pub detector_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub detector_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Is the Smart Detector Alert Rule enabled? Defaults to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the frequency of this Smart Detector Alert Rule in ISO8601 format.
         #[builder(into)]
-        pub frequency: pulumi_wasm_rust::InputOrOutput<String>,
+        pub frequency: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Monitor Smart Detector Alert Rule. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the resource group in which the Monitor Smart Detector Alert Rule should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the scopes of this Smart Detector Alert Rule.
         #[builder(into)]
-        pub scope_resource_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub scope_resource_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`.
         #[builder(into)]
-        pub severity: pulumi_wasm_rust::InputOrOutput<String>,
+        pub severity: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
         #[builder(into, default)]
-        pub throttling_duration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub throttling_duration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SmartDetectorAlertRuleResult {
         /// An `action_group` block as defined below.
-        pub action_group: pulumi_wasm_rust::Output<
+        pub action_group: pulumi_gestalt_rust::Output<
             super::super::types::monitoring::SmartDetectorAlertRuleActionGroup,
         >,
         /// Specifies a description for the Smart Detector Alert Rule.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`.
-        pub detector_type: pulumi_wasm_rust::Output<String>,
+        pub detector_type: pulumi_gestalt_rust::Output<String>,
         /// Is the Smart Detector Alert Rule enabled? Defaults to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the frequency of this Smart Detector Alert Rule in ISO8601 format.
-        pub frequency: pulumi_wasm_rust::Output<String>,
+        pub frequency: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Monitor Smart Detector Alert Rule. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the resource group in which the Monitor Smart Detector Alert Rule should exist. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the scopes of this Smart Detector Alert Rule.
-        pub scope_resource_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub scope_resource_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`.
-        pub severity: pulumi_wasm_rust::Output<String>,
+        pub severity: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again.
-        pub throttling_duration: pulumi_wasm_rust::Output<Option<String>>,
+        pub throttling_duration: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SmartDetectorAlertRuleArgs,
     ) -> SmartDetectorAlertRuleResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let action_group_binding = args.action_group.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -215,33 +215,33 @@ pub mod smart_detector_alert_rule {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SmartDetectorAlertRuleResult {
-            action_group: pulumi_wasm_rust::__private::into_domain(
+            action_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("actionGroup"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            detector_type: pulumi_wasm_rust::__private::into_domain(
+            detector_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("detectorType"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            frequency: pulumi_wasm_rust::__private::into_domain(
+            frequency: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frequency"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            scope_resource_ids: pulumi_wasm_rust::__private::into_domain(
+            scope_resource_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scopeResourceIds"),
             ),
-            severity: pulumi_wasm_rust::__private::into_domain(
+            severity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("severity"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            throttling_duration: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            throttling_duration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("throttlingDuration"),
             ),
         }

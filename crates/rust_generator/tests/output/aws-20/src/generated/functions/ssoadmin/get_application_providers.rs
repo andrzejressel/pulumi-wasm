@@ -1,11 +1,11 @@
 pub mod get_application_providers {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetApplicationProvidersArgs {
         /// A list of application providers available in the current region. See `application_providers` below.
         #[builder(into, default)]
-        pub application_providers: pulumi_wasm_rust::InputOrOutput<
+        pub application_providers: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::super::types::ssoadmin::GetApplicationProvidersApplicationProvider,
@@ -16,7 +16,7 @@ pub mod get_application_providers {
     #[allow(dead_code)]
     pub struct GetApplicationProvidersResult {
         /// A list of application providers available in the current region. See `application_providers` below.
-        pub application_providers: pulumi_wasm_rust::Output<
+        pub application_providers: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::super::types::ssoadmin::GetApplicationProvidersApplicationProvider,
@@ -24,17 +24,17 @@ pub mod get_application_providers {
             >,
         >,
         /// AWS region.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetApplicationProvidersArgs,
     ) -> GetApplicationProvidersResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_providers_binding = args
             .application_providers
@@ -52,10 +52,10 @@ pub mod get_application_providers {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetApplicationProvidersResult {
-            application_providers: pulumi_wasm_rust::__private::into_domain(
+            application_providers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationProviders"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }

@@ -61,51 +61,51 @@
 /// $ pulumi import aws:backup/framework:Framework test <id>
 /// ```
 pub mod framework {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FrameworkArgs {
         /// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
         #[builder(into)]
-        pub controls: pulumi_wasm_rust::InputOrOutput<
+        pub controls: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::backup::FrameworkControl>,
         >,
         /// The description of the framework with a maximum of 1,024 characters
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct FrameworkResult {
         /// The ARN of the backup framework.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
-        pub controls: pulumi_wasm_rust::Output<
+        pub controls: pulumi_gestalt_rust::Output<
             Vec<super::super::types::backup::FrameworkControl>,
         >,
         /// The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
-        pub creation_time: pulumi_wasm_rust::Output<String>,
+        pub creation_time: pulumi_gestalt_rust::Output<String>,
         /// The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
-        pub deployment_status: pulumi_wasm_rust::Output<String>,
+        pub deployment_status: pulumi_gestalt_rust::Output<String>,
         /// The description of the framework with a maximum of 1,024 characters
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A framework consists of one or more controls. Each control governs a resource, such as backup plans, backup selections, backup vaults, or recovery points. You can also turn AWS Config recording on or off for each resource. For more information refer to the [AWS documentation for Framework Status](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DescribeFramework.html#Backup-DescribeFramework-response-FrameworkStatus)
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -114,11 +114,11 @@ pub mod framework {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FrameworkArgs,
     ) -> FrameworkResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let controls_binding = args.controls.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -149,23 +149,25 @@ pub mod framework {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FrameworkResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            controls: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            controls: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("controls"),
             ),
-            creation_time: pulumi_wasm_rust::__private::into_domain(
+            creation_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTime"),
             ),
-            deployment_status: pulumi_wasm_rust::__private::into_domain(
+            deployment_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentStatus"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

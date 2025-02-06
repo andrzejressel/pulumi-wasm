@@ -1,41 +1,41 @@
 pub mod get_cipher_text {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetCipherTextArgs {
         /// An optional mapping that makes up the encryption context.
         #[builder(into, default)]
-        pub context: pulumi_wasm_rust::InputOrOutput<
+        pub context: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Globally unique key ID for the customer master key.
         #[builder(into)]
-        pub key_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
         #[builder(into)]
-        pub plaintext: pulumi_wasm_rust::InputOrOutput<String>,
+        pub plaintext: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetCipherTextResult {
         /// Base64 encoded ciphertext
-        pub ciphertext_blob: pulumi_wasm_rust::Output<String>,
-        pub context: pulumi_wasm_rust::Output<
+        pub ciphertext_blob: pulumi_gestalt_rust::Output<String>,
+        pub context: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub key_id: pulumi_wasm_rust::Output<String>,
-        pub plaintext: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub key_id: pulumi_gestalt_rust::Output<String>,
+        pub plaintext: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetCipherTextArgs,
     ) -> GetCipherTextResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let context_binding = args.context.get_output(context).get_inner();
         let key_id_binding = args.key_id.get_output(context).get_inner();
@@ -60,15 +60,17 @@ pub mod get_cipher_text {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetCipherTextResult {
-            ciphertext_blob: pulumi_wasm_rust::__private::into_domain(
+            ciphertext_blob: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ciphertextBlob"),
             ),
-            context: pulumi_wasm_rust::__private::into_domain(
+            context: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("context"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            key_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("keyId")),
-            plaintext: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            key_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("keyId"),
+            ),
+            plaintext: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("plaintext"),
             ),
         }

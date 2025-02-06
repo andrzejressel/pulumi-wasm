@@ -9,8 +9,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let host = shared_vpc_host_project::create(
@@ -47,29 +47,29 @@
 /// ```
 ///
 pub mod shared_vpc_host_project {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SharedVPCHostProjectArgs {
         /// The ID of the project that will serve as a Shared VPC host project
         #[builder(into)]
-        pub project: pulumi_wasm_rust::InputOrOutput<String>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct SharedVPCHostProjectResult {
         /// The ID of the project that will serve as a Shared VPC host project
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SharedVPCHostProjectArgs,
     ) -> SharedVPCHostProjectResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let project_binding = args.project.get_output(context).get_inner();
         let request = register_interface::RegisterResourceRequest {
@@ -85,7 +85,9 @@ pub mod shared_vpc_host_project {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SharedVPCHostProjectResult {
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

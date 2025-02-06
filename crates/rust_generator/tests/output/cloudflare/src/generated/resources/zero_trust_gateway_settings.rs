@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = zero_trust_gateway_settings::create(
@@ -96,155 +96,157 @@
 /// ```
 ///
 pub mod zero_trust_gateway_settings {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ZeroTrustGatewaySettingsArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether to enable the activity log.
         #[builder(into, default)]
-        pub activity_log_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub activity_log_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Configuration block for antivirus traffic scanning.
         #[builder(into, default)]
-        pub antivirus: pulumi_wasm_rust::InputOrOutput<
+        pub antivirus: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsAntivirus>,
         >,
         /// Configuration for a custom block page.
         #[builder(into, default)]
-        pub block_page: pulumi_wasm_rust::InputOrOutput<
+        pub block_page: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsBlockPage>,
         >,
         /// Configuration for body scanning.
         #[builder(into, default)]
-        pub body_scanning: pulumi_wasm_rust::InputOrOutput<
+        pub body_scanning: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsBodyScanning>,
         >,
         /// Configuration for TLS interception certificate. This will be required starting Feb 2025.
         #[builder(into, default)]
-        pub certificate: pulumi_wasm_rust::InputOrOutput<
+        pub certificate: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsCertificate>,
         >,
         /// Configuration for custom certificates / BYO-PKI. Conflicts with `certificate`.
         #[builder(into, default)]
-        pub custom_certificate: pulumi_wasm_rust::InputOrOutput<
+        pub custom_certificate: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsCustomCertificate>,
         >,
         /// Configuration for extended e-mail matching.
         #[builder(into, default)]
-        pub extended_email_matching: pulumi_wasm_rust::InputOrOutput<
+        pub extended_email_matching: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsExtendedEmailMatching>,
         >,
         /// Configure compliance with Federal Information Processing Standards.
         #[builder(into, default)]
-        pub fips: pulumi_wasm_rust::InputOrOutput<
+        pub fips: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsFips>,
         >,
         #[builder(into, default)]
-        pub logging: pulumi_wasm_rust::InputOrOutput<
+        pub logging: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsLogging>,
         >,
         /// Enable non-identity onramp for Browser Isolation. Defaults to `false`.
         #[builder(into, default)]
-        pub non_identity_browser_isolation_enabled: pulumi_wasm_rust::InputOrOutput<
+        pub non_identity_browser_isolation_enabled: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Configuration for DLP Payload Logging.
         #[builder(into, default)]
-        pub payload_log: pulumi_wasm_rust::InputOrOutput<
+        pub payload_log: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsPayloadLog>,
         >,
         /// Indicator that protocol detection is enabled.
         #[builder(into, default)]
-        pub protocol_detection_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub protocol_detection_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Configuration block for specifying which protocols are proxied.
         #[builder(into, default)]
-        pub proxy: pulumi_wasm_rust::InputOrOutput<
+        pub proxy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsProxy>,
         >,
         /// Configuration for SSH Session Logging.
         #[builder(into, default)]
-        pub ssh_session_log: pulumi_wasm_rust::InputOrOutput<
+        pub ssh_session_log: pulumi_gestalt_rust::InputOrOutput<
             Option<super::types::ZeroTrustGatewaySettingsSshSessionLog>,
         >,
         /// Indicator that decryption of TLS traffic is enabled.
         #[builder(into, default)]
-        pub tls_decrypt_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub tls_decrypt_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Safely browse websites in Browser Isolation through a URL. Defaults to `false`.
         #[builder(into, default)]
-        pub url_browser_isolation_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub url_browser_isolation_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
     }
     #[allow(dead_code)]
     pub struct ZeroTrustGatewaySettingsResult {
         /// The account identifier to target for the resource.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// Whether to enable the activity log.
-        pub activity_log_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub activity_log_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Configuration block for antivirus traffic scanning.
-        pub antivirus: pulumi_wasm_rust::Output<
+        pub antivirus: pulumi_gestalt_rust::Output<
             Option<super::types::ZeroTrustGatewaySettingsAntivirus>,
         >,
         /// Configuration for a custom block page.
-        pub block_page: pulumi_wasm_rust::Output<
+        pub block_page: pulumi_gestalt_rust::Output<
             Option<super::types::ZeroTrustGatewaySettingsBlockPage>,
         >,
         /// Configuration for body scanning.
-        pub body_scanning: pulumi_wasm_rust::Output<
+        pub body_scanning: pulumi_gestalt_rust::Output<
             Option<super::types::ZeroTrustGatewaySettingsBodyScanning>,
         >,
         /// Configuration for TLS interception certificate. This will be required starting Feb 2025.
-        pub certificate: pulumi_wasm_rust::Output<
+        pub certificate: pulumi_gestalt_rust::Output<
             Option<super::types::ZeroTrustGatewaySettingsCertificate>,
         >,
         /// Configuration for custom certificates / BYO-PKI. Conflicts with `certificate`.
-        pub custom_certificate: pulumi_wasm_rust::Output<
+        pub custom_certificate: pulumi_gestalt_rust::Output<
             Option<super::types::ZeroTrustGatewaySettingsCustomCertificate>,
         >,
         /// Configuration for extended e-mail matching.
-        pub extended_email_matching: pulumi_wasm_rust::Output<
+        pub extended_email_matching: pulumi_gestalt_rust::Output<
             super::types::ZeroTrustGatewaySettingsExtendedEmailMatching,
         >,
         /// Configure compliance with Federal Information Processing Standards.
-        pub fips: pulumi_wasm_rust::Output<
+        pub fips: pulumi_gestalt_rust::Output<
             Option<super::types::ZeroTrustGatewaySettingsFips>,
         >,
-        pub logging: pulumi_wasm_rust::Output<
+        pub logging: pulumi_gestalt_rust::Output<
             Option<super::types::ZeroTrustGatewaySettingsLogging>,
         >,
         /// Enable non-identity onramp for Browser Isolation. Defaults to `false`.
-        pub non_identity_browser_isolation_enabled: pulumi_wasm_rust::Output<
+        pub non_identity_browser_isolation_enabled: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// Configuration for DLP Payload Logging.
-        pub payload_log: pulumi_wasm_rust::Output<
+        pub payload_log: pulumi_gestalt_rust::Output<
             Option<super::types::ZeroTrustGatewaySettingsPayloadLog>,
         >,
         /// Indicator that protocol detection is enabled.
-        pub protocol_detection_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub protocol_detection_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Configuration block for specifying which protocols are proxied.
-        pub proxy: pulumi_wasm_rust::Output<
+        pub proxy: pulumi_gestalt_rust::Output<
             Option<super::types::ZeroTrustGatewaySettingsProxy>,
         >,
         /// Configuration for SSH Session Logging.
-        pub ssh_session_log: pulumi_wasm_rust::Output<
+        pub ssh_session_log: pulumi_gestalt_rust::Output<
             Option<super::types::ZeroTrustGatewaySettingsSshSessionLog>,
         >,
         /// Indicator that decryption of TLS traffic is enabled.
-        pub tls_decrypt_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub tls_decrypt_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Safely browse websites in Browser Isolation through a URL. Defaults to `false`.
-        pub url_browser_isolation_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub url_browser_isolation_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ZeroTrustGatewaySettingsArgs,
     ) -> ZeroTrustGatewaySettingsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let activity_log_enabled_binding = args
@@ -365,51 +367,51 @@ pub mod zero_trust_gateway_settings {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ZeroTrustGatewaySettingsResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            activity_log_enabled: pulumi_wasm_rust::__private::into_domain(
+            activity_log_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activityLogEnabled"),
             ),
-            antivirus: pulumi_wasm_rust::__private::into_domain(
+            antivirus: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("antivirus"),
             ),
-            block_page: pulumi_wasm_rust::__private::into_domain(
+            block_page: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blockPage"),
             ),
-            body_scanning: pulumi_wasm_rust::__private::into_domain(
+            body_scanning: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bodyScanning"),
             ),
-            certificate: pulumi_wasm_rust::__private::into_domain(
+            certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificate"),
             ),
-            custom_certificate: pulumi_wasm_rust::__private::into_domain(
+            custom_certificate: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customCertificate"),
             ),
-            extended_email_matching: pulumi_wasm_rust::__private::into_domain(
+            extended_email_matching: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("extendedEmailMatching"),
             ),
-            fips: pulumi_wasm_rust::__private::into_domain(o.extract_field("fips")),
-            logging: pulumi_wasm_rust::__private::into_domain(
+            fips: pulumi_gestalt_rust::__private::into_domain(o.extract_field("fips")),
+            logging: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logging"),
             ),
-            non_identity_browser_isolation_enabled: pulumi_wasm_rust::__private::into_domain(
+            non_identity_browser_isolation_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nonIdentityBrowserIsolationEnabled"),
             ),
-            payload_log: pulumi_wasm_rust::__private::into_domain(
+            payload_log: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("payloadLog"),
             ),
-            protocol_detection_enabled: pulumi_wasm_rust::__private::into_domain(
+            protocol_detection_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protocolDetectionEnabled"),
             ),
-            proxy: pulumi_wasm_rust::__private::into_domain(o.extract_field("proxy")),
-            ssh_session_log: pulumi_wasm_rust::__private::into_domain(
+            proxy: pulumi_gestalt_rust::__private::into_domain(o.extract_field("proxy")),
+            ssh_session_log: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sshSessionLog"),
             ),
-            tls_decrypt_enabled: pulumi_wasm_rust::__private::into_domain(
+            tls_decrypt_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tlsDecryptEnabled"),
             ),
-            url_browser_isolation_enabled: pulumi_wasm_rust::__private::into_domain(
+            url_browser_isolation_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("urlBrowserIsolationEnabled"),
             ),
         }

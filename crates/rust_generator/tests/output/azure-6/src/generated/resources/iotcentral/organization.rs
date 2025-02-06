@@ -48,44 +48,44 @@
 /// ```
 ///
 pub mod organization {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OrganizationArgs {
         /// Custom `display_name` for the organization.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The application `id`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub iotcentral_application_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub iotcentral_application_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the organization. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub organization_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub organization_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The `organization_id` of the parent organization. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub parent_organization_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parent_organization_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct OrganizationResult {
         /// Custom `display_name` for the organization.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The application `id`. Changing this forces a new resource to be created.
-        pub iotcentral_application_id: pulumi_wasm_rust::Output<String>,
+        pub iotcentral_application_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the organization. Changing this forces a new resource to be created.
-        pub organization_id: pulumi_wasm_rust::Output<String>,
+        pub organization_id: pulumi_gestalt_rust::Output<String>,
         /// The `organization_id` of the parent organization. Changing this forces a new resource to be created.
-        pub parent_organization_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent_organization_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OrganizationArgs,
     ) -> OrganizationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let display_name_binding = args.display_name.get_output(context).get_inner();
         let iotcentral_application_id_binding = args
@@ -125,16 +125,16 @@ pub mod organization {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OrganizationResult {
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            iotcentral_application_id: pulumi_wasm_rust::__private::into_domain(
+            iotcentral_application_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iotcentralApplicationId"),
             ),
-            organization_id: pulumi_wasm_rust::__private::into_domain(
+            organization_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organizationId"),
             ),
-            parent_organization_id: pulumi_wasm_rust::__private::into_domain(
+            parent_organization_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parentOrganizationId"),
             ),
         }

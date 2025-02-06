@@ -5,8 +5,8 @@
 /// ### Basic configuration
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let pool = user_pool::create(
@@ -19,8 +19,8 @@
 /// ### Enabling SMS and Software Token Multi-Factor Authentication
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = user_pool::create(
@@ -48,8 +48,8 @@
 /// ### Using Account Recovery Setting
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = user_pool::create(
@@ -81,211 +81,217 @@
 /// $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
 /// ```
 pub mod user_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserPoolArgs {
         /// Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
         #[builder(into, default)]
-        pub account_recovery_setting: pulumi_wasm_rust::InputOrOutput<
+        pub account_recovery_setting: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cognito::UserPoolAccountRecoverySetting>,
         >,
         /// Configuration block for creating a new user profile. Detailed below.
         #[builder(into, default)]
-        pub admin_create_user_config: pulumi_wasm_rust::InputOrOutput<
+        pub admin_create_user_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cognito::UserPoolAdminCreateUserConfig>,
         >,
         /// Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
         #[builder(into, default)]
-        pub alias_attributes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub alias_attributes: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Attributes to be auto-verified. Valid values: `email`, `phone_number`.
         #[builder(into, default)]
-        pub auto_verified_attributes: pulumi_wasm_rust::InputOrOutput<
+        pub auto_verified_attributes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_protection: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block for the user pool's device tracking. Detailed below.
         #[builder(into, default)]
-        pub device_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub device_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cognito::UserPoolDeviceConfiguration>,
         >,
         /// Configuration block for configuring email. Detailed below.
         #[builder(into, default)]
-        pub email_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub email_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cognito::UserPoolEmailConfiguration>,
         >,
         /// String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
         #[builder(into, default)]
-        pub email_verification_message: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub email_verification_message: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
         #[builder(into, default)]
-        pub email_verification_subject: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub email_verification_subject: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
         #[builder(into, default)]
-        pub lambda_config: pulumi_wasm_rust::InputOrOutput<
+        pub lambda_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cognito::UserPoolLambdaConfig>,
         >,
         /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
         #[builder(into, default)]
-        pub mfa_configuration: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub mfa_configuration: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the user pool.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block for information about the user pool password policy. Detailed below.
         #[builder(into, default)]
-        pub password_policy: pulumi_wasm_rust::InputOrOutput<
+        pub password_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cognito::UserPoolPasswordPolicy>,
         >,
         /// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         #[builder(into, default)]
-        pub schemas: pulumi_wasm_rust::InputOrOutput<
+        pub schemas: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::cognito::UserPoolSchema>>,
         >,
         /// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
         #[builder(into, default)]
-        pub sms_authentication_message: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sms_authentication_message: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
         #[builder(into, default)]
-        pub sms_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub sms_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cognito::UserPoolSmsConfiguration>,
         >,
         /// String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
         #[builder(into, default)]
-        pub sms_verification_message: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sms_verification_message: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
         #[builder(into, default)]
-        pub software_token_mfa_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub software_token_mfa_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cognito::UserPoolSoftwareTokenMfaConfiguration>,
         >,
         /// Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Configuration block for user attribute update settings. Detailed below.
         #[builder(into, default)]
-        pub user_attribute_update_settings: pulumi_wasm_rust::InputOrOutput<
+        pub user_attribute_update_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cognito::UserPoolUserAttributeUpdateSettings>,
         >,
         /// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
         #[builder(into, default)]
-        pub user_pool_add_ons: pulumi_wasm_rust::InputOrOutput<
+        pub user_pool_add_ons: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cognito::UserPoolUserPoolAddOns>,
         >,
         /// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
         #[builder(into, default)]
-        pub username_attributes: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub username_attributes: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Configuration block for username configuration. Detailed below.
         #[builder(into, default)]
-        pub username_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub username_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cognito::UserPoolUsernameConfiguration>,
         >,
         /// Configuration block for verification message templates. Detailed below.
         #[builder(into, default)]
-        pub verification_message_template: pulumi_wasm_rust::InputOrOutput<
+        pub verification_message_template: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cognito::UserPoolVerificationMessageTemplate>,
         >,
     }
     #[allow(dead_code)]
     pub struct UserPoolResult {
         /// Configuration block to define which verified available method a user can use to recover their forgotten password. Detailed below.
-        pub account_recovery_setting: pulumi_wasm_rust::Output<
+        pub account_recovery_setting: pulumi_gestalt_rust::Output<
             Option<super::super::types::cognito::UserPoolAccountRecoverySetting>,
         >,
         /// Configuration block for creating a new user profile. Detailed below.
-        pub admin_create_user_config: pulumi_wasm_rust::Output<
+        pub admin_create_user_config: pulumi_gestalt_rust::Output<
             super::super::types::cognito::UserPoolAdminCreateUserConfig,
         >,
         /// Attributes supported as an alias for this user pool. Valid values: `phone_number`, `email`, or `preferred_username`. Conflicts with `username_attributes`.
-        pub alias_attributes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub alias_attributes: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// ARN of the user pool.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Attributes to be auto-verified. Valid values: `email`, `phone_number`.
-        pub auto_verified_attributes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub auto_verified_attributes: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Date the user pool was created.
-        pub creation_date: pulumi_wasm_rust::Output<String>,
+        pub creation_date: pulumi_gestalt_rust::Output<String>,
         /// A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
-        pub custom_domain: pulumi_wasm_rust::Output<String>,
+        pub custom_domain: pulumi_gestalt_rust::Output<String>,
         /// When active, DeletionProtection prevents accidental deletion of your user pool. Before you can delete a user pool that you have protected against deletion, you must deactivate this feature. Valid values are `ACTIVE` and `INACTIVE`, Default value is `INACTIVE`.
-        pub deletion_protection: pulumi_wasm_rust::Output<Option<String>>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block for the user pool's device tracking. Detailed below.
-        pub device_configuration: pulumi_wasm_rust::Output<
+        pub device_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::cognito::UserPoolDeviceConfiguration>,
         >,
         /// Holds the domain prefix if the user pool has a domain associated with it.
-        pub domain: pulumi_wasm_rust::Output<String>,
+        pub domain: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for configuring email. Detailed below.
-        pub email_configuration: pulumi_wasm_rust::Output<
+        pub email_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::cognito::UserPoolEmailConfiguration>,
         >,
         /// String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
-        pub email_verification_message: pulumi_wasm_rust::Output<String>,
+        pub email_verification_message: pulumi_gestalt_rust::Output<String>,
         /// String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
-        pub email_verification_subject: pulumi_wasm_rust::Output<String>,
+        pub email_verification_subject: pulumi_gestalt_rust::Output<String>,
         /// Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
-        pub endpoint: pulumi_wasm_rust::Output<String>,
+        pub endpoint: pulumi_gestalt_rust::Output<String>,
         /// A number estimating the size of the user pool.
-        pub estimated_number_of_users: pulumi_wasm_rust::Output<i32>,
+        pub estimated_number_of_users: pulumi_gestalt_rust::Output<i32>,
         /// Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
-        pub lambda_config: pulumi_wasm_rust::Output<
+        pub lambda_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::cognito::UserPoolLambdaConfig>,
         >,
         /// Date the user pool was last modified.
-        pub last_modified_date: pulumi_wasm_rust::Output<String>,
+        pub last_modified_date: pulumi_gestalt_rust::Output<String>,
         /// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
-        pub mfa_configuration: pulumi_wasm_rust::Output<Option<String>>,
+        pub mfa_configuration: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the user pool.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for information about the user pool password policy. Detailed below.
-        pub password_policy: pulumi_wasm_rust::Output<
+        pub password_policy: pulumi_gestalt_rust::Output<
             super::super::types::cognito::UserPoolPasswordPolicy,
         >,
         /// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
-        pub schemas: pulumi_wasm_rust::Output<
+        pub schemas: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::cognito::UserPoolSchema>>,
         >,
         /// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
-        pub sms_authentication_message: pulumi_wasm_rust::Output<Option<String>>,
+        pub sms_authentication_message: pulumi_gestalt_rust::Output<Option<String>>,
         /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
-        pub sms_configuration: pulumi_wasm_rust::Output<
+        pub sms_configuration: pulumi_gestalt_rust::Output<
             super::super::types::cognito::UserPoolSmsConfiguration,
         >,
         /// String representing the SMS verification message. Conflicts with `verification_message_template` configuration block `sms_message` argument.
-        pub sms_verification_message: pulumi_wasm_rust::Output<String>,
+        pub sms_verification_message: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for software token Mult-Factor Authentication (MFA) settings. Detailed below.
-        pub software_token_mfa_configuration: pulumi_wasm_rust::Output<
+        pub software_token_mfa_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::cognito::UserPoolSoftwareTokenMfaConfiguration>,
         >,
         /// Map of tags to assign to the User Pool. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Configuration block for user attribute update settings. Detailed below.
-        pub user_attribute_update_settings: pulumi_wasm_rust::Output<
+        pub user_attribute_update_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::cognito::UserPoolUserAttributeUpdateSettings>,
         >,
         /// Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
-        pub user_pool_add_ons: pulumi_wasm_rust::Output<
+        pub user_pool_add_ons: pulumi_gestalt_rust::Output<
             Option<super::super::types::cognito::UserPoolUserPoolAddOns>,
         >,
         /// Whether email addresses or phone numbers can be specified as usernames when a user signs up. Conflicts with `alias_attributes`.
-        pub username_attributes: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub username_attributes: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Configuration block for username configuration. Detailed below.
-        pub username_configuration: pulumi_wasm_rust::Output<
+        pub username_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::cognito::UserPoolUsernameConfiguration>,
         >,
         /// Configuration block for verification message templates. Detailed below.
-        pub verification_message_template: pulumi_wasm_rust::Output<
+        pub verification_message_template: pulumi_gestalt_rust::Output<
             super::super::types::cognito::UserPoolVerificationMessageTemplate,
         >,
     }
@@ -294,11 +300,11 @@ pub mod user_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserPoolArgs,
     ) -> UserPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_recovery_setting_binding = args
             .account_recovery_setting
@@ -489,92 +495,94 @@ pub mod user_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserPoolResult {
-            account_recovery_setting: pulumi_wasm_rust::__private::into_domain(
+            account_recovery_setting: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountRecoverySetting"),
             ),
-            admin_create_user_config: pulumi_wasm_rust::__private::into_domain(
+            admin_create_user_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adminCreateUserConfig"),
             ),
-            alias_attributes: pulumi_wasm_rust::__private::into_domain(
+            alias_attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("aliasAttributes"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            auto_verified_attributes: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            auto_verified_attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoVerifiedAttributes"),
             ),
-            creation_date: pulumi_wasm_rust::__private::into_domain(
+            creation_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationDate"),
             ),
-            custom_domain: pulumi_wasm_rust::__private::into_domain(
+            custom_domain: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("customDomain"),
             ),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            device_configuration: pulumi_wasm_rust::__private::into_domain(
+            device_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deviceConfiguration"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
-            email_configuration: pulumi_wasm_rust::__private::into_domain(
+            domain: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("domain"),
+            ),
+            email_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emailConfiguration"),
             ),
-            email_verification_message: pulumi_wasm_rust::__private::into_domain(
+            email_verification_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emailVerificationMessage"),
             ),
-            email_verification_subject: pulumi_wasm_rust::__private::into_domain(
+            email_verification_subject: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("emailVerificationSubject"),
             ),
-            endpoint: pulumi_wasm_rust::__private::into_domain(
+            endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoint"),
             ),
-            estimated_number_of_users: pulumi_wasm_rust::__private::into_domain(
+            estimated_number_of_users: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("estimatedNumberOfUsers"),
             ),
-            lambda_config: pulumi_wasm_rust::__private::into_domain(
+            lambda_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lambdaConfig"),
             ),
-            last_modified_date: pulumi_wasm_rust::__private::into_domain(
+            last_modified_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModifiedDate"),
             ),
-            mfa_configuration: pulumi_wasm_rust::__private::into_domain(
+            mfa_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("mfaConfiguration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            password_policy: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            password_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("passwordPolicy"),
             ),
-            schemas: pulumi_wasm_rust::__private::into_domain(
+            schemas: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schemas"),
             ),
-            sms_authentication_message: pulumi_wasm_rust::__private::into_domain(
+            sms_authentication_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("smsAuthenticationMessage"),
             ),
-            sms_configuration: pulumi_wasm_rust::__private::into_domain(
+            sms_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("smsConfiguration"),
             ),
-            sms_verification_message: pulumi_wasm_rust::__private::into_domain(
+            sms_verification_message: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("smsVerificationMessage"),
             ),
-            software_token_mfa_configuration: pulumi_wasm_rust::__private::into_domain(
+            software_token_mfa_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("softwareTokenMfaConfiguration"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            user_attribute_update_settings: pulumi_wasm_rust::__private::into_domain(
+            user_attribute_update_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userAttributeUpdateSettings"),
             ),
-            user_pool_add_ons: pulumi_wasm_rust::__private::into_domain(
+            user_pool_add_ons: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userPoolAddOns"),
             ),
-            username_attributes: pulumi_wasm_rust::__private::into_domain(
+            username_attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("usernameAttributes"),
             ),
-            username_configuration: pulumi_wasm_rust::__private::into_domain(
+            username_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("usernameConfiguration"),
             ),
-            verification_message_template: pulumi_wasm_rust::__private::into_domain(
+            verification_message_template: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("verificationMessageTemplate"),
             ),
         }

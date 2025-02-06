@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -50,94 +50,94 @@
 /// ```
 ///
 pub mod standard_web_test {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct StandardWebTestArgs {
         /// The ID of the Application Insights instance on which the WebTest operates. Changing this forces a new Application Insights Standard WebTest to be created.
         #[builder(into)]
-        pub application_insights_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_insights_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Purpose/user defined descriptive test for this WebTest.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Should the WebTest be enabled?
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
         #[builder(into, default)]
-        pub frequency: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub frequency: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
         ///
         /// > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         #[builder(into)]
-        pub geo_locations: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub geo_locations: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights)
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Application Insights Standard WebTest. Changing this forces a new Application Insights Standard WebTest to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `request` block as defined below.
         #[builder(into)]
-        pub request: pulumi_wasm_rust::InputOrOutput<
+        pub request: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::appinsights::StandardWebTestRequest,
         >,
         /// The name of the Resource Group where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Should the retry on WebTest failure be enabled?
         #[builder(into, default)]
-        pub retry_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub retry_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A mapping of tags which should be assigned to the Application Insights Standard WebTest.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Seconds until this WebTest will timeout and fail. Default is `30`.
         #[builder(into, default)]
-        pub timeout: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub timeout: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A `validation_rules` block as defined below.
         #[builder(into, default)]
-        pub validation_rules: pulumi_wasm_rust::InputOrOutput<
+        pub validation_rules: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::appinsights::StandardWebTestValidationRules>,
         >,
     }
     #[allow(dead_code)]
     pub struct StandardWebTestResult {
         /// The ID of the Application Insights instance on which the WebTest operates. Changing this forces a new Application Insights Standard WebTest to be created.
-        pub application_insights_id: pulumi_wasm_rust::Output<String>,
+        pub application_insights_id: pulumi_gestalt_rust::Output<String>,
         /// Purpose/user defined descriptive test for this WebTest.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Should the WebTest be enabled?
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`.
-        pub frequency: pulumi_wasm_rust::Output<Option<i32>>,
+        pub frequency: pulumi_gestalt_rust::Output<Option<i32>>,
         /// Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application.
         ///
         /// > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
-        pub geo_locations: pulumi_wasm_rust::Output<Vec<String>>,
+        pub geo_locations: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights)
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Application Insights Standard WebTest. Changing this forces a new Application Insights Standard WebTest to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `request` block as defined below.
-        pub request: pulumi_wasm_rust::Output<
+        pub request: pulumi_gestalt_rust::Output<
             super::super::types::appinsights::StandardWebTestRequest,
         >,
         /// The name of the Resource Group where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Should the retry on WebTest failure be enabled?
-        pub retry_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub retry_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Unique ID of this WebTest. This is typically the same value as the Name field.
-        pub synthetic_monitor_id: pulumi_wasm_rust::Output<String>,
+        pub synthetic_monitor_id: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Application Insights Standard WebTest.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Seconds until this WebTest will timeout and fail. Default is `30`.
-        pub timeout: pulumi_wasm_rust::Output<Option<i32>>,
+        pub timeout: pulumi_gestalt_rust::Output<Option<i32>>,
         /// A `validation_rules` block as defined below.
-        pub validation_rules: pulumi_wasm_rust::Output<
+        pub validation_rules: pulumi_gestalt_rust::Output<
             Option<super::super::types::appinsights::StandardWebTestValidationRules>,
         >,
     }
@@ -146,11 +146,11 @@ pub mod standard_web_test {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: StandardWebTestArgs,
     ) -> StandardWebTestResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_insights_id_binding = args
             .application_insights_id
@@ -235,42 +235,42 @@ pub mod standard_web_test {
         };
         let o = register_interface::register(context.get_inner(), &request);
         StandardWebTestResult {
-            application_insights_id: pulumi_wasm_rust::__private::into_domain(
+            application_insights_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationInsightsId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            frequency: pulumi_wasm_rust::__private::into_domain(
+            frequency: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("frequency"),
             ),
-            geo_locations: pulumi_wasm_rust::__private::into_domain(
+            geo_locations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("geoLocations"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            request: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            request: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("request"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            retry_enabled: pulumi_wasm_rust::__private::into_domain(
+            retry_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retryEnabled"),
             ),
-            synthetic_monitor_id: pulumi_wasm_rust::__private::into_domain(
+            synthetic_monitor_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("syntheticMonitorId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            timeout: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            timeout: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeout"),
             ),
-            validation_rules: pulumi_wasm_rust::__private::into_domain(
+            validation_rules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationRules"),
             ),
         }

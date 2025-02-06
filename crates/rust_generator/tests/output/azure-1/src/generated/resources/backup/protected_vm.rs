@@ -57,65 +57,65 @@
 /// Note the ID requires quoting as there are semicolons
 ///
 pub mod protected_vm {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProtectedVMArgs {
         /// Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
         #[builder(into, default)]
-        pub backup_policy_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub backup_policy_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
         #[builder(into, default)]
-        pub exclude_disk_luns: pulumi_wasm_rust::InputOrOutput<Option<Vec<i32>>>,
+        pub exclude_disk_luns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<i32>>>,
         /// A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
         #[builder(into, default)]
-        pub include_disk_luns: pulumi_wasm_rust::InputOrOutput<Option<Vec<i32>>>,
+        pub include_disk_luns: pulumi_gestalt_rust::InputOrOutput<Option<Vec<i32>>>,
         /// Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
         #[builder(into, default)]
-        pub protection_state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub protection_state: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_vault_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub recovery_vault_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
         /// This allows the source vm to be deleted without having to remove the backup.
         #[builder(into, default)]
-        pub source_vm_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_vm_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ProtectedVMResult {
         /// Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified.
-        pub backup_policy_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub backup_policy_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection.
-        pub exclude_disk_luns: pulumi_wasm_rust::Output<Option<Vec<i32>>>,
+        pub exclude_disk_luns: pulumi_gestalt_rust::Output<Option<Vec<i32>>>,
         /// A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection.
-        pub include_disk_luns: pulumi_wasm_rust::Output<Option<Vec<i32>>>,
+        pub include_disk_luns: pulumi_gestalt_rust::Output<Option<Vec<i32>>>,
         /// Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`.
-        pub protection_state: pulumi_wasm_rust::Output<String>,
+        pub protection_state: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-        pub recovery_vault_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Resource Group **associated with** the Recovery Services Vault to use. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** After creation, the `source_vm_id` property can be removed without forcing a new resource to be created; however, setting it to a different ID will create a new resource.
         /// This allows the source vm to be deleted without having to remove the backup.
-        pub source_vm_id: pulumi_wasm_rust::Output<String>,
+        pub source_vm_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProtectedVMArgs,
     ) -> ProtectedVMResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_policy_id_binding = args
             .backup_policy_id
@@ -179,25 +179,25 @@ pub mod protected_vm {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProtectedVMResult {
-            backup_policy_id: pulumi_wasm_rust::__private::into_domain(
+            backup_policy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("backupPolicyId"),
             ),
-            exclude_disk_luns: pulumi_wasm_rust::__private::into_domain(
+            exclude_disk_luns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("excludeDiskLuns"),
             ),
-            include_disk_luns: pulumi_wasm_rust::__private::into_domain(
+            include_disk_luns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("includeDiskLuns"),
             ),
-            protection_state: pulumi_wasm_rust::__private::into_domain(
+            protection_state: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protectionState"),
             ),
-            recovery_vault_name: pulumi_wasm_rust::__private::into_domain(
+            recovery_vault_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryVaultName"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            source_vm_id: pulumi_wasm_rust::__private::into_domain(
+            source_vm_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceVmId"),
             ),
         }

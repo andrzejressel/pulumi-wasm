@@ -1,99 +1,99 @@
 pub mod get_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetPoolArgs {
         /// The Azure Storage Account name.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the user account.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetPoolResult {
         /// The Azure Storage Account name.
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_gestalt_rust::Output<String>,
         /// A `auto_scale` block that describes the scale settings when using auto scale.
-        pub auto_scales: pulumi_wasm_rust::Output<
+        pub auto_scales: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::batch::GetPoolAutoScale>,
         >,
         /// One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
-        pub certificates: pulumi_wasm_rust::Output<
+        pub certificates: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::batch::GetPoolCertificate>,
         >,
         /// The container configuration used in the pool's VMs.
-        pub container_configurations: pulumi_wasm_rust::Output<
+        pub container_configurations: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::batch::GetPoolContainerConfiguration>,
         >,
         /// A `data_disks` block describes the data disk settings.
-        pub data_disks: pulumi_wasm_rust::Output<
+        pub data_disks: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::batch::GetPoolDataDisk>,
         >,
         /// A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool.
-        pub disk_encryptions: pulumi_wasm_rust::Output<
+        pub disk_encryptions: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::batch::GetPoolDiskEncryption>,
         >,
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// An `extensions` block describes the extension settings
-        pub extensions: pulumi_wasm_rust::Output<
+        pub extensions: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::batch::GetPoolExtension>,
         >,
         /// A `fixed_scale` block that describes the scale settings when using fixed scale.
-        pub fixed_scales: pulumi_wasm_rust::Output<
+        pub fixed_scales: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::batch::GetPoolFixedScale>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool.
-        pub inter_node_communication: pulumi_wasm_rust::Output<String>,
+        pub inter_node_communication: pulumi_gestalt_rust::Output<String>,
         /// The type of on-premises license to be used when deploying the operating system.
-        pub license_type: pulumi_wasm_rust::Output<String>,
+        pub license_type: pulumi_gestalt_rust::Output<String>,
         /// The maximum number of tasks that can run concurrently on a single compute node in the pool.
-        pub max_tasks_per_node: pulumi_wasm_rust::Output<i32>,
-        pub metadata: pulumi_wasm_rust::Output<
+        pub max_tasks_per_node: pulumi_gestalt_rust::Output<i32>,
+        pub metadata: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A `mount` block that describes mount configuration.
-        pub mounts: pulumi_wasm_rust::Output<
+        pub mounts: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::batch::GetPoolMount>,
         >,
         /// The name of the user account.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub network_configurations: pulumi_wasm_rust::Output<
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub network_configurations: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::batch::GetPoolNetworkConfiguration>,
         >,
         /// The SKU of the node agents in the Batch pool.
-        pub node_agent_sku_id: pulumi_wasm_rust::Output<String>,
+        pub node_agent_sku_id: pulumi_gestalt_rust::Output<String>,
         /// A `node_placement` block that describes the placement policy for allocating nodes in the pool.
-        pub node_placements: pulumi_wasm_rust::Output<
+        pub node_placements: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::batch::GetPoolNodePlacement>,
         >,
         /// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool.
-        pub os_disk_placement: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub os_disk_placement: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A `start_task` block that describes the start task settings for the Batch pool.
-        pub start_tasks: pulumi_wasm_rust::Output<
+        pub start_tasks: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::batch::GetPoolStartTask>,
         >,
         /// The reference of the storage image used by the nodes in the Batch pool.
-        pub storage_image_references: pulumi_wasm_rust::Output<
+        pub storage_image_references: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::batch::GetPoolStorageImageReference>,
         >,
         /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool.
-        pub task_scheduling_policies: pulumi_wasm_rust::Output<
+        pub task_scheduling_policies: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::batch::GetPoolTaskSchedulingPolicy>,
         >,
         /// A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
-        pub user_accounts: pulumi_wasm_rust::Output<
+        pub user_accounts: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::batch::GetPoolUserAccount>,
         >,
         /// The size of the VM created in the Batch pool.
-        pub vm_size: pulumi_wasm_rust::Output<String>,
+        pub vm_size: pulumi_gestalt_rust::Output<String>,
         /// A `windows` block that describes the Windows configuration in the pool.
-        pub windows: pulumi_wasm_rust::Output<
+        pub windows: pulumi_gestalt_rust::Output<
             Vec<super::super::super::types::batch::GetPoolWindow>,
         >,
     }
@@ -102,10 +102,10 @@ pub mod get_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetPoolArgs,
     ) -> GetPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_name_binding = args.account_name.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -133,77 +133,83 @@ pub mod get_pool {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetPoolResult {
-            account_name: pulumi_wasm_rust::__private::into_domain(
+            account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountName"),
             ),
-            auto_scales: pulumi_wasm_rust::__private::into_domain(
+            auto_scales: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoScales"),
             ),
-            certificates: pulumi_wasm_rust::__private::into_domain(
+            certificates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificates"),
             ),
-            container_configurations: pulumi_wasm_rust::__private::into_domain(
+            container_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("containerConfigurations"),
             ),
-            data_disks: pulumi_wasm_rust::__private::into_domain(
+            data_disks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataDisks"),
             ),
-            disk_encryptions: pulumi_wasm_rust::__private::into_domain(
+            disk_encryptions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("diskEncryptions"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            extensions: pulumi_wasm_rust::__private::into_domain(
+            extensions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("extensions"),
             ),
-            fixed_scales: pulumi_wasm_rust::__private::into_domain(
+            fixed_scales: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fixedScales"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            inter_node_communication: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            inter_node_communication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("interNodeCommunication"),
             ),
-            license_type: pulumi_wasm_rust::__private::into_domain(
+            license_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("licenseType"),
             ),
-            max_tasks_per_node: pulumi_wasm_rust::__private::into_domain(
+            max_tasks_per_node: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxTasksPerNode"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            mounts: pulumi_wasm_rust::__private::into_domain(o.extract_field("mounts")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_configurations: pulumi_wasm_rust::__private::into_domain(
+            mounts: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("mounts"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_configurations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkConfigurations"),
             ),
-            node_agent_sku_id: pulumi_wasm_rust::__private::into_domain(
+            node_agent_sku_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodeAgentSkuId"),
             ),
-            node_placements: pulumi_wasm_rust::__private::into_domain(
+            node_placements: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("nodePlacements"),
             ),
-            os_disk_placement: pulumi_wasm_rust::__private::into_domain(
+            os_disk_placement: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("osDiskPlacement"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            start_tasks: pulumi_wasm_rust::__private::into_domain(
+            start_tasks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startTasks"),
             ),
-            storage_image_references: pulumi_wasm_rust::__private::into_domain(
+            storage_image_references: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageImageReferences"),
             ),
-            task_scheduling_policies: pulumi_wasm_rust::__private::into_domain(
+            task_scheduling_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("taskSchedulingPolicies"),
             ),
-            user_accounts: pulumi_wasm_rust::__private::into_domain(
+            user_accounts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userAccounts"),
             ),
-            vm_size: pulumi_wasm_rust::__private::into_domain(o.extract_field("vmSize")),
-            windows: pulumi_wasm_rust::__private::into_domain(o.extract_field("windows")),
+            vm_size: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("vmSize"),
+            ),
+            windows: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("windows"),
+            ),
         }
     }
 }

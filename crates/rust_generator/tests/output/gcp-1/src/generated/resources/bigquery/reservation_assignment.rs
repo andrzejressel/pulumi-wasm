@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let assignment = reservation_assignment::create(
@@ -63,62 +63,62 @@
 /// ```
 ///
 pub mod reservation_assignment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReservationAssignmentArgs {
         /// The resource which will use the reservation. E.g. projects/myproject, folders/123, organizations/456.
         #[builder(into)]
-        pub assignee: pulumi_wasm_rust::InputOrOutput<String>,
+        pub assignee: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Types of job, which could be specified when using the reservation. Possible values: JOB_TYPE_UNSPECIFIED, PIPELINE, QUERY
         #[builder(into)]
-        pub job_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub job_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The location for the resource
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The reservation for the resource
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub reservation: pulumi_wasm_rust::InputOrOutput<String>,
+        pub reservation: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ReservationAssignmentResult {
         /// The resource which will use the reservation. E.g. projects/myproject, folders/123, organizations/456.
-        pub assignee: pulumi_wasm_rust::Output<String>,
+        pub assignee: pulumi_gestalt_rust::Output<String>,
         /// Types of job, which could be specified when using the reservation. Possible values: JOB_TYPE_UNSPECIFIED, PIPELINE, QUERY
-        pub job_type: pulumi_wasm_rust::Output<String>,
+        pub job_type: pulumi_gestalt_rust::Output<String>,
         /// The location for the resource
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Output only. The resource name of the assignment.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The reservation for the resource
         ///
         ///
         /// - - -
-        pub reservation: pulumi_wasm_rust::Output<String>,
+        pub reservation: pulumi_gestalt_rust::Output<String>,
         /// Assignment will remain in PENDING state if no active capacity commitment is present. It will become ACTIVE when some capacity commitment becomes active.
         /// Possible values: STATE_UNSPECIFIED, PENDING, ACTIVE
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ReservationAssignmentArgs,
     ) -> ReservationAssignmentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let assignee_binding = args.assignee.get_output(context).get_inner();
         let job_type_binding = args.job_type.get_output(context).get_inner();
@@ -154,23 +154,23 @@ pub mod reservation_assignment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ReservationAssignmentResult {
-            assignee: pulumi_wasm_rust::__private::into_domain(
+            assignee: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("assignee"),
             ),
-            job_type: pulumi_wasm_rust::__private::into_domain(
+            job_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jobType"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            reservation: pulumi_wasm_rust::__private::into_domain(
+            reservation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reservation"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
         }
     }
 }

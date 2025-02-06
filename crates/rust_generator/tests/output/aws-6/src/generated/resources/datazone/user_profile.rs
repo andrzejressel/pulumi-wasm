@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = user_profile::create(
@@ -28,61 +28,61 @@
 /// $ pulumi import aws:datazone/userProfile:UserProfile example arn:aws:iam::123456789012:user/example,dzd_54nakfrg9k6suo,IAM
 /// ```
 pub mod user_profile {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserProfileArgs {
         /// The domain identifier.
         #[builder(into)]
-        pub domain_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The user profile status.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::datazone::UserProfileTimeouts>,
         >,
         /// The user identifier.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub user_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The user type.
         #[builder(into, default)]
-        pub user_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct UserProfileResult {
         /// Details about the user profile.
-        pub details: pulumi_wasm_rust::Output<
+        pub details: pulumi_gestalt_rust::Output<
             Vec<super::super::types::datazone::UserProfileDetail>,
         >,
         /// The domain identifier.
-        pub domain_identifier: pulumi_wasm_rust::Output<String>,
+        pub domain_identifier: pulumi_gestalt_rust::Output<String>,
         /// The user profile status.
-        pub status: pulumi_wasm_rust::Output<String>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub status: pulumi_gestalt_rust::Output<String>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::datazone::UserProfileTimeouts>,
         >,
         /// The user profile type.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// The user identifier.
         ///
         /// The following arguments are optional:
-        pub user_identifier: pulumi_wasm_rust::Output<String>,
+        pub user_identifier: pulumi_gestalt_rust::Output<String>,
         /// The user type.
-        pub user_type: pulumi_wasm_rust::Output<String>,
+        pub user_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserProfileArgs,
     ) -> UserProfileResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_identifier_binding = args
             .domain_identifier
@@ -124,21 +124,23 @@ pub mod user_profile {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserProfileResult {
-            details: pulumi_wasm_rust::__private::into_domain(
+            details: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("details"),
             ),
-            domain_identifier: pulumi_wasm_rust::__private::into_domain(
+            domain_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainIdentifier"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            user_identifier: pulumi_wasm_rust::__private::into_domain(
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            user_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userIdentifier"),
             ),
-            user_type: pulumi_wasm_rust::__private::into_domain(
+            user_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userType"),
             ),
         }

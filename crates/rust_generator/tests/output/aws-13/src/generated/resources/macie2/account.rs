@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let test = account::create(
@@ -25,42 +25,42 @@
 /// $ pulumi import aws:macie2/account:Account example abcd1
 /// ```
 pub mod account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountArgs {
         /// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
         #[builder(into, default)]
-        pub finding_publishing_frequency: pulumi_wasm_rust::InputOrOutput<
+        pub finding_publishing_frequency: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AccountResult {
         /// The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
-        pub finding_publishing_frequency: pulumi_wasm_rust::Output<String>,
+        pub finding_publishing_frequency: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
-        pub service_role: pulumi_wasm_rust::Output<String>,
+        pub service_role: pulumi_gestalt_rust::Output<String>,
         /// Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
         /// The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the Macie account.
-        pub updated_at: pulumi_wasm_rust::Output<String>,
+        pub updated_at: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccountArgs,
     ) -> AccountResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let finding_publishing_frequency_binding = args
             .finding_publishing_frequency
@@ -84,17 +84,19 @@ pub mod account {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccountResult {
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            finding_publishing_frequency: pulumi_wasm_rust::__private::into_domain(
+            finding_publishing_frequency: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("findingPublishingFrequency"),
             ),
-            service_role: pulumi_wasm_rust::__private::into_domain(
+            service_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceRole"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            updated_at: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            updated_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updatedAt"),
             ),
         }

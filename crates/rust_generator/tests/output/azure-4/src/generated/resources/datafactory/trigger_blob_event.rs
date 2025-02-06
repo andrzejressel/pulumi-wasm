@@ -67,96 +67,96 @@
 /// ```
 ///
 pub mod trigger_blob_event {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TriggerBlobEventArgs {
         /// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
         #[builder(into, default)]
-        pub activated: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub activated: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A map of additional properties to associate with the Data Factory Blob Event Trigger.
         #[builder(into, default)]
-        pub additional_properties: pulumi_wasm_rust::InputOrOutput<
+        pub additional_properties: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Blob Event Trigger.
         #[builder(into, default)]
-        pub annotations: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// The pattern that blob path starts with for trigger to fire.
         #[builder(into, default)]
-        pub blob_path_begins_with: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub blob_path_begins_with: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The pattern that blob path ends with for trigger to fire.
         ///
         /// > **Note:** At least one of `blob_path_begins_with` and `blob_path_ends_with` must be set.
         #[builder(into, default)]
-        pub blob_path_ends_with: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub blob_path_ends_with: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
         #[builder(into)]
-        pub data_factory_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_factory_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description for the Data Factory Blob Event Trigger.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`.
         #[builder(into)]
-        pub events: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub events: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// are blobs with zero bytes ignored?
         #[builder(into, default)]
-        pub ignore_empty_blobs: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub ignore_empty_blobs: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Specifies the name of the Data Factory Blob Event Trigger. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `pipeline` blocks as defined below.
         #[builder(into)]
-        pub pipelines: pulumi_wasm_rust::InputOrOutput<
+        pub pipelines: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::super::types::datafactory::TriggerBlobEventPipeline>,
         >,
         /// The ID of Storage Account in which blob event will be listened. Changing this forces a new resource.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TriggerBlobEventResult {
         /// Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
-        pub activated: pulumi_wasm_rust::Output<Option<bool>>,
+        pub activated: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A map of additional properties to associate with the Data Factory Blob Event Trigger.
-        pub additional_properties: pulumi_wasm_rust::Output<
+        pub additional_properties: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// List of tags that can be used for describing the Data Factory Blob Event Trigger.
-        pub annotations: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub annotations: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The pattern that blob path starts with for trigger to fire.
-        pub blob_path_begins_with: pulumi_wasm_rust::Output<Option<String>>,
+        pub blob_path_begins_with: pulumi_gestalt_rust::Output<Option<String>>,
         /// The pattern that blob path ends with for trigger to fire.
         ///
         /// > **Note:** At least one of `blob_path_begins_with` and `blob_path_ends_with` must be set.
-        pub blob_path_ends_with: pulumi_wasm_rust::Output<Option<String>>,
+        pub blob_path_ends_with: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
-        pub data_factory_id: pulumi_wasm_rust::Output<String>,
+        pub data_factory_id: pulumi_gestalt_rust::Output<String>,
         /// The description for the Data Factory Blob Event Trigger.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`.
-        pub events: pulumi_wasm_rust::Output<Vec<String>>,
+        pub events: pulumi_gestalt_rust::Output<Vec<String>>,
         /// are blobs with zero bytes ignored?
-        pub ignore_empty_blobs: pulumi_wasm_rust::Output<Option<bool>>,
+        pub ignore_empty_blobs: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the name of the Data Factory Blob Event Trigger. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// One or more `pipeline` blocks as defined below.
-        pub pipelines: pulumi_wasm_rust::Output<
+        pub pipelines: pulumi_gestalt_rust::Output<
             Vec<super::super::types::datafactory::TriggerBlobEventPipeline>,
         >,
         /// The ID of Storage Account in which blob event will be listened. Changing this forces a new resource.
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TriggerBlobEventArgs,
     ) -> TriggerBlobEventResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let activated_binding = args.activated.get_output(context).get_inner();
         let additional_properties_binding = args
@@ -245,36 +245,38 @@ pub mod trigger_blob_event {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TriggerBlobEventResult {
-            activated: pulumi_wasm_rust::__private::into_domain(
+            activated: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("activated"),
             ),
-            additional_properties: pulumi_wasm_rust::__private::into_domain(
+            additional_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("additionalProperties"),
             ),
-            annotations: pulumi_wasm_rust::__private::into_domain(
+            annotations: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("annotations"),
             ),
-            blob_path_begins_with: pulumi_wasm_rust::__private::into_domain(
+            blob_path_begins_with: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blobPathBeginsWith"),
             ),
-            blob_path_ends_with: pulumi_wasm_rust::__private::into_domain(
+            blob_path_ends_with: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("blobPathEndsWith"),
             ),
-            data_factory_id: pulumi_wasm_rust::__private::into_domain(
+            data_factory_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataFactoryId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            events: pulumi_wasm_rust::__private::into_domain(o.extract_field("events")),
-            ignore_empty_blobs: pulumi_wasm_rust::__private::into_domain(
+            events: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("events"),
+            ),
+            ignore_empty_blobs: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ignoreEmptyBlobs"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            pipelines: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            pipelines: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelines"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
         }

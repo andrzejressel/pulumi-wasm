@@ -74,118 +74,118 @@
 /// ```
 ///
 pub mod environment_v_3 {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct EnvironmentV3Args {
         /// Should new Private Endpoint Connections be allowed. Defaults to `true`.
         #[builder(into, default)]
-        pub allow_new_private_endpoint_connections: pulumi_wasm_rust::InputOrOutput<
+        pub allow_new_private_endpoint_connections: pulumi_gestalt_rust::InputOrOutput<
             Option<bool>,
         >,
         /// Zero or more `cluster_setting` blocks as defined below.
         #[builder(into, default)]
-        pub cluster_settings: pulumi_wasm_rust::InputOrOutput<
+        pub cluster_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::appservice::EnvironmentV3ClusterSetting>>,
         >,
         /// This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub dedicated_host_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub dedicated_host_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub internal_load_balancing_mode: pulumi_wasm_rust::InputOrOutput<
+        pub internal_load_balancing_mode: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The name of the App Service Environment. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether to enable remote debug. Defaults to `false`.
         #[builder(into, default)]
-        pub remote_debugging_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub remote_debugging_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
         ///
         /// > **NOTE** a /24 or larger CIDR is required. Once associated with an ASE, this size cannot be changed.
         ///
         /// > **NOTE:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
         #[builder(into, default)]
-        pub zone_redundant: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub zone_redundant: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
     }
     #[allow(dead_code)]
     pub struct EnvironmentV3Result {
         /// Should new Private Endpoint Connections be allowed. Defaults to `true`.
-        pub allow_new_private_endpoint_connections: pulumi_wasm_rust::Output<
+        pub allow_new_private_endpoint_connections: pulumi_gestalt_rust::Output<
             Option<bool>,
         >,
         /// Zero or more `cluster_setting` blocks as defined below.
-        pub cluster_settings: pulumi_wasm_rust::Output<
+        pub cluster_settings: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appservice::EnvironmentV3ClusterSetting>,
         >,
         /// This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created.
-        pub dedicated_host_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub dedicated_host_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// the DNS suffix for this App Service Environment V3.
-        pub dns_suffix: pulumi_wasm_rust::Output<String>,
+        pub dns_suffix: pulumi_gestalt_rust::Output<String>,
         /// The external inbound IP addresses of the App Service Environment V3.
-        pub external_inbound_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub external_inbound_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// An `inbound_network_dependencies` block as defined below.
-        pub inbound_network_dependencies: pulumi_wasm_rust::Output<
+        pub inbound_network_dependencies: pulumi_gestalt_rust::Output<
             Vec<super::super::types::appservice::EnvironmentV3InboundNetworkDependency>,
         >,
         /// The internal inbound IP addresses of the App Service Environment V3.
-        pub internal_inbound_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub internal_inbound_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
-        pub internal_load_balancing_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub internal_load_balancing_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// The number of IP SSL addresses reserved for the App Service Environment V3.
-        pub ip_ssl_address_count: pulumi_wasm_rust::Output<i32>,
+        pub ip_ssl_address_count: pulumi_gestalt_rust::Output<i32>,
         /// Outbound addresses of Linux based Apps in this App Service Environment V3
-        pub linux_outbound_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub linux_outbound_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The location where the App Service Environment exists.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The name of the App Service Environment. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Pricing tier for the front end instances.
-        pub pricing_tier: pulumi_wasm_rust::Output<String>,
+        pub pricing_tier: pulumi_gestalt_rust::Output<String>,
         /// Whether to enable remote debug. Defaults to `false`.
-        pub remote_debugging_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub remote_debugging_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
         ///
         /// > **NOTE** a /24 or larger CIDR is required. Once associated with an ASE, this size cannot be changed.
         ///
         /// > **NOTE:** This Subnet requires a delegation to `Microsoft.Web/hostingEnvironments` as detailed in the example above.
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Outbound addresses of Windows based Apps in this App Service Environment V3.
-        pub windows_outbound_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub windows_outbound_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created.
         ///
         /// > **NOTE:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
-        pub zone_redundant: pulumi_wasm_rust::Output<Option<bool>>,
+        pub zone_redundant: pulumi_gestalt_rust::Output<Option<bool>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: EnvironmentV3Args,
     ) -> EnvironmentV3Result {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let allow_new_private_endpoint_connections_binding = args
             .allow_new_private_endpoint_connections
@@ -264,57 +264,57 @@ pub mod environment_v_3 {
         };
         let o = register_interface::register(context.get_inner(), &request);
         EnvironmentV3Result {
-            allow_new_private_endpoint_connections: pulumi_wasm_rust::__private::into_domain(
+            allow_new_private_endpoint_connections: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("allowNewPrivateEndpointConnections"),
             ),
-            cluster_settings: pulumi_wasm_rust::__private::into_domain(
+            cluster_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterSettings"),
             ),
-            dedicated_host_count: pulumi_wasm_rust::__private::into_domain(
+            dedicated_host_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dedicatedHostCount"),
             ),
-            dns_suffix: pulumi_wasm_rust::__private::into_domain(
+            dns_suffix: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dnsSuffix"),
             ),
-            external_inbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            external_inbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalInboundIpAddresses"),
             ),
-            inbound_network_dependencies: pulumi_wasm_rust::__private::into_domain(
+            inbound_network_dependencies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("inboundNetworkDependencies"),
             ),
-            internal_inbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            internal_inbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("internalInboundIpAddresses"),
             ),
-            internal_load_balancing_mode: pulumi_wasm_rust::__private::into_domain(
+            internal_load_balancing_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("internalLoadBalancingMode"),
             ),
-            ip_ssl_address_count: pulumi_wasm_rust::__private::into_domain(
+            ip_ssl_address_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ipSslAddressCount"),
             ),
-            linux_outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            linux_outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("linuxOutboundIpAddresses"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            pricing_tier: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            pricing_tier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pricingTier"),
             ),
-            remote_debugging_enabled: pulumi_wasm_rust::__private::into_domain(
+            remote_debugging_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("remoteDebuggingEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            windows_outbound_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            windows_outbound_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("windowsOutboundIpAddresses"),
             ),
-            zone_redundant: pulumi_wasm_rust::__private::into_domain(
+            zone_redundant: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("zoneRedundant"),
             ),
         }

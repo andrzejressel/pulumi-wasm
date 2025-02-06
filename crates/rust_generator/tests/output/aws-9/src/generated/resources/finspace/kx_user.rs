@@ -48,45 +48,45 @@
 /// $ pulumi import aws:finspace/kxUser:KxUser example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-user
 /// ```
 pub mod kx_user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KxUserArgs {
         /// Unique identifier for the KX environment.
         #[builder(into)]
-        pub environment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub environment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// IAM role ARN to be associated with the user.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub iam_role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub iam_role: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A unique identifier for the user.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct KxUserResult {
         /// Amazon Resource Name (ARN) identifier of the KX user.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Unique identifier for the KX environment.
-        pub environment_id: pulumi_wasm_rust::Output<String>,
+        pub environment_id: pulumi_gestalt_rust::Output<String>,
         /// IAM role ARN to be associated with the user.
         ///
         /// The following arguments are optional:
-        pub iam_role: pulumi_wasm_rust::Output<String>,
+        pub iam_role: pulumi_gestalt_rust::Output<String>,
         /// A unique identifier for the user.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -95,11 +95,11 @@ pub mod kx_user {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: KxUserArgs,
     ) -> KxUserResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let environment_id_binding = args.environment_id.get_output(context).get_inner();
         let iam_role_binding = args.iam_role.get_output(context).get_inner();
@@ -130,16 +130,16 @@ pub mod kx_user {
         };
         let o = register_interface::register(context.get_inner(), &request);
         KxUserResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            environment_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            environment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environmentId"),
             ),
-            iam_role: pulumi_wasm_rust::__private::into_domain(
+            iam_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iamRole"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

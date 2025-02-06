@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let demo = workspace::create("demo", WorkspaceArgs::builder().build_struct());
@@ -29,39 +29,39 @@
 /// $ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
 /// ```
 pub mod rule_group_namespace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RuleGroupNamespaceArgs {
         /// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
         #[builder(into)]
-        pub data: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the rule group namespace
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ID of the prometheus workspace the rule group namespace should be linked to
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RuleGroupNamespaceResult {
         /// the rule group namespace data that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-Ruler.html).
-        pub data: pulumi_wasm_rust::Output<String>,
+        pub data: pulumi_gestalt_rust::Output<String>,
         /// The name of the rule group namespace
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// ID of the prometheus workspace the rule group namespace should be linked to
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RuleGroupNamespaceArgs,
     ) -> RuleGroupNamespaceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_binding = args.data.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -87,9 +87,9 @@ pub mod rule_group_namespace {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RuleGroupNamespaceResult {
-            data: pulumi_wasm_rust::__private::into_domain(o.extract_field("data")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            workspace_id: pulumi_wasm_rust::__private::into_domain(
+            data: pulumi_gestalt_rust::__private::into_domain(o.extract_field("data")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceId"),
             ),
         }

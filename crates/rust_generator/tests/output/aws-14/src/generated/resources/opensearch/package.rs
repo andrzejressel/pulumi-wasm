@@ -43,51 +43,51 @@
 /// $ pulumi import aws:opensearch/package:Package example package-id
 /// ```
 pub mod package {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PackageArgs {
         /// Description of the package.
         #[builder(into, default)]
-        pub package_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub package_description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Unique name for the package.
         #[builder(into)]
-        pub package_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub package_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration block for the package source options.
         #[builder(into)]
-        pub package_source: pulumi_wasm_rust::InputOrOutput<
+        pub package_source: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::opensearch::PackagePackageSource,
         >,
         /// The type of package.
         #[builder(into)]
-        pub package_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub package_type: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PackageResult {
         /// The current version of the package.
-        pub available_package_version: pulumi_wasm_rust::Output<String>,
+        pub available_package_version: pulumi_gestalt_rust::Output<String>,
         /// Description of the package.
-        pub package_description: pulumi_wasm_rust::Output<Option<String>>,
-        pub package_id: pulumi_wasm_rust::Output<String>,
+        pub package_description: pulumi_gestalt_rust::Output<Option<String>>,
+        pub package_id: pulumi_gestalt_rust::Output<String>,
         /// Unique name for the package.
-        pub package_name: pulumi_wasm_rust::Output<String>,
+        pub package_name: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for the package source options.
-        pub package_source: pulumi_wasm_rust::Output<
+        pub package_source: pulumi_gestalt_rust::Output<
             super::super::types::opensearch::PackagePackageSource,
         >,
         /// The type of package.
-        pub package_type: pulumi_wasm_rust::Output<String>,
+        pub package_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PackageArgs,
     ) -> PackageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let package_description_binding = args
             .package_description
@@ -121,22 +121,22 @@ pub mod package {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PackageResult {
-            available_package_version: pulumi_wasm_rust::__private::into_domain(
+            available_package_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("availablePackageVersion"),
             ),
-            package_description: pulumi_wasm_rust::__private::into_domain(
+            package_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("packageDescription"),
             ),
-            package_id: pulumi_wasm_rust::__private::into_domain(
+            package_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("packageId"),
             ),
-            package_name: pulumi_wasm_rust::__private::into_domain(
+            package_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("packageName"),
             ),
-            package_source: pulumi_wasm_rust::__private::into_domain(
+            package_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("packageSource"),
             ),
-            package_type: pulumi_wasm_rust::__private::into_domain(
+            package_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("packageType"),
             ),
         }

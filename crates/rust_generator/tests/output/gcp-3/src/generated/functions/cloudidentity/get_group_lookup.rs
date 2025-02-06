@@ -1,5 +1,5 @@
 pub mod get_group_lookup {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetGroupLookupArgs {
@@ -7,29 +7,29 @@ pub mod get_group_lookup {
         /// An entity can represent either a group with an optional namespace or a user without a namespace.
         /// The combination of id and namespace must be unique; however, the same id can be used with different namespaces. Structure is documented below.
         #[builder(into)]
-        pub group_key: pulumi_wasm_rust::InputOrOutput<
+        pub group_key: pulumi_gestalt_rust::InputOrOutput<
             super::super::super::types::cloudidentity::GetGroupLookupGroupKey,
         >,
     }
     #[allow(dead_code)]
     pub struct GetGroupLookupResult {
-        pub group_key: pulumi_wasm_rust::Output<
+        pub group_key: pulumi_gestalt_rust::Output<
             super::super::super::types::cloudidentity::GetGroupLookupGroupKey,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Resource name of the Group in the format: groups/{group_id}, where `group_id` is the unique ID assigned to the Group.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetGroupLookupArgs,
     ) -> GetGroupLookupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let group_key_binding = args.group_key.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
@@ -44,11 +44,11 @@ pub mod get_group_lookup {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetGroupLookupResult {
-            group_key: pulumi_wasm_rust::__private::into_domain(
+            group_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupKey"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

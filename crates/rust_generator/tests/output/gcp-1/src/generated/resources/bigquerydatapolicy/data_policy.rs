@@ -13,8 +13,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let dataPolicy = data_policy::create(
@@ -49,8 +49,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let customMaskingRoutine = routine::create(
@@ -137,72 +137,72 @@
 /// ```
 ///
 pub mod data_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DataPolicyArgs {
         /// The data masking policy that specifies the data masking rule to use.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub data_masking_policy: pulumi_wasm_rust::InputOrOutput<
+        pub data_masking_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquerydatapolicy::DataPolicyDataMaskingPolicy>,
         >,
         /// User-assigned (human readable) ID of the data policy that needs to be unique within a project. Used as {dataPolicyId} in part of the resource name.
         #[builder(into)]
-        pub data_policy_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_policy_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The enrollment level of the service.
         /// Possible values are: `COLUMN_LEVEL_SECURITY_POLICY`, `DATA_MASKING_POLICY`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub data_policy_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub data_policy_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the location of the data policy.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Policy tag resource name, in the format of projects/{project_number}/locations/{locationId}/taxonomies/{taxonomyId}/policyTags/{policyTag_id}.
         #[builder(into)]
-        pub policy_tag: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_tag: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DataPolicyResult {
         /// The data masking policy that specifies the data masking rule to use.
         /// Structure is documented below.
-        pub data_masking_policy: pulumi_wasm_rust::Output<
+        pub data_masking_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquerydatapolicy::DataPolicyDataMaskingPolicy>,
         >,
         /// User-assigned (human readable) ID of the data policy that needs to be unique within a project. Used as {dataPolicyId} in part of the resource name.
-        pub data_policy_id: pulumi_wasm_rust::Output<String>,
+        pub data_policy_id: pulumi_gestalt_rust::Output<String>,
         /// The enrollment level of the service.
         /// Possible values are: `COLUMN_LEVEL_SECURITY_POLICY`, `DATA_MASKING_POLICY`.
         ///
         ///
         /// - - -
-        pub data_policy_type: pulumi_wasm_rust::Output<String>,
+        pub data_policy_type: pulumi_gestalt_rust::Output<String>,
         /// The name of the location of the data policy.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Resource name of this data policy, in the format of projects/{project_number}/locations/{locationId}/dataPolicies/{dataPolicyId}.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Policy tag resource name, in the format of projects/{project_number}/locations/{locationId}/taxonomies/{taxonomyId}/policyTags/{policyTag_id}.
-        pub policy_tag: pulumi_wasm_rust::Output<String>,
+        pub policy_tag: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DataPolicyArgs,
     ) -> DataPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let data_masking_policy_binding = args
             .data_masking_policy
@@ -249,23 +249,25 @@ pub mod data_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DataPolicyResult {
-            data_masking_policy: pulumi_wasm_rust::__private::into_domain(
+            data_masking_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataMaskingPolicy"),
             ),
-            data_policy_id: pulumi_wasm_rust::__private::into_domain(
+            data_policy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataPolicyId"),
             ),
-            data_policy_type: pulumi_wasm_rust::__private::into_domain(
+            data_policy_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataPolicyType"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            policy_tag: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            policy_tag: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyTag"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(o.extract_field("project")),
+            project: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("project"),
+            ),
         }
     }
 }

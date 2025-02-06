@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = configuration::create(
@@ -28,48 +28,48 @@
 /// $ pulumi import aws:msk/configuration:Configuration example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
 /// ```
 pub mod configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConfigurationArgs {
         /// Description of the configuration.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// List of Apache Kafka versions which can use this configuration.
         #[builder(into, default)]
-        pub kafka_versions: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub kafka_versions: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Name of the configuration.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
         #[builder(into)]
-        pub server_properties: pulumi_wasm_rust::InputOrOutput<String>,
+        pub server_properties: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ConfigurationResult {
         /// Amazon Resource Name (ARN) of the configuration.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Description of the configuration.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// List of Apache Kafka versions which can use this configuration.
-        pub kafka_versions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub kafka_versions: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Latest revision of the configuration.
-        pub latest_revision: pulumi_wasm_rust::Output<i32>,
+        pub latest_revision: pulumi_gestalt_rust::Output<i32>,
         /// Name of the configuration.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
-        pub server_properties: pulumi_wasm_rust::Output<String>,
+        pub server_properties: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConfigurationArgs,
     ) -> ConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let kafka_versions_binding = args.kafka_versions.get_output(context).get_inner();
@@ -103,18 +103,18 @@ pub mod configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            kafka_versions: pulumi_wasm_rust::__private::into_domain(
+            kafka_versions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kafkaVersions"),
             ),
-            latest_revision: pulumi_wasm_rust::__private::into_domain(
+            latest_revision: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("latestRevision"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            server_properties: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            server_properties: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverProperties"),
             ),
         }

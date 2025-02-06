@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = hostname_tls_setting::create(
@@ -26,46 +26,46 @@
 /// ```
 ///
 pub mod hostname_tls_setting {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostnameTlsSettingArgs {
         /// Hostname that belongs to this zone name. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub hostname: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hostname: pulumi_gestalt_rust::InputOrOutput<String>,
         /// TLS setting name. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub setting: pulumi_wasm_rust::InputOrOutput<String>,
+        pub setting: pulumi_gestalt_rust::InputOrOutput<String>,
         /// TLS setting value.
         #[builder(into)]
-        pub value: pulumi_wasm_rust::InputOrOutput<String>,
+        pub value: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HostnameTlsSettingResult {
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// Hostname that belongs to this zone name. **Modifying this attribute will force creation of a new resource.**
-        pub hostname: pulumi_wasm_rust::Output<String>,
+        pub hostname: pulumi_gestalt_rust::Output<String>,
         /// TLS setting name. **Modifying this attribute will force creation of a new resource.**
-        pub setting: pulumi_wasm_rust::Output<String>,
-        pub updated_at: pulumi_wasm_rust::Output<String>,
+        pub setting: pulumi_gestalt_rust::Output<String>,
+        pub updated_at: pulumi_gestalt_rust::Output<String>,
         /// TLS setting value.
-        pub value: pulumi_wasm_rust::Output<String>,
+        pub value: pulumi_gestalt_rust::Output<String>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HostnameTlsSettingArgs,
     ) -> HostnameTlsSettingResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let hostname_binding = args.hostname.get_output(context).get_inner();
         let setting_binding = args.setting.get_output(context).get_inner();
@@ -96,20 +96,22 @@ pub mod hostname_tls_setting {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HostnameTlsSettingResult {
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            hostname: pulumi_wasm_rust::__private::into_domain(
+            hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostname"),
             ),
-            setting: pulumi_wasm_rust::__private::into_domain(
+            setting: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("setting"),
             ),
-            updated_at: pulumi_wasm_rust::__private::into_domain(
+            updated_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updatedAt"),
             ),
-            value: pulumi_wasm_rust::__private::into_domain(o.extract_field("value")),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            value: pulumi_gestalt_rust::__private::into_domain(o.extract_field("value")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

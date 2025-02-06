@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = user::create(
@@ -26,66 +26,66 @@
 /// You cannot import this resource.
 ///
 pub mod user {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserArgs {
         /// The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub aws_account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The email address of the user that you want to register.
         #[builder(into)]
-        pub email: pulumi_wasm_rust::InputOrOutput<String>,
+        pub email: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ARN of the IAM user or role that you are registering with Amazon QuickSight.
         #[builder(into, default)]
-        pub iam_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub iam_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iam_arn` must also be specified.
         #[builder(into)]
-        pub identity_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub identity_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
         #[builder(into, default)]
-        pub namespace: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub namespace: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
         #[builder(into, default)]
-        pub session_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub session_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identity_type` set to `QUICKSIGHT`.
         #[builder(into, default)]
-        pub user_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
         #[builder(into)]
-        pub user_role: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_role: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserResult {
         /// Amazon Resource Name (ARN) of the user
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ID for the AWS account that the user is in. Currently, you use the ID for the AWS account that contains your Amazon QuickSight account.
-        pub aws_account_id: pulumi_wasm_rust::Output<String>,
+        pub aws_account_id: pulumi_gestalt_rust::Output<String>,
         /// The email address of the user that you want to register.
-        pub email: pulumi_wasm_rust::Output<String>,
+        pub email: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the IAM user or role that you are registering with Amazon QuickSight.
-        pub iam_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub iam_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iam_arn` must also be specified.
-        pub identity_type: pulumi_wasm_rust::Output<String>,
+        pub identity_type: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Quicksight namespace to create the user in. Defaults to `default`.
-        pub namespace: pulumi_wasm_rust::Output<Option<String>>,
+        pub namespace: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
-        pub session_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub session_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identity_type` set to `QUICKSIGHT`.
-        pub user_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO` or `ADMIN_PRO`.
-        pub user_role: pulumi_wasm_rust::Output<String>,
+        pub user_role: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserArgs,
     ) -> UserResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
         let email_binding = args.email.get_output(context).get_inner();
@@ -136,25 +136,27 @@ pub mod user {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            aws_account_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsAccountId"),
             ),
-            email: pulumi_wasm_rust::__private::into_domain(o.extract_field("email")),
-            iam_arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("iamArn")),
-            identity_type: pulumi_wasm_rust::__private::into_domain(
+            email: pulumi_gestalt_rust::__private::into_domain(o.extract_field("email")),
+            iam_arn: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("iamArn"),
+            ),
+            identity_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identityType"),
             ),
-            namespace: pulumi_wasm_rust::__private::into_domain(
+            namespace: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespace"),
             ),
-            session_name: pulumi_wasm_rust::__private::into_domain(
+            session_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sessionName"),
             ),
-            user_name: pulumi_wasm_rust::__private::into_domain(
+            user_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userName"),
             ),
-            user_role: pulumi_wasm_rust::__private::into_domain(
+            user_role: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userRole"),
             ),
         }

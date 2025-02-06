@@ -117,76 +117,76 @@
 /// ```
 ///
 pub mod time_series_database_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TimeSeriesDatabaseConnectionArgs {
         /// The ID of the Digital Twins. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub digital_twins_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub digital_twins_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
         #[builder(into, default)]
-        pub eventhub_consumer_group_name: pulumi_wasm_rust::InputOrOutput<
+        pub eventhub_consumer_group_name: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Name of the Event Hub. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub eventhub_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub eventhub_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// URI of the Event Hub Namespace. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub eventhub_namespace_endpoint_uri: pulumi_wasm_rust::InputOrOutput<String>,
+        pub eventhub_namespace_endpoint_uri: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Event Hub Namespace. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub eventhub_namespace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub eventhub_namespace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Kusto Cluster. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub kusto_cluster_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kusto_cluster_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// URI of the Kusto Cluster. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub kusto_cluster_uri: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kusto_cluster_uri: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the Kusto Database. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub kusto_database_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kusto_database_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub kusto_table_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kusto_table_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TimeSeriesDatabaseConnectionResult {
         /// The ID of the Digital Twins. Changing this forces a new resource to be created.
-        pub digital_twins_id: pulumi_wasm_rust::Output<String>,
+        pub digital_twins_id: pulumi_gestalt_rust::Output<String>,
         /// Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`.
-        pub eventhub_consumer_group_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub eventhub_consumer_group_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the Event Hub. Changing this forces a new resource to be created.
-        pub eventhub_name: pulumi_wasm_rust::Output<String>,
+        pub eventhub_name: pulumi_gestalt_rust::Output<String>,
         /// URI of the Event Hub Namespace. Changing this forces a new resource to be created.
-        pub eventhub_namespace_endpoint_uri: pulumi_wasm_rust::Output<String>,
+        pub eventhub_namespace_endpoint_uri: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Event Hub Namespace. Changing this forces a new resource to be created.
-        pub eventhub_namespace_id: pulumi_wasm_rust::Output<String>,
+        pub eventhub_namespace_id: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Kusto Cluster. Changing this forces a new resource to be created.
-        pub kusto_cluster_id: pulumi_wasm_rust::Output<String>,
+        pub kusto_cluster_id: pulumi_gestalt_rust::Output<String>,
         /// URI of the Kusto Cluster. Changing this forces a new resource to be created.
-        pub kusto_cluster_uri: pulumi_wasm_rust::Output<String>,
+        pub kusto_cluster_uri: pulumi_gestalt_rust::Output<String>,
         /// Name of the Kusto Database. Changing this forces a new resource to be created.
-        pub kusto_database_name: pulumi_wasm_rust::Output<String>,
+        pub kusto_database_name: pulumi_gestalt_rust::Output<String>,
         /// Name of the Kusto Table. Defaults to `AdtPropertyEvents`. Changing this forces a new resource to be created.
-        pub kusto_table_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub kusto_table_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TimeSeriesDatabaseConnectionArgs,
     ) -> TimeSeriesDatabaseConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let digital_twins_id_binding = args
             .digital_twins_id
@@ -272,34 +272,34 @@ pub mod time_series_database_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TimeSeriesDatabaseConnectionResult {
-            digital_twins_id: pulumi_wasm_rust::__private::into_domain(
+            digital_twins_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("digitalTwinsId"),
             ),
-            eventhub_consumer_group_name: pulumi_wasm_rust::__private::into_domain(
+            eventhub_consumer_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventhubConsumerGroupName"),
             ),
-            eventhub_name: pulumi_wasm_rust::__private::into_domain(
+            eventhub_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventhubName"),
             ),
-            eventhub_namespace_endpoint_uri: pulumi_wasm_rust::__private::into_domain(
+            eventhub_namespace_endpoint_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventhubNamespaceEndpointUri"),
             ),
-            eventhub_namespace_id: pulumi_wasm_rust::__private::into_domain(
+            eventhub_namespace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventhubNamespaceId"),
             ),
-            kusto_cluster_id: pulumi_wasm_rust::__private::into_domain(
+            kusto_cluster_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kustoClusterId"),
             ),
-            kusto_cluster_uri: pulumi_wasm_rust::__private::into_domain(
+            kusto_cluster_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kustoClusterUri"),
             ),
-            kusto_database_name: pulumi_wasm_rust::__private::into_domain(
+            kusto_database_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kustoDatabaseName"),
             ),
-            kusto_table_name: pulumi_wasm_rust::__private::into_domain(
+            kusto_table_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kustoTableName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

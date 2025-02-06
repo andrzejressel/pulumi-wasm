@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = trust_provider::create(
@@ -26,83 +26,85 @@
 /// $ pulumi import aws:verifiedaccess/trustProvider:TrustProvider example vatp-8012925589
 /// ```
 pub mod trust_provider {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TrustProviderArgs {
         /// A description for the AWS Verified Access trust provider.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A block of options for device identity based trust providers.
         #[builder(into, default)]
-        pub device_options: pulumi_wasm_rust::InputOrOutput<
+        pub device_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::verifiedaccess::TrustProviderDeviceOptions>,
         >,
         /// The type of device-based trust provider.
         #[builder(into, default)]
-        pub device_trust_provider_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub device_trust_provider_type: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The OpenID Connect details for an oidc-type, user-identity based trust provider.
         #[builder(into, default)]
-        pub oidc_options: pulumi_wasm_rust::InputOrOutput<
+        pub oidc_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::verifiedaccess::TrustProviderOidcOptions>,
         >,
         /// The identifier to be used when working with policy rules.
         #[builder(into)]
-        pub policy_reference_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_reference_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of trust provider can be either user or device-based.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub trust_provider_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub trust_provider_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of user-based trust provider.
         #[builder(into, default)]
-        pub user_trust_provider_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub user_trust_provider_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct TrustProviderResult {
         /// A description for the AWS Verified Access trust provider.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A block of options for device identity based trust providers.
-        pub device_options: pulumi_wasm_rust::Output<
+        pub device_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::verifiedaccess::TrustProviderDeviceOptions>,
         >,
         /// The type of device-based trust provider.
-        pub device_trust_provider_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub device_trust_provider_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The OpenID Connect details for an oidc-type, user-identity based trust provider.
-        pub oidc_options: pulumi_wasm_rust::Output<
+        pub oidc_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::verifiedaccess::TrustProviderOidcOptions>,
         >,
         /// The identifier to be used when working with policy rules.
-        pub policy_reference_name: pulumi_wasm_rust::Output<String>,
+        pub policy_reference_name: pulumi_gestalt_rust::Output<String>,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The type of trust provider can be either user or device-based.
         ///
         /// The following arguments are optional:
-        pub trust_provider_type: pulumi_wasm_rust::Output<String>,
+        pub trust_provider_type: pulumi_gestalt_rust::Output<String>,
         /// The type of user-based trust provider.
-        pub user_trust_provider_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub user_trust_provider_type: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TrustProviderArgs,
     ) -> TrustProviderResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let device_options_binding = args.device_options.get_output(context).get_inner();
@@ -165,29 +167,29 @@ pub mod trust_provider {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TrustProviderResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            device_options: pulumi_wasm_rust::__private::into_domain(
+            device_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deviceOptions"),
             ),
-            device_trust_provider_type: pulumi_wasm_rust::__private::into_domain(
+            device_trust_provider_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deviceTrustProviderType"),
             ),
-            oidc_options: pulumi_wasm_rust::__private::into_domain(
+            oidc_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("oidcOptions"),
             ),
-            policy_reference_name: pulumi_wasm_rust::__private::into_domain(
+            policy_reference_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyReferenceName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            trust_provider_type: pulumi_wasm_rust::__private::into_domain(
+            trust_provider_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("trustProviderType"),
             ),
-            user_trust_provider_type: pulumi_wasm_rust::__private::into_domain(
+            user_trust_provider_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userTrustProviderType"),
             ),
         }

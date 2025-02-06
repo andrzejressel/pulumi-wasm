@@ -153,172 +153,172 @@
 /// $ pulumi import aws:s3/bucketObject:BucketObject example s3://some-bucket-name/some/key.txt
 /// ```
 pub mod bucket_object {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct BucketObjectArgs {
         /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
         #[builder(into, default)]
-        pub acl: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub acl: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         #[builder(into)]
-        pub bucket: pulumi_wasm_rust::InputOrOutput<String>,
+        pub bucket: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
         #[builder(into, default)]
-        pub bucket_key_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub bucket_key_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         #[builder(into, default)]
-        pub cache_control: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub cache_control: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
         #[builder(into, default)]
-        pub content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
         #[builder(into, default)]
-        pub content_base64: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_base64: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         #[builder(into, default)]
-        pub content_disposition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_disposition: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
         #[builder(into, default)]
-        pub content_encoding: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_encoding: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Language the content is in e.g., en-US or en-GB.
         #[builder(into, default)]
-        pub content_language: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_language: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         #[builder(into, default)]
-        pub content_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         #[builder(into, default)]
-        pub etag: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub etag: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Name of the object once it is in the bucket.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
         #[builder(into, default)]
-        pub kms_key_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
         #[builder(into, default)]
-        pub object_lock_legal_hold_status: pulumi_wasm_rust::InputOrOutput<
+        pub object_lock_legal_hold_status: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         #[builder(into, default)]
-        pub object_lock_mode: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub object_lock_mode: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         #[builder(into, default)]
-        pub object_lock_retain_until_date: pulumi_wasm_rust::InputOrOutput<
+        pub object_lock_retain_until_date: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         #[builder(into, default)]
-        pub server_side_encryption: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub server_side_encryption: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Path to a file that will be read and uploaded as raw bytes for the object content.
         #[builder(into, default)]
-        pub source: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Triggers updates like `etag` but useful to address `etag` encryption limitations.
         #[builder(into, default)]
-        pub source_hash: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub source_hash: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
         #[builder(into, default)]
-        pub storage_class: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_class: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         ///
         /// If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
         #[builder(into, default)]
-        pub website_redirect: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub website_redirect: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct BucketObjectResult {
         /// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
-        pub acl: pulumi_wasm_rust::Output<Option<String>>,
+        pub acl: pulumi_gestalt_rust::Output<Option<String>>,
         /// ARN of the object.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
-        pub bucket: pulumi_wasm_rust::Output<String>,
+        pub bucket: pulumi_gestalt_rust::Output<String>,
         /// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
-        pub bucket_key_enabled: pulumi_wasm_rust::Output<bool>,
+        pub bucket_key_enabled: pulumi_gestalt_rust::Output<bool>,
         /// Caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
-        pub cache_control: pulumi_wasm_rust::Output<Option<String>>,
+        pub cache_control: pulumi_gestalt_rust::Output<Option<String>>,
         /// Literal string value to use as the object content, which will be uploaded as UTF-8-encoded text.
-        pub content: pulumi_wasm_rust::Output<Option<String>>,
+        pub content: pulumi_gestalt_rust::Output<Option<String>>,
         /// Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
-        pub content_base64: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_base64: pulumi_gestalt_rust::Output<Option<String>>,
         /// Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
-        pub content_disposition: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_disposition: pulumi_gestalt_rust::Output<Option<String>>,
         /// Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
-        pub content_encoding: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_encoding: pulumi_gestalt_rust::Output<Option<String>>,
         /// Language the content is in e.g., en-US or en-GB.
-        pub content_language: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_language: pulumi_gestalt_rust::Output<Option<String>>,
         /// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
-        pub content_type: pulumi_wasm_rust::Output<String>,
+        pub content_type: pulumi_gestalt_rust::Output<String>,
         /// Triggers updates when the value changes. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Name of the object once it is in the bucket.
         ///
         /// The following arguments are optional:
-        pub key: pulumi_wasm_rust::Output<String>,
+        pub key: pulumi_gestalt_rust::Output<String>,
         /// ARN of the KMS Key to use for object encryption. If the S3 Bucket has server-side encryption enabled, that value will automatically be used. If referencing the `aws.kms.Key` resource, use the `arn` attribute. If referencing the `aws.kms.Alias` data source or resource, use the `target_key_arn` attribute. The provider will only perform drift detection if a configuration value is provided.
-        pub kms_key_id: pulumi_wasm_rust::Output<String>,
+        pub kms_key_id: pulumi_gestalt_rust::Output<String>,
         /// Map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
-        pub metadata: pulumi_wasm_rust::Output<
+        pub metadata: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// [Legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
-        pub object_lock_legal_hold_status: pulumi_wasm_rust::Output<Option<String>>,
+        pub object_lock_legal_hold_status: pulumi_gestalt_rust::Output<Option<String>>,
         /// Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
-        pub object_lock_mode: pulumi_wasm_rust::Output<Option<String>>,
+        pub object_lock_mode: pulumi_gestalt_rust::Output<Option<String>>,
         /// Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
-        pub object_lock_retain_until_date: pulumi_wasm_rust::Output<Option<String>>,
+        pub object_lock_retain_until_date: pulumi_gestalt_rust::Output<Option<String>>,
         /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
-        pub server_side_encryption: pulumi_wasm_rust::Output<String>,
+        pub server_side_encryption: pulumi_gestalt_rust::Output<String>,
         /// Path to a file that will be read and uploaded as raw bytes for the object content.
-        pub source: pulumi_wasm_rust::Output<Option<String>>,
+        pub source: pulumi_gestalt_rust::Output<Option<String>>,
         /// Triggers updates like `etag` but useful to address `etag` encryption limitations.
-        pub source_hash: pulumi_wasm_rust::Output<Option<String>>,
+        pub source_hash: pulumi_gestalt_rust::Output<Option<String>>,
         /// [Storage Class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html#AmazonS3-PutObject-request-header-StorageClass) for the object. Defaults to "`STANDARD`".
-        pub storage_class: pulumi_wasm_rust::Output<String>,
+        pub storage_class: pulumi_gestalt_rust::Output<String>,
         /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Unique version ID value for the object, if bucket versioning is enabled.
-        pub version_id: pulumi_wasm_rust::Output<String>,
+        pub version_id: pulumi_gestalt_rust::Output<String>,
         /// Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         ///
         /// If no content is provided through `source`, `content` or `content_base64`, then the object will be empty.
-        pub website_redirect: pulumi_wasm_rust::Output<Option<String>>,
+        pub website_redirect: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: BucketObjectArgs,
     ) -> BucketObjectResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let acl_binding = args.acl.get_output(context).get_inner();
         let bucket_binding = args.bucket.get_output(context).get_inner();
@@ -476,71 +476,75 @@ pub mod bucket_object {
         };
         let o = register_interface::register(context.get_inner(), &request);
         BucketObjectResult {
-            acl: pulumi_wasm_rust::__private::into_domain(o.extract_field("acl")),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            bucket: pulumi_wasm_rust::__private::into_domain(o.extract_field("bucket")),
-            bucket_key_enabled: pulumi_wasm_rust::__private::into_domain(
+            acl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("acl")),
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            bucket: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("bucket"),
+            ),
+            bucket_key_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("bucketKeyEnabled"),
             ),
-            cache_control: pulumi_wasm_rust::__private::into_domain(
+            cache_control: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cacheControl"),
             ),
-            content: pulumi_wasm_rust::__private::into_domain(
+            content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("content"),
             ),
-            content_base64: pulumi_wasm_rust::__private::into_domain(
+            content_base64: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentBase64"),
             ),
-            content_disposition: pulumi_wasm_rust::__private::into_domain(
+            content_disposition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentDisposition"),
             ),
-            content_encoding: pulumi_wasm_rust::__private::into_domain(
+            content_encoding: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentEncoding"),
             ),
-            content_language: pulumi_wasm_rust::__private::into_domain(
+            content_language: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentLanguage"),
             ),
-            content_type: pulumi_wasm_rust::__private::into_domain(
+            content_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentType"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            force_destroy: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            force_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDestroy"),
             ),
-            key: pulumi_wasm_rust::__private::into_domain(o.extract_field("key")),
-            kms_key_id: pulumi_wasm_rust::__private::into_domain(
+            key: pulumi_gestalt_rust::__private::into_domain(o.extract_field("key")),
+            kms_key_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyId"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            object_lock_legal_hold_status: pulumi_wasm_rust::__private::into_domain(
+            object_lock_legal_hold_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("objectLockLegalHoldStatus"),
             ),
-            object_lock_mode: pulumi_wasm_rust::__private::into_domain(
+            object_lock_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("objectLockMode"),
             ),
-            object_lock_retain_until_date: pulumi_wasm_rust::__private::into_domain(
+            object_lock_retain_until_date: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("objectLockRetainUntilDate"),
             ),
-            server_side_encryption: pulumi_wasm_rust::__private::into_domain(
+            server_side_encryption: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverSideEncryption"),
             ),
-            source: pulumi_wasm_rust::__private::into_domain(o.extract_field("source")),
-            source_hash: pulumi_wasm_rust::__private::into_domain(
+            source: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("source"),
+            ),
+            source_hash: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceHash"),
             ),
-            storage_class: pulumi_wasm_rust::__private::into_domain(
+            storage_class: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageClass"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            version_id: pulumi_wasm_rust::__private::into_domain(
+            version_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("versionId"),
             ),
-            website_redirect: pulumi_wasm_rust::__private::into_domain(
+            website_redirect: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("websiteRedirect"),
             ),
         }

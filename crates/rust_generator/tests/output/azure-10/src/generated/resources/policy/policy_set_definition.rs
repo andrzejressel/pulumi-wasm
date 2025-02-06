@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = policy_set_definition::create(
@@ -46,31 +46,31 @@
 /// ```
 ///
 pub mod policy_set_definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicySetDefinitionArgs {
         /// The description of the policy set definition.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The display name of the policy set definition.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub management_group_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub management_group_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the policy set definition. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// One or more `policy_definition_group` blocks as defined below.
         #[builder(into, default)]
-        pub policy_definition_groups: pulumi_wasm_rust::InputOrOutput<
+        pub policy_definition_groups: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 Vec<
                     super::super::types::policy::PolicySetDefinitionPolicyDefinitionGroup,
@@ -79,31 +79,31 @@ pub mod policy_set_definition {
         >,
         /// One or more `policy_definition_reference` blocks as defined below.
         #[builder(into)]
-        pub policy_definition_references: pulumi_wasm_rust::InputOrOutput<
+        pub policy_definition_references: pulumi_gestalt_rust::InputOrOutput<
             Vec<
                 super::super::types::policy::PolicySetDefinitionPolicyDefinitionReference,
             >,
         >,
         /// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub policy_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_type: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct PolicySetDefinitionResult {
         /// The description of the policy set definition.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The display name of the policy set definition.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created.
-        pub management_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub management_group_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition.
-        pub metadata: pulumi_wasm_rust::Output<String>,
+        pub metadata: pulumi_gestalt_rust::Output<String>,
         /// The name of the policy set definition. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
-        pub parameters: pulumi_wasm_rust::Output<Option<String>>,
+        pub parameters: pulumi_gestalt_rust::Output<Option<String>>,
         /// One or more `policy_definition_group` blocks as defined below.
-        pub policy_definition_groups: pulumi_wasm_rust::Output<
+        pub policy_definition_groups: pulumi_gestalt_rust::Output<
             Option<
                 Vec<
                     super::super::types::policy::PolicySetDefinitionPolicyDefinitionGroup,
@@ -111,24 +111,24 @@ pub mod policy_set_definition {
             >,
         >,
         /// One or more `policy_definition_reference` blocks as defined below.
-        pub policy_definition_references: pulumi_wasm_rust::Output<
+        pub policy_definition_references: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::policy::PolicySetDefinitionPolicyDefinitionReference,
             >,
         >,
         /// The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
-        pub policy_type: pulumi_wasm_rust::Output<String>,
+        pub policy_type: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicySetDefinitionArgs,
     ) -> PolicySetDefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -193,29 +193,29 @@ pub mod policy_set_definition {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicySetDefinitionResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            management_group_id: pulumi_wasm_rust::__private::into_domain(
+            management_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managementGroupId"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            policy_definition_groups: pulumi_wasm_rust::__private::into_domain(
+            policy_definition_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyDefinitionGroups"),
             ),
-            policy_definition_references: pulumi_wasm_rust::__private::into_domain(
+            policy_definition_references: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyDefinitionReferences"),
             ),
-            policy_type: pulumi_wasm_rust::__private::into_domain(
+            policy_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyType"),
             ),
         }

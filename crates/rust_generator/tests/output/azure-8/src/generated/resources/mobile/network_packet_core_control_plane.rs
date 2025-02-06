@@ -68,133 +68,141 @@
 /// ```
 ///
 pub mod network_packet_core_control_plane {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkPacketCoreControlPlaneArgs {
         /// The IPv4 address for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         #[builder(into, default)]
-        pub control_plane_access_ipv4_address: pulumi_wasm_rust::InputOrOutput<
+        pub control_plane_access_ipv4_address: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The default IPv4 gateway for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         #[builder(into, default)]
-        pub control_plane_access_ipv4_gateway: pulumi_wasm_rust::InputOrOutput<
+        pub control_plane_access_ipv4_gateway: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The IPv4 subnet for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         #[builder(into, default)]
-        pub control_plane_access_ipv4_subnet: pulumi_wasm_rust::InputOrOutput<
+        pub control_plane_access_ipv4_subnet: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// Specifies the logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         #[builder(into, default)]
-        pub control_plane_access_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub control_plane_access_name: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// The core network technology generation. Possible values are `5GC` and `EPC`.
         #[builder(into, default)]
-        pub core_network_technology: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub core_network_technology: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mobile::NetworkPacketCoreControlPlaneIdentity>,
         >,
         /// Settings in JSON format to allow interoperability with third party components e.g. RANs and UEs.
         #[builder(into, default)]
-        pub interoperability_settings_json: pulumi_wasm_rust::InputOrOutput<
+        pub interoperability_settings_json: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
         #[builder(into)]
-        pub local_diagnostics_access: pulumi_wasm_rust::InputOrOutput<
+        pub local_diagnostics_access: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::mobile::NetworkPacketCoreControlPlaneLocalDiagnosticsAccess,
         >,
         /// Specifies the Azure Region where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies The name of the Mobile Network Packet Core Control Plane. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `platform` block as defined below.
         #[builder(into, default)]
-        pub platform: pulumi_wasm_rust::InputOrOutput<
+        pub platform: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::mobile::NetworkPacketCoreControlPlanePlatform>,
         >,
         /// Specifies the name of the Resource Group where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
         #[builder(into)]
-        pub site_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub site_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The SKU defining the throughput and SIM allowances for this packet core control plane deployment. Possible values are `G0`, `G1`, `G2`, `G3`, `G4`, `G5` and `G10`.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the version of the packet core software that is deployed.
         #[builder(into, default)]
-        pub software_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub software_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags which should be assigned to the Mobile Network Packet Core Control Plane.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the MTU in bytes that can be sent to the user equipment. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link will be 60 bytes greater than this value to allow for GTP encapsulation.
         #[builder(into, default)]
-        pub user_equipment_mtu_in_bytes: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub user_equipment_mtu_in_bytes: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
     }
     #[allow(dead_code)]
     pub struct NetworkPacketCoreControlPlaneResult {
         /// The IPv4 address for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
-        pub control_plane_access_ipv4_address: pulumi_wasm_rust::Output<Option<String>>,
+        pub control_plane_access_ipv4_address: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// The default IPv4 gateway for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
-        pub control_plane_access_ipv4_gateway: pulumi_wasm_rust::Output<Option<String>>,
+        pub control_plane_access_ipv4_gateway: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// The IPv4 subnet for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
-        pub control_plane_access_ipv4_subnet: pulumi_wasm_rust::Output<Option<String>>,
+        pub control_plane_access_ipv4_subnet: pulumi_gestalt_rust::Output<
+            Option<String>,
+        >,
         /// Specifies the logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
-        pub control_plane_access_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub control_plane_access_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The core network technology generation. Possible values are `5GC` and `EPC`.
-        pub core_network_technology: pulumi_wasm_rust::Output<Option<String>>,
+        pub core_network_technology: pulumi_gestalt_rust::Output<Option<String>>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::mobile::NetworkPacketCoreControlPlaneIdentity>,
         >,
         /// Settings in JSON format to allow interoperability with third party components e.g. RANs and UEs.
-        pub interoperability_settings_json: pulumi_wasm_rust::Output<Option<String>>,
+        pub interoperability_settings_json: pulumi_gestalt_rust::Output<Option<String>>,
         /// One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
-        pub local_diagnostics_access: pulumi_wasm_rust::Output<
+        pub local_diagnostics_access: pulumi_gestalt_rust::Output<
             super::super::types::mobile::NetworkPacketCoreControlPlaneLocalDiagnosticsAccess,
         >,
         /// Specifies the Azure Region where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies The name of the Mobile Network Packet Core Control Plane. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `platform` block as defined below.
-        pub platform: pulumi_wasm_rust::Output<
+        pub platform: pulumi_gestalt_rust::Output<
             Option<super::super::types::mobile::NetworkPacketCoreControlPlanePlatform>,
         >,
         /// Specifies the name of the Resource Group where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
-        pub site_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub site_ids: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The SKU defining the throughput and SIM allowances for this packet core control plane deployment. Possible values are `G0`, `G1`, `G2`, `G3`, `G4`, `G5` and `G10`.
-        pub sku: pulumi_wasm_rust::Output<String>,
+        pub sku: pulumi_gestalt_rust::Output<String>,
         /// Specifies the version of the packet core software that is deployed.
-        pub software_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub software_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags which should be assigned to the Mobile Network Packet Core Control Plane.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the MTU in bytes that can be sent to the user equipment. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link will be 60 bytes greater than this value to allow for GTP encapsulation.
-        pub user_equipment_mtu_in_bytes: pulumi_wasm_rust::Output<Option<i32>>,
+        pub user_equipment_mtu_in_bytes: pulumi_gestalt_rust::Output<Option<i32>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkPacketCoreControlPlaneArgs,
     ) -> NetworkPacketCoreControlPlaneResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let control_plane_access_ipv4_address_binding = args
             .control_plane_access_ipv4_address
@@ -321,49 +329,49 @@ pub mod network_packet_core_control_plane {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkPacketCoreControlPlaneResult {
-            control_plane_access_ipv4_address: pulumi_wasm_rust::__private::into_domain(
+            control_plane_access_ipv4_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("controlPlaneAccessIpv4Address"),
             ),
-            control_plane_access_ipv4_gateway: pulumi_wasm_rust::__private::into_domain(
+            control_plane_access_ipv4_gateway: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("controlPlaneAccessIpv4Gateway"),
             ),
-            control_plane_access_ipv4_subnet: pulumi_wasm_rust::__private::into_domain(
+            control_plane_access_ipv4_subnet: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("controlPlaneAccessIpv4Subnet"),
             ),
-            control_plane_access_name: pulumi_wasm_rust::__private::into_domain(
+            control_plane_access_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("controlPlaneAccessName"),
             ),
-            core_network_technology: pulumi_wasm_rust::__private::into_domain(
+            core_network_technology: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coreNetworkTechnology"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            interoperability_settings_json: pulumi_wasm_rust::__private::into_domain(
+            interoperability_settings_json: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("interoperabilitySettingsJson"),
             ),
-            local_diagnostics_access: pulumi_wasm_rust::__private::into_domain(
+            local_diagnostics_access: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localDiagnosticsAccess"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            platform: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            platform: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("platform"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            site_ids: pulumi_wasm_rust::__private::into_domain(
+            site_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("siteIds"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            software_version: pulumi_wasm_rust::__private::into_domain(
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            software_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("softwareVersion"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            user_equipment_mtu_in_bytes: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            user_equipment_mtu_in_bytes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userEquipmentMtuInBytes"),
             ),
         }

@@ -1,34 +1,34 @@
 pub mod get_load_balancer_pools {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetLoadBalancerPoolsArgs {
         /// The account identifier to target for the datasource lookups.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more values used to look up Load Balancer pools. If more than one value is given all values must match in order to be included.
         #[builder(into, default)]
-        pub filter: pulumi_wasm_rust::InputOrOutput<
+        pub filter: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::GetLoadBalancerPoolsFilter>,
         >,
         /// A list of Load Balancer Pools details.
         #[builder(into, default)]
-        pub pools: pulumi_wasm_rust::InputOrOutput<
+        pub pools: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::GetLoadBalancerPoolsPool>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GetLoadBalancerPoolsResult {
         /// The account identifier to target for the datasource lookups.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// One or more values used to look up Load Balancer pools. If more than one value is given all values must match in order to be included.
-        pub filter: pulumi_wasm_rust::Output<
+        pub filter: pulumi_gestalt_rust::Output<
             Option<super::super::types::GetLoadBalancerPoolsFilter>,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// A list of Load Balancer Pools details.
-        pub pools: pulumi_wasm_rust::Output<
+        pub pools: pulumi_gestalt_rust::Output<
             Vec<super::super::types::GetLoadBalancerPoolsPool>,
         >,
     }
@@ -37,10 +37,10 @@ pub mod get_load_balancer_pools {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetLoadBalancerPoolsArgs,
     ) -> GetLoadBalancerPoolsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let filter_binding = args.filter.get_output(context).get_inner();
@@ -65,12 +65,14 @@ pub mod get_load_balancer_pools {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetLoadBalancerPoolsResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            filter: pulumi_wasm_rust::__private::into_domain(o.extract_field("filter")),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            pools: pulumi_wasm_rust::__private::into_domain(o.extract_field("pools")),
+            filter: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("filter"),
+            ),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            pools: pulumi_gestalt_rust::__private::into_domain(o.extract_field("pools")),
         }
     }
 }

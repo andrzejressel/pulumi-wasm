@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = app::create("example", AppArgs::builder().name("app").build_struct());
@@ -34,43 +34,43 @@
 /// $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
 /// ```
 pub mod webhook {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WebhookArgs {
         /// Unique ID for an Amplify app.
         #[builder(into)]
-        pub app_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub app_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name for a branch that is part of the Amplify app.
         #[builder(into)]
-        pub branch_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub branch_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description for a webhook.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct WebhookResult {
         /// Unique ID for an Amplify app.
-        pub app_id: pulumi_wasm_rust::Output<String>,
+        pub app_id: pulumi_gestalt_rust::Output<String>,
         /// ARN for the webhook.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Name for a branch that is part of the Amplify app.
-        pub branch_name: pulumi_wasm_rust::Output<String>,
+        pub branch_name: pulumi_gestalt_rust::Output<String>,
         /// Description for a webhook.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// URL of the webhook.
-        pub url: pulumi_wasm_rust::Output<String>,
+        pub url: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WebhookArgs,
     ) -> WebhookResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let app_id_binding = args.app_id.get_output(context).get_inner();
         let branch_name_binding = args.branch_name.get_output(context).get_inner();
@@ -96,15 +96,17 @@ pub mod webhook {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WebhookResult {
-            app_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("appId")),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            branch_name: pulumi_wasm_rust::__private::into_domain(
+            app_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("appId"),
+            ),
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            branch_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("branchName"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            url: pulumi_wasm_rust::__private::into_domain(o.extract_field("url")),
+            url: pulumi_gestalt_rust::__private::into_domain(o.extract_field("url")),
         }
     }
 }

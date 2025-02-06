@@ -58,71 +58,71 @@
 /// ```
 ///
 pub mod private_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PrivateConnectionArgs {
         /// Display name.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Labels. **Note**: This field is non-authoritative, and will only manage the labels present in your configuration. Please
         /// refer to the field 'effective_labels' for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the location this private connection is located in.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The private connectivity identifier.
         #[builder(into)]
-        pub private_connection_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub private_connection_id: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The VPC Peering configuration is used to create VPC peering
         /// between databasemigrationservice and the consumer's VPC.
         /// Structure is documented below.
         #[builder(into)]
-        pub vpc_peering_config: pulumi_wasm_rust::InputOrOutput<
+        pub vpc_peering_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::databasemigrationservice::PrivateConnectionVpcPeeringConfig,
         >,
     }
     #[allow(dead_code)]
     pub struct PrivateConnectionResult {
         /// Display name.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The PrivateConnection error in case of failure.
         /// Structure is documented below.
-        pub errors: pulumi_wasm_rust::Output<
+        pub errors: pulumi_gestalt_rust::Output<
             Vec<super::super::types::databasemigrationservice::PrivateConnectionError>,
         >,
         /// Labels. **Note**: This field is non-authoritative, and will only manage the labels present in your configuration. Please
         /// refer to the field 'effective_labels' for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The name of the location this private connection is located in.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource's name.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The private connectivity identifier.
-        pub private_connection_id: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub private_connection_id: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// State of the PrivateConnection.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The VPC Peering configuration is used to create VPC peering
         /// between databasemigrationservice and the consumer's VPC.
         /// Structure is documented below.
-        pub vpc_peering_config: pulumi_wasm_rust::Output<
+        pub vpc_peering_config: pulumi_gestalt_rust::Output<
             super::super::types::databasemigrationservice::PrivateConnectionVpcPeeringConfig,
         >,
     }
@@ -131,11 +131,11 @@ pub mod private_connection {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PrivateConnectionArgs,
     ) -> PrivateConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let display_name_binding = args.display_name.get_output(context).get_inner();
         let labels_binding = args.labels.get_output(context).get_inner();
@@ -183,29 +183,33 @@ pub mod private_connection {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PrivateConnectionResult {
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            errors: pulumi_wasm_rust::__private::into_domain(o.extract_field("errors")),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            location: pulumi_wasm_rust::__private::into_domain(
+            errors: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("errors"),
+            ),
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            private_connection_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            private_connection_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateConnectionId"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            vpc_peering_config: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            vpc_peering_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vpcPeeringConfig"),
             ),
         }

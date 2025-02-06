@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let policy = definition::create(
@@ -43,75 +43,75 @@
 /// ```
 ///
 pub mod definition {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DefinitionArgs {
         /// The description of the policy definition.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The display name of the policy definition.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub management_group_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub management_group_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
         #[builder(into, default)]
-        pub metadata: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub metadata: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
         ///
         /// > **Note:** Other resource provider modes only support built-in policy definitions but may later become available in custom definitions, these include; `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`. [See here](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure#resource-provider-modes) for more details.
         #[builder(into)]
-        pub mode: pulumi_wasm_rust::InputOrOutput<String>,
+        pub mode: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the policy definition. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
         #[builder(into, default)]
-        pub parameters: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parameters: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
         #[builder(into, default)]
-        pub policy_rule: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub policy_rule: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub policy_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub policy_type: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct DefinitionResult {
         /// The description of the policy definition.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The display name of the policy definition.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
-        pub management_group_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub management_group_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The metadata for the policy definition. This is a JSON string representing additional metadata that should be stored with the policy definition.
-        pub metadata: pulumi_wasm_rust::Output<String>,
+        pub metadata: pulumi_gestalt_rust::Output<String>,
         /// The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
         ///
         /// > **Note:** Other resource provider modes only support built-in policy definitions but may later become available in custom definitions, these include; `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`. [See here](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure#resource-provider-modes) for more details.
-        pub mode: pulumi_wasm_rust::Output<String>,
+        pub mode: pulumi_gestalt_rust::Output<String>,
         /// The name of the policy definition. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
-        pub parameters: pulumi_wasm_rust::Output<Option<String>>,
+        pub parameters: pulumi_gestalt_rust::Output<Option<String>>,
         /// The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
-        pub policy_rule: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_rule: pulumi_gestalt_rust::Output<Option<String>>,
         /// The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
-        pub policy_type: pulumi_wasm_rust::Output<String>,
+        pub policy_type: pulumi_gestalt_rust::Output<String>,
         /// A list of role definition id extracted from `policy_rule` required for remediation.
-        pub role_definition_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub role_definition_ids: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DefinitionArgs,
     ) -> DefinitionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -170,30 +170,30 @@ pub mod definition {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DefinitionResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            management_group_id: pulumi_wasm_rust::__private::into_domain(
+            management_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managementGroupId"),
             ),
-            metadata: pulumi_wasm_rust::__private::into_domain(
+            metadata: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("metadata"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parameters: pulumi_wasm_rust::__private::into_domain(
+            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parameters"),
             ),
-            policy_rule: pulumi_wasm_rust::__private::into_domain(
+            policy_rule: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyRule"),
             ),
-            policy_type: pulumi_wasm_rust::__private::into_domain(
+            policy_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyType"),
             ),
-            role_definition_ids: pulumi_wasm_rust::__private::into_domain(
+            role_definition_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleDefinitionIds"),
             ),
         }

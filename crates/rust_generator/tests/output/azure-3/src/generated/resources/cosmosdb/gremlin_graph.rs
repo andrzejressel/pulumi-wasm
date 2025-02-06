@@ -55,94 +55,94 @@
 /// ```
 ///
 pub mod gremlin_graph {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GremlinGraphArgs {
         /// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
         ///
         /// > **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
         #[builder(into, default)]
-        pub analytical_storage_ttl: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub analytical_storage_ttl: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         #[builder(into, default)]
-        pub autoscale_settings: pulumi_wasm_rust::InputOrOutput<
+        pub autoscale_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cosmosdb::GremlinGraphAutoscaleSettings>,
         >,
         /// A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub conflict_resolution_policy: pulumi_wasm_rust::InputOrOutput<
+        pub conflict_resolution_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cosmosdb::GremlinGraphConflictResolutionPolicy>,
         >,
         /// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub database_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub database_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
         #[builder(into, default)]
-        pub default_ttl: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub default_ttl: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
         #[builder(into, default)]
-        pub index_policy: pulumi_wasm_rust::InputOrOutput<
+        pub index_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cosmosdb::GremlinGraphIndexPolicy>,
         >,
         /// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Define a partition key. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub partition_key_path: pulumi_wasm_rust::InputOrOutput<String>,
+        pub partition_key_path: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         #[builder(into, default)]
-        pub partition_key_version: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub partition_key_version: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
         #[builder(into, default)]
-        pub throughput: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub throughput: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub unique_keys: pulumi_wasm_rust::InputOrOutput<
+        pub unique_keys: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::cosmosdb::GremlinGraphUniqueKey>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GremlinGraphResult {
         /// The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created.
-        pub account_name: pulumi_wasm_rust::Output<String>,
+        pub account_name: pulumi_gestalt_rust::Output<String>,
         /// The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire.
         ///
         /// > **Note:** Disabling `analytical_storage_ttl` will force a new resource to be created since it can't be disabled once it's enabled.
-        pub analytical_storage_ttl: pulumi_wasm_rust::Output<Option<i32>>,
-        pub autoscale_settings: pulumi_wasm_rust::Output<
+        pub analytical_storage_ttl: pulumi_gestalt_rust::Output<Option<i32>>,
+        pub autoscale_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::cosmosdb::GremlinGraphAutoscaleSettings>,
         >,
         /// A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
-        pub conflict_resolution_policy: pulumi_wasm_rust::Output<
+        pub conflict_resolution_policy: pulumi_gestalt_rust::Output<
             super::super::types::cosmosdb::GremlinGraphConflictResolutionPolicy,
         >,
         /// The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
-        pub database_name: pulumi_wasm_rust::Output<String>,
+        pub database_name: pulumi_gestalt_rust::Output<String>,
         /// The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
-        pub default_ttl: pulumi_wasm_rust::Output<Option<i32>>,
+        pub default_ttl: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
-        pub index_policy: pulumi_wasm_rust::Output<
+        pub index_policy: pulumi_gestalt_rust::Output<
             super::super::types::cosmosdb::GremlinGraphIndexPolicy,
         >,
         /// Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Define a partition key. Changing this forces a new resource to be created.
-        pub partition_key_path: pulumi_wasm_rust::Output<String>,
+        pub partition_key_path: pulumi_gestalt_rust::Output<String>,
         /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
-        pub partition_key_version: pulumi_wasm_rust::Output<Option<i32>>,
+        pub partition_key_version: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
-        pub throughput: pulumi_wasm_rust::Output<i32>,
+        pub throughput: pulumi_gestalt_rust::Output<i32>,
         /// One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
-        pub unique_keys: pulumi_wasm_rust::Output<
+        pub unique_keys: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::cosmosdb::GremlinGraphUniqueKey>>,
         >,
     }
@@ -151,11 +151,11 @@ pub mod gremlin_graph {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GremlinGraphArgs,
     ) -> GremlinGraphResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_name_binding = args.account_name.get_output(context).get_inner();
         let analytical_storage_ttl_binding = args
@@ -249,41 +249,41 @@ pub mod gremlin_graph {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GremlinGraphResult {
-            account_name: pulumi_wasm_rust::__private::into_domain(
+            account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountName"),
             ),
-            analytical_storage_ttl: pulumi_wasm_rust::__private::into_domain(
+            analytical_storage_ttl: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("analyticalStorageTtl"),
             ),
-            autoscale_settings: pulumi_wasm_rust::__private::into_domain(
+            autoscale_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoscaleSettings"),
             ),
-            conflict_resolution_policy: pulumi_wasm_rust::__private::into_domain(
+            conflict_resolution_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("conflictResolutionPolicy"),
             ),
-            database_name: pulumi_wasm_rust::__private::into_domain(
+            database_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("databaseName"),
             ),
-            default_ttl: pulumi_wasm_rust::__private::into_domain(
+            default_ttl: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultTtl"),
             ),
-            index_policy: pulumi_wasm_rust::__private::into_domain(
+            index_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("indexPolicy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            partition_key_path: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            partition_key_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partitionKeyPath"),
             ),
-            partition_key_version: pulumi_wasm_rust::__private::into_domain(
+            partition_key_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partitionKeyVersion"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            throughput: pulumi_wasm_rust::__private::into_domain(
+            throughput: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("throughput"),
             ),
-            unique_keys: pulumi_wasm_rust::__private::into_domain(
+            unique_keys: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("uniqueKeys"),
             ),
         }

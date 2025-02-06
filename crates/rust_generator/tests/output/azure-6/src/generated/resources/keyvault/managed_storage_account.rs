@@ -143,54 +143,56 @@
 /// ```
 ///
 pub mod managed_storage_account {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ManagedStorageAccountArgs {
         /// The ID of the Key Vault where the Managed Storage Account should be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub key_vault_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub key_vault_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Should Storage Account access key be regenerated periodically?
         ///
         /// > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
         #[builder(into, default)]
-        pub regenerate_key_automatically: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub regenerate_key_automatically: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         #[builder(into, default)]
-        pub regeneration_period: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub regeneration_period: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Storage Account.
         #[builder(into)]
-        pub storage_account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
         #[builder(into)]
-        pub storage_account_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_account_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ManagedStorageAccountResult {
         /// The ID of the Key Vault where the Managed Storage Account should be created. Changing this forces a new resource to be created.
-        pub key_vault_id: pulumi_wasm_rust::Output<String>,
+        pub key_vault_id: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Should Storage Account access key be regenerated periodically?
         ///
         /// > **NOTE:** Azure Key Vault application needs to have access to Storage Account for auto regeneration to work. Example can be found above.
-        pub regenerate_key_automatically: pulumi_wasm_rust::Output<Option<bool>>,
+        pub regenerate_key_automatically: pulumi_gestalt_rust::Output<Option<bool>>,
         /// How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
-        pub regeneration_period: pulumi_wasm_rust::Output<Option<String>>,
+        pub regeneration_period: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the Storage Account.
-        pub storage_account_id: pulumi_wasm_rust::Output<String>,
+        pub storage_account_id: pulumi_gestalt_rust::Output<String>,
         /// Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`.
-        pub storage_account_key: pulumi_wasm_rust::Output<String>,
+        pub storage_account_key: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -199,11 +201,11 @@ pub mod managed_storage_account {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ManagedStorageAccountArgs,
     ) -> ManagedStorageAccountResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let key_vault_id_binding = args.key_vault_id.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -261,23 +263,23 @@ pub mod managed_storage_account {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ManagedStorageAccountResult {
-            key_vault_id: pulumi_wasm_rust::__private::into_domain(
+            key_vault_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("keyVaultId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            regenerate_key_automatically: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            regenerate_key_automatically: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("regenerateKeyAutomatically"),
             ),
-            regeneration_period: pulumi_wasm_rust::__private::into_domain(
+            regeneration_period: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("regenerationPeriod"),
             ),
-            storage_account_id: pulumi_wasm_rust::__private::into_domain(
+            storage_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountId"),
             ),
-            storage_account_key: pulumi_wasm_rust::__private::into_domain(
+            storage_account_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageAccountKey"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

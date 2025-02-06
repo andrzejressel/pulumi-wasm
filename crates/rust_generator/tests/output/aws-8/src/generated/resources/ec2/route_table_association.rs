@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let a = route_table_association::create(
@@ -19,8 +19,8 @@
 /// ```
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let b = route_table_association::create(
@@ -50,39 +50,39 @@
 /// $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
 /// ```
 pub mod route_table_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteTableAssociationArgs {
         /// The gateway ID to create an association. Conflicts with `subnet_id`.
         #[builder(into, default)]
-        pub gateway_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub gateway_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the routing table to associate with.
         #[builder(into)]
-        pub route_table_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub route_table_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The subnet ID to create an association. Conflicts with `gateway_id`.
         #[builder(into, default)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RouteTableAssociationResult {
         /// The gateway ID to create an association. Conflicts with `subnet_id`.
-        pub gateway_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub gateway_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the routing table to associate with.
-        pub route_table_id: pulumi_wasm_rust::Output<String>,
+        pub route_table_id: pulumi_gestalt_rust::Output<String>,
         /// The subnet ID to create an association. Conflicts with `gateway_id`.
-        pub subnet_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnet_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouteTableAssociationArgs,
     ) -> RouteTableAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let gateway_id_binding = args.gateway_id.get_output(context).get_inner();
         let route_table_id_binding = args.route_table_id.get_output(context).get_inner();
@@ -108,13 +108,13 @@ pub mod route_table_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouteTableAssociationResult {
-            gateway_id: pulumi_wasm_rust::__private::into_domain(
+            gateway_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gatewayId"),
             ),
-            route_table_id: pulumi_wasm_rust::__private::into_domain(
+            route_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routeTableId"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
         }

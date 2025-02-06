@@ -259,45 +259,45 @@
 /// ```
 ///
 pub mod replica_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReplicaSetArgs {
         /// The ID of the Domain Service for which to create this Replica Set. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub domain_service_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain_service_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Azure location where this Replica Set should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub subnet_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subnet_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ReplicaSetResult {
         /// A list of subnet IP addresses for the domain controllers in this Replica Set, typically two.
-        pub domain_controller_ip_addresses: pulumi_wasm_rust::Output<Vec<String>>,
+        pub domain_controller_ip_addresses: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The ID of the Domain Service for which to create this Replica Set. Changing this forces a new resource to be created.
-        pub domain_service_id: pulumi_wasm_rust::Output<String>,
+        pub domain_service_id: pulumi_gestalt_rust::Output<String>,
         /// The publicly routable IP address for the domain controllers in this Replica Set.
-        pub external_access_ip_address: pulumi_wasm_rust::Output<String>,
+        pub external_access_ip_address: pulumi_gestalt_rust::Output<String>,
         /// The Azure location where this Replica Set should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The current service status for the replica set.
-        pub service_status: pulumi_wasm_rust::Output<String>,
+        pub service_status: pulumi_gestalt_rust::Output<String>,
         /// The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
-        pub subnet_id: pulumi_wasm_rust::Output<String>,
+        pub subnet_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ReplicaSetArgs,
     ) -> ReplicaSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let domain_service_id_binding = args
             .domain_service_id
@@ -326,22 +326,22 @@ pub mod replica_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ReplicaSetResult {
-            domain_controller_ip_addresses: pulumi_wasm_rust::__private::into_domain(
+            domain_controller_ip_addresses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainControllerIpAddresses"),
             ),
-            domain_service_id: pulumi_wasm_rust::__private::into_domain(
+            domain_service_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainServiceId"),
             ),
-            external_access_ip_address: pulumi_wasm_rust::__private::into_domain(
+            external_access_ip_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalAccessIpAddress"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            service_status: pulumi_wasm_rust::__private::into_domain(
+            service_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceStatus"),
             ),
-            subnet_id: pulumi_wasm_rust::__private::into_domain(
+            subnet_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetId"),
             ),
         }

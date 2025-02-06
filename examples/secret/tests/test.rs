@@ -1,4 +1,4 @@
-use pulumi_wasm_examples_common::{
+use pulumi_gestalt_examples_common::{
     export_stack, export_stack_secret, init_stack, select_stack, up_stack,
 };
 

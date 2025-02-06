@@ -5,8 +5,8 @@
 /// ### Basic Response
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let myDemoAPI = rest_api::create(
@@ -126,66 +126,66 @@
 /// $ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
 /// ```
 pub mod method_response {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MethodResponseArgs {
         /// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         #[builder(into)]
-        pub http_method: pulumi_wasm_rust::InputOrOutput<String>,
+        pub http_method: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Resource identifier for the method resource.
         #[builder(into)]
-        pub resource_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
         #[builder(into, default)]
-        pub response_models: pulumi_wasm_rust::InputOrOutput<
+        pub response_models: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
         ///
         /// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
         #[builder(into, default)]
-        pub response_parameters: pulumi_wasm_rust::InputOrOutput<
+        pub response_parameters: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, bool>>,
         >,
         /// The string identifier of the associated REST API.
         #[builder(into)]
-        pub rest_api: pulumi_wasm_rust::InputOrOutput<String>,
+        pub rest_api: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The method response's status code.
         #[builder(into)]
-        pub status_code: pulumi_wasm_rust::InputOrOutput<String>,
+        pub status_code: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MethodResponseResult {
         /// The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
-        pub http_method: pulumi_wasm_rust::Output<String>,
+        pub http_method: pulumi_gestalt_rust::Output<String>,
         /// The Resource identifier for the method resource.
-        pub resource_id: pulumi_wasm_rust::Output<String>,
+        pub resource_id: pulumi_gestalt_rust::Output<String>,
         /// A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
-        pub response_models: pulumi_wasm_rust::Output<
+        pub response_models: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
         ///
         /// The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in `integration.response.header.{name}`, a static value enclosed within a pair of single quotes (e.g., '`application/json'`), or a JSON expression from the back-end response payload in the form of `integration.response.body.{JSON-expression}`, where `JSON-expression` is a valid JSON expression without the `$` prefix.)
-        pub response_parameters: pulumi_wasm_rust::Output<
+        pub response_parameters: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, bool>>,
         >,
         /// The string identifier of the associated REST API.
-        pub rest_api: pulumi_wasm_rust::Output<String>,
+        pub rest_api: pulumi_gestalt_rust::Output<String>,
         /// The method response's status code.
-        pub status_code: pulumi_wasm_rust::Output<String>,
+        pub status_code: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MethodResponseArgs,
     ) -> MethodResponseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let http_method_binding = args.http_method.get_output(context).get_inner();
         let resource_id_binding = args.resource_id.get_output(context).get_inner();
@@ -232,22 +232,22 @@ pub mod method_response {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MethodResponseResult {
-            http_method: pulumi_wasm_rust::__private::into_domain(
+            http_method: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("httpMethod"),
             ),
-            resource_id: pulumi_wasm_rust::__private::into_domain(
+            resource_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceId"),
             ),
-            response_models: pulumi_wasm_rust::__private::into_domain(
+            response_models: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("responseModels"),
             ),
-            response_parameters: pulumi_wasm_rust::__private::into_domain(
+            response_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("responseParameters"),
             ),
-            rest_api: pulumi_wasm_rust::__private::into_domain(
+            rest_api: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restApi"),
             ),
-            status_code: pulumi_wasm_rust::__private::into_domain(
+            status_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("statusCode"),
             ),
         }

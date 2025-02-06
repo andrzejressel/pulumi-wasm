@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm_runner"
+name = "pulumi_gestalt_runner"
 version.workspace = true
 edition.workspace = true
 repository.workspace = true
@@ -15,13 +15,13 @@ anyhow.workspace = true
 tokio.workspace = true
 log4rs.workspace = true
 clap.workspace = true
-pulumi_wasm_proto = { workspace = true, features = ["connectivity"] }
-pulumi_wasm_wit = { workspace = true, features = ["runner"] }
-pulumi_wasm_runner_component_creator.workspace = true
+pulumi_gestalt_proto = { workspace = true, features = ["connectivity"] }
+pulumi_gestalt_wit = { workspace = true, features = ["runner"] }
+pulumi_gestalt_runner_component_creator.workspace = true
 wasmparser.workspace = true
 serde.workspace = true
 serde_json.workspace = true
-pulumi_wasm_grpc_connection.workspace = true
+pulumi_gestalt_grpc_connection.workspace = true
 
 [dev-dependencies]
 wat.workspace = true

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = hostname_tls_setting_ciphers::create(
@@ -25,46 +25,46 @@
 /// ```
 ///
 pub mod hostname_tls_setting_ciphers {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct HostnameTlsSettingCiphersArgs {
         /// Hostname that belongs to this zone name. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub hostname: pulumi_wasm_rust::InputOrOutput<String>,
+        pub hostname: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Ports to use within the IP rule.
         #[builder(into, default)]
-        pub ports: pulumi_wasm_rust::InputOrOutput<Option<Vec<i32>>>,
+        pub ports: pulumi_gestalt_rust::InputOrOutput<Option<Vec<i32>>>,
         /// Ciphers suites value.
         #[builder(into)]
-        pub values: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub values: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
         #[builder(into)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct HostnameTlsSettingCiphersResult {
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// Hostname that belongs to this zone name. **Modifying this attribute will force creation of a new resource.**
-        pub hostname: pulumi_wasm_rust::Output<String>,
+        pub hostname: pulumi_gestalt_rust::Output<String>,
         /// Ports to use within the IP rule.
-        pub ports: pulumi_wasm_rust::Output<Option<Vec<i32>>>,
-        pub updated_at: pulumi_wasm_rust::Output<String>,
+        pub ports: pulumi_gestalt_rust::Output<Option<Vec<i32>>>,
+        pub updated_at: pulumi_gestalt_rust::Output<String>,
         /// Ciphers suites value.
-        pub values: pulumi_wasm_rust::Output<Vec<String>>,
+        pub values: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The zone identifier to target for the resource. **Modifying this attribute will force creation of a new resource.**
-        pub zone_id: pulumi_wasm_rust::Output<String>,
+        pub zone_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: HostnameTlsSettingCiphersArgs,
     ) -> HostnameTlsSettingCiphersResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let hostname_binding = args.hostname.get_output(context).get_inner();
         let ports_binding = args.ports.get_output(context).get_inner();
@@ -96,18 +96,22 @@ pub mod hostname_tls_setting_ciphers {
         };
         let o = register_interface::register(context.get_inner(), &request);
         HostnameTlsSettingCiphersResult {
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            hostname: pulumi_wasm_rust::__private::into_domain(
+            hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostname"),
             ),
-            ports: pulumi_wasm_rust::__private::into_domain(o.extract_field("ports")),
-            updated_at: pulumi_wasm_rust::__private::into_domain(
+            ports: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ports")),
+            updated_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updatedAt"),
             ),
-            values: pulumi_wasm_rust::__private::into_domain(o.extract_field("values")),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            values: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("values"),
+            ),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

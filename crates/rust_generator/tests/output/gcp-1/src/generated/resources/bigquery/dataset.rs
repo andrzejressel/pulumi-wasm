@@ -29,8 +29,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let cryptoKey = crypto_key::create(
@@ -156,8 +156,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let dataset = dataset::create(
@@ -224,14 +224,14 @@
 /// ```
 ///
 pub mod dataset {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DatasetArgs {
         /// An array of objects that define dataset access for one or more entities.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub accesses: pulumi_wasm_rust::InputOrOutput<
+        pub accesses: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::bigquery::DatasetAccess>>,
         >,
         /// A unique ID for this dataset, without the project name. The ID
@@ -241,7 +241,7 @@ pub mod dataset {
         ///
         /// - - -
         #[builder(into)]
-        pub dataset_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dataset_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Defines the default collation specification of future tables created
         /// in the dataset. If a table is created in this dataset without table-level
         /// default collation, then the table inherits the dataset default collation,
@@ -252,13 +252,13 @@ pub mod dataset {
         /// - 'und:ci': undetermined locale, case insensitive.
         /// - '': empty string. Default to case-sensitive behavior.
         #[builder(into, default)]
-        pub default_collation: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub default_collation: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The default encryption key for all tables in the dataset. Once this property is set,
         /// all newly-created partitioned tables in the dataset will have encryption key set to
         /// this value, unless table creation request (or query) overrides the key.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub default_encryption_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub default_encryption_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::DatasetDefaultEncryptionConfiguration>,
         >,
         /// The default partition expiration for all partitioned tables in
@@ -275,7 +275,7 @@ pub mod dataset {
         /// creating or updating a partitioned table, that value takes precedence
         /// over the default partition expiration time indicated by this property.
         #[builder(into, default)]
-        pub default_partition_expiration_ms: pulumi_wasm_rust::InputOrOutput<
+        pub default_partition_expiration_ms: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// The default lifetime of all tables in the dataset, in milliseconds.
@@ -290,43 +290,43 @@ pub mod dataset {
         /// creating a table, that value takes precedence over the default
         /// expiration time indicated by this property.
         #[builder(into, default)]
-        pub default_table_expiration_ms: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub default_table_expiration_ms: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// If set to `true`, delete all the tables in the
         /// dataset when destroying the resource; otherwise,
         /// destroying the resource will fail if tables are present.
         #[builder(into, default)]
-        pub delete_contents_on_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub delete_contents_on_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// A user-friendly description of the dataset
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Options defining open source compatible datasets living in the BigQuery catalog. Contains
         /// metadata of open source database, schema or namespace represented by the current dataset.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub external_catalog_dataset_options: pulumi_wasm_rust::InputOrOutput<
+        pub external_catalog_dataset_options: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::DatasetExternalCatalogDatasetOptions>,
         >,
         /// Information about the external metadata storage where the dataset is defined.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub external_dataset_reference: pulumi_wasm_rust::InputOrOutput<
+        pub external_dataset_reference: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigquery::DatasetExternalDatasetReference>,
         >,
         /// A descriptive name for the dataset
         #[builder(into, default)]
-        pub friendly_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub friendly_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// TRUE if the dataset and its table names are case-insensitive, otherwise FALSE.
         /// By default, this is FALSE, which means the dataset and its table names are
         /// case-sensitive. This field does not affect routine references.
         #[builder(into, default)]
-        pub is_case_insensitive: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub is_case_insensitive: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The labels associated with this dataset. You can use these to
         /// organize and group your datasets.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The geographic location where the dataset should reside.
@@ -338,21 +338,21 @@ pub mod dataset {
         /// The default value is multi-regional location `US`.
         /// Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Defines the time travel window in hours. The value can be from 48 to 168 hours (2 to 7 days).
         #[builder(into, default)]
-        pub max_time_travel_hours: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub max_time_travel_hours: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The tags attached to this table. Tag keys are globally unique. Tag key is expected to be
         /// in the namespaced format, for example "123456789012/environment" where 123456789012 is the
         /// ID of the parent organization or project resource for this tag key. Tag value is expected
         /// to be the short name, for example "Production". See [Tag definitions](https://www.terraform.io/iam/docs/tags-access-control#definitions)
         /// for more details.
         #[builder(into, default)]
-        pub resource_tags: pulumi_wasm_rust::InputOrOutput<
+        pub resource_tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Specifies the storage billing model for the dataset.
@@ -360,25 +360,25 @@ pub mod dataset {
         /// or to PHYSICAL to use physical bytes instead.
         /// LOGICAL is the default if this flag isn't specified.
         #[builder(into, default)]
-        pub storage_billing_model: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub storage_billing_model: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DatasetResult {
         /// An array of objects that define dataset access for one or more entities.
         /// Structure is documented below.
-        pub accesses: pulumi_wasm_rust::Output<
+        pub accesses: pulumi_gestalt_rust::Output<
             Vec<super::super::types::bigquery::DatasetAccess>,
         >,
         /// The time when this dataset was created, in milliseconds since the
         /// epoch.
-        pub creation_time: pulumi_wasm_rust::Output<i32>,
+        pub creation_time: pulumi_gestalt_rust::Output<i32>,
         /// A unique ID for this dataset, without the project name. The ID
         /// must contain only letters (a-z, A-Z), numbers (0-9), or
         /// underscores (_). The maximum length is 1,024 characters.
         ///
         ///
         /// - - -
-        pub dataset_id: pulumi_wasm_rust::Output<String>,
+        pub dataset_id: pulumi_gestalt_rust::Output<String>,
         /// Defines the default collation specification of future tables created
         /// in the dataset. If a table is created in this dataset without table-level
         /// default collation, then the table inherits the dataset default collation,
@@ -388,12 +388,12 @@ pub mod dataset {
         /// The following values are supported:
         /// - 'und:ci': undetermined locale, case insensitive.
         /// - '': empty string. Default to case-sensitive behavior.
-        pub default_collation: pulumi_wasm_rust::Output<String>,
+        pub default_collation: pulumi_gestalt_rust::Output<String>,
         /// The default encryption key for all tables in the dataset. Once this property is set,
         /// all newly-created partitioned tables in the dataset will have encryption key set to
         /// this value, unless table creation request (or query) overrides the key.
         /// Structure is documented below.
-        pub default_encryption_configuration: pulumi_wasm_rust::Output<
+        pub default_encryption_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::DatasetDefaultEncryptionConfiguration>,
         >,
         /// The default partition expiration for all partitioned tables in
@@ -409,7 +409,7 @@ pub mod dataset {
         /// table. If you provide an explicit `timePartitioning.expirationMs` when
         /// creating or updating a partitioned table, that value takes precedence
         /// over the default partition expiration time indicated by this property.
-        pub default_partition_expiration_ms: pulumi_wasm_rust::Output<Option<i32>>,
+        pub default_partition_expiration_ms: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The default lifetime of all tables in the dataset, in milliseconds.
         /// The minimum value is 3600000 milliseconds (one hour).
         /// Once this property is set, all newly-created tables in the dataset
@@ -421,47 +421,47 @@ pub mod dataset {
         /// table expires, or if you provide an explicit `expirationTime` when
         /// creating a table, that value takes precedence over the default
         /// expiration time indicated by this property.
-        pub default_table_expiration_ms: pulumi_wasm_rust::Output<Option<i32>>,
+        pub default_table_expiration_ms: pulumi_gestalt_rust::Output<Option<i32>>,
         /// If set to `true`, delete all the tables in the
         /// dataset when destroying the resource; otherwise,
         /// destroying the resource will fail if tables are present.
-        pub delete_contents_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub delete_contents_on_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// A user-friendly description of the dataset
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A hash of the resource.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// Options defining open source compatible datasets living in the BigQuery catalog. Contains
         /// metadata of open source database, schema or namespace represented by the current dataset.
         /// Structure is documented below.
-        pub external_catalog_dataset_options: pulumi_wasm_rust::Output<
+        pub external_catalog_dataset_options: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::DatasetExternalCatalogDatasetOptions>,
         >,
         /// Information about the external metadata storage where the dataset is defined.
         /// Structure is documented below.
-        pub external_dataset_reference: pulumi_wasm_rust::Output<
+        pub external_dataset_reference: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigquery::DatasetExternalDatasetReference>,
         >,
         /// A descriptive name for the dataset
-        pub friendly_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub friendly_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// TRUE if the dataset and its table names are case-insensitive, otherwise FALSE.
         /// By default, this is FALSE, which means the dataset and its table names are
         /// case-sensitive. This field does not affect routine references.
-        pub is_case_insensitive: pulumi_wasm_rust::Output<bool>,
+        pub is_case_insensitive: pulumi_gestalt_rust::Output<bool>,
         /// The labels associated with this dataset. You can use these to
         /// organize and group your datasets.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The date when this dataset or any of its tables was last modified, in
         /// milliseconds since the epoch.
-        pub last_modified_time: pulumi_wasm_rust::Output<i32>,
+        pub last_modified_time: pulumi_gestalt_rust::Output<i32>,
         /// The geographic location where the dataset should reside.
         /// See [official docs](https://cloud.google.com/bigquery/docs/dataset-locations).
         /// There are two types of locations, regional or multi-regional. A regional
@@ -470,15 +470,15 @@ pub mod dataset {
         /// contains at least two geographic places.
         /// The default value is multi-regional location `US`.
         /// Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_gestalt_rust::Output<Option<String>>,
         /// Defines the time travel window in hours. The value can be from 48 to 168 hours (2 to 7 days).
-        pub max_time_travel_hours: pulumi_wasm_rust::Output<String>,
+        pub max_time_travel_hours: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The tags attached to this table. Tag keys are globally unique. Tag key is expected to be
@@ -486,27 +486,27 @@ pub mod dataset {
         /// ID of the parent organization or project resource for this tag key. Tag value is expected
         /// to be the short name, for example "Production". See [Tag definitions](https://www.terraform.io/iam/docs/tags-access-control#definitions)
         /// for more details.
-        pub resource_tags: pulumi_wasm_rust::Output<
+        pub resource_tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// Specifies the storage billing model for the dataset.
         /// Set this flag value to LOGICAL to use logical bytes for storage billing,
         /// or to PHYSICAL to use physical bytes instead.
         /// LOGICAL is the default if this flag isn't specified.
-        pub storage_billing_model: pulumi_wasm_rust::Output<String>,
+        pub storage_billing_model: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DatasetArgs,
     ) -> DatasetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let accesses_binding = args.accesses.get_output(context).get_inner();
         let dataset_id_binding = args.dataset_id.get_output(context).get_inner();
@@ -637,72 +637,74 @@ pub mod dataset {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DatasetResult {
-            accesses: pulumi_wasm_rust::__private::into_domain(
+            accesses: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accesses"),
             ),
-            creation_time: pulumi_wasm_rust::__private::into_domain(
+            creation_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationTime"),
             ),
-            dataset_id: pulumi_wasm_rust::__private::into_domain(
+            dataset_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("datasetId"),
             ),
-            default_collation: pulumi_wasm_rust::__private::into_domain(
+            default_collation: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultCollation"),
             ),
-            default_encryption_configuration: pulumi_wasm_rust::__private::into_domain(
+            default_encryption_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultEncryptionConfiguration"),
             ),
-            default_partition_expiration_ms: pulumi_wasm_rust::__private::into_domain(
+            default_partition_expiration_ms: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultPartitionExpirationMs"),
             ),
-            default_table_expiration_ms: pulumi_wasm_rust::__private::into_domain(
+            default_table_expiration_ms: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultTableExpirationMs"),
             ),
-            delete_contents_on_destroy: pulumi_wasm_rust::__private::into_domain(
+            delete_contents_on_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deleteContentsOnDestroy"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            external_catalog_dataset_options: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            external_catalog_dataset_options: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalCatalogDatasetOptions"),
             ),
-            external_dataset_reference: pulumi_wasm_rust::__private::into_domain(
+            external_dataset_reference: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("externalDatasetReference"),
             ),
-            friendly_name: pulumi_wasm_rust::__private::into_domain(
+            friendly_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("friendlyName"),
             ),
-            is_case_insensitive: pulumi_wasm_rust::__private::into_domain(
+            is_case_insensitive: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("isCaseInsensitive"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            last_modified_time: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            last_modified_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModifiedTime"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            max_time_travel_hours: pulumi_wasm_rust::__private::into_domain(
+            max_time_travel_hours: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maxTimeTravelHours"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            resource_tags: pulumi_wasm_rust::__private::into_domain(
+            resource_tags: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceTags"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            storage_billing_model: pulumi_wasm_rust::__private::into_domain(
+            storage_billing_model: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageBillingModel"),
             ),
         }

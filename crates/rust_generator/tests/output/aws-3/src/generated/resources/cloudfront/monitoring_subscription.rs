@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = monitoring_subscription::create(
@@ -33,25 +33,25 @@
 /// $ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
 /// ```
 pub mod monitoring_subscription {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MonitoringSubscriptionArgs {
         /// The ID of the distribution that you are enabling metrics for.
         #[builder(into)]
-        pub distribution_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub distribution_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         #[builder(into)]
-        pub monitoring_subscription: pulumi_wasm_rust::InputOrOutput<
+        pub monitoring_subscription: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cloudfront::MonitoringSubscriptionMonitoringSubscription,
         >,
     }
     #[allow(dead_code)]
     pub struct MonitoringSubscriptionResult {
         /// The ID of the distribution that you are enabling metrics for.
-        pub distribution_id: pulumi_wasm_rust::Output<String>,
+        pub distribution_id: pulumi_gestalt_rust::Output<String>,
         /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
-        pub monitoring_subscription: pulumi_wasm_rust::Output<
+        pub monitoring_subscription: pulumi_gestalt_rust::Output<
             super::super::types::cloudfront::MonitoringSubscriptionMonitoringSubscription,
         >,
     }
@@ -60,11 +60,11 @@ pub mod monitoring_subscription {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MonitoringSubscriptionArgs,
     ) -> MonitoringSubscriptionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let distribution_id_binding = args
             .distribution_id
@@ -91,10 +91,10 @@ pub mod monitoring_subscription {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MonitoringSubscriptionResult {
-            distribution_id: pulumi_wasm_rust::__private::into_domain(
+            distribution_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("distributionId"),
             ),
-            monitoring_subscription: pulumi_wasm_rust::__private::into_domain(
+            monitoring_subscription: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("monitoringSubscription"),
             ),
         }

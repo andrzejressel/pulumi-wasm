@@ -162,83 +162,83 @@
 /// ```
 ///
 pub mod app_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AppGroupArgs {
         /// A list of attributes
         /// Structure is documented below.
         #[builder(into, default)]
-        pub attributes: pulumi_wasm_rust::InputOrOutput<
+        pub attributes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::apigee::AppGroupAttribute>>,
         >,
         /// Channel identifier identifies the owner maintaining this grouping.
         #[builder(into, default)]
-        pub channel_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub channel_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A reference to the associated storefront/marketplace.
         #[builder(into, default)]
-        pub channel_uri: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub channel_uri: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// App group name displayed in the UI
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the AppGroup. Characters you can use in the name are restricted to: A-Z0-9._-$ %.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Apigee Organization associated with the Apigee app group,
         /// in the format `organizations/{{org_name}}`.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub org_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub org_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Valid values are active or inactive. Note that the status of the AppGroup should be updated via UpdateAppGroupRequest by setting the action as active or inactive.
         /// Possible values are: `active`, `inactive`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AppGroupResult {
         /// Internal identifier that cannot be edited
-        pub app_group_id: pulumi_wasm_rust::Output<String>,
+        pub app_group_id: pulumi_gestalt_rust::Output<String>,
         /// A list of attributes
         /// Structure is documented below.
-        pub attributes: pulumi_wasm_rust::Output<
+        pub attributes: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::apigee::AppGroupAttribute>>,
         >,
         /// Channel identifier identifies the owner maintaining this grouping.
-        pub channel_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub channel_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// A reference to the associated storefront/marketplace.
-        pub channel_uri: pulumi_wasm_rust::Output<Option<String>>,
+        pub channel_uri: pulumi_gestalt_rust::Output<Option<String>>,
         /// Created time as milliseconds since epoch.
-        pub created_at: pulumi_wasm_rust::Output<String>,
+        pub created_at: pulumi_gestalt_rust::Output<String>,
         /// App group name displayed in the UI
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Modified time as milliseconds since epoch.
-        pub last_modified_at: pulumi_wasm_rust::Output<String>,
+        pub last_modified_at: pulumi_gestalt_rust::Output<String>,
         /// Name of the AppGroup. Characters you can use in the name are restricted to: A-Z0-9._-$ %.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Apigee Organization associated with the Apigee app group,
         /// in the format `organizations/{{org_name}}`.
         ///
         ///
         /// - - -
-        pub org_id: pulumi_wasm_rust::Output<String>,
+        pub org_id: pulumi_gestalt_rust::Output<String>,
         /// App group name displayed in the UI
-        pub organization: pulumi_wasm_rust::Output<String>,
+        pub organization: pulumi_gestalt_rust::Output<String>,
         /// Valid values are active or inactive. Note that the status of the AppGroup should be updated via UpdateAppGroupRequest by setting the action as active or inactive.
         /// Possible values are: `active`, `inactive`.
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AppGroupArgs,
     ) -> AppGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let attributes_binding = args.attributes.get_output(context).get_inner();
         let channel_id_binding = args.channel_id.get_output(context).get_inner();
@@ -284,33 +284,37 @@ pub mod app_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AppGroupResult {
-            app_group_id: pulumi_wasm_rust::__private::into_domain(
+            app_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("appGroupId"),
             ),
-            attributes: pulumi_wasm_rust::__private::into_domain(
+            attributes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("attributes"),
             ),
-            channel_id: pulumi_wasm_rust::__private::into_domain(
+            channel_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("channelId"),
             ),
-            channel_uri: pulumi_wasm_rust::__private::into_domain(
+            channel_uri: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("channelUri"),
             ),
-            created_at: pulumi_wasm_rust::__private::into_domain(
+            created_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createdAt"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            last_modified_at: pulumi_wasm_rust::__private::into_domain(
+            last_modified_at: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModifiedAt"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            org_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("orgId")),
-            organization: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            org_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("orgId"),
+            ),
+            organization: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("organization"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

@@ -124,38 +124,38 @@
 /// ```
 ///
 pub mod frontdoor_custom_domain_association {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct FrontdoorCustomDomainAssociationArgs {
         /// The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
         #[builder(into)]
-        pub cdn_frontdoor_custom_domain_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub cdn_frontdoor_custom_domain_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
         ///
         /// > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
         #[builder(into)]
-        pub cdn_frontdoor_route_ids: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub cdn_frontdoor_route_ids: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
     }
     #[allow(dead_code)]
     pub struct FrontdoorCustomDomainAssociationResult {
         /// The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
-        pub cdn_frontdoor_custom_domain_id: pulumi_wasm_rust::Output<String>,
+        pub cdn_frontdoor_custom_domain_id: pulumi_gestalt_rust::Output<String>,
         /// One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with.
         ///
         /// > **NOTE:** This should include all of the Front Door Route resources that the Front Door Custom Domain is associated with. If the list of Front Door Routes is not complete you will receive the service side error `This resource is still associated with a route. Please delete the association with the route first before deleting this resource` when you attempt to `destroy`/`delete` your Front Door Custom Domain.
-        pub cdn_frontdoor_route_ids: pulumi_wasm_rust::Output<Vec<String>>,
+        pub cdn_frontdoor_route_ids: pulumi_gestalt_rust::Output<Vec<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: FrontdoorCustomDomainAssociationArgs,
     ) -> FrontdoorCustomDomainAssociationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cdn_frontdoor_custom_domain_id_binding = args
             .cdn_frontdoor_custom_domain_id
@@ -183,10 +183,10 @@ pub mod frontdoor_custom_domain_association {
         };
         let o = register_interface::register(context.get_inner(), &request);
         FrontdoorCustomDomainAssociationResult {
-            cdn_frontdoor_custom_domain_id: pulumi_wasm_rust::__private::into_domain(
+            cdn_frontdoor_custom_domain_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnFrontdoorCustomDomainId"),
             ),
-            cdn_frontdoor_route_ids: pulumi_wasm_rust::__private::into_domain(
+            cdn_frontdoor_route_ids: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cdnFrontdoorRouteIds"),
             ),
         }

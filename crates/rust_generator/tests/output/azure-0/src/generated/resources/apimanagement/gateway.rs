@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -53,48 +53,48 @@
 /// ```
 ///
 pub mod gateway {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GatewayArgs {
         /// The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
         #[builder(into)]
-        pub api_management_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_management_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The description of the API Management Gateway.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `location_data` block as documented below.
         #[builder(into)]
-        pub location_data: pulumi_wasm_rust::InputOrOutput<
+        pub location_data: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::apimanagement::GatewayLocationData,
         >,
         /// The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GatewayResult {
         /// The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created.
-        pub api_management_id: pulumi_wasm_rust::Output<String>,
+        pub api_management_id: pulumi_gestalt_rust::Output<String>,
         /// The description of the API Management Gateway.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `location_data` block as documented below.
-        pub location_data: pulumi_wasm_rust::Output<
+        pub location_data: pulumi_gestalt_rust::Output<
             super::super::types::apimanagement::GatewayLocationData,
         >,
         /// The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GatewayArgs,
     ) -> GatewayResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_management_id_binding = args
             .api_management_id
@@ -128,16 +128,16 @@ pub mod gateway {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GatewayResult {
-            api_management_id: pulumi_wasm_rust::__private::into_domain(
+            api_management_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("apiManagementId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            location_data: pulumi_wasm_rust::__private::into_domain(
+            location_data: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("locationData"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

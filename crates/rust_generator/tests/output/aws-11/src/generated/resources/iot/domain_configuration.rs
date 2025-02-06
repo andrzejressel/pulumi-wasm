@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let iot = domain_configuration::create(
@@ -27,91 +27,93 @@
 /// $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
 /// ```
 pub mod domain_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DomainConfigurationArgs {
         /// An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
         #[builder(into, default)]
-        pub authorizer_config: pulumi_wasm_rust::InputOrOutput<
+        pub authorizer_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::iot::DomainConfigurationAuthorizerConfig>,
         >,
         /// Fully-qualified domain name.
         #[builder(into, default)]
-        pub domain_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub domain_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the domain configuration. This value must be unique to a region.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
         #[builder(into, default)]
-        pub server_certificate_arns: pulumi_wasm_rust::InputOrOutput<
+        pub server_certificate_arns: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
         #[builder(into, default)]
-        pub service_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
         #[builder(into, default)]
-        pub status: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub status: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
         #[builder(into, default)]
-        pub tls_config: pulumi_wasm_rust::InputOrOutput<
+        pub tls_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::iot::DomainConfigurationTlsConfig>,
         >,
         /// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
         #[builder(into, default)]
-        pub validation_certificate_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub validation_certificate_arn: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
     }
     #[allow(dead_code)]
     pub struct DomainConfigurationResult {
         /// The ARN of the domain configuration.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// An object that specifies the authorization service for a domain. See the `authorizer_config` Block below for details.
-        pub authorizer_config: pulumi_wasm_rust::Output<
+        pub authorizer_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::iot::DomainConfigurationAuthorizerConfig>,
         >,
         /// Fully-qualified domain name.
-        pub domain_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub domain_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// The type of the domain.
-        pub domain_type: pulumi_wasm_rust::Output<String>,
+        pub domain_type: pulumi_gestalt_rust::Output<String>,
         /// The name of the domain configuration. This value must be unique to a region.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ARNs of the certificates that IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for Amazon Web Services-managed domains. When using a custom `domain_name`, the cert must include it.
-        pub server_certificate_arns: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub server_certificate_arns: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The type of service delivered by the endpoint. Note: Amazon Web Services IoT Core currently supports only the `DATA` service type.
-        pub service_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The status to which the domain configuration should be set. Valid values are `ENABLED` and `DISABLED`.
-        pub status: pulumi_wasm_rust::Output<Option<String>>,
+        pub status: pulumi_gestalt_rust::Output<Option<String>>,
         /// Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// An object that specifies the TLS configuration for a domain. See the `tls_config` Block below for details.
-        pub tls_config: pulumi_wasm_rust::Output<
+        pub tls_config: pulumi_gestalt_rust::Output<
             super::super::types::iot::DomainConfigurationTlsConfig,
         >,
         /// The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for Amazon Web Services-managed domains.
-        pub validation_certificate_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub validation_certificate_arn: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DomainConfigurationArgs,
     ) -> DomainConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let authorizer_config_binding = args
             .authorizer_config
@@ -176,32 +178,34 @@ pub mod domain_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DomainConfigurationResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            authorizer_config: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            authorizer_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizerConfig"),
             ),
-            domain_name: pulumi_wasm_rust::__private::into_domain(
+            domain_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainName"),
             ),
-            domain_type: pulumi_wasm_rust::__private::into_domain(
+            domain_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("domainType"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            server_certificate_arns: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            server_certificate_arns: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serverCertificateArns"),
             ),
-            service_type: pulumi_wasm_rust::__private::into_domain(
+            service_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceType"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            tls_config: pulumi_wasm_rust::__private::into_domain(
+            tls_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tlsConfig"),
             ),
-            validation_certificate_arn: pulumi_wasm_rust::__private::into_domain(
+            validation_certificate_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("validationCertificateArn"),
             ),
         }

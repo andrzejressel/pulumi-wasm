@@ -145,43 +145,43 @@
 /// ```
 ///
 pub mod security_policy {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SecurityPolicyArgs {
         /// Configuration for [Google Cloud Armor Adaptive Protection](https://cloud.google.com/armor/docs/adaptive-protection-overview?hl=en). Structure is documented below.
         #[builder(into, default)]
-        pub adaptive_protection_config: pulumi_wasm_rust::InputOrOutput<
+        pub adaptive_protection_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::SecurityPolicyAdaptiveProtectionConfig>,
         >,
         /// [Advanced Configuration Options](https://cloud.google.com/armor/docs/security-policy-overview#json-parsing).
         /// Structure is documented below.
         #[builder(into, default)]
-        pub advanced_options_config: pulumi_wasm_rust::InputOrOutput<
+        pub advanced_options_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::SecurityPolicyAdvancedOptionsConfig>,
         >,
         /// An optional description of this security policy. Max size is 2048.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the security policy.
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// [reCAPTCHA Configuration Options](https://cloud.google.com/armor/docs/configure-security-policies?hl=en#use_a_manual_challenge_to_distinguish_between_human_or_automated_clients). Structure is documented below.
         #[builder(into, default)]
-        pub recaptcha_options_config: pulumi_wasm_rust::InputOrOutput<
+        pub recaptcha_options_config: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::SecurityPolicyRecaptchaOptionsConfig>,
         >,
         /// The set of rules that belong to this policy. There must always be a default
         /// rule (rule with priority 2147483647 and match "\*"). If no rules are provided when creating a
         /// security policy, a default rule with action "allow" will be added. Structure is documented below.
         #[builder(into, default)]
-        pub rules: pulumi_wasm_rust::InputOrOutput<
+        pub rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::compute::SecurityPolicyRule>>,
         >,
         /// The type indicates the intended use of the security policy. This field can be set only at resource creation time.
@@ -193,42 +193,42 @@ pub mod security_policy {
         /// * `CLOUD_ARMOR_INTERNAL_SERVICE` - Cloud Armor internal service policies can be configured to filter HTTP requests targeting services
         /// managed by Traffic Director in a service mesh. They filter requests before the request is served from the application.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SecurityPolicyResult {
         /// Configuration for [Google Cloud Armor Adaptive Protection](https://cloud.google.com/armor/docs/adaptive-protection-overview?hl=en). Structure is documented below.
-        pub adaptive_protection_config: pulumi_wasm_rust::Output<
+        pub adaptive_protection_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::SecurityPolicyAdaptiveProtectionConfig>,
         >,
         /// [Advanced Configuration Options](https://cloud.google.com/armor/docs/security-policy-overview#json-parsing).
         /// Structure is documented below.
-        pub advanced_options_config: pulumi_wasm_rust::Output<
+        pub advanced_options_config: pulumi_gestalt_rust::Output<
             super::super::types::compute::SecurityPolicyAdvancedOptionsConfig,
         >,
         /// An optional description of this security policy. Max size is 2048.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Fingerprint of this resource.
-        pub fingerprint: pulumi_wasm_rust::Output<String>,
+        pub fingerprint: pulumi_gestalt_rust::Output<String>,
         /// The name of the security policy.
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The project in which the resource belongs. If it
         /// is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// [reCAPTCHA Configuration Options](https://cloud.google.com/armor/docs/configure-security-policies?hl=en#use_a_manual_challenge_to_distinguish_between_human_or_automated_clients). Structure is documented below.
-        pub recaptcha_options_config: pulumi_wasm_rust::Output<
+        pub recaptcha_options_config: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::SecurityPolicyRecaptchaOptionsConfig>,
         >,
         /// The set of rules that belong to this policy. There must always be a default
         /// rule (rule with priority 2147483647 and match "\*"). If no rules are provided when creating a
         /// security policy, a default rule with action "allow" will be added. Structure is documented below.
-        pub rules: pulumi_wasm_rust::Output<
+        pub rules: pulumi_gestalt_rust::Output<
             Vec<super::super::types::compute::SecurityPolicyRule>,
         >,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// The type indicates the intended use of the security policy. This field can be set only at resource creation time.
         /// * `CLOUD_ARMOR` - Cloud Armor backend security policies can be configured to filter incoming HTTP requests targeting backend services.
         /// They filter requests before they hit the origin servers.
@@ -237,18 +237,18 @@ pub mod security_policy {
         /// They filter requests before the request is served from Google's cache.
         /// * `CLOUD_ARMOR_INTERNAL_SERVICE` - Cloud Armor internal service policies can be configured to filter HTTP requests targeting services
         /// managed by Traffic Director in a service mesh. They filter requests before the request is served from the application.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SecurityPolicyArgs,
     ) -> SecurityPolicyResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let adaptive_protection_config_binding = args
             .adaptive_protection_config
@@ -308,30 +308,30 @@ pub mod security_policy {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SecurityPolicyResult {
-            adaptive_protection_config: pulumi_wasm_rust::__private::into_domain(
+            adaptive_protection_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("adaptiveProtectionConfig"),
             ),
-            advanced_options_config: pulumi_wasm_rust::__private::into_domain(
+            advanced_options_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("advancedOptionsConfig"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            fingerprint: pulumi_wasm_rust::__private::into_domain(
+            fingerprint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fingerprint"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            recaptcha_options_config: pulumi_wasm_rust::__private::into_domain(
+            recaptcha_options_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recaptchaOptionsConfig"),
             ),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

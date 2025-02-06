@@ -25,67 +25,67 @@
 /// $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
 /// ```
 pub mod thesaurus {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ThesaurusArgs {
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The identifier of the index for a thesaurus.
         #[builder(into)]
-        pub index_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub index_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name for the thesaurus.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
         #[builder(into)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The S3 path where your thesaurus file sits in S3. Detailed below.
         #[builder(into)]
-        pub source_s3_path: pulumi_wasm_rust::InputOrOutput<
+        pub source_s3_path: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::kendra::ThesaurusSourceS3Path,
         >,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ThesaurusResult {
         /// ARN of the thesaurus.
-        pub arn: pulumi_wasm_rust::Output<String>,
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The identifier of the index for a thesaurus.
-        pub index_id: pulumi_wasm_rust::Output<String>,
+        pub index_id: pulumi_gestalt_rust::Output<String>,
         /// The name for the thesaurus.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-        pub role_arn: pulumi_wasm_rust::Output<String>,
+        pub role_arn: pulumi_gestalt_rust::Output<String>,
         /// The S3 path where your thesaurus file sits in S3. Detailed below.
-        pub source_s3_path: pulumi_wasm_rust::Output<
+        pub source_s3_path: pulumi_gestalt_rust::Output<
             super::super::types::kendra::ThesaurusSourceS3Path,
         >,
         /// The current status of the thesaurus.
-        pub status: pulumi_wasm_rust::Output<String>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub status: pulumi_gestalt_rust::Output<String>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub thesaurus_id: pulumi_wasm_rust::Output<String>,
+        pub thesaurus_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ThesaurusArgs,
     ) -> ThesaurusResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let index_id_binding = args.index_id.get_output(context).get_inner();
@@ -126,26 +126,28 @@ pub mod thesaurus {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ThesaurusResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            description: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            index_id: pulumi_wasm_rust::__private::into_domain(
+            index_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("indexId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            source_s3_path: pulumi_wasm_rust::__private::into_domain(
+            source_s3_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceS3Path"),
             ),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            thesaurus_id: pulumi_wasm_rust::__private::into_domain(
+            thesaurus_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("thesaurusId"),
             ),
         }

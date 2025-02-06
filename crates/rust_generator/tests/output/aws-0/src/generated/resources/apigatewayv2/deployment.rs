@@ -16,32 +16,32 @@
 /// The `triggers` argument cannot be imported.
 ///
 pub mod deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeploymentArgs {
         /// API identifier.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         #[builder(into, default)]
-        pub triggers: pulumi_wasm_rust::InputOrOutput<
+        pub triggers: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DeploymentResult {
         /// API identifier.
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_gestalt_rust::Output<String>,
         /// Whether the deployment was automatically released.
-        pub auto_deployed: pulumi_wasm_rust::Output<bool>,
+        pub auto_deployed: pulumi_gestalt_rust::Output<bool>,
         /// Description for the deployment resource. Must be less than or equal to 1024 characters in length.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        pub triggers: pulumi_wasm_rust::Output<
+        pub triggers: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -50,11 +50,11 @@ pub mod deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DeploymentArgs,
     ) -> DeploymentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_id_binding = args.api_id.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -80,14 +80,16 @@ pub mod deployment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DeploymentResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
-            auto_deployed: pulumi_wasm_rust::__private::into_domain(
+            api_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiId"),
+            ),
+            auto_deployed: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoDeployed"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            triggers: pulumi_wasm_rust::__private::into_domain(
+            triggers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("triggers"),
             ),
         }

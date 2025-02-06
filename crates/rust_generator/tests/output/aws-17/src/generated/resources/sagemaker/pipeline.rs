@@ -30,69 +30,69 @@
 /// $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
 /// ```
 pub mod pipeline {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PipelineArgs {
         /// This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
         #[builder(into, default)]
-        pub parallelism_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub parallelism_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sagemaker::PipelineParallelismConfiguration>,
         >,
         /// The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
         #[builder(into, default)]
-        pub pipeline_definition: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub pipeline_definition: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
         #[builder(into, default)]
-        pub pipeline_definition_s3_location: pulumi_wasm_rust::InputOrOutput<
+        pub pipeline_definition_s3_location: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::sagemaker::PipelinePipelineDefinitionS3Location>,
         >,
         /// A description of the pipeline.
         #[builder(into, default)]
-        pub pipeline_description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub pipeline_description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The display name of the pipeline.
         #[builder(into)]
-        pub pipeline_display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub pipeline_display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the pipeline.
         #[builder(into)]
-        pub pipeline_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub pipeline_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ARN of the IAM role the pipeline will execute as.
         #[builder(into, default)]
-        pub role_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub role_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct PipelineResult {
         /// The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
-        pub parallelism_configuration: pulumi_wasm_rust::Output<
+        pub parallelism_configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::sagemaker::PipelineParallelismConfiguration>,
         >,
         /// The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
-        pub pipeline_definition: pulumi_wasm_rust::Output<Option<String>>,
+        pub pipeline_definition: pulumi_gestalt_rust::Output<Option<String>>,
         /// The location of the pipeline definition stored in Amazon S3. If specified, SageMaker will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
-        pub pipeline_definition_s3_location: pulumi_wasm_rust::Output<
+        pub pipeline_definition_s3_location: pulumi_gestalt_rust::Output<
             Option<super::super::types::sagemaker::PipelinePipelineDefinitionS3Location>,
         >,
         /// A description of the pipeline.
-        pub pipeline_description: pulumi_wasm_rust::Output<Option<String>>,
+        pub pipeline_description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The display name of the pipeline.
-        pub pipeline_display_name: pulumi_wasm_rust::Output<String>,
+        pub pipeline_display_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the pipeline.
-        pub pipeline_name: pulumi_wasm_rust::Output<String>,
+        pub pipeline_name: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the IAM role the pipeline will execute as.
-        pub role_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub role_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -101,11 +101,11 @@ pub mod pipeline {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PipelineArgs,
     ) -> PipelineResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let parallelism_configuration_binding = args
             .parallelism_configuration
@@ -171,30 +171,30 @@ pub mod pipeline {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PipelineResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            parallelism_configuration: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            parallelism_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parallelismConfiguration"),
             ),
-            pipeline_definition: pulumi_wasm_rust::__private::into_domain(
+            pipeline_definition: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineDefinition"),
             ),
-            pipeline_definition_s3_location: pulumi_wasm_rust::__private::into_domain(
+            pipeline_definition_s3_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineDefinitionS3Location"),
             ),
-            pipeline_description: pulumi_wasm_rust::__private::into_domain(
+            pipeline_description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineDescription"),
             ),
-            pipeline_display_name: pulumi_wasm_rust::__private::into_domain(
+            pipeline_display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineDisplayName"),
             ),
-            pipeline_name: pulumi_wasm_rust::__private::into_domain(
+            pipeline_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineName"),
             ),
-            role_arn: pulumi_wasm_rust::__private::into_domain(
+            role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("roleArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -74,93 +74,93 @@
 /// ```
 ///
 pub mod policy_file_share {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PolicyFileShareArgs {
         /// Configures the Policy backup frequency and times as documented in the `backup` block below.
         #[builder(into)]
-        pub backup: pulumi_wasm_rust::InputOrOutput<
+        pub backup: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::backup::PolicyFileShareBackup,
         >,
         /// Specifies the name of the policy. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub recovery_vault_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub recovery_vault_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configures the policy daily retention as documented in the `retention_daily` block below.
         #[builder(into)]
-        pub retention_daily: pulumi_wasm_rust::InputOrOutput<
+        pub retention_daily: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::backup::PolicyFileShareRetentionDaily,
         >,
         /// Configures the policy monthly retention as documented in the `retention_monthly` block below.
         #[builder(into, default)]
-        pub retention_monthly: pulumi_wasm_rust::InputOrOutput<
+        pub retention_monthly: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyFileShareRetentionMonthly>,
         >,
         /// Configures the policy weekly retention as documented in the `retention_weekly` block below.
         #[builder(into, default)]
-        pub retention_weekly: pulumi_wasm_rust::InputOrOutput<
+        pub retention_weekly: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyFileShareRetentionWeekly>,
         >,
         /// Configures the policy yearly retention as documented in the `retention_yearly` block below.
         #[builder(into, default)]
-        pub retention_yearly: pulumi_wasm_rust::InputOrOutput<
+        pub retention_yearly: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::backup::PolicyFileShareRetentionYearly>,
         >,
         /// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         ///
         /// > **NOTE:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
         #[builder(into, default)]
-        pub timezone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub timezone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct PolicyFileShareResult {
         /// Configures the Policy backup frequency and times as documented in the `backup` block below.
-        pub backup: pulumi_wasm_rust::Output<
+        pub backup: pulumi_gestalt_rust::Output<
             super::super::types::backup::PolicyFileShareBackup,
         >,
         /// Specifies the name of the policy. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-        pub recovery_vault_name: pulumi_wasm_rust::Output<String>,
+        pub recovery_vault_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// Configures the policy daily retention as documented in the `retention_daily` block below.
-        pub retention_daily: pulumi_wasm_rust::Output<
+        pub retention_daily: pulumi_gestalt_rust::Output<
             super::super::types::backup::PolicyFileShareRetentionDaily,
         >,
         /// Configures the policy monthly retention as documented in the `retention_monthly` block below.
-        pub retention_monthly: pulumi_wasm_rust::Output<
+        pub retention_monthly: pulumi_gestalt_rust::Output<
             Option<super::super::types::backup::PolicyFileShareRetentionMonthly>,
         >,
         /// Configures the policy weekly retention as documented in the `retention_weekly` block below.
-        pub retention_weekly: pulumi_wasm_rust::Output<
+        pub retention_weekly: pulumi_gestalt_rust::Output<
             Option<super::super::types::backup::PolicyFileShareRetentionWeekly>,
         >,
         /// Configures the policy yearly retention as documented in the `retention_yearly` block below.
-        pub retention_yearly: pulumi_wasm_rust::Output<
+        pub retention_yearly: pulumi_gestalt_rust::Output<
             Option<super::super::types::backup::PolicyFileShareRetentionYearly>,
         >,
         /// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         ///
         /// > **NOTE:** The maximum number of snapshots that Azure Files can retain is 200. If your combined snapshot count exceeds 200 based on your retention policies, it will result in an error. See [this](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#what-is-the-maximum-retention-i-can-configure-for-backups) article for more information.
-        pub timezone: pulumi_wasm_rust::Output<Option<String>>,
+        pub timezone: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PolicyFileShareArgs,
     ) -> PolicyFileShareResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let backup_binding = args.backup.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -234,27 +234,29 @@ pub mod policy_file_share {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PolicyFileShareResult {
-            backup: pulumi_wasm_rust::__private::into_domain(o.extract_field("backup")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            recovery_vault_name: pulumi_wasm_rust::__private::into_domain(
+            backup: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("backup"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            recovery_vault_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryVaultName"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            retention_daily: pulumi_wasm_rust::__private::into_domain(
+            retention_daily: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionDaily"),
             ),
-            retention_monthly: pulumi_wasm_rust::__private::into_domain(
+            retention_monthly: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionMonthly"),
             ),
-            retention_weekly: pulumi_wasm_rust::__private::into_domain(
+            retention_weekly: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionWeekly"),
             ),
-            retention_yearly: pulumi_wasm_rust::__private::into_domain(
+            retention_yearly: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("retentionYearly"),
             ),
-            timezone: pulumi_wasm_rust::__private::into_domain(
+            timezone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timezone"),
             ),
         }

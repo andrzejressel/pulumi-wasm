@@ -105,18 +105,18 @@
 /// ```
 ///
 pub mod network_endpoint_group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NetworkEndpointGroupArgs {
         /// The default port used if the port number is not specified in the
         /// network endpoint.
         #[builder(into, default)]
-        pub default_port: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub default_port: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the resource; provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -125,14 +125,14 @@ pub mod network_endpoint_group {
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The network to which all network endpoints in the NEG belong.
         /// Uses "default" project network if unspecified.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Type of network endpoints in this network endpoint group.
         /// NON_GCP_PRIVATE_IP_PORT is used for hybrid connectivity network
         /// endpoint groups (see https://cloud.google.com/load-balancing/docs/hybrid).
@@ -144,26 +144,26 @@ pub mod network_endpoint_group {
         /// Default value is `GCE_VM_IP_PORT`.
         /// Possible values are: `GCE_VM_IP`, `GCE_VM_IP_PORT`, `NON_GCP_PRIVATE_IP_PORT`, `INTERNET_IP_PORT`, `INTERNET_FQDN_PORT`, `SERVERLESS`, `PRIVATE_SERVICE_CONNECT`.
         #[builder(into, default)]
-        pub network_endpoint_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub network_endpoint_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional subnetwork to which all network endpoints in the NEG belong.
         #[builder(into, default)]
-        pub subnetwork: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub subnetwork: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Zone where the network endpoint group is located.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct NetworkEndpointGroupResult {
         /// The default port used if the port number is not specified in the
         /// network endpoint.
-        pub default_port: pulumi_wasm_rust::Output<Option<i32>>,
+        pub default_port: pulumi_gestalt_rust::Output<Option<i32>>,
         /// An optional description of this resource. Provide this property when
         /// you create the resource.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Name of the resource; provided by the client when the resource is
         /// created. The name must be 1-63 characters long, and comply with
         /// RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -171,13 +171,13 @@ pub mod network_endpoint_group {
         /// first character must be a lowercase letter, and all following
         /// characters must be a dash, lowercase letter, or digit, except the last
         /// character, which cannot be a dash.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The network to which all network endpoints in the NEG belong.
         /// Uses "default" project network if unspecified.
         ///
         ///
         /// - - -
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// Type of network endpoints in this network endpoint group.
         /// NON_GCP_PRIVATE_IP_PORT is used for hybrid connectivity network
         /// endpoint groups (see https://cloud.google.com/load-balancing/docs/hybrid).
@@ -188,29 +188,29 @@ pub mod network_endpoint_group {
         /// Possible values include: GCE_VM_IP, GCE_VM_IP_PORT, NON_GCP_PRIVATE_IP_PORT, INTERNET_IP_PORT, INTERNET_FQDN_PORT, SERVERLESS, and PRIVATE_SERVICE_CONNECT.
         /// Default value is `GCE_VM_IP_PORT`.
         /// Possible values are: `GCE_VM_IP`, `GCE_VM_IP_PORT`, `NON_GCP_PRIVATE_IP_PORT`, `INTERNET_IP_PORT`, `INTERNET_FQDN_PORT`, `SERVERLESS`, `PRIVATE_SERVICE_CONNECT`.
-        pub network_endpoint_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub network_endpoint_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The URI of the created resource.
-        pub self_link: pulumi_wasm_rust::Output<String>,
+        pub self_link: pulumi_gestalt_rust::Output<String>,
         /// Number of network endpoints in the network endpoint group.
-        pub size: pulumi_wasm_rust::Output<i32>,
+        pub size: pulumi_gestalt_rust::Output<i32>,
         /// Optional subnetwork to which all network endpoints in the NEG belong.
-        pub subnetwork: pulumi_wasm_rust::Output<Option<String>>,
+        pub subnetwork: pulumi_gestalt_rust::Output<Option<String>>,
         /// Zone where the network endpoint group is located.
-        pub zone: pulumi_wasm_rust::Output<String>,
+        pub zone: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NetworkEndpointGroupArgs,
     ) -> NetworkEndpointGroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let default_port_binding = args.default_port.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -264,30 +264,30 @@ pub mod network_endpoint_group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NetworkEndpointGroupResult {
-            default_port: pulumi_wasm_rust::__private::into_domain(
+            default_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("defaultPort"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            network_endpoint_type: pulumi_wasm_rust::__private::into_domain(
+            network_endpoint_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkEndpointType"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            self_link: pulumi_wasm_rust::__private::into_domain(
+            self_link: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selfLink"),
             ),
-            size: pulumi_wasm_rust::__private::into_domain(o.extract_field("size")),
-            subnetwork: pulumi_wasm_rust::__private::into_domain(
+            size: pulumi_gestalt_rust::__private::into_domain(o.extract_field("size")),
+            subnetwork: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subnetwork"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

@@ -89,42 +89,42 @@
 /// ```
 ///
 pub mod pipeline {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct PipelineArgs {
         /// The display name of the pipeline. It can contain only letters ([A-Za-z]), numbers ([0-9]), hyphens (-), and underscores (_).
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// "The pipeline name. For example': 'projects/PROJECT_ID/locations/LOCATION_ID/pipelines/PIPELINE_ID."
         /// "- PROJECT_ID can contain letters ([A-Za-z]), numbers ([0-9]), hyphens (-), colons (:), and periods (.). For more information, see Identifying projects."
         /// "LOCATION_ID is the canonical ID for the pipeline's location. The list of available locations can be obtained by calling google.cloud.location.Locations.ListLocations. Note that the Data Pipelines service is not available in all regions. It depends on Cloud Scheduler, an App Engine application, so it's only available in App Engine regions."
         /// "PIPELINE_ID is the ID of the pipeline. Must be unique for the selected project and location."
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The sources of the pipeline (for example, Dataplex). The keys and values are set by the corresponding sources during pipeline creation.
         /// An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
         #[builder(into, default)]
-        pub pipeline_sources: pulumi_wasm_rust::InputOrOutput<
+        pub pipeline_sources: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A reference to the region
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Internal scheduling information for a pipeline. If this information is provided, periodic jobs will be created per the schedule. If not, users are responsible for creating jobs externally.
         /// https://cloud.google.com/dataflow/docs/reference/data-pipelines/rest/v1/projects.locations.pipelines#schedulespec
         /// Structure is documented below.
         #[builder(into, default)]
-        pub schedule_info: pulumi_wasm_rust::InputOrOutput<
+        pub schedule_info: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataflow::PipelineScheduleInfo>,
         >,
         /// Optional. A service account email to be used with the Cloud Scheduler job. If not specified, the default compute engine service account will be used.
         #[builder(into, default)]
-        pub scheduler_service_account_email: pulumi_wasm_rust::InputOrOutput<
+        pub scheduler_service_account_email: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The state of the pipeline. When the pipeline is created, the state is set to 'PIPELINE_STATE_ACTIVE' by default. State changes can be requested by setting the state to stopping, paused, or resuming. State cannot be changed through pipelines.patch requests.
@@ -134,17 +134,17 @@ pub mod pipeline {
         ///
         /// - - -
         #[builder(into)]
-        pub state: pulumi_wasm_rust::InputOrOutput<String>,
+        pub state: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The type of the pipeline. This field affects the scheduling of the pipeline and the type of metrics to show for the pipeline.
         /// https://cloud.google.com/dataflow/docs/reference/data-pipelines/rest/v1/projects.locations.pipelines#pipelinetype
         /// Possible values are: `PIPELINE_TYPE_UNSPECIFIED`, `PIPELINE_TYPE_BATCH`, `PIPELINE_TYPE_STREAMING`.
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Workload information for creating new jobs.
         /// https://cloud.google.com/dataflow/docs/reference/data-pipelines/rest/v1/projects.locations.pipelines#workload
         /// Structure is documented below.
         #[builder(into, default)]
-        pub workload: pulumi_wasm_rust::InputOrOutput<
+        pub workload: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataflow::PipelineWorkload>,
         >,
     }
@@ -152,52 +152,52 @@ pub mod pipeline {
     pub struct PipelineResult {
         /// The timestamp when the pipeline was initially created. Set by the Data Pipelines service.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The display name of the pipeline. It can contain only letters ([A-Za-z]), numbers ([0-9]), hyphens (-), and underscores (_).
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Number of jobs.
-        pub job_count: pulumi_wasm_rust::Output<i32>,
+        pub job_count: pulumi_gestalt_rust::Output<i32>,
         /// The timestamp when the pipeline was last modified. Set by the Data Pipelines service.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: "2014-10-02T15:01:23Z" and "2014-10-02T15:01:23.045123456Z".
-        pub last_update_time: pulumi_wasm_rust::Output<String>,
+        pub last_update_time: pulumi_gestalt_rust::Output<String>,
         /// "The pipeline name. For example': 'projects/PROJECT_ID/locations/LOCATION_ID/pipelines/PIPELINE_ID."
         /// "- PROJECT_ID can contain letters ([A-Za-z]), numbers ([0-9]), hyphens (-), colons (:), and periods (.). For more information, see Identifying projects."
         /// "LOCATION_ID is the canonical ID for the pipeline's location. The list of available locations can be obtained by calling google.cloud.location.Locations.ListLocations. Note that the Data Pipelines service is not available in all regions. It depends on Cloud Scheduler, an App Engine application, so it's only available in App Engine regions."
         /// "PIPELINE_ID is the ID of the pipeline. Must be unique for the selected project and location."
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The sources of the pipeline (for example, Dataplex). The keys and values are set by the corresponding sources during pipeline creation.
         /// An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
-        pub pipeline_sources: pulumi_wasm_rust::Output<
+        pub pipeline_sources: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// A reference to the region
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_gestalt_rust::Output<Option<String>>,
         /// Internal scheduling information for a pipeline. If this information is provided, periodic jobs will be created per the schedule. If not, users are responsible for creating jobs externally.
         /// https://cloud.google.com/dataflow/docs/reference/data-pipelines/rest/v1/projects.locations.pipelines#schedulespec
         /// Structure is documented below.
-        pub schedule_info: pulumi_wasm_rust::Output<
+        pub schedule_info: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataflow::PipelineScheduleInfo>,
         >,
         /// Optional. A service account email to be used with the Cloud Scheduler job. If not specified, the default compute engine service account will be used.
-        pub scheduler_service_account_email: pulumi_wasm_rust::Output<String>,
+        pub scheduler_service_account_email: pulumi_gestalt_rust::Output<String>,
         /// The state of the pipeline. When the pipeline is created, the state is set to 'PIPELINE_STATE_ACTIVE' by default. State changes can be requested by setting the state to stopping, paused, or resuming. State cannot be changed through pipelines.patch requests.
         /// https://cloud.google.com/dataflow/docs/reference/data-pipelines/rest/v1/projects.locations.pipelines#state
         /// Possible values are: `STATE_UNSPECIFIED`, `STATE_RESUMING`, `STATE_ACTIVE`, `STATE_STOPPING`, `STATE_ARCHIVED`, `STATE_PAUSED`.
         ///
         ///
         /// - - -
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// The type of the pipeline. This field affects the scheduling of the pipeline and the type of metrics to show for the pipeline.
         /// https://cloud.google.com/dataflow/docs/reference/data-pipelines/rest/v1/projects.locations.pipelines#pipelinetype
         /// Possible values are: `PIPELINE_TYPE_UNSPECIFIED`, `PIPELINE_TYPE_BATCH`, `PIPELINE_TYPE_STREAMING`.
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// Workload information for creating new jobs.
         /// https://cloud.google.com/dataflow/docs/reference/data-pipelines/rest/v1/projects.locations.pipelines#workload
         /// Structure is documented below.
-        pub workload: pulumi_wasm_rust::Output<
+        pub workload: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataflow::PipelineWorkload>,
         >,
     }
@@ -206,11 +206,11 @@ pub mod pipeline {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: PipelineArgs,
     ) -> PipelineResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let display_name_binding = args.display_name.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -277,35 +277,37 @@ pub mod pipeline {
         };
         let o = register_interface::register(context.get_inner(), &request);
         PipelineResult {
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            job_count: pulumi_wasm_rust::__private::into_domain(
+            job_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("jobCount"),
             ),
-            last_update_time: pulumi_wasm_rust::__private::into_domain(
+            last_update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastUpdateTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            pipeline_sources: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            pipeline_sources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pipelineSources"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            schedule_info: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            schedule_info: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scheduleInfo"),
             ),
-            scheduler_service_account_email: pulumi_wasm_rust::__private::into_domain(
+            scheduler_service_account_email: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedulerServiceAccountEmail"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            workload: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            workload: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workload"),
             ),
         }

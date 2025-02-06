@@ -11,78 +11,78 @@
 /// ```
 ///
 pub mod resource_group_template_deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ResourceGroupTemplateDeploymentArgs {
         /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
         #[builder(into, default)]
-        pub debug_level: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub debug_level: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
         ///
         /// > **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
         #[builder(into)]
-        pub deployment_mode: pulumi_wasm_rust::InputOrOutput<String>,
+        pub deployment_mode: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name which should be used for this Resource Group Template Deployment. Changing this forces a new Resource Group Template Deployment to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The contents of the ARM Template parameters file - containing a JSON list of parameters.
         ///
         /// > An example of how to pass variables into an ARM Template can be seen in the example.
         #[builder(into, default)]
-        pub parameters_content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parameters_content: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Resource Group Template Deployment.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
         #[builder(into, default)]
-        pub template_content: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub template_content: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
         #[builder(into, default)]
-        pub template_spec_version_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub template_spec_version_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ResourceGroupTemplateDeploymentResult {
         /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
-        pub debug_level: pulumi_wasm_rust::Output<Option<String>>,
+        pub debug_level: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Deployment Mode for this Resource Group Template Deployment. Possible values are `Complete` (where resources in the Resource Group not specified in the ARM Template will be destroyed) and `Incremental` (where resources are additive only).
         ///
         /// > **Note:** If `deployment_mode` is set to `Complete` then resources within this Resource Group which are not defined in the ARM Template will be deleted.
-        pub deployment_mode: pulumi_wasm_rust::Output<String>,
+        pub deployment_mode: pulumi_gestalt_rust::Output<String>,
         /// The name which should be used for this Resource Group Template Deployment. Changing this forces a new Resource Group Template Deployment to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The JSON Content of the Outputs of the ARM Template Deployment.
-        pub output_content: pulumi_wasm_rust::Output<String>,
+        pub output_content: pulumi_gestalt_rust::Output<String>,
         /// The contents of the ARM Template parameters file - containing a JSON list of parameters.
         ///
         /// > An example of how to pass variables into an ARM Template can be seen in the example.
-        pub parameters_content: pulumi_wasm_rust::Output<String>,
+        pub parameters_content: pulumi_gestalt_rust::Output<String>,
         /// The name of the Resource Group where the Resource Group Template Deployment should exist. Changing this forces a new Resource Group Template Deployment to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Resource Group Template Deployment.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`.
-        pub template_content: pulumi_wasm_rust::Output<String>,
+        pub template_content: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`.
-        pub template_spec_version_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_spec_version_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ResourceGroupTemplateDeploymentArgs,
     ) -> ResourceGroupTemplateDeploymentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let debug_level_binding = args.debug_level.get_output(context).get_inner();
         let deployment_mode_binding = args
@@ -149,27 +149,27 @@ pub mod resource_group_template_deployment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ResourceGroupTemplateDeploymentResult {
-            debug_level: pulumi_wasm_rust::__private::into_domain(
+            debug_level: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("debugLevel"),
             ),
-            deployment_mode: pulumi_wasm_rust::__private::into_domain(
+            deployment_mode: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentMode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            output_content: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            output_content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("outputContent"),
             ),
-            parameters_content: pulumi_wasm_rust::__private::into_domain(
+            parameters_content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("parametersContent"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            template_content: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            template_content: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("templateContent"),
             ),
-            template_spec_version_id: pulumi_wasm_rust::__private::into_domain(
+            template_spec_version_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("templateSpecVersionId"),
             ),
         }

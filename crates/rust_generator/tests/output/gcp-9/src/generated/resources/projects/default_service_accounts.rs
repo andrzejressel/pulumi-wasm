@@ -16,8 +16,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let myProject = default_service_accounts::create(
@@ -33,8 +33,8 @@
 /// To enable the default service accounts on the resource destroy:
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let myProject = default_service_accounts::create(
@@ -53,36 +53,36 @@
 /// This resource does not support import
 ///
 pub mod default_service_accounts {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DefaultServiceAccountsArgs {
         /// The action to be performed in the default service accounts. Valid values are: `DEPRIVILEGE`, `DELETE`, `DISABLE`. Note that `DEPRIVILEGE` action will ignore the REVERT configuration in the restore_policy
         #[builder(into)]
-        pub action: pulumi_wasm_rust::InputOrOutput<String>,
+        pub action: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The project ID where service accounts are created.
         #[builder(into)]
-        pub project: pulumi_wasm_rust::InputOrOutput<String>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The action to be performed in the default service accounts on the resource destroy.
         /// Valid values are NONE, REVERT and REVERT_AND_IGNORE_FAILURE. It is applied for any action but in the DEPRIVILEGE.
         /// If set to REVERT it attempts to restore all default SAs but the DEPRIVILEGE action.
         /// If set to REVERT_AND_IGNORE_FAILURE it is the same behavior as REVERT but ignores errors returned by the API.
         #[builder(into, default)]
-        pub restore_policy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub restore_policy: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DefaultServiceAccountsResult {
         /// The action to be performed in the default service accounts. Valid values are: `DEPRIVILEGE`, `DELETE`, `DISABLE`. Note that `DEPRIVILEGE` action will ignore the REVERT configuration in the restore_policy
-        pub action: pulumi_wasm_rust::Output<String>,
+        pub action: pulumi_gestalt_rust::Output<String>,
         /// The project ID where service accounts are created.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The action to be performed in the default service accounts on the resource destroy.
         /// Valid values are NONE, REVERT and REVERT_AND_IGNORE_FAILURE. It is applied for any action but in the DEPRIVILEGE.
         /// If set to REVERT it attempts to restore all default SAs but the DEPRIVILEGE action.
         /// If set to REVERT_AND_IGNORE_FAILURE it is the same behavior as REVERT but ignores errors returned by the API.
-        pub restore_policy: pulumi_wasm_rust::Output<Option<String>>,
+        pub restore_policy: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Service Accounts changed by this resource. It is used for `REVERT` the `action` on the destroy.
-        pub service_accounts: pulumi_wasm_rust::Output<
+        pub service_accounts: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -91,11 +91,11 @@ pub mod default_service_accounts {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DefaultServiceAccountsArgs,
     ) -> DefaultServiceAccountsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let action_binding = args.action.get_output(context).get_inner();
         let project_binding = args.project.get_output(context).get_inner();
@@ -121,14 +121,16 @@ pub mod default_service_accounts {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DefaultServiceAccountsResult {
-            action: pulumi_wasm_rust::__private::into_domain(o.extract_field("action")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            action: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("action"),
+            ),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            restore_policy: pulumi_wasm_rust::__private::into_domain(
+            restore_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("restorePolicy"),
             ),
-            service_accounts: pulumi_wasm_rust::__private::into_domain(
+            service_accounts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccounts"),
             ),
         }

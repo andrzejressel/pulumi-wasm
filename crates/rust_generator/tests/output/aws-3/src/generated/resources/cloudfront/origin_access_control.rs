@@ -7,8 +7,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = origin_access_control::create(
@@ -32,51 +32,53 @@
 /// $ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
 /// ```
 pub mod origin_access_control {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct OriginAccessControlArgs {
         /// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A name that identifies the Origin Access Control.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
         #[builder(into)]
-        pub origin_access_control_origin_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub origin_access_control_origin_type: pulumi_gestalt_rust::InputOrOutput<
+            String,
+        >,
         /// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
         #[builder(into)]
-        pub signing_behavior: pulumi_wasm_rust::InputOrOutput<String>,
+        pub signing_behavior: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
         #[builder(into)]
-        pub signing_protocol: pulumi_wasm_rust::InputOrOutput<String>,
+        pub signing_protocol: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct OriginAccessControlResult {
         /// The description of the Origin Access Control. Defaults to "Managed by Pulumi" if omitted.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The current version of this Origin Access Control.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// A name that identifies the Origin Access Control.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The type of origin that this Origin Access Control is for. Valid values are `lambda`, `mediapackagev2`, `mediastore`, and `s3`.
-        pub origin_access_control_origin_type: pulumi_wasm_rust::Output<String>,
+        pub origin_access_control_origin_type: pulumi_gestalt_rust::Output<String>,
         /// Specifies which requests CloudFront signs. Specify `always` for the most common use case. Allowed values: `always`, `never`, and `no-override`.
-        pub signing_behavior: pulumi_wasm_rust::Output<String>,
+        pub signing_behavior: pulumi_gestalt_rust::Output<String>,
         /// Determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.
-        pub signing_protocol: pulumi_wasm_rust::Output<String>,
+        pub signing_protocol: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: OriginAccessControlArgs,
     ) -> OriginAccessControlResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -121,18 +123,18 @@ pub mod origin_access_control {
         };
         let o = register_interface::register(context.get_inner(), &request);
         OriginAccessControlResult {
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            origin_access_control_origin_type: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            origin_access_control_origin_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("originAccessControlOriginType"),
             ),
-            signing_behavior: pulumi_wasm_rust::__private::into_domain(
+            signing_behavior: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signingBehavior"),
             ),
-            signing_protocol: pulumi_wasm_rust::__private::into_domain(
+            signing_protocol: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("signingProtocol"),
             ),
         }

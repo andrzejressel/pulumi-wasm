@@ -81,52 +81,52 @@
 /// ```
 ///
 pub mod instance_group_membership {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct InstanceGroupMembershipArgs {
         /// An instance being added to the InstanceGroup
         #[builder(into)]
-        pub instance: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Represents an Instance Group resource name that the instance belongs to.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub instance_group: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_group: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A reference to the zone where the instance group resides.
         #[builder(into, default)]
-        pub zone: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct InstanceGroupMembershipResult {
         /// An instance being added to the InstanceGroup
-        pub instance: pulumi_wasm_rust::Output<String>,
+        pub instance: pulumi_gestalt_rust::Output<String>,
         /// Represents an Instance Group resource name that the instance belongs to.
         ///
         ///
         /// - - -
-        pub instance_group: pulumi_wasm_rust::Output<String>,
+        pub instance_group: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// A reference to the zone where the instance group resides.
-        pub zone: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: InstanceGroupMembershipArgs,
     ) -> InstanceGroupMembershipResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let instance_binding = args.instance.get_output(context).get_inner();
         let instance_group_binding = args.instance_group.get_output(context).get_inner();
@@ -157,16 +157,16 @@ pub mod instance_group_membership {
         };
         let o = register_interface::register(context.get_inner(), &request);
         InstanceGroupMembershipResult {
-            instance: pulumi_wasm_rust::__private::into_domain(
+            instance: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instance"),
             ),
-            instance_group: pulumi_wasm_rust::__private::into_domain(
+            instance_group: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceGroup"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            zone: pulumi_wasm_rust::__private::into_domain(o.extract_field("zone")),
+            zone: pulumi_gestalt_rust::__private::into_domain(o.extract_field("zone")),
         }
     }
 }

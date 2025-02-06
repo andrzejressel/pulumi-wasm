@@ -44,46 +44,46 @@
 /// $ pulumi import aws:devopsguru/serviceIntegration:ServiceIntegration example us-east-1
 /// ```
 pub mod service_integration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ServiceIntegrationArgs {
         /// Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
         #[builder(into, default)]
-        pub kms_server_side_encryption: pulumi_wasm_rust::InputOrOutput<
+        pub kms_server_side_encryption: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::devopsguru::ServiceIntegrationKmsServerSideEncryption,
             >,
         >,
         /// Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
         #[builder(into, default)]
-        pub logs_anomaly_detection: pulumi_wasm_rust::InputOrOutput<
+        pub logs_anomaly_detection: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::devopsguru::ServiceIntegrationLogsAnomalyDetection,
             >,
         >,
         /// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
         #[builder(into, default)]
-        pub ops_center: pulumi_wasm_rust::InputOrOutput<
+        pub ops_center: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::devopsguru::ServiceIntegrationOpsCenter>,
         >,
     }
     #[allow(dead_code)]
     pub struct ServiceIntegrationResult {
         /// Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kms_server_side_encryption` below.
-        pub kms_server_side_encryption: pulumi_wasm_rust::Output<
+        pub kms_server_side_encryption: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::devopsguru::ServiceIntegrationKmsServerSideEncryption,
             >,
         >,
         /// Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logs_anomaly_detection` below.
-        pub logs_anomaly_detection: pulumi_wasm_rust::Output<
+        pub logs_anomaly_detection: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::devopsguru::ServiceIntegrationLogsAnomalyDetection,
             >,
         >,
         /// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `ops_center` below.
-        pub ops_center: pulumi_wasm_rust::Output<
+        pub ops_center: pulumi_gestalt_rust::Output<
             Option<super::super::types::devopsguru::ServiceIntegrationOpsCenter>,
         >,
     }
@@ -92,11 +92,11 @@ pub mod service_integration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ServiceIntegrationArgs,
     ) -> ServiceIntegrationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let kms_server_side_encryption_binding = args
             .kms_server_side_encryption
@@ -128,13 +128,13 @@ pub mod service_integration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ServiceIntegrationResult {
-            kms_server_side_encryption: pulumi_wasm_rust::__private::into_domain(
+            kms_server_side_encryption: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsServerSideEncryption"),
             ),
-            logs_anomaly_detection: pulumi_wasm_rust::__private::into_domain(
+            logs_anomaly_detection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logsAnomalyDetection"),
             ),
-            ops_center: pulumi_wasm_rust::__private::into_domain(
+            ops_center: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("opsCenter"),
             ),
         }

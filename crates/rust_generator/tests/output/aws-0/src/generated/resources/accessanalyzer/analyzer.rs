@@ -5,8 +5,8 @@
 /// ### Account Analyzer
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = analyzer::create(
@@ -19,8 +19,8 @@
 /// ### Organization Analyzer
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = organization::create(
@@ -47,7 +47,7 @@
 /// $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
 /// ```
 pub mod analyzer {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AnalyzerArgs {
@@ -55,54 +55,54 @@ pub mod analyzer {
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub analyzer_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub analyzer_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A block that specifies the configuration of the analyzer. Documented below
         #[builder(into, default)]
-        pub configuration: pulumi_wasm_rust::InputOrOutput<
+        pub configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::accessanalyzer::AnalyzerConfiguration>,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, `ACCOUNT_UNUSED_ACCESS `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
         #[builder(into, default)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AnalyzerResult {
         /// Name of the Analyzer.
         ///
         /// The following arguments are optional:
-        pub analyzer_name: pulumi_wasm_rust::Output<String>,
+        pub analyzer_name: pulumi_gestalt_rust::Output<String>,
         /// ARN of the Analyzer.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A block that specifies the configuration of the analyzer. Documented below
-        pub configuration: pulumi_wasm_rust::Output<
+        pub configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::accessanalyzer::AnalyzerConfiguration>,
         >,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, `ACCOUNT_UNUSED_ACCESS `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
-        pub type_: pulumi_wasm_rust::Output<Option<String>>,
+        pub type_: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AnalyzerArgs,
     ) -> AnalyzerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let analyzer_name_binding = args.analyzer_name.get_output(context).get_inner();
         let configuration_binding = args.configuration.get_output(context).get_inner();
@@ -133,18 +133,18 @@ pub mod analyzer {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AnalyzerResult {
-            analyzer_name: pulumi_wasm_rust::__private::into_domain(
+            analyzer_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("analyzerName"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            configuration: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configuration"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

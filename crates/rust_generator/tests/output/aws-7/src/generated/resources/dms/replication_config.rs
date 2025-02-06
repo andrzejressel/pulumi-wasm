@@ -34,93 +34,93 @@
 /// $ pulumi import aws:dms/replicationConfig:ReplicationConfig example arn:aws:dms:us-east-1:123456789012:replication-config:UX6OL6MHMMJKFFOXE3H7LLJCMEKBDUG4ZV7DRSI
 /// ```
 pub mod replication_config {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReplicationConfigArgs {
         /// Configuration block for provisioning an DMS Serverless replication.
         #[builder(into)]
-        pub compute_config: pulumi_wasm_rust::InputOrOutput<
+        pub compute_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::dms::ReplicationConfigComputeConfig,
         >,
         /// Unique identifier that you want to use to create the config.
         #[builder(into)]
-        pub replication_config_identifier: pulumi_wasm_rust::InputOrOutput<String>,
+        pub replication_config_identifier: pulumi_gestalt_rust::InputOrOutput<String>,
         /// An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
         #[builder(into, default)]
-        pub replication_settings: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub replication_settings: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
         #[builder(into)]
-        pub replication_type: pulumi_wasm_rust::InputOrOutput<String>,
+        pub replication_type: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
         #[builder(into, default)]
-        pub resource_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub resource_identifier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
         #[builder(into)]
-        pub source_endpoint_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub source_endpoint_arn: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether to run or stop the serverless replication, default is false.
         #[builder(into, default)]
-        pub start_replication: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub start_replication: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// JSON settings for specifying supplemental data. For more information see [Specifying supplemental data for task settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html)
         #[builder(into, default)]
-        pub supplemental_settings: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub supplemental_settings: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
         #[builder(into)]
-        pub table_mappings: pulumi_wasm_rust::InputOrOutput<String>,
+        pub table_mappings: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
         #[builder(into)]
-        pub target_endpoint_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub target_endpoint_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ReplicationConfigResult {
         /// The Amazon Resource Name (ARN) for the serverless replication config.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Configuration block for provisioning an DMS Serverless replication.
-        pub compute_config: pulumi_wasm_rust::Output<
+        pub compute_config: pulumi_gestalt_rust::Output<
             super::super::types::dms::ReplicationConfigComputeConfig,
         >,
         /// Unique identifier that you want to use to create the config.
-        pub replication_config_identifier: pulumi_wasm_rust::Output<String>,
+        pub replication_config_identifier: pulumi_gestalt_rust::Output<String>,
         /// An escaped JSON string that are used to provision this replication configuration. For example, [Change processing tuning settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.ChangeProcessingTuning.html)
-        pub replication_settings: pulumi_wasm_rust::Output<String>,
+        pub replication_settings: pulumi_gestalt_rust::Output<String>,
         /// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
-        pub replication_type: pulumi_wasm_rust::Output<String>,
+        pub replication_type: pulumi_gestalt_rust::Output<String>,
         /// Unique value or name that you set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource. For more information, see [Fine-grained access control using resource names and tags](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.FineGrainedAccess)
-        pub resource_identifier: pulumi_wasm_rust::Output<String>,
+        pub resource_identifier: pulumi_gestalt_rust::Output<String>,
         /// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
-        pub source_endpoint_arn: pulumi_wasm_rust::Output<String>,
+        pub source_endpoint_arn: pulumi_gestalt_rust::Output<String>,
         /// Whether to run or stop the serverless replication, default is false.
-        pub start_replication: pulumi_wasm_rust::Output<Option<bool>>,
+        pub start_replication: pulumi_gestalt_rust::Output<Option<bool>>,
         /// JSON settings for specifying supplemental data. For more information see [Specifying supplemental data for task settings](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.TaskData.html)
-        pub supplemental_settings: pulumi_wasm_rust::Output<Option<String>>,
+        pub supplemental_settings: pulumi_gestalt_rust::Output<Option<String>>,
         /// An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
-        pub table_mappings: pulumi_wasm_rust::Output<String>,
+        pub table_mappings: pulumi_gestalt_rust::Output<String>,
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
-        pub target_endpoint_arn: pulumi_wasm_rust::Output<String>,
+        pub target_endpoint_arn: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ReplicationConfigArgs,
     ) -> ReplicationConfigResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let compute_config_binding = args.compute_config.get_output(context).get_inner();
         let replication_config_identifier_binding = args
@@ -210,39 +210,39 @@ pub mod replication_config {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ReplicationConfigResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            compute_config: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            compute_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("computeConfig"),
             ),
-            replication_config_identifier: pulumi_wasm_rust::__private::into_domain(
+            replication_config_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationConfigIdentifier"),
             ),
-            replication_settings: pulumi_wasm_rust::__private::into_domain(
+            replication_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationSettings"),
             ),
-            replication_type: pulumi_wasm_rust::__private::into_domain(
+            replication_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationType"),
             ),
-            resource_identifier: pulumi_wasm_rust::__private::into_domain(
+            resource_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceIdentifier"),
             ),
-            source_endpoint_arn: pulumi_wasm_rust::__private::into_domain(
+            source_endpoint_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sourceEndpointArn"),
             ),
-            start_replication: pulumi_wasm_rust::__private::into_domain(
+            start_replication: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startReplication"),
             ),
-            supplemental_settings: pulumi_wasm_rust::__private::into_domain(
+            supplemental_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("supplementalSettings"),
             ),
-            table_mappings: pulumi_wasm_rust::__private::into_domain(
+            table_mappings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tableMappings"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            target_endpoint_arn: pulumi_wasm_rust::__private::into_domain(
+            target_endpoint_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetEndpointArn"),
             ),
         }

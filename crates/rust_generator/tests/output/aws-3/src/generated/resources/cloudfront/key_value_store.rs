@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = key_value_store::create(
@@ -27,37 +27,37 @@
 /// $ pulumi import aws:cloudfront/keyValueStore:KeyValueStore example example_store
 /// ```
 pub mod key_value_store {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct KeyValueStoreArgs {
         /// Comment.
         #[builder(into, default)]
-        pub comment: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub comment: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Unique name for your CloudFront KeyValueStore.
         ///
         /// The following arguments are optional:
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::cloudfront::KeyValueStoreTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct KeyValueStoreResult {
         /// Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Comment.
-        pub comment: pulumi_wasm_rust::Output<Option<String>>,
+        pub comment: pulumi_gestalt_rust::Output<Option<String>>,
         /// ETag hash of the KeyValueStore.
-        pub etag: pulumi_wasm_rust::Output<String>,
-        pub last_modified_time: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
+        pub last_modified_time: pulumi_gestalt_rust::Output<String>,
         /// Unique name for your CloudFront KeyValueStore.
         ///
         /// The following arguments are optional:
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::cloudfront::KeyValueStoreTimeouts>,
         >,
     }
@@ -66,11 +66,11 @@ pub mod key_value_store {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: KeyValueStoreArgs,
     ) -> KeyValueStoreResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let comment_binding = args.comment.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -96,16 +96,16 @@ pub mod key_value_store {
         };
         let o = register_interface::register(context.get_inner(), &request);
         KeyValueStoreResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            comment: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            comment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("comment"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            last_modified_time: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            last_modified_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("lastModifiedTime"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

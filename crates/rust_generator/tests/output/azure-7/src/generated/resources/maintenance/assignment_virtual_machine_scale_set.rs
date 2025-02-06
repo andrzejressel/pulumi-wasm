@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -205,39 +205,39 @@
 /// ```
 ///
 pub mod assignment_virtual_machine_scale_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AssignmentVirtualMachineScaleSetArgs {
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub maintenance_configuration_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub maintenance_configuration_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the Virtual Machine Scale Set ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub virtual_machine_scale_set_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_machine_scale_set_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct AssignmentVirtualMachineScaleSetResult {
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the ID of the Maintenance Configuration Resource. Changing this forces a new resource to be created.
-        pub maintenance_configuration_id: pulumi_wasm_rust::Output<String>,
+        pub maintenance_configuration_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the Virtual Machine Scale Set ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
-        pub virtual_machine_scale_set_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_machine_scale_set_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AssignmentVirtualMachineScaleSetArgs,
     ) -> AssignmentVirtualMachineScaleSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let location_binding = args.location.get_output(context).get_inner();
         let maintenance_configuration_id_binding = args
@@ -270,13 +270,13 @@ pub mod assignment_virtual_machine_scale_set {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AssignmentVirtualMachineScaleSetResult {
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            maintenance_configuration_id: pulumi_wasm_rust::__private::into_domain(
+            maintenance_configuration_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("maintenanceConfigurationId"),
             ),
-            virtual_machine_scale_set_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_machine_scale_set_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualMachineScaleSetId"),
             ),
         }

@@ -4,8 +4,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = bucket_v_2::create(
@@ -48,47 +48,47 @@
 /// $ pulumi import aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint example 123456789012:example
 /// ```
 pub mod object_lambda_access_point {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ObjectLambdaAccessPointArgs {
         /// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
         #[builder(into)]
-        pub configuration: pulumi_wasm_rust::InputOrOutput<
+        pub configuration: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::s3control::ObjectLambdaAccessPointConfiguration,
         >,
         /// The name for this Object Lambda Access Point.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct ObjectLambdaAccessPointResult {
         /// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// Alias for the S3 Object Lambda Access Point.
-        pub alias: pulumi_wasm_rust::Output<String>,
+        pub alias: pulumi_gestalt_rust::Output<String>,
         /// Amazon Resource Name (ARN) of the Object Lambda Access Point.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
-        pub configuration: pulumi_wasm_rust::Output<
+        pub configuration: pulumi_gestalt_rust::Output<
             super::super::types::s3control::ObjectLambdaAccessPointConfiguration,
         >,
         /// The name for this Object Lambda Access Point.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ObjectLambdaAccessPointArgs,
     ) -> ObjectLambdaAccessPointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let configuration_binding = args.configuration.get_output(context).get_inner();
@@ -115,15 +115,15 @@ pub mod object_lambda_access_point {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ObjectLambdaAccessPointResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            alias: pulumi_wasm_rust::__private::into_domain(o.extract_field("alias")),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            configuration: pulumi_wasm_rust::__private::into_domain(
+            alias: pulumi_gestalt_rust::__private::into_domain(o.extract_field("alias")),
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configuration"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

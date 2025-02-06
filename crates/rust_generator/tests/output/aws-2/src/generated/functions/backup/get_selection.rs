@@ -1,37 +1,37 @@
 pub mod get_selection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetSelectionArgs {
         /// Backup plan ID associated with the selection of resources.
         #[builder(into)]
-        pub plan_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub plan_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Backup selection ID.
         #[builder(into)]
-        pub selection_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub selection_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetSelectionResult {
         /// ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
-        pub iam_role_arn: pulumi_wasm_rust::Output<String>,
+        pub iam_role_arn: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// Display name of a resource selection document.
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub plan_id: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub plan_id: pulumi_gestalt_rust::Output<String>,
         /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
-        pub resources: pulumi_wasm_rust::Output<Vec<String>>,
-        pub selection_id: pulumi_wasm_rust::Output<String>,
+        pub resources: pulumi_gestalt_rust::Output<Vec<String>>,
+        pub selection_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetSelectionArgs,
     ) -> GetSelectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let plan_id_binding = args.plan_id.get_output(context).get_inner();
         let selection_id_binding = args.selection_id.get_output(context).get_inner();
@@ -51,16 +51,18 @@ pub mod get_selection {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetSelectionResult {
-            iam_role_arn: pulumi_wasm_rust::__private::into_domain(
+            iam_role_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("iamRoleArn"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            plan_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("planId")),
-            resources: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            plan_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("planId"),
+            ),
+            resources: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resources"),
             ),
-            selection_id: pulumi_wasm_rust::__private::into_domain(
+            selection_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("selectionId"),
             ),
         }

@@ -123,157 +123,163 @@
 /// ```
 ///
 pub mod io_t_hub {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IoTHubArgs {
         #[builder(into, default)]
-        pub cloud_to_device: pulumi_wasm_rust::InputOrOutput<
+        pub cloud_to_device: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::iot::IoTHubCloudToDevice>,
         >,
         /// An `endpoint` block as defined below.
         #[builder(into, default)]
-        pub endpoints: pulumi_wasm_rust::InputOrOutput<
+        pub endpoints: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::IoTHubEndpoint>>,
         >,
         #[builder(into, default)]
-        pub enrichments: pulumi_wasm_rust::InputOrOutput<
+        pub enrichments: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::IoTHubEnrichment>>,
         >,
         /// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
         #[builder(into, default)]
-        pub event_hub_partition_count: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub event_hub_partition_count: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
         #[builder(into, default)]
-        pub event_hub_retention_in_days: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub event_hub_retention_in_days: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         /// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         ///
         /// > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
         #[builder(into, default)]
-        pub fallback_route: pulumi_wasm_rust::InputOrOutput<
+        pub fallback_route: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::iot::IoTHubFallbackRoute>,
         >,
         /// A `file_upload` block as defined below.
         #[builder(into, default)]
-        pub file_upload: pulumi_wasm_rust::InputOrOutput<
+        pub file_upload: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::iot::IoTHubFileUpload>,
         >,
         /// An `identity` block as defined below.
         #[builder(into, default)]
-        pub identity: pulumi_wasm_rust::InputOrOutput<
+        pub identity: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::iot::IoTHubIdentity>,
         >,
         /// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
         #[builder(into, default)]
-        pub local_authentication_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub local_authentication_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         #[builder(into, default)]
-        pub min_tls_version: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub min_tls_version: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `network_rule_set` block as defined below.
         #[builder(into, default)]
-        pub network_rule_sets: pulumi_wasm_rust::InputOrOutput<
+        pub network_rule_sets: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::IoTHubNetworkRuleSet>>,
         >,
         #[builder(into, default)]
-        pub public_network_access_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         #[builder(into, default)]
-        pub routes: pulumi_wasm_rust::InputOrOutput<
+        pub routes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::iot::IoTHubRoute>>,
         >,
         /// A `sku` block as defined below.
         #[builder(into)]
-        pub sku: pulumi_wasm_rust::InputOrOutput<super::super::types::iot::IoTHubSku>,
+        pub sku: pulumi_gestalt_rust::InputOrOutput<super::super::types::iot::IoTHubSku>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct IoTHubResult {
-        pub cloud_to_device: pulumi_wasm_rust::Output<
+        pub cloud_to_device: pulumi_gestalt_rust::Output<
             super::super::types::iot::IoTHubCloudToDevice,
         >,
         /// An `endpoint` block as defined below.
-        pub endpoints: pulumi_wasm_rust::Output<
+        pub endpoints: pulumi_gestalt_rust::Output<
             Vec<super::super::types::iot::IoTHubEndpoint>,
         >,
-        pub enrichments: pulumi_wasm_rust::Output<
+        pub enrichments: pulumi_gestalt_rust::Output<
             Vec<super::super::types::iot::IoTHubEnrichment>,
         >,
         /// The EventHub compatible endpoint for events data
-        pub event_hub_events_endpoint: pulumi_wasm_rust::Output<String>,
+        pub event_hub_events_endpoint: pulumi_gestalt_rust::Output<String>,
         /// The EventHub namespace for events data
-        pub event_hub_events_namespace: pulumi_wasm_rust::Output<String>,
+        pub event_hub_events_namespace: pulumi_gestalt_rust::Output<String>,
         /// The EventHub compatible path for events data
-        pub event_hub_events_path: pulumi_wasm_rust::Output<String>,
+        pub event_hub_events_path: pulumi_gestalt_rust::Output<String>,
         /// The EventHub compatible endpoint for operational data
-        pub event_hub_operations_endpoint: pulumi_wasm_rust::Output<String>,
+        pub event_hub_operations_endpoint: pulumi_gestalt_rust::Output<String>,
         /// The EventHub compatible path for operational data
-        pub event_hub_operations_path: pulumi_wasm_rust::Output<String>,
+        pub event_hub_operations_path: pulumi_gestalt_rust::Output<String>,
         /// The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. Defaults to `4`.
-        pub event_hub_partition_count: pulumi_wasm_rust::Output<Option<i32>>,
+        pub event_hub_partition_count: pulumi_gestalt_rust::Output<Option<i32>>,
         /// The event hub retention to use in days. Must be between `1` and `7`. Defaults to `1`.
-        pub event_hub_retention_in_days: pulumi_wasm_rust::Output<Option<i32>>,
+        pub event_hub_retention_in_days: pulumi_gestalt_rust::Output<Option<i32>>,
         /// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         ///
         /// > **NOTE:** If `fallback_route` isn't explicitly specified, the fallback route wouldn't be enabled by default.
-        pub fallback_route: pulumi_wasm_rust::Output<
+        pub fallback_route: pulumi_gestalt_rust::Output<
             super::super::types::iot::IoTHubFallbackRoute,
         >,
         /// A `file_upload` block as defined below.
-        pub file_upload: pulumi_wasm_rust::Output<
+        pub file_upload: pulumi_gestalt_rust::Output<
             Option<super::super::types::iot::IoTHubFileUpload>,
         >,
         /// The hostname of the IotHub Resource.
-        pub hostname: pulumi_wasm_rust::Output<String>,
+        pub hostname: pulumi_gestalt_rust::Output<String>,
         /// An `identity` block as defined below.
-        pub identity: pulumi_wasm_rust::Output<
+        pub identity: pulumi_gestalt_rust::Output<
             Option<super::super::types::iot::IoTHubIdentity>,
         >,
         /// If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`.
-        pub local_authentication_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub local_authentication_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
-        pub min_tls_version: pulumi_wasm_rust::Output<Option<String>>,
+        pub location: pulumi_gestalt_rust::Output<String>,
+        pub min_tls_version: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A `network_rule_set` block as defined below.
-        pub network_rule_sets: pulumi_wasm_rust::Output<
+        pub network_rule_sets: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::iot::IoTHubNetworkRuleSet>>,
         >,
-        pub public_network_access_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub public_network_access_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
-        pub routes: pulumi_wasm_rust::Output<Vec<super::super::types::iot::IoTHubRoute>>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
+        pub routes: pulumi_gestalt_rust::Output<
+            Vec<super::super::types::iot::IoTHubRoute>,
+        >,
         /// One or more `shared_access_policy` blocks as defined below.
-        pub shared_access_policies: pulumi_wasm_rust::Output<
+        pub shared_access_policies: pulumi_gestalt_rust::Output<
             Vec<super::super::types::iot::IoTHubSharedAccessPolicy>,
         >,
         /// A `sku` block as defined below.
-        pub sku: pulumi_wasm_rust::Output<super::super::types::iot::IoTHubSku>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub sku: pulumi_gestalt_rust::Output<super::super::types::iot::IoTHubSku>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IoTHubArgs,
     ) -> IoTHubResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cloud_to_device_binding = args
             .cloud_to_device
@@ -398,74 +404,76 @@ pub mod io_t_hub {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IoTHubResult {
-            cloud_to_device: pulumi_wasm_rust::__private::into_domain(
+            cloud_to_device: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudToDevice"),
             ),
-            endpoints: pulumi_wasm_rust::__private::into_domain(
+            endpoints: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpoints"),
             ),
-            enrichments: pulumi_wasm_rust::__private::into_domain(
+            enrichments: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enrichments"),
             ),
-            event_hub_events_endpoint: pulumi_wasm_rust::__private::into_domain(
+            event_hub_events_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventHubEventsEndpoint"),
             ),
-            event_hub_events_namespace: pulumi_wasm_rust::__private::into_domain(
+            event_hub_events_namespace: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventHubEventsNamespace"),
             ),
-            event_hub_events_path: pulumi_wasm_rust::__private::into_domain(
+            event_hub_events_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventHubEventsPath"),
             ),
-            event_hub_operations_endpoint: pulumi_wasm_rust::__private::into_domain(
+            event_hub_operations_endpoint: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventHubOperationsEndpoint"),
             ),
-            event_hub_operations_path: pulumi_wasm_rust::__private::into_domain(
+            event_hub_operations_path: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventHubOperationsPath"),
             ),
-            event_hub_partition_count: pulumi_wasm_rust::__private::into_domain(
+            event_hub_partition_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventHubPartitionCount"),
             ),
-            event_hub_retention_in_days: pulumi_wasm_rust::__private::into_domain(
+            event_hub_retention_in_days: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventHubRetentionInDays"),
             ),
-            fallback_route: pulumi_wasm_rust::__private::into_domain(
+            fallback_route: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fallbackRoute"),
             ),
-            file_upload: pulumi_wasm_rust::__private::into_domain(
+            file_upload: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("fileUpload"),
             ),
-            hostname: pulumi_wasm_rust::__private::into_domain(
+            hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("hostname"),
             ),
-            identity: pulumi_wasm_rust::__private::into_domain(
+            identity: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identity"),
             ),
-            local_authentication_enabled: pulumi_wasm_rust::__private::into_domain(
+            local_authentication_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localAuthenticationEnabled"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            min_tls_version: pulumi_wasm_rust::__private::into_domain(
+            min_tls_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("minTlsVersion"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            network_rule_sets: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            network_rule_sets: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("networkRuleSets"),
             ),
-            public_network_access_enabled: pulumi_wasm_rust::__private::into_domain(
+            public_network_access_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publicNetworkAccessEnabled"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            routes: pulumi_wasm_rust::__private::into_domain(o.extract_field("routes")),
-            shared_access_policies: pulumi_wasm_rust::__private::into_domain(
+            routes: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("routes"),
+            ),
+            shared_access_policies: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sharedAccessPolicies"),
             ),
-            sku: pulumi_wasm_rust::__private::into_domain(o.extract_field("sku")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            sku: pulumi_gestalt_rust::__private::into_domain(o.extract_field("sku")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

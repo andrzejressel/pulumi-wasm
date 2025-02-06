@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -45,8 +45,8 @@
 /// ## Example of creating an Elastic SAN Volume from a Disk Snapshot
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -120,60 +120,60 @@
 /// ```
 ///
 pub mod volume {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VolumeArgs {
         /// A `create_source` block as defined below.
         #[builder(into, default)]
-        pub create_source: pulumi_wasm_rust::InputOrOutput<
+        pub create_source: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::elasticsan::VolumeCreateSource>,
         >,
         /// Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
         ///
         /// > **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
         #[builder(into)]
-        pub size_in_gib: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub size_in_gib: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// Specifies the Volume Group ID within which this Elastic SAN Volume should exist. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub volume_group_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub volume_group_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VolumeResult {
         /// A `create_source` block as defined below.
-        pub create_source: pulumi_wasm_rust::Output<
+        pub create_source: pulumi_gestalt_rust::Output<
             Option<super::super::types::elasticsan::VolumeCreateSource>,
         >,
         /// Specifies the name of this Elastic SAN Volume. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the size of the Elastic SAN Volume in GiB. The size should be within the remaining capacity of the parent Elastic SAN. Possible values are between `1` and `65536` (16 TiB).
         ///
         /// > **NOTE:** The size can only be increased. If `create_source` is specified, then the size must be equal to or greater than the source's size.
-        pub size_in_gib: pulumi_wasm_rust::Output<i32>,
+        pub size_in_gib: pulumi_gestalt_rust::Output<i32>,
         /// The iSCSI Target IQN of the Elastic SAN Volume.
-        pub target_iqn: pulumi_wasm_rust::Output<String>,
+        pub target_iqn: pulumi_gestalt_rust::Output<String>,
         /// The iSCSI Target Portal Host Name of the Elastic SAN Volume.
-        pub target_portal_hostname: pulumi_wasm_rust::Output<String>,
+        pub target_portal_hostname: pulumi_gestalt_rust::Output<String>,
         /// The iSCSI Target Portal Port of the Elastic SAN Volume.
-        pub target_portal_port: pulumi_wasm_rust::Output<i32>,
+        pub target_portal_port: pulumi_gestalt_rust::Output<i32>,
         /// Specifies the Volume Group ID within which this Elastic SAN Volume should exist. Changing this forces a new resource to be created.
-        pub volume_group_id: pulumi_wasm_rust::Output<String>,
+        pub volume_group_id: pulumi_gestalt_rust::Output<String>,
         /// The UUID of the Elastic SAN Volume.
-        pub volume_id: pulumi_wasm_rust::Output<String>,
+        pub volume_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VolumeArgs,
     ) -> VolumeResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let create_source_binding = args.create_source.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -207,26 +207,26 @@ pub mod volume {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VolumeResult {
-            create_source: pulumi_wasm_rust::__private::into_domain(
+            create_source: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createSource"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            size_in_gib: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            size_in_gib: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("sizeInGib"),
             ),
-            target_iqn: pulumi_wasm_rust::__private::into_domain(
+            target_iqn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetIqn"),
             ),
-            target_portal_hostname: pulumi_wasm_rust::__private::into_domain(
+            target_portal_hostname: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetPortalHostname"),
             ),
-            target_portal_port: pulumi_wasm_rust::__private::into_domain(
+            target_portal_port: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("targetPortalPort"),
             ),
-            volume_group_id: pulumi_wasm_rust::__private::into_domain(
+            volume_group_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeGroupId"),
             ),
-            volume_id: pulumi_wasm_rust::__private::into_domain(
+            volume_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("volumeId"),
             ),
         }

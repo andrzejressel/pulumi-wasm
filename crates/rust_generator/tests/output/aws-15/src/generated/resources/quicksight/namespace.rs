@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = namespace::create(
@@ -24,56 +24,56 @@
 /// $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
 /// ```
 pub mod namespace {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct NamespaceArgs {
         /// AWS account ID.
         #[builder(into, default)]
-        pub aws_account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub aws_account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
         #[builder(into, default)]
-        pub identity_store: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub identity_store: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Name of the namespace.
         ///
         /// The following arguments are optional:
         #[builder(into)]
-        pub namespace: pulumi_wasm_rust::InputOrOutput<String>,
+        pub namespace: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         #[builder(into, default)]
-        pub timeouts: pulumi_wasm_rust::InputOrOutput<
+        pub timeouts: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::quicksight::NamespaceTimeouts>,
         >,
     }
     #[allow(dead_code)]
     pub struct NamespaceResult {
         /// ARN of the Namespace.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// AWS account ID.
-        pub aws_account_id: pulumi_wasm_rust::Output<String>,
+        pub aws_account_id: pulumi_gestalt_rust::Output<String>,
         /// Namespace AWS Region.
-        pub capacity_region: pulumi_wasm_rust::Output<String>,
+        pub capacity_region: pulumi_gestalt_rust::Output<String>,
         /// Creation status of the namespace.
-        pub creation_status: pulumi_wasm_rust::Output<String>,
+        pub creation_status: pulumi_gestalt_rust::Output<String>,
         /// User identity directory type. Defaults to `QUICKSIGHT`, the only current valid value.
-        pub identity_store: pulumi_wasm_rust::Output<String>,
+        pub identity_store: pulumi_gestalt_rust::Output<String>,
         /// Name of the namespace.
         ///
         /// The following arguments are optional:
-        pub namespace: pulumi_wasm_rust::Output<String>,
+        pub namespace: pulumi_gestalt_rust::Output<String>,
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
-        pub timeouts: pulumi_wasm_rust::Output<
+        pub timeouts: pulumi_gestalt_rust::Output<
             Option<super::super::types::quicksight::NamespaceTimeouts>,
         >,
     }
@@ -82,11 +82,11 @@ pub mod namespace {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: NamespaceArgs,
     ) -> NamespaceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let aws_account_id_binding = args.aws_account_id.get_output(context).get_inner();
         let identity_store_binding = args.identity_store.get_output(context).get_inner();
@@ -122,27 +122,27 @@ pub mod namespace {
         };
         let o = register_interface::register(context.get_inner(), &request);
         NamespaceResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            aws_account_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsAccountId"),
             ),
-            capacity_region: pulumi_wasm_rust::__private::into_domain(
+            capacity_region: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("capacityRegion"),
             ),
-            creation_status: pulumi_wasm_rust::__private::into_domain(
+            creation_status: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("creationStatus"),
             ),
-            identity_store: pulumi_wasm_rust::__private::into_domain(
+            identity_store: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("identityStore"),
             ),
-            namespace: pulumi_wasm_rust::__private::into_domain(
+            namespace: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("namespace"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            timeouts: pulumi_wasm_rust::__private::into_domain(
+            timeouts: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("timeouts"),
             ),
         }

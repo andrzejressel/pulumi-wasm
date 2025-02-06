@@ -43,8 +43,8 @@
 ///
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let default = network::create(
@@ -105,20 +105,20 @@
 /// ```
 ///
 pub mod vpc_service_controls {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct VpcServiceControlsArgs {
         /// Desired VPC Service Controls state service producer VPC network, as
         /// described at the top of this page.
         #[builder(into)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// The network that the consumer is using to connect with services.
         #[builder(into)]
-        pub network: pulumi_wasm_rust::InputOrOutput<String>,
+        pub network: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The id of the Google Cloud project containing the consumer network.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The service that is managing peering connectivity for a service
         /// producer's organization. For Google services that support this
         /// functionality, this value is `servicenetworking.googleapis.com`.
@@ -126,35 +126,35 @@ pub mod vpc_service_controls {
         ///
         /// - - -
         #[builder(into)]
-        pub service: pulumi_wasm_rust::InputOrOutput<String>,
+        pub service: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct VpcServiceControlsResult {
         /// Desired VPC Service Controls state service producer VPC network, as
         /// described at the top of this page.
-        pub enabled: pulumi_wasm_rust::Output<bool>,
+        pub enabled: pulumi_gestalt_rust::Output<bool>,
         /// The network that the consumer is using to connect with services.
-        pub network: pulumi_wasm_rust::Output<String>,
+        pub network: pulumi_gestalt_rust::Output<String>,
         /// The id of the Google Cloud project containing the consumer network.
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
         /// The service that is managing peering connectivity for a service
         /// producer's organization. For Google services that support this
         /// functionality, this value is `servicenetworking.googleapis.com`.
         ///
         ///
         /// - - -
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: VpcServiceControlsArgs,
     ) -> VpcServiceControlsResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let enabled_binding = args.enabled.get_output(context).get_inner();
         let network_binding = args.network.get_output(context).get_inner();
@@ -185,16 +185,18 @@ pub mod vpc_service_controls {
         };
         let o = register_interface::register(context.get_inner(), &request);
         VpcServiceControlsResult {
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            network: pulumi_wasm_rust::__private::into_domain(
+            network: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("network"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            service: pulumi_wasm_rust::__private::into_domain(o.extract_field("service")),
+            service: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("service"),
+            ),
         }
     }
 }

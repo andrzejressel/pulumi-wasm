@@ -41,7 +41,7 @@
 /// ```
 ///
 pub mod s_quota_preference {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SQuotaPreferenceArgs {
@@ -50,7 +50,7 @@ pub mod s_quota_preference {
         /// account for the email address must have quota update permission for the project, folder or organization this quota
         /// preference is for.
         #[builder(into, default)]
-        pub contact_email: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub contact_email: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The dimensions that this quota preference applies to. The key of the map entry is the name of a dimension, such as
         /// "region", "zone", "network_id", and the value of the map entry is the dimension value. If a dimension is missing from
         /// the map of dimensions, the quota preference applies to all the dimension values except for those that have other quota
@@ -58,35 +58,35 @@ pub mod s_quota_preference {
         /// and "resource" dimension. Do not set values for "user" or "resource" in the dimension map. Example: '{"provider": "Foo
         /// Inc"}' where "provider" is a service specific dimension.
         #[builder(into, default)]
-        pub dimensions: pulumi_wasm_rust::InputOrOutput<
+        pub dimensions: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The list of quota safety checks to be ignored. Default value: "QUOTA_SAFETY_CHECK_UNSPECIFIED" Possible values:
         /// ["QUOTA_SAFETY_CHECK_UNSPECIFIED", "QUOTA_DECREASE_BELOW_USAGE", "QUOTA_DECREASE_PERCENTAGE_TOO_HIGH"]
         #[builder(into, default)]
-        pub ignore_safety_checks: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub ignore_safety_checks: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The reason / justification for this quota preference.
         #[builder(into, default)]
-        pub justification: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub justification: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The resource name of the quota preference. Required except in the CREATE requests.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The parent of the quota preference. Allowed parents are "projects/[project-id / number]" or "folders/[folder-id / number]" or "organizations/[org-id / number]".
         #[builder(into, default)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The preferred quota configuration.
         /// Structure is documented below.
         #[builder(into)]
-        pub quota_config: pulumi_wasm_rust::InputOrOutput<
+        pub quota_config: pulumi_gestalt_rust::InputOrOutput<
             super::super::types::cloudquota::SQuotaPreferenceQuotaConfig,
         >,
         /// The id of the quota to which the quota preference is applied. A quota id is unique in the service.
         /// Example: `CPUS-per-project-region`.
         #[builder(into, default)]
-        pub quota_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub quota_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the service to which the quota preference is applied.
         #[builder(into, default)]
-        pub service: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SQuotaPreferenceResult {
@@ -94,56 +94,56 @@ pub mod s_quota_preference {
         /// Google Cloud needs further information to make a decision on whether the user preferred quota can be granted. The Google
         /// account for the email address must have quota update permission for the project, folder or organization this quota
         /// preference is for.
-        pub contact_email: pulumi_wasm_rust::Output<Option<String>>,
+        pub contact_email: pulumi_gestalt_rust::Output<Option<String>>,
         /// Create time stamp.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: `2014-10-02T15:01:23Z` and `2014-10-02T15:01:23.045123456Z`.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The dimensions that this quota preference applies to. The key of the map entry is the name of a dimension, such as
         /// "region", "zone", "network_id", and the value of the map entry is the dimension value. If a dimension is missing from
         /// the map of dimensions, the quota preference applies to all the dimension values except for those that have other quota
         /// preferences configured for the specific value. NOTE: QuotaPreferences can only be applied across all values of "user"
         /// and "resource" dimension. Do not set values for "user" or "resource" in the dimension map. Example: '{"provider": "Foo
         /// Inc"}' where "provider" is a service specific dimension.
-        pub dimensions: pulumi_wasm_rust::Output<
+        pub dimensions: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The current etag of the quota preference. If an etag is provided on update and does not match the current server's etag of the quota preference, the request will be blocked and an ABORTED error will be returned. See https://google.aip.dev/134#etags for more details on etags.
-        pub etag: pulumi_wasm_rust::Output<String>,
+        pub etag: pulumi_gestalt_rust::Output<String>,
         /// The list of quota safety checks to be ignored. Default value: "QUOTA_SAFETY_CHECK_UNSPECIFIED" Possible values:
         /// ["QUOTA_SAFETY_CHECK_UNSPECIFIED", "QUOTA_DECREASE_BELOW_USAGE", "QUOTA_DECREASE_PERCENTAGE_TOO_HIGH"]
-        pub ignore_safety_checks: pulumi_wasm_rust::Output<Option<String>>,
+        pub ignore_safety_checks: pulumi_gestalt_rust::Output<Option<String>>,
         /// The reason / justification for this quota preference.
-        pub justification: pulumi_wasm_rust::Output<Option<String>>,
+        pub justification: pulumi_gestalt_rust::Output<Option<String>>,
         /// The resource name of the quota preference. Required except in the CREATE requests.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The parent of the quota preference. Allowed parents are "projects/[project-id / number]" or "folders/[folder-id / number]" or "organizations/[org-id / number]".
-        pub parent: pulumi_wasm_rust::Output<String>,
+        pub parent: pulumi_gestalt_rust::Output<String>,
         /// The preferred quota configuration.
         /// Structure is documented below.
-        pub quota_config: pulumi_wasm_rust::Output<
+        pub quota_config: pulumi_gestalt_rust::Output<
             super::super::types::cloudquota::SQuotaPreferenceQuotaConfig,
         >,
         /// The id of the quota to which the quota preference is applied. A quota id is unique in the service.
         /// Example: `CPUS-per-project-region`.
-        pub quota_id: pulumi_wasm_rust::Output<String>,
+        pub quota_id: pulumi_gestalt_rust::Output<String>,
         /// Is the quota preference pending Google Cloud approval and fulfillment.
-        pub reconciling: pulumi_wasm_rust::Output<bool>,
+        pub reconciling: pulumi_gestalt_rust::Output<bool>,
         /// The name of the service to which the quota preference is applied.
-        pub service: pulumi_wasm_rust::Output<String>,
+        pub service: pulumi_gestalt_rust::Output<String>,
         /// Update time stamp.
         /// A timestamp in RFC3339 UTC "Zulu" format, with nanosecond resolution and up to nine fractional digits. Examples: `2014-10-02T15:01:23Z` and `2014-10-02T15:01:23.045123456Z`.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SQuotaPreferenceArgs,
     ) -> SQuotaPreferenceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let contact_email_binding = args.contact_email.get_output(context).get_inner();
         let dimensions_binding = args.dimensions.get_output(context).get_inner();
@@ -202,37 +202,39 @@ pub mod s_quota_preference {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SQuotaPreferenceResult {
-            contact_email: pulumi_wasm_rust::__private::into_domain(
+            contact_email: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contactEmail"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            dimensions: pulumi_wasm_rust::__private::into_domain(
+            dimensions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dimensions"),
             ),
-            etag: pulumi_wasm_rust::__private::into_domain(o.extract_field("etag")),
-            ignore_safety_checks: pulumi_wasm_rust::__private::into_domain(
+            etag: pulumi_gestalt_rust::__private::into_domain(o.extract_field("etag")),
+            ignore_safety_checks: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ignoreSafetyChecks"),
             ),
-            justification: pulumi_wasm_rust::__private::into_domain(
+            justification: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("justification"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            quota_config: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            quota_config: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("quotaConfig"),
             ),
-            quota_id: pulumi_wasm_rust::__private::into_domain(
+            quota_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("quotaId"),
             ),
-            reconciling: pulumi_wasm_rust::__private::into_domain(
+            reconciling: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("reconciling"),
             ),
-            service: pulumi_wasm_rust::__private::into_domain(
+            service: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("service"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

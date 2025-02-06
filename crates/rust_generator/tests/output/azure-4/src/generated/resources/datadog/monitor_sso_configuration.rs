@@ -44,46 +44,46 @@
 /// ```
 ///
 pub mod monitor_sso_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct MonitorSsoConfigurationArgs {
         /// The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
         #[builder(into)]
-        pub datadog_monitor_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub datadog_monitor_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The application Id to perform SSO operation.
         #[builder(into)]
-        pub enterprise_application_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub enterprise_application_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the SingleSignOn configuration. Defaults to `default`.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
         #[builder(into)]
-        pub single_sign_on_enabled: pulumi_wasm_rust::InputOrOutput<String>,
+        pub single_sign_on_enabled: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct MonitorSsoConfigurationResult {
         /// The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
-        pub datadog_monitor_id: pulumi_wasm_rust::Output<String>,
+        pub datadog_monitor_id: pulumi_gestalt_rust::Output<String>,
         /// The application Id to perform SSO operation.
-        pub enterprise_application_id: pulumi_wasm_rust::Output<String>,
+        pub enterprise_application_id: pulumi_gestalt_rust::Output<String>,
         /// The SingleSignOn URL to login to Datadog org.
-        pub login_url: pulumi_wasm_rust::Output<String>,
+        pub login_url: pulumi_gestalt_rust::Output<String>,
         /// The name of the SingleSignOn configuration. Defaults to `default`.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The state of SingleSignOn configuration. Possible values are `Enable` and `Disable`.
-        pub single_sign_on_enabled: pulumi_wasm_rust::Output<String>,
+        pub single_sign_on_enabled: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: MonitorSsoConfigurationArgs,
     ) -> MonitorSsoConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let datadog_monitor_id_binding = args
             .datadog_monitor_id
@@ -124,17 +124,17 @@ pub mod monitor_sso_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         MonitorSsoConfigurationResult {
-            datadog_monitor_id: pulumi_wasm_rust::__private::into_domain(
+            datadog_monitor_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("datadogMonitorId"),
             ),
-            enterprise_application_id: pulumi_wasm_rust::__private::into_domain(
+            enterprise_application_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enterpriseApplicationId"),
             ),
-            login_url: pulumi_wasm_rust::__private::into_domain(
+            login_url: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("loginUrl"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            single_sign_on_enabled: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            single_sign_on_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("singleSignOnEnabled"),
             ),
         }

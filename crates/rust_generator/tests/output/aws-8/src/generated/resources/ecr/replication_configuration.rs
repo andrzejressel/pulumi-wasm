@@ -85,13 +85,13 @@
 /// $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
 /// ```
 pub mod replication_configuration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ReplicationConfigurationArgs {
         /// Replication configuration for a registry. See Replication Configuration.
         #[builder(into, default)]
-        pub replication_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub replication_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::ecr::ReplicationConfigurationReplicationConfiguration,
             >,
@@ -100,9 +100,9 @@ pub mod replication_configuration {
     #[allow(dead_code)]
     pub struct ReplicationConfigurationResult {
         /// The registry ID where the replication configuration was created.
-        pub registry_id: pulumi_wasm_rust::Output<String>,
+        pub registry_id: pulumi_gestalt_rust::Output<String>,
         /// Replication configuration for a registry. See Replication Configuration.
-        pub replication_configuration: pulumi_wasm_rust::Output<
+        pub replication_configuration: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::ecr::ReplicationConfigurationReplicationConfiguration,
             >,
@@ -113,11 +113,11 @@ pub mod replication_configuration {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ReplicationConfigurationArgs,
     ) -> ReplicationConfigurationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let replication_configuration_binding = args
             .replication_configuration
@@ -136,10 +136,10 @@ pub mod replication_configuration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ReplicationConfigurationResult {
-            registry_id: pulumi_wasm_rust::__private::into_domain(
+            registry_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("registryId"),
             ),
-            replication_configuration: pulumi_wasm_rust::__private::into_domain(
+            replication_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("replicationConfiguration"),
             ),
         }

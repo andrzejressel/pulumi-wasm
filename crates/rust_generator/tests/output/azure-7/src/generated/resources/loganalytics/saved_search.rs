@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -46,55 +46,55 @@
 /// ```
 ///
 pub mod saved_search {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SavedSearchArgs {
         /// The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub category: pulumi_wasm_rust::InputOrOutput<String>,
+        pub category: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The function alias if the query serves as a function. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub function_alias: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub function_alias: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
         #[builder(into, default)]
-        pub function_parameters: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub function_parameters: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
         /// Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub log_analytics_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub log_analytics_workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The query expression for the saved search. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub query: pulumi_wasm_rust::InputOrOutput<String>,
+        pub query: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct SavedSearchResult {
         /// The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
-        pub category: pulumi_wasm_rust::Output<String>,
+        pub category: pulumi_gestalt_rust::Output<String>,
         /// The name that Saved Search will be displayed as. Changing this forces a new resource to be created.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The function alias if the query serves as a function. Changing this forces a new resource to be created.
-        pub function_alias: pulumi_wasm_rust::Output<Option<String>>,
+        pub function_alias: pulumi_gestalt_rust::Output<Option<String>>,
         /// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
-        pub function_parameters: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub function_parameters: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// Specifies the ID of the Log Analytics Workspace that the Saved Search will be associated with. Changing this forces a new resource to be created.
-        pub log_analytics_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub log_analytics_workspace_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of the Log Analytics Saved Search. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The query expression for the saved search. Changing this forces a new resource to be created.
-        pub query: pulumi_wasm_rust::Output<String>,
+        pub query: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags which should be assigned to the Logs Analytics Saved Search. Changing this forces a new resource to be created.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -103,11 +103,11 @@ pub mod saved_search {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SavedSearchArgs,
     ) -> SavedSearchResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let category_binding = args.category.get_output(context).get_inner();
         let display_name_binding = args.display_name.get_output(context).get_inner();
@@ -164,24 +164,24 @@ pub mod saved_search {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SavedSearchResult {
-            category: pulumi_wasm_rust::__private::into_domain(
+            category: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("category"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            function_alias: pulumi_wasm_rust::__private::into_domain(
+            function_alias: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("functionAlias"),
             ),
-            function_parameters: pulumi_wasm_rust::__private::into_domain(
+            function_parameters: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("functionParameters"),
             ),
-            log_analytics_workspace_id: pulumi_wasm_rust::__private::into_domain(
+            log_analytics_workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logAnalyticsWorkspaceId"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            query: pulumi_wasm_rust::__private::into_domain(o.extract_field("query")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            query: pulumi_gestalt_rust::__private::into_domain(o.extract_field("query")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

@@ -10,46 +10,46 @@
 /// ```
 ///
 pub mod split_tunnel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SplitTunnelArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The mode of the split tunnel policy. Available values: `include`, `exclude`.
         #[builder(into)]
-        pub mode: pulumi_wasm_rust::InputOrOutput<String>,
+        pub mode: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The settings policy for which to configure this split tunnel policy.
         #[builder(into, default)]
-        pub policy_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub policy_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The value of the tunnel attributes.
         #[builder(into)]
-        pub tunnels: pulumi_wasm_rust::InputOrOutput<
+        pub tunnels: pulumi_gestalt_rust::InputOrOutput<
             Vec<super::types::SplitTunnelTunnel>,
         >,
     }
     #[allow(dead_code)]
     pub struct SplitTunnelResult {
         /// The account identifier to target for the resource.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// The mode of the split tunnel policy. Available values: `include`, `exclude`.
-        pub mode: pulumi_wasm_rust::Output<String>,
+        pub mode: pulumi_gestalt_rust::Output<String>,
         /// The settings policy for which to configure this split tunnel policy.
-        pub policy_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub policy_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// The value of the tunnel attributes.
-        pub tunnels: pulumi_wasm_rust::Output<Vec<super::types::SplitTunnelTunnel>>,
+        pub tunnels: pulumi_gestalt_rust::Output<Vec<super::types::SplitTunnelTunnel>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SplitTunnelArgs,
     ) -> SplitTunnelResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let mode_binding = args.mode.get_output(context).get_inner();
@@ -80,14 +80,16 @@ pub mod split_tunnel {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SplitTunnelResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            mode: pulumi_wasm_rust::__private::into_domain(o.extract_field("mode")),
-            policy_id: pulumi_wasm_rust::__private::into_domain(
+            mode: pulumi_gestalt_rust::__private::into_domain(o.extract_field("mode")),
+            policy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("policyId"),
             ),
-            tunnels: pulumi_wasm_rust::__private::into_domain(o.extract_field("tunnels")),
+            tunnels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("tunnels"),
+            ),
         }
     }
 }

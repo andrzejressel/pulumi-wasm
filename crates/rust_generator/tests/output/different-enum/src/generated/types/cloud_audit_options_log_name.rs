@@ -1,4 +1,4 @@
-#[derive(pulumi_wasm_rust::__private::serde::Deserialize, pulumi_wasm_rust::__private::serde::Serialize, Debug, PartialEq, Clone)]
+#[derive(pulumi_gestalt_rust::__private::serde::Deserialize, pulumi_gestalt_rust::__private::serde::Serialize, Debug, PartialEq, Clone)]
 #[allow(dead_code)]
 pub enum CloudAuditOptionsLogName {
     /// Default. Should not be used.

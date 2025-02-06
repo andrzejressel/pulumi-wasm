@@ -1,45 +1,45 @@
 pub mod get_service {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetServiceArgs {
         /// The name of this Communication Service.
         /// *
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Resource Group where the Communication Service exists.
         /// *
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetServiceResult {
         /// The location where the Communication service stores its data at rest.
-        pub data_location: pulumi_wasm_rust::Output<String>,
+        pub data_location: pulumi_gestalt_rust::Output<String>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The primary connection string of the Communication Service.
-        pub primary_connection_string: pulumi_wasm_rust::Output<String>,
+        pub primary_connection_string: pulumi_gestalt_rust::Output<String>,
         /// The primary key of the Communication Service.
-        pub primary_key: pulumi_wasm_rust::Output<String>,
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub primary_key: pulumi_gestalt_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The secondary connection string of the Communication Service.
-        pub secondary_connection_string: pulumi_wasm_rust::Output<String>,
+        pub secondary_connection_string: pulumi_gestalt_rust::Output<String>,
         /// The secondary key of the Communication Service.
-        pub secondary_key: pulumi_wasm_rust::Output<String>,
+        pub secondary_key: pulumi_gestalt_rust::Output<String>,
         /// A mapping of tags assigned to the Communication Service.
-        pub tags: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub tags: pulumi_gestalt_rust::Output<std::collections::HashMap<String, String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetServiceArgs,
     ) -> GetServiceResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let resource_group_name_binding = args
@@ -62,27 +62,27 @@ pub mod get_service {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetServiceResult {
-            data_location: pulumi_wasm_rust::__private::into_domain(
+            data_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("dataLocation"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            primary_connection_string: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            primary_connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryConnectionString"),
             ),
-            primary_key: pulumi_wasm_rust::__private::into_domain(
+            primary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("primaryKey"),
             ),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            secondary_connection_string: pulumi_wasm_rust::__private::into_domain(
+            secondary_connection_string: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryConnectionString"),
             ),
-            secondary_key: pulumi_wasm_rust::__private::into_domain(
+            secondary_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("secondaryKey"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

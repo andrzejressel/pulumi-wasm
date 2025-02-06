@@ -1,43 +1,43 @@
 pub mod get_record_set {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetRecordSetArgs {
         /// The Name of the zone.
         #[builder(into)]
-        pub managed_zone: pulumi_wasm_rust::InputOrOutput<String>,
+        pub managed_zone: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The DNS name for the resource.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project for the Google Cloud.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The RRSet type. [See this table for supported types](https://cloud.google.com/dns/docs/records#record_type).
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetRecordSetResult {
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
-        pub managed_zone: pulumi_wasm_rust::Output<String>,
-        pub name: pulumi_wasm_rust::Output<String>,
-        pub project: pulumi_wasm_rust::Output<Option<String>>,
+        pub id: pulumi_gestalt_rust::Output<String>,
+        pub managed_zone: pulumi_gestalt_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<Option<String>>,
         /// The string data for the records in this record set.
-        pub rrdatas: pulumi_wasm_rust::Output<Vec<String>>,
+        pub rrdatas: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The time-to-live of this record set (seconds).
-        pub ttl: pulumi_wasm_rust::Output<i32>,
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub ttl: pulumi_gestalt_rust::Output<i32>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetRecordSetArgs,
     ) -> GetRecordSetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let managed_zone_binding = args.managed_zone.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -67,19 +67,19 @@ pub mod get_record_set {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetRecordSetResult {
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            managed_zone: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            managed_zone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("managedZone"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            rrdatas: pulumi_wasm_rust::__private::into_domain(
+            rrdatas: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("rrdatas"),
             ),
-            ttl: pulumi_wasm_rust::__private::into_domain(o.extract_field("ttl")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
+            ttl: pulumi_gestalt_rust::__private::into_domain(o.extract_field("ttl")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
         }
     }
 }

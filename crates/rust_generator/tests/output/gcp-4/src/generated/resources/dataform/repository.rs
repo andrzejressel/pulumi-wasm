@@ -90,30 +90,30 @@
 /// ```
 ///
 pub mod repository {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RepositoryArgs {
         /// Optional. The repository's user-friendly name.
         #[builder(into, default)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. If set, configures this repository to be linked to a Git remote.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub git_remote_settings: pulumi_wasm_rust::InputOrOutput<
+        pub git_remote_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::dataform::RepositoryGitRemoteSettings>,
         >,
         /// Optional. The reference to a KMS encryption key. If provided, it will be used to encrypt user data in the repository and all child resources.
         /// It is not possible to add or update the encryption key after the repository is created. Example projects/[kms_project_id]/locations/[region]/keyRings/[key_region]/cryptoKeys/[key]
         #[builder(into, default)]
-        pub kms_key_name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. Repository user labels.
         /// An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
         #[builder(into, default)]
-        pub labels: pulumi_wasm_rust::InputOrOutput<
+        pub labels: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The repository's name.
@@ -121,26 +121,26 @@ pub mod repository {
         ///
         /// - - -
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Optional. The name of the Secret Manager secret version to be used to interpolate variables into the .npmrc file for package installation operations. Must be in the format projects/*/secrets/*/versions/*. The file itself must be in a JSON format.
         #[builder(into, default)]
-        pub npmrc_environment_variables_secret_version: pulumi_wasm_rust::InputOrOutput<
+        pub npmrc_environment_variables_secret_version: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A reference to the region
         #[builder(into, default)]
-        pub region: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub region: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The service account to run workflow invocations under.
         #[builder(into, default)]
-        pub service_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub service_account: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// If set, fields of workspaceCompilationOverrides override the default compilation settings that are specified in dataform.json when creating workspace-scoped compilation results.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub workspace_compilation_overrides: pulumi_wasm_rust::InputOrOutput<
+        pub workspace_compilation_overrides: pulumi_gestalt_rust::InputOrOutput<
             Option<
                 super::super::types::dataform::RepositoryWorkspaceCompilationOverrides,
             >,
@@ -149,51 +149,51 @@ pub mod repository {
     #[allow(dead_code)]
     pub struct RepositoryResult {
         /// Optional. The repository's user-friendly name.
-        pub display_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub display_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Pulumi, other clients and services.
-        pub effective_labels: pulumi_wasm_rust::Output<
+        pub effective_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// Optional. If set, configures this repository to be linked to a Git remote.
         /// Structure is documented below.
-        pub git_remote_settings: pulumi_wasm_rust::Output<
+        pub git_remote_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::dataform::RepositoryGitRemoteSettings>,
         >,
         /// Optional. The reference to a KMS encryption key. If provided, it will be used to encrypt user data in the repository and all child resources.
         /// It is not possible to add or update the encryption key after the repository is created. Example projects/[kms_project_id]/locations/[region]/keyRings/[key_region]/cryptoKeys/[key]
-        pub kms_key_name: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_name: pulumi_gestalt_rust::Output<Option<String>>,
         /// Optional. Repository user labels.
         /// An object containing a list of "key": value pairs. Example: { "name": "wrench", "mass": "1.3kg", "count": "3" }.
         ///
         /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
         /// Please refer to the field `effective_labels` for all of the labels present on the resource.
-        pub labels: pulumi_wasm_rust::Output<
+        pub labels: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The repository's name.
         ///
         ///
         /// - - -
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Optional. The name of the Secret Manager secret version to be used to interpolate variables into the .npmrc file for package installation operations. Must be in the format projects/*/secrets/*/versions/*. The file itself must be in a JSON format.
-        pub npmrc_environment_variables_secret_version: pulumi_wasm_rust::Output<
+        pub npmrc_environment_variables_secret_version: pulumi_gestalt_rust::Output<
             Option<String>,
         >,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// The combination of labels configured directly on the resource
         /// and default labels configured on the provider.
-        pub pulumi_labels: pulumi_wasm_rust::Output<
+        pub pulumi_labels: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// A reference to the region
-        pub region: pulumi_wasm_rust::Output<Option<String>>,
+        pub region: pulumi_gestalt_rust::Output<Option<String>>,
         /// The service account to run workflow invocations under.
-        pub service_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub service_account: pulumi_gestalt_rust::Output<Option<String>>,
         /// If set, fields of workspaceCompilationOverrides override the default compilation settings that are specified in dataform.json when creating workspace-scoped compilation results.
         /// Structure is documented below.
-        pub workspace_compilation_overrides: pulumi_wasm_rust::Output<
+        pub workspace_compilation_overrides: pulumi_gestalt_rust::Output<
             Option<
                 super::super::types::dataform::RepositoryWorkspaceCompilationOverrides,
             >,
@@ -204,11 +204,11 @@ pub mod repository {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RepositoryArgs,
     ) -> RepositoryResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let display_name_binding = args.display_name.get_output(context).get_inner();
         let git_remote_settings_binding = args
@@ -281,34 +281,38 @@ pub mod repository {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RepositoryResult {
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            effective_labels: pulumi_wasm_rust::__private::into_domain(
+            effective_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("effectiveLabels"),
             ),
-            git_remote_settings: pulumi_wasm_rust::__private::into_domain(
+            git_remote_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("gitRemoteSettings"),
             ),
-            kms_key_name: pulumi_wasm_rust::__private::into_domain(
+            kms_key_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyName"),
             ),
-            labels: pulumi_wasm_rust::__private::into_domain(o.extract_field("labels")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            npmrc_environment_variables_secret_version: pulumi_wasm_rust::__private::into_domain(
+            labels: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("labels"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            npmrc_environment_variables_secret_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("npmrcEnvironmentVariablesSecretVersion"),
             ),
-            project: pulumi_wasm_rust::__private::into_domain(
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            pulumi_labels: pulumi_wasm_rust::__private::into_domain(
+            pulumi_labels: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("pulumiLabels"),
             ),
-            region: pulumi_wasm_rust::__private::into_domain(o.extract_field("region")),
-            service_account: pulumi_wasm_rust::__private::into_domain(
+            region: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("region"),
+            ),
+            service_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("serviceAccount"),
             ),
-            workspace_compilation_overrides: pulumi_wasm_rust::__private::into_domain(
+            workspace_compilation_overrides: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceCompilationOverrides"),
             ),
         }

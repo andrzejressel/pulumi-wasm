@@ -56,54 +56,54 @@
 /// ```
 ///
 pub mod connection_certificate {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ConnectionCertificateArgs {
         /// The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub automation_account_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub automation_account_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the automation certificate.
         #[builder(into)]
-        pub automation_certificate_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub automation_certificate_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// A description for this Connection.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of the Connection. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the resource group in which the Connection is created. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub resource_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub resource_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The id of subscription where the automation certificate exists.
         #[builder(into)]
-        pub subscription_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub subscription_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ConnectionCertificateResult {
         /// The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
-        pub automation_account_name: pulumi_wasm_rust::Output<String>,
+        pub automation_account_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the automation certificate.
-        pub automation_certificate_name: pulumi_wasm_rust::Output<String>,
+        pub automation_certificate_name: pulumi_gestalt_rust::Output<String>,
         /// A description for this Connection.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Specifies the name of the Connection. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The name of the resource group in which the Connection is created. Changing this forces a new resource to be created.
-        pub resource_group_name: pulumi_wasm_rust::Output<String>,
+        pub resource_group_name: pulumi_gestalt_rust::Output<String>,
         /// The id of subscription where the automation certificate exists.
-        pub subscription_id: pulumi_wasm_rust::Output<String>,
+        pub subscription_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ConnectionCertificateArgs,
     ) -> ConnectionCertificateResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let automation_account_name_binding = args
             .automation_account_name
@@ -156,20 +156,20 @@ pub mod connection_certificate {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ConnectionCertificateResult {
-            automation_account_name: pulumi_wasm_rust::__private::into_domain(
+            automation_account_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automationAccountName"),
             ),
-            automation_certificate_name: pulumi_wasm_rust::__private::into_domain(
+            automation_certificate_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automationCertificateName"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            resource_group_name: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            resource_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceGroupName"),
             ),
-            subscription_id: pulumi_wasm_rust::__private::into_domain(
+            subscription_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("subscriptionId"),
             ),
         }

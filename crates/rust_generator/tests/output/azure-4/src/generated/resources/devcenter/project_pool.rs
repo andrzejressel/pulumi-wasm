@@ -91,59 +91,59 @@
 /// ```
 ///
 pub mod project_pool {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ProjectPoolArgs {
         /// The name of the Dev Center Dev Box Definition.
         #[builder(into)]
-        pub dev_box_definition_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dev_box_definition_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the Dev Center Attached Network in parent Project of the Dev Center Project Pool.
         #[builder(into)]
-        pub dev_center_attached_network_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dev_center_attached_network_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub dev_center_project_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub dev_center_project_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies whether owners of Dev Boxes in the Dev Center Project Pool are added as local administrators on the Dev Box.
         #[builder(into)]
-        pub local_administrator_enabled: pulumi_wasm_rust::InputOrOutput<bool>,
+        pub local_administrator_enabled: pulumi_gestalt_rust::InputOrOutput<bool>,
         /// The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub location: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
         #[builder(into, default)]
-        pub stop_on_disconnect_grace_period_minutes: pulumi_wasm_rust::InputOrOutput<
+        pub stop_on_disconnect_grace_period_minutes: pulumi_gestalt_rust::InputOrOutput<
             Option<i32>,
         >,
         /// A mapping of tags which should be assigned to the Dev Center Project Pool.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct ProjectPoolResult {
         /// The name of the Dev Center Dev Box Definition.
-        pub dev_box_definition_name: pulumi_wasm_rust::Output<String>,
+        pub dev_box_definition_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the Dev Center Attached Network in parent Project of the Dev Center Project Pool.
-        pub dev_center_attached_network_name: pulumi_wasm_rust::Output<String>,
+        pub dev_center_attached_network_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the associated Dev Center Project. Changing this forces a new resource to be created.
-        pub dev_center_project_id: pulumi_wasm_rust::Output<String>,
+        pub dev_center_project_id: pulumi_gestalt_rust::Output<String>,
         /// Specifies whether owners of Dev Boxes in the Dev Center Project Pool are added as local administrators on the Dev Box.
-        pub local_administrator_enabled: pulumi_wasm_rust::Output<bool>,
+        pub local_administrator_enabled: pulumi_gestalt_rust::Output<bool>,
         /// The Azure Region where the Dev Center Project Pool should exist. Changing this forces a new resource to be created.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// Specifies the name of this Dev Center Project Pool. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The specified time in minutes to wait before stopping a Dev Center Dev Box once disconnect is detected. Possible values are between `60` and `480`.
-        pub stop_on_disconnect_grace_period_minutes: pulumi_wasm_rust::Output<
+        pub stop_on_disconnect_grace_period_minutes: pulumi_gestalt_rust::Output<
             Option<i32>,
         >,
         /// A mapping of tags which should be assigned to the Dev Center Project Pool.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
@@ -152,11 +152,11 @@ pub mod project_pool {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ProjectPoolArgs,
     ) -> ProjectPoolResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let dev_box_definition_name_binding = args
             .dev_box_definition_name
@@ -222,26 +222,26 @@ pub mod project_pool {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ProjectPoolResult {
-            dev_box_definition_name: pulumi_wasm_rust::__private::into_domain(
+            dev_box_definition_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("devBoxDefinitionName"),
             ),
-            dev_center_attached_network_name: pulumi_wasm_rust::__private::into_domain(
+            dev_center_attached_network_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("devCenterAttachedNetworkName"),
             ),
-            dev_center_project_id: pulumi_wasm_rust::__private::into_domain(
+            dev_center_project_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("devCenterProjectId"),
             ),
-            local_administrator_enabled: pulumi_wasm_rust::__private::into_domain(
+            local_administrator_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("localAdministratorEnabled"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            stop_on_disconnect_grace_period_minutes: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            stop_on_disconnect_grace_period_minutes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("stopOnDisconnectGracePeriodMinutes"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
         }
     }
 }

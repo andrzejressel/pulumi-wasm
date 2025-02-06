@@ -1,39 +1,39 @@
 pub mod get_workspace_private_endpoint_connection {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetWorkspacePrivateEndpointConnectionArgs {
         /// The resource ID of the Private Endpoint.
         #[builder(into)]
-        pub private_endpoint_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub private_endpoint_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The resource ID of the Databricks Workspace.
         #[builder(into)]
-        pub workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct GetWorkspacePrivateEndpointConnectionResult {
         /// A `connections` block as documented below.
-        pub connections: pulumi_wasm_rust::Output<
+        pub connections: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::super::types::databricks::GetWorkspacePrivateEndpointConnectionConnection,
             >,
         >,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
         /// The resource ID of the Private Endpoint.
-        pub private_endpoint_id: pulumi_wasm_rust::Output<String>,
+        pub private_endpoint_id: pulumi_gestalt_rust::Output<String>,
         /// The resource ID of the Databricks Workspace.
-        pub workspace_id: pulumi_wasm_rust::Output<String>,
+        pub workspace_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetWorkspacePrivateEndpointConnectionArgs,
     ) -> GetWorkspacePrivateEndpointConnectionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let private_endpoint_id_binding = args
             .private_endpoint_id
@@ -57,14 +57,14 @@ pub mod get_workspace_private_endpoint_connection {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetWorkspacePrivateEndpointConnectionResult {
-            connections: pulumi_wasm_rust::__private::into_domain(
+            connections: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("connections"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
-            private_endpoint_id: pulumi_wasm_rust::__private::into_domain(
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
+            private_endpoint_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("privateEndpointId"),
             ),
-            workspace_id: pulumi_wasm_rust::__private::into_domain(
+            workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("workspaceId"),
             ),
         }

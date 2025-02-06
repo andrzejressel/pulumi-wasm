@@ -381,7 +381,7 @@
 /// ```
 ///
 pub mod cx_page {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct CxPageArgs {
@@ -389,7 +389,7 @@ pub mod cx_page {
         /// Hierarchy: Agent->Flow->Page->Fulfillment/Parameter.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub advanced_settings: pulumi_wasm_rust::InputOrOutput<
+        pub advanced_settings: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::diagflow::CxPageAdvancedSettings>,
         >,
         /// The human-readable name of the page, unique within the agent.
@@ -397,23 +397,23 @@ pub mod cx_page {
         ///
         /// - - -
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The fulfillment to call when the session is entering the page.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub entry_fulfillment: pulumi_wasm_rust::InputOrOutput<
+        pub entry_fulfillment: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::diagflow::CxPageEntryFulfillment>,
         >,
         /// Handlers associated with the page to handle events such as webhook errors, no match or no input.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub event_handlers: pulumi_wasm_rust::InputOrOutput<
+        pub event_handlers: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::diagflow::CxPageEventHandler>>,
         >,
         /// The form associated with the page, used for collecting parameters relevant to the page.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub form: pulumi_wasm_rust::InputOrOutput<
+        pub form: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::diagflow::CxPageForm>,
         >,
         /// The language of the following fields in page:
@@ -429,17 +429,17 @@ pub mod cx_page {
         /// Page.transition_routes.trigger_fulfillment.conditional_cases
         /// If not specified, the agent's default language is used. Many languages are supported. Note: languages must be enabled in the agent before they can be used.
         #[builder(into, default)]
-        pub language_code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub language_code: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The flow to create a page for.
         /// Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>/flows/<Flow ID>.
         #[builder(into, default)]
-        pub parent: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub parent: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Ordered list of TransitionRouteGroups associated with the page. Transition route groups must be unique within a page.
         /// If multiple transition routes within a page scope refer to the same intent, then the precedence order is: page's transition route > page's transition route group > flow's transition routes.
         /// If multiple transition route groups within a page contain the same intent, then the first group in the ordered list takes precedence.
         /// Format:projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>/flows/<Flow ID>/transitionRouteGroups/<TransitionRouteGroup ID>.
         #[builder(into, default)]
-        pub transition_route_groups: pulumi_wasm_rust::InputOrOutput<
+        pub transition_route_groups: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// A list of transitions for the transition rules of this page. They route the conversation to another page in the same flow, or another flow.
@@ -452,7 +452,7 @@ pub mod cx_page {
         /// TransitionRoutes defined in the transition route groups with only condition specified.
         /// Structure is documented below.
         #[builder(into, default)]
-        pub transition_routes: pulumi_wasm_rust::InputOrOutput<
+        pub transition_routes: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::diagflow::CxPageTransitionRoute>>,
         >,
     }
@@ -461,27 +461,27 @@ pub mod cx_page {
         /// Hierarchical advanced settings for this page. The settings exposed at the lower level overrides the settings exposed at the higher level.
         /// Hierarchy: Agent->Flow->Page->Fulfillment/Parameter.
         /// Structure is documented below.
-        pub advanced_settings: pulumi_wasm_rust::Output<
+        pub advanced_settings: pulumi_gestalt_rust::Output<
             Option<super::super::types::diagflow::CxPageAdvancedSettings>,
         >,
         /// The human-readable name of the page, unique within the agent.
         ///
         ///
         /// - - -
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// The fulfillment to call when the session is entering the page.
         /// Structure is documented below.
-        pub entry_fulfillment: pulumi_wasm_rust::Output<
+        pub entry_fulfillment: pulumi_gestalt_rust::Output<
             Option<super::super::types::diagflow::CxPageEntryFulfillment>,
         >,
         /// Handlers associated with the page to handle events such as webhook errors, no match or no input.
         /// Structure is documented below.
-        pub event_handlers: pulumi_wasm_rust::Output<
+        pub event_handlers: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::diagflow::CxPageEventHandler>>,
         >,
         /// The form associated with the page, used for collecting parameters relevant to the page.
         /// Structure is documented below.
-        pub form: pulumi_wasm_rust::Output<
+        pub form: pulumi_gestalt_rust::Output<
             Option<super::super::types::diagflow::CxPageForm>,
         >,
         /// The language of the following fields in page:
@@ -496,18 +496,18 @@ pub mod cx_page {
         /// Page.transition_routes.trigger_fulfillment.messages
         /// Page.transition_routes.trigger_fulfillment.conditional_cases
         /// If not specified, the agent's default language is used. Many languages are supported. Note: languages must be enabled in the agent before they can be used.
-        pub language_code: pulumi_wasm_rust::Output<Option<String>>,
+        pub language_code: pulumi_gestalt_rust::Output<Option<String>>,
         /// The unique identifier of the page.
         /// Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>/flows/<Flow ID>/pages/<Page ID>.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The flow to create a page for.
         /// Format: projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>/flows/<Flow ID>.
-        pub parent: pulumi_wasm_rust::Output<Option<String>>,
+        pub parent: pulumi_gestalt_rust::Output<Option<String>>,
         /// Ordered list of TransitionRouteGroups associated with the page. Transition route groups must be unique within a page.
         /// If multiple transition routes within a page scope refer to the same intent, then the precedence order is: page's transition route > page's transition route group > flow's transition routes.
         /// If multiple transition route groups within a page contain the same intent, then the first group in the ordered list takes precedence.
         /// Format:projects/<Project ID>/locations/<Location ID>/agents/<Agent ID>/flows/<Flow ID>/transitionRouteGroups/<TransitionRouteGroup ID>.
-        pub transition_route_groups: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub transition_route_groups: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// A list of transitions for the transition rules of this page. They route the conversation to another page in the same flow, or another flow.
         /// When we are in a certain page, the TransitionRoutes are evalauted in the following order:
         /// TransitionRoutes defined in the page with intent specified.
@@ -517,7 +517,7 @@ pub mod cx_page {
         /// TransitionRoutes defined in the page with only condition specified.
         /// TransitionRoutes defined in the transition route groups with only condition specified.
         /// Structure is documented below.
-        pub transition_routes: pulumi_wasm_rust::Output<
+        pub transition_routes: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::diagflow::CxPageTransitionRoute>>,
         >,
     }
@@ -526,11 +526,11 @@ pub mod cx_page {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: CxPageArgs,
     ) -> CxPageResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let advanced_settings_binding = args
             .advanced_settings
@@ -598,28 +598,30 @@ pub mod cx_page {
         };
         let o = register_interface::register(context.get_inner(), &request);
         CxPageResult {
-            advanced_settings: pulumi_wasm_rust::__private::into_domain(
+            advanced_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("advancedSettings"),
             ),
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            entry_fulfillment: pulumi_wasm_rust::__private::into_domain(
+            entry_fulfillment: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("entryFulfillment"),
             ),
-            event_handlers: pulumi_wasm_rust::__private::into_domain(
+            event_handlers: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("eventHandlers"),
             ),
-            form: pulumi_wasm_rust::__private::into_domain(o.extract_field("form")),
-            language_code: pulumi_wasm_rust::__private::into_domain(
+            form: pulumi_gestalt_rust::__private::into_domain(o.extract_field("form")),
+            language_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("languageCode"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            parent: pulumi_wasm_rust::__private::into_domain(o.extract_field("parent")),
-            transition_route_groups: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            parent: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("parent"),
+            ),
+            transition_route_groups: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitionRouteGroups"),
             ),
-            transition_routes: pulumi_wasm_rust::__private::into_domain(
+            transition_routes: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitionRoutes"),
             ),
         }

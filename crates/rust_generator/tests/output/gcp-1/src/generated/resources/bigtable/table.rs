@@ -5,8 +5,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let instance = instance::create(
@@ -76,7 +76,7 @@
 /// ```
 ///
 pub mod table {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TableArgs {
@@ -84,74 +84,74 @@ pub mod table {
         ///
         /// -----
         #[builder(into, default)]
-        pub automated_backup_policy: pulumi_wasm_rust::InputOrOutput<
+        pub automated_backup_policy: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::bigtable::TableAutomatedBackupPolicy>,
         >,
         /// Duration to retain change stream data for the table. Set to 0 to disable. Must be between 1 and 7 days.
         #[builder(into, default)]
-        pub change_stream_retention: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub change_stream_retention: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A group of columns within a table which share a common configuration. This can be specified multiple times. Structure is documented below.
         #[builder(into, default)]
-        pub column_families: pulumi_wasm_rust::InputOrOutput<
+        pub column_families: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::super::types::bigtable::TableColumnFamily>>,
         >,
         /// A field to make the table protected against data loss i.e. when set to PROTECTED, deleting the table, the column families in the table, and the instance containing the table would be prohibited. If not provided, deletion protection will be set to UNPROTECTED.
         #[builder(into, default)]
-        pub deletion_protection: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub deletion_protection: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name of the Bigtable instance.
         #[builder(into)]
-        pub instance_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub instance_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the table. Must be 1-50 characters and must only contain hyphens, underscores, periods, letters and numbers.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A list of predefined keys to split the table on.
         /// !> **Warning:** Modifying the `split_keys` of an existing table will cause the provider
         /// to delete/recreate the entire `gcp.bigtable.Table` resource.
         #[builder(into, default)]
-        pub split_keys: pulumi_wasm_rust::InputOrOutput<Option<Vec<String>>>,
+        pub split_keys: pulumi_gestalt_rust::InputOrOutput<Option<Vec<String>>>,
     }
     #[allow(dead_code)]
     pub struct TableResult {
         /// Defines an automated backup policy for a table, specified by Retention Period and Frequency. To disable, set both Retention Period and Frequency to 0.
         ///
         /// -----
-        pub automated_backup_policy: pulumi_wasm_rust::Output<
+        pub automated_backup_policy: pulumi_gestalt_rust::Output<
             Option<super::super::types::bigtable::TableAutomatedBackupPolicy>,
         >,
         /// Duration to retain change stream data for the table. Set to 0 to disable. Must be between 1 and 7 days.
-        pub change_stream_retention: pulumi_wasm_rust::Output<String>,
+        pub change_stream_retention: pulumi_gestalt_rust::Output<String>,
         /// A group of columns within a table which share a common configuration. This can be specified multiple times. Structure is documented below.
-        pub column_families: pulumi_wasm_rust::Output<
+        pub column_families: pulumi_gestalt_rust::Output<
             Option<Vec<super::super::types::bigtable::TableColumnFamily>>,
         >,
         /// A field to make the table protected against data loss i.e. when set to PROTECTED, deleting the table, the column families in the table, and the instance containing the table would be prohibited. If not provided, deletion protection will be set to UNPROTECTED.
-        pub deletion_protection: pulumi_wasm_rust::Output<String>,
+        pub deletion_protection: pulumi_gestalt_rust::Output<String>,
         /// The name of the Bigtable instance.
-        pub instance_name: pulumi_wasm_rust::Output<String>,
+        pub instance_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the table. Must be 1-50 characters and must only contain hyphens, underscores, periods, letters and numbers.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs. If it
         /// is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// A list of predefined keys to split the table on.
         /// !> **Warning:** Modifying the `split_keys` of an existing table will cause the provider
         /// to delete/recreate the entire `gcp.bigtable.Table` resource.
-        pub split_keys: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub split_keys: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TableArgs,
     ) -> TableResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let automated_backup_policy_binding = args
             .automated_backup_policy
@@ -214,26 +214,26 @@ pub mod table {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TableResult {
-            automated_backup_policy: pulumi_wasm_rust::__private::into_domain(
+            automated_backup_policy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automatedBackupPolicy"),
             ),
-            change_stream_retention: pulumi_wasm_rust::__private::into_domain(
+            change_stream_retention: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("changeStreamRetention"),
             ),
-            column_families: pulumi_wasm_rust::__private::into_domain(
+            column_families: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("columnFamilies"),
             ),
-            deletion_protection: pulumi_wasm_rust::__private::into_domain(
+            deletion_protection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deletionProtection"),
             ),
-            instance_name: pulumi_wasm_rust::__private::into_domain(
+            instance_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("instanceName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            split_keys: pulumi_wasm_rust::__private::into_domain(
+            split_keys: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("splitKeys"),
             ),
         }

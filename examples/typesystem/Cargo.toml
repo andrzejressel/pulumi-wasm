@@ -1,5 +1,5 @@
 [package]
-name = "pulumi_wasm_example_typesystem"
+name = "pulumi_gestalt_example_typesystem"
 version.workspace = true
 edition.workspace = true
 
@@ -12,6 +12,6 @@ crate-type = ["cdylib"]
 example_test = []
 
 [dependencies]
-pulumi_wasm_rust.workspace = true
-pulumi_wasm_providers_typesystem.workspace = true
+pulumi_gestalt_rust.workspace = true
+pulumi_gestalt_providers_typesystem.workspace = true
 serde_json.workspace = true

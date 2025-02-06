@@ -26,67 +26,67 @@
 /// $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
 /// ```
 pub mod deployment {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DeploymentArgs {
         /// Application ID. Must be between 4 and 7 characters in length.
         #[builder(into)]
-        pub application_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration profile ID. Must be between 4 and 7 characters in length.
         #[builder(into)]
-        pub configuration_profile_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub configuration_profile_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration version to deploy. Can be at most 1024 characters.
         #[builder(into)]
-        pub configuration_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub configuration_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         #[builder(into)]
-        pub deployment_strategy_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub deployment_strategy_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Description of the deployment. Can be at most 1024 characters.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Environment ID. Must be between 4 and 7 characters in length.
         #[builder(into)]
-        pub environment_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub environment_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
         #[builder(into, default)]
-        pub kms_key_identifier: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key_identifier: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct DeploymentResult {
         /// Application ID. Must be between 4 and 7 characters in length.
-        pub application_id: pulumi_wasm_rust::Output<String>,
+        pub application_id: pulumi_gestalt_rust::Output<String>,
         /// ARN of the AppConfig Deployment.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Configuration profile ID. Must be between 4 and 7 characters in length.
-        pub configuration_profile_id: pulumi_wasm_rust::Output<String>,
+        pub configuration_profile_id: pulumi_gestalt_rust::Output<String>,
         /// Configuration version to deploy. Can be at most 1024 characters.
-        pub configuration_version: pulumi_wasm_rust::Output<String>,
+        pub configuration_version: pulumi_gestalt_rust::Output<String>,
         /// Deployment number.
-        pub deployment_number: pulumi_wasm_rust::Output<i32>,
+        pub deployment_number: pulumi_gestalt_rust::Output<i32>,
         /// Deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
-        pub deployment_strategy_id: pulumi_wasm_rust::Output<String>,
+        pub deployment_strategy_id: pulumi_gestalt_rust::Output<String>,
         /// Description of the deployment. Can be at most 1024 characters.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Environment ID. Must be between 4 and 7 characters in length.
-        pub environment_id: pulumi_wasm_rust::Output<String>,
+        pub environment_id: pulumi_gestalt_rust::Output<String>,
         /// ARN of the KMS key used to encrypt configuration data.
-        pub kms_key_arn: pulumi_wasm_rust::Output<String>,
+        pub kms_key_arn: pulumi_gestalt_rust::Output<String>,
         /// The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this to encrypt the configuration data using a customer managed key.
-        pub kms_key_identifier: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key_identifier: pulumi_gestalt_rust::Output<Option<String>>,
         /// State of the deployment.
-        pub state: pulumi_wasm_rust::Output<String>,
+        pub state: pulumi_gestalt_rust::Output<String>,
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -95,11 +95,11 @@ pub mod deployment {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DeploymentArgs,
     ) -> DeploymentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_id_binding = args.application_id.get_output(context).get_inner();
         let configuration_profile_id_binding = args
@@ -162,37 +162,37 @@ pub mod deployment {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DeploymentResult {
-            application_id: pulumi_wasm_rust::__private::into_domain(
+            application_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationId"),
             ),
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            configuration_profile_id: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            configuration_profile_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationProfileId"),
             ),
-            configuration_version: pulumi_wasm_rust::__private::into_domain(
+            configuration_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configurationVersion"),
             ),
-            deployment_number: pulumi_wasm_rust::__private::into_domain(
+            deployment_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentNumber"),
             ),
-            deployment_strategy_id: pulumi_wasm_rust::__private::into_domain(
+            deployment_strategy_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deploymentStrategyId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            environment_id: pulumi_wasm_rust::__private::into_domain(
+            environment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("environmentId"),
             ),
-            kms_key_arn: pulumi_wasm_rust::__private::into_domain(
+            kms_key_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyArn"),
             ),
-            kms_key_identifier: pulumi_wasm_rust::__private::into_domain(
+            kms_key_identifier: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("kmsKeyIdentifier"),
             ),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

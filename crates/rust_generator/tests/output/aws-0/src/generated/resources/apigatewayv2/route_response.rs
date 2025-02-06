@@ -6,8 +6,8 @@
 /// ### Basic
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = route_response::create(
@@ -35,53 +35,55 @@
 /// $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
 /// ```
 pub mod route_response {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RouteResponseArgs {
         /// API identifier.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
         #[builder(into, default)]
-        pub model_selection_expression: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub model_selection_expression: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Response models for the route response.
         #[builder(into, default)]
-        pub response_models: pulumi_wasm_rust::InputOrOutput<
+        pub response_models: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Identifier of the `aws.apigatewayv2.Route`.
         #[builder(into)]
-        pub route_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub route_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Route response key.
         #[builder(into)]
-        pub route_response_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub route_response_key: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct RouteResponseResult {
         /// API identifier.
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_gestalt_rust::Output<String>,
         /// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
-        pub model_selection_expression: pulumi_wasm_rust::Output<Option<String>>,
+        pub model_selection_expression: pulumi_gestalt_rust::Output<Option<String>>,
         /// Response models for the route response.
-        pub response_models: pulumi_wasm_rust::Output<
+        pub response_models: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Identifier of the `aws.apigatewayv2.Route`.
-        pub route_id: pulumi_wasm_rust::Output<String>,
+        pub route_id: pulumi_gestalt_rust::Output<String>,
         /// Route response key.
-        pub route_response_key: pulumi_wasm_rust::Output<String>,
+        pub route_response_key: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RouteResponseArgs,
     ) -> RouteResponseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_id_binding = args.api_id.get_output(context).get_inner();
         let model_selection_expression_binding = args
@@ -126,17 +128,19 @@ pub mod route_response {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RouteResponseResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
-            model_selection_expression: pulumi_wasm_rust::__private::into_domain(
+            api_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiId"),
+            ),
+            model_selection_expression: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("modelSelectionExpression"),
             ),
-            response_models: pulumi_wasm_rust::__private::into_domain(
+            response_models: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("responseModels"),
             ),
-            route_id: pulumi_wasm_rust::__private::into_domain(
+            route_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routeId"),
             ),
-            route_response_key: pulumi_wasm_rust::__private::into_domain(
+            route_response_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("routeResponseKey"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let foo = log_stream::create(
@@ -29,36 +29,36 @@
 /// $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
 /// ```
 pub mod log_stream {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct LogStreamArgs {
         /// The name of the log group under which the log stream is to be created.
         #[builder(into)]
-        pub log_group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub log_group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct LogStreamResult {
         /// The Amazon Resource Name (ARN) specifying the log stream.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the log group under which the log stream is to be created.
-        pub log_group_name: pulumi_wasm_rust::Output<String>,
+        pub log_group_name: pulumi_gestalt_rust::Output<String>,
         /// The name of the log stream. Must not be longer than 512 characters and must not contain `:`
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: LogStreamArgs,
     ) -> LogStreamResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let log_group_name_binding = args.log_group_name.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -79,11 +79,11 @@ pub mod log_stream {
         };
         let o = register_interface::register(context.get_inner(), &request);
         LogStreamResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            log_group_name: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            log_group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("logGroupName"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
         }
     }
 }

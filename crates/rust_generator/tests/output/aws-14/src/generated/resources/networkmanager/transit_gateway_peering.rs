@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = transit_gateway_peering::create(
@@ -25,61 +25,61 @@
 /// $ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223
 /// ```
 pub mod transit_gateway_peering {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TransitGatewayPeeringArgs {
         /// The ID of a core network.
         #[builder(into)]
-        pub core_network_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub core_network_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The ARN of the transit gateway for the peering request.
         #[builder(into)]
-        pub transit_gateway_arn: pulumi_wasm_rust::InputOrOutput<String>,
+        pub transit_gateway_arn: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TransitGatewayPeeringResult {
         /// Peering Amazon Resource Name (ARN).
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The ARN of the core network.
-        pub core_network_arn: pulumi_wasm_rust::Output<String>,
+        pub core_network_arn: pulumi_gestalt_rust::Output<String>,
         /// The ID of a core network.
-        pub core_network_id: pulumi_wasm_rust::Output<String>,
+        pub core_network_id: pulumi_gestalt_rust::Output<String>,
         /// The edge location for the peer.
-        pub edge_location: pulumi_wasm_rust::Output<String>,
+        pub edge_location: pulumi_gestalt_rust::Output<String>,
         /// The ID of the account owner.
-        pub owner_account_id: pulumi_wasm_rust::Output<String>,
+        pub owner_account_id: pulumi_gestalt_rust::Output<String>,
         /// The type of peering. This will be `TRANSIT_GATEWAY`.
-        pub peering_type: pulumi_wasm_rust::Output<String>,
+        pub peering_type: pulumi_gestalt_rust::Output<String>,
         /// The resource ARN of the peer.
-        pub resource_arn: pulumi_wasm_rust::Output<String>,
+        pub resource_arn: pulumi_gestalt_rust::Output<String>,
         /// Key-value tags for the peering. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
         /// The ARN of the transit gateway for the peering request.
-        pub transit_gateway_arn: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_arn: pulumi_gestalt_rust::Output<String>,
         /// The ID of the transit gateway peering attachment.
-        pub transit_gateway_peering_attachment_id: pulumi_wasm_rust::Output<String>,
+        pub transit_gateway_peering_attachment_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TransitGatewayPeeringArgs,
     ) -> TransitGatewayPeeringResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let core_network_id_binding = args
             .core_network_id
@@ -112,33 +112,33 @@ pub mod transit_gateway_peering {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TransitGatewayPeeringResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            core_network_arn: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            core_network_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coreNetworkArn"),
             ),
-            core_network_id: pulumi_wasm_rust::__private::into_domain(
+            core_network_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("coreNetworkId"),
             ),
-            edge_location: pulumi_wasm_rust::__private::into_domain(
+            edge_location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("edgeLocation"),
             ),
-            owner_account_id: pulumi_wasm_rust::__private::into_domain(
+            owner_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("ownerAccountId"),
             ),
-            peering_type: pulumi_wasm_rust::__private::into_domain(
+            peering_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("peeringType"),
             ),
-            resource_arn: pulumi_wasm_rust::__private::into_domain(
+            resource_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("resourceArn"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
-            transit_gateway_arn: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayArn"),
             ),
-            transit_gateway_peering_attachment_id: pulumi_wasm_rust::__private::into_domain(
+            transit_gateway_peering_attachment_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transitGatewayPeeringAttachmentId"),
             ),
         }

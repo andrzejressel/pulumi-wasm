@@ -21,61 +21,61 @@
 /// ```
 ///
 pub mod ruleset {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RulesetArgs {
         /// The account identifier to target for the resource.
         #[builder(into, default)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Brief summary of the ruleset and its intended use.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Type of Ruleset to create. Available values: `custom`, `managed`, `root`, `zone`.
         #[builder(into)]
-        pub kind: pulumi_wasm_rust::InputOrOutput<String>,
+        pub kind: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Name of the ruleset.
         #[builder(into)]
-        pub name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Point in the request/response lifecycle where the ruleset will be created. Available values: `ddos_l4`, `ddos_l7`, `http_config_settings`, `http_custom_errors`, `http_log_custom_fields`, `http_ratelimit`, `http_request_cache_settings`, `http_request_dynamic_redirect`, `http_request_firewall_custom`, `http_request_firewall_managed`, `http_request_late_transform`, `http_request_origin`, `http_request_redirect`, `http_request_sanitize`, `http_request_sbfm`, `http_request_transform`, `http_response_compression`, `http_response_firewall_managed`, `http_response_headers_transform`, `magic_transit`.
         #[builder(into)]
-        pub phase: pulumi_wasm_rust::InputOrOutput<String>,
+        pub phase: pulumi_gestalt_rust::InputOrOutput<String>,
         /// List of rules to apply to the ruleset.
         #[builder(into, default)]
-        pub rules: pulumi_wasm_rust::InputOrOutput<
+        pub rules: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<super::types::RulesetRule>>,
         >,
         /// The zone identifier to target for the resource.
         #[builder(into, default)]
-        pub zone_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub zone_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct RulesetResult {
         /// The account identifier to target for the resource.
-        pub account_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub account_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Brief summary of the ruleset and its intended use.
-        pub description: pulumi_wasm_rust::Output<String>,
+        pub description: pulumi_gestalt_rust::Output<String>,
         /// Type of Ruleset to create. Available values: `custom`, `managed`, `root`, `zone`.
-        pub kind: pulumi_wasm_rust::Output<String>,
+        pub kind: pulumi_gestalt_rust::Output<String>,
         /// Name of the ruleset.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Point in the request/response lifecycle where the ruleset will be created. Available values: `ddos_l4`, `ddos_l7`, `http_config_settings`, `http_custom_errors`, `http_log_custom_fields`, `http_ratelimit`, `http_request_cache_settings`, `http_request_dynamic_redirect`, `http_request_firewall_custom`, `http_request_firewall_managed`, `http_request_late_transform`, `http_request_origin`, `http_request_redirect`, `http_request_sanitize`, `http_request_sbfm`, `http_request_transform`, `http_response_compression`, `http_response_firewall_managed`, `http_response_headers_transform`, `magic_transit`.
-        pub phase: pulumi_wasm_rust::Output<String>,
+        pub phase: pulumi_gestalt_rust::Output<String>,
         /// List of rules to apply to the ruleset.
-        pub rules: pulumi_wasm_rust::Output<Option<Vec<super::types::RulesetRule>>>,
+        pub rules: pulumi_gestalt_rust::Output<Option<Vec<super::types::RulesetRule>>>,
         /// The zone identifier to target for the resource.
-        pub zone_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub zone_id: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RulesetArgs,
     ) -> RulesetResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -121,17 +121,19 @@ pub mod ruleset {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RulesetResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            kind: pulumi_wasm_rust::__private::into_domain(o.extract_field("kind")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            phase: pulumi_wasm_rust::__private::into_domain(o.extract_field("phase")),
-            rules: pulumi_wasm_rust::__private::into_domain(o.extract_field("rules")),
-            zone_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("zoneId")),
+            kind: pulumi_gestalt_rust::__private::into_domain(o.extract_field("kind")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            phase: pulumi_gestalt_rust::__private::into_domain(o.extract_field("phase")),
+            rules: pulumi_gestalt_rust::__private::into_domain(o.extract_field("rules")),
+            zone_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("zoneId"),
+            ),
         }
     }
 }

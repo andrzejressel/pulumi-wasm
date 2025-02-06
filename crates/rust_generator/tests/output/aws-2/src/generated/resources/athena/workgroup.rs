@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = workgroup::create(
@@ -41,55 +41,55 @@
 /// $ pulumi import aws:athena/workgroup:Workgroup example example
 /// ```
 pub mod workgroup {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkgroupArgs {
         /// Configuration block with various settings for the workgroup. Documented below.
         #[builder(into, default)]
-        pub configuration: pulumi_wasm_rust::InputOrOutput<
+        pub configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::athena::WorkgroupConfiguration>,
         >,
         /// Description of the workgroup.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Option to delete the workgroup and its contents even if the workgroup contains any named queries.
         #[builder(into, default)]
-        pub force_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Name of the workgroup.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
         #[builder(into, default)]
-        pub state: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub state: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct WorkgroupResult {
         /// ARN of the workgroup
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// Configuration block with various settings for the workgroup. Documented below.
-        pub configuration: pulumi_wasm_rust::Output<
+        pub configuration: pulumi_gestalt_rust::Output<
             Option<super::super::types::athena::WorkgroupConfiguration>,
         >,
         /// Description of the workgroup.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// Option to delete the workgroup and its contents even if the workgroup contains any named queries.
-        pub force_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub force_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Name of the workgroup.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
-        pub state: pulumi_wasm_rust::Output<Option<String>>,
+        pub state: pulumi_gestalt_rust::Output<Option<String>>,
         /// Key-value map of resource tags for the workgroup. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -98,11 +98,11 @@ pub mod workgroup {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkgroupArgs,
     ) -> WorkgroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let configuration_binding = args.configuration.get_output(context).get_inner();
         let description_binding = args.description.get_output(context).get_inner();
@@ -143,20 +143,20 @@ pub mod workgroup {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkgroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            configuration: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("configuration"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            force_destroy: pulumi_wasm_rust::__private::into_domain(
+            force_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("forceDestroy"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            state: pulumi_wasm_rust::__private::into_domain(o.extract_field("state")),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            state: pulumi_gestalt_rust::__private::into_domain(o.extract_field("state")),
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

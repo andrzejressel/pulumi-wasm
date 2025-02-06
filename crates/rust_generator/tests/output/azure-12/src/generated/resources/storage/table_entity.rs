@@ -44,46 +44,48 @@
 /// ```
 ///
 pub mod table_entity {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct TableEntityArgs {
         /// A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
         #[builder(into)]
-        pub entity: pulumi_wasm_rust::InputOrOutput<
+        pub entity: pulumi_gestalt_rust::InputOrOutput<
             std::collections::HashMap<String, String>,
         >,
         /// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub partition_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub partition_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub row_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub row_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub storage_table_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub storage_table_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct TableEntityResult {
         /// A map of key/value pairs that describe the entity to be inserted/merged in to the storage table.
-        pub entity: pulumi_wasm_rust::Output<std::collections::HashMap<String, String>>,
+        pub entity: pulumi_gestalt_rust::Output<
+            std::collections::HashMap<String, String>,
+        >,
         /// The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created.
-        pub partition_key: pulumi_wasm_rust::Output<String>,
+        pub partition_key: pulumi_gestalt_rust::Output<String>,
         /// The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created.
-        pub row_key: pulumi_wasm_rust::Output<String>,
+        pub row_key: pulumi_gestalt_rust::Output<String>,
         /// The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
-        pub storage_table_id: pulumi_wasm_rust::Output<String>,
+        pub storage_table_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: TableEntityArgs,
     ) -> TableEntityResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let entity_binding = args.entity.get_output(context).get_inner();
         let partition_key_binding = args.partition_key.get_output(context).get_inner();
@@ -117,12 +119,16 @@ pub mod table_entity {
         };
         let o = register_interface::register(context.get_inner(), &request);
         TableEntityResult {
-            entity: pulumi_wasm_rust::__private::into_domain(o.extract_field("entity")),
-            partition_key: pulumi_wasm_rust::__private::into_domain(
+            entity: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("entity"),
+            ),
+            partition_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("partitionKey"),
             ),
-            row_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("rowKey")),
-            storage_table_id: pulumi_wasm_rust::__private::into_domain(
+            row_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("rowKey"),
+            ),
+            storage_table_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("storageTableId"),
             ),
         }

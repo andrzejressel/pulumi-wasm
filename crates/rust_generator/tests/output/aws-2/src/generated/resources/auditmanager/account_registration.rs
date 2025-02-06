@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = account_registration::create(
@@ -19,8 +19,8 @@
 /// ### Deregister On Destroy
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = account_registration::create(
@@ -38,41 +38,41 @@
 /// $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
 /// ```
 pub mod account_registration {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct AccountRegistrationArgs {
         /// Identifier for the delegated administrator account.
         #[builder(into, default)]
-        pub delegated_admin_account: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub delegated_admin_account: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
         #[builder(into, default)]
-        pub deregister_on_destroy: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub deregister_on_destroy: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// KMS key identifier.
         #[builder(into, default)]
-        pub kms_key: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub kms_key: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct AccountRegistrationResult {
         /// Identifier for the delegated administrator account.
-        pub delegated_admin_account: pulumi_wasm_rust::Output<Option<String>>,
+        pub delegated_admin_account: pulumi_gestalt_rust::Output<Option<String>>,
         /// Flag to deregister AuditManager in the account upon destruction. Defaults to `false` (ie. AuditManager will remain active in the account, even if this resource is removed).
-        pub deregister_on_destroy: pulumi_wasm_rust::Output<Option<bool>>,
+        pub deregister_on_destroy: pulumi_gestalt_rust::Output<Option<bool>>,
         /// KMS key identifier.
-        pub kms_key: pulumi_wasm_rust::Output<Option<String>>,
+        pub kms_key: pulumi_gestalt_rust::Output<Option<String>>,
         /// Status of the account registration request.
-        pub status: pulumi_wasm_rust::Output<String>,
+        pub status: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: AccountRegistrationArgs,
     ) -> AccountRegistrationResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let delegated_admin_account_binding = args
             .delegated_admin_account
@@ -104,14 +104,18 @@ pub mod account_registration {
         };
         let o = register_interface::register(context.get_inner(), &request);
         AccountRegistrationResult {
-            delegated_admin_account: pulumi_wasm_rust::__private::into_domain(
+            delegated_admin_account: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("delegatedAdminAccount"),
             ),
-            deregister_on_destroy: pulumi_wasm_rust::__private::into_domain(
+            deregister_on_destroy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("deregisterOnDestroy"),
             ),
-            kms_key: pulumi_wasm_rust::__private::into_domain(o.extract_field("kmsKey")),
-            status: pulumi_wasm_rust::__private::into_domain(o.extract_field("status")),
+            kms_key: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("kmsKey"),
+            ),
+            status: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("status"),
+            ),
         }
     }
 }

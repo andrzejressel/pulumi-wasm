@@ -61,26 +61,26 @@
 /// ```
 ///
 pub mod document_ai_warehouse_document_schema {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DocumentAiWarehouseDocumentSchemaArgs {
         /// Name of the schema given by the user.
         #[builder(into)]
-        pub display_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub display_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Tells whether the document is a folder or a typical document.
         #[builder(into, default)]
-        pub document_is_folder: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub document_is_folder: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// The location of the resource.
         #[builder(into)]
-        pub location: pulumi_wasm_rust::InputOrOutput<String>,
+        pub location: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The unique identifier of the project.
         #[builder(into)]
-        pub project_number: pulumi_wasm_rust::InputOrOutput<String>,
+        pub project_number: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Defines the metadata for a schema property.
         /// Structure is documented below.
         #[builder(into)]
-        pub property_definitions: pulumi_wasm_rust::InputOrOutput<
+        pub property_definitions: pulumi_gestalt_rust::InputOrOutput<
             Vec<
                 super::super::types::essentialcontacts::DocumentAiWarehouseDocumentSchemaPropertyDefinition,
             >,
@@ -89,18 +89,18 @@ pub mod document_ai_warehouse_document_schema {
     #[allow(dead_code)]
     pub struct DocumentAiWarehouseDocumentSchemaResult {
         /// Name of the schema given by the user.
-        pub display_name: pulumi_wasm_rust::Output<String>,
+        pub display_name: pulumi_gestalt_rust::Output<String>,
         /// Tells whether the document is a folder or a typical document.
-        pub document_is_folder: pulumi_wasm_rust::Output<Option<bool>>,
+        pub document_is_folder: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The location of the resource.
-        pub location: pulumi_wasm_rust::Output<String>,
+        pub location: pulumi_gestalt_rust::Output<String>,
         /// The resource name of the document schema.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The unique identifier of the project.
-        pub project_number: pulumi_wasm_rust::Output<String>,
+        pub project_number: pulumi_gestalt_rust::Output<String>,
         /// Defines the metadata for a schema property.
         /// Structure is documented below.
-        pub property_definitions: pulumi_wasm_rust::Output<
+        pub property_definitions: pulumi_gestalt_rust::Output<
             Vec<
                 super::super::types::essentialcontacts::DocumentAiWarehouseDocumentSchemaPropertyDefinition,
             >,
@@ -111,11 +111,11 @@ pub mod document_ai_warehouse_document_schema {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DocumentAiWarehouseDocumentSchemaArgs,
     ) -> DocumentAiWarehouseDocumentSchemaResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let display_name_binding = args.display_name.get_output(context).get_inner();
         let document_is_folder_binding = args
@@ -158,20 +158,20 @@ pub mod document_ai_warehouse_document_schema {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DocumentAiWarehouseDocumentSchemaResult {
-            display_name: pulumi_wasm_rust::__private::into_domain(
+            display_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("displayName"),
             ),
-            document_is_folder: pulumi_wasm_rust::__private::into_domain(
+            document_is_folder: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("documentIsFolder"),
             ),
-            location: pulumi_wasm_rust::__private::into_domain(
+            location: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("location"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            project_number: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            project_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("projectNumber"),
             ),
-            property_definitions: pulumi_wasm_rust::__private::into_domain(
+            property_definitions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("propertyDefinitions"),
             ),
         }

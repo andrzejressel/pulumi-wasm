@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = group::create(
@@ -31,45 +31,45 @@
 /// $ pulumi import aws:xray/group:Group example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
 /// ```
 pub mod group {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GroupArgs {
         /// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
         #[builder(into)]
-        pub filter_expression: pulumi_wasm_rust::InputOrOutput<String>,
+        pub filter_expression: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The name of the group.
         #[builder(into)]
-        pub group_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub group_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Configuration options for enabling insights.
         #[builder(into, default)]
-        pub insights_configuration: pulumi_wasm_rust::InputOrOutput<
+        pub insights_configuration: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::xray::GroupInsightsConfiguration>,
         >,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct GroupResult {
         /// The ARN of the Group.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
-        pub filter_expression: pulumi_wasm_rust::Output<String>,
+        pub filter_expression: pulumi_gestalt_rust::Output<String>,
         /// The name of the group.
-        pub group_name: pulumi_wasm_rust::Output<String>,
+        pub group_name: pulumi_gestalt_rust::Output<String>,
         /// Configuration options for enabling insights.
-        pub insights_configuration: pulumi_wasm_rust::Output<
+        pub insights_configuration: pulumi_gestalt_rust::Output<
             super::super::types::xray::GroupInsightsConfiguration,
         >,
         /// Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -78,11 +78,11 @@ pub mod group {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: GroupArgs,
     ) -> GroupResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let filter_expression_binding = args
             .filter_expression
@@ -119,18 +119,18 @@ pub mod group {
         };
         let o = register_interface::register(context.get_inner(), &request);
         GroupResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            filter_expression: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            filter_expression: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("filterExpression"),
             ),
-            group_name: pulumi_wasm_rust::__private::into_domain(
+            group_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("groupName"),
             ),
-            insights_configuration: pulumi_wasm_rust::__private::into_domain(
+            insights_configuration: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("insightsConfiguration"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

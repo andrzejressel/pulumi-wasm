@@ -6,8 +6,8 @@
 /// ### Basic
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = integration_response::create(
@@ -29,60 +29,62 @@
 /// $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877
 /// ```
 pub mod integration_response {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationResponseArgs {
         /// API identifier.
         #[builder(into)]
-        pub api_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub api_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
         #[builder(into, default)]
-        pub content_handling_strategy: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub content_handling_strategy: pulumi_gestalt_rust::InputOrOutput<
+            Option<String>,
+        >,
         /// Identifier of the `aws.apigatewayv2.Integration`.
         #[builder(into)]
-        pub integration_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub integration_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Integration response key.
         #[builder(into)]
-        pub integration_response_key: pulumi_wasm_rust::InputOrOutput<String>,
+        pub integration_response_key: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         #[builder(into, default)]
-        pub response_templates: pulumi_wasm_rust::InputOrOutput<
+        pub response_templates: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         #[builder(into, default)]
-        pub template_selection_expression: pulumi_wasm_rust::InputOrOutput<
+        pub template_selection_expression: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
     }
     #[allow(dead_code)]
     pub struct IntegrationResponseResult {
         /// API identifier.
-        pub api_id: pulumi_wasm_rust::Output<String>,
+        pub api_id: pulumi_gestalt_rust::Output<String>,
         /// How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
-        pub content_handling_strategy: pulumi_wasm_rust::Output<Option<String>>,
+        pub content_handling_strategy: pulumi_gestalt_rust::Output<Option<String>>,
         /// Identifier of the `aws.apigatewayv2.Integration`.
-        pub integration_id: pulumi_wasm_rust::Output<String>,
+        pub integration_id: pulumi_gestalt_rust::Output<String>,
         /// Integration response key.
-        pub integration_response_key: pulumi_wasm_rust::Output<String>,
+        pub integration_response_key: pulumi_gestalt_rust::Output<String>,
         /// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
-        pub response_templates: pulumi_wasm_rust::Output<
+        pub response_templates: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
-        pub template_selection_expression: pulumi_wasm_rust::Output<Option<String>>,
+        pub template_selection_expression: pulumi_gestalt_rust::Output<Option<String>>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IntegrationResponseArgs,
     ) -> IntegrationResponseResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let api_id_binding = args.api_id.get_output(context).get_inner();
         let content_handling_strategy_binding = args
@@ -135,20 +137,22 @@ pub mod integration_response {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IntegrationResponseResult {
-            api_id: pulumi_wasm_rust::__private::into_domain(o.extract_field("apiId")),
-            content_handling_strategy: pulumi_wasm_rust::__private::into_domain(
+            api_id: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("apiId"),
+            ),
+            content_handling_strategy: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("contentHandlingStrategy"),
             ),
-            integration_id: pulumi_wasm_rust::__private::into_domain(
+            integration_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationId"),
             ),
-            integration_response_key: pulumi_wasm_rust::__private::into_domain(
+            integration_response_key: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("integrationResponseKey"),
             ),
-            response_templates: pulumi_wasm_rust::__private::into_domain(
+            response_templates: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("responseTemplates"),
             ),
-            template_selection_expression: pulumi_wasm_rust::__private::into_domain(
+            template_selection_expression: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("templateSelectionExpression"),
             ),
         }

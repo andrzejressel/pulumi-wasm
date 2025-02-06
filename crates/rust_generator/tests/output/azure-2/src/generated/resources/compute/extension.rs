@@ -96,52 +96,54 @@
 /// ```
 ///
 pub mod extension {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ExtensionArgs {
         /// Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
         #[builder(into, default)]
-        pub auto_upgrade_minor_version: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub auto_upgrade_minor_version: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
         #[builder(into, default)]
-        pub automatic_upgrade_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub automatic_upgrade_enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
         ///
         /// > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         #[builder(into, default)]
-        pub failure_suppression_enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub failure_suppression_enabled: pulumi_gestalt_rust::InputOrOutput<
+            Option<bool>,
+        >,
         /// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
         ///
         /// > **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         #[builder(into, default)]
-        pub protected_settings: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub protected_settings: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A `protected_settings_from_key_vault` block as defined below.
         ///
         /// > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
         #[builder(into, default)]
-        pub protected_settings_from_key_vault: pulumi_wasm_rust::InputOrOutput<
+        pub protected_settings_from_key_vault: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::compute::ExtensionProtectedSettingsFromKeyVault>,
         >,
         /// Specifies the collection of extension names after which this extension needs to be provisioned.
         #[builder(into, default)]
-        pub provision_after_extensions: pulumi_wasm_rust::InputOrOutput<
+        pub provision_after_extensions: pulumi_gestalt_rust::InputOrOutput<
             Option<Vec<String>>,
         >,
         /// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
         #[builder(into)]
-        pub publisher: pulumi_wasm_rust::InputOrOutput<String>,
+        pub publisher: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The settings passed to the extension, these are specified as a JSON object in a string.
         ///
         /// > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
         #[builder(into, default)]
-        pub settings: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub settings: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// A mapping of tags to assign to the resource.
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of extension, available types for a publisher can be found using the Azure CLI.
@@ -152,46 +154,46 @@ pub mod extension {
         /// az vm extension image list --location westus -o table
         /// ```
         #[builder(into)]
-        pub type_: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         #[builder(into)]
-        pub type_handler_version: pulumi_wasm_rust::InputOrOutput<String>,
+        pub type_handler_version: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Virtual Machine. Changing this forces a new resource to be created
         #[builder(into)]
-        pub virtual_machine_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub virtual_machine_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ExtensionResult {
         /// Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified.
-        pub auto_upgrade_minor_version: pulumi_wasm_rust::Output<Option<bool>>,
+        pub auto_upgrade_minor_version: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?
-        pub automatic_upgrade_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub automatic_upgrade_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
         ///
         /// > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
-        pub failure_suppression_enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub failure_suppression_enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// The name of the virtual machine extension peering. Changing this forces a new resource to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
         ///
         /// > **Please Note:** Certain VM Extensions require that the keys in the `protected_settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
-        pub protected_settings: pulumi_wasm_rust::Output<Option<String>>,
+        pub protected_settings: pulumi_gestalt_rust::Output<Option<String>>,
         /// A `protected_settings_from_key_vault` block as defined below.
         ///
         /// > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
-        pub protected_settings_from_key_vault: pulumi_wasm_rust::Output<
+        pub protected_settings_from_key_vault: pulumi_gestalt_rust::Output<
             Option<super::super::types::compute::ExtensionProtectedSettingsFromKeyVault>,
         >,
         /// Specifies the collection of extension names after which this extension needs to be provisioned.
-        pub provision_after_extensions: pulumi_wasm_rust::Output<Option<Vec<String>>>,
+        pub provision_after_extensions: pulumi_gestalt_rust::Output<Option<Vec<String>>>,
         /// The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created.
-        pub publisher: pulumi_wasm_rust::Output<String>,
+        pub publisher: pulumi_gestalt_rust::Output<String>,
         /// The settings passed to the extension, these are specified as a JSON object in a string.
         ///
         /// > **Please Note:** Certain VM Extensions require that the keys in the `settings` block are case sensitive. If you're seeing unhelpful errors, please ensure the keys are consistent with how Azure is expecting them (for instance, for the `JsonADDomainExtension` extension, the keys are expected to be in `TitleCase`.)
-        pub settings: pulumi_wasm_rust::Output<Option<String>>,
+        pub settings: pulumi_gestalt_rust::Output<Option<String>>,
         /// A mapping of tags to assign to the resource.
-        pub tags: pulumi_wasm_rust::Output<
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// The type of extension, available types for a publisher can be found using the Azure CLI.
@@ -201,22 +203,22 @@ pub mod extension {
         /// ```shell
         /// az vm extension image list --location westus -o table
         /// ```
-        pub type_: pulumi_wasm_rust::Output<String>,
+        pub type_: pulumi_gestalt_rust::Output<String>,
         /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
-        pub type_handler_version: pulumi_wasm_rust::Output<String>,
+        pub type_handler_version: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Virtual Machine. Changing this forces a new resource to be created
-        pub virtual_machine_id: pulumi_wasm_rust::Output<String>,
+        pub virtual_machine_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ExtensionArgs,
     ) -> ExtensionResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let auto_upgrade_minor_version_binding = args
             .auto_upgrade_minor_version
@@ -316,37 +318,37 @@ pub mod extension {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ExtensionResult {
-            auto_upgrade_minor_version: pulumi_wasm_rust::__private::into_domain(
+            auto_upgrade_minor_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("autoUpgradeMinorVersion"),
             ),
-            automatic_upgrade_enabled: pulumi_wasm_rust::__private::into_domain(
+            automatic_upgrade_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("automaticUpgradeEnabled"),
             ),
-            failure_suppression_enabled: pulumi_wasm_rust::__private::into_domain(
+            failure_suppression_enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("failureSuppressionEnabled"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            protected_settings: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            protected_settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protectedSettings"),
             ),
-            protected_settings_from_key_vault: pulumi_wasm_rust::__private::into_domain(
+            protected_settings_from_key_vault: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("protectedSettingsFromKeyVault"),
             ),
-            provision_after_extensions: pulumi_wasm_rust::__private::into_domain(
+            provision_after_extensions: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("provisionAfterExtensions"),
             ),
-            publisher: pulumi_wasm_rust::__private::into_domain(
+            publisher: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("publisher"),
             ),
-            settings: pulumi_wasm_rust::__private::into_domain(
+            settings: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("settings"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            type_: pulumi_wasm_rust::__private::into_domain(o.extract_field("type")),
-            type_handler_version: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            type_: pulumi_gestalt_rust::__private::into_domain(o.extract_field("type")),
+            type_handler_version: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("typeHandlerVersion"),
             ),
-            virtual_machine_id: pulumi_wasm_rust::__private::into_domain(
+            virtual_machine_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("virtualMachineId"),
             ),
         }

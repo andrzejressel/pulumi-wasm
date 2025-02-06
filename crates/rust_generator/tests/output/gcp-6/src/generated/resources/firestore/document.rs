@@ -145,66 +145,66 @@
 /// ```
 ///
 pub mod document {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct DocumentArgs {
         /// The collection ID, relative to database. For example: chatrooms or chatrooms/my-document/private-messages.
         #[builder(into)]
-        pub collection: pulumi_wasm_rust::InputOrOutput<String>,
+        pub collection: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The Firestore database id. Defaults to `"(default)"`.
         #[builder(into, default)]
-        pub database: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub database: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The client-assigned document ID to use for this document during creation.
         ///
         ///
         /// - - -
         #[builder(into)]
-        pub document_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub document_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The document's [fields](https://cloud.google.com/firestore/docs/reference/rest/v1/projects.databases.documents) formated as a json string.
         #[builder(into)]
-        pub fields: pulumi_wasm_rust::InputOrOutput<String>,
+        pub fields: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
         #[builder(into, default)]
-        pub project: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub project: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct DocumentResult {
         /// The collection ID, relative to database. For example: chatrooms or chatrooms/my-document/private-messages.
-        pub collection: pulumi_wasm_rust::Output<String>,
+        pub collection: pulumi_gestalt_rust::Output<String>,
         /// Creation timestamp in RFC3339 format.
-        pub create_time: pulumi_wasm_rust::Output<String>,
+        pub create_time: pulumi_gestalt_rust::Output<String>,
         /// The Firestore database id. Defaults to `"(default)"`.
-        pub database: pulumi_wasm_rust::Output<Option<String>>,
+        pub database: pulumi_gestalt_rust::Output<Option<String>>,
         /// The client-assigned document ID to use for this document during creation.
         ///
         ///
         /// - - -
-        pub document_id: pulumi_wasm_rust::Output<String>,
+        pub document_id: pulumi_gestalt_rust::Output<String>,
         /// The document's [fields](https://cloud.google.com/firestore/docs/reference/rest/v1/projects.databases.documents) formated as a json string.
-        pub fields: pulumi_wasm_rust::Output<String>,
+        pub fields: pulumi_gestalt_rust::Output<String>,
         /// A server defined name for this document. Format:
         /// `projects/{{project_id}}/databases/{{database_id}}/documents/{{path}}/{{document_id}}`
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// A relative path to the collection this document exists within
-        pub path: pulumi_wasm_rust::Output<String>,
+        pub path: pulumi_gestalt_rust::Output<String>,
         /// The ID of the project in which the resource belongs.
         /// If it is not provided, the provider project is used.
-        pub project: pulumi_wasm_rust::Output<String>,
+        pub project: pulumi_gestalt_rust::Output<String>,
         /// Last update timestamp in RFC3339 format.
-        pub update_time: pulumi_wasm_rust::Output<String>,
+        pub update_time: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: DocumentArgs,
     ) -> DocumentResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let collection_binding = args.collection.get_output(context).get_inner();
         let database_binding = args.database.get_output(context).get_inner();
@@ -240,25 +240,27 @@ pub mod document {
         };
         let o = register_interface::register(context.get_inner(), &request);
         DocumentResult {
-            collection: pulumi_wasm_rust::__private::into_domain(
+            collection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("collection"),
             ),
-            create_time: pulumi_wasm_rust::__private::into_domain(
+            create_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("createTime"),
             ),
-            database: pulumi_wasm_rust::__private::into_domain(
+            database: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("database"),
             ),
-            document_id: pulumi_wasm_rust::__private::into_domain(
+            document_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("documentId"),
             ),
-            fields: pulumi_wasm_rust::__private::into_domain(o.extract_field("fields")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            path: pulumi_wasm_rust::__private::into_domain(o.extract_field("path")),
-            project: pulumi_wasm_rust::__private::into_domain(
+            fields: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("fields"),
+            ),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            path: pulumi_gestalt_rust::__private::into_domain(o.extract_field("path")),
+            project: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("project"),
             ),
-            update_time: pulumi_wasm_rust::__private::into_domain(
+            update_time: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("updateTime"),
             ),
         }

@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let app = app::create("app", AppArgs::builder().build_struct());
@@ -23,48 +23,48 @@
 /// $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
 /// ```
 pub mod sms_channel {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct SmsChannelArgs {
         /// ID of the application.
         #[builder(into)]
-        pub application_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub application_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Whether the channel is enabled or disabled. By default, it is set to `true`.
         #[builder(into, default)]
-        pub enabled: pulumi_wasm_rust::InputOrOutput<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::InputOrOutput<Option<bool>>,
         /// Identifier of the sender for your messages.
         #[builder(into, default)]
-        pub sender_id: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub sender_id: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Short Code registered with the phone provider.
         #[builder(into, default)]
-        pub short_code: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub short_code: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct SmsChannelResult {
         /// ID of the application.
-        pub application_id: pulumi_wasm_rust::Output<String>,
+        pub application_id: pulumi_gestalt_rust::Output<String>,
         /// Whether the channel is enabled or disabled. By default, it is set to `true`.
-        pub enabled: pulumi_wasm_rust::Output<Option<bool>>,
+        pub enabled: pulumi_gestalt_rust::Output<Option<bool>>,
         /// Maximum number of promotional messages that can be sent per second.
-        pub promotional_messages_per_second: pulumi_wasm_rust::Output<i32>,
+        pub promotional_messages_per_second: pulumi_gestalt_rust::Output<i32>,
         /// Identifier of the sender for your messages.
-        pub sender_id: pulumi_wasm_rust::Output<Option<String>>,
+        pub sender_id: pulumi_gestalt_rust::Output<Option<String>>,
         /// Short Code registered with the phone provider.
-        pub short_code: pulumi_wasm_rust::Output<Option<String>>,
+        pub short_code: pulumi_gestalt_rust::Output<Option<String>>,
         /// Maximum number of transactional messages per second that can be sent.
-        pub transactional_messages_per_second: pulumi_wasm_rust::Output<i32>,
+        pub transactional_messages_per_second: pulumi_gestalt_rust::Output<i32>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: SmsChannelArgs,
     ) -> SmsChannelResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let application_id_binding = args.application_id.get_output(context).get_inner();
         let enabled_binding = args.enabled.get_output(context).get_inner();
@@ -95,22 +95,22 @@ pub mod sms_channel {
         };
         let o = register_interface::register(context.get_inner(), &request);
         SmsChannelResult {
-            application_id: pulumi_wasm_rust::__private::into_domain(
+            application_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("applicationId"),
             ),
-            enabled: pulumi_wasm_rust::__private::into_domain(
+            enabled: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("enabled"),
             ),
-            promotional_messages_per_second: pulumi_wasm_rust::__private::into_domain(
+            promotional_messages_per_second: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("promotionalMessagesPerSecond"),
             ),
-            sender_id: pulumi_wasm_rust::__private::into_domain(
+            sender_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("senderId"),
             ),
-            short_code: pulumi_wasm_rust::__private::into_domain(
+            short_code: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("shortCode"),
             ),
-            transactional_messages_per_second: pulumi_wasm_rust::__private::into_domain(
+            transactional_messages_per_second: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("transactionalMessagesPerSecond"),
             ),
         }

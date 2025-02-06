@@ -69,43 +69,43 @@
 /// ```
 ///
 pub mod integration_runtime_self_hosted {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct IntegrationRuntimeSelfHostedArgs {
         /// Integration runtime description.
         #[builder(into, default)]
-        pub description: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub description: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The name which should be used for this Synapse Self-hosted Integration Runtime. Changing this forces a new Synapse Self-hosted Integration Runtime to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Synapse Workspace ID in which to associate the Integration Runtime with. Changing this forces a new Synapse Self-hosted Integration Runtime to be created.
         #[builder(into)]
-        pub synapse_workspace_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub synapse_workspace_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct IntegrationRuntimeSelfHostedResult {
         /// The primary integration runtime authentication key.
-        pub authorization_key_primary: pulumi_wasm_rust::Output<String>,
+        pub authorization_key_primary: pulumi_gestalt_rust::Output<String>,
         /// The secondary integration runtime authentication key.
-        pub authorization_key_secondary: pulumi_wasm_rust::Output<String>,
+        pub authorization_key_secondary: pulumi_gestalt_rust::Output<String>,
         /// Integration runtime description.
-        pub description: pulumi_wasm_rust::Output<Option<String>>,
+        pub description: pulumi_gestalt_rust::Output<Option<String>>,
         /// The name which should be used for this Synapse Self-hosted Integration Runtime. Changing this forces a new Synapse Self-hosted Integration Runtime to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Synapse Workspace ID in which to associate the Integration Runtime with. Changing this forces a new Synapse Self-hosted Integration Runtime to be created.
-        pub synapse_workspace_id: pulumi_wasm_rust::Output<String>,
+        pub synapse_workspace_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: IntegrationRuntimeSelfHostedArgs,
     ) -> IntegrationRuntimeSelfHostedResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let description_binding = args.description.get_output(context).get_inner();
         let name_binding = args.name.get_output(context).get_inner();
@@ -135,17 +135,17 @@ pub mod integration_runtime_self_hosted {
         };
         let o = register_interface::register(context.get_inner(), &request);
         IntegrationRuntimeSelfHostedResult {
-            authorization_key_primary: pulumi_wasm_rust::__private::into_domain(
+            authorization_key_primary: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizationKeyPrimary"),
             ),
-            authorization_key_secondary: pulumi_wasm_rust::__private::into_domain(
+            authorization_key_secondary: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("authorizationKeySecondary"),
             ),
-            description: pulumi_wasm_rust::__private::into_domain(
+            description: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("description"),
             ),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            synapse_workspace_id: pulumi_wasm_rust::__private::into_domain(
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            synapse_workspace_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("synapseWorkspaceId"),
             ),
         }

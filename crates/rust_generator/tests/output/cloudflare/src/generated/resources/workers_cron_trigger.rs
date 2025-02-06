@@ -37,39 +37,39 @@
 /// ```
 ///
 pub mod workers_cron_trigger {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct WorkersCronTriggerArgs {
         /// The account identifier to target for the resource.
         #[builder(into)]
-        pub account_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub account_id: pulumi_gestalt_rust::InputOrOutput<String>,
         /// Cron expressions to execute the Worker script.
         #[builder(into)]
-        pub schedules: pulumi_wasm_rust::InputOrOutput<Vec<String>>,
+        pub schedules: pulumi_gestalt_rust::InputOrOutput<Vec<String>>,
         /// Worker script to target for the schedules.
         #[builder(into)]
-        pub script_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub script_name: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct WorkersCronTriggerResult {
         /// The account identifier to target for the resource.
-        pub account_id: pulumi_wasm_rust::Output<String>,
+        pub account_id: pulumi_gestalt_rust::Output<String>,
         /// Cron expressions to execute the Worker script.
-        pub schedules: pulumi_wasm_rust::Output<Vec<String>>,
+        pub schedules: pulumi_gestalt_rust::Output<Vec<String>>,
         /// Worker script to target for the schedules.
-        pub script_name: pulumi_wasm_rust::Output<String>,
+        pub script_name: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: WorkersCronTriggerArgs,
     ) -> WorkersCronTriggerResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let account_id_binding = args.account_id.get_output(context).get_inner();
         let schedules_binding = args.schedules.get_output(context).get_inner();
@@ -95,13 +95,13 @@ pub mod workers_cron_trigger {
         };
         let o = register_interface::register(context.get_inner(), &request);
         WorkersCronTriggerResult {
-            account_id: pulumi_wasm_rust::__private::into_domain(
+            account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("accountId"),
             ),
-            schedules: pulumi_wasm_rust::__private::into_domain(
+            schedules: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("schedules"),
             ),
-            script_name: pulumi_wasm_rust::__private::into_domain(
+            script_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scriptName"),
             ),
         }

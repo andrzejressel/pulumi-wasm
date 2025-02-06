@@ -3,8 +3,8 @@
 /// ## Example Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = resource_group::create(
@@ -51,48 +51,48 @@
 /// ```
 ///
 pub mod cluster {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct ClusterArgs {
         /// The count of the Azure VMware Solution Cluster nodes.
         #[builder(into)]
-        pub cluster_node_count: pulumi_wasm_rust::InputOrOutput<i32>,
+        pub cluster_node_count: pulumi_gestalt_rust::InputOrOutput<i32>,
         /// The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
         #[builder(into)]
-        pub sku_name: pulumi_wasm_rust::InputOrOutput<String>,
+        pub sku_name: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
         #[builder(into)]
-        pub vmware_cloud_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub vmware_cloud_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct ClusterResult {
         /// The count of the Azure VMware Solution Cluster nodes.
-        pub cluster_node_count: pulumi_wasm_rust::Output<i32>,
+        pub cluster_node_count: pulumi_gestalt_rust::Output<i32>,
         /// A number that identifies this Cluster in its Azure VMware Solution Private Cloud.
-        pub cluster_number: pulumi_wasm_rust::Output<i32>,
+        pub cluster_number: pulumi_gestalt_rust::Output<i32>,
         /// A list of hosts in the Azure VMware Solution Cluster.
-        pub hosts: pulumi_wasm_rust::Output<Vec<String>>,
+        pub hosts: pulumi_gestalt_rust::Output<Vec<String>>,
         /// The name which should be used for this Azure VMware Solution Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// The Cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new Azure VMware Solution Cluster to be created.
-        pub sku_name: pulumi_wasm_rust::Output<String>,
+        pub sku_name: pulumi_gestalt_rust::Output<String>,
         /// The ID of the Azure VMware Solution Private Cloud in which to create this Cluster. Changing this forces a new Azure VMware Solution Cluster to be created.
-        pub vmware_cloud_id: pulumi_wasm_rust::Output<String>,
+        pub vmware_cloud_id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: ClusterArgs,
     ) -> ClusterResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let cluster_node_count_binding = args
             .cluster_node_count
@@ -129,18 +129,18 @@ pub mod cluster {
         };
         let o = register_interface::register(context.get_inner(), &request);
         ClusterResult {
-            cluster_node_count: pulumi_wasm_rust::__private::into_domain(
+            cluster_node_count: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterNodeCount"),
             ),
-            cluster_number: pulumi_wasm_rust::__private::into_domain(
+            cluster_number: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("clusterNumber"),
             ),
-            hosts: pulumi_wasm_rust::__private::into_domain(o.extract_field("hosts")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            sku_name: pulumi_wasm_rust::__private::into_domain(
+            hosts: pulumi_gestalt_rust::__private::into_domain(o.extract_field("hosts")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            sku_name: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("skuName"),
             ),
-            vmware_cloud_id: pulumi_wasm_rust::__private::into_domain(
+            vmware_cloud_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("vmwareCloudId"),
             ),
         }

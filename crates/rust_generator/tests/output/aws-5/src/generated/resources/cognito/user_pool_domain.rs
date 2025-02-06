@@ -5,8 +5,8 @@
 /// ### Amazon Cognito domain
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = user_pool::create(
@@ -64,51 +64,51 @@
 /// $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
 /// ```
 pub mod user_pool_domain {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct UserPoolDomainArgs {
         /// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
         #[builder(into, default)]
-        pub certificate_arn: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub certificate_arn: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
         #[builder(into)]
-        pub domain: pulumi_wasm_rust::InputOrOutput<String>,
+        pub domain: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The user pool ID.
         #[builder(into)]
-        pub user_pool_id: pulumi_wasm_rust::InputOrOutput<String>,
+        pub user_pool_id: pulumi_gestalt_rust::InputOrOutput<String>,
     }
     #[allow(dead_code)]
     pub struct UserPoolDomainResult {
         /// The AWS account ID for the user pool owner.
-        pub aws_account_id: pulumi_wasm_rust::Output<String>,
+        pub aws_account_id: pulumi_gestalt_rust::Output<String>,
         /// The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
-        pub certificate_arn: pulumi_wasm_rust::Output<Option<String>>,
+        pub certificate_arn: pulumi_gestalt_rust::Output<Option<String>>,
         /// The Amazon CloudFront endpoint (e.g. `dpp0gtxikpq3y.cloudfront.net`) that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
-        pub cloudfront_distribution: pulumi_wasm_rust::Output<String>,
+        pub cloudfront_distribution: pulumi_gestalt_rust::Output<String>,
         /// The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
-        pub cloudfront_distribution_arn: pulumi_wasm_rust::Output<String>,
+        pub cloudfront_distribution_arn: pulumi_gestalt_rust::Output<String>,
         /// The Route 53 hosted zone ID of the CloudFront distribution.
-        pub cloudfront_distribution_zone_id: pulumi_wasm_rust::Output<String>,
+        pub cloudfront_distribution_zone_id: pulumi_gestalt_rust::Output<String>,
         /// For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth.
-        pub domain: pulumi_wasm_rust::Output<String>,
+        pub domain: pulumi_gestalt_rust::Output<String>,
         /// The S3 bucket where the static files for this domain are stored.
-        pub s3_bucket: pulumi_wasm_rust::Output<String>,
+        pub s3_bucket: pulumi_gestalt_rust::Output<String>,
         /// The user pool ID.
-        pub user_pool_id: pulumi_wasm_rust::Output<String>,
+        pub user_pool_id: pulumi_gestalt_rust::Output<String>,
         /// The app version.
-        pub version: pulumi_wasm_rust::Output<String>,
+        pub version: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: UserPoolDomainArgs,
     ) -> UserPoolDomainResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let certificate_arn_binding = args
             .certificate_arn
@@ -137,29 +137,33 @@ pub mod user_pool_domain {
         };
         let o = register_interface::register(context.get_inner(), &request);
         UserPoolDomainResult {
-            aws_account_id: pulumi_wasm_rust::__private::into_domain(
+            aws_account_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("awsAccountId"),
             ),
-            certificate_arn: pulumi_wasm_rust::__private::into_domain(
+            certificate_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("certificateArn"),
             ),
-            cloudfront_distribution: pulumi_wasm_rust::__private::into_domain(
+            cloudfront_distribution: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudfrontDistribution"),
             ),
-            cloudfront_distribution_arn: pulumi_wasm_rust::__private::into_domain(
+            cloudfront_distribution_arn: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudfrontDistributionArn"),
             ),
-            cloudfront_distribution_zone_id: pulumi_wasm_rust::__private::into_domain(
+            cloudfront_distribution_zone_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("cloudfrontDistributionZoneId"),
             ),
-            domain: pulumi_wasm_rust::__private::into_domain(o.extract_field("domain")),
-            s3_bucket: pulumi_wasm_rust::__private::into_domain(
+            domain: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("domain"),
+            ),
+            s3_bucket: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("s3Bucket"),
             ),
-            user_pool_id: pulumi_wasm_rust::__private::into_domain(
+            user_pool_id: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("userPoolId"),
             ),
-            version: pulumi_wasm_rust::__private::into_domain(o.extract_field("version")),
+            version: pulumi_gestalt_rust::__private::into_domain(
+                o.extract_field("version"),
+            ),
         }
     }
 }

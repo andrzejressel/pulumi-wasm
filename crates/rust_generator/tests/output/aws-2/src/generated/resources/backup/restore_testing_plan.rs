@@ -5,8 +5,8 @@
 /// ### Basic Usage
 ///
 /// ```ignore
-/// use pulumi_wasm_rust::Output;
-/// use pulumi_wasm_rust::{add_export, pulumi_main};
+/// use pulumi_gestalt_rust::Output;
+/// use pulumi_gestalt_rust::{add_export, pulumi_main};
 /// #[pulumi_main]
 /// fn test_main() -> Result<(), Error> {
 ///     let example = restore_testing_plan::create(
@@ -33,55 +33,55 @@
 /// $ pulumi import aws:backup/restoreTestingPlan:RestoreTestingPlan example my_testing_plan
 /// ```
 pub mod restore_testing_plan {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct RestoreTestingPlanArgs {
         /// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
         #[builder(into, default)]
-        pub name: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub name: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
         /// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
         #[builder(into, default)]
-        pub recovery_point_selection: pulumi_wasm_rust::InputOrOutput<
+        pub recovery_point_selection: pulumi_gestalt_rust::InputOrOutput<
             Option<super::super::types::backup::RestoreTestingPlanRecoveryPointSelection>,
         >,
         /// The schedule expression for the restore testing plan.
         #[builder(into)]
-        pub schedule_expression: pulumi_wasm_rust::InputOrOutput<String>,
+        pub schedule_expression: pulumi_gestalt_rust::InputOrOutput<String>,
         /// The timezone for the schedule expression. If not provided, the state value will be used.
         #[builder(into, default)]
-        pub schedule_expression_timezone: pulumi_wasm_rust::InputOrOutput<
+        pub schedule_expression_timezone: pulumi_gestalt_rust::InputOrOutput<
             Option<String>,
         >,
         /// The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
         #[builder(into, default)]
-        pub start_window_hours: pulumi_wasm_rust::InputOrOutput<Option<i32>>,
+        pub start_window_hours: pulumi_gestalt_rust::InputOrOutput<Option<i32>>,
         #[builder(into, default)]
-        pub tags: pulumi_wasm_rust::InputOrOutput<
+        pub tags: pulumi_gestalt_rust::InputOrOutput<
             Option<std::collections::HashMap<String, String>>,
         >,
     }
     #[allow(dead_code)]
     pub struct RestoreTestingPlanResult {
         /// ARN of the Restore Testing Plan.
-        pub arn: pulumi_wasm_rust::Output<String>,
+        pub arn: pulumi_gestalt_rust::Output<String>,
         /// The name of the restore testing plan. Must be between 1 and 50 characters long and contain only alphanumeric characters and underscores.
-        pub name: pulumi_wasm_rust::Output<String>,
+        pub name: pulumi_gestalt_rust::Output<String>,
         /// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
-        pub recovery_point_selection: pulumi_wasm_rust::Output<
+        pub recovery_point_selection: pulumi_gestalt_rust::Output<
             Option<super::super::types::backup::RestoreTestingPlanRecoveryPointSelection>,
         >,
         /// The schedule expression for the restore testing plan.
-        pub schedule_expression: pulumi_wasm_rust::Output<String>,
+        pub schedule_expression: pulumi_gestalt_rust::Output<String>,
         /// The timezone for the schedule expression. If not provided, the state value will be used.
-        pub schedule_expression_timezone: pulumi_wasm_rust::Output<String>,
+        pub schedule_expression_timezone: pulumi_gestalt_rust::Output<String>,
         /// The number of hours in the start window for the restore testing plan. Must be between 1 and 168.
-        pub start_window_hours: pulumi_wasm_rust::Output<i32>,
-        pub tags: pulumi_wasm_rust::Output<
+        pub start_window_hours: pulumi_gestalt_rust::Output<i32>,
+        pub tags: pulumi_gestalt_rust::Output<
             Option<std::collections::HashMap<String, String>>,
         >,
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        pub tags_all: pulumi_wasm_rust::Output<
+        pub tags_all: pulumi_gestalt_rust::Output<
             std::collections::HashMap<String, String>,
         >,
     }
@@ -90,11 +90,11 @@ pub mod restore_testing_plan {
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn create(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         name: &str,
         args: RestoreTestingPlanArgs,
     ) -> RestoreTestingPlanResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let name_binding = args.name.get_output(context).get_inner();
         let recovery_point_selection_binding = args
@@ -147,22 +147,22 @@ pub mod restore_testing_plan {
         };
         let o = register_interface::register(context.get_inner(), &request);
         RestoreTestingPlanResult {
-            arn: pulumi_wasm_rust::__private::into_domain(o.extract_field("arn")),
-            name: pulumi_wasm_rust::__private::into_domain(o.extract_field("name")),
-            recovery_point_selection: pulumi_wasm_rust::__private::into_domain(
+            arn: pulumi_gestalt_rust::__private::into_domain(o.extract_field("arn")),
+            name: pulumi_gestalt_rust::__private::into_domain(o.extract_field("name")),
+            recovery_point_selection: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("recoveryPointSelection"),
             ),
-            schedule_expression: pulumi_wasm_rust::__private::into_domain(
+            schedule_expression: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scheduleExpression"),
             ),
-            schedule_expression_timezone: pulumi_wasm_rust::__private::into_domain(
+            schedule_expression_timezone: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("scheduleExpressionTimezone"),
             ),
-            start_window_hours: pulumi_wasm_rust::__private::into_domain(
+            start_window_hours: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("startWindowHours"),
             ),
-            tags: pulumi_wasm_rust::__private::into_domain(o.extract_field("tags")),
-            tags_all: pulumi_wasm_rust::__private::into_domain(
+            tags: pulumi_gestalt_rust::__private::into_domain(o.extract_field("tags")),
+            tags_all: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("tagsAll"),
             ),
         }

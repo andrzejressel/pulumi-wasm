@@ -1,11 +1,11 @@
 pub mod get_endpoint {
-    #[derive(pulumi_wasm_rust::__private::bon::Builder)]
+    #[derive(pulumi_gestalt_rust::__private::bon::Builder)]
     #[builder(finish_fn = build_struct)]
     #[allow(dead_code)]
     pub struct GetEndpointArgs {
         /// Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
         #[builder(into, default)]
-        pub endpoint_type: pulumi_wasm_rust::InputOrOutput<Option<String>>,
+        pub endpoint_type: pulumi_gestalt_rust::InputOrOutput<Option<String>>,
     }
     #[allow(dead_code)]
     pub struct GetEndpointResult {
@@ -15,20 +15,20 @@ pub mod get_endpoint {
         /// * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
         /// * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
         /// * `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
-        pub endpoint_address: pulumi_wasm_rust::Output<String>,
-        pub endpoint_type: pulumi_wasm_rust::Output<Option<String>>,
+        pub endpoint_address: pulumi_gestalt_rust::Output<String>,
+        pub endpoint_type: pulumi_gestalt_rust::Output<Option<String>>,
         /// The provider-assigned unique ID for this managed resource.
-        pub id: pulumi_wasm_rust::Output<String>,
+        pub id: pulumi_gestalt_rust::Output<String>,
     }
     ///
     /// Registers a new resource with the given unique name and arguments
     ///
     #[allow(non_snake_case, unused_imports, dead_code)]
     pub fn invoke(
-        context: &pulumi_wasm_rust::PulumiContext,
+        context: &pulumi_gestalt_rust::PulumiContext,
         args: GetEndpointArgs,
     ) -> GetEndpointResult {
-        use pulumi_wasm_rust::__private::pulumi_wasm_wit::client_bindings::component::pulumi_wasm::register_interface;
+        use pulumi_gestalt_rust::__private::pulumi_gestalt_wit::client_bindings::component::pulumi_gestalt::register_interface;
         use std::collections::HashMap;
         let endpoint_type_binding = args.endpoint_type.get_output(context).get_inner();
         let request = register_interface::ResourceInvokeRequest {
@@ -43,13 +43,13 @@ pub mod get_endpoint {
         };
         let o = register_interface::invoke(context.get_inner(), &request);
         GetEndpointResult {
-            endpoint_address: pulumi_wasm_rust::__private::into_domain(
+            endpoint_address: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointAddress"),
             ),
-            endpoint_type: pulumi_wasm_rust::__private::into_domain(
+            endpoint_type: pulumi_gestalt_rust::__private::into_domain(
                 o.extract_field("endpointType"),
             ),
-            id: pulumi_wasm_rust::__private::into_domain(o.extract_field("id")),
+            id: pulumi_gestalt_rust::__private::into_domain(o.extract_field("id")),
         }
     }
 }
