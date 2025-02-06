@@ -1,6 +1,6 @@
-[submodule "pulumi"]
-	path = pulumi
-	url = https://github.com/pulumi/pulumi.git
-[submodule "pulumi-java"]
-	path = pulumi-java
+[submodule "external/pulumi-java"]
+	path = external/pulumi-java
 	url = https://github.com/pulumi/pulumi-java.git
+[submodule "external/pulumi"]
+	path = external/pulumi
+	url = https://github.com/pulumi/pulumi.git

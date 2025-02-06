@@ -162,5 +162,5 @@ rust-docs-release $RUSTDOCFLAGS="--html-in-header docs_additions/umami.html":
     just rust-docs
 
 update-version NEW_VERSION:
-    sd "0.0.0-DEV" "{{NEW_VERSION}}" "pulumi_wasm_wit/wit/world.wit" "pulumi_wasm_rust/src/lib.rs" \
+    sd "0.0.0-DEV" "{{NEW_VERSION}}" "crates/wit/wit/world.wit" "crates/rust/src/lib.rs" \
     "Cargo.toml"
