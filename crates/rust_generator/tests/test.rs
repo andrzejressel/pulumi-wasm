@@ -1261,23 +1261,23 @@ pub fn find_schema_files(name: &str) -> PathBuf {
     let possible_paths = vec![
         Path::new("tests/test_cases").join(format!("{name}.json")),
         Path::new("../../providers").join(format!("{name}.json")),
-        Path::new("../../pulumi/tests/testdata/codegen")
+        Path::new("../../external/pulumi/tests/testdata/codegen")
             .join(name)
             .join("schema.yaml"),
-        Path::new("../../pulumi/tests/testdata/codegen")
+        Path::new("../../external/pulumi/tests/testdata/codegen")
             .join(name)
             .join("schema.json"),
-        Path::new("../../pulumi/tests/testdata/codegen").join(format!("{name}.yaml")),
-        Path::new("../../pulumi/tests/testdata/codegen").join(format!("{name}.json")),
-        Path::new("../../pulumi-java/pkg/codegen/testing/test/testdata")
+        Path::new("../../external/pulumi/tests/testdata/codegen").join(format!("{name}.yaml")),
+        Path::new("../../external/pulumi/tests/testdata/codegen").join(format!("{name}.json")),
+        Path::new("../../external/pulumi-java/pkg/codegen/testing/test/testdata")
             .join(name)
             .join("schema.yaml"),
-        Path::new("../../pulumi-java/pkg/codegen/testing/test/testdata")
+        Path::new("../../external/pulumi-java/pkg/codegen/testing/test/testdata")
             .join(name)
             .join("schema.json"),
-        Path::new("../../pulumi-java/pkg/codegen/testing/test/testdata")
+        Path::new("../../external/pulumi-java/pkg/codegen/testing/test/testdata")
             .join(format!("{name}.yaml")),
-        Path::new("../../pulumi-java/pkg/codegen/testing/test/testdata")
+        Path::new("../../external/pulumi-java/pkg/codegen/testing/test/testdata")
             .join(format!("{name}.json")),
     ];
 
