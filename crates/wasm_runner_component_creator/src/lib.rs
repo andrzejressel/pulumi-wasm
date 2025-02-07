@@ -1,4 +1,4 @@
-use crate::source::PulumiWasmSource;
+use crate::source::WasmComponentSource;
 use anyhow::{bail, Context};
 use itertools::Itertools;
 use log::info;
@@ -13,7 +13,7 @@ pub mod source;
 const PROVIDER_REGEX: &str = r"pulumi:(.*)/.*@(.*)--(.*)";
 
 pub async fn create(
-    pulumi_gestalt: &dyn PulumiWasmSource,
+    pulumi_gestalt: &dyn WasmComponentSource,
     program: Vec<u8>,
     debug: bool,
 ) -> anyhow::Result<Vec<u8>> {
