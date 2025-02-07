@@ -7,11 +7,13 @@ use log4rs::config::{Appender, Root};
 use log4rs::encode::json::JsonEncoder;
 use log4rs::Config;
 use pulumi_gestalt_proto::grpc;
-use pulumi_gestalt_runner_component_creator::source::{GithubPulumiWasmSource, PulumiWasmSource};
+use pulumi_gestalt_runner_component_creator::source::GithubWasmComponentSource;
+use pulumi_gestalt_runner_component_creator::source::WasmComponentSource;
 use std::fs;
 use std::fs::File;
 use std::io::Write;
 use std::path::PathBuf;
+
 mod model;
 mod pulumi;
 mod version_finder;
@@ -75,8 +77,8 @@ async fn main() -> Result<(), Error> {
             use pulumi_gestalt_runner_component_creator::source::FileSource;
             log::info!("Debug set to {debug}");
             log::info!("Creating final component");
-            let pulumi_gestalt_source: Box<dyn PulumiWasmSource> = match pulumi_gestalt {
-                None => Box::new(GithubPulumiWasmSource {}),
+            let pulumi_gestalt_source: Box<dyn WasmComponentSource> = match pulumi_gestalt {
+                None => Box::new(GithubWasmComponentSource {}),
                 Some(location) => Box::new(FileSource::new(location.clone())),
             };
 
